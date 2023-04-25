@@ -1,7 +1,7 @@
 --- 
 title: "Estatística + R"
 author: "Ana Paula Fernandes"
-date: "`r Sys.Date()`"
+date: "Atualizado em: `r format(Sys.time(), '%d/%m/%Y')`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

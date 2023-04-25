@@ -1,24 +1,33 @@
-# RStudio
+# Trabalhando no RStudio {#trabalhando-RStudio}
 
-We describe our methods in this chapter.
+Seja na versão instalada no seu computador (plano A) ou na nuvem (plano B), conheça melhor as áreas do RStudio:
 
-Math can be added in body using usual syntax like this 
+1. **Console:** local onde serão apresentadas as respostas para códigos execudados;
+
+2. **Ambiente de memória (Environment):** é o cerébro do R, onde ficam registrados os objetos que ele reconhece. 
+
+3. A área de **Arquivos (Files), Gráficos (Plots), Pacotes (Packages), Ajuda (Help), Visualização (Viewer) e Apresentação (Presentation)**: mostram respectivamente, os arquivos do diretório onde estão seus arquivos no computador, os gráficos, os pacotes, ajuda, janela de visualização e apresentação.
+
+A figura abaixo identifica cada uma dessas áreas: 
+
+<center>![<font size="2">Figura: Identificação das áreas do RStudio</font>](telaRStudio123.png)
+</center>
+
+Digitaremos os códigos da linguagem R, em um arquivo que chamamos de **script**, para abrir um arquivo do tipo script R, faça:
+
+1. Acesse a opção **File** no menu principal do RStudio;
+
+2. Escolha a opção **New File**
+
+3. E depois a opção **R Script**
 
 
-$p$ is unknown but expected to be around 1/3. Standard error will be approximated
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](arquivoScript.png){width=40%}
+</center>
 
-$$
-SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-$$
+Assim, na tela da IDE RStudio aparecerá uma nova área, que é a área do arquivo script, como mostra a figura.
 
-You can also use math in footnotes like this^[where we mention $p = \frac{a}{b}$].
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](telaScript.png)
+</center>
 
-We will approximate standard error to 0.027[^longnote]
-
-[^longnote]: $p$ is unknown but expected to be around 1/3. Standard error will be approximated
-
-    $$
-    SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-    $$
-
-
+Observe que o arquivo está sem um nome **Untitled1** (sem titulo), salve o arquivo atribuindo-o um nome adequado. Para isso, no menu principal, escolha *File*, depois *Save*.

@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Estatística + R</a></li>
+        <li><strong><a href="./">Estatística + R</a></strong></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
@@ -16,3 +16,4 @@ bookdown::pdf_book:
   keep_tex: yes
 bookdown::epub_book: default
 bookdown::bs4_book: default
+

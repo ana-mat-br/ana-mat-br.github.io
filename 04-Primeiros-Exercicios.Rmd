@@ -1,7 +1,98 @@
 # Primeiros exercícios no R
 
-Some _significant_ applications are demonstrated in this chapter.
+Nos capítulos  \@ref(ambiente-computacional) e \@ref(trabalhando-RStudio) vimos sobre o ambiente computacional (computador ou nuvem) e identificamos as 4 áreas da tela da interface do RStudio: **console**, **ambiente de memória**, **arquivos, gráficos, etc.** e **script**, assim estamos prontos para escrever alguns códigos e executá-los a partir da área de script.
 
-## Example one
+> **Atenção:** TODOS os cógigos serão digitados no arquivo de script, seguindo uma sequência lógica de passos, ou seja, escreveremos um roteiro (*script*), como se fosse uma receita de bolo, isso é o que o pessoal da computação chama de algoritmo.
 
-## Example two
+
+## Exemplo 1
+
+* Observe o código escrito na linha 1 do arquivo de script e o botão **Run** (primeira seta verde):
+
+<center>![<font size="2">Figura: Primeiro exemplo de cógigo R</font>](telaExemplo1.png)
+</center>
+
+* O sequência de caracteres **<-** é o símbolo de atribuição no R.
+
+> Pressionando as teclas ALT e - (menos) simultaneamente cria no script o sinal de atribuição.
+
+* O código significa que criamos um objeto chamado **x** e atribuimos a esse objeto o valor 2.
+
+* No entanto, o R ainda não sabe que o valor de x é igual a 2! 
+
+* Para registrar essa informação na memória do R, devemos executar essa linha.
+
+> Para executar uma linha posicione o cursor na linha, e clique no botão **Run**
+
+<center>![<font size="2">Figura: O objeto x é registrado na memória do R, armazenando o valor igual a 2</font>](telaValorMemoria.png){width=40%}
+</center>
+
+> Observe sempre o ambiente de memória (bem como o console) quando executar uma linha.
+
+## Exemplo 2
+
+Execute o seguinte cógigo no R.
+
+```{r}
+idades <- c( 23, 18, 17, 25, 21, 19, 22, 24, 19, 19 )
+```
+
+* Esse código significa que foi criado um objeto chamado idade que armazena 10 valores: 23, 18, 17, 25, 21, 19, 22, 24, 19, 19, diferentemente do exemplo 1 em que x armazenava somente o valor 2. 
+
+* Isso foi possível pois usamos a função **c( )**.
+
+* observe que os valores foram colocado dentro dos parênteses da função **c( )**
+
+> Com função **c( )** podemos **combinar** vários valores em um objeto, esse objeto recebe o nome de vetor ou lista.
+
+
+## Exemplo 3 
+
+Observe nesse código as funções:
+
+* **max( )**
+
+* **min( )**
+
+* **range( )**
+
+* **mean( )**
+
+* **sd( )**
+
+```{r results='hide'}
+# criando o vetor idades 
+idades <- c( 23, 18, 17, 25, 21, 19, 22, 24, 19, 19 )
+
+# maior valor
+# função max( )
+max(idades)
+
+# menor valor
+# função min( )
+min(idades)
+
+# faixa de valores
+# função range( )
+range(idades)
+
+# média (mean)
+# função mean( )
+mean(idades)
+
+# desvio padrão (standard deviation)
+# função sd() 
+sd(idades)
+```
+
+> Copie o código e cole no seu arquivo script, selecione todo conteúdo (CRTL+A) e execute todo o cógigo de uma única vez.
+
+* Observe que as respostas apareceram no **console**, conforme mostrado na figura abaixo:
+
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](telaRespostaConsole.png){width=40%}
+</center>
+
+> O símbolo # é o símbolo de comentário, isso significa que podemos escrever qualquer texto diferente do que o R sabe interpretar, e mesmo executando o código nenhum erro acontece! 
+
+> **IMPORTANTE**: é uma boa prática comentar os trechos de códigos para deixar documentado qual é o objetivo do código.
+
