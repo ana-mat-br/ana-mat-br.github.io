@@ -1,0 +1,47 @@
+# Ambiente computacional
+
+Existem vários softwares que são dedicados a análise estatística que vão maravilhoso SPSS (da IMB) as planilhas eletrônicas (como o Excel). Para citar alguns deles:
+
+**Softwares pagos**
+
+* SPSS <https://www.ibm.com/br-pt/spss>
+
+* Stata <https://www.stata-brasil.com/software/stata.html>
+
+* SAS <https://www.sas.com/pt_br>
+
+* JMP <https://www.jmp.com/>
+
+* Prisma <https://software.com.br/p/prism>
+
+* Minitab <https://osbsoftware.com.br/produto/minitab-statistical-software>
+
+* Excel (Microsoft)
+
+**Softwares livre**
+
+* Jamovi <https://www.jamovi.org>
+
+* OpenStat <https://openstat.info>
+
+**Liguagens computacionais**
+
+* R <https://www.r-project.org>
+
+* Python <https://www.python.org/> 
+
+Concentraremos nossas forças na utlização do R, que é uma linguagem computacional que foi desenvolvida especificamente para análise estatística. Saiba um pouco mais: <https://www.cienciaedados.com/por-que-escolher-r/>
+
+Assim, vamos preparar o ambiente computacional para realizarmos nossas análises. 
+
+> E para ficar claro:
+
+* **R é uma linguagem computacional** (não se preocupe, não vamos programar!)
+
+* **RStudio é um software** onde executaremos códigos R, é um ambiente de desenvolvimento, (IDE).^[Integrated Development Environment - Ambiente de Desenvolvimento Integrado]
+
+## Plano A: Instalação R e RStudio
+
+
+## Plano B: R e RStudio online
+

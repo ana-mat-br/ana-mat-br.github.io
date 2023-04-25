@@ -1,0 +1,102 @@
+# Introdução {#intro}
+
+Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
+
+Ministrando aulas para os cursos da área de saúde e esporte sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é desconstruir essa ideia. 
+
+A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes que aparecem no seu _streamming_ favorito? Ou no ranque de busca realzada no _Google_?
+
+E sendo um pouco mais "acadêmica", dentro do nosso propósito:
+
+Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:
+
+Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:
+
+Exemplo da psicologia... Veja esse exemplo aqui:
+
+Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
+
+Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. 
+
+
+## Atividade
+
+**1. Busque um artigo do campo de seu interesse que utiliza a estatística.**
+
++ Qual é o principal objetivo da pesquisa? 
+
++ Como a pesquisa foi realizada? 
+
++ Observe o que é descrito por meio de tabelas ou gráficos.
+
++ Faça uma lista de termos que são relacionados à estatística.  
+
+**Sugestão**
+
+> Periódicos da área da Ciência dos Esportes
+
+> Periódicos da área de Medicina
+
+> Periódicos da área de Piscologia
+
+
+
+# Definições iniciais 
+
+> A estatística é divida em duas partes
+
+* Estatística DESCRITIVA
+
+* Estatística INFERENCIAL
+
+> Essas duas partes são conectadas pela téoria de probabilidade, especificamente pelas distribuições de probabilidade.
+
+> População x Amostra
+
+* POPULAÇÃO
+
+* AMOSTRA
+
+# Tamanho da amostra
+
+O cálculo do tamanho da amostra é um procedimento simples, porém ele depende de vários conceitos da parte da estatística inferencial, e também dos objetivos das análises que serão feitas na pesquisa. Essa resposta está aqui {#tamanho-amostra}. 
+
+
+## Atividade
+
+**2. Responda a partir do artigo buscado na atividade 1.**
+
++ O autores mencionaram sobre o cálculo do tamanho da amostra? 
+
++ A população da pesquisa foi bem delineada (bem definida)? 
+
++ Os autores mencionaram se a pesquisa foi submetida ao Comitê de Ética.
+
++ Qual a importância de submeter a pesquisa ao Comitê de Ética?
+
+
+**Importante**
+
+> Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM
+
+<https://www.uftm.edu.br/comitesecomissoes/cep>
+
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+
+<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
+<!-- par(mar = c(4, 4, .1, .1)) -->
+<!-- plot(pressure, type = 'b', pch = 19) -->
+<!-- ``` -->
+
+<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+
+<!-- ```{r nice-tab, tidy=FALSE} -->
+<!-- knitr::kable( -->
+<!--   head(iris, 20), caption = 'Here is a nice table!', -->
+<!--   booktabs = TRUE -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->

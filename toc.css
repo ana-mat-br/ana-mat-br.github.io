@@ -9,8 +9,8 @@
 #TOC {
   line-height: 1;
   border-radius: 5px 5px 0 0;
-  background: #141414;
-  background: linear-gradient(to bottom, #333333 0%, #141414 100%);
+  background: #FF3F54;
+  background: linear-gradient(to bottom, #000000 0%, #141414 100%);
   border-bottom: 2px solid #0fa1e0;
   width: auto;
 }

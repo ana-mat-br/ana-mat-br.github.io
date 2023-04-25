@@ -1,4 +1,4 @@
-# Applications
+# Primeiros exercícios no R
 
 Some _significant_ applications are demonstrated in this chapter.
 
