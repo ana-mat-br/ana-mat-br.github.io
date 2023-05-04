@@ -1,13 +1,27 @@
 bookdown::gitbook:
-  css: style.css
+  highlight: haddock
   config:
     toc:
+      collapse: subsection
+      scroll_highlight: true
       before: |
-        <li><strong><a href="./">Estatística + R</a></strong></li>
+        <h2><center>Estatística + R</center></h2>
+        <center> roteiro de estudo </center>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+    edit: null
     download: ["pdf", "epub"]
+    sharing:
+      twitter: true
+      linkedin: true
+      whatsapp: true
+      github: true
+      facebook: false
+      weibo: false
+      instapaper: false
+      vk: false
+      all: ['twitter', 'linkedin', 'whatsapp', 'github', 'facebook']
+    info: false
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
@@ -17,3 +31,12 @@ bookdown::pdf_book:
 bookdown::epub_book: default
 bookdown::bs4_book: default
 
+
+
+theme: "cerulean"
+highlight: tango
+fig_width: 7
+fig_height: 6
+fig_caption: true
+fontsize: 12pt #What font is this setting for?
+subparagraph: yes
