@@ -1,0 +1,668 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[brazil]{babel}
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Estatística + R},
+  pdfauthor={Ana Paula Fernandes},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Estatística + R}
+\author{Ana Paula Fernandes}
+\date{Atualizado em: 10/05/2023}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{bem-vindos}{%
+\chapter{Bem-vindos!}\label{bem-vindos}}
+
+Esse livro \emph{online} tem como propósito principal ser um guia para as aulas de estatística, referente as disciplinas de \textbf{Bioestatística} para os curso de Medicina e Educação Física e \textbf{Estatística Aplicada} para o curso de Psicologia da Universidade Federal do Triângulo Mineiro (UFTM) \url{http://www.uftm.edu.br}. E como objetivo secundário, ser uma referência de consulta para todos os discentes que passaram por essas disciplinas, bem como, para todos que estão interessados em realizar análises de dados por meio da linguagem R e o ambiente de desenvolvimento RStudio.
+
+Sugestões, correções ou qualquer outra forma de interação são sempre bem-vindas! Então, por favor, não hesite em me escrever \href{mailto:anapaula.fernandes@uftm.edu.br}{\nolinkurl{anapaula.fernandes@uftm.edu.br}}.
+
+E vamos lá!
+
+\hypertarget{intro}{%
+\chapter{Introdução}\label{intro}}
+
+Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
+
+Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.
+
+A estatística é \textbf{MULTIDICIPLINAR}, ela está em tudo na verdade\ldots{} e para dizer uma coisa ``bem chique'' a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes que aparecem no seu \emph{streamming} favorito? Ou no ranque de busca realzada no \emph{Google}? Ou no \emph{Chat} GTP?
+
+E sendo um pouco mais ``acadêmica'', dentro do nosso propósito:
+
+Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:
+
+\begin{quote}
+\textbf{Velocidade e resistência de velocidade de sprint em atletas de Futebol amador} \url{http://www.rbff.com.br/index.php/rbff/article/view/866}
+\end{quote}
+
+Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:
+
+\begin{quote}
+\textbf{Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional}
+\url{https://rbc.inca.gov.br/index.php/revista/article/view/3554}
+\end{quote}
+
+Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:
+
+\begin{quote}
+\textbf{Escala de Comportamentos Antissociais: construção e estudos psicométricos} \url{https://periodicos.pucpr.br/psicologiaargumento/article/view/27071}
+\end{quote}
+
+Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
+
+Quando olhamos os artigos acima, podemos ver que todos eles tem resultados \textbf{descritivos} e \textbf{inferenciais}.
+
+\hypertarget{atividade}{%
+\section{Atividade}\label{atividade}}
+
+\textbf{1. Busque um artigo do campo de seu interesse que utiliza a estatística.}
+
+\begin{itemize}
+\item
+  Qual é o principal objetivo da pesquisa?
+\item
+  Como a pesquisa foi realizada?
+\item
+  Observe o que é descrito por meio de tabelas ou gráficos.
+\item
+  Faça uma lista de termos que são relacionados à estatística.
+\end{itemize}
+
+\begin{quote}
+Periódicos da área da Ciência dos Esportes
+\end{quote}
+
+\begin{itemize}
+\item
+  RBFF - Revista Brasileira de Futsal e Futebol \url{http://www.rbff.com.br}
+\item
+  RBME - Revista Brasileira de Medicina do Esporte \url{https://www.scielo.br/j/rbme}
+\item
+  RBPE - Revista Brasileira de Psicologia do Esporte \url{http://pepsic.bvsalud.org}
+\end{itemize}
+
+\begin{quote}
+Periódicos da área de Medicina
+\end{quote}
+
+\begin{itemize}
+\item
+  RBC - Revista Brasileira de Cancerologia \url{https://rbc.inca.gov.br/index.php/revista}
+\item
+  RBCMS - Revista Brasileira de Ciências Médicas e da Saúde \url{http://www.rbcms.com.br}
+\item
+  Revista da Associação Brasileira de Saúde Coletiva \url{https://cienciaesaudecoletiva.com.br}
+\end{itemize}
+
+\begin{quote}
+Periódicos da área de Piscologia
+\end{quote}
+
+\begin{itemize}
+\item
+  Psicologia argumento \url{https://periodicos.pucpr.br/psicologiaargumento}
+\item
+  Estudos de psicologia (Campinas) \url{https://www.scielo.br/j/estpsi/}
+\item
+  Psicologia em foco \url{https://revistas.fw.uri.br/index.php/psicologiaemfoco}
+\end{itemize}
+
+\begin{quote}
+Ou busque na ferramenta Mendeley \textless www.mendeley.com\textgreater{}
+\end{quote}
+
+\hypertarget{definiuxe7uxf5es-iniciais}{%
+\chapter{Definições iniciais}\label{definiuxe7uxf5es-iniciais}}
+
+\begin{quote}
+A estatística é divida em duas partes
+\end{quote}
+
+\begin{itemize}
+\item
+  Estatística \textbf{DESCRITIVA}: é o ramo da estatística que envolve a organização, o
+  resumo e a representação dos dados.
+\item
+  Estatística \textbf{INFERENCIAL}: é o ramo da estatística que envolve o uso de uma amostra para chegar a conclusões sobre uma população.
+\end{itemize}
+
+\begin{quote}
+Essas duas partes são conectadas pela téoria de probabilidade, especificamente pelas distribuições de probabilidade.
+\end{quote}
+
+\begin{quote}
+População x Amostra
+\end{quote}
+
+\begin{itemize}
+\item
+  \textbf{POPULAÇÃO}: é a coleção de todos os resultados, respostas, medições ou contagens que são de interesse.
+\item
+  \textbf{AMOSTRA}: é um subconjunto ou parte de uma população.
+\end{itemize}
+
+\hypertarget{tamanho-da-amostra}{%
+\chapter{Tamanho da amostra}\label{tamanho-da-amostra}}
+
+O cálculo do tamanho da amostra é um procedimento simples, porém ele depende de vários conceitos da parte da estatística inferencial, e também dos objetivos das análises que serão feitas na pesquisa.
+
+Existem várias calculadoras de tamanho de amostra, basta procurar no \emph{Google} por calculadora amostral, ou em inglês, por \emph{sample size calculator}.
+
+Um ótimo exemplo de calculadora amostral \emph{online}: \url{http://estatistica.bauru.usp.br/calculoamostral/}, essa calculadora foi desenvolvida pelo pessoal da Faculdade de Odontologia da USP - Bauru, na opção cálculos podemos ver que essa ferramenta disponibiliza 15 opções de cálculo amostral! Então, já podemos perceber que:
+
+\begin{quote}
+A estimativa do tamanho de amostra adequado para uma pesquisa depende do objetivo da pesquisa!
+\end{quote}
+
+\hypertarget{atividade-1}{%
+\section{Atividade}\label{atividade-1}}
+
+\textbf{2. Responda a partir do artigo buscado na atividade 1.}
+
+\begin{itemize}
+\item
+  O autores mencionaram sobre o cálculo do tamanho da amostra?
+\item
+  A população da pesquisa foi bem delineada (bem definida)?
+\item
+  Os autores mencionaram se a pesquisa foi submetida ao Comitê de Ética.
+\item
+  Qual a importância de submeter a pesquisa ao Comitê de Ética?
+\end{itemize}
+
+\textbf{Importante}
+
+\begin{quote}
+Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM
+\end{quote}
+
+\url{https://www.uftm.edu.br/comitesecomissoes/cep}
+
+\hypertarget{ambiente-computacional}{%
+\chapter{Ambiente computacional}\label{ambiente-computacional}}
+
+Existem vários softwares que são dedicados a análise estatística que vão do maravilhoso SPSS (da IMB) às planilhas eletrônicas (como o Excel). Para citar alguns algumas dessas ferramentas:
+
+\textbf{Softwares pagos}
+
+\begin{itemize}
+\item
+  SPSS \url{https://www.ibm.com/br-pt/spss}
+\item
+  Stata \url{https://www.stata-brasil.com/software/stata.html}
+\item
+  SAS \url{https://www.sas.com/pt_br}
+\item
+  JMP \url{https://www.jmp.com/}
+\item
+  Prisma \url{https://software.com.br/p/prism}
+\item
+  Minitab \url{https://osbsoftware.com.br/produto/minitab-statistical-software}
+\item
+  Excel (Microsoft)
+\end{itemize}
+
+\textbf{Softwares livre}
+
+\begin{itemize}
+\item
+  Jamovi \url{https://www.jamovi.org}
+\item
+  OpenStat \url{https://openstat.info}
+\end{itemize}
+
+\textbf{Liguagens computacionais}
+
+\begin{itemize}
+\item
+  R \url{https://www.r-project.org}
+\item
+  Python \url{https://www.python.org/}
+\end{itemize}
+
+Concentraremos nossas forças na utlização do R, que é uma linguagem computacional que foi desenvolvida especificamente para análise estatística. Saiba um pouco mais: \url{https://www.cienciaedados.com/por-que-escolher-r/}
+
+Assim, vamos preparar o ambiente computacional para realizarmos nossas análises.
+
+\begin{quote}
+E para ficar claro:
+\end{quote}
+
+\begin{itemize}
+\item
+  \textbf{R é uma linguagem computacional} (não se preocupe, não vamos programar!)
+\item
+  \textbf{RStudio é um software} onde executaremos códigos R, é o pessoal da computação denomina de ambiente de desenvolvimento (IDE).\footnote{Integrated Development Environment - Ambiente de Desenvolvimento Integrado}
+\end{itemize}
+
+\hypertarget{plano-a-instalauxe7uxe3o-r-e-rstudio}{%
+\section{Plano A: Instalação R e RStudio}\label{plano-a-instalauxe7uxe3o-r-e-rstudio}}
+
+No laboratório de informática da UFTM o R e a IDE RStudio estão instaladas nos computadores que utilizamos nas nossas aulas práticas, no entanto, nem sempre há tempo de desenvolver todas as atividades em sala de aula, assim, fica a sugestão para que o estudante faça a instação do R e da IDE RStudio em seus computadores.
+
+O RStudio é propriedade da empresa Posit (desde outubro de 2022), em seu site são dadas as instruções:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Instale o R \url{https://cran.rstudio.com}
+\item
+  Instale o RStudio Desktop \url{https://posit.co/download/rstudio-desktop}
+\end{enumerate}
+
+\begin{quote}
+Ou, veja diretamente no site \url{https://posit.co/download/rstudio-desktop}
+\end{quote}
+
+É importante baixar e instalar as versões do R e RStudio que sejam compatíveis com seu computador.
+
+Essa etapa de preparação do ambiente computacional é de suma importância para o andamento da disciplina, para que as atividades sejam executadas, mas pode ser que você enfrente algum tipo dificuldade na instalação, então faça o quanto antes!
+
+Se der tudo certo, ao clicar no ícone do RStudio, uma tela parecida como será apresentada:
+
+\begin{figure}
+\centering
+\includegraphics{telaRStudio.png}
+\caption{ Figura: Tela inicial do RStudio}
+\end{figure}
+
+Se nada der certo, temos o plano B.
+
+\hypertarget{plano-b-r-e-rstudio-online}{%
+\section{Plano B: R e RStudio online}\label{plano-b-r-e-rstudio-online}}
+
+O plano B é tão bom, tão bom que poderia ser considerado plano A, no entanto, é preciso estar conectado à Intenet, o RStudo será excutado online na nuvem da Posit.
+
+Se você tem uma boa conexão de Internet, fica a sugestão para usar o plano B.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Acesse \url{https://posit.cloud}
+\item
+  Faça o login (eu acesso com meu usuário do Google)
+\item
+  A seguinte tela será apresentada
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{telaPosit.png}
+\caption{ Tela inicial na nuvem da Posit}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Crie um projeto RStudio, selecionando a opção New Project, e em seguida, escolhendo New RStudio Project.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaCriarProjetoRStudio.png}
+\caption{Botão de criação de um novo projeto}
+\end{figure}
+
+Se deu tudo certo, você verá a seguinte tela:
+
+\begin{figure}
+\centering
+\includegraphics{telaRStudioPosit.png}
+\caption{ Tela inicial do RStudio online na nuvem da Posit}
+\end{figure}
+
+O melhor de usar a nuvem da Posit é que tudo armazenado por lá, isso quer dizer que suas análises ficam gravadas em um lugar seguro.
+
+\hypertarget{trabalhando-RStudio}{%
+\chapter{Trabalhando no RStudio}\label{trabalhando-RStudio}}
+
+Seja na versão instalada no seu computador (plano A) ou na nuvem (plano B), conheça melhor as áreas do RStudio:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Console:} local onde serão apresentadas as respostas para códigos execudados;
+\item
+  \textbf{Ambiente de memória (Environment):} é o cerébro do R, onde ficam registrados os objetos que ele reconhece.
+\item
+  A área de \textbf{Arquivos (Files), Gráficos (Plots), Pacotes (Packages), Ajuda (Help), Visualização (Viewer) e Apresentação (Presentation)}: mostram respectivamente, os arquivos do diretório onde estão seus arquivos no computador, os gráficos, os pacotes, ajuda, janela de visualização e apresentação.
+\end{enumerate}
+
+A figura abaixo identifica cada uma dessas áreas:
+
+\begin{figure}
+\centering
+\includegraphics{telaRStudio123.png}
+\caption{Figura: Identificação das áreas do RStudio}
+\end{figure}
+
+Digitaremos os códigos da linguagem R, em um arquivo que chamamos de \textbf{script}, para abrir um arquivo do tipo script R, faça:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Acesse a opção \textbf{File} no menu principal do RStudio;
+\item
+  Escolha a opção \textbf{New File}
+\item
+  E depois a opção \textbf{R Script}
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{arquivoScript.png}
+\caption{Figura: Como abrir um novo arquivo de script R}
+\end{figure}
+
+Assim, na tela da IDE RStudio aparecerá uma nova área, que é a área do arquivo script, como mostra a figura.
+
+\begin{figure}
+\centering
+\includegraphics{telaScript.png}
+\caption{Figura: Como abrir um novo arquivo de script R}
+\end{figure}
+
+Observe que o arquivo está sem um nome \textbf{Untitled1} (sem titulo), salve o arquivo atribuindo-o um nome adequado. Para isso, no menu principal, escolha \emph{File}, depois \emph{Save}.
+
+\hypertarget{primeiros-exercuxedcios-no-r}{%
+\chapter{Primeiros exercícios no R}\label{primeiros-exercuxedcios-no-r}}
+
+Nos capítulos \ref{ambiente-computacional} e \ref{trabalhando-RStudio} vimos sobre o ambiente computacional (computador ou nuvem) e identificamos as 4 áreas da tela da interface do RStudio: \textbf{console}, \textbf{ambiente de memória}, \textbf{arquivos, gráficos, etc.} e \textbf{script}, assim estamos prontos para escrever alguns códigos e executá-los a partir da área de script.
+
+\begin{quote}
+\textbf{Atenção:} TODOS os cógigos serão digitados no arquivo de script, seguindo uma sequência lógica de passos, ou seja, escreveremos um roteiro (\emph{script}), como se fosse uma receita de bolo, isso é o que o pessoal da computação chama de algoritmo.
+\end{quote}
+
+\hypertarget{exemplo-1}{%
+\section{Exemplo 1}\label{exemplo-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  Observe o código escrito na linha 1 do arquivo de script e o botão \textbf{Run} (primeira seta verde):
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{telaExemplo1.png}
+\caption{Figura: Primeiro exemplo de cógigo R}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  O sequência de caracteres \textbf{\textless-} é o símbolo de atribuição no R.
+\end{itemize}
+
+\begin{quote}
+Pressionando as teclas ALT e - (menos) simultaneamente cria no script o sinal de atribuição.
+\end{quote}
+
+\begin{itemize}
+\item
+  O código significa que criamos um objeto chamado \textbf{x} e atribuimos a esse objeto o valor 2.
+\item
+  No entanto, o R ainda não sabe que o valor de x é igual a 2!
+\item
+  Para registrar essa informação na memória do R, devemos executar essa linha.
+\end{itemize}
+
+\begin{quote}
+Para executar uma linha posicione o cursor na linha, e clique no botão \textbf{Run}
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaValorMemoria.png}
+\caption{Figura: O objeto x é registrado na memória do R, armazenando o valor igual a 2}
+\end{figure}
+
+\begin{quote}
+Observe sempre o ambiente de memória (bem como o console) quando executar uma linha.
+\end{quote}
+
+\hypertarget{exemplo-2}{%
+\section{Exemplo 2}\label{exemplo-2}}
+
+Execute o seguinte cógigo no R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{idades }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{( }\DecValTok{23}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{19}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  Esse código significa que foi criado um objeto chamado idade que armazena 10 valores: 23, 18, 17, 25, 21, 19, 22, 24, 19, 19, diferentemente do exemplo 1 em que x armazenava somente o valor 2.
+\item
+  Isso foi possível pois usamos a função \textbf{c( )}.
+\item
+  observe que os valores foram colocado dentro dos parênteses da função \textbf{c( )}
+\end{itemize}
+
+\begin{quote}
+Com função \textbf{c( )} podemos \textbf{combinar} vários valores em um objeto, esse objeto recebe o nome de vetor ou lista.
+\end{quote}
+
+\hypertarget{exemplo-3}{%
+\section{Exemplo 3}\label{exemplo-3}}
+
+Observe nesse código as funções:
+
+\begin{itemize}
+\item
+  \textbf{max( )}
+\item
+  \textbf{min( )}
+\item
+  \textbf{range( )}
+\item
+  \textbf{mean( )}
+\item
+  \textbf{sd( )}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# criando o vetor idades }
+\NormalTok{idades }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{( }\DecValTok{23}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{19}\NormalTok{ )}
+
+\CommentTok{\# maior valor}
+\CommentTok{\# função max( )}
+\FunctionTok{max}\NormalTok{(idades)}
+
+\CommentTok{\# menor valor}
+\CommentTok{\# função min( )}
+\FunctionTok{min}\NormalTok{(idades)}
+
+\CommentTok{\# faixa de valores}
+\CommentTok{\# função range( )}
+\FunctionTok{range}\NormalTok{(idades)}
+
+\CommentTok{\# média (mean)}
+\CommentTok{\# função mean( )}
+\FunctionTok{mean}\NormalTok{(idades)}
+
+\CommentTok{\# desvio padrão (standard deviation)}
+\CommentTok{\# função sd() }
+\FunctionTok{sd}\NormalTok{(idades)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Copie o código e cole no seu arquivo script, selecione todo conteúdo (CRTL+A) e execute todo o cógigo de uma única vez.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Observe que as respostas apareceram no \textbf{console}, conforme mostrado na figura abaixo:
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaRespostaConsole.png}
+\caption{Figura: Como abrir um novo arquivo de script R}
+\end{figure}
+
+\begin{quote}
+O símbolo \# é o símbolo de comentário, isso significa que podemos escrever qualquer texto diferente do que o R sabe interpretar, e mesmo executando o código nenhum erro acontece!
+\end{quote}
+
+\begin{quote}
+\textbf{IMPORTANTE}: é uma boa prática comentar os trechos de códigos para deixar documentado qual é o objetivo do código.
+\end{quote}
+
+\hypertarget{tipos-de-variuxe1veis}{%
+\chapter{Tipos de variáveis}\label{tipos-de-variuxe1veis}}
+
+\hypertarget{estatuxedstica-descritiva}{%
+\chapter{Estatística Descritiva}\label{estatuxedstica-descritiva}}
+
+\hypertarget{medidas-resumo}{%
+\chapter{Medidas Resumo}\label{medidas-resumo}}
+
+\hypertarget{exercuxedcios}{%
+\chapter{Exercícios}\label{exercuxedcios}}
+
+\hypertarget{importando-banco-de-dados}{%
+\chapter{Importando banco de dados}\label{importando-banco-de-dados}}
+
+\hypertarget{gruxe1ficos}{%
+\chapter{Gráficos}\label{gruxe1ficos}}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

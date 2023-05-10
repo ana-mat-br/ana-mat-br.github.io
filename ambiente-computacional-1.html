@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 6 Ambiente computacional | Estatística + R</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 6 Ambiente computacional | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 6 Ambiente computacional | Estatística + R" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Ana Paula Fernandes" />
+
+
+<meta name="date" content="2023-04-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ambiente-computacional.html"/>
+<link rel="next" href="primeiros-exercícios-no-r.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estatística + R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade"><i class="fa fa-check"></i><b>2.1</b> Atividade</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições iniciais</a></li>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da amostra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-1"><i class="fa fa-check"></i><b>4.1</b> Atividade</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>5</b> Ambiente computacional</a></li>
+<li class="chapter" data-level="6" data-path="ambiente-computacional-1.html"><a href="ambiente-computacional-1.html"><i class="fa fa-check"></i><b>6</b> Ambiente computacional</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ambiente-computacional-1.html"><a href="ambiente-computacional-1.html#instalação-r-e-rstudio"><i class="fa fa-check"></i><b>6.1</b> Instalação R e RStudio</a></li>
+<li class="chapter" data-level="6.2" data-path="ambiente-computacional-1.html"><a href="ambiente-computacional-1.html#r-e-rstudio-online"><i class="fa fa-check"></i><b>6.2</b> R e RStudio online</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>7</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#example-one"><i class="fa fa-check"></i><b>7.1</b> Example one</a></li>
+<li class="chapter" data-level="7.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#example-two"><i class="fa fa-check"></i><b>7.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>8</b> Tipos de variáveis</a></li>
+<li class="chapter" data-level="9" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html"><i class="fa fa-check"></i><b>9</b> Estatística Descritiva</a></li>
+<li class="chapter" data-level="10" data-path="medidas-resumo.html"><a href="medidas-resumo.html"><i class="fa fa-check"></i><b>10</b> Medidas Resumo</a></li>
+<li class="chapter" data-level="11" data-path="exercícios.html"><a href="exercícios.html"><i class="fa fa-check"></i><b>11</b> Exercícios</a></li>
+<li class="chapter" data-level="12" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>12</b> Importando banco de dados</a></li>
+<li class="chapter" data-level="13" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>13</b> Gráficos</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ambiente-computacional-1" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Capítulo 6</span> Ambiente computacional<a href="ambiente-computacional-1.html#ambiente-computacional-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We describe our methods in this chapter.</p>
+<p>Math can be added in body using usual syntax like this</p>
+<div id="instalação-r-e-rstudio" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Instalação R e RStudio<a href="ambiente-computacional-1.html#instalação-r-e-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<p><span class="math display">\[
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+\]</span></p>
+<p>You can also use math in footnotes like this<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>We will approximate standard error to 0.027<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+</div>
+<div id="r-e-rstudio-online" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> R e RStudio online<a href="ambiente-computacional-1.html#r-e-rstudio-online" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>where we mention <span class="math inline">\(p = \frac{a}{b}\)</span><a href="ambiente-computacional-1.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(p\)</span> is unknown but expected to be around 1/3. Standard error will be approximated</p>
+<p><span class="math display">\[
+SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
+\]</span><a href="ambiente-computacional-1.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ambiente-computacional.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="primeiros-exercícios-no-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-RStudio.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Livro-Estatistica-com-R.pdf", "Livro-Estatistica-com-R.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
