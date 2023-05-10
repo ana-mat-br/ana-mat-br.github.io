@@ -2,23 +2,33 @@
 
 Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
 
-Ministrando aulas para os cursos da área de saúde e esporte sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é desconstruir essa ideia. 
+Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia. 
 
-A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes que aparecem no seu _streamming_ favorito? Ou no ranque de busca realzada no _Google_?
+A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes que aparecem no seu _streamming_ favorito? Ou no ranque de busca realzada no _Google_? Ou no _Chat_ GTP?
 
 E sendo um pouco mais "acadêmica", dentro do nosso propósito:
 
 Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:
 
+> **Velocidade e resistência de velocidade de sprint em atletas de Futebol amador** <http://www.rbff.com.br/index.php/rbff/article/view/866>
+
 Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:
 
-Exemplo da psicologia... Veja esse exemplo aqui:
+> **Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional**
+<https://rbc.inca.gov.br/index.php/revista/article/view/3554>
+
+Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:
+
+> **Escala de Comportamentos Antissociais: construção e estudos psicométricos** <https://periodicos.pucpr.br/psicologiaargumento/article/view/27071>
 
 Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
 
 Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. 
 
-
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
 ## Atividade
 
 **1. Busque um artigo do campo de seu interesse que utiliza a estatística.**
@@ -31,13 +41,35 @@ Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **des
 
 + Faça uma lista de termos que são relacionados à estatística.  
 
-**Sugestão**
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_LKXG6QRgtE.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
 
 > Periódicos da área da Ciência dos Esportes
 
+* RBFF - Revista Brasileira de Futsal e Futebol <http://www.rbff.com.br>
+
+* RBME - Revista Brasileira de Medicina do Esporte <https://www.scielo.br/j/rbme>
+
+* RBPE - Revista Brasileira de Psicologia do Esporte <http://pepsic.bvsalud.org>
+
 > Periódicos da área de Medicina
 
+* RBC - Revista Brasileira de Cancerologia <https://rbc.inca.gov.br/index.php/revista>
+
+* RBCMS - Revista Brasileira de Ciências Médicas e da Saúde <http://www.rbcms.com.br>
+
+* Revista da Associação Brasileira de Saúde Coletiva <https://cienciaesaudecoletiva.com.br>
+
 > Periódicos da área de Piscologia
+
+* Psicologia argumento <https://periodicos.pucpr.br/psicologiaargumento>
+
+* Estudos de psicologia (Campinas) <https://www.scielo.br/j/estpsi/>
+
+* Psicologia em foco <https://revistas.fw.uri.br/index.php/psicologiaemfoco>
+
+> Ou busque na ferramenta Mendeley <www.mendeley.com>
 
 
 
@@ -45,23 +77,33 @@ Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **des
 
 > A estatística é divida em duas partes
 
-* Estatística DESCRITIVA
+* Estatística **DESCRITIVA**: é o ramo da estatística que envolve a organização, o
+resumo e a representação dos dados.
 
-* Estatística INFERENCIAL
+* Estatística **INFERENCIAL**: é o ramo da estatística que envolve o uso de uma amostra para chegar a conclusões sobre uma população.
 
 > Essas duas partes são conectadas pela téoria de probabilidade, especificamente pelas distribuições de probabilidade.
 
 > População x Amostra
 
-* POPULAÇÃO
+* **POPULAÇÃO**: é a coleção de todos os resultados, respostas, medições ou contagens que são de interesse.
 
-* AMOSTRA
+* **AMOSTRA**: é um subconjunto ou parte de uma população.
 
 # Tamanho da amostra
 
-O cálculo do tamanho da amostra é um procedimento simples, porém ele depende de vários conceitos da parte da estatística inferencial, e também dos objetivos das análises que serão feitas na pesquisa. Essa resposta está aqui {#tamanho-amostra}. 
+O cálculo do tamanho da amostra é um procedimento simples, porém ele depende de vários conceitos da parte da estatística inferencial, e também dos objetivos das análises que serão feitas na pesquisa.
 
+Existem várias calculadoras de tamanho de amostra, basta procurar no _Google_ por calculadora amostral, ou em inglês, por _sample size calculator_.
 
+Um ótimo exemplo de calculadora amostral _online_: <http://estatistica.bauru.usp.br/calculoamostral/>, essa calculadora foi desenvolvida pelo pessoal da Faculdade de Odontologia da USP - Bauru, na opção cálculos podemos ver que essa ferramenta disponibiliza 15 opções de cálculo amostral! Então, já podemos perceber que: 
+
+> A estimativa do tamanho de amostra adequado para uma pesquisa depende do objetivo da pesquisa!
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
 ## Atividade
 
 **2. Responda a partir do artigo buscado na atividade 1.**

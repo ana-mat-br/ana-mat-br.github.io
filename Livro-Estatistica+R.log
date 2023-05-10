@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  4 MAY 2023 08:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  10 MAY 2023 10:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,8 +662,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 ]
 Cap\'{\i }tulo 1.
-File: pablita-stepping-up.png Graphic file (type bmp)
-<pablita-stepping-up.png>
 [5] [6
 
 ]
@@ -709,7 +707,7 @@ File: telaExemplo1.png Graphic file (type bmp)
 File: telaValorMemoria.png Graphic file (type bmp)
 <telaValorMemoria.png>
 [23]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 516.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 561.
 (/Users/anapaulafernandes/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [24]
@@ -748,12 +746,12 @@ Package rerunfilecheck Info: File `Livro-Estatistica+R.out' has not changed.
 (rerunfilecheck)             Checksum: AD35038E1EDB886A9039FFF6FBA9B424;2707.
  ) 
 Here is how much of TeX's memory you used:
- 19068 strings out of 478658
- 347910 string characters out of 5846299
+ 19060 strings out of 478658
+ 347691 string characters out of 5846299
  1851296 words of memory out of 5000000
- 38921 multiletter control sequences out of 15000+600000
+ 38914 multiletter control sequences out of 15000+600000
  571391 words of font info for 87 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 86i,8n,120p,647b,407s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,8n,120p,644b,412s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Livro-Estatistica+R.pdf (37 pages).

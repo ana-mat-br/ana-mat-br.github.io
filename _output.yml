@@ -30,13 +30,3 @@ bookdown::pdf_book:
   keep_tex: yes
 bookdown::epub_book: default
 bookdown::bs4_book: default
-
-
-
-theme: "cerulean"
-highlight: tango
-fig_width: 7
-fig_height: 6
-fig_caption: true
-fontsize: 12pt #What font is this setting for?
-subparagraph: yes
