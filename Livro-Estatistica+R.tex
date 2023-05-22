@@ -129,7 +129,7 @@
 
 \title{Estatística + R}
 \author{Ana Paula Fernandes}
-\date{Atualizado em: 10/05/2023}
+\date{Atualizado em: 22/05/2023}
 
 \begin{document}
 \maketitle
@@ -184,7 +184,7 @@ Quando olhamos os artigos acima, podemos ver que todos eles tem resultados \text
 \hypertarget{atividade}{%
 \section{Atividade}\label{atividade}}
 
-\textbf{1. Busque um artigo do campo de seu interesse que utiliza a estatística.}
+\textbf{3. Busque um artigo do campo de seu interesse que utiliza a estatística.}
 
 \begin{itemize}
 \item
@@ -282,6 +282,10 @@ Um ótimo exemplo de calculadora amostral \emph{online}: \url{http://estatistica
 \begin{quote}
 A estimativa do tamanho de amostra adequado para uma pesquisa depende do objetivo da pesquisa!
 \end{quote}
+
+O **G*Power\textbf{ é um \emph{software} gratuito, desenvolvido pela Universidade de Düsseldorf, onde podemos claramente verificar que o tamanho da amostra depende principalmente dos objetivos da pesquisa, quais análises inferenciais serão feitas, isto é, quais testes estatísticos (testes de hipóteses) serão realizados. Veremos o conceito de }Poder do Teste**, por isso o \emph{software} leva esse nome.
+
+Além disso, como nosso objetivo é usar o R, uma boa referência de cálculo amostral no R é o seguinte documento produzido por pesquisadores da DaCCoTA (Univesidade da Dakota do Norte) \url{https://med.und.edu/research/daccota/_files/pdfs/berdc_resource_pdfs/sample_size_r_module.pdf}
 
 \hypertarget{atividade-1}{%
 \section{Atividade}\label{atividade-1}}
@@ -648,20 +652,456 @@ O símbolo \# é o símbolo de comentário, isso significa que podemos escrever 
 \hypertarget{tipos-de-variuxe1veis}{%
 \chapter{Tipos de variáveis}\label{tipos-de-variuxe1veis}}
 
+A natureza das variáveis (ou dados) são
+
+\begin{itemize}
+\item
+  \textbf{Quantitativa} - expressa quantidade
+
+  \begin{itemize}
+  \item
+    Discreta - assume valores inteiros (contagem)
+  \item
+    Contínua - assume qualquer valor de um dado intervalo (mensuração)
+  \end{itemize}
+\item
+  \textbf{Qualitativa} - expressa qualidade (categorias, rótulos)
+
+  \begin{itemize}
+  \item
+    Nominal - categorias que não podem ser ordenadas
+  \item
+    Ordinal - categorias que podem ser ordenadas, existe uma graduação entre as categorias.
+  \end{itemize}
+\end{itemize}
+
+(vou acrescentar referências!)
+
+\begin{quote}
+O procedimento estatístico que iremos realizar depende da natureza da variável que estamos analizado, por exemplo:
+\end{quote}
+
+\begin{itemize}
+\item
+  Na estatística descritiva:
+
+  \begin{itemize}
+  \item
+    as variáveis qualitativas são representadas por sua frequência absoluta ou percentual;
+  \item
+    as variáveis quantitativas são representadas por medidas resumo, como por exemplo, média e desvio padrão.
+  \end{itemize}
+\item
+  Na estatística inferencial:
+
+  \begin{itemize}
+  \item
+    O teste Qui-quadrado é o teste de hipótese que tem como objetivo verificar se existe ou não associação entre as categorias de duas variáveis, como estamos falando de categorias, esse teste é aplicado a variáveis de natureza qualitativa.
+  \item
+    O teste de correlação de Pearson, mede a força da correlação linear entre duas variáveis, é aplicado à variáveis quantitativas.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{atividade-2}{%
+\section{Atividade}\label{atividade-2}}
+
+\textbf{1. Veja o artigo \emph{Estado nutricional, tempo de internação e mortalidade em pacientes submetidos à cirurgia cardíaca em um hospital na cidade de Maceió} \url{https://www.rasbran.com.br/rasbran/article/view/1724/443} publicado na RASBRAN, Revista da Associação Brasileira de Nutrição em 2023 (\url{https://www.rasbran.com.br/}).}
+
+\begin{itemize}
+\item
+  A \textbf{Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca}, é uma tabela descritiva da amostra que foi analisada na pesquisa. Classique as variáveis (características) em qualitativa e quantitativa e observe atentamente como elas foram resumidas.
+\item
+  A \textbf{Tabela 2 - Associação entre estado nutricional, sexo, idade e tempo de internação hospitalar entre os pacientes submetidos à cirurgia cardíaca} e \textbf{Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca} são tabelas que mostram o resultado de um teste de hipótese (estatística inferencial). Qual teste foi aplicado? Qual o objetivo deste teste?
+\end{itemize}
+
 \hypertarget{estatuxedstica-descritiva}{%
-\chapter{Estatística Descritiva}\label{estatuxedstica-descritiva}}
+\chapter{Estatística descritiva}\label{estatuxedstica-descritiva}}
 
-\hypertarget{medidas-resumo}{%
-\chapter{Medidas Resumo}\label{medidas-resumo}}
+\begin{quote}
+Medidas resumo
+\end{quote}
 
-\hypertarget{exercuxedcios}{%
-\chapter{Exercícios}\label{exercuxedcios}}
+\hypertarget{medidas-de-tenduxeancia-central-ou-posiuxe7uxe3o}{%
+\section{Medidas de tendência central (ou posição)}\label{medidas-de-tenduxeancia-central-ou-posiuxe7uxe3o}}
+
+\begin{itemize}
+\item
+  Média
+\item
+  Mediana e quartis
+\item
+  Moda
+\end{itemize}
+
+\hypertarget{medidas-de-dispersuxe3o-ou-variabilidade}{%
+\section{Medidas de dispersão (ou variabilidade)}\label{medidas-de-dispersuxe3o-ou-variabilidade}}
+
+\begin{itemize}
+\item
+  Aplitude (maior - menor)
+\item
+  Variância
+\item
+  Desvio padrão
+\item
+  Distância interquartil
+\end{itemize}
+
+\hypertarget{medida-relativa-de-variabilidade}{%
+\section{Medida relativa de variabilidade}\label{medida-relativa-de-variabilidade}}
+
+\begin{itemize}
+\tightlist
+\item
+  Coeficiente de variação - quociente DP/media
+\end{itemize}
+
+\hypertarget{funuxe7uxf5es-do-r}{%
+\section{Funções do R}\label{funuxe7uxf5es-do-r}}
+
+Supondo que o objeto \textbf{x \textless- c(valor 1, valor 2, \ldots, valor n)} está na memória do R.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Medida resumo & Função básica do R \\
+\midrule()
+\endhead
+média & mean(x) \\
+mediana & median(x) \\
+primeiro quartil & quantile(x,0.25) \\
+terceiro quartil & quantile(x,0.75) \\
+moda & table(x) \\
+menor valor & min(x) \\
+maior valor & max(x) \\
+amplitude & range(x) \\
+variância & var(x) \\
+desvio padrão & sd(x) \\
+amplitude interquartil & IQR(x) \\
+coeficiente de variação & sd(x)/mean(x) \\
+\bottomrule()
+\end{longtable}
+
+\begin{itemize}
+\item
+  *use sort(table(x)), use a função sort() para ordenar as ocorrências da menor para a maior, a maior ocorrência é a moda!
+\item
+  use a função \textbf{summary(x)} para obter, menor valor, média, mediana, primeiro e terceiro quartil e maior valor.
+\item
+  Calcular é fácil, o \textbf{importante é interpretar} as medidas resumo!
+\end{itemize}
 
 \hypertarget{importando-banco-de-dados}{%
 \chapter{Importando banco de dados}\label{importando-banco-de-dados}}
 
-\hypertarget{gruxe1ficos}{%
-\chapter{Gráficos}\label{gruxe1ficos}}
+Na prática, os dados que vamos analisar estarão armazenado em um \textbf{banco de dados}, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+
+\begin{itemize}
+\item
+  Arquivo do tipo Excel (xls ou xlsx)
+\item
+  Arquivo de texto separado por vírgulas (csv - \emph{comma-separated values})
+\end{itemize}
+
+\begin{quote}
+Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:
+\end{quote}
+
+\begin{itemize}
+\item
+  DataSus: \url{https://datasus.saude.gov.br/transferencia-de-arquivos}
+\item
+  OMS: \url{https://www.who.int/data/collections}
+\item
+  Kaggle: \url{https://www.kaggle.com/datasets}
+\end{itemize}
+
+\begin{quote}
+No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: \url{https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st}
+\end{quote}
+
+\hypertarget{importando-um-banco-csv}{%
+\section{Importando um banco csv}\label{importando-um-banco-csv}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Faça \emph{download} do banco de dados \textbf{mcdonald.csv}
+  (fonte original: \url{https://www.kaggle.com/datasets/mcdonalds/nutrition-facts})
+\item
+  Na área de ambinete de memória, localize \textbf{Import Dataset}, ao clicar nessa opção você terá o seguinte:
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaImportDataset.png}
+\caption{ Figura: Importando banco de dados}
+\end{figure}
+
+\begin{itemize}
+\item
+  Como queremos importar um arquivo csv, a melhor opção é a segunda \textbf{From Text (readr)}
+\item
+  \textbf{\emph{readr}} é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Clicando na opção \textbf{From Text (readr)}, no botão \textbf{browser} indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{telaImportBrowser.png}
+\caption{ Figura: Prévia dos dados}
+\end{figure}
+
+\begin{itemize}
+\item
+  No quadro \textbf{Data Preview}, temos uma ``prévia'' com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.
+\item
+  No quadro \textbf{Import Options} temos as opções de importação, fique atento ao \textbf{Name} do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (', \textasciitilde{} ou ç), é até permitido usar alguns desses caracteres especiais, mas evite.
+\item
+  Ainda no quadro \textbf{Import Options}, observe que a opção \textbf{Open Data Viewer} está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.
+\item
+  O quadro \textbf{Code Preview} mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Clique no botão \textbf{Import} e observe que no ambiente de memória será criado o objeto do tipo \textbf{Data} com o nome do banco de dados que foi importado.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth,height=\textheight]{telaImportObjetoData.png}
+\caption{ Figura: Import dataset}
+\end{figure}
+
+\begin{itemize}
+\item
+  Observe que esse objeto do tipo \textbf{Data} é diferente dos objetos do tipo \textbf{Values} que vimos nos exemplos iniciais.
+\item
+  Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!
+\end{itemize}
+
+\hypertarget{importando-um-banco-xls}{%
+\section{Importando um banco xls}\label{importando-um-banco-xls}}
+
+Na área de ambiente de memória, localize \textbf{Import Dataset}, ao clicar sobre essa opção, escolha \textbf{From Excel\ldots{}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaImportDataset.png}
+\caption{ Figura: Importando banco de dados}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (\textbf{readxl})! O RStudio mostrará um aviso parecido com este:
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.4\textwidth,height=\textheight]{telaImportPacote.png}
+\caption{ Figura: Aviso para instalação de pacote}
+\end{figure}
+
+\hypertarget{exemplo-1-1}{%
+\section{Exemplo 1}\label{exemplo-1-1}}
+
+Como obter a média da variável \textbf{Calories} que é uma coluna do objeto \textbf{mcdonald}, que por sua vez, é um objeto do tipo \textbf{Data}?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Usamos o operador $}
+\CommentTok{\# Para calcular a média precisamos informar para função: }
+\CommentTok{\# mean( NOME DO BANCO $ NOME DA COLUNA ): }
+\FunctionTok{mean}\NormalTok{(mcdonald}\SpecialCharTok{$}\NormalTok{Calories)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exemplo-2-1}{%
+\section{Exemplo 2}\label{exemplo-2-1}}
+
+Como armazenar os valores de uma variável (coluna), em um objeto do tipo \textbf{Values} e depois calcular a média?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Uso o operador \textless{}{-} }
+\CommentTok{\# Criamos o objeto }
+\NormalTok{caloria }\OtherTok{\textless{}{-}}\NormalTok{ mcdonald}\SpecialCharTok{$}\NormalTok{Calories}
+\CommentTok{\# Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão}
+\FunctionTok{mean}\NormalTok{(caloria)}
+\FunctionTok{sd}\NormalTok{(caloria)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exemplo-3-1}{%
+\section{Exemplo 3}\label{exemplo-3-1}}
+
+O que acontece se usamos a função \textbf{summary()} para o objeto \textbf{mcdonald}, sem usar o operador, isto é sem indicar uma variável?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# No console será mostrado o resumo de todas as variáveis do banco!}
+\FunctionTok{summary}\NormalTok{(mcdonald)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Essa forma de obter os resultados não é a melhor forma, vamos \textbf{instalar um pacote} para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto.
+\end{quote}
+
+\hypertarget{instalando-pacotes}{%
+\chapter{Instalando pacotes}\label{instalando-pacotes}}
+
+Quando instalamos nosso ambiente computacional R e RStudio, instalamos uma versão básica, onde apenas os recursos básicos do R estão diponíveis, o pacote básico (\textbf{base}) do R.
+
+Os pacotes (\textbf{packages}) do R são compostos por uma biblioteca (\textbf{library}) que é um conjunto de funções. Por exemplo, do pacote \textbf{base} usamos as funções min(), max(), mean(), median(), table(), var(), sd(), summary(), etc.
+
+Para ver a lista de funções que compõem a bilbioteca do pacote base, execute o código:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\AttributeTok{help =} \StringTok{"base"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Os pacotes são análogos aos aplicativos que instalamos nos nossos celulares, são módulos que agregam funcionalidades específicas. Ao longo das nossas atividades usaremos alguns desses pacotes.
+
+Como nesse momento estamos interessados em otimizar o trabalho para realizar uma análise descritiva dos dados, então vamos instalar um pacote chamado \textbf{gtsummary} (\url{https://www.danieldsjoberg.com/gtsummary/}).
+
+\begin{quote}
+O pacote \textbf{gtsummary} nos fornecerá uma tabela resumo de todo banco de dados, otimizando bastante nosso trabalho de resumir o banco de dados.
+\end{quote}
+
+\begin{itemize}
+\item
+  IMPORTANTE 1: instalamos um pacote apenas uma vez (como um aplicativo no celular\ldots{} a gente só refaz a instalação se o app \emph{bugar}!)
+\item
+  IMPORTANTE 2: todas vez precisamos carregar o pacote com as funções que queremos usar por meio da função \textbf{library()}
+\end{itemize}
+
+Veja o código:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# comando para instalar o pacote gtsummary}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"gtsummary"}\NormalTok{)}
+
+\CommentTok{\# comando para carregar a biblioteca de funções do gtsummary}
+\FunctionTok{library}\NormalTok{(gtsummary)}
+
+\CommentTok{\# a função que vamos usar para gerar uma tabela que resume os dados é}
+\CommentTok{\# tbl\_summary}
+\FunctionTok{tbl\_summary}\NormalTok{(mcdonald)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  Ao executar \textbf{tbl\_summary(mcdonald)} a tabela de resultados será mostrada na área de arquivos, gráficos, pacotes\ldots{} na aba \textbf{Viewer}, no quadrante abaixo do ambiente de memória.
+\item
+  Essa tabela pode ser copiada e colada para o editor de texto que você utiliza para escrever seus trabalhos, claro essa tabela pode ser melhorada!
+\item
+  Observe no rodapé da tabela a seguinte legenda \textbf{n (\%); Median (IQR)}, isso significa que para
+
+  \begin{itemize}
+  \item
+    \textbf{variáveis qualitativas:} n é a contagem (frequência absoluta) e entre parenteses (\%) é mostrado a porcentagem de cada categoria.
+  \item
+    \textbf{variveis quantitativas:} Median é a mediana e entre parenteses (IQR - de InterQuantile Range) estão o primeiro e terceiro quartil respectivamente.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{exemplo-1-2}{%
+\section{Exemplo 1}\label{exemplo-1-2}}
+
+Como mostrar o resultado com a média e desvio padrão?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# acrescente nos argumentos da função tbl\_summary() a opção:}
+\CommentTok{\# statistic = list(all\_continuous() \textasciitilde{} "\{mean\} (\{sd\})"}
+\FunctionTok{tbl\_summary}\NormalTok{(}
+\NormalTok{            mcdonald, }
+            \AttributeTok{statistic =} \FunctionTok{list}\NormalTok{(}\FunctionTok{all\_continuous}\NormalTok{() }\SpecialCharTok{\textasciitilde{}} \StringTok{"\{mean\} (\{sd\})"}\NormalTok{)}
+\NormalTok{            )}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exemplo-2-2}{%
+\section{Exemplo 2}\label{exemplo-2-2}}
+
+Como selecionar somente algumas variáveis do banco de dados?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Precisamos do pacote tidyverse, tire o símbolo de \# se precisar instalar!}
+\CommentTok{\# install.packages("tidyverse")}
+
+\CommentTok{\# ative tidyverse}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# vamos usar a função select() do pacote tidyverse}
+\NormalTok{dadosSelecionados }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{ (mcdonald, Cholesterol, Sodium, Carbohydrates)}
+
+\CommentTok{\# faça uma tabela para o objeto dadosSelecionados}
+\FunctionTok{tbl\_summary}\NormalTok{(dadosSelecionados)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exemplo-3-2}{%
+\section{Exemplo 3}\label{exemplo-3-2}}
+
+Algumas vezes é mais fácil excluir algumas variáveis, por exemplo queremos todas, menos \textbf{Item} e \textbf{Serving Size}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# vamos usar a função select() do pacote tidyverse e colocar o sinal de menos ({-})}
+\CommentTok{\# antes dos nomes das variáveis que queremos excluir}
+\CommentTok{\# IMPORTANTE: Serving Size é um nome de variável com espaço }
+\CommentTok{\# então devemos referênciá{-}la entre aspas: \textasciigrave{}Serving Size\textasciigrave{}}
+\NormalTok{dadosSelecionados2 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{ (mcdonald, }\SpecialCharTok{{-}}\NormalTok{Item, }\SpecialCharTok{{-}}\StringTok{\textasciigrave{}}\AttributeTok{Serving Size}\StringTok{\textasciigrave{}}\NormalTok{)}
+
+\CommentTok{\# faça uma tabela para o objeto dadosSelecionados2}
+\FunctionTok{tbl\_summary}\NormalTok{(dadosSelecionados2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{exemplo-4}{%
+\section{Exemplo 4}\label{exemplo-4}}
+
+Como selecinar um conjunto de variáveis que estão em sequência, por exemplo, de \textbf{Carbohydrates} a \textbf{Cholesterol (\% Daily Value)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# vamos usar a função select() do pacote tidyverse e colocar o sinal de dois pontos (:)}
+\CommentTok{\# entre a primeira variável e a última da sequência }
+\CommentTok{\# IMPORTANTE: Cholesterol (\% Daily Value) é um nome de variável com espaço }
+\CommentTok{\# então devemos referênciá{-}la entre aspas: \textasciigrave{}Cholesterol (\% Daily Value)\textasciigrave{}}
+\NormalTok{dadosSelecionados3 }\OtherTok{\textless{}{-}} \FunctionTok{select}\NormalTok{ (mcdonald, Carbohydrates}\SpecialCharTok{:}\StringTok{\textasciigrave{}}\AttributeTok{Cholesterol (\% Daily Value)}\StringTok{\textasciigrave{}}\NormalTok{)}
+
+\CommentTok{\# faça uma tabela para o objeto dadosSelecionados}
+\FunctionTok{tbl\_summary}\NormalTok{(dadosSelecionados3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Saiba mais sobre o Tidyverse \url{https://www.tidyverse.org/packages/}
+\end{quote}
+
+\hypertarget{atividade-3}{%
+\section{Atividade}\label{atividade-3}}
+
+Escolha outro banco de dados (você pode até criar um banco fictício!), faça uma tabela descritiva dos dados e escreva sobre os dados (um ou dois parágrafos), afinal, o nosso trabalho não é só obter a tabela, é dissertar sobre ela!
 
   \bibliography{book.bib,packages.bib}
 
