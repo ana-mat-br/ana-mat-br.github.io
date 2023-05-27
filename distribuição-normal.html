@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Tamanho da amostra | Estatística + R</title>
-  <meta name="description" content="Capítulo 4 Tamanho da amostra | Estatística + R" />
+  <title>Capítulo 13 Distribuição Normal | Estatística + R</title>
+  <meta name="description" content="Capítulo 13 Distribuição Normal | Estatística + R" />
   <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Tamanho da amostra | Estatística + R" />
+  <meta property="og:title" content="Capítulo 13 Distribuição Normal | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Tamanho da amostra | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 13 Distribuição Normal | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="definições-iniciais.html"/>
-<link rel="next" href="ambiente-computacional.html"/>
+<link rel="prev" href="gráficos.html"/>
+<link rel="next" href="referências.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,48 +213,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tamanho-da-amostra" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Capítulo 4</span> Tamanho da amostra<a href="tamanho-da-amostra.html#tamanho-da-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>O cálculo do tamanho da amostra é um procedimento simples, porém ele depende de vários conceitos da parte da estatística inferencial, e também dos objetivos das análises que serão feitas na pesquisa.</p>
-<p>Existem várias calculadoras de tamanho de amostra, basta procurar no <em>Google</em> por calculadora amostral, ou em inglês, por <em>sample size calculator</em>.</p>
-<p>Um ótimo exemplo de calculadora amostral <em>online</em>: <a href="http://estatistica.bauru.usp.br/calculoamostral/" class="uri">http://estatistica.bauru.usp.br/calculoamostral/</a>, essa calculadora foi desenvolvida pelo pessoal da Faculdade de Odontologia da USP - Bauru, na opção cálculos podemos ver que essa ferramenta disponibiliza 15 opções de cálculo amostral! Então, já podemos perceber que:</p>
-<blockquote>
-<p>A estimativa do tamanho de amostra adequado para uma pesquisa depende do objetivo da pesquisa!</p>
-</blockquote>
-<p>O **G*Power<strong> é um <em>software</em> gratuito, desenvolvido pela Universidade de Düsseldorf, onde podemos claramente verificar que o tamanho da amostra depende principalmente dos objetivos da pesquisa, quais análises inferenciais serão feitas, isto é, quais testes estatísticos (testes de hipóteses) serão realizados. Veremos o conceito de </strong>Poder do Teste**, por isso o <em>software</em> leva esse nome.</p>
-<p>Além disso, como nosso objetivo é usar o R, uma boa referência de cálculo amostral no R é o seguinte documento produzido por pesquisadores da DaCCoTA (Univesidade da Dakota do Norte) <a href="https://med.und.edu/research/daccota/_files/pdfs/berdc_resource_pdfs/sample_size_r_module.pdf" class="uri">https://med.und.edu/research/daccota/_files/pdfs/berdc_resource_pdfs/sample_size_r_module.pdf</a></p>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
-<div id="atividade-2" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Atividade 2<a href="tamanho-da-amostra.html#atividade-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Responda a partir do artigo buscado na atividade 1.</strong></p>
-<ul>
-<li><p>O autores mencionaram sobre o cálculo do tamanho da amostra?</p></li>
-<li><p>A população da pesquisa foi bem delineada (bem definida)?</p></li>
-<li><p>Os autores mencionaram se a pesquisa foi submetida ao Comitê de Ética?</p></li>
-<li><p>Qual a importância de submeter a pesquisa ao Comitê de Ética?</p></li>
-</ul>
-<p><strong>Importante</strong></p>
-<blockquote>
-<p>Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM</p>
-</blockquote>
-<p><a href="https://www.uftm.edu.br/comitesecomissoes/cep" class="uri">https://www.uftm.edu.br/comitesecomissoes/cep</a></p>
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
-<!-- ```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'} -->
-<!-- par(mar = c(4, 4, .1, .1)) -->
-<!-- plot(pressure, type = 'b', pch = 19) -->
-<!-- ``` -->
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
-<!-- ```{r nice-tab, tidy=FALSE} -->
-<!-- knitr::kable( -->
-<!--   head(iris, 20), caption = 'Here is a nice table!', -->
-<!--   booktabs = TRUE -->
-<!-- ) -->
-<!-- ``` -->
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+<div id="distribuição-normal" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Capítulo 13</span> Distribuição Normal<a href="distribuição-normal.html#distribuição-normal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="distribuição-de-probabilidade" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Distribuição de probabilidade<a href="distribuição-normal.html#distribuição-de-probabilidade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="características-da-normal" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Características da Normal<a href="distribuição-normal.html#características-da-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="diagnóstico-de-normalidade" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Diagnóstico de Normalidade<a href="distribuição-normal.html#diagnóstico-de-normalidade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -263,8 +231,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="definições-iniciais.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ambiente-computacional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="gráficos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
