@@ -20,7 +20,7 @@
   
   
 
-<meta name="author" content="Ana Paula Fernandes" />
+<meta name="author" content="Ana Paula Fernandes (DeSCo/UFTM)" />
 
 
 
@@ -186,11 +186,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="12.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>12.2</b> Boxplot</a></li>
 <li class="chapter" data-level="12.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>12.3</b> Atividade 6</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="distribuição-normal.html"><a href="distribuição-normal.html"><i class="fa fa-check"></i><b>13</b> Distribuição Normal</a>
+<li class="chapter" data-level="13" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>13</b> Distribuição de Probabilidade!</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="distribuição-normal.html"><a href="distribuição-normal.html#distribuição-de-probabilidade"><i class="fa fa-check"></i><b>13.1</b> Distribuição de probabilidade</a></li>
-<li class="chapter" data-level="13.2" data-path="distribuição-normal.html"><a href="distribuição-normal.html#características-da-normal"><i class="fa fa-check"></i><b>13.2</b> Características da Normal</a></li>
-<li class="chapter" data-level="13.3" data-path="distribuição-normal.html"><a href="distribuição-normal.html#diagnóstico-de-normalidade"><i class="fa fa-check"></i><b>13.3</b> Diagnóstico de Normalidade</a></li>
+<li class="chapter" data-level="13.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="13.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#diagnóstico-de-normalidade-qq"><i class="fa fa-check"></i><b>13.2</b> Diagnóstico de Normalidade (QQ)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
@@ -282,23 +281,24 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <span id="cb2-3"><a href="primeiros-exercícios-no-r.html#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="primeiros-exercícios-no-r.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># maior valor</span></span>
 <span id="cb2-5"><a href="primeiros-exercícios-no-r.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># função max( )</span></span>
-<span id="cb2-6"><a href="primeiros-exercícios-no-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(idades)</span>
-<span id="cb2-7"><a href="primeiros-exercícios-no-r.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="primeiros-exercícios-no-r.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># menor valor</span></span>
-<span id="cb2-9"><a href="primeiros-exercícios-no-r.html#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># função min( )</span></span>
-<span id="cb2-10"><a href="primeiros-exercícios-no-r.html#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(idades)</span>
-<span id="cb2-11"><a href="primeiros-exercícios-no-r.html#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="primeiros-exercícios-no-r.html#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># faixa de valores</span></span>
-<span id="cb2-13"><a href="primeiros-exercícios-no-r.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># função range( )</span></span>
-<span id="cb2-14"><a href="primeiros-exercícios-no-r.html#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(idades)</span>
-<span id="cb2-15"><a href="primeiros-exercícios-no-r.html#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="primeiros-exercícios-no-r.html#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># média (mean)</span></span>
-<span id="cb2-17"><a href="primeiros-exercícios-no-r.html#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># função mean( )</span></span>
-<span id="cb2-18"><a href="primeiros-exercícios-no-r.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(idades)</span>
-<span id="cb2-19"><a href="primeiros-exercícios-no-r.html#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="primeiros-exercícios-no-r.html#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># desvio padrão (standard deviation)</span></span>
-<span id="cb2-21"><a href="primeiros-exercícios-no-r.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># função sd() </span></span>
-<span id="cb2-22"><a href="primeiros-exercícios-no-r.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(idades)</span></code></pre></div>
+<span id="cb2-6"><a href="primeiros-exercícios-no-r.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(idades)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="primeiros-exercícios-no-r.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># menor valor</span></span>
+<span id="cb4-2"><a href="primeiros-exercícios-no-r.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># função min( )</span></span>
+<span id="cb4-3"><a href="primeiros-exercícios-no-r.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(idades)</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="primeiros-exercícios-no-r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># faixa de valores</span></span>
+<span id="cb6-2"><a href="primeiros-exercícios-no-r.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># função range( )</span></span>
+<span id="cb6-3"><a href="primeiros-exercícios-no-r.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(idades)</span></code></pre></div>
+<pre><code>## [1] 17 25</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="primeiros-exercícios-no-r.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># média (mean)</span></span>
+<span id="cb8-2"><a href="primeiros-exercícios-no-r.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># função mean( )</span></span>
+<span id="cb8-3"><a href="primeiros-exercícios-no-r.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(idades)</span></code></pre></div>
+<pre><code>## [1] 20.7</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="primeiros-exercícios-no-r.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># desvio padrão (standard deviation)</span></span>
+<span id="cb10-2"><a href="primeiros-exercícios-no-r.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># função sd() </span></span>
+<span id="cb10-3"><a href="primeiros-exercícios-no-r.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(idades)</span></code></pre></div>
+<pre><code>## [1] 2.710064</code></pre>
 <blockquote>
 <p>Copie o código e cole no seu arquivo script, selecione todo conteúdo (CRTL+A) e execute todo o cógigo de uma única vez.</p>
 </blockquote>

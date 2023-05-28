@@ -36,7 +36,6 @@ gráficos
 histograma
 boxplot
 atividade-6
-distribuição-normal
 distribuição-de-probabilidade
-características-da-normal
-diagnóstico-de-normalidade
+distribuição-normal
+diagnóstico-de-normalidade-qq

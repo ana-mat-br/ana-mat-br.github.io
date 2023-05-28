@@ -20,7 +20,7 @@
   
   
 
-<meta name="author" content="Ana Paula Fernandes" />
+<meta name="author" content="Ana Paula Fernandes (DeSCo/UFTM)" />
 
 
 
@@ -186,11 +186,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="12.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>12.2</b> Boxplot</a></li>
 <li class="chapter" data-level="12.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>12.3</b> Atividade 6</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="distribuição-normal.html"><a href="distribuição-normal.html"><i class="fa fa-check"></i><b>13</b> Distribuição Normal</a>
+<li class="chapter" data-level="13" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>13</b> Distribuição de Probabilidade!</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="distribuição-normal.html"><a href="distribuição-normal.html#distribuição-de-probabilidade"><i class="fa fa-check"></i><b>13.1</b> Distribuição de probabilidade</a></li>
-<li class="chapter" data-level="13.2" data-path="distribuição-normal.html"><a href="distribuição-normal.html#características-da-normal"><i class="fa fa-check"></i><b>13.2</b> Características da Normal</a></li>
-<li class="chapter" data-level="13.3" data-path="distribuição-normal.html"><a href="distribuição-normal.html#diagnóstico-de-normalidade"><i class="fa fa-check"></i><b>13.3</b> Diagnóstico de Normalidade</a></li>
+<li class="chapter" data-level="13.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="13.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#diagnóstico-de-normalidade-qq"><i class="fa fa-check"></i><b>13.2</b> Diagnóstico de Normalidade (QQ)</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
@@ -299,26 +298,26 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="exemplo-1-1" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Exemplo 1<a href="importando-banco-de-dados.html#exemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como obter a média da variável <strong>Calories</strong> que é uma coluna do objeto <strong>mcdonald</strong>, que por sua vez, é um objeto do tipo <strong>Data</strong>?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="importando-banco-de-dados.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos o operador $</span></span>
-<span id="cb4-2"><a href="importando-banco-de-dados.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Para calcular a média precisamos informar para função: </span></span>
-<span id="cb4-3"><a href="importando-banco-de-dados.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mean( NOME DO BANCO $ NOME DA COLUNA ): </span></span>
-<span id="cb4-4"><a href="importando-banco-de-dados.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mcdonald<span class="sc">$</span>Calories)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="importando-banco-de-dados.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos o operador $</span></span>
+<span id="cb13-2"><a href="importando-banco-de-dados.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Para calcular a média precisamos informar para função: </span></span>
+<span id="cb13-3"><a href="importando-banco-de-dados.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mean( NOME DO BANCO $ NOME DA COLUNA ): </span></span>
+<span id="cb13-4"><a href="importando-banco-de-dados.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(mcdonald<span class="sc">$</span>Calories)</span></code></pre></div>
 </div>
 <div id="exemplo-2-1" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> Exemplo 2<a href="importando-banco-de-dados.html#exemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como armazenar os valores de uma variável (coluna), em um objeto do tipo <strong>Values</strong> e depois calcular a média?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="importando-banco-de-dados.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso o operador &lt;- </span></span>
-<span id="cb5-2"><a href="importando-banco-de-dados.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Criamos o objeto </span></span>
-<span id="cb5-3"><a href="importando-banco-de-dados.html#cb5-3" aria-hidden="true" tabindex="-1"></a>caloria <span class="ot">&lt;-</span> mcdonald<span class="sc">$</span>Calories</span>
-<span id="cb5-4"><a href="importando-banco-de-dados.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão</span></span>
-<span id="cb5-5"><a href="importando-banco-de-dados.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(caloria)</span>
-<span id="cb5-6"><a href="importando-banco-de-dados.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(caloria)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="importando-banco-de-dados.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso o operador &lt;- </span></span>
+<span id="cb14-2"><a href="importando-banco-de-dados.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Criamos o objeto </span></span>
+<span id="cb14-3"><a href="importando-banco-de-dados.html#cb14-3" aria-hidden="true" tabindex="-1"></a>caloria <span class="ot">&lt;-</span> mcdonald<span class="sc">$</span>Calories</span>
+<span id="cb14-4"><a href="importando-banco-de-dados.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão</span></span>
+<span id="cb14-5"><a href="importando-banco-de-dados.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(caloria)</span>
+<span id="cb14-6"><a href="importando-banco-de-dados.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(caloria)</span></code></pre></div>
 </div>
 <div id="exemplo-3-1" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Exemplo 3<a href="importando-banco-de-dados.html#exemplo-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O que acontece se usamos a função <strong>summary()</strong> para o objeto <strong>mcdonald</strong>, sem usar o operador, isto é sem indicar uma variável?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="importando-banco-de-dados.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No console será mostrado o resumo de todas as variáveis do banco!</span></span>
-<span id="cb6-2"><a href="importando-banco-de-dados.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mcdonald)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importando-banco-de-dados.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No console será mostrado o resumo de todas as variáveis do banco!</span></span>
+<span id="cb15-2"><a href="importando-banco-de-dados.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mcdonald)</span></code></pre></div>
 <blockquote>
 <p>Essa forma de obter os resultados não é a melhor forma, vamos <strong>instalar um pacote</strong> para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto.</p>
 </blockquote>
