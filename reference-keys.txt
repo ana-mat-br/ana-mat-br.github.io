@@ -39,3 +39,4 @@ atividade-6
 distribuição-de-probabilidade
 distribuição-normal
 diagnóstico-de-normalidade-qq
+atividade-7
