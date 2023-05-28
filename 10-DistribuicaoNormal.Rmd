@@ -1,4 +1,4 @@
-# Distribuição de Probabilidade
+# Distribuição de Probabilidade!
 
 Uma distribuição de probabilidade é um modelo matemático que associa um dado valor de uma váriavel a sua probalibilidade de ocorrer.
 

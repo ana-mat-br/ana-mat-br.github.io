@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  27 MAY 2023 21:39
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  27 MAY 2023 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -831,7 +831,7 @@ No file Livro-Estatistica+R.bbl.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Livro-Estatistica+R.out' has not changed.
-(rerunfilecheck)             Checksum: DF7F03569371865C20C8C1E04B7FD395;5912.
+(rerunfilecheck)             Checksum: 8B8981E25C23025E3594F207357EA1A1;5917.
  ) 
 Here is how much of TeX's memory you used:
  19289 strings out of 478658

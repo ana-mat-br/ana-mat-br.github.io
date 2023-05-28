@@ -37,6 +37,6 @@
 \contentsline {section}{\numberline {12.1}Histograma}{43}{section.12.1}%
 \contentsline {section}{\numberline {12.2}Boxplot}{45}{section.12.2}%
 \contentsline {section}{\numberline {12.3}Atividade 6}{49}{section.12.3}%
-\contentsline {chapter}{\numberline {13}Distribuição de Probabilidade}{51}{chapter.13}%
+\contentsline {chapter}{\numberline {13}Distribuição de Probabilidade!}{51}{chapter.13}%
 \contentsline {section}{\numberline {13.1}Distribuição Normal}{51}{section.13.1}%
 \contentsline {section}{\numberline {13.2}Diagnóstico de Normalidade (QQ)}{56}{section.13.2}%
