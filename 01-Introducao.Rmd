@@ -2,9 +2,9 @@
 
 Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
 
-Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia. 
+Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.
 
-A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes que aparecem no seu _streamming_ favorito? Ou no ranque de busca realzada no _Google_? Ou no _Chat_ GTP?
+A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes e músicas que aparecem no seu _streamming_ favorito? Ou no ranque de busca realzada por meio do _Google_? Ou no _Chat_ GTP?
 
 E sendo um pouco mais "acadêmica", dentro do nosso propósito:
 
@@ -23,15 +23,15 @@ Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse
 
 Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
 
-Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. 
+Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. Discutiremos sobre estatística descritiva (de descrever - os dados amostrados para uma dada análise) e inferencial (de inferir - tirar conclusões a partir dos dados amostrados) no próximo tópico.
 
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 </center>
-## Atividade
+## Atividade 1
 
-**1. Busque um artigo do campo de seu interesse que utiliza a estatística.**
+**Busque um artigo do campo de seu interesse que utiliza a estatística.**
 
 + Qual é o principal objetivo da pesquisa? 
 
@@ -69,13 +69,12 @@ Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **des
 
 * Psicologia em foco <https://revistas.fw.uri.br/index.php/psicologiaemfoco>
 
-> Ou busque na ferramenta Mendeley <www.mendeley.com>
-
+> Ou busque na ferramenta *Mendeley* <https://www.mendeley.com>
 
 
 # Definições iniciais 
 
-> A estatística é divida em duas partes
+> A estatística é divida em duas partes:
 
 * Estatística **DESCRITIVA**: é o ramo da estatística que envolve a organização, o
 resumo e a representação dos dados.
@@ -84,7 +83,7 @@ resumo e a representação dos dados.
 
 > Essas duas partes são conectadas pela téoria de probabilidade, especificamente pelas distribuições de probabilidade.
 
-> População x Amostra
+> População x Amostra:
 
 * **POPULAÇÃO**: é a coleção de todos os resultados, respostas, medições ou contagens que são de interesse.
 
@@ -100,19 +99,23 @@ Um ótimo exemplo de calculadora amostral _online_: <http://estatistica.bauru.us
 
 > A estimativa do tamanho de amostra adequado para uma pesquisa depende do objetivo da pesquisa!
 
+O **G*Power** é um _software_ gratuito, desenvolvido pela Universidade de Düsseldorf, onde podemos claramente verificar que o tamanho da amostra depende principalmente dos objetivos da pesquisa, quais análises inferenciais serão feitas, isto é, quais testes estatísticos (testes de hipóteses) serão realizados. Veremos o conceito de **Poder do Teste**, por isso o _software_ leva esse nome.
+
+Além disso, como nosso objetivo é usar o R, uma boa referência de cálculo amostral no R é o seguinte documento produzido por pesquisadores da DaCCoTA (Univesidade da Dakota do Norte) <https://med.und.edu/research/daccota/_files/pdfs/berdc_resource_pdfs/sample_size_r_module.pdf>
+
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 </center>
-## Atividade
+## Atividade 2
 
-**2. Responda a partir do artigo buscado na atividade 1.**
+**Responda a partir do artigo buscado na atividade 1.**
 
 + O autores mencionaram sobre o cálculo do tamanho da amostra? 
 
 + A população da pesquisa foi bem delineada (bem definida)? 
 
-+ Os autores mencionaram se a pesquisa foi submetida ao Comitê de Ética.
++ Os autores mencionaram se a pesquisa foi submetida ao Comitê de Ética?
 
 + Qual a importância de submeter a pesquisa ao Comitê de Ética?
 

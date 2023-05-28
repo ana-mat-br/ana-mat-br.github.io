@@ -1,4 +1,104 @@
-# Estatística Descritiva
+# Estatística descritiva
 
+> Discutimos em sala de aula as medidas resumo
+
+## Medidas de tendência central (ou posição)
+
+  + Média
+  
+  + Mediana e quartis
+  
+  + Moda
+  
+  > Veja o vídeo do Canal Pesquise <https://youtu.be/ot0aDB-grDY>
+
+## Medidas de dispersão (ou variabilidade)
+
+  + Aplitude (maior - menor)
+  
+  + Variância
+  
+  + Desvio padrão (DP)
+  
+  + Distância interquartil (terceiro quartil - primeiro quartil)
+  
+    > Veja o vídeo do Canal Pesquise <https://youtu.be/sISPcOIcwXs>
+  
+    > **IMPORTANTE** Para resumir os dados quantitativos devemos usar uma medida de tendência central e uma medida de variabilidade, assim escolhemos a forma mais ADEQUADA entre: 
+    > média (desvio padrão) ou 
+    > mediana (primeiro quartil; terceiro quartil)
+    
+## Medida relativa de variabilidade
+  
+  + Coeficiente de variação (CV) - quociente entre o desvio padrão e a média, geralmente expressamos em porcentagem (ou seja, multiplicamos essa divisão por 100\%).
+  
+  + O CV é um indicador da variabilidade de um conjunto de dados. 
+  
+    + O CV indica em % o quanto os dados que estamos analisando são homogêneos ou heterogêneos.
+    
+    + Um CV é considerado baixo (indicando um conjunto de dados razoavelmente homogêneo) quando for menor ou igual a 25%. Entretanto, esse padrão varia de acordo com a aplicação. 
+    
+        + Por exemplo, em medidas vitais (batimento cardíaco, temperatura corporal, etc) espera-se um CV muito menor do que 25% para que os dados sejam considerados homogêneos. Fonte: <http://www.leg.ufpr.br/~silvia/CE001/node24.html>
+    
+    + Pode ser difícil classificar um coeficiente de variação como baixo, médio, alto ou muito alto, no entanto, o CV é útil na comparação de duas variáveis de natureza diferentes.
+  
+## Funções do R
+
+Supondo que o objeto **x <- c(valor 1, valor 2, ..., valor n)** está na memória do R.
+
+| Medida resumo           | Função básica do R|
+|:----------------------- |:-----------------|
+| média                   | mean(x)          |
+| mediana                 | median(x)        |
+| primeiro quartil        | quantile(x,0.25) |
+| terceiro quartil        | quantile(x,0.75) |
+| moda                    | table(x)         |
+| menor valor / mínimo    | min(x)           |
+| maior valor / máximo    | max(x)           |
+| resumo das medidas      | summary(x)       |
+| amplitude               | range(x)         |
+| variância               | var(x)           |
+| desvio padrão           | sd(x)            |
+| amplitude interquartil  | IQR(x)           |
+| coeficiente de variação | sd(x)/mean(x)    |
+
++ *use sort(table(x)), use a função sort() para ordenar as ocorrências da menor para a maior, a maior ocorrência é a moda!
+
++ use a função **summary(x)** para obter, menor valor, média, mediana, primeiro e terceiro quartil e maior valor.
+
+> **Viu como calcular é fácil?** Então, tenha em mente que o mais **importante é interpretar** essas medidas, ou seja, descrever o que essas medidas revelam sobre a amostra em estudo. 
+
+<center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_rklapo5f.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 4
+
+**Considere o objeto Batimentos, que é uma amostra de batimentos cardíacos de 20 homens.**
+
+```{r}
+Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 64, 71, 61, 54)
+```
+
++ Obtenha as seguintes medidas:
+   + Menor valor:
+   + Maior valor:
+   + Média:
+   + Mediana:
+   + Primeiro quartil:
+   + Terceiro quartil:
+   + Variância:
+   + Desvio padrão:
+   + Amplitude interquartil:
+   + Coeficiente de varição:
+   
++ Escreva sobre o conjunto media e desvio padrão: 
+
++ Escreva sobre conjunto mediana e quartis:
+
++ Escreva sobre o coeficiente de variação: 
+
++ Acrescente mais uma amostra com valor de batimento igual a 120, recalcule as medidas acima. Qual conjunto você consideraria mais adequado para resumir sua amostra, na presença desse valor discrepante (_outlier_)? A média (DP) ou mediana (1o.Q ; 3o.Q)? Explique.
+
+
+

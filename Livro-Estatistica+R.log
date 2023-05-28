@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  10 MAY 2023 10:33
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.4.10)  27 MAY 2023 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -654,15 +654,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 4.
-)
+[3])
 \tf@toc=\write5
 \openout5 = `Livro-Estatistica+R.toc'.
 
-[3] [4
-
-]
+[4]
 Cap\'{\i }tulo 1.
-[5] [6
+[5
+
+] [6
 
 ]
 Cap\'{\i }tulo 2.
@@ -707,51 +707,139 @@ File: telaExemplo1.png Graphic file (type bmp)
 File: telaValorMemoria.png Graphic file (type bmp)
 <telaValorMemoria.png>
 [23]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 561.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 569.
 (/Users/anapaulafernandes/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [24]
 File: telaRespostaConsole.png Graphic file (type bmp)
 <telaRespostaConsole.png>
-[25] [26
-
-]
+[25] [26]
 Cap\'{\i }tulo 8.
-[27] [28
+[27
 
-]
+] [28]
 Cap\'{\i }tulo 9.
-[29] [30
+[29
+
+] [30] [31] [32
 
 ]
 Cap\'{\i }tulo 10.
-[31] [32
+File: telaImportDataset.png Graphic file (type bmp)
+<telaImportDataset.png>
+File: telaImportBrowser.png Graphic file (type bmp)
+<telaImportBrowser.png>
+[33] [34]
+File: telaImportObjetoData.png Graphic file (type bmp)
+<telaImportObjetoData.png>
+File: telaImportDataset.png Graphic file (type bmp)
+<telaImportDataset.png>
+File: telaImportPacote.png Graphic file (type bmp)
+<telaImportPacote.png>
+[35] [36]
+Cap\'{\i }tulo 11.
+[37
 
 ]
-Cap\'{\i }tulo 11.
-[33] [34
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 1204.
+(/Users/anapaulafernandes/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [38] [39] [40
 
 ]
 Cap\'{\i }tulo 12.
-[35] [36
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-14-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[41]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-15-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[42] [43]
+Missing character: There is no ∑ ("2211) in font ecrm1000!
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-18-1.pdf>
+[44]
+File: Boxplotexemplo.png Graphic file (type bmp)
+<Boxplotexemplo.png>
+[45]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-20-1.pdf>
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-21-1.pdf>
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-21-2.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-21-2.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[46] [47]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-22-1.pdf>
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-22-2.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-22-2.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1446--1447
+[][]
+ []
+
+[48] [49] [50
 
 ]
 Cap\'{\i }tulo 13.
+File: normalTeorica.png Graphic file (type bmp)
+<normalTeorica.png>
+
+Underfull \hbox (badness 1859) in paragraph at lines 1505--1505
+[]\T1/lmr/m/n/10 Figura 13.1: []Figura: Dis-tri-bui-ção Nor-mal teó-rica (Fonte: []$https : / / www . inf . ufsc . br / ~andre . zibetti /
+ []
+
+Missing character: There is no 𝜇 ("1D707) in font ecrm1000!
+Missing character: There is no 𝜎 ("1D70E) in font ecrm1000!
+[51]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-23-1.pdf>
+[52]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-23-2.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-23-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[53] [54] [55]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-32-1.pdf>
+[56]
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-33-1.pdf>
+File: Livro-Estatistica+R_files/figure-latex/unnamed-chunk-33-2.pdf Graphic file (type pdf)
+<use Livro-Estatistica+R_files/figure-latex/unnamed-chunk-33-2.pdf>
+
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+[57]
 No file Livro-Estatistica+R.bbl.
-[37] (./Livro-Estatistica+R.aux)
+[58] (./Livro-Estatistica+R.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Livro-Estatistica+R.out' has not changed.
-(rerunfilecheck)             Checksum: AD35038E1EDB886A9039FFF6FBA9B424;2707.
+(rerunfilecheck)             Checksum: DF7F03569371865C20C8C1E04B7FD395;5912.
  ) 
 Here is how much of TeX's memory you used:
- 19060 strings out of 478658
- 347691 string characters out of 5846299
- 1851296 words of memory out of 5000000
- 38914 multiletter control sequences out of 15000+600000
- 571391 words of font info for 87 fonts, out of 8000000 for 9000
+ 19289 strings out of 478658
+ 356747 string characters out of 5846299
+ 1853296 words of memory out of 5000000
+ 39117 multiletter control sequences out of 15000+600000
+ 576274 words of font info for 90 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 86i,8n,120p,644b,412s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,8n,120p,708b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Livro-Estatistica+R.pdf (37 pages).
+Output written on Livro-Estatistica+R.pdf (58 pages).

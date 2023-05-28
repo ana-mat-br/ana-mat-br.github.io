@@ -1,0 +1,107 @@
+# Importando banco de dados
+
+Na prática, os dados que vamos analisar estarão armazenado em um **banco de dados**, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+
++ Arquivo do tipo Excel (xls ou xlsx)
+
++ Arquivo de texto separado por vírgulas (csv - _comma-separated values_)
+
+
+> Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:
+
++ DataSus: <https://datasus.saude.gov.br/transferencia-de-arquivos>
+
++ OMS: <https://www.who.int/data/collections>
+
++ Kaggle: <https://www.kaggle.com/datasets>
+
+
+> No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st>
+
+## Importando um banco csv
+
+1. Faça _download_ do banco de dados **mcdonald.csv** 
+(fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts)
+
+2. Na área de ambinete de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:
+
+<center>![<font size="2"> Figura: Importando banco de dados</font>](telaImportDataset.png){width=40%}
+</center>
+
++ Como queremos importar um arquivo csv, a melhor opção é a segunda **From Text (readr)**
+
++ **_readr_** é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)
+
+3. Clicando na opção **From Text (readr)**, no botão **browser** indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+
+<center>![<font size="2"> Figura: Prévia dos dados</font>](telaImportBrowser.png)
+</center>
+
++ No quadro **Data Preview**, temos uma "prévia" com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.
+
++ No quadro **Import Options** temos as opções de importação, fique atento ao **Name** do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (', ~  ou ç), é até permitido usar alguns desses caracteres especiais, mas evite. 
+
++ Ainda no quadro **Import Options**, observe que a opção **Open Data Viewer** está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.
+
++ O quadro **Code Preview** mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.
+
+4. Clique no botão **Import** e observe que no ambiente de memória será criado o objeto do tipo **Data** com o nome do banco de dados que foi importado. 
+
+<center>![<font size="2"> Figura: Import dataset</font>](telaImportObjetoData.png){width=60%}
+</center>
+
++ Observe que esse objeto do tipo **Data** é diferente dos objetos do tipo **Values** que vimos nos exemplos iniciais.
+
++ Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!
+
+## Importando um banco xls
+
+Na área de ambiente de memória, localize **Import Dataset**, ao clicar sobre essa opção, escolha **From Excel...**
+
+<center>![<font size="2"> Figura: Importando banco de dados</font>](telaImportDataset.png){width=40%}
+</center>
+
++ Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (**readxl**)! O RStudio mostrará um aviso parecido com este: 
+
+<center>![<font size="2"> Figura: Aviso para instalação de pacote</font>](telaImportPacote.png){width=40%}
+</center>
+
+
+## Exemplo 1
+
+Como obter a média da variável **Calories** que é uma coluna do objeto **mcdonald**, que por sua vez, é um objeto do tipo **Data**? 
+
+```{r eval=FALSE, results='hide'}
+# Usamos o operador $
+# Para calcular a média precisamos informar para função: 
+# mean( NOME DO BANCO $ NOME DA COLUNA ): 
+mean(mcdonald$Calories)
+```
+
+## Exemplo 2
+
+Como armazenar os valores de uma variável (coluna), em um objeto do tipo **Values** e depois calcular a média?
+
+```{r eval=FALSE, results='hide'}
+# Uso o operador <- 
+# Criamos o objeto 
+caloria <- mcdonald$Calories
+# Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão
+mean(caloria)
+sd(caloria)
+```
+
+## Exemplo 3
+
+O que acontece se usamos a função **summary()** para o objeto **mcdonald**, sem usar o operador, isto é sem indicar uma variável?
+```{r eval=FALSE, results='hide'}
+# No console será mostrado o resumo de todas as variáveis do banco!
+summary(mcdonald)
+```
+
+> Essa forma de obter os resultados não é a melhor forma, vamos **instalar um pacote** para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto. 
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ynsr82zq.json"  background="transparent"  speed="2"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+</center>

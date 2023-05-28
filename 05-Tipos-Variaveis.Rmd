@@ -1,4 +1,50 @@
 # Tipos de variáveis
 
+A natureza das variáveis (ou dados) são
+
++ **Quantitativa** - expressa quantidade 
+
+   + Discreta - assume valores inteiros (contagem) 
+ 
+   + Contínua - assume qualquer valor de um dado intervalo (mensuração)
+  
++ **Qualitativa** - expressa qualidade (categorias, rótulos)
+
+  + Nominal -  categorias que não podem ser ordenadas 
+  
+  + Ordinal -  categorias que podem ser ordenadas, existe uma graduação entre as categorias.
+
+
+> Veja o vídeo do Prof. Heitor no **Canal Pesquise**: <https://youtu.be/_oc37Ea_tl8>!
+
+
+O procedimento estatístico que iremos realizar depende da natureza da variável que estamos analizado, por exemplo:
+
++ Na estatística descritiva:
+
+   + as variáveis qualitativas são representadas por sua frequência absoluta ou percentual;
+   
+   + as variáveis quantitativas são representadas por medidas resumo, como por exemplo, média e desvio padrão.
+
++ Na estatística inferencial:
+
+   + o teste Qui-quadrado é o teste de hipótese que tem como objetivo verificar se existe ou não associação entre as categorias de duas variáveis, como estamos falando de categorias, esse teste é aplicado a variáveis de natureza qualitativa.
+
+   + o teste de correlação de Pearson, mede a força da correlação linear entre duas variáveis, é aplicado à variáveis quantitativas.
+
+<center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_rklapo5f.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 3
+
+**Veja o artigo _Estado  nutricional,  tempo  de  internação  e  mortalidade em  pacientes  submetidos  à  cirurgia  cardíaca  em  um hospital na cidade de Maceió_  <https://www.rasbran.com.br/rasbran/article/view/1724/443> publicado na RASBRAN, Revista da Associação Brasileira de Nutrição em 2023 (https://www.rasbran.com.br/).**
+
++ A **Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca**, é uma tabela descritiva para amostra que foi analisada na pesquisa. 
+
+   + Classique as variáveis (características) em qualitativa e quantitativa e observe atentamente como elas foram resumidas (Em porcetagens? Pela média e o desvio padrão?).
+
+
++ A **Tabela  2 - Associação  entre  estado  nutricional,  sexo,  idade  e  tempo  de  internação  hospitalar  entre  os  pacientes  submetidos  à  cirurgia cardíaca** e **Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca** são tabelas que mostram o resultado de um teste de hipótese (estatística inferencial). 
+
+    + Qual teste estatístico foi aplicado? Qual o objetivo deste teste?

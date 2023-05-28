@@ -30,7 +30,7 @@ Existem vários softwares que são dedicados a análise estatística que vão do
 
 * Python <https://www.python.org/> 
 
-Concentraremos nossas forças na utlização do R, que é uma linguagem computacional que foi desenvolvida especificamente para análise estatística. Saiba um pouco mais: <https://www.cienciaedados.com/por-que-escolher-r/>
+Concentraremos nossas forças na utlização do R, que é uma linguagem computacional que foi desenvolvida especificamente para análise estatística. Saiba um pouco mais o motivo dessa escolha: <https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/>
 
 Assim, vamos preparar o ambiente computacional para realizarmos nossas análises. 
 
@@ -38,7 +38,7 @@ Assim, vamos preparar o ambiente computacional para realizarmos nossas análises
 
 * **R é uma linguagem computacional** (não se preocupe, não vamos programar!)
 
-* **RStudio é um software** onde executaremos códigos R, é o pessoal da computação denomina de ambiente de desenvolvimento (IDE).^[Integrated Development Environment - Ambiente de Desenvolvimento Integrado]
+* **RStudio é um software** onde executaremos códigos R, é o que o pessoal da computação denomina de ambiente de desenvolvimento (IDE).^[Integrated Development Environment - Ambiente de Desenvolvimento Integrado]
 
 ## Plano A: Instalação R e RStudio
 
@@ -65,28 +65,27 @@ Se nada der certo, temos o plano B.
 
 ## Plano B: R e RStudio online
 
-O plano B é tão bom, tão bom que poderia ser considerado plano A, no entanto, é preciso estar conectado à Intenet, o RStudo será excutado online na nuvem da Posit. 
+O plano B é tão bom, mas tão bom, que poderia ser considerado plano A, no entanto, é preciso estar conectado à Intenet, o RStudo será excutado online na nuvem da Posit. 
 
 Se você tem uma boa conexão de Internet, fica a sugestão para usar o plano B.
 
 1. Acesse <https://posit.cloud>
 
-2. Faça o login (eu acesso com meu usuário do Google)
+2. Faça o login (eu, por exemplo, acesso com meu usuário do Google)
 
 3. A seguinte tela será apresentada 
 
-<center>![<font size="2"> Tela inicial na nuvem da Posit</font>](telaPosit.png)
+<center>![<font size="2">Figura: Tela inicial na nuvem da Posit</font>](telaPosit.png)
 </center>
 
-4. Crie um projeto RStudio, selecionando a opção New Project, e em seguida, escolhendo New RStudio Project.
+4. Crie um projeto RStudio, selecionando a opção _New Project_, e em seguida, escolhendo _New RStudio Project_.
 
-<center>![<font size="2">Botão de criação de um novo projeto</font>](telaCriarProjetoRStudio.png){width=40%}
+<center>![<font size="2">Figura: Botão de criação de um novo projeto</font>](telaCriarProjetoRStudio.png){width=40%}
 </center>
 
 Se deu tudo certo, você verá a seguinte tela:
 
-<center>![<font size="2"> Tela inicial do RStudio online na nuvem da Posit</font>](telaRStudioPosit.png)
+<center>![<font size="2">Figura: Tela inicial do RStudio online na nuvem da Posit</font>](telaRStudioPosit.png)
 </center>
 
 O melhor de usar a nuvem da Posit é que tudo armazenado por lá, isso quer dizer que suas análises ficam gravadas em um lugar seguro.
-

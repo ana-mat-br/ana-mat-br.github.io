@@ -60,7 +60,7 @@ Observe nesse código as funções:
 
 * **sd( )**
 
-```{r results='hide'}
+```{r echo=TRUE}
 # criando o vetor idades 
 idades <- c( 23, 18, 17, 25, 21, 19, 22, 24, 19, 19 )
 

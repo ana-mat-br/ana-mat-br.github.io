@@ -1,0 +1,111 @@
+# Instalando pacotes
+
+Quando instalamos nosso ambiente computacional R e RStudio, instalamos uma versão básica, onde apenas os recursos básicos do R estão diponíveis, o pacote básico (**base**) do R.
+
+Os pacotes (**packages**) do R são compostos por uma biblioteca (**library**) que é um conjunto de funções. Por exemplo, do pacote **base** usamos as funções min(), max(), mean(), median(), table(), var(), sd(), summary(), etc.
+
+Para ver a lista de funções que compõem a bilbioteca do pacote base, execute o código:
+```{r}
+library(help = "base")
+```
+
+Os pacotes são análogos aos aplicativos que instalamos nos nossos celulares, são módulos que agregam funcionalidades específicas. Ao longo das nossas atividades usaremos alguns desses pacotes.
+
+Como nesse momento estamos interessados em otimizar o trabalho para realizar uma análise descritiva dos dados, então vamos instalar um pacote chamado **gtsummary** (<https://www.danieldsjoberg.com/gtsummary/>).
+
+> O pacote **gtsummary** nos fornecerá uma tabela resumo de todo banco de dados, otimizando bastante nosso trabalho de resumir o banco de dados. 
+
++ IMPORTANTE 1: instalamos um pacote apenas uma vez (como um aplicativo no celular... a gente só refaz a instalação se o app _bugar_!)
+
++ IMPORTANTE 2: todas vez precisamos carregar o pacote com as funções que queremos usar por meio da função **library()**
+
+Veja o código:
+
+```{r eval=FALSE}
+# comando para instalar o pacote gtsummary
+install.packages("gtsummary")
+
+# comando para carregar a biblioteca de funções do gtsummary
+library(gtsummary)
+
+# a função que vamos usar para gerar uma tabela que resume os dados é
+# tbl_summary
+tbl_summary(mcdonald)
+```
+
++ Ao executar **tbl_summary(mcdonald)** a tabela de resultados será mostrada na área de arquivos, gráficos, pacotes... na aba **Viewer**, no quadrante abaixo do ambiente de memória.
+
++ Essa tabela pode ser copiada e colada para o editor de texto que você utiliza para escrever seus trabalhos, claro essa tabela pode ser melhorada!
+
++ Observe no rodapé da tabela a seguinte legenda  **n (%); Median (IQR)**, isso significa que para
+
+    + **variáveis qualitativas:** n é a contagem (frequência absoluta) e entre parenteses (%) é mostrado a porcentagem de cada categoria.
+  
+    + **variveis quantitativas:** Median é a mediana e entre parenteses (IQR - de InterQuantile Range) estão o primeiro e terceiro quartil respectivamente. 
+
+## Exemplo 1
+Como mostrar o resultado com a média e desvio padrão?
+
+```{r eval=FALSE}
+# acrescente nos argumentos da função tbl_summary() a opção:
+# statistic = list(all_continuous() ~ "{mean} ({sd})"
+tbl_summary(
+            mcdonald, 
+            statistic = list(all_continuous() ~ "{mean} ({sd})")
+            )
+```
+
+## Exemplo 2
+Como selecionar somente algumas variáveis do banco de dados?
+```{r eval=FALSE}
+# Precisamos do pacote tidyverse, tire o símbolo de # se precisar instalar!
+# install.packages("tidyverse")
+
+# ative tidyverse
+library(tidyverse)
+
+# vamos usar a função select() do pacote tidyverse
+dadosSelecionados <- select (mcdonald, Cholesterol, Sodium, Carbohydrates)
+
+# faça uma tabela para o objeto dadosSelecionados
+tbl_summary(dadosSelecionados)
+```
+
+## Exemplo 3
+Algumas vezes é mais fácil excluir algumas variáveis, por exemplo queremos todas, menos **Item** e **Serving  Size**	
+```{r eval=FALSE}
+# vamos usar a função select() do pacote tidyverse e colocar o sinal de menos (-)
+# antes dos nomes das variáveis que queremos excluir
+# IMPORTANTE: Serving Size é um nome de variável com espaço 
+# então devemos referênciá-la entre aspas: `Serving Size`
+dadosSelecionados2 <- select (mcdonald, -Item, -`Serving Size`)
+
+# faça uma tabela para o objeto dadosSelecionados2
+tbl_summary(dadosSelecionados2)
+```
+
+
+## Exemplo 4
+Como selecinar um conjunto de variáveis que estão em sequência, por exemplo, de **Carbohydrates** a **Cholesterol (% Daily Value)**
+```{r eval=FALSE}
+# vamos usar a função select() do pacote tidyverse e colocar o sinal de dois pontos (:)
+# entre a primeira variável e a última da sequência 
+# IMPORTANTE: Cholesterol (% Daily Value) é um nome de variável com espaço 
+# então devemos referênciá-la entre aspas: `Cholesterol (% Daily Value)`
+dadosSelecionados3 <- select (mcdonald, Carbohydrates:`Cholesterol (% Daily Value)`)
+
+# faça uma tabela para o objeto dadosSelecionados
+tbl_summary(dadosSelecionados3)
+```
+
+> Saiba mais sobre o Tidyverse <https://www.tidyverse.org/packages/>
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 5
+
+**Escolha outro banco de dados (você pode até criar um banco fictício!), faça uma tabela descritiva dos dados e escreva sobre os dados (um ou dois parágrafos), afinal, o nosso trabalho não é só obter a tabela, é dissertar sobre o que essa tabela revela sobre a amostra em estudo!**
+
+

@@ -31,3 +31,5 @@ Assim, na tela da IDE RStudio aparecerá uma nova área, que é a área do arqui
 </center>
 
 Observe que o arquivo está sem um nome **Untitled1** (sem titulo), salve o arquivo atribuindo-o um nome adequado. Para isso, no menu principal, escolha *File*, depois *Save*.
+
+> Dica: O ideal seria criar um **Projeto**. Veja a opção _File > New Project_. 
