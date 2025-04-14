@@ -23,6 +23,10 @@ Sugestões, correções ou qualquer outra forma de interação são sempre bem-v
 E vamos lá! 
 
 
+
+
+
+
 <!-- The **bookdown** package can be installed from CRAN or Github: -->
 
 <!-- ```{r eval=FALSE} -->
