@@ -1,6 +1,6 @@
 --- 
 title: "Estatística + R"
-author: "Ana Paula Fernandes (DeSCo/UFTM)"
+author: "Ana Paula Fernandes (DESCO/UFTM)"
 date: "Atualizado em: `r format(Sys.time(), '%d/%m/%Y')`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook

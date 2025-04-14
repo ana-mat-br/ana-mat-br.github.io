@@ -188,3 +188,7 @@ qqline(BatimentosMulheresR)
 ```
 
 > A distribuição Normal é uma distribuição para modelar variáveis **CONTÍNUAS**!
+
+## Atividade 7
+
+**Para o banco de dados escolhido para as atividade 5 e 6, faça gráficos QQ para as variáveis quantitativas e verifique visualmente se elas seguem disitribuição Normal.**
