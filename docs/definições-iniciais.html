@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 8 Tipos de variáveis | Estatística + R</title>
-  <meta name="description" content="Capítulo 8 Tipos de variáveis | Estatística + R" />
+  <title>Capítulo 3 Definições iniciais | Estatística + R</title>
+  <meta name="description" content="Capítulo 3 Definições iniciais | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 8 Tipos de variáveis | Estatística + R" />
+  <meta property="og:title" content="Capítulo 3 Definições iniciais | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 8 Tipos de variáveis | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 3 Definições iniciais | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="primeiros-exercícios-no-r.html"/>
-<link rel="next" href="estatística-descritiva.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="tamanho-da-amostra.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,64 +217,34 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tipos-de-variáveis" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Capítulo 8</span> Tipos de variáveis<a href="tipos-de-variáveis.html#tipos-de-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>A natureza das variáveis (ou dados) são</p>
+<div id="definições-iniciais" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Definições iniciais<a href="definições-iniciais.html#definições-iniciais" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>A estatística é divida em duas partes:</p>
+</blockquote>
 <ul>
-<li><p><strong>Quantitativa</strong> - expressa quantidade</p>
-<ul>
-<li><p>Discreta - assume valores inteiros (contagem)</p></li>
-<li><p>Contínua - assume qualquer valor de um dado intervalo (mensuração)</p></li>
-</ul></li>
-<li><p><strong>Qualitativa</strong> - expressa qualidade (categorias, rótulos)</p>
-<ul>
-<li><p>Nominal - categorias que não podem ser ordenadas</p></li>
-<li><p>Ordinal - categorias que podem ser ordenadas, existe uma graduação entre as categorias.</p></li>
-</ul></li>
+<li><p>Estatística <strong>DESCRITIVA</strong>: é o ramo da estatística que envolve a organização, o
+resumo e a representação dos dados.</p></li>
+<li><p>Estatística <strong>INFERENCIAL</strong>: é o ramo da estatística que envolve o uso de uma amostra para chegar a conclusões sobre uma população.</p></li>
 </ul>
 <blockquote>
-<p>Veja o vídeo do Prof. Heitor no <strong>Canal Pesquise</strong>: <a href="https://youtu.be/_oc37Ea_tl8" class="uri">https://youtu.be/_oc37Ea_tl8</a>!</p>
+<p>Essas duas partes são conectadas pela téoria de probabilidade, especificamente pelas distribuições de probabilidade.</p>
 </blockquote>
-<p>O procedimento estatístico que iremos realizar depende da natureza da variável que estamos analizado, por exemplo:</p>
+<blockquote>
+<p>População x Amostra:</p>
+</blockquote>
 <ul>
-<li><p>Na estatística descritiva:</p>
-<ul>
-<li><p>as variáveis qualitativas são representadas por sua frequência absoluta ou percentual;</p></li>
-<li><p>as variáveis quantitativas são representadas por medidas resumo, como por exemplo, média e desvio padrão.</p></li>
-</ul></li>
-<li><p>Na estatística inferencial:</p>
-<ul>
-<li><p>o teste Qui-quadrado é o teste de hipótese que tem como objetivo verificar se existe ou não associação entre as categorias de duas variáveis, como estamos falando de categorias, esse teste é aplicado a variáveis de natureza qualitativa.</p></li>
-<li><p>o teste de correlação de Pearson, mede a força da correlação linear entre duas variáveis, é aplicado à variáveis quantitativas.</p></li>
-</ul></li>
+<li><p><strong>POPULAÇÃO</strong>: é a coleção de todos os resultados, respostas, medições ou contagens que são de interesse.</p></li>
+<li><p><strong>AMOSTRA</strong>: é um subconjunto ou parte de uma população.</p></li>
 </ul>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
-<div id="atividade-3" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Atividade 3<a href="tipos-de-variáveis.html#atividade-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Veja o artigo <em>Estado nutricional, tempo de internação e mortalidade em pacientes submetidos à cirurgia cardíaca em um hospital na cidade de Maceió</em> <a href="https://www.rasbran.com.br/rasbran/article/view/1724/443" class="uri">https://www.rasbran.com.br/rasbran/article/view/1724/443</a> publicado na RASBRAN, Revista da Associação Brasileira de Nutrição em 2023 (<a href="https://www.rasbran.com.br/" class="uri">https://www.rasbran.com.br/</a>).</strong></p>
-<ul>
-<li><p>A <strong>Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca</strong>, é uma tabela descritiva para amostra que foi analisada na pesquisa.</p>
-<ul>
-<li>Classique as variáveis (características) em qualitativa e quantitativa e observe atentamente como elas foram resumidas (Em porcetagens? Pela média e o desvio padrão?).</li>
-</ul></li>
-<li><p>A <strong>Tabela 2 - Associação entre estado nutricional, sexo, idade e tempo de internação hospitalar entre os pacientes submetidos à cirurgia cardíaca</strong> e <strong>Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca</strong> são tabelas que mostram o resultado de um teste de hipótese (estatística inferencial).</p>
-<ul>
-<li>Qual teste estatístico foi aplicado? Qual o objetivo deste teste?</li>
-</ul></li>
-</ul>
-
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="primeiros-exercícios-no-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="estatística-descritiva.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tamanho-da-amostra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

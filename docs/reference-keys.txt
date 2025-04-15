@@ -1,6 +1,8 @@
 bem-vindos
 intro
 atividade-1
+definições-iniciais
+tamanho-da-amostra
 atividade-2
 ambiente-computacional
 plano-a-instalação-r-e-rstudio

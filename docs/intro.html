@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Introdução | Estatística + R</title>
+  <meta name="description" content="Capítulo 2 Introdução | Estatística + R" />
+  <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Introdução | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Introdução | Estatística + R" />
+  
+  
+  
+
+<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="definições-iniciais.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<h2><center>Estatística + R</center></h2>
+<center> roteiro de estudo </center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições iniciais</a></li>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da amostra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-2"><i class="fa fa-check"></i><b>4.1</b> Atividade 2</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>5</b> Ambiente computacional</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-r-e-rstudio"><i class="fa fa-check"></i><b>5.1</b> Plano A: Instalação R e RStudio</a></li>
+<li class="chapter" data-level="5.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-online"><i class="fa fa-check"></i><b>5.2</b> Plano B: R e RStudio online</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>6</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="7" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>7</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>7.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="7.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>7.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="7.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>7.3</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>8</b> Tipos de variáveis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>8.1</b> Atividade 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html"><i class="fa fa-check"></i><b>9</b> Estatística descritiva</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>9.1</b> Medidas de tendência central (ou posição)</a></li>
+<li class="chapter" data-level="9.2" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>9.2</b> Medidas de dispersão (ou variabilidade)</a></li>
+<li class="chapter" data-level="9.3" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>9.3</b> Medida relativa de variabilidade</a></li>
+<li class="chapter" data-level="9.4" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#funções-do-r"><i class="fa fa-check"></i><b>9.4</b> Funções do R</a></li>
+<li class="chapter" data-level="9.5" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#atividade-4"><i class="fa fa-check"></i><b>9.5</b> Atividade 4</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>10</b> Importando banco de dados</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>10.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="10.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>10.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="10.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>10.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="10.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>10.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="10.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>10.5</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>11</b> Instalando pacotes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>11.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="11.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>11.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="11.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>11.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="11.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>11.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="11.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>11.5</b> Atividade 5</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>12</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>12.1</b> Histograma</a></li>
+<li class="chapter" data-level="12.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>12.2</b> Boxplot</a></li>
+<li class="chapter" data-level="12.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>12.3</b> Atividade 6</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>13</b> Distribuição de Probabilidade!</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="13.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#diagnóstico-de-normalidade-qq"><i class="fa fa-check"></i><b>13.2</b> Diagnóstico de Normalidade (QQ)</a></li>
+<li class="chapter" data-level="13.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>13.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Introdução<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.</p>
+<p>Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.</p>
+<p>A estatística é <strong>MULTIDICIPLINAR</strong>, ela está em tudo na verdade… e para dizer uma coisa “bem chique” a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes e músicas que aparecem no seu <em>streamming</em> favorito? Ou no ranque de busca realzada por meio do <em>Google</em>? Ou no <em>Chat</em> GTP?</p>
+<p>E sendo um pouco mais “acadêmica”, dentro do nosso propósito:</p>
+<p>Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:</p>
+<blockquote>
+<p><strong>Velocidade e resistência de velocidade de sprint em atletas de Futebol amador</strong> <a href="http://www.rbff.com.br/index.php/rbff/article/view/866" class="uri">http://www.rbff.com.br/index.php/rbff/article/view/866</a></p>
+</blockquote>
+<p>Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:</p>
+<blockquote>
+<p><strong>Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional</strong>
+<a href="https://rbc.inca.gov.br/index.php/revista/article/view/3554" class="uri">https://rbc.inca.gov.br/index.php/revista/article/view/3554</a></p>
+</blockquote>
+<p>Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:</p>
+<blockquote>
+<p><strong>Escala de Comportamentos Antissociais: construção e estudos psicométricos</strong> <a href="https://periodicos.pucpr.br/psicologiaargumento/article/view/27071" class="uri">https://periodicos.pucpr.br/psicologiaargumento/article/view/27071</a></p>
+</blockquote>
+<p>Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!</p>
+<p>Quando olhamos os artigos acima, podemos ver que todos eles tem resultados <strong>descritivos</strong> e <strong>inferenciais</strong>. Discutiremos sobre estatística descritiva (de descrever - os dados amostrados para uma dada análise) e inferencial (de inferir - tirar conclusões a partir dos dados amostrados) no próximo tópico.</p>
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+<div id="atividade-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Atividade 1<a href="intro.html#atividade-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Busque um artigo do campo de seu interesse que utiliza a estatística.</strong></p>
+<ul>
+<li><p>Qual é o principal objetivo da pesquisa?</p></li>
+<li><p>Como a pesquisa foi realizada?</p></li>
+<li><p>Observe o que é descrito por meio de tabelas ou gráficos.</p></li>
+<li><p>Faça uma lista de termos que são relacionados à estatística.</p></li>
+</ul>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<p><lottie-player src="https://assets6.lottiefiles.com/packages/lf20_LKXG6QRgtE.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player></p>
+<blockquote>
+<p>Periódicos da área da Ciência dos Esportes</p>
+</blockquote>
+<ul>
+<li><p>RBFF - Revista Brasileira de Futsal e Futebol <a href="http://www.rbff.com.br" class="uri">http://www.rbff.com.br</a></p></li>
+<li><p>RBME - Revista Brasileira de Medicina do Esporte <a href="https://www.scielo.br/j/rbme" class="uri">https://www.scielo.br/j/rbme</a></p></li>
+<li><p>RBPE - Revista Brasileira de Psicologia do Esporte <a href="http://pepsic.bvsalud.org" class="uri">http://pepsic.bvsalud.org</a></p></li>
+</ul>
+<blockquote>
+<p>Periódicos da área de Medicina</p>
+</blockquote>
+<ul>
+<li><p>RBC - Revista Brasileira de Cancerologia <a href="https://rbc.inca.gov.br/index.php/revista" class="uri">https://rbc.inca.gov.br/index.php/revista</a></p></li>
+<li><p>RBCMS - Revista Brasileira de Ciências Médicas e da Saúde <a href="http://www.rbcms.com.br" class="uri">http://www.rbcms.com.br</a></p></li>
+<li><p>Revista da Associação Brasileira de Saúde Coletiva <a href="https://cienciaesaudecoletiva.com.br" class="uri">https://cienciaesaudecoletiva.com.br</a></p></li>
+</ul>
+<blockquote>
+<p>Periódicos da área de Piscologia</p>
+</blockquote>
+<ul>
+<li><p>Psicologia argumento <a href="https://periodicos.pucpr.br/psicologiaargumento" class="uri">https://periodicos.pucpr.br/psicologiaargumento</a></p></li>
+<li><p>Estudos de psicologia (Campinas) <a href="https://www.scielo.br/j/estpsi/" class="uri">https://www.scielo.br/j/estpsi/</a></p></li>
+<li><p>Psicologia em foco <a href="https://revistas.fw.uri.br/index.php/psicologiaemfoco" class="uri">https://revistas.fw.uri.br/index.php/psicologiaemfoco</a></p></li>
+</ul>
+<blockquote>
+<p>Ou busque na ferramenta <em>Mendeley</em> <a href="https://www.mendeley.com" class="uri">https://www.mendeley.com</a></p>
+</blockquote>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="definições-iniciais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": true,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["twitter", "linkedin", "whatsapp", "github", "facebook"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Livro-Estatistica+R.pdf", "Livro-Estatistica+R.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  },
+  "info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
