@@ -1,95 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Capítulo 12 Gráficos | Estatística + R</title>
-<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)">
-<meta name="generator" content="bookdown 0.42.2 with bs4_book()">
-<meta property="og:title" content="Capítulo 12 Gráficos | Estatística + R">
-<meta property="og:type" content="book">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Capítulo 12 Gráficos | Estatística + R">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
-    
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  </style>
-<meta name="description" content="Nesse link https://r-graph-gallery.com/ está algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos...">
-<meta property="og:description" content="Nesse link https://r-graph-gallery.com/ está algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos...">
-<meta name="twitter:description" content="Nesse link https://r-graph-gallery.com/ está algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos...">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 12 Gráficos | Estatística + R</title>
+  <meta name="description" content="Capítulo 12 Gráficos | Estatística + R" />
+  <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 12 Gráficos | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 12 Gráficos | Estatística + R" />
+  
+  
+  
+
+<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="instalando-pacotes.html"/>
+<link rel="next" href="distribuição-de-probabilidade.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Estatística + R</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
-    </div>
 
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Bem-vindos!</a></li>
-<li><a class="" href="intro.html"><span class="header-section-number">2</span> Introdução</a></li>
-<li><a class="" href="defini%C3%A7%C3%B5es-iniciais.html"><span class="header-section-number">3</span> Definições iniciais</a></li>
-<li><a class="" href="tamanho-da-amostra.html"><span class="header-section-number">4</span> Tamanho da amostra</a></li>
-<li><a class="" href="ambiente-computacional.html"><span class="header-section-number">5</span> Ambiente computacional</a></li>
-<li><a class="" href="trabalhando-RStudio.html"><span class="header-section-number">6</span> Trabalhando no RStudio</a></li>
-<li><a class="" href="primeiros-exerc%C3%ADcios-no-r.html"><span class="header-section-number">7</span> Primeiros exercícios no R</a></li>
-<li><a class="" href="tipos-de-vari%C3%A1veis.html"><span class="header-section-number">8</span> Tipos de variáveis</a></li>
-<li><a class="" href="estat%C3%ADstica-descritiva.html"><span class="header-section-number">9</span> Estatística descritiva</a></li>
-<li><a class="" href="importando-banco-de-dados.html"><span class="header-section-number">10</span> Importando banco de dados</a></li>
-<li><a class="" href="instalando-pacotes.html"><span class="header-section-number">11</span> Instalando pacotes</a></li>
-<li><a class="active" href="gr%C3%A1ficos.html"><span class="header-section-number">12</span> Gráficos</a></li>
-<li><a class="" href="distribui%C3%A7%C3%A3o-de-probabilidade.html"><span class="header-section-number">13</span> Distribuição de Probabilidade!</a></li>
-<li><a class="" href="refer%C3%AAncias.html">Referências</a></li>
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<h2><center>Estatística + R</center></h2>
+<center> roteiro de estudo </center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições iniciais</a></li>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da amostra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-2"><i class="fa fa-check"></i><b>4.1</b> Atividade 2</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>5</b> Ambiente computacional</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-r-e-rstudio"><i class="fa fa-check"></i><b>5.1</b> Plano A: Instalação R e RStudio</a></li>
+<li class="chapter" data-level="5.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-online"><i class="fa fa-check"></i><b>5.2</b> Plano B: R e RStudio online</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>6</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="7" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>7</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>7.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="7.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>7.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="7.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>7.3</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>8</b> Tipos de variáveis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>8.1</b> Atividade 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html"><i class="fa fa-check"></i><b>9</b> Estatística descritiva</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>9.1</b> Medidas de tendência central (ou posição)</a></li>
+<li class="chapter" data-level="9.2" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>9.2</b> Medidas de dispersão (ou variabilidade)</a></li>
+<li class="chapter" data-level="9.3" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>9.3</b> Medida relativa de variabilidade</a></li>
+<li class="chapter" data-level="9.4" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#funções-do-r"><i class="fa fa-check"></i><b>9.4</b> Funções do R</a></li>
+<li class="chapter" data-level="9.5" data-path="estatística-descritiva.html"><a href="estatística-descritiva.html#atividade-4"><i class="fa fa-check"></i><b>9.5</b> Atividade 4</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>10</b> Importando banco de dados</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>10.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="10.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>10.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="10.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>10.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="10.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>10.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="10.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>10.5</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>11</b> Instalando pacotes</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>11.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="11.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>11.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="11.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>11.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="11.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>11.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="11.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>11.5</b> Atividade 5</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>12</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>12.1</b> Histograma</a></li>
+<li class="chapter" data-level="12.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>12.2</b> Boxplot</a></li>
+<li class="chapter" data-level="12.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>12.3</b> Atividade 6</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>13</b> Distribuição de Probabilidade!</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="13.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#diagnóstico-de-normalidade-qq"><i class="fa fa-check"></i><b>13.2</b> Diagnóstico de Normalidade (QQ)</a></li>
+<li class="chapter" data-level="13.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>13.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
 </ul>
 
-        <div class="book-extra">
-          
-        </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gráficos" class="section level1" number="12">
-<h1>
-<span class="header-section-number">Capítulo 12</span> Gráficos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gráficos" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Capítulo 12</span> Gráficos<a href="gráficos.html#gráficos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kgyknvpj.json" background="transparent" speed="2" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kgyknvpj.json"  background="transparent"  speed="2"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 </center>
 <p>Nesse link <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> está algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos o pacote <strong>GGPlot2</strong> <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a>.</p>
 <p>Focaremos nossa atenção em dois gráficos específicos para variáveis quantitativas: <strong>Histograma</strong> e <strong>Boxplot</strong>, em nem faremos nada atrativo, usaremos o pacote básico do R que nos fornece as funções <strong>hist()</strong> e <strong>boxplot()</strong>, pois o nosso obtivo para esse momento é simplesmente estudar a importância desses gráficos.</p>
 <p>O que a gente levaria um tempinho… é simplesmente assim em código R:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">Batimentos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">62</span>, <span class="fl">55</span>, <span class="fl">56</span>, <span class="fl">46</span>, <span class="fl">75</span>, <span class="fl">67</span>, <span class="fl">62</span>, <span class="fl">75</span>, <span class="fl">60</span>, <span class="fl">54</span>, <span class="fl">69</span>, <span class="fl">63</span>, <span class="fl">39</span>, <span class="fl">57</span>, <span class="fl">40</span>, <span class="fl">39</span>, <span class="fl">64</span>, <span class="fl">71</span>, <span class="fl">61</span>, <span class="fl">54</span>, <span class="fl">120</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Para fazer o Histograma de Batimentos</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Batimentos</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">Batimentos</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="gráficos.html#cb22-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>, <span class="dv">120</span>)</span>
+<span id="cb22-2"><a href="gráficos.html#cb22-2" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="gráficos.html#cb22-3" tabindex="-1"></a><span class="co"># Para fazer o Histograma de Batimentos</span></span>
+<span id="cb22-4"><a href="gráficos.html#cb22-4" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)</span>
+<span id="cb22-5"><a href="gráficos.html#cb22-5" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="gráficos.html#cb22-6" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
+<span id="cb22-7"><a href="gráficos.html#cb22-7" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos)</span></code></pre></div>
 <p>Na área de gráficos (<strong>Plots</strong>), abaixo do ambiente de memória, serão mostrados os gráficos:</p>
 <blockquote>
 <p>Histograma</p>
 </blockquote>
-<div class="inline-figure"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <blockquote>
 <p>Boxplot</p>
 </blockquote>
-<div class="inline-figure"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <blockquote>
 <p>Observações</p>
 </blockquote>
@@ -97,10 +249,8 @@
 <li><p>Os gráficos mostram a informação batimentos de duas formas diferentes, mas elas estão relacionadas!</p></li>
 <li><p>Observe que eixo horizontal do histograma corresponde ao eixo vertical do boxplot</p></li>
 </ul>
-<div id="histograma" class="section level2" number="12.1">
-<h2>
-<span class="header-section-number">12.1</span> Histograma<a class="anchor" aria-label="anchor" href="#histograma"><i class="fas fa-link"></i></a>
-</h2>
+<div id="histograma" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Histograma<a href="gráficos.html#histograma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O histograma é um gráfico que usado para variáveis quantitativas contínua.</p>
 <p>O histograma pode nos dar uma noção do tipo de <strong>distribuição de probabibilidade</strong> que os dados seguem.</p>
 <p>A ideia desse gráfico é agrupar os dados em <strong>classes</strong> (cada barra do histograma é uma classe) e no eixo vertical tem-se a contagem (frequência) de quantos valores foram alocados em cada classe.</p>
@@ -118,19 +268,19 @@
 <li><p>A classe 110-120 possui 1 elemento, que é aquele valor discrepante em relação aos demais valores.</p></li>
 </ul>
 <p>Se não for fácil identificar as classes (eixo x) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Para obter as "quebras" de cada classe </span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Batimentos</span><span class="op">)</span><span class="op">$</span><span class="va">breaks</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="gráficos.html#cb23-1" tabindex="-1"></a><span class="co"># Para obter as &quot;quebras&quot; de cada classe </span></span>
+<span id="cb23-2"><a href="gráficos.html#cb23-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>breaks</span></code></pre></div>
 <p>Se não for fácil identificar as frequencias (eixo y) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Para obter a frequência em cada classe</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Batimentos</span><span class="op">)</span><span class="op">$</span><span class="va">count</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="gráficos.html#cb24-1" tabindex="-1"></a><span class="co"># Para obter a frequência em cada classe</span></span>
+<span id="cb24-2"><a href="gráficos.html#cb24-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>count</span></code></pre></div>
 <p>De fato, o que estamos lendo por meio do histograma é o que chamamos de <strong>tabela de frequência</strong>:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<table>
+<thead>
+<tr class="header">
 <th align="center">Classe</th>
 <th align="center">Frequência</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td align="center">30 - 40</td>
@@ -173,117 +323,138 @@
 <td align="center">21</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <ul>
 <li><p>Por meio do histograma ou da tabela podemos concluir que a classe modal (moda) é a classe de 60 - 70 batimentos;</p></li>
 <li><p>A frequência foi apresentada em termos absolutos mais pode ser transformada em frequência percentual.</p></li>
 <li><p>Quando estamos aprendendo a fazer um histograma manualmente, primeiro construímos essa tabela de frenquência, e para construí-la é necessário calcular o número ótimo de classes, umas das regras mais usada é a Regra Sturges (essa é opção padrão do R).</p></li>
 </ul>
 <p>Podemos usar o pacote básico R para melhorar a aparência desse gráfico.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">hisBat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">Batimentos</span>,</span>
-<span>               main <span class="op">=</span> <span class="st">"Histograma"</span>,</span>
-<span>               xlab <span class="op">=</span> <span class="st">"Batimentos cardíacos"</span>,</span>
-<span>               sub <span class="op">=</span> <span class="st">"por classes"</span>,</span>
-<span>               ylab <span class="op">=</span> <span class="st">"Frequência absoluta"</span>,</span>
-<span>               xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">120</span><span class="op">)</span>,</span>
-<span>               ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">8</span><span class="op">)</span>,</span>
-<span>               col <span class="op">=</span> <span class="st">"lightgreen"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/text.html">text</a></span><span class="op">(</span><span class="va">hisBat</span><span class="op">$</span><span class="va">mids</span>, <span class="va">hisBat</span><span class="op">$</span><span class="va">counts</span>, labels<span class="op">=</span><span class="va">hisBat</span><span class="op">$</span><span class="va">counts</span>, adj <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="op">-</span><span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># adicionar linha para indicar a média</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Batimentos</span><span class="op">)</span>,                      </span>
-<span>       col <span class="op">=</span> <span class="st">"red"</span>,</span>
-<span>       lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="gráficos.html#cb25-1" tabindex="-1"></a>hisBat <span class="ot">&lt;-</span> <span class="fu">hist</span>(Batimentos,</span>
+<span id="cb25-2"><a href="gráficos.html#cb25-2" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Histograma&quot;</span>,</span>
+<span id="cb25-3"><a href="gráficos.html#cb25-3" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;Batimentos cardíacos&quot;</span>,</span>
+<span id="cb25-4"><a href="gráficos.html#cb25-4" tabindex="-1"></a>               <span class="at">sub =</span> <span class="st">&quot;por classes&quot;</span>,</span>
+<span id="cb25-5"><a href="gráficos.html#cb25-5" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;Frequência absoluta&quot;</span>,</span>
+<span id="cb25-6"><a href="gráficos.html#cb25-6" tabindex="-1"></a>               <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">120</span>),</span>
+<span id="cb25-7"><a href="gráficos.html#cb25-7" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
+<span id="cb25-8"><a href="gráficos.html#cb25-8" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb25-9"><a href="gráficos.html#cb25-9" tabindex="-1"></a><span class="fu">text</span>(hisBat<span class="sc">$</span>mids, hisBat<span class="sc">$</span>counts, <span class="at">labels=</span>hisBat<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>))</span>
+<span id="cb25-10"><a href="gráficos.html#cb25-10" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="gráficos.html#cb25-11" tabindex="-1"></a><span class="co"># adicionar linha para indicar a média</span></span>
+<span id="cb25-12"><a href="gráficos.html#cb25-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(Batimentos),                      </span>
+<span id="cb25-13"><a href="gráficos.html#cb25-13" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb25-14"><a href="gráficos.html#cb25-14" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 </div>
-<div id="boxplot" class="section level2" number="12.2">
-<h2>
-<span class="header-section-number">12.2</span> Boxplot<a class="anchor" aria-label="anchor" href="#boxplot"><i class="fas fa-link"></i></a>
-</h2>
+<div id="boxplot" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Boxplot<a href="gráficos.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Boxplot ou diagrama de caixa, é um gráfico que mostra as medidas: menor valor, primeiro quartil, mediana, terceiro quartil e máximo valor.</p>
 <ul>
 <li>Valores discrepantes (<em>outliers</em>) são detectados pelo boxplot. Veja a figura:</li>
 </ul>
 <center>
 <div class="float">
-<img src="Boxplotexemplo.png" style="width:50.0%" alt="Figura: “Anatomia de um boxplot”"><div class="figcaption"><font size="2">Figura: “Anatomia de um boxplot”</font></div>
+<img src="Boxplotexemplo.png" style="width:50.0%" alt="Figura: “Anatomia de um boxplot”" />
+<div class="figcaption"><font size="2">Figura: “Anatomia de um boxplot”</font></div>
 </div>
 </center>
 <p>Essa figura foi retirada do site da Prof. Fernanda <a href="https://fernandafperes.com.br/blog/interpretacao-boxplot/" class="uri">https://fernandafperes.com.br/blog/interpretacao-boxplot/</a> (uma exelente referência para estudar estatística!)</p>
 <blockquote>
 <p>Geralmente eles são representados na vertical, mas também é comum a representação na horizontal.</p>
 </blockquote>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">Batimentos</span>, horizontal <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="gráficos.html#cb26-1" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
+<span id="cb26-2"><a href="gráficos.html#cb26-2" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <blockquote>
 <p>É uma forma de comparar dois grupos em relação a uma medida, por exemplo os batimentos cardiacos de grupo de homens e de mulheres</p>
 </blockquote>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Geração de amostras simuladas</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">BatimentosMulheres</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">70</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">BatimentosHomens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">75</span>, <span class="fl">8</span><span class="op">)</span></span>
-<span><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">BatimentosHomens</span>, <span class="va">BatimentosMulheres</span><span class="op">)</span></span></code></pre></div>
-<div class="inline-figure"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="gráficos.html#cb27-1" tabindex="-1"></a><span class="co"># Geração de amostras simuladas</span></span>
+<span id="cb27-2"><a href="gráficos.html#cb27-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb27-3"><a href="gráficos.html#cb27-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
+<span id="cb27-4"><a href="gráficos.html#cb27-4" tabindex="-1"></a>BatimentosHomens <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="dv">8</span>)</span>
+<span id="cb27-5"><a href="gráficos.html#cb27-5" tabindex="-1"></a><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
+<span id="cb27-6"><a href="gráficos.html#cb27-6" tabindex="-1"></a><span class="fu">boxplot</span>(BatimentosHomens, BatimentosMulheres)</span></code></pre></div>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <blockquote>
 <p>O boxplot também pode nos informar se uma distribuição de probabilidade é simétrica ou não. Analise os gráficos abaixo, veja a conexão entre histograma e boxplot.</p>
 </blockquote>
-<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-21-1.png" width="672"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-21-2.png" width="672"></p>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-21-1.png" width="672" /><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-21-2.png" width="672" /></p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   23.19   36.69   40.11   39.94   43.22   53.35</code></pre>
-<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-22-1.png" width="672"><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-22-2.png" width="672"></p>
+<p><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-22-1.png" width="672" /><img src="Livro-Estatistica+R_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   20.00   20.54   21.40   22.01   22.78   36.42</code></pre>
 <center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 </center>
 </div>
-<div id="atividade-6" class="section level2" number="12.3">
-<h2>
-<span class="header-section-number">12.3</span> Atividade 6<a class="anchor" aria-label="anchor" href="#atividade-6"><i class="fas fa-link"></i></a>
-</h2>
+<div id="atividade-6" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Atividade 6<a href="gráficos.html#atividade-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Para o banco de dados escolhido na atividade 5, faça gráficos como o histograma e boxplot, além disso, pesquise outras formas de fazer gráficos no R.</strong></p>
 
 </div>
 </div>
-  <div class="chapter-nav">
-<div class="prev"><a href="instalando-pacotes.html"><span class="header-section-number">11</span> Instalando pacotes</a></div>
-<div class="next"><a href="distribui%C3%A7%C3%A3o-de-probabilidade.html"><span class="header-section-number">13</span> Distribuição de Probabilidade!</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#gr%C3%A1ficos"><span class="header-section-number">12</span> Gráficos</a></li>
-<li><a class="nav-link" href="#histograma"><span class="header-section-number">12.1</span> Histograma</a></li>
-<li><a class="nav-link" href="#boxplot"><span class="header-section-number">12.2</span> Boxplot</a></li>
-<li><a class="nav-link" href="#atividade-6"><span class="header-section-number">12.3</span> Atividade 6</a></li>
-</ul>
+            </section>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-          
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Estatística + R</strong>" was written by Ana Paula Fernandes (DESCO/UFTM). It was last built on Atualizado em: 18/04/2025.</p>
+          </div>
+        </div>
+      </div>
+<a href="instalando-pacotes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distribuição-de-probabilidade.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
   </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["twitter", "linkedin", "whatsapp", "github", "facebook"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Livro-Estatistica+R.pdf", "Livro-Estatistica+R.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection",
+    "scroll_highlight": true
+  },
+  "info": false
+});
+});
+</script>
 
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -295,22 +466,7 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
 </script>
 </body>
+
 </html>
