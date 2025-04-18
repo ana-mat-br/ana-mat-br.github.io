@@ -2,11 +2,11 @@
 
 Uma distribuição de probabilidade é um modelo matemático que associa um dado valor de uma váriavel a sua probalibilidade de ocorrer.
 
-A **distribuição Normal** (ou Gaussiana) é uma das distribuições de probabilidade mais utilizadas na estatística. 
+A **distribuição Normal** (ou Gaussiana) é uma das distribuições de probabilidade mais utilizadas na estatística.
 
-Outras distribuições de probabilidade: Binomial, Poisson, Exponencial, Uniforme, Qui-quadrado, T-Student, Gama, Weibull, Lognormal... 
+Outras distribuições de probabilidade: Binomial, Poisson, Exponencial, Uniforme, Qui-quadrado, T-Student, Gama, Weibull, Lognormal...
 
-## Distribuição Normal 
+## Distribuição Normal
 
 A distribuição Normal pode ser usada para modelar muitos conjuntos de medidas na natureza, na indústria e nos negócios. Por exemplo, a pressão sanguínea sistólica dos humanos, a vida útil de televisões de plasma e até mesmo custos domésticos (LARSON, 2015).
 
@@ -14,41 +14,45 @@ A distribuição Normal pode ser usada para modelar muitos conjuntos de medidas 
 
 > Características da Distribuição Normal
 
-+ Tem forma de um sino
+-   Tem forma de um sino
 
-+ É simétrica em relação a média
+-   É simétrica em relação a média
 
-+ O valor da média, mediana e moda são iguais 
+-   O valor da média, mediana e moda são iguais
 
 > Para toda distribuição de probabilidade
 
-+ A área total abaixo da curva é igual a 1
+-   A área total abaixo da curva é igual a 1
 
-+ A área representa a probabilidade
+-   A área representa a probabilidade
 
-> Teoricamente o comportamento da Distribuição Normal é dado por: 
+> Teoricamente o comportamento da Distribuição Normal é dado por:
 
-<center>![<font size="2">Figura: Distribuição Normal teórica (Fonte: https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG)</font>](normalTeorica.png){width=80%}
+<center>
+
+![<font size="2">Figura: Distribuição Normal teórica (Fonte: <https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG>)</font>](normalTeorica.png){width="80%"}
+
 </center>
 
 Onde:
- 
- + A média está representada por $\mu$ 
- + O devio padrão está representado por $\sigma$
+
+-   A média está representada por $\mu$
+-   O devio padrão está representado por $\sigma$
 
 > Regra empirica 68% - 95% - 99,7%
 
-Se os dados seguem distribuição Normal podemos afirmar que 
+Se os dados seguem distribuição Normal podemos afirmar que
 
-  + 68% dos dados concentram se no intervalo: [ média - 1dp ; média - 1dp]
-  
-  + 95% dos dados concentram se noo intervalo: [ média - 2dp ; média - 2dp]
-  
-  + 99,7% dos dados concentram se noo intervalo: [ média - 3dp ; média - 3dp]
-  
+-   68% dos dados concentram se no intervalo: [ média - 1dp ; média - 1dp]
+
+-   95% dos dados concentram se noo intervalo: [ média - 2dp ; média - 2dp]
+
+-   99,7% dos dados concentram se noo intervalo: [ média - 3dp ; média - 3dp]
+
 Isso significa dizer que eventos que estão fora do intervalo [ média - 3dp ; média - 3dp] são eventos raros!
 
-> Exemplo de distribuição Normal, com dados simulados usado a função rnorm(). 
+> Exemplo de distribuição Normal, com dados simulados usado a função rnorm().
+
 ```{r}
 
 # semente de geração de números aleatórios 
@@ -87,56 +91,63 @@ sd(BatimentosMulheres)
 sd(BatimentosMulheres)/mean(BatimentosMulheres)*100
 ```
 
-> As funções **pnorm()** e **dnorm()**  é usada para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
+> As funções **pnorm()** e **dnorm()** é usada para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
 
-**Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp. 
+**Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp.
 
 Calcule as probabilidades:
 
-+ de uma mulher ter batimentos inferior a 70bmp, ou seja, $P(x<70)$:
+-   de uma mulher ter batimentos inferior a 70bmp, ou seja, $P(x<70)$:
+
 ```{r}
 # observação: a resposta é 0.5 pois a média 70.
 pnorm(70, 70, 3)
 ```
 
-+ de uma mulher ter batimentos superior a 70bmp, ou seja, $P(x>70)$:
+-   de uma mulher ter batimentos superior a 70bmp, ou seja, $P(x>70)$:
+
 ```{r}
 # observação: 1 é o valor da área total
 # a pnorm() fornece a área á esquerda
 1 - pnorm(70, 70, 3)
 ```
 
-+ de uma mulher ter batimentos igual a 70bmp, ou seja,  $P(x=70)$:
+-   de uma mulher ter batimentos igual a 70bmp, ou seja, $P(x=70)$:
+
 ```{r}
 dnorm(70, 70, 3)
 ```
- 
-+ de uma mulher ter batimentos entre 67 e 73bmp $P(67 < x < 73)$:
+
+-   de uma mulher ter batimentos entre 67 e 73bmp $P(67 < x < 73)$:
+
 ```{r}
 # Observe que estamos testando a regra empírica (68%)
 pnorm(73, 70, 3) - pnorm(67, 70, 3)
 ```
 
-+ de uma mulher ter batimentos entre 67 e 73bmp $P(64 < x < 76)$:
+-   de uma mulher ter batimentos entre 67 e 73bmp $P(64 < x < 76)$:
+
 ```{r}
 # Observe que estamos testando a regra empírica (95%)
 pnorm(76, 70, 3) - pnorm(64, 70, 3)
 ```
 
-+ de uma mulher ter batimentos entre 61 e 79bmp $P(61 < x < 79)$:
+-   de uma mulher ter batimentos entre 61 e 79bmp $P(61 < x < 79)$:
+
 ```{r}
 # Observe que estamos testando a regra empírica (99,7%)
 pnorm(79, 70, 3) - pnorm(61, 70, 3)
 ```
 
-+ de uma mulher ter batimentos maior que 90bmp $P(x > 90)$:
+-   de uma mulher ter batimentos maior que 90bmp $P(x > 90)$:
+
 ```{r}
 # Um evento raro
 1 - pnorm(90, 70, 3)
 ```
 
+-   de uma mulher ter batimentos menor que 65bmp $P(x < 65)$:
 
-+ de uma mulher ter batimentos menor que 65bmp $P(x < 65)$:
 ```{r}
 pnorm(65, 70, 3)
 ```
@@ -149,11 +160,12 @@ A ideia desse gráfico é comparar a distribuição da nossa amostra com uma **d
 
 > A característica da distribuição Normal Padrão é que ela tem média igual a zero e devio pardrão igual a 1.
 >
-> - Qualquer distribuição Normal pode ser convertida em uma distribuição Normal Padrão (por meio do cálculo escore z), é mais o menos o que o gráfico QQ faz.
->   
-> - O z escore é dado por: z = (valor - media)/dp 
+> -   Qualquer distribuição Normal pode ser convertida em uma distribuição Normal Padrão (por meio do cálculo escore z), é mais o menos o que o gráfico QQ faz.
+>
+> -   O z escore é dado por: z = (valor - media)/dp
 
 Veja um exemplo no R para uma distribuição normal padrão
+
 ```{r}
 set.seed(1)
 # rnorm(10000, 0, 1): normal padrão média 0, dp=1
@@ -165,15 +177,16 @@ axis(side = 1, at = seq(-3, 3, by = 1), labels = seq(-3, 3, by = 1))
 abline(v = mean(NormalPadrao), col = 2, lwd = 3)
 ```
 
-+ o intervalo -1 a 1 em torno da média: [ media - 1dp ; media + 1dp ]
+-   o intervalo -1 a 1 em torno da média: [ media - 1dp ; media + 1dp ]
 
-+ o intervalo -2 a 2 em torno da média: [ media - 2dp ; media + 2dp ]
+-   o intervalo -2 a 2 em torno da média: [ media - 2dp ; media + 2dp ]
 
-+ o intervalo -3 a 3 em torno da média: [ media - 3dp ; media + 3dp ]
+-   o intervalo -3 a 3 em torno da média: [ media - 3dp ; media + 3dp ]
 
 > Um gráfico QQ compara os quantis de uma amostra com os quantis de uma distribuição teórica normal. Se os pontos no gráfico seguirem uma linha reta, isso sugere que os dados são normalmente distribuídos.
 
 > Distrbuição normal é usada para dados contínuos!
+
 ```{r}
 # Gráfico QQ
 set.seed(1)
