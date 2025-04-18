@@ -12,8 +12,8 @@ bookdown::gitbook:
     edit: null
     download: ["pdf", "epub"]
     sharing:
-      twitter: true
-      linkedin: true
+      twitter: false
+      linkedin: false
       whatsapp: true
       github: true
       facebook: false
