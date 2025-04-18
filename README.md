@@ -56,5 +56,4 @@ Para mais informações sobre minha trajetória acadêmica, acesse meu [Currícu
 
 ------------------------------------------------------------------------
 
-**Atualizado em:** `r format(Sys.Date(), "%d/%m/%Y")` \
-👩 Desenvolvido por: **Ana Paula Fernandes (DESCO/UFTM)**
+Desenvolvido por: **Ana Paula Fernandes (DESCO/UFTM)**
