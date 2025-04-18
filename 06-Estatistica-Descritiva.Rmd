@@ -1,72 +1,131 @@
-# Estatística descritiva
+# Estatística Descritiva
 
-> Discutimos em sala de aula as medidas resumo
+A estatística descritiva permite **resumir, organizar e interpretar** dados de forma clara e objetiva. Para isso, utilizamos **medidas de tendência central**, **medidas de dispersão** e **medidas relativas de variabilidade**.
 
-## Medidas de tendência central (ou posição)
+## Medidas de Tendência Central (ou Posição)
 
-  + Média
-  
-  + Mediana e quartis
-  
-  + Moda
-  
-  > Veja o vídeo do Canal Pesquise <https://youtu.be/ot0aDB-grDY>
+### Média
 
-## Medidas de dispersão (ou variabilidade)
+- **Definição:** Soma de todos os valores dividida pelo número de observações.  
+- **Interpretação:** Representa o valor médio ou típico do conjunto de dados.  
+- **Como reportar:**  
 
-  + Aplitude (maior - menor)
-  
-  + Variância
-  
-  + Desvio padrão (DP)
-  
-  + Distância interquartil (terceiro quartil - primeiro quartil)
-  
-    > Veja o vídeo do Canal Pesquise <https://youtu.be/sISPcOIcwXs>
-  
-    > **IMPORTANTE** Para resumir os dados quantitativos devemos usar uma medida de tendência central e uma medida de variabilidade, assim escolhemos a forma mais ADEQUADA entre: 
-    > média (desvio padrão) ou 
-    > mediana (primeiro quartil; terceiro quartil)
-    
-## Medida relativa de variabilidade
-  
-  + Coeficiente de variação (CV) - quociente entre o desvio padrão e a média, geralmente expressamos em porcentagem (ou seja, multiplicamos essa divisão por 100\%).
-  
-  + O CV é um indicador da variabilidade de um conjunto de dados. 
-  
-    + O CV indica em % o quanto os dados que estamos analisando são homogêneos ou heterogêneos.
-    
-    + Um CV é considerado baixo (indicando um conjunto de dados razoavelmente homogêneo) quando for menor ou igual a 25%. Entretanto, esse padrão varia de acordo com a aplicação. 
-    
-        + Por exemplo, em medidas vitais (batimento cardíaco, temperatura corporal, etc) espera-se um CV muito menor do que 25% para que os dados sejam considerados homogêneos. Fonte: <http://www.leg.ufpr.br/~silvia/CE001/node24.html>
-    
-    + Pode ser difícil classificar um coeficiente de variação como baixo, médio, alto ou muito alto, no entanto, o CV é útil na comparação de duas variáveis de natureza diferentes.
-  
-## Funções do R
+> A média dos batimentos cardíacos foi de 58,6 bpm, indicando o valor médio da amostra analisada.
 
-Supondo que o objeto **x <- c(valor 1, valor 2, ..., valor n)** está na memória do R.
+### Mediana
 
-| Medida resumo           | Função básica do R|
-|:----------------------- |:-----------------|
-| média                   | mean(x)          |
-| mediana                 | median(x)        |
-| primeiro quartil        | quantile(x,0.25) |
-| terceiro quartil        | quantile(x,0.75) |
-| moda                    | table(x)         |
-| menor valor / mínimo    | min(x)           |
-| maior valor / máximo    | max(x)           |
-| resumo das medidas      | summary(x)       |
-| amplitude               | range(x)         |
-| variância               | var(x)           |
-| desvio padrão           | sd(x)            |
-| amplitude interquartil  | IQR(x)           |
-| coeficiente de variação | sd(x)/mean(x)    |
+- **Definição:** Valor central de um conjunto ordenado de dados.  
+- **Interpretação:** Divide o conjunto de dados ao meio, sendo útil quando há valores extremos (outliers).  
+- **Como reportar:**  
 
-+ *use sort(table(x)), use a função sort() para ordenar as ocorrências da menor para a maior, a maior ocorrência é a moda!
+> A mediana dos batimentos foi de 60,0 bpm, indicando que 50% dos indivíduos apresentaram valores abaixo ou iguais a esse valor.
 
-+ use a função **summary(x)** para obter, menor valor, média, mediana, primeiro e terceiro quartil e maior valor.
+### Quartis
 
-> **Viu como calcular é fácil?** Então, tenha em mente que o mais **importante é interpretar** essas medidas, ou seja, descrever o que essas medidas revelam sobre a amostra em estudo. 
+- **Definição:** Q1 (primeiro quartil) e Q3 (terceiro quartil) representam os valores que dividem os 25% e os 75% inferiores dos dados, respectivamente.  
+- **Interpretação:** Ajudam a entender a distribuição dos dados e identificar a dispersão em torno da mediana.  
+- **Como reportar:**  
+
+> O primeiro e o terceiro quartis foram 54,0 bpm e 64,0 bpm, respectivamente, revelando que 50% dos batimentos ficaram entre esses dois valores.
+
+### Moda
+
+- **Definição:** Valor mais frequente do conjunto de dados.  
+- **Interpretação:** Indica o valor mais comum, embora possa não existir ou haver mais de uma moda.  
+- **Como reportar:**  
+
+> A moda foi 62 bpm, valor que ocorreu com maior frequência na amostra.
+
+**Observação importante:**  
+- **Média e desvio padrão** são medidas que devem ser usadas juntas, especialmente para dados simétricos (distribuição simétrica) e sem valores extremos.
+- **Mediana e quartis** formam outro conjunto de medidas, mais apropriado quando há assimetria ou presença de outliers.
+
+**Sugestão de vídeo:** Canal Pesquise - [Tendência Central](https://youtu.be/ot0aDB-grDY)
+
+
+## Medidas de Dispersão (ou Variabilidade)
+
+### Amplitude
+
+- **Definição:** Diferença entre o maior e o menor valor.  
+- **Interpretação:** Indica o intervalo total em que os dados variam.  
+- **Como reportar:**  
+
+> A amplitude foi de 36 bpm, com valores variando de 39 a 75 bpm.
+
+### Variância
+
+- **Definição:** Média dos quadrados das diferenças entre os valores e a média.  
+- **Interpretação:** Mede a dispersão, mas sua unidade é o quadrado da unidade original.  
+- **Como reportar:**  
+
+> A variância foi de 98,8 bpm², indicando a variabilidade dos batimentos em relação à média.
+
+**Observação:**  
+A unidade da variância é expressa ao quadrado da unidade original dos dados (por exemplo, bpm² no caso de batimentos por minuto), o que pode dificultar sua interpretação direta.  
+Por isso, costuma-se utilizar o **desvio padrão**, que tem a **mesma unidade dos dados originais** e fornece uma noção mais intuitiva da dispersão dos valores em torno da média.
+
+
+### Desvio padrão (DP)
+
+- **Definição:** Raiz quadrada da variância.  
+- **Interpretação:** Expressa, em média, o quanto os dados se afastam da média.  
+- **Como reportar:**  
+
+**Como reportar:**  
+O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos cardíacos dos indivíduos da amostra variam aproximadamente 9,9 unidades em relação à média.
+
+### Amplitude interquartil (IQR)
+
+- **Definição:** Diferença entre o terceiro e o primeiro quartis (Q3 - Q1).  
+- **Interpretação:** Indica a dispersão dos 50% centrais dos dados.  
+- **Como reportar:**  
+
+> A amplitude interquartil foi de 10,0 bpm, mostrando a concentração dos valores médios.
+
+**Sugestão de vídeo:** Canal Pesquise - [Variabilidade](https://youtu.be/sISPcOIcwXs)
+
+
+## Medida Relativa de Variabilidade
+
+### Coeficiente de Variação (CV)
+
+- **Definição:** Quociente entre o desvio padrão e a média, multiplicado por 100.  
+- **Interpretação:** Expressa a variabilidade dos dados em relação à média, permitindo comparar conjuntos com unidades diferentes.  
+- **Como reportar:**  
+
+> O coeficiente de variação foi de 16,9%, indicando que os dados são relativamente homogêneos.
+
+**Observação:**  
+Um CV inferior a 25% geralmente indica homogeneidade; valores muito altos indicam alta variabilidade.
+
+
+## Funções no R
+
+Com um vetor `x` contendo os dados, utilize:
+
+| Medida                      | Código R                    |
+|----------------------------|-----------------------------|
+| Média                      | `mean(x)`                   |
+| Mediana                    | `median(x)`                 |
+| Primeiro quartil (Q1)      | `quantile(x, 0.25)`         |
+| Terceiro quartil (Q3)      | `quantile(x, 0.75)`         |
+| Moda                       | `sort(table(x))`            |
+| Menor valor                | `min(x)`                    |
+| Maior valor                | `max(x)`                    |
+| Resumo geral               | `summary(x)`                |
+| Amplitude                  | `range(x)`                  |
+| Variância                  | `var(x)`                    |
+| Desvio padrão              | `sd(x)`                     |
+| Amplitude interquartil     | `IQR(x)`                    |
+| Coeficiente de variação    | `sd(x)/mean(x)*100`         |
+
+
+## Dica Final
+
+Calcular é importante, mas interpretar corretamente é essencial.  
+Ao elaborar seu relatório, descreva o que os números revelam sobre o fenômeno analisado.
+
 
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -94,9 +153,15 @@ Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 
    
 + Escreva sobre o conjunto media e desvio padrão: 
 
+> A média dos dados foi de X (unidade), com um desvio padrão de Y (unidade), indicando que os valores estão, em geral, relativamente próximos/espalhados em torno da média. O desvio padrão reflete a quantidade de variabilidade ou dispersão dos dados em relação à média, e neste caso, a dispersão é baixa/média/alta, dependendo do valor de Y.
+
 + Escreva sobre conjunto mediana e quartis:
 
+> A mediana foi Z (unidade), e o intervalo interquartil (IQR), que representa a diferença entre o terceiro quartil (Q3) e o primeiro quartil (Q1), foi Q3 - Q1 (unidade). Isso indica que 50% dos dados estão concentrados nesse intervalo.
+
 + Escreva sobre o coeficiente de variação: 
+
+> O coeficiente de variação (CV) foi calculado como X%, o que reflete a dispersão relativa dos dados em relação à média. Valores mais baixos de CV indicam que os dados estão mais concentrados em torno da média, enquanto valores mais altos indicam uma maior dispersão.
 
 + Acrescente mais uma amostra com valor de batimento igual a 120, recalcule as medidas acima. Qual conjunto você consideraria mais adequado para resumir sua amostra, na presença desse valor discrepante (_outlier_)? A média (DP) ou mediana (1o.Q ; 3o.Q)? Explique.
 

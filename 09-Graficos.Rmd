@@ -30,6 +30,7 @@ Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 
 hist(Batimentos)
 ```
 
+
 > Boxplot
 
 ```{r echo=FALSE}
@@ -160,12 +161,8 @@ hist(simetrica,
      main="Distribuição SIMÉTRICA",
      xlab = "",
      ylab="")
-abline(v = mean(simetrica),                      
-       col = "red",
-       lwd = 3)
-boxplot(simetrica, horizontal = T)
-summary(simetrica)
 ```
+
 
 
 ```{r echo=FALSE}
