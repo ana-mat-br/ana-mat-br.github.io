@@ -13,7 +13,7 @@ bookdown::gitbook:
     download: ["pdf", "epub"]
     sharing:
       twitter: false
-      linkedin: false
+      linkedin: true
       whatsapp: true
       github: true
       facebook: false
@@ -21,7 +21,7 @@ bookdown::gitbook:
       instapaper: false
       vk: false
       all: ['twitter', 'linkedin', 'whatsapp', 'github', 'facebook']
-    info: false
+    info: true
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
