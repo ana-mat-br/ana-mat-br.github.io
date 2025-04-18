@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 10 Importando banco de dados | Estatística + R</title>
-  <meta name="description" content="Capítulo 10 Importando banco de dados | Estatística + R" />
+  <title>Capítulo 9 Estatística descritiva | Estatística + R</title>
+  <meta name="description" content="Capítulo 9 Estatística descritiva | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 10 Importando banco de dados | Estatística + R" />
+  <meta property="og:title" content="Capítulo 9 Estatística descritiva | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 10 Importando banco de dados | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 9 Estatística descritiva | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estatística-descritiva-2.html"/>
-<link rel="next" href="instalando-pacotes.html"/>
+<link rel="prev" href="tipos-de-variáveis.html"/>
+<link rel="next" href="importando-banco-de-dados.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -252,119 +252,154 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importando-banco-de-dados" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Capítulo 10</span> Importando banco de dados<a href="importando-banco-de-dados.html#importando-banco-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Na prática, os dados que vamos analisar estarão armazenado em um <strong>banco de dados</strong>, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:</p>
-<ul>
-<li><p>Arquivo do tipo Excel (xls ou xlsx)</p></li>
-<li><p>Arquivo de texto separado por vírgulas (csv - <em>comma-separated values</em>)</p></li>
-</ul>
+<div id="estatística-descritiva-2" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Capítulo 9</span> Estatística descritiva<a href="estatística-descritiva-2.html#estatística-descritiva-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
-<p>Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:</p>
+<p>Discutimos em sala de aula as medidas resumo</p>
 </blockquote>
+<div id="medidas-de-tendência-central-ou-posição" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Medidas de tendência central (ou posição)<a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>DataSus: <a href="https://datasus.saude.gov.br/transferencia-de-arquivos" class="uri">https://datasus.saude.gov.br/transferencia-de-arquivos</a></p></li>
-<li><p>OMS: <a href="https://www.who.int/data/collections" class="uri">https://www.who.int/data/collections</a></p></li>
-<li><p>Kaggle: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a></p></li>
+<li><p>Média</p></li>
+<li><p>Mediana e quartis</p></li>
+<li><p>Moda</p></li>
 </ul>
 <blockquote>
-<p>No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <a href="https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st" class="uri">https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st</a></p>
+<p>Veja o vídeo do Canal Pesquise <a href="https://youtu.be/ot0aDB-grDY" class="uri">https://youtu.be/ot0aDB-grDY</a></p>
 </blockquote>
-<div id="importando-um-banco-csv" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Importando um banco csv<a href="importando-banco-de-dados.html#importando-um-banco-csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li><p>Faça <em>download</em> do banco de dados <strong>mcdonald.csv</strong>
-(fonte original: <a href="https://www.kaggle.com/datasets/mcdonalds/nutrition-facts" class="uri">https://www.kaggle.com/datasets/mcdonalds/nutrition-facts</a>)</p></li>
-<li><p>Na área de ambinete de memória, localize <strong>Import Dataset</strong>, ao clicar nessa opção você terá o seguinte:</p></li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
 </div>
-</center>
+<div id="medidas-de-dispersão-ou-variabilidade" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Medidas de dispersão (ou variabilidade)<a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>Como queremos importar um arquivo csv, a melhor opção é a segunda <strong>From Text (readr)</strong></p></li>
-<li><p><strong><em>readr</em></strong> é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)</p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Clicando na opção <strong>From Text (readr)</strong>, no botão <strong>browser</strong> indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportBrowser.png" alt=" Figura: Prévia dos dados" />
-<div class="figcaption"><font size="2"> Figura: Prévia dos dados</font></div>
-</div>
-</center>
-<ul>
-<li><p>No quadro <strong>Data Preview</strong>, temos uma “prévia” com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.</p></li>
-<li><p>No quadro <strong>Import Options</strong> temos as opções de importação, fique atento ao <strong>Name</strong> do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (’, ~ ou ç), é até permitido usar alguns desses caracteres especiais, mas evite.</p></li>
-<li><p>Ainda no quadro <strong>Import Options</strong>, observe que a opção <strong>Open Data Viewer</strong> está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.</p></li>
-<li><p>O quadro <strong>Code Preview</strong> mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.</p></li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Clique no botão <strong>Import</strong> e observe que no ambiente de memória será criado o objeto do tipo <strong>Data</strong> com o nome do banco de dados que foi importado.</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportObjetoData.png" style="width:60.0%" alt=" Figura: Import dataset" />
-<div class="figcaption"><font size="2"> Figura: Import dataset</font></div>
-</div>
-</center>
-<ul>
-<li><p>Observe que esse objeto do tipo <strong>Data</strong> é diferente dos objetos do tipo <strong>Values</strong> que vimos nos exemplos iniciais.</p></li>
-<li><p>Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!</p></li>
-</ul>
-</div>
-<div id="importando-um-banco-xls" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Importando um banco xls<a href="importando-banco-de-dados.html#importando-um-banco-xls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Na área de ambiente de memória, localize <strong>Import Dataset</strong>, ao clicar sobre essa opção, escolha <strong>From Excel…</strong></p>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
-</div>
-</center>
-<ul>
-<li>Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (<strong>readxl</strong>)! O RStudio mostrará um aviso parecido com este:</li>
-</ul>
-<center>
-<div class="float">
-<img src="telaImportPacote.png" style="width:40.0%" alt=" Figura: Aviso para instalação de pacote" />
-<div class="figcaption"><font size="2"> Figura: Aviso para instalação de pacote</font></div>
-</div>
-</center>
-</div>
-<div id="exemplo-1-1" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Exemplo 1<a href="importando-banco-de-dados.html#exemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como obter a média da variável <strong>Calories</strong> que é uma coluna do objeto <strong>mcdonald</strong>, que por sua vez, é um objeto do tipo <strong>Data</strong>?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="importando-banco-de-dados.html#cb13-1" tabindex="-1"></a><span class="co"># Usamos o operador $</span></span>
-<span id="cb13-2"><a href="importando-banco-de-dados.html#cb13-2" tabindex="-1"></a><span class="co"># Para calcular a média precisamos informar para função: </span></span>
-<span id="cb13-3"><a href="importando-banco-de-dados.html#cb13-3" tabindex="-1"></a><span class="co"># mean( NOME DO BANCO $ NOME DA COLUNA ): </span></span>
-<span id="cb13-4"><a href="importando-banco-de-dados.html#cb13-4" tabindex="-1"></a><span class="fu">mean</span>(mcdonald<span class="sc">$</span>Calories)</span></code></pre></div>
-</div>
-<div id="exemplo-2-1" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Exemplo 2<a href="importando-banco-de-dados.html#exemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como armazenar os valores de uma variável (coluna), em um objeto do tipo <strong>Values</strong> e depois calcular a média?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="importando-banco-de-dados.html#cb14-1" tabindex="-1"></a><span class="co"># Uso o operador &lt;- </span></span>
-<span id="cb14-2"><a href="importando-banco-de-dados.html#cb14-2" tabindex="-1"></a><span class="co"># Criamos o objeto </span></span>
-<span id="cb14-3"><a href="importando-banco-de-dados.html#cb14-3" tabindex="-1"></a>caloria <span class="ot">&lt;-</span> mcdonald<span class="sc">$</span>Calories</span>
-<span id="cb14-4"><a href="importando-banco-de-dados.html#cb14-4" tabindex="-1"></a><span class="co"># Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão</span></span>
-<span id="cb14-5"><a href="importando-banco-de-dados.html#cb14-5" tabindex="-1"></a><span class="fu">mean</span>(caloria)</span>
-<span id="cb14-6"><a href="importando-banco-de-dados.html#cb14-6" tabindex="-1"></a><span class="fu">sd</span>(caloria)</span></code></pre></div>
-</div>
-<div id="exemplo-3-1" class="section level2 hasAnchor" number="10.5">
-<h2><span class="header-section-number">10.5</span> Exemplo 3<a href="importando-banco-de-dados.html#exemplo-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O que acontece se usamos a função <strong>summary()</strong> para o objeto <strong>mcdonald</strong>, sem usar o operador, isto é sem indicar uma variável?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importando-banco-de-dados.html#cb15-1" tabindex="-1"></a><span class="co"># No console será mostrado o resumo de todas as variáveis do banco!</span></span>
-<span id="cb15-2"><a href="importando-banco-de-dados.html#cb15-2" tabindex="-1"></a><span class="fu">summary</span>(mcdonald)</span></code></pre></div>
+<li><p>Aplitude (maior - menor)</p></li>
+<li><p>Variância</p></li>
+<li><p>Desvio padrão (DP)</p></li>
+<li><p>Distância interquartil (terceiro quartil - primeiro quartil)</p>
 <blockquote>
-<p>Essa forma de obter os resultados não é a melhor forma, vamos <strong>instalar um pacote</strong> para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto.</p>
+<p>Veja o vídeo do Canal Pesquise <a href="https://youtu.be/sISPcOIcwXs" class="uri">https://youtu.be/sISPcOIcwXs</a></p>
+</blockquote>
+<blockquote>
+<p><strong>IMPORTANTE</strong> Para resumir os dados quantitativos devemos usar uma medida de tendência central e uma medida de variabilidade, assim escolhemos a forma mais ADEQUADA entre:
+média (desvio padrão) ou
+mediana (primeiro quartil; terceiro quartil)</p>
+</blockquote></li>
+</ul>
+</div>
+<div id="medida-relativa-de-variabilidade" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Medida relativa de variabilidade<a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Coeficiente de variação (CV) - quociente entre o desvio padrão e a média, geralmente expressamos em porcentagem (ou seja, multiplicamos essa divisão por 100%).</p></li>
+<li><p>O CV é um indicador da variabilidade de um conjunto de dados.</p>
+<ul>
+<li><p>O CV indica em % o quanto os dados que estamos analisando são homogêneos ou heterogêneos.</p></li>
+<li><p>Um CV é considerado baixo (indicando um conjunto de dados razoavelmente homogêneo) quando for menor ou igual a 25%. Entretanto, esse padrão varia de acordo com a aplicação.</p>
+<ul>
+<li>Por exemplo, em medidas vitais (batimento cardíaco, temperatura corporal, etc) espera-se um CV muito menor do que 25% para que os dados sejam considerados homogêneos. Fonte: <a href="http://www.leg.ufpr.br/~silvia/CE001/node24.html" class="uri">http://www.leg.ufpr.br/~silvia/CE001/node24.html</a></li>
+</ul></li>
+<li><p>Pode ser difícil classificar um coeficiente de variação como baixo, médio, alto ou muito alto, no entanto, o CV é útil na comparação de duas variáveis de natureza diferentes.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="funções-do-r" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Funções do R<a href="estatística-descritiva-2.html#funções-do-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Supondo que o objeto <strong>x &lt;- c(valor 1, valor 2, …, valor n)</strong> está na memória do R.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Medida resumo</th>
+<th align="left">Função básica do R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">média</td>
+<td align="left">mean(x)</td>
+</tr>
+<tr class="even">
+<td align="left">mediana</td>
+<td align="left">median(x)</td>
+</tr>
+<tr class="odd">
+<td align="left">primeiro quartil</td>
+<td align="left">quantile(x,0.25)</td>
+</tr>
+<tr class="even">
+<td align="left">terceiro quartil</td>
+<td align="left">quantile(x,0.75)</td>
+</tr>
+<tr class="odd">
+<td align="left">moda</td>
+<td align="left">table(x)</td>
+</tr>
+<tr class="even">
+<td align="left">menor valor / mínimo</td>
+<td align="left">min(x)</td>
+</tr>
+<tr class="odd">
+<td align="left">maior valor / máximo</td>
+<td align="left">max(x)</td>
+</tr>
+<tr class="even">
+<td align="left">resumo das medidas</td>
+<td align="left">summary(x)</td>
+</tr>
+<tr class="odd">
+<td align="left">amplitude</td>
+<td align="left">range(x)</td>
+</tr>
+<tr class="even">
+<td align="left">variância</td>
+<td align="left">var(x)</td>
+</tr>
+<tr class="odd">
+<td align="left">desvio padrão</td>
+<td align="left">sd(x)</td>
+</tr>
+<tr class="even">
+<td align="left">amplitude interquartil</td>
+<td align="left">IQR(x)</td>
+</tr>
+<tr class="odd">
+<td align="left">coeficiente de variação</td>
+<td align="left">sd(x)/mean(x)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>*use sort(table(x)), use a função sort() para ordenar as ocorrências da menor para a maior, a maior ocorrência é a moda!</p></li>
+<li><p>use a função <strong>summary(x)</strong> para obter, menor valor, média, mediana, primeiro e terceiro quartil e maior valor.</p></li>
+</ul>
+<blockquote>
+<p><strong>Viu como calcular é fácil?</strong> Então, tenha em mente que o mais <strong>importante é interpretar</strong> essas medidas, ou seja, descrever o que essas medidas revelam sobre a amostra em estudo.</p>
 </blockquote>
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ynsr82zq.json"  background="transparent"  speed="2"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 </center>
+</div>
+<div id="atividade-4" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Atividade 4<a href="estatística-descritiva-2.html#atividade-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Considere o objeto Batimentos, que é uma amostra de batimentos cardíacos de 20 homens.</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="estatística-descritiva-2.html#cb12-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>)</span></code></pre></div>
+<ul>
+<li><p>Obtenha as seguintes medidas:</p>
+<ul>
+<li>Menor valor:</li>
+<li>Maior valor:</li>
+<li>Média:</li>
+<li>Mediana:</li>
+<li>Primeiro quartil:</li>
+<li>Terceiro quartil:</li>
+<li>Variância:</li>
+<li>Desvio padrão:</li>
+<li>Amplitude interquartil:</li>
+<li>Coeficiente de varição:</li>
+</ul></li>
+<li><p>Escreva sobre o conjunto media e desvio padrão:</p></li>
+<li><p>Escreva sobre conjunto mediana e quartis:</p></li>
+<li><p>Escreva sobre o coeficiente de variação:</p></li>
+<li><p>Acrescente mais uma amostra com valor de batimento igual a 120, recalcule as medidas acima. Qual conjunto você consideraria mais adequado para resumir sua amostra, na presença desse valor discrepante (<em>outlier</em>)? A média (DP) ou mediana (1o.Q ; 3o.Q)? Explique.</p></li>
+</ul>
 
 </div>
 </div>
@@ -373,8 +408,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="estatística-descritiva-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="instalando-pacotes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tipos-de-variáveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importando-banco-de-dados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,36 +1,57 @@
-# Tipos de variáveis
+# Tipos de Variáveis
 
-A natureza das variáveis (ou dados) são
+As variáveis podem ser classificadas de acordo com sua natureza:
 
-+ **Quantitativa** - expressa quantidade 
+## Variáveis Quantitativas
+Expressam **quantidade** e podem ser divididas em:
 
-   + Discreta - assume valores inteiros (contagem) 
- 
-   + Contínua - assume qualquer valor de um dado intervalo (mensuração)
+- **Discreta**: Assume valores inteiros (contagem).
+  - *Exemplo*: O número de filhos de uma pessoa. Você pode contar 0, 1, 2, 3 filhos, mas não pode ter 2,5 filhos.
   
-+ **Qualitativa** - expressa qualidade (categorias, rótulos)
+- **Contínua**: Assume qualquer valor dentro de um intervalo específico (mensuração).
+  - *Exemplo*: A altura de uma pessoa, que pode ser 1,70 m, 1,71 m, 1,711 m, e assim por diante, com infinitas possibilidades entre os valores.
 
-  + Nominal -  categorias que não podem ser ordenadas 
+## Variáveis Qualitativas
+Expressam **qualidade** e são representadas por **categorias** ou **rótulos**. São subdivididas em:
+
+- **Nominal**: Categorias que não podem ser ordenadas.
+  - *Exemplo*: O tipo de fruta que você prefere, como maçã, banana, laranja. Não faz sentido ordenar essas categorias de maneira que uma seja "maior" que a outra.
   
-  + Ordinal -  categorias que podem ser ordenadas, existe uma graduação entre as categorias.
+- **Ordinal**: Categorias que podem ser ordenadas, com uma graduação entre elas.
+  - *Exemplo*: Níveis de satisfação de um serviço, como "satisfeito", "neutro" e "insatisfeito". Aqui, existe uma ordem em que "satisfeito" é maior que "neutro", e "neutro" é maior que "insatisfeito".
 
+Uma aplicação comum das variáveis ordinais é a **Escala Likert**, que é amplamente utilizada em pesquisas de opinião para medir atitudes ou percepções. A escala Likert geralmente apresenta uma série de afirmativas, e o participante deve indicar seu nível de concordância com cada uma delas, com respostas em uma sequência ordenada.
 
-> Veja o vídeo do Prof. Heitor no **Canal Pesquise**: <https://youtu.be/_oc37Ea_tl8>!
+*Exemplo*: Em uma pesquisa de satisfação de clientes, a pergunta poderia ser: "Concordo que a alimentação oferecida pelo hospital foi satisfatória." As opções de resposta poderiam ser:
 
+1. **Discordo totalmente**
+2. **Discordo parcialmente**
+3. **Neutro**
+4. **Concordo parcialmente**
+5. **Concordo totalmente**
 
-O procedimento estatístico que iremos realizar depende da natureza da variável que estamos analizado, por exemplo:
+Essas respostas formam uma escala ordinal, pois a ordem das categorias reflete um aumento no nível de concordância, mas as diferenças entre elas não são necessariamente iguais.
 
-+ Na estatística descritiva:
+> **Dica**: Veja o vídeo do Prof. Heitor no **Canal Pesquise**: [Assista aqui](https://youtu.be/_oc37Ea_tl8).
 
-   + as variáveis qualitativas são representadas por sua frequência absoluta ou percentual;
-   
-   + as variáveis quantitativas são representadas por medidas resumo, como por exemplo, média e desvio padrão.
+## Aplicação das Variáveis em Estatística
 
-+ Na estatística inferencial:
+A natureza da variável influencia o tipo de procedimento estatístico que será utilizado. Exemplos:
 
-   + o teste Qui-quadrado é o teste de hipótese que tem como objetivo verificar se existe ou não associação entre as categorias de duas variáveis, como estamos falando de categorias, esse teste é aplicado a variáveis de natureza qualitativa.
+### Estatística Descritiva:
+- **Variáveis Qualitativas**: São representadas por sua **frequência absoluta** ou **percentual**.
+  - *Exemplo*: Em uma pesquisa de preferência de frutas, pode-se dizer que 40% das pessoas escolheram maçã, 35% escolheram banana, e 25% escolheram laranja.
+  
+- **Variáveis Quantitativas**: São representadas por **medidas resumo**, como **média** e **desvio padrão**.
+  - *Exemplo*: Se você calcular a média de altura de um grupo de pessoas, e o desvio padrão indicar que a altura das pessoas varia em torno de 5 cm da média.
 
-   + o teste de correlação de Pearson, mede a força da correlação linear entre duas variáveis, é aplicado à variáveis quantitativas.
+### Estatística Inferencial:
+- **Teste Qui-Quadrado**: Usado para verificar se há associação entre as categorias de duas variáveis qualitativas.
+  - *Exemplo*: Um teste Qui-Quadrado poderia ser utilizado para verificar se a escolha de fruta (maçã, banana, laranja) tem relação com o sexo (masculino, feminino) dos participantes.
+
+- **Teste de Correlação de Pearson**: Mede a força da correlação linear entre duas variáveis quantitativas.
+  - *Exemplo*: O teste de Pearson poderia ser utilizado para verificar se existe uma relação entre a altura e o peso das pessoas. Quanto maior a altura, maior o peso? Esse teste nos diria a força dessa relação.
+
 
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -38,13 +59,18 @@ O procedimento estatístico que iremos realizar depende da natureza da variável
 </center>
 ## Atividade 3
 
-**Veja o artigo _Estado  nutricional,  tempo  de  internação  e  mortalidade em  pacientes  submetidos  à  cirurgia  cardíaca  em  um hospital na cidade de Maceió_  <https://www.rasbran.com.br/rasbran/article/view/1724/443> publicado na RASBRAN, Revista da Associação Brasileira de Nutrição em 2023 (https://www.rasbran.com.br/).**
+**Leia o artigo _Estado nutricional, tempo de internação e mortalidade em pacientes submetidos à cirurgia cardíaca em um hospital na cidade de Maceió_**  
+Disponível em: [RASBRAN, Revista da Associação Brasileira de Nutrição, 2023](https://www.rasbran.com.br/rasbran/article/view/1724/443)  
+Acesse também o portal: [RASBRAN - Revista da Associação Brasileira de Nutrição](https://www.rasbran.com.br/).
 
-+ A **Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca**, é uma tabela descritiva para amostra que foi analisada na pesquisa. 
+### Análise das Tabelas
 
-   + Classique as variáveis (características) em qualitativa e quantitativa e observe atentamente como elas foram resumidas (Em porcetagens? Pela média e o desvio padrão?).
+- **Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca**: Esta tabela apresenta as características da amostra analisada na pesquisa. 
+  - **Tarefa**: Classifique as variáveis (características) em **qualitativas** e **quantitativas**.
+  - **Observação**: Verifique como as variáveis foram resumidas. Elas foram apresentadas em **porcentagens**? Ou foram calculadas medidas de **média** e **desvio padrão**?
 
+- **Tabela 2 - Associação entre estado nutricional, sexo, idade e tempo de internação hospitalar entre os pacientes submetidos à cirurgia cardíaca**  
+- **Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca**: Estas tabelas mostram os resultados de um **teste de hipótese** (parte da estatística inferencial).
+  - **Tarefa**: Identifique qual **teste estatístico** foi aplicado.
+  - **Objetivo**: Qual é o objetivo deste teste?
 
-+ A **Tabela  2 - Associação  entre  estado  nutricional,  sexo,  idade  e  tempo  de  internação  hospitalar  entre  os  pacientes  submetidos  à  cirurgia cardíaca** e **Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca** são tabelas que mostram o resultado de um teste de hipótese (estatística inferencial). 
-
-    + Qual teste estatístico foi aplicado? Qual o objetivo deste teste?

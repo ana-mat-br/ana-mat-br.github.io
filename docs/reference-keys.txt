@@ -28,8 +28,14 @@ exemplo-1
 exemplo-2
 exemplo-3
 tipos-de-variáveis
-atividade-3
+variáveis-quantitativas
+variáveis-qualitativas
+aplicação-das-variáveis-em-estatística
 estatística-descritiva-1
+estatística-inferencial-1
+atividade-3
+análise-das-tabelas
+estatística-descritiva-2
 medidas-de-tendência-central-ou-posição
 medidas-de-dispersão-ou-variabilidade
 medida-relativa-de-variabilidade
