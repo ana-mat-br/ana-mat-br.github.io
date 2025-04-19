@@ -1,8 +1,9 @@
 bookdown::gitbook:
   highlight: haddock
   config:
+    language: pt
     toc:
-      collapse: subsection
+      collapse: section
       scroll_highlight: true
       before: |
         <h2><center>Estatística + R</center></h2>

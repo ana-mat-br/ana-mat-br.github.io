@@ -1,32 +1,41 @@
-# Distribuição de Probabilidade!
+# Distribuição de Probabilidade
 
-Uma distribuição de probabilidade é um modelo matemático que associa um dado valor de uma váriavel a sua probalibilidade de ocorrer.
+Uma distribuição de probabilidade é um modelo matemático que descreve a relação entre os valores possíveis de uma variável e as probabilidades de ocorrência desses valores. Essencialmente, ela nos permite prever a probabilidade de eventos com base em um conjunto de dados.
 
-A **distribuição Normal** (ou Gaussiana) é uma das distribuições de probabilidade mais utilizadas na estatística.
+Entre as distribuições mais comuns, destacam-se:
 
-Outras distribuições de probabilidade: Binomial, Poisson, Exponencial, Uniforme, Qui-quadrado, T-Student, Gama, Weibull, Lognormal...
+- Distribuição Normal (ou Gaussiana)
+- Distribuição Binomial
+- Distribuição Poisson
+- Distribuição Exponencial
+- Distribuição Uniforme
+- Distribuição Qui-quadrado
+- Distribuição t-Student
+- Distribuição Gama, entre outras.
+
+Cada tipo de distribuição possui características próprias e é aplicada em diferentes contextos. A distribuição normal é uma das mais amplamente utilizadas, especialmente para modelar fenômenos naturais e sociais, como a altura de indivíduos ou o tempo de vida de produtos.
+
+> **Propriedades Gerais das Distribuições de Probabilidade**
+
+- **Área total sob a curva é igual a 1:** Isso significa que a soma de todas as probabilidades possíveis de ocorrência dos eventos é igual a 100%.
+- **A área sob a curva representa a probabilidade de um evento.** Por exemplo, a probabilidade de um evento ocorrer entre dois valores quaisquer pode ser calculada pela área sob a curva entre esses dois pontos.
 
 ## Distribuição Normal
 
-A distribuição Normal pode ser usada para modelar muitos conjuntos de medidas na natureza, na indústria e nos negócios. Por exemplo, a pressão sanguínea sistólica dos humanos, a vida útil de televisões de plasma e até mesmo custos domésticos (LARSON, 2015).
+A distribuição normal é uma das mais conhecidas na estatística. Ela modela fenômenos que seguem um comportamento simétrico em torno de uma média. A distribuição normal tem várias aplicações, desde a análise de medidas biológicas (como a pressão arterial) até a previsão de fenômenos econômicos (como o preço das ações).
 
-**A distribuição Normal é definida por dois parâmetros: média e desvio padrão.**
+> **A distribuição normal é definida por dois parâmetros principais:**
 
-> Características da Distribuição Normal
+- **Média (μ):** Representa o valor central da distribuição.
+- **Desvio Padrão (σ):** Mede a dispersão dos dados em relação à média.
 
--   Tem forma de um sino
+> **Características da Distribuição Normal**
 
--   É simétrica em relação a média
+- **Forma de sino:** A distribuição normal tem a forma de um sino simétrico, com a maior concentração de dados perto da média.
+- **Simetria:** A distribuição é simétrica em relação à média.
+- **Média, Mediana e Moda:** Para uma distribuição normal, a média, mediana e moda são "iguais" e localizam-se no centro da distribuição.
 
--   O valor da média, mediana e moda são iguais
-
-> Para toda distribuição de probabilidade
-
--   A área total abaixo da curva é igual a 1
-
--   A área representa a probabilidade
-
-> Teoricamente o comportamento da Distribuição Normal é dado por:
+> **Teoricamente o comportamento da Distribuição Normal é dado por:**
 
 <center>
 
@@ -39,17 +48,14 @@ Onde:
 -   A média está representada por $\mu$
 -   O devio padrão está representado por $\sigma$
 
-> Regra empirica 68% - 95% - 99,7%
+> **Regra empirica 68% - 95% - 99,7%**
+Se os dados seguem uma distribuição normal, é possível fazer afirmações sobre a concentração dos dados em torno da média, conforme a regra empírica:
 
-Se os dados seguem distribuição Normal podemos afirmar que
+- *68%* dos dados estão no intervalo de uma vez o desvio padrão (μ ± 1σ).
+- *95%* dos dados estão no intervalo de duas vezes o desvio padrão (μ ± 2σ).
+- *99,7%* dos dados estão no intervalo de três vezes o desvio padrão (μ ± 3σ).
 
--   68% dos dados concentram se no intervalo: [ média - 1dp ; média - 1dp]
-
--   95% dos dados concentram se noo intervalo: [ média - 2dp ; média - 2dp]
-
--   99,7% dos dados concentram se noo intervalo: [ média - 3dp ; média - 3dp]
-
-Isso significa dizer que eventos que estão fora do intervalo [ média - 3dp ; média - 3dp] são eventos raros!
+**Importante:** Dados fora do intervalo de μ ± 3σ são considerados raros.
 
 > Exemplo de distribuição Normal, com dados simulados usado a função rnorm().
 
@@ -91,7 +97,7 @@ sd(BatimentosMulheres)
 sd(BatimentosMulheres)/mean(BatimentosMulheres)*100
 ```
 
-> As funções **pnorm()** e **dnorm()** é usada para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
+> As funções **pnorm()** e **dnorm()** são usadas para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
 
 **Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp.
 
@@ -100,6 +106,8 @@ Calcule as probabilidades:
 -   de uma mulher ter batimentos inferior a 70bmp, ou seja, $P(x<70)$:
 
 ```{r}
+# pnorm(): Calcula a probabilidade acumulada até um valor específico. Ou seja, retorna a probabilidade de que uma variável aleatória, que segue uma distribuição normal, seja menor ou igual a um determinado valor.
+
 # observação: a resposta é 0.5 pois a média 70.
 pnorm(70, 70, 3)
 ```
@@ -115,6 +123,7 @@ pnorm(70, 70, 3)
 -   de uma mulher ter batimentos igual a 70bmp, ou seja, $P(x=70)$:
 
 ```{r}
+# dnorm(): Calcula a densidade de probabilidade de um valor específico em uma distribuição normal. Em outras palavras, ela retorna o valor da função densidade de probabilidade no ponto especificado.
 dnorm(70, 70, 3)
 ```
 
@@ -152,19 +161,35 @@ pnorm(79, 70, 3) - pnorm(61, 70, 3)
 pnorm(65, 70, 3)
 ```
 
-## Diagnóstico de Normalidade (QQ)
+## Gráfico QQ
 
-Uma forma visual para **verificarmos a normalidade** dos dados é a atravé do **gráfico QQ**.
+Uma maneira comum de verificar a normalidade de uma distribuição é utilizando o gráfico QQ. Ele compara os quantis de uma amostra com os quantis de uma distribuição normal padrão, e é muito útil para identificar se os dados seguem uma distribuição normal.
 
-A ideia desse gráfico é comparar a distribuição da nossa amostra com uma **distribuição Normal padrão**.
+> **Distribuição Normal Padrão**
 
-> A característica da distribuição Normal Padrão é que ela tem média igual a zero e devio pardrão igual a 1.
->
-> -   Qualquer distribuição Normal pode ser convertida em uma distribuição Normal Padrão (por meio do cálculo escore z), é mais o menos o que o gráfico QQ faz.
->
-> -   O z escore é dado por: z = (valor - media)/dp
+A distribuição normal padrão tem duas características importantes:
 
-Veja um exemplo no R para uma distribuição normal padrão
+- Média (μ) igual a 0
+- Desvio padrão (σ) igual a 1
+
+
+> **Cálculo do Escore Z**
+
+Qualquer distribuição normal pode ser transformada na distribuição normal padrão utilizando o escore Z. O **escore Z** é calculado pela fórmula:
+
+\[
+z = \frac{(x - \mu)}{\sigma}
+\]
+
+Onde:
+
+- \(x\) é o valor da observação.
+- \(\mu\) é a média da distribuição.
+- \(\sigma\) é o desvio padrão da distribuição.
+
+O gráfico QQ realiza exatamente o que a fórmula do escore Z descreve: ele transforma os dados da amostra para a distribuição normal padrão (média 0 e desvio padrão 1) e então compara esses valores transformados com os quantis da distribuição normal teórica. Se os pontos formarem uma linha reta, isso sugere que os dados seguem uma distribuição normal.
+
+Veja um exemplo no R para uma Distribuição Normal Padrão: 
 
 ```{r}
 set.seed(1)
@@ -177,13 +202,10 @@ axis(side = 1, at = seq(-3, 3, by = 1), labels = seq(-3, 3, by = 1))
 abline(v = mean(NormalPadrao), col = 2, lwd = 3)
 ```
 
--   o intervalo -1 a 1 em torno da média: [ media - 1dp ; media + 1dp ]
+No gráfico QQ, os quantis da amostra são comparados com os quantis da distribuição normal padrão. Se a amostra segue uma distribuição normal, os pontos no gráfico QQ devem se alinhar aproximadamente a uma linha reta.
 
--   o intervalo -2 a 2 em torno da média: [ media - 2dp ; media + 2dp ]
+Se os pontos se afastam dessa linha reta de forma sistemática, isso indica que os dados não seguem uma distribuição normal. O tipo de desvio pode dar pistas sobre a natureza dessa não-normalidade (por exemplo, se os pontos se curvam para cima ou para baixo, pode indicar assimetria ou caudas pesadas).
 
--   o intervalo -3 a 3 em torno da média: [ media - 3dp ; media + 3dp ]
-
-> Um gráfico QQ compara os quantis de uma amostra com os quantis de uma distribuição teórica normal. Se os pontos no gráfico seguirem uma linha reta, isso sugere que os dados são normalmente distribuídos.
 
 > Distrbuição normal é usada para dados contínuos!
 
@@ -192,7 +214,7 @@ abline(v = mean(NormalPadrao), col = 2, lwd = 3)
 set.seed(1)
 BatimentosMulheres <- rnorm(1000, 70, 3)
 qqnorm(BatimentosMulheres)
-qqline(BatimentosMulheres)
+qqline(BatimentosMulheres, col="red")
 
 # Faça o arredondamento
 BatimentosMulheresR <- round(BatimentosMulheres,0)
@@ -204,4 +226,4 @@ qqline(BatimentosMulheresR)
 
 ## Atividade 7
 
-**Para o banco de dados escolhido para as atividade 5 e 6, faça gráficos QQ para as variáveis quantitativas e verifique visualmente se elas seguem disitribuição Normal.**
+**Utilizando o banco de dados escolhido para as atividades 5 e 6, gere gráficos QQ para as variáveis quantitativas. Em seguida, avalie visualmente se essas variáveis seguem uma distribuição normal.**

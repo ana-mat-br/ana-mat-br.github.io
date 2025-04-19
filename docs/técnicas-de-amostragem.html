@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt" xml:lang="pt">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 5 Técnicas de Amostragem | Estatística + R</title>
+  <meta name="description" content="Capítulo 5 Técnicas de Amostragem | Estatística + R" />
+  <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 5 Técnicas de Amostragem | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 5 Técnicas de Amostragem | Estatística + R" />
+  
+  
+  
+
+<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tamanho-da-amostra.html"/>
+<link rel="next" href="ambiente-computacional.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<h2><center>Estatística + R</center></h2>
+<center> roteiro de estudo </center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições Iniciais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-descritiva"><i class="fa fa-check"></i><b>3.1</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes"><i class="fa fa-check"></i><b>3.1.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.1.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas"><i class="fa fa-check"></i><b>3.1.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-inferencial"><i class="fa fa-check"></i><b>3.2</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes-1"><i class="fa fa-check"></i><b>3.2.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.2.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas-1"><i class="fa fa-check"></i><b>3.2.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#conexão-com-a-probabilidade"><i class="fa fa-check"></i><b>3.3</b> Conexão com a Probabilidade</a></li>
+<li class="chapter" data-level="3.4" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população-x-amostra"><i class="fa fa-check"></i><b>3.4</b> População x Amostra</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população"><i class="fa fa-check"></i><b>3.4.1</b> <strong>População</strong></a></li>
+<li class="chapter" data-level="3.4.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#amostra"><i class="fa fa-check"></i><b>3.4.2</b> <strong>Amostra</strong></a></li>
+<li class="chapter" data-level="3.4.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-aplicado"><i class="fa fa-check"></i><b>3.4.3</b> <strong>Exemplo aplicado</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da Amostra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#passos-básicos-para-o-cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.1</b> Passos básicos para o cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="4.2" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#exemplo-de-cálculo-simples"><i class="fa fa-check"></i><b>4.2</b> Exemplo de cálculo simples</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#ferramentas-para-cálculo-de-amostra"><i class="fa fa-check"></i><b>4.2.1</b> Ferramentas para cálculo de amostra</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.3</b> Cálculo do Tamanho da Amostra</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#conclusão"><i class="fa fa-check"></i><b>4.3.1</b> Conclusão</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-2"><i class="fa fa-check"></i><b>4.4</b> Atividade 2</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html"><i class="fa fa-check"></i><b>5</b> Técnicas de Amostragem</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.1</b> Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.2" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-estratificada"><i class="fa fa-check"></i><b>5.2</b> Amostragem Estratificada</a></li>
+<li class="chapter" data-level="5.3" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-sistemática"><i class="fa fa-check"></i><b>5.3</b> Amostragem Sistemática</a></li>
+<li class="chapter" data-level="5.4" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-por-conglomerados"><i class="fa fa-check"></i><b>5.4</b> Amostragem por Conglomerados</a></li>
+<li class="chapter" data-level="5.5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#combinando-técnicas-na-prática"><i class="fa fa-check"></i><b>5.5</b> Combinando Técnicas na Prática</a></li>
+<li class="chapter" data-level="5.6" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#evitar-viés-na-amostragem"><i class="fa fa-check"></i><b>5.6</b> Evitar Viés na Amostragem</a></li>
+<li class="chapter" data-level="5.7" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#vieses-no-uso-de-formulários-online"><i class="fa fa-check"></i><b>5.7</b> Vieses no uso de Formulários Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>6</b> Ambiente Computacional</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-pagos"><i class="fa fa-check"></i><b>6.1</b> Softwares pagos</a></li>
+<li class="chapter" data-level="6.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-livres"><i class="fa fa-check"></i><b>6.2</b> Softwares livres</a></li>
+<li class="chapter" data-level="6.3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#linguagens-computacionais"><i class="fa fa-check"></i><b>6.3</b> Linguagens computacionais</a></li>
+<li class="chapter" data-level="6.4" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#preparando-o-ambiente-computacional"><i class="fa fa-check"></i><b>6.4</b> Preparando o Ambiente Computacional</a></li>
+<li class="chapter" data-level="6.5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio"><i class="fa fa-check"></i><b>6.5</b> Plano A: Instalação do R e RStudio</a></li>
+<li class="chapter" data-level="6.6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem"><i class="fa fa-check"></i><b>6.6</b> Plano B: R e RStudio na Nuvem</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>7</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="8" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>8</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>8.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="8.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>8.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="8.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>8.3</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>9</b> Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-quantitativas"><i class="fa fa-check"></i><b>9.1</b> Variáveis Quantitativas</a></li>
+<li class="chapter" data-level="9.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-qualitativas"><i class="fa fa-check"></i><b>9.2</b> Variáveis Qualitativas</a></li>
+<li class="chapter" data-level="9.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#aplicação-das-variáveis-em-estatística"><i class="fa fa-check"></i><b>9.3</b> Aplicação das Variáveis em Estatística</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-descritiva-1"><i class="fa fa-check"></i><b>9.3.1</b> Estatística Descritiva:</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-inferencial-1"><i class="fa fa-check"></i><b>9.3.2</b> Estatística Inferencial:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>9.4</b> Atividade 3</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#análise-das-tabelas"><i class="fa fa-check"></i><b>9.4.1</b> Análise das Tabelas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html"><i class="fa fa-check"></i><b>10</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>10.1</b> Medidas de Tendência Central (ou Posição)</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#média"><i class="fa fa-check"></i><b>10.1.1</b> Média</a></li>
+<li class="chapter" data-level="10.1.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#mediana"><i class="fa fa-check"></i><b>10.1.2</b> Mediana</a></li>
+<li class="chapter" data-level="10.1.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#quartis"><i class="fa fa-check"></i><b>10.1.3</b> Quartis</a></li>
+<li class="chapter" data-level="10.1.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#moda"><i class="fa fa-check"></i><b>10.1.4</b> Moda</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>10.2</b> Medidas de Dispersão (ou Variabilidade)</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude"><i class="fa fa-check"></i><b>10.2.1</b> Amplitude</a></li>
+<li class="chapter" data-level="10.2.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#variância"><i class="fa fa-check"></i><b>10.2.2</b> Variância</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#desvio-padrão-dp"><i class="fa fa-check"></i><b>10.2.3</b> Desvio padrão (DP)</a></li>
+<li class="chapter" data-level="10.2.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude-interquartil-iqr"><i class="fa fa-check"></i><b>10.2.4</b> Amplitude interquartil (IQR)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>10.3</b> Medida Relativa de Variabilidade</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#coeficiente-de-variação-cv"><i class="fa fa-check"></i><b>10.3.1</b> Coeficiente de Variação (CV)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#funções-no-r"><i class="fa fa-check"></i><b>10.4</b> Funções no R</a></li>
+<li class="chapter" data-level="10.5" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#atividade-4"><i class="fa fa-check"></i><b>10.5</b> Atividade 4</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>11</b> Importando banco de dados</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>11.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="11.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>11.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>11.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>11.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>12.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="12.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>12.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="12.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>12.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="12.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>12.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="12.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>12.5</b> Atividade 5</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>13</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>13.1</b> Histograma</a></li>
+<li class="chapter" data-level="13.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>13.2</b> Boxplot</a></li>
+<li class="chapter" data-level="13.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>13.3</b> Atividade 6</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>14</b> Distribuição de Probabilidade</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>14.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="14.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gráfico-qq"><i class="fa fa-check"></i><b>14.2</b> Gráfico QQ</a></li>
+<li class="chapter" data-level="14.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>14.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>15</b> Exemplos de distribuições</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-discretas"><i class="fa fa-check"></i><b>15.1</b> Distribuições Discretas</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>15.1.1</b> Binomial</a></li>
+<li class="chapter" data-level="15.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>15.1.2</b> Poisson</a></li>
+<li class="chapter" data-level="15.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geométrica"><i class="fa fa-check"></i><b>15.1.3</b> Geométrica</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-contínuas"><i class="fa fa-check"></i><b>15.2</b> Distribuições Contínuas</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>15.2.1</b> Normal</a></li>
+<li class="chapter" data-level="15.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>15.2.2</b> Exponencial</a></li>
+<li class="chapter" data-level="15.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-contínua"><i class="fa fa-check"></i><b>15.2.3</b> Uniforme Contínua</a></li>
+<li class="chapter" data-level="15.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>15.2.4</b> t de Student</a></li>
+<li class="chapter" data-level="15.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-χ²"><i class="fa fa-check"></i><b>15.2.5</b> Qui-Quadrado (χ²)</a></li>
+<li class="chapter" data-level="15.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>15.2.6</b> F de Fisher</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>16</b> Normal ou Não?</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.1</b> Dados que seguem distribuição normal</a></li>
+<li class="chapter" data-level="16.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-dúvida"><i class="fa fa-check"></i><b>16.2</b> Dados que geram dúvida</a></li>
+<li class="chapter" data-level="16.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.3</b> Dados que não seguem distribuição normal</a></li>
+<li class="chapter" data-level="16.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentração-de-repetição-de-valor-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>17</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste"><i class="fa fa-check"></i><b>17.1</b> Etapas de um teste</a></li>
+<li class="chapter" data-level="17.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>17.2</b> Testes</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#correlação"><i class="fa fa-check"></i><b>17.2.1</b> Correlação</a></li>
+<li class="chapter" data-level="17.2.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#associação"><i class="fa fa-check"></i><b>17.2.2</b> Associação</a></li>
+<li class="chapter" data-level="17.2.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#comparação"><i class="fa fa-check"></i><b>17.2.3</b> Comparação</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="técnicas-de-amostragem" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Técnicas de Amostragem<a href="técnicas-de-amostragem.html#técnicas-de-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Em pesquisas, uma das etapas mais importantes é o <strong>cálculo amostral</strong>, que determina quantos participantes serão necessários para garantir que os resultados sejam confiáveis. Depois, é preciso escolher uma <strong>técnica de amostragem</strong>, ou seja, como vamos selecionar as pessoas ou unidades que farão parte da pesquisa. Uma parte essencial disso é garantir que o processo de amostragem evite <strong>viés</strong>, que ocorre quando a amostra não representa adequadamente a população.</p>
+<p>Existem várias técnicas de amostragem, cada uma com suas características, vantagens e desvantagens.</p>
+<div id="amostragem-aleatória-simples" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Amostragem Aleatória Simples<a href="técnicas-de-amostragem.html#amostragem-aleatória-simples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nesta técnica, cada elemento da população tem a mesma chance de ser selecionado.</p>
+<blockquote>
+<p>Por exemplo, se quisermos estudar a saúde mental dos estudantes da UFTM, podemos utilizar uma lista completa dos alunos e, de maneira aleatória (sorteio), selecionar os estudantes que farão parte da amostra, conforme o número determinado pelo cálculo amostral.</p>
+</blockquote>
+<ul>
+<li><strong>Vantagens</strong>: É simples de aplicar e garante que todos têm a mesma chance de ser escolhidos, minimizando o viés.</li>
+<li><strong>Desvantagens</strong>: Pode ser difícil de implementar se a população for muito grande ou se não tivermos uma lista completa de todos os membros da população.</li>
+</ul>
+<blockquote>
+<p>Para o exemplo acima, para evitar viés, é essencial garantir que a lista seja completa e atualizada.</p>
+</blockquote>
+</div>
+<div id="amostragem-estratificada" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Amostragem Estratificada<a href="técnicas-de-amostragem.html#amostragem-estratificada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aqui, a população é dividida em grupos ou “estratos” (por exemplo, cursos ou faixas etárias) e, em seguida, amostras são selecionadas dentro de cada estrato.</p>
+<blockquote>
+<p>Suponha que queremos estudar a prática de atividade física entre os estudantes da UFTM. Podemos usar amostragem estratificada, dividindo os alunos por curso (estratos). Dentro de cada curso, selecionamos aleatoriamente um número proporcional de alunos, garantindo que todos os cursos estejam representados de forma adequada na amostra, refletindo a diversidade da universidade.</p>
+</blockquote>
+<ul>
+<li><strong>Vantagens</strong>: A técnica melhora a representatividade da amostra, especialmente quando diferentes subgrupos podem ter comportamentos ou características muito distintas. Ao estratificar, conseguimos evitar viés ao garantir que todos os grupos da população estejam representados.</li>
+<li><strong>Desvantagens</strong>: É necessário conhecer a população e seus estratos de antemão, o que pode ser difícil em alguns casos. Para evitar viés, é crucial que a definição dos estratos seja precisa e relevante para a pesquisa.</li>
+</ul>
+</div>
+<div id="amostragem-sistemática" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Amostragem Sistemática<a href="técnicas-de-amostragem.html#amostragem-sistemática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Na amostragem sistemática, escolhemos um ponto de partida aleatório e, a partir daí, selecionamos unidades a intervalos regulares de “n” unidades.</p>
+<blockquote>
+<p><strong>Exemplo</strong>: Se quisermos estudar a prática de atividade esportiva entre os estudantes da UFTM e temos uma lista de todos os alunos, podemos selecionar a cada 10º aluno da lista para participar da pesquisa.</p>
+</blockquote>
+<ul>
+<li><strong>Vantagens</strong>: Fácil de implementar, especialmente em populações grandes, e garante uma distribuição uniforme dos selecionados ao longo da lista.</li>
+<li><strong>Desvantagens</strong>: Pode ocorrer viés caso haja algum padrão na ordem da lista (por exemplo, se alunos de cursos específicos forem listados consecutivamente, a amostra pode não ser representativa). Para evitar viés, é crucial que a lista de seleção seja aleatória e não siga um padrão que favoreça um grupo específico.</li>
+</ul>
+</div>
+<div id="amostragem-por-conglomerados" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Amostragem por Conglomerados<a href="técnicas-de-amostragem.html#amostragem-por-conglomerados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Nessa técnica, a população é dividida em grupos (chamados de conglomerados) e, em seguida, seleciona-se aleatoriamente alguns desses grupos para fazer parte da amostra.</p>
+<blockquote>
+<p>Um exemplo seria, em vez de selecionar alunos aleatoriamente, selecionar alguns cursos específicos da UFTM e estudar todos os alunos desses cursos. Essa técnica é útil quando a população é muito grande e difícil de acessar como um todo.</p>
+</blockquote>
+<ul>
+<li><strong>Vantagens</strong>: É mais fácil de administrar em populações grandes, quando não se tem acesso a uma lista completa de todos os indivíduos.</li>
+<li><strong>Desvantagens</strong>: Pode não ser tão representativa, pois estamos escolhendo grupos inteiros e não indivíduos aleatórios. Para evitar viés, deve-se garantir que os conglomerados escolhidos representem adequadamente a diversidade da população.</li>
+</ul>
+</div>
+<div id="combinando-técnicas-na-prática" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Combinando Técnicas na Prática<a href="técnicas-de-amostragem.html#combinando-técnicas-na-prática" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Na prática, os pesquisadores frequentemente combinam diferentes técnicas de amostragem para obter uma amostra mais representativa e reduzir o viés. Por exemplo, é possível usar a <strong>amostragem estratificada</strong> para garantir que diferentes cursos estejam representados adequadamente e, dentro de cada estrato, usar <strong>amostragem aleatória simples</strong> para escolher os participantes. Essa combinação ajuda a minimizar os riscos de viés, melhorando a precisão e representatividade da amostra.</p>
+</div>
+<div id="evitar-viés-na-amostragem" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Evitar Viés na Amostragem<a href="técnicas-de-amostragem.html#evitar-viés-na-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O <strong>viés de amostragem</strong> ocorre quando certos grupos da população têm mais chance de ser selecionados do que outros, o que pode distorcer os resultados da pesquisa. Para evitar viés, é essencial:</p>
+<ul>
+<li>Garantir que todos os grupos da população tenham uma chance igual ou proporcional de ser selecionados.</li>
+<li>Utilizar técnicas que levem em consideração as características específicas da população.</li>
+<li>Combinar diferentes métodos de amostragem para melhorar a representatividade.</li>
+</ul>
+</div>
+<div id="vieses-no-uso-de-formulários-online" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Vieses no uso de Formulários Online<a href="técnicas-de-amostragem.html#vieses-no-uso-de-formulários-online" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Embora os formulários online sejam ferramentas poderosas para a coleta de dados, eles podem introduzir alguns vieses se não forem bem utilizados:</p>
+<ul>
+<li><strong>Viés de acesso</strong>: Apenas indivíduos com acesso à internet e familiaridade com a plataforma de formulários podem participar. Isso pode excluir grupos com menos acesso a dispositivos ou conexão à internet, distorcendo a representatividade.</li>
+<li><strong>Viés de auto-seleção</strong>: Como a participação depende da vontade dos respondentes, aqueles mais motivados ou interessados no tema da pesquisa podem ser mais propensos a responder, levando a uma amostra não representativa.</li>
+<li><strong>Viés de distribuição</strong>: Se o link do formulário for enviado apenas a determinados grupos ou se houver falhas na distribuição, certos segmentos da população podem ser sub-representados.</li>
+</ul>
+<p>Portanto, é importante considerar essas questões ao usar ferramentas como formulários online, garantindo uma distribuição ampla e acessível para evitar viés na amostragem.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tamanho-da-amostra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ambiente-computacional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["twitter", "linkedin", "whatsapp", "github", "facebook"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Livro-Estatistica+R.pdf", "Livro-Estatistica+R.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "language": "pt",
+  "info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

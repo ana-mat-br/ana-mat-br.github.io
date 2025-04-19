@@ -1,0 +1,22 @@
+# Estatística Inferencial
+
+<center>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/5a5f172f-bd62-4c76-9236-6df29b772269/MiOQUTFfdQ.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+</center>
+
+Estou trabalhando nessa etapa! \o/ 
+## Conceitos iniciais
+
+## Etapas de um teste
+
+## Testes
+
+### Correlação
+
+#### Regressão
+
+### Associação
+
+### Comparação
+

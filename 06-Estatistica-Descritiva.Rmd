@@ -104,7 +104,7 @@ Um CV inferior a 25% geralmente indica homogeneidade; valores muito altos indica
 
 Com um vetor `x` contendo os dados, utilize:
 
-| Medida                      | Código R                    |
+| Medida                     | Código R                    |
 |----------------------------|-----------------------------|
 | Média                      | `mean(x)`                   |
 | Mediana                    | `median(x)`                 |
@@ -121,11 +121,7 @@ Com um vetor `x` contendo os dados, utilize:
 | Coeficiente de variação    | `sd(x)/mean(x)*100`         |
 
 
-## Dica Final
-
-Calcular é importante, mas interpretar corretamente é essencial.  
-Ao elaborar seu relatório, descreva o que os números revelam sobre o fenômeno analisado.
-
+> Calcular é importante, mas interpretar corretamente é essencial. Ao elaborar suas interpretações, descreva o que os números revelam sobre o fenômeno analisado.
 
 <center>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>

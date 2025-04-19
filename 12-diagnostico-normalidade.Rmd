@@ -1,0 +1,76 @@
+# Normal ou Não?
+
+<center>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/32368ff6-8150-40df-a981-abe61d0c919f/Uobp2rITzh.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+</center>
+
+Antes de avançarmos para a aplicação dos testes estatísticos, é importante avaliarmos se os dados seguem ou não uma distribuição normal. Essa verificação inicial é muito importante porque muitos testes paramétricos, como o teste t e a ANOVA, partem da suposição de normalidade dos dados. Compreender esse aspecto permite escolher os métodos estatísticos mais adequados, aumentando a confiabilidade dos resultados e evitando interpretações equivocadas que poderiam comprometer a análise.
+
+Esta seção apresenta uma análise visual da normalidade dos dados por meio de gráficos QQ (Quantil-Quantil), com a comparação de três cenários distintos: dados que seguem uma distribuição normal, dados que levantam dúvidas quanto à normalidade e dados que claramente não seguem essa distribuição.
+
+- Dados normalmente distribuídos
+- Dados que geram dúvida quanto à normalidade
+- Dados que claramente não seguem distribuição normal
+
+## Dados que seguem distribuição normal
+
+```{r enormal}
+set.seed(10)
+dados_normais <- rnorm(500, mean = 0, sd = 1)
+
+hist(dados_normais, main = "Histograma - Distribuição Normal", col = "lightblue")
+boxplot(dados_normais, main = "Boxplot - Distribuição Normal")
+qqnorm(dados_normais, main = "QQ Plot - Distribuição Normal")
+qqline(dados_normais, col = "blue", lwd = 2)
+```
+
+*Observação:* Os pontos seguem de perto a linha, indicando que os dados são normalmente distribuídos.
+
+## Dados que geram dúvida
+
+```{r duvidosa}
+set.seed(20)
+dados_mistos <- c(rnorm(250, 0, 1), rnorm(250, 2, 1))
+
+hist(dados_mistos, main = "Histograma - Mistura de Normais", col = "lightgreen")
+boxplot(dados_mistos, main = "Boxplot - Mistura de Normais")
+qqnorm(dados_mistos, main = "QQ Plot - Mistura de Normais")
+qqline(dados_mistos, col = "orange", lwd = 2)
+```
+
+*Observação:* As caudas do gráfico QQ começam a se afastar da linha, o que pode gerar dúvida sobre a normalidade.
+
+
+## Dados que não seguem distribuição normal
+
+```{r nnormal}
+set.seed(30)
+dados_chi <- rchisq(500, df = 3)
+
+hist(dados_chi, main = "Histograma - Distribuição Qui-quadrado", col = "lightpink")
+boxplot(dados_chi, main = "Boxplot - Qui-quadrado")
+qqnorm(dados_chi, main = "QQ Plot - Qui-quadrado")
+qqline(dados_chi, col = "red", lwd = 2)
+```
+
+*Observação:* A forte curvatura do gráfico QQ indica clara violação da normalidade (assimetria à direita).
+
+## Dados com forte concentração de repetição de valor (não seguem distribuição normal)
+
+```{r dados_repetidos}
+set.seed(42)
+dados_repetidos <- c(rep(18, 5), rep(23, 10), rep(26,7)) 
+
+# Histograma
+hist(dados_repetidos, main = "Histograma - Dados Repetidos", col = "lightblue", xlab = "Valor", ylab = "Frequência")
+
+# Boxplot
+boxplot(dados_repetidos, main = "Boxplot - Dados Repetidos", col = "lightgreen")
+
+# QQ Plot
+qqnorm(dados_repetidos, main = "QQ Plot - Dados Repetidos")
+qqline(dados_repetidos, col = "red", lwd = 2)
+```
+
+> O gráfico QQ é uma ferramenta visual poderosa para avaliar se um conjunto de dados segue uma distribuição normal. Em conjunto com histogramas e boxplots, permite identificar desvios, outliers e assimetrias de maneira clara.

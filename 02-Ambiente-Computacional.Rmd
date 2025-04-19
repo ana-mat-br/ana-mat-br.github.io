@@ -1,91 +1,76 @@
-# Ambiente computacional {#ambiente-computacional}
+# Ambiente Computacional {#ambiente-computacional}
 
-Existem vários softwares que são dedicados a análise estatística que vão do maravilhoso SPSS (da IMB) às planilhas eletrônicas (como o Excel). Para citar alguns algumas dessas ferramentas:
+Existem diversos softwares dedicados à análise estatística, que vão desde planilhas eletrônicas, como o Excel, até programas mais robustos, como o SPSS. Abaixo, listamos algumas das principais ferramentas utilizadas:
 
-**Softwares pagos**
+## Softwares pagos
 
-* SPSS <https://www.ibm.com/br-pt/spss>
+- [SPSS (IBM)](https://www.ibm.com/br-pt/spss)
+- [Stata](https://www.stata-brasil.com/software/stata.html)
+- [SAS](https://www.sas.com/pt_br)
+- [JMP](https://www.jmp.com/)
+- [Prism](https://software.com.br/p/prism)
+- [Minitab](https://osbsoftware.com.br/produto/minitab-statistical-software)
+- Microsoft Excel
 
-* Stata <https://www.stata-brasil.com/software/stata.html>
+## Softwares livres
 
-* SAS <https://www.sas.com/pt_br>
+- [Jamovi](https://www.jamovi.org)
+- [OpenStat](https://openstat.info)
 
-* JMP <https://www.jmp.com/>
+## Linguagens computacionais
 
-* Prisma <https://software.com.br/p/prism>
+- [R](https://www.r-project.org)
+- [Python](https://www.python.org/)
 
-* Minitab <https://osbsoftware.com.br/produto/minitab-statistical-software>
+Neste curso, utilizaremos a linguagem **R**, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha? Recomendamos a leitura: [Por que usar R?](https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/)
 
-* Excel (Microsoft)
+## Preparando o Ambiente Computacional
 
-**Softwares livre**
+Vamos preparar o ambiente computacional para realizar nossas análises com R.
 
-* Jamovi <https://www.jamovi.org>
+> Para esclarecer:
+> - **R** é uma linguagem de programação (mas não se preocupe, não vamos programar profundamente).
+> - **RStudio** é o software onde os códigos R serão executados. É o que chamamos de IDE – *Integrated Development Environment* (Ambiente de Desenvolvimento Integrado).
 
-* OpenStat <https://openstat.info>
+## Plano A: Instalação do R e RStudio
 
-**Liguagens computacionais**
+Nos laboratórios da UFTM, o R e o RStudio já estão instalados. No entanto, sugerimos que você também os instale em seu computador pessoal, pois nem sempre conseguiremos realizar todas as atividades em sala.
 
-* R <https://www.r-project.org>
+Siga estes passos:
 
-* Python <https://www.python.org/> 
+1. Instale o R: [https://cran.rstudio.com](https://cran.rstudio.com)
+2. Instale o RStudio Desktop: [https://posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop)
 
-Concentraremos nossas forças na utlização do R, que é uma linguagem computacional que foi desenvolvida especificamente para análise estatística. Saiba um pouco mais o motivo dessa escolha: <https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/>
+> Certifique-se de baixar versões compatíveis com o sistema operacional do seu computador.
 
-Assim, vamos preparar o ambiente computacional para realizarmos nossas análises. 
+Se tudo estiver correto, ao abrir o RStudio, você verá uma tela semelhante a esta:
 
-> E para ficar claro:
+<center>![Figura: Tela inicial do RStudio](telaRStudio.png)</center>
 
-* **R é uma linguagem computacional** (não se preocupe, não vamos programar!)
+Caso enfrente dificuldades, siga para o Plano B.
 
-* **RStudio é um software** onde executaremos códigos R, é o que o pessoal da computação denomina de ambiente de desenvolvimento (IDE).^[Integrated Development Environment - Ambiente de Desenvolvimento Integrado]
+## Plano B: R e RStudio na Nuvem
 
-## Plano A: Instalação R e RStudio
+O Plano B é utilizar o RStudio diretamente na nuvem, sem precisar instalar nada. Essa alternativa é excelente, mas requer uma boa conexão com a internet.
 
-No laboratório de informática da UFTM o R e a IDE RStudio estão instaladas nos computadores que utilizamos nas nossas aulas práticas, no entanto, nem sempre há tempo de desenvolver todas as atividades em sala de aula, assim, fica a sugestão para que o estudante faça a instação do R e da IDE RStudio em seus computadores.
+Siga os passos:
 
-O RStudio é propriedade da empresa Posit (desde outubro de 2022), em seu site são dadas as instruções:
+1. Acesse: [https://posit.cloud](https://posit.cloud)
+2. Faça login (você pode usar sua conta do Google, por exemplo)
+3. Após o login, você verá esta tela:
 
-1. Instale o R <https://cran.rstudio.com>
+<center>![Figura: Tela inicial na nuvem da Posit](telaPosit.png)</center>
 
-2. Instale o RStudio Desktop <https://posit.co/download/rstudio-desktop>
+4. Crie um novo projeto clicando em *New Project* e, depois, *New RStudio Project*:
 
-> Ou, veja diretamente no site <https://posit.co/download/rstudio-desktop>
+<center>![Figura: Botão de criação de um novo projeto](telaCriarProjetoRStudio.png){width=40%}</center>
 
-É importante baixar e instalar as versões do R e RStudio que sejam compatíveis com seu computador.
+5. Pronto! A interface do RStudio será carregada na nuvem:
 
-Essa etapa de preparação do ambiente computacional é de suma importância para o andamento da disciplina, para que as atividades sejam executadas, mas pode ser que você enfrente algum tipo dificuldade na instalação, então faça o quanto antes!
+<center>![Figura: Tela do RStudio online na Posit Cloud](telaRStudioPosit.png)</center>
 
-Se der tudo certo, ao clicar no ícone do RStudio, uma tela parecida como será apresentada:
+> Vantagem: seus arquivos e análises ficam salvos na nuvem, em um local seguro e acessível de qualquer lugar.
 
-<center>![<font size="2"> Figura: Tela inicial do RStudio</font>](telaRStudio.png)
-</center>
+---
 
-Se nada der certo, temos o plano B.
-
-## Plano B: R e RStudio online
-
-O plano B é tão bom, mas tão bom, que poderia ser considerado plano A, no entanto, é preciso estar conectado à Intenet, o RStudo será excutado online na nuvem da Posit. 
-
-Se você tem uma boa conexão de Internet, fica a sugestão para usar o plano B.
-
-1. Acesse <https://posit.cloud>
-
-2. Faça o login (eu, por exemplo, acesso com meu usuário do Google)
-
-3. A seguinte tela será apresentada 
-
-<center>![<font size="2">Figura: Tela inicial na nuvem da Posit</font>](telaPosit.png)
-</center>
-
-4. Crie um projeto RStudio, selecionando a opção _New Project_, e em seguida, escolhendo _New RStudio Project_.
-
-<center>![<font size="2">Figura: Botão de criação de um novo projeto</font>](telaCriarProjetoRStudio.png){width=40%}
-</center>
-
-Se deu tudo certo, você verá a seguinte tela:
-
-<center>![<font size="2">Figura: Tela inicial do RStudio online na nuvem da Posit</font>](telaRStudioPosit.png)
-</center>
-
-O melhor de usar a nuvem da Posit é que tudo armazenado por lá, isso quer dizer que suas análises ficam gravadas em um lugar seguro.
+Com o ambiente configurado, estaremos prontos para explorar o mundo da estatística com R!

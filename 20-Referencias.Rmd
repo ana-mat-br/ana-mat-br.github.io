@@ -1,5 +1,6 @@
 `r if (knitr:::is_html_output()) '
 # Referências {-}
 '`
+
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_rklapo5f.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>

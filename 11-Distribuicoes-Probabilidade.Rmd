@@ -1,0 +1,139 @@
+# Exemplos de distribuições
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+<center>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+</center>
+
+## Distribuições Discretas
+
+### Binomial
+
+Modela o número de sucessos em n tentativas com probabilidade `p`.
+
+```{r binomial}
+n <- 10
+p <- 0.5
+x <- 0:n
+y <- dbinom(x, size = n, prob = p)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Distribuição Binomial (n = 10, p = 0.5)", x = "Número de Sucessos", y = "Probabilidade")
+```
+
+### Poisson
+
+Modela o número de eventos raros num intervalo fixo.
+
+```{r poisson}
+lambda <- 3
+x <- 0:15
+y <- dpois(x, lambda)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "darkorange") +
+  labs(title = "Distribuição de Poisson (λ = 3)", x = "Número de Eventos", y = "Probabilidade")
+```
+
+### Geométrica
+
+Modela o número de falhas antes do primeiro sucesso.
+
+```{r geometrica}
+p <- 0.3
+x <- 0:10
+y <- dgeom(x, prob = p)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "purple") +
+  labs(title = "Distribuição Geométrica (p = 0.3)", x = "Tentativas até o 1º Sucesso", y = "Probabilidade")
+```
+
+## Distribuições Contínuas
+
+### Normal
+
+Modela fenômenos naturais e erros de medida.
+
+```{r normal_plot}
+x <- seq(-4, 4, length.out = 100)
+y <- dnorm(x)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "darkgreen", linewidth = 1.2) +
+  labs(title = "Distribuição Normal (média = 0, sd = 1)", x = "x", y = "Densidade")
+```
+
+### Exponencial
+
+Tempo até um evento ocorrer.
+
+```{r exponencial}
+lambda <- 1
+x <- seq(0, 5, length.out = 100)
+y <- dexp(x, rate = lambda)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "firebrick", size = 1.2) +
+  labs(title = "Distribuição Exponencial (λ = 1)", x = "Tempo", y = "Densidade")
+```
+
+### Uniforme Contínua
+
+Todos os valores têm a mesma chance.
+
+```{r uniforme}
+x <- seq(0, 1, length.out = 100)
+y <- dunif(x, min = 0, max = 1)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "goldenrod", size = 1.2) +
+  labs(title = "Distribuição Uniforme Contínua (0 a 1)", x = "x", y = "Densidade")
+```
+
+### t de Student
+
+Usada em testes com amostras pequenas.
+
+```{r student}
+x <- seq(-4, 4, length.out = 100)
+y <- dt(x, df = 5)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "navy", size = 1.2) +
+  labs(title = "Distribuição t de Student (df = 5)", x = "x", y = "Densidade")
+```
+
+### Qui-Quadrado (χ²)
+
+Usada para testes de aderência e independência.
+
+```{r chisq}
+x <- seq(0, 20, length.out = 100)
+y <- dchisq(x, df = 5)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "tomato", size = 1.2) +
+  labs(title = "Distribuição Qui-quadrado (df = 5)", x = "x", y = "Densidade")
+```
+
+### F de Fisher
+
+Usada em ANOVA para comparar variâncias.
+
+```{r fisher}
+x <- seq(0, 5, length.out = 100)
+y <- df(x, df1 = 5, df2 = 10)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "darkviolet", size = 1.2) +
+  labs(title = "Distribuição F de Fisher (df1 = 5, df2 = 10)", x = "x", y = "Densidade")
+```
+
+> Cada distribuição tem uma aplicação específica conforme o tipo de variável (discreta ou contínua), o contexto do problema e as suposições do modelo. Entender suas formas e usos ajuda na escolha correta da análise estatística.
