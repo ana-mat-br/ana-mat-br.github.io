@@ -50,7 +50,7 @@ Sugestões, correções ou melhorias são sempre bem-vindas! Para contribuir:
 ## 📧 Contato
 
 Em caso de dúvidas ou sugestões, você pode entrar em contato pelo e-mail:\
-[**anapaula.fernandes\@uftm.edu.br**](mailto:anapaula.fernandes@uftm.edu.br){.email}
+[**anapaula.fernandes\@uftm.edu.br**](mailto:anapaula.fernandes@uftm.edu.br)
 
 Para mais informações sobre minha trajetória acadêmica, acesse meu [Currículo Lattes](http://lattes.cnpq.br).
 
