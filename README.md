@@ -1,6 +1,6 @@
 # Aula de Estatística usando R
 
-Bem-vindo(a) ao repositório do site **Aula de Estatística usando R**! Este projeto foi desenvolvido para auxiliar nas aulas de estatística das disciplinas de **Bioestatística** e **Estatística**.
+Bem-vindo(a) ao repositório do site **Aula de Estatística usando R**! Este projeto foi desenvolvido para auxiliar nas aulas de estatística das disciplinas de **Estatística**.
 
 O site contém materiais didáticos, exemplos práticos e guias para o uso da linguagem R e do ambiente de desenvolvimento RStudio.
 
@@ -37,7 +37,7 @@ O conteúdo deste repositório é publicado automaticamente no GitHub Pages. Voc
 
 Sugestões, correções ou melhorias são sempre bem-vindas! Para contribuir:
 
-1.  Faça um fork deste repositório\
+1.  Faça um fork deste repositório
 
 2.  Crie uma branch para suas alterações:
 
