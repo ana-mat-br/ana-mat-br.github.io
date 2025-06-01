@@ -1,0 +1,1880 @@
+--- 
+title: "Estatística + R"
+author: "Ana Paula Fernandes (DESCO/UFTM)"
+date: "Atualizado em: `r format(Sys.time(), '%d/%m/%Y')`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: referencias.bib
+biblio-style: apalike
+link-citations: yes
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
+lang: pt
+---
+
+# Bem-vindos!
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3rqwsqnj.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+
+Esse livro _online_ tem como propósito principal ser um guia para as aulas de estatística, referente as disciplinas de **Bioestatística** para os curso de Medicina e Educação Física e **Estatística Aplicada** para o curso de Psicologia da [Universidade Federal do Triângulo Mineiro - UFTM](http://www.uftm.edu.br). E como objetivo secundário, ser uma referência de consulta para todos os discentes que passaram por essas disciplinas, bem como, para todos que estão interessados em realizar análises de dados por meio da linguagem R e o ambiente de desenvolvimento RStudio.
+
+Sugestões, correções ou qualquer outra forma de interação são sempre bem-vindas! Então, por favor, não hesite em me escrever (anapaula.fernandes@uftm.edu.br).
+
+Para mais informações sobre minha trajetória acadêmica e profissional, acesse meu [Currículo Lattes](https://lattes.cnpq.br/5582801060910261).
+
+
+
+
+
+
+<!-- The **bookdown** package can be installed from CRAN or Github: -->
+
+<!-- ```{r eval=FALSE} -->
+<!-- install.packages("bookdown") -->
+<!-- # or the development version -->
+<!-- # devtools::install_github("rstudio/bookdown") -->
+<!-- ``` -->
+
+<!-- Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`. -->
+
+<!-- To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>. -->
+
+<!-- ```{r include=FALSE} -->
+<!-- # automatically create a bib database for R packages -->
+<!-- knitr::write_bib(c( -->
+<!--   .packages(), 'bookdown', 'knitr', 'rmarkdown' -->
+<!-- ), 'packages.bib') -->
+<!-- ``` -->
+
+<!--chapter:end:index.Rmd-->
+
+# Introdução {#intro}
+
+Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
+
+Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.
+
+A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes e músicas que aparecem no seu *streamming* favorito? Ou no ranque de busca realzada por meio do *Google*? Ou no *Chat* GTP?
+
+E sendo um pouco mais "acadêmica", dentro do nosso propósito:
+
+Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:
+
+> **Velocidade e resistência de velocidade de sprint em atletas de Futebol amador** <http://www.rbff.com.br/index.php/rbff/article/view/866>
+
+Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:
+
+> **Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional** <https://rbc.inca.gov.br/index.php/revista/article/view/3554>
+
+Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:
+
+> **Escala de Comportamentos Antissociais: construção e estudos psicométricos** <https://periodicos.pucpr.br/psicologiaargumento/article/view/27071>
+
+Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
+
+Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. Discutiremos sobre estatística descritiva (de descrever - os dados amostrados para uma dada análise) e inferencial (de inferir - tirar conclusões a partir dos dados amostrados) no próximo tópico.
+
+<center>
+
+```{=html}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+```
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+
+</center>
+
+## Atividade 1
+
+**Busque um artigo do campo de seu interesse que utiliza a estatística.**
+
+1. **Qual é o principal objetivo da pesquisa?**
+   - Qual é a questão central que a pesquisa busca responder? Os autores apresentam claramente os objetivos do estudo e o que se espera alcançar com os resultados?
+
+2. **Como a pesquisa foi conduzida?**
+   - Quais métodos foram utilizados para coletar os dados? A pesquisa é qualitativa ou quantitativa? Os autores descrevem o procedimento de forma detalhada, incluindo a amostra, os instrumentos de coleta de dados e a análise estatística realizada?
+
+3. **O que é apresentado por meio de tabelas ou gráficos?**
+   - Quais informações estão sendo representadas visualmente? Os gráficos e tabelas são claros e bem organizados para facilitar a compreensão dos dados? Como os resultados são interpretados a partir dessas representações?
+
+4. **Faça uma lista de termos relacionados à estatística encontrados no artigo.**
+   - Identifique e liste os termos e conceitos estatísticos mencionados no artigo. Isso pode incluir testes de hipótese, modelos estatísticos, variáveis dependentes e independentes, intervalos de confiança, p-valor, etc.
+
+
+```{=html}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+```
+<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_LKXG6QRgtE.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+
+> Periódicos da área da Ciência dos Esportes
+
+-   RBFF - Revista Brasileira de Futsal e Futebol <http://www.rbff.com.br>
+
+-   RBME - Revista Brasileira de Medicina do Esporte <https://www.scielo.br/j/rbme>
+
+-   RBPE - Revista Brasileira de Psicologia do Esporte <http://pepsic.bvsalud.org>
+
+> Periódicos da área de Medicina
+
+-   RBC - Revista Brasileira de Cancerologia <https://rbc.inca.gov.br/index.php/revista>
+
+-   RBCMS - Revista Brasileira de Ciências Médicas e da Saúde <http://www.rbcms.com.br>
+
+-   Revista da Associação Brasileira de Saúde Coletiva <https://cienciaesaudecoletiva.com.br>
+
+> Periódicos da área de Piscologia
+
+-   Psicologia argumento <https://periodicos.pucpr.br/psicologiaargumento>
+
+-   Estudos de psicologia (Campinas) <https://www.scielo.br/j/estpsi/>
+
+-   Psicologia em foco <https://revistas.fw.uri.br/index.php/psicologiaemfoco>
+
+> Ou busque na ferramenta *Mendeley* <https://www.mendeley.com>
+
+# Definições Iniciais
+
+A **Estatística** é uma área fundamental para entender e analisar dados de diversas áreas do conhecimento.
+
+## Estatística Descritiva
+
+### Exemplo 1: **Saúde Mental dos Estudantes**
+
+Suponha que você deseje realizar uma pesquisa na UFTM para avaliar a saúde mental dos estudantes. Os dados coletados provavelmente incluirão informações sobre os níveis de **estresse**, **ansiedade**, **depressão** e **bem-estar geral** dos alunos. Nesse contexto, a **Estatística Descritiva** seria uma ferramenta essencial para organizar esses dados e apresentá-los de maneira clara, objetiva e compreensível.
+
+Utilizando a Estatística Descritiva, você poderia:
+
+1.  **Organizar e estruturar os dados**, criando tabelas que agrupem as respostas dos estudantes de forma sistemática, o que facilitaria a análise dos padrões e a visualização de tendências.
+2.  **Calcular medidas de tendência central**, como a **média** dos níveis de estresse ou ansiedade, permitindo que você obtenha uma visão geral dos aspectos mais comuns da saúde mental entre os estudantes.
+3.  **Elaborar gráficos**, como **gráficos de barras** ou **diagramas de caixa**, para representar visualmente os dados e facilitar a interpretação. Por exemplo, esses gráficos poderiam mostrar quantos alunos estão em diferentes faixas de intensidade de ansiedade (baixo, moderado ou alto).
+4.  **Calcular medidas de dispersão**, como o **desvio padrão**, para avaliar a variabilidade dos dados. Um desvio padrão alto, por exemplo, indicaria que há uma grande diferença entre os níveis de estresse ou ansiedade dos estudantes, o que poderia apontar para a necessidade de abordagens personalizadas em programas de apoio.
+5.  **Identificar padrões e correlações** nos dados, como a relação entre o nível de estresse e o número de horas de estudo, ou entre o bem-estar geral e a prática de atividades físicas, ajudando a identificar fatores que influenciam a saúde mental dos estudantes.
+
+Essas análises permitiriam que você compreendesse melhor o panorama da saúde mental dos alunos da UFTM e fornecesse uma base sólida para tomar decisões informadas sobre possíveis ações e programas de apoio psicológico.
+
+### Exemplo 2: **Prática de Atividades Físicas**
+
+Se o objetivo for entender a frequência com que os estudantes da UFTM praticam atividades físicas regularmente, podemos coletar dados específicos, como:
+
+-   **Percentual de alunos que praticam esportes regularmente**: A porcentagem de estudantes que praticam atividades físicas **mais de três vezes por semana**. Este dado oferece uma visão geral sobre a adesão à prática de exercícios e pode ser útil para identificar possíveis áreas de melhoria no incentivo à saúde física.
+
+-   **Distribuição por tipo de atividade física**: Podemos utilizar gráficos como **gráficos de pizza** ou **barras empilhadas** para mostrar a diversidade de atividades praticadas pelos estudantes. Por exemplo, os gráficos poderiam ilustrar a proporção de alunos que praticam **corrida**, **musculação**, **dança**, **futebol**, entre outras atividades, permitindo uma visão clara sobre as preferências esportivas da comunidade acadêmica.
+
+-   **Intensidade da prática de atividades físicas**: Coletar dados sobre a intensidade das atividades (leve, moderada ou intensa) também seria relevante, pois ajudaria a universidade a entender não só a frequência, mas também o impacto potencial dessas atividades na saúde física e mental dos estudantes.
+
+Essas informações não apenas proporcionam um panorama claro sobre o comportamento dos estudantes em relação à saúde física, mas também podem embasar a criação de novos programas e campanhas para incentivar a prática de atividades físicas, promovendo o bem-estar geral da comunidade acadêmica.
+
+## Estatística Inferencial
+
+### Exemplo 1: **Saúde Mental dos Estudantes**
+
+Suponha que você queira avaliar a saúde mental dos estudantes da UFTM e, para isso, tenha realizado uma pesquisa com uma amostra de 200 estudantes. Neste caso, a **Estatística Inferencial** será uma ferramenta essencial para generalizar os resultados dessa amostra para toda a população de estudantes da universidade.
+
+- **Estimativa da média de ansiedade**: Se a média da amostra indicar que os estudantes têm um nível de ansiedade de 7 (em uma escala de 0 a 10), a Estatística Inferencial permitirá que você estime o nível médio de ansiedade de todos os estudantes da UFTM. A partir dessa amostra, podemos calcular um **intervalo de confiança**, que nos dirá com que precisão a média da amostra reflete a média da população inteira. Isso nos dá uma estimativa com uma margem de erro, ajudando a compreender a variabilidade e a precisão do resultado.
+
+- **Testes de hipóteses**: Suponha que você queira comparar os níveis de ansiedade entre estudantes de diferentes cursos. Por exemplo, você deseja saber se os estudantes do curso de Medicina apresentam níveis de ansiedade significativamente mais altos do que os estudantes do curso de Engenharia. A Estatística Inferencial permite realizar um **teste de hipótese**, que nos ajuda a determinar se a diferença observada entre as médias dos dois grupos é **estatisticamente significativa** ou se pode ter ocorrido por acaso. Isso nos permite tomar decisões informadas sobre possíveis relações entre variáveis, com base em dados e não em suposições.
+
+Esses exemplos demonstram como a Estatística Inferencial pode ser usada para tirar conclusões sobre toda a população de estudantes da UFTM, com base em uma amostra representativa. Isso é essencial para planejar intervenções e políticas de apoio à saúde mental de forma mais eficaz.
+
+### Exemplo 2: **Prática de Atividades Físicas**
+
+Suponha que você esteja interessado em saber como os hábitos de atividade física variam entre os cursos da UFTM. A universidade realiza uma pesquisa com uma amostra de 300 estudantes, incluindo alunos de Medicina e de Educação Física. A **Estatística Inferencial** pode ser usada para tirar conclusões sobre toda a população de estudantes com base nessa amostra.
+
+- **Estimar a proporção de estudantes ativos fisicamente**: Se 60% dos estudantes da amostra afirmam praticar atividades físicas regularmente, podemos usar a **probabilidade** para estimar a proporção de todos os estudantes da UFTM que têm esse hábito. A partir desses dados, também é possível calcular um **intervalo de confiança**, indicando com que precisão essa estimativa reflete a realidade da população.
+
+- **Comparação entre cursos**: Podemos realizar um **teste de comparação de proporções** para verificar se a prática de atividades físicas é mais frequente entre estudantes de Educação Física do que entre estudantes de Medicina. Esse teste nos ajudaria a determinar se a diferença observada entre os dois cursos é estatisticamente significativa ou se pode ser explicada por variações aleatórias. 
+
+Essas análises ajudam a universidade a entender os padrões de comportamento relacionados à saúde física entre diferentes grupos acadêmicos e a planejar ações mais específicas para incentivar o bem-estar entre os estudantes.
+
+
+## Conexão com a Probabilidade
+
+Esses dois tipos de análise estão profundamente conectados com a **Teoria de Probabilidade**, que nos permite estimar as chances de um evento acontecer e tomar decisões com base nesses dados. No caso da UFTM, podemos usar a **probabilidade** para prever, por exemplo, a chance de um estudante desenvolver sintomas de estresse durante o semestre, com base em comportamentos anteriores, como hábitos de estudo e participação em atividades de lazer.
+
+## População x Amostra
+
+### **População**
+
+A **população** é o conjunto completo de indivíduos que queremos estudar. No contexto de uma pesquisa com estudantes da UFTM, a população pode ser definida como **todos os 6.900 estudantes** da instituição, considerando alunos da graduação, cursos técnicos e pós-graduação (dados do DRCA, em dezembro de 2024).
+
+### **Amostra**
+
+Uma **amostra** é um grupo menor selecionado dessa população, que deve ser representativo o suficiente para permitir inferências sobre o todo. Por exemplo, em vez de aplicar um questionário para todos os 6.900 estudantes, podemos selecionar uma **amostra aleatória de 364 estudantes**.
+
+Esse tamanho de amostra é adequado para garantir um **erro máximo de 5%**, com **95% de confiança** nos resultados. Isso significa que, com essa amostra, conseguimos estimar com boa precisão como é a situação da saúde dos estudantes da universidade como um todo.
+
+### **Exemplo aplicado**
+
+Suponha que você queira avaliar o nível de bem-estar emocional dos estudantes da UFTM. Você aplica um questionário padronizado para uma amostra aleatória de **364 estudantes**. A partir das respostas, você calcula que a média de bem-estar emocional, numa escala de 0 a 10, é **6,8**.
+
+Com esse resultado e a ajuda da **estatística inferencial**, você pode estimar com segurança que o nível médio de bem-estar emocional da **população inteira** de estudantes da UFTM está próximo de **6,8**, com uma **margem de erro de 5%**.
+
+Isso significa que, com **95% de confiança**, o **intervalo de confiança** para a média do bem-estar emocional está entre **6,46 e 7,14**. Em outras palavras, se essa pesquisa fosse repetida várias vezes com diferentes amostras aleatórias de 364 estudantes, em 95% das vezes o valor da média real da população estaria dentro desse intervalo.
+
+# Tamanho da Amostra
+
+O cálculo do **tamanho da amostra** é um passo importante em qualquer pesquisa. Ele nos ajuda a determinar quantos participantes precisamos para que os resultados sejam representativos e estatisticamente confiáveis. Embora o cálculo envolva alguns conceitos de **estatística inferencial**, hoje em dia, esse processo pode ser muito mais simples, graças a ferramentas online e até mesmo com o auxílio de **Inteligência Artificial (IA)**.
+
+## Passos básicos para o cálculo do tamanho da amostra
+
+Quando o objetivo é estimar uma proporção, o cálculo do tamanho amostral exige algumas informações essenciais:
+
+1. **Tamanho da população**: Neste caso, os estudantes da UFTM, que somam cerca de **6.900**.
+2. **Margem de erro**: A precisão com que queremos que nossa estimativa esteja próxima da realidade. Por exemplo, uma margem de erro de **5%** é comum em muitos estudos.
+3. **Nível de confiança**: Normalmente, utiliza-se 95%, que indica a probabilidade de que o intervalo de confiança contenha o valor real.
+
+A fórmula para calcular o tamanho da amostra é:
+
+\[
+n = \frac{{Z^2 \cdot p \cdot (1 - p)}}{{E^2}}
+\]
+
+Onde:
+- \(n\) = tamanho da amostra
+- \(Z\) = valor da distribuição normal (geralmente 1,96 para 95% de confiança)
+- \(p\) = proporção estimada (por exemplo, 0,5 para o pior cenário)
+- \(E\) = margem de erro (por exemplo, 0,05 para 5%)
+
+## Exemplo de cálculo simples
+
+Vamos calcular o tamanho da amostra para uma pesquisa na UFTM, onde sabemos que a população tem **6.900 estudantes**, a margem de erro é **5%**, o nível de confiança é **95%**, e vamos supor que queremos estimar uma proporção de **50%** (o pior cenário para garantir maior precisão).
+
+Usando a fórmula, temos:
+
+- \(Z = 1,96\) (para 95% de confiança)
+- \(p = 0,5\) (proporção estimada)
+- \(E = 0,05\) (margem de erro de 5%)
+
+Substituindo os valores na fórmula, obtemos:
+
+\[
+n = \frac{{1,96^2 \cdot 0,5 \cdot (1 - 0,5)}}{{0,05^2}} = 384
+\]
+
+Logo, o tamanho da amostra necessário é **384** estudantes para garantir uma margem de erro de 5% com 95% de confiança.
+
+**Observação:** A fórmula apresentada acima é utilizada para o cálculo do tamanho amostral quando se deseja estimar uma proporção, assumindo uma população infinita (ou muito grande). Para situações em que o objetivo é estimar a média populacional, a fórmula adequada é diferente e leva em conta o desvio padrão da variável em vez da proporção. Além disso, se a população for finita, é necessário aplicar o fator de correção amostral.
+
+### Ferramentas para cálculo de amostra
+
+Nosso foco aqui não é ensinar a fazer os cálculos manualmente, mas compreender os conceitos envolvidos. Existem diversas ferramentas online gratuitas que fazem o cálculo automaticamente. Por exemplo:
+
+## Cálculo do Tamanho da Amostra
+
+Para calcular o tamanho da amostra, podemos utilizar diferentes ferramentas, tanto no **R** quanto online. Aqui estão algumas opções:
+
+- **No R**: Para calcular o tamanho da amostra, podemos utilizar o **pacote pwr**, que oferece funções específicas para realizar esses cálculos de forma simples e eficaz. O pacote é ideal para quem precisa calcular o tamanho da amostra para testes de hipóteses, como testes de médias, proporções ou análise de variância, ajustando facilmente os parâmetros conforme as necessidades da pesquisa.
+
+- **Calculadora Amostral Online da USP Bauru**: [Clique aqui para acessar](http://estatistica.bauru.usp.br/calculoamostral/) - Uma ferramenta simples e eficiente para cálculos amostrais.
+
+- **G\*Power**: Um software gratuito que pode ajudar a calcular o tamanho da amostra dependendo do tipo de análise estatística que você irá realizar. [Saiba mais sobre o G*Power](https://www.gpower.hhu.de/en.html).
+
+- **OpenEpi – Sample Size**: [Acesse aqui](https://www.openepi.com/SampleSize/SSMean.htm) - Muito usado na área da saúde, permite calcular amostras para média, proporção, estudos de caso-controle, coorte, entre outros.
+
+### Conclusão
+
+Em resumo, o cálculo do **tamanho da amostra** é um passo essencial para garantir que suas pesquisas sejam precisas e representativas. Embora os cálculos possam parecer complexos, hoje em dia, existem ferramentas poderosas e **Inteligência Artificial** para facilitar esse processo, economizando tempo e esforço na sua pesquisa.
+
+
+<center>
+
+```{=html}
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+```
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+
+</center>
+
+## Atividade 2
+
+**Responda a partir do artigo buscado na atividade 1.**
+
+1. **Os autores discutem o cálculo do tamanho da amostra no estudo?**
+   - Você consegue identificar se os autores fornecem uma explicação clara sobre como determinaram o tamanho da amostra na pesquisa? Eles utilizaram alguma fórmula específica ou ferramenta estatística para esse cálculo?
+
+2. **A população da pesquisa foi claramente definida pelos autores?**
+   - Os autores descreveram com clareza quem compõe a população da pesquisa (por exemplo, características demográficas, contexto da amostra, entre outros)? A população foi bem delineada para garantir que os resultados sejam representativos?
+
+3. **O tamanho da amostra utilizado no estudo foi adequado?**
+   - Com base no cálculo do tamanho de amostra, você acha que a amostra utilizada no estudo foi grande o suficiente para garantir a precisão dos resultados? Ela foi suficientemente representativa da população alvo da pesquisa?
+
+4. **Realize o cálculo do tamanho de amostra para este estudo.**
+   - Com as informações fornecidas pelos autores, você pode calcular o tamanho da amostra necessário para o estudo utilizando uma fórmula ou ferramenta de cálculo amostral. Considere aspectos como o nível de confiança, margem de erro e variabilidade dos dados.
+
+5. **Os autores mencionaram se a pesquisa foi aprovada pelo Comitê de Ética?**
+   - No artigo, há alguma referência sobre a aprovação ética da pesquisa? Os autores informaram se a pesquisa foi submetida e aprovada por um Comitê de Ética em Pesquisa (CEP)?
+
+6. **Qual é a importância de submeter a pesquisa ao Comitê de Ética?**
+   - Por que é essencial que a pesquisa seja submetida a um Comitê de Ética? Quais são as implicações éticas de não realizar essa submissão, especialmente em pesquisas que envolvem seres humanos?
+
+
+**Importante**
+
+> Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM
+
+<https://www.uftm.edu.br/comitesecomissoes/cep>
+
+
+# Técnicas de Amostragem 
+
+Em pesquisas, uma das etapas mais importantes é o **cálculo amostral**, que determina quantos participantes serão necessários para garantir que os resultados sejam confiáveis. Depois, é preciso escolher uma **técnica de amostragem**, ou seja, como vamos selecionar as pessoas ou unidades que farão parte da pesquisa. Uma parte essencial disso é garantir que o processo de amostragem evite **viés**, que ocorre quando a amostra não representa adequadamente a população.
+
+Existem várias técnicas de amostragem, cada uma com suas características, vantagens e desvantagens.
+
+## Amostragem Aleatória Simples
+Nesta técnica, cada elemento da população tem a mesma chance de ser selecionado. 
+
+> Por exemplo, se quisermos estudar a saúde mental dos estudantes da UFTM, podemos utilizar uma lista completa dos alunos e, de maneira aleatória (sorteio), selecionar os estudantes que farão parte da amostra, conforme o número determinado pelo cálculo amostral.
+
+- **Vantagens**: É simples de aplicar e garante que todos têm a mesma chance de ser escolhidos, minimizando o viés.
+- **Desvantagens**: Pode ser difícil de implementar se a população for muito grande ou se não tivermos uma lista completa de todos os membros da população. 
+
+> Para o exemplo acima, para evitar viés, é essencial garantir que a lista seja completa e atualizada.
+
+## Amostragem Estratificada
+Aqui, a população é dividida em grupos ou "estratos" (por exemplo, cursos ou faixas etárias) e, em seguida, amostras são selecionadas dentro de cada estrato. 
+
+> Suponha que queremos estudar a prática de atividade física entre os estudantes da UFTM. Podemos usar amostragem estratificada, dividindo os alunos por curso (estratos). Dentro de cada curso, selecionamos aleatoriamente um número proporcional de alunos, garantindo que todos os cursos estejam representados de forma adequada na amostra, refletindo a diversidade da universidade.
+
+- **Vantagens**: A técnica melhora a representatividade da amostra, especialmente quando diferentes subgrupos podem ter comportamentos ou características muito distintas. Ao estratificar, conseguimos evitar viés ao garantir que todos os grupos da população estejam representados.
+- **Desvantagens**: É necessário conhecer a população e seus estratos de antemão, o que pode ser difícil em alguns casos. Para evitar viés, é crucial que a definição dos estratos seja precisa e relevante para a pesquisa.
+
+## Amostragem Sistemática
+
+Na amostragem sistemática, escolhemos um ponto de partida aleatório e, a partir daí, selecionamos unidades a intervalos regulares de "n" unidades.
+
+> **Exemplo**: Se quisermos estudar a prática de atividade esportiva entre os estudantes da UFTM e temos uma lista de todos os alunos, podemos selecionar a cada 10º aluno da lista para participar da pesquisa.
+
+- **Vantagens**: Fácil de implementar, especialmente em populações grandes, e garante uma distribuição uniforme dos selecionados ao longo da lista.
+- **Desvantagens**: Pode ocorrer viés caso haja algum padrão na ordem da lista (por exemplo, se alunos de cursos específicos forem listados consecutivamente, a amostra pode não ser representativa). Para evitar viés, é crucial que a lista de seleção seja aleatória e não siga um padrão que favoreça um grupo específico.
+
+
+## Amostragem por Conglomerados
+Nessa técnica, a população é dividida em grupos (chamados de conglomerados) e, em seguida, seleciona-se aleatoriamente alguns desses grupos para fazer parte da amostra. 
+
+> Um exemplo seria, em vez de selecionar alunos aleatoriamente, selecionar alguns cursos específicos da UFTM e estudar todos os alunos desses cursos. Essa técnica é útil quando a população é muito grande e difícil de acessar como um todo.
+
+- **Vantagens**: É mais fácil de administrar em populações grandes, quando não se tem acesso a uma lista completa de todos os indivíduos.
+- **Desvantagens**: Pode não ser tão representativa, pois estamos escolhendo grupos inteiros e não indivíduos aleatórios. Para evitar viés, deve-se garantir que os conglomerados escolhidos representem adequadamente a diversidade da população.
+
+## Combinando Técnicas na Prática
+Na prática, os pesquisadores frequentemente combinam diferentes técnicas de amostragem para obter uma amostra mais representativa e reduzir o viés. Por exemplo, é possível usar a **amostragem estratificada** para garantir que diferentes cursos estejam representados adequadamente e, dentro de cada estrato, usar **amostragem aleatória simples** para escolher os participantes. Essa combinação ajuda a minimizar os riscos de viés, melhorando a precisão e representatividade da amostra.
+
+
+## Evitar Viés na Amostragem
+
+O **viés de amostragem** ocorre quando certos grupos da população têm mais chance de ser selecionados do que outros, o que pode distorcer os resultados da pesquisa. Para evitar viés, é essencial:
+
+- Garantir que todos os grupos da população tenham uma chance igual ou proporcional de ser selecionados.
+- Utilizar técnicas que levem em consideração as características específicas da população.
+- Combinar diferentes métodos de amostragem para melhorar a representatividade.
+
+## Vieses no uso de Formulários Online
+
+Embora os formulários online sejam ferramentas poderosas para a coleta de dados, eles podem introduzir alguns vieses se não forem bem utilizados:
+
+- **Viés de acesso**: Apenas indivíduos com acesso à internet e familiaridade com a plataforma de formulários podem participar. Isso pode excluir grupos com menos acesso a dispositivos ou conexão à internet, distorcendo a representatividade.
+- **Viés de auto-seleção**: Como a participação depende da vontade dos respondentes, aqueles mais motivados ou interessados no tema da pesquisa podem ser mais propensos a responder, levando a uma amostra não representativa.
+- **Viés de distribuição**: Se o link do formulário for enviado apenas a determinados grupos ou se houver falhas na distribuição, certos segmentos da população podem ser sub-representados.
+
+Portanto, é importante considerar essas questões ao usar ferramentas como formulários online, garantindo uma distribuição ampla e acessível para evitar viés na amostragem.
+
+
+
+
+
+
+<!--chapter:end:01-Introducao.Rmd-->
+
+# Ambiente Computacional {#ambiente-computacional}
+
+Existem diversos softwares dedicados à análise estatística, que vão desde planilhas eletrônicas, como o Excel, até programas mais robustos, como o SPSS. Abaixo, listamos algumas das principais ferramentas utilizadas:
+
+## Softwares pagos
+
+- [SPSS (IBM)](https://www.ibm.com/br-pt/spss)
+- [Stata](https://www.stata-brasil.com/software/stata.html)
+- [SAS](https://www.sas.com/pt_br)
+- [JMP](https://www.jmp.com/)
+- [Prism](https://software.com.br/p/prism)
+- [Minitab](https://osbsoftware.com.br/produto/minitab-statistical-software)
+- Microsoft Excel
+
+## Softwares livres
+
+- [Jamovi](https://www.jamovi.org)
+- [OpenStat](https://openstat.info)
+
+## Linguagens computacionais
+
+- [R](https://www.r-project.org)
+- [Python](https://www.python.org/)
+
+Neste curso, utilizaremos a linguagem **R**, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha? Recomendamos a leitura: [Por que usar R?](https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/)
+
+## Preparando o Ambiente Computacional
+
+Vamos preparar o ambiente computacional para realizar nossas análises com R.
+
+> Para esclarecer:
+> - **R** é uma linguagem de programação (mas não se preocupe, não vamos programar profundamente).
+> - **RStudio** é o software onde os códigos R serão executados. É o que chamamos de IDE – *Integrated Development Environment* (Ambiente de Desenvolvimento Integrado).
+
+## Plano A: Instalação do R e RStudio
+
+Nos laboratórios da UFTM, o R e o RStudio já estão instalados. No entanto, sugerimos que você também os instale em seu computador pessoal, pois nem sempre conseguiremos realizar todas as atividades em sala.
+
+Siga estes passos:
+
+1. Instale o R: [https://cran.rstudio.com](https://cran.rstudio.com)
+2. Instale o RStudio Desktop: [https://posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop)
+
+> Certifique-se de baixar versões compatíveis com o sistema operacional do seu computador.
+
+Se tudo estiver correto, ao abrir o RStudio, você verá uma tela semelhante a esta:
+
+<center>![Figura: Tela inicial do RStudio](telaRStudio.png)</center>
+
+Caso enfrente dificuldades, siga para o Plano B.
+
+## Plano B: R e RStudio na Nuvem
+
+O Plano B é utilizar o RStudio diretamente na nuvem, sem precisar instalar nada. Essa alternativa é excelente, mas requer uma boa conexão com a internet.
+
+Siga os passos:
+
+1. Acesse: [https://posit.cloud](https://posit.cloud)
+2. Faça login (você pode usar sua conta do Google, por exemplo)
+3. Após o login, você verá esta tela:
+
+<center>![Figura: Tela inicial na nuvem da Posit](telaPosit.png)</center>
+
+4. Crie um novo projeto clicando em *New Project* e, depois, *New RStudio Project*:
+
+<center>![Figura: Botão de criação de um novo projeto](telaCriarProjetoRStudio.png){width=40%}</center>
+
+5. Pronto! A interface do RStudio será carregada na nuvem:
+
+<center>![Figura: Tela do RStudio online na Posit Cloud](telaRStudioPosit.png)</center>
+
+> Vantagem: seus arquivos e análises ficam salvos na nuvem, em um local seguro e acessível de qualquer lugar.
+
+---
+
+Com o ambiente configurado, estaremos prontos para explorar o mundo da estatística com R!
+
+<!--chapter:end:02-Ambiente-Computacional.Rmd-->
+
+# Trabalhando no RStudio {#trabalhando-RStudio}
+
+Seja na versão instalada no seu computador (plano A) ou na nuvem (plano B), conheça melhor as áreas do RStudio:
+
+1. **Console:** local onde serão apresentadas as respostas para códigos executados;
+
+2. **Ambiente de memória (Environment):** é o cérebro do R, onde ficam registrados os objetos que ele reconhece.
+
+3. A área de **Arquivos (Files), Gráficos (Plots), Pacotes (Packages), Ajuda (Help), Visualização (Viewer) e Apresentação (Presentation)**: mostram, respectivamente, os arquivos do diretório onde estão seus arquivos no computador, os gráficos, os pacotes, a ajuda, a janela de visualização e a apresentação.
+
+A figura abaixo identifica cada uma dessas áreas:
+
+<center>![<font size="2">Figura: Identificação das áreas do RStudio</font>](telaRStudio123.png)</center>
+
+Digitaremos os códigos da linguagem R, em um arquivo que chamamos de **script**. Para abrir um arquivo do tipo script R, faça:
+
+1. Acesse a opção **File** no menu principal do RStudio;
+2. Escolha a opção **New File**;
+3. E depois a opção **R Script**.
+
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](arquivoScript.png){width=40%}</center>
+
+Assim, na tela da IDE RStudio aparecerá uma nova área, que é a área do arquivo script, como mostra a figura.
+
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](telaScript.png)</center>
+
+Observe que o arquivo está sem um nome (**Untitled1**, sem título). Salve o arquivo atribuindo-lhe um nome adequado. Para isso, no menu principal, escolha *File*, depois *Save*.
+
+> Dica: O ideal seria criar um **Projeto**. Veja a opção _File > New Project_.
+
+<!--chapter:end:03-RStudio.Rmd-->
+
+# Primeiros exercícios no R
+
+Nos capítulos  \@ref(ambiente-computacional) e \@ref(trabalhando-RStudio) vimos sobre o ambiente computacional (computador ou nuvem) e identificamos as 4 áreas da tela da interface do RStudio: **console**, **ambiente de memória**, **arquivos, gráficos, etc.** e **script**, assim estamos prontos para escrever alguns códigos e executá-los a partir da área de script.
+
+> **Atenção:** TODOS os cógigos serão digitados no arquivo de script, seguindo uma sequência lógica de passos, ou seja, escreveremos um roteiro (*script*), como se fosse uma receita de bolo, isso é o que o pessoal da computação chama de algoritmo.
+
+
+## Exemplo 1
+
+* Observe o código escrito na linha 1 do arquivo de script e o botão **Run** (primeira seta verde):
+
+<center>![<font size="2">Figura: Primeiro exemplo de cógigo R</font>](telaExemplo1.png)
+</center>
+
+* O sequência de caracteres **<-** é o símbolo de atribuição no R.
+
+> Pressionando as teclas ALT e - (menos) simultaneamente cria no script o sinal de atribuição.
+
+* O código significa que criamos um objeto chamado **x** e atribuimos a esse objeto o valor 2.
+
+* No entanto, o R ainda não sabe que o valor de x é igual a 2! 
+
+* Para registrar essa informação na memória do R, devemos executar essa linha.
+
+> Para executar uma linha posicione o cursor na linha, e clique no botão **Run**
+
+<center>![<font size="2">Figura: O objeto x é registrado na memória do R, armazenando o valor igual a 2</font>](telaValorMemoria.png){width=40%}
+</center>
+
+> Observe sempre o ambiente de memória (bem como o console) quando executar uma linha.
+
+## Exemplo 2
+
+Execute o seguinte cógigo no R.
+
+```{r}
+idades <- c( 23, 18, 17, 25, 21, 19, 22, 24, 19, 19 )
+```
+
+* Esse código significa que foi criado um objeto chamado idade que armazena 10 valores: 23, 18, 17, 25, 21, 19, 22, 24, 19, 19, diferentemente do exemplo 1 em que x armazenava somente o valor 2. 
+
+* Isso foi possível pois usamos a função **c( )**.
+
+* observe que os valores foram colocado dentro dos parênteses da função **c( )**
+
+> Com função **c( )** podemos **combinar** vários valores em um objeto, esse objeto recebe o nome de vetor ou lista.
+
+
+## Exemplo 3 
+
+Observe nesse código as funções:
+
+* **max( )**
+
+* **min( )**
+
+* **range( )**
+
+* **mean( )**
+
+* **sd( )**
+
+```{r echo=TRUE}
+# criando o vetor idades 
+idades <- c( 23, 18, 17, 25, 21, 19, 22, 24, 19, 19 )
+
+# maior valor
+# função max( )
+max(idades)
+
+# menor valor
+# função min( )
+min(idades)
+
+# faixa de valores
+# função range( )
+range(idades)
+
+# média (mean)
+# função mean( )
+mean(idades)
+
+# desvio padrão (standard deviation)
+# função sd() 
+sd(idades)
+```
+
+> Copie o código e cole no seu arquivo script, selecione todo conteúdo (CRTL+A) e execute todo o cógigo de uma única vez.
+
+* Observe que as respostas apareceram no **console**, conforme mostrado na figura abaixo:
+
+<center>![<font size="2">Figura: Como abrir um novo arquivo de script R</font>](telaRespostaConsole.png){width=40%}
+</center>
+
+> O símbolo # é o símbolo de comentário, isso significa que podemos escrever qualquer texto diferente do que o R sabe interpretar, e mesmo executando o código nenhum erro acontece! 
+
+> **IMPORTANTE**: é uma boa prática comentar os trechos de códigos para deixar documentado qual é o objetivo do código.
+
+
+<!--chapter:end:04-Primeiros-Exercicios.Rmd-->
+
+# Tipos de Variáveis
+
+As variáveis podem ser classificadas de acordo com sua natureza:
+
+## Variáveis Quantitativas
+Expressam **quantidade** e podem ser divididas em:
+
+- **Discreta**: Assume valores inteiros (contagem).
+  - *Exemplo*: O número de filhos de uma pessoa. Você pode contar 0, 1, 2, 3 filhos, mas não pode ter 2,5 filhos.
+  
+- **Contínua**: Assume qualquer valor dentro de um intervalo específico (mensuração).
+  - *Exemplo*: A altura de uma pessoa, que pode ser 1,70 m, 1,71 m, 1,711 m, e assim por diante, com infinitas possibilidades entre os valores.
+
+## Variáveis Qualitativas
+Expressam **qualidade** e são representadas por **categorias** ou **rótulos**. São subdivididas em:
+
+- **Nominal**: Categorias que não podem ser ordenadas.
+  - *Exemplo*: O tipo de fruta que você prefere, como maçã, banana, laranja. Não faz sentido ordenar essas categorias de maneira que uma seja "maior" que a outra.
+  
+- **Ordinal**: Categorias que podem ser ordenadas, com uma graduação entre elas.
+  - *Exemplo*: Níveis de satisfação de um serviço, como "satisfeito", "neutro" e "insatisfeito". Aqui, existe uma ordem em que "satisfeito" é maior que "neutro", e "neutro" é maior que "insatisfeito".
+
+Uma aplicação comum das variáveis ordinais é a **Escala Likert**, que é amplamente utilizada em pesquisas de opinião para medir atitudes ou percepções. A escala Likert geralmente apresenta uma série de afirmativas, e o participante deve indicar seu nível de concordância com cada uma delas, com respostas em uma sequência ordenada.
+
+*Exemplo*: Em uma pesquisa de satisfação de clientes, a pergunta poderia ser: "Concordo que a alimentação oferecida pelo hospital foi satisfatória." As opções de resposta poderiam ser:
+
+1. **Discordo totalmente**
+2. **Discordo parcialmente**
+3. **Neutro**
+4. **Concordo parcialmente**
+5. **Concordo totalmente**
+
+Essas respostas formam uma escala ordinal, pois a ordem das categorias reflete um aumento no nível de concordância, mas as diferenças entre elas não são necessariamente iguais.
+
+> **Dica**: Veja o vídeo do Prof. Heitor no **Canal Pesquise**: [Assista aqui](https://youtu.be/_oc37Ea_tl8).
+
+## Aplicação das Variáveis em Estatística
+
+A natureza da variável influencia o tipo de procedimento estatístico que será utilizado. Exemplos:
+
+### Estatística Descritiva:
+- **Variáveis Qualitativas**: São representadas por sua **frequência absoluta** ou **percentual**.
+  - *Exemplo*: Em uma pesquisa de preferência de frutas, pode-se dizer que 40% das pessoas escolheram maçã, 35% escolheram banana, e 25% escolheram laranja.
+  
+- **Variáveis Quantitativas**: São representadas por **medidas resumo**, como **média** e **desvio padrão**.
+  - *Exemplo*: Se você calcular a média de altura de um grupo de pessoas, e o desvio padrão indicar que a altura das pessoas varia em torno de 5 cm da média.
+
+### Estatística Inferencial:
+- **Teste Qui-Quadrado**: Usado para verificar se há associação entre as categorias de duas variáveis qualitativas.
+  - *Exemplo*: Um teste Qui-Quadrado poderia ser utilizado para verificar se a escolha de fruta (maçã, banana, laranja) tem relação com o sexo (masculino, feminino) dos participantes.
+
+- **Teste de Correlação de Pearson**: Mede a força da correlação linear entre duas variáveis quantitativas.
+  - *Exemplo*: O teste de Pearson poderia ser utilizado para verificar se existe uma relação entre a altura e o peso das pessoas. Quanto maior a altura, maior o peso? Esse teste nos diria a força dessa relação.
+
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+
+## Atividade 3
+
+**Leia o artigo _Estado nutricional, tempo de internação e mortalidade em pacientes submetidos à cirurgia cardíaca em um hospital na cidade de Maceió_**  
+Disponível em: [RASBRAN, Revista da Associação Brasileira de Nutrição, 2023](https://www.rasbran.com.br/rasbran/article/view/1724/443)  
+Acesse também o portal: [RASBRAN - Revista da Associação Brasileira de Nutrição](https://www.rasbran.com.br/).
+
+### Análise das Tabelas
+
+- **Tabela 1 - Características clínicas dos pacientes submetidos à cirurgia cardíaca**: Esta tabela apresenta as características da amostra analisada na pesquisa. 
+  - **Tarefa**: Classifique as variáveis (características) em **qualitativas** e **quantitativas**.
+  - **Observação**: Verifique como as variáveis foram resumidas. Elas foram apresentadas em **porcentagens**? Ou foram calculadas medidas de **média** e **desvio padrão**?
+
+- **Tabela 2 - Associação entre estado nutricional, sexo, idade e tempo de internação hospitalar entre os pacientes submetidos à cirurgia cardíaca**  
+- **Tabela 3 - Associação entre evolução clínica, sexo, idade, tempo de internação hospitalar e estado nutricional entre os pacientes submetidos à cirurgia cardíaca**: Estas tabelas mostram os resultados de um **teste de hipótese** (parte da estatística inferencial).
+  - **Tarefa**: Identifique qual **teste estatístico** foi aplicado.
+  - **Objetivo**: Qual é o objetivo deste teste?
+
+
+<!--chapter:end:05-Tipos-Variaveis.Rmd-->
+
+# Estatística Descritiva
+
+A estatística descritiva permite **resumir, organizar e interpretar** dados de forma clara e objetiva. Para isso, utilizamos **medidas de tendência central**, **medidas de dispersão** e **medidas relativas de variabilidade**.
+
+## Medidas de Tendência Central (ou Posição)
+
+### Média
+
+- **Definição:** Soma de todos os valores dividida pelo número de observações.  
+- **Interpretação:** Representa o valor médio ou típico do conjunto de dados.  
+- **Como reportar:**  
+
+> A média dos batimentos cardíacos foi de 58,6 bpm, indicando o valor médio da amostra analisada.
+
+### Mediana
+
+- **Definição:** Valor central de um conjunto ordenado de dados.  
+- **Interpretação:** Divide o conjunto de dados ao meio, sendo útil quando há valores extremos (outliers).  
+- **Como reportar:**  
+
+> A mediana dos batimentos foi de 60,0 bpm, indicando que 50% dos indivíduos apresentaram valores abaixo ou iguais a esse valor.
+
+### Quartis
+
+- **Definição:** Q1 (primeiro quartil) e Q3 (terceiro quartil) representam os valores que dividem os 25% e os 75% inferiores dos dados, respectivamente.  
+- **Interpretação:** Ajudam a entender a distribuição dos dados e identificar a dispersão em torno da mediana.  
+- **Como reportar:**  
+
+> O primeiro e o terceiro quartis foram 54,0 bpm e 64,0 bpm, respectivamente, revelando que 50% dos batimentos ficaram entre esses dois valores.
+
+### Moda
+
+- **Definição:** Valor mais frequente do conjunto de dados.  
+- **Interpretação:** Indica o valor mais comum, embora possa não existir ou haver mais de uma moda.  
+- **Como reportar:**  
+
+> A moda foi 62 bpm, valor que ocorreu com maior frequência na amostra.
+
+**Observação importante:**  
+- **Média e desvio padrão** são medidas que devem ser usadas juntas, especialmente para dados simétricos (distribuição simétrica) e sem valores extremos.
+- **Mediana e quartis** formam outro conjunto de medidas, mais apropriado quando há assimetria ou presença de outliers.
+
+**Sugestão de vídeo:** Canal Pesquise - [Tendência Central](https://youtu.be/ot0aDB-grDY)
+
+
+## Medidas de Dispersão (ou Variabilidade)
+
+### Amplitude
+
+- **Definição:** Diferença entre o maior e o menor valor.  
+- **Interpretação:** Indica o intervalo total em que os dados variam.  
+- **Como reportar:**  
+
+> A amplitude foi de 36 bpm, com valores variando de 39 a 75 bpm.
+
+### Variância
+
+- **Definição:** Média dos quadrados das diferenças entre os valores e a média.  
+- **Interpretação:** Mede a dispersão, mas sua unidade é o quadrado da unidade original.  
+- **Como reportar:**  
+
+> A variância foi de 98,8 bpm², indicando a variabilidade dos batimentos em relação à média.
+
+**Observação:**  
+A unidade da variância é expressa ao quadrado da unidade original dos dados (por exemplo, bpm² no caso de batimentos por minuto), o que pode dificultar sua interpretação direta.  
+Por isso, costuma-se utilizar o **desvio padrão**, que tem a **mesma unidade dos dados originais** e fornece uma noção mais intuitiva da dispersão dos valores em torno da média.
+
+
+### Desvio padrão (DP)
+
+- **Definição:** Raiz quadrada da variância.  
+- **Interpretação:** Expressa, em média, o quanto os dados se afastam da média.  
+- **Como reportar:**  
+
+**Como reportar:**  
+O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos cardíacos dos indivíduos da amostra variam aproximadamente 9,9 unidades em relação à média.
+
+### Amplitude interquartil (IQR)
+
+- **Definição:** Diferença entre o terceiro e o primeiro quartis (Q3 - Q1).  
+- **Interpretação:** Indica a dispersão dos 50% centrais dos dados.  
+- **Como reportar:**  
+
+> A amplitude interquartil foi de 10,0 bpm, mostrando a concentração dos valores médios.
+
+**Sugestão de vídeo:** Canal Pesquise - [Variabilidade](https://youtu.be/sISPcOIcwXs)
+
+
+## Medida Relativa de Variabilidade
+
+### Coeficiente de Variação (CV)
+
+- **Definição:** Quociente entre o desvio padrão e a média, multiplicado por 100.  
+- **Interpretação:** Expressa a variabilidade dos dados em relação à média, permitindo comparar conjuntos com unidades diferentes.  
+- **Como reportar:**  
+
+> O coeficiente de variação foi de 16,9%, indicando que os dados são relativamente homogêneos.
+
+**Observação:**  
+Um CV inferior a 25% geralmente indica homogeneidade; valores muito altos indicam alta variabilidade.
+
+
+## Funções no R
+
+Com um vetor `x` contendo os dados, utilize:
+
+| Medida                     | Código R                    |
+|----------------------------|-----------------------------|
+| Média                      | `mean(x)`                   |
+| Mediana                    | `median(x)`                 |
+| Primeiro quartil (Q1)      | `quantile(x, 0.25)`         |
+| Terceiro quartil (Q3)      | `quantile(x, 0.75)`         |
+| Moda                       | `sort(table(x))`            |
+| Menor valor                | `min(x)`                    |
+| Maior valor                | `max(x)`                    |
+| Resumo geral               | `summary(x)`                |
+| Amplitude                  | `range(x)`                  |
+| Variância                  | `var(x)`                    |
+| Desvio padrão              | `sd(x)`                     |
+| Amplitude interquartil     | `IQR(x)`                    |
+| Coeficiente de variação    | `sd(x)/mean(x)*100`         |
+
+
+> Calcular é importante, mas interpretar corretamente é essencial. Ao elaborar suas interpretações, descreva o que os números revelam sobre o fenômeno analisado.
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 4
+
+**Considere o objeto Batimentos, que é uma amostra de batimentos cardíacos de 20 homens.**
+
+```{r}
+Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 64, 71, 61, 54)
+```
+
++ Obtenha as seguintes medidas:
+   + Menor valor:
+   + Maior valor:
+   + Média:
+   + Mediana:
+   + Primeiro quartil:
+   + Terceiro quartil:
+   + Variância:
+   + Desvio padrão:
+   + Amplitude interquartil:
+   + Coeficiente de varição:
+   
++ Escreva sobre o conjunto media e desvio padrão: 
+
+> A média dos dados foi de X (unidade), com um desvio padrão de Y (unidade), indicando que os valores estão, em geral, relativamente próximos/espalhados em torno da média. O desvio padrão reflete a quantidade de variabilidade ou dispersão dos dados em relação à média, e neste caso, a dispersão é baixa/média/alta, dependendo do valor de Y.
+
++ Escreva sobre conjunto mediana e quartis:
+
+> A mediana foi Z (unidade), e o intervalo interquartil (IQR), que representa a diferença entre o terceiro quartil (Q3) e o primeiro quartil (Q1), foi Q3 - Q1 (unidade). Isso indica que 50% dos dados estão concentrados nesse intervalo.
+
++ Escreva sobre o coeficiente de variação: 
+
+> O coeficiente de variação (CV) foi calculado como X%, o que reflete a dispersão relativa dos dados em relação à média. Valores mais baixos de CV indicam que os dados estão mais concentrados em torno da média, enquanto valores mais altos indicam uma maior dispersão.
+
++ Acrescente mais uma amostra com valor de batimento igual a 120, recalcule as medidas acima. Qual conjunto você consideraria mais adequado para resumir sua amostra, na presença desse valor discrepante (_outlier_)? A média (DP) ou mediana (1o.Q ; 3o.Q)? Explique.
+
+
+
+
+<!--chapter:end:06-Estatistica-Descritiva.Rmd-->
+
+# Importando banco de dados
+
+Na prática, os dados que vamos analisar estarão armazenado em um **banco de dados**, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+
++ Arquivo do tipo Excel (xls ou xlsx)
+
++ Arquivo de texto separado por vírgulas (csv - _comma-separated values_)
+
+
+> Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:
+
++ DataSus: <https://datasus.saude.gov.br/transferencia-de-arquivos>
+
++ OMS: <https://www.who.int/data/collections>
+
++ Kaggle: <https://www.kaggle.com/datasets>
+
+
+> No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st>
+
+## Importando um banco csv
+
+1. Faça _download_ do banco de dados **mcdonald.csv** 
+(fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts)
+
+2. Na área de ambinete de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:
+
+<center>![<font size="2"> Figura: Importando banco de dados</font>](telaImportDataset.png){width=40%}
+</center>
+
++ Como queremos importar um arquivo csv, a melhor opção é a segunda **From Text (readr)**
+
++ **_readr_** é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)
+
+3. Clicando na opção **From Text (readr)**, no botão **browser** indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+
+<center>![<font size="2"> Figura: Prévia dos dados</font>](telaImportBrowser.png)
+</center>
+
++ No quadro **Data Preview**, temos uma "prévia" com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.
+
++ No quadro **Import Options** temos as opções de importação, fique atento ao **Name** do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (', ~  ou ç), é até permitido usar alguns desses caracteres especiais, mas evite. 
+
++ Ainda no quadro **Import Options**, observe que a opção **Open Data Viewer** está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.
+
++ O quadro **Code Preview** mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.
+
+4. Clique no botão **Import** e observe que no ambiente de memória será criado o objeto do tipo **Data** com o nome do banco de dados que foi importado. 
+
+<center>![<font size="2"> Figura: Import dataset</font>](telaImportObjetoData.png){width=60%}
+</center>
+
++ Observe que esse objeto do tipo **Data** é diferente dos objetos do tipo **Values** que vimos nos exemplos iniciais.
+
++ Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!
+
+## Importando um banco xls
+
+Na área de ambiente de memória, localize **Import Dataset**, ao clicar sobre essa opção, escolha **From Excel...**
+
+<center>![<font size="2"> Figura: Importando banco de dados</font>](telaImportDataset.png){width=40%}
+</center>
+
++ Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (**readxl**)! O RStudio mostrará um aviso parecido com este: 
+
+<center>![<font size="2"> Figura: Aviso para instalação de pacote</font>](telaImportPacote.png){width=40%}
+</center>
+
+
+## Exemplo 1
+
+Como obter a média da variável **Calories** que é uma coluna do objeto **mcdonald**, que por sua vez, é um objeto do tipo **Data**? 
+
+```{r eval=FALSE, results='hide'}
+# Usamos o operador $
+# Para calcular a média precisamos informar para função: 
+# mean( NOME DO BANCO $ NOME DA COLUNA ): 
+mean(mcdonald$Calories)
+```
+
+## Exemplo 2
+
+Como armazenar os valores de uma variável (coluna), em um objeto do tipo **Values** e depois calcular a média?
+
+```{r eval=FALSE, results='hide'}
+# Uso o operador <- 
+# Criamos o objeto 
+caloria <- mcdonald$Calories
+# Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão
+mean(caloria)
+sd(caloria)
+```
+
+## Exemplo 3
+
+O que acontece se usamos a função **summary()** para o objeto **mcdonald**, sem usar o operador, isto é sem indicar uma variável?
+```{r eval=FALSE, results='hide'}
+# No console será mostrado o resumo de todas as variáveis do banco!
+summary(mcdonald)
+```
+
+> Essa forma de obter os resultados não é a melhor forma, vamos **instalar um pacote** para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto. 
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ynsr82zq.json"  background="transparent"  speed="2"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
+</center>
+
+<!--chapter:end:07-Importando-BD.Rmd-->
+
+# Instalando pacotes
+
+Quando instalamos nosso ambiente computacional R e RStudio, instalamos uma versão básica, onde apenas os recursos básicos do R estão diponíveis, o pacote básico (**base**) do R.
+
+Os pacotes (**packages**) do R são compostos por uma biblioteca (**library**) que é um conjunto de funções. Por exemplo, do pacote **base** usamos as funções min(), max(), mean(), median(), table(), var(), sd(), summary(), etc.
+
+Para ver a lista de funções que compõem a bilbioteca do pacote base, execute o código:
+```{r}
+library(help = "base")
+```
+
+Os pacotes são análogos aos aplicativos que instalamos nos nossos celulares, são módulos que agregam funcionalidades específicas. Ao longo das nossas atividades usaremos alguns desses pacotes.
+
+Como nesse momento estamos interessados em otimizar o trabalho para realizar uma análise descritiva dos dados, então vamos instalar um pacote chamado **gtsummary** (<https://www.danieldsjoberg.com/gtsummary/>).
+
+> O pacote **gtsummary** nos fornecerá uma tabela resumo de todo banco de dados, otimizando bastante nosso trabalho de resumir o banco de dados. 
+
++ IMPORTANTE 1: instalamos um pacote apenas uma vez (como um aplicativo no celular... a gente só refaz a instalação se o app _bugar_!)
+
++ IMPORTANTE 2: todas vez precisamos carregar o pacote com as funções que queremos usar por meio da função **library()**
+
+Veja o código:
+
+```{r eval=FALSE}
+# comando para instalar o pacote gtsummary
+install.packages("gtsummary")
+
+# comando para carregar a biblioteca de funções do gtsummary
+library(gtsummary)
+
+# a função que vamos usar para gerar uma tabela que resume os dados é
+# tbl_summary
+tbl_summary(mcdonald)
+```
+
++ Ao executar **tbl_summary(mcdonald)** a tabela de resultados será mostrada na área de arquivos, gráficos, pacotes... na aba **Viewer**, no quadrante abaixo do ambiente de memória.
+
++ Essa tabela pode ser copiada e colada para o editor de texto que você utiliza para escrever seus trabalhos, claro essa tabela pode ser melhorada!
+
++ Observe no rodapé da tabela a seguinte legenda  **n (%); Median (IQR)**, isso significa que para
+
+    + **variáveis qualitativas:** n é a contagem (frequência absoluta) e entre parenteses (%) é mostrado a porcentagem de cada categoria.
+  
+    + **variveis quantitativas:** Median é a mediana e entre parenteses (IQR - de InterQuantile Range) estão o primeiro e terceiro quartil respectivamente. 
+
+## Exemplo 1
+Como mostrar o resultado com a média e desvio padrão?
+
+```{r eval=FALSE}
+# acrescente nos argumentos da função tbl_summary() a opção:
+# statistic = list(all_continuous() ~ "{mean} ({sd})"
+tbl_summary(
+            mcdonald, 
+            statistic = list(all_continuous() ~ "{mean} ({sd})")
+            )
+```
+
+## Exemplo 2
+Como selecionar somente algumas variáveis do banco de dados?
+```{r eval=FALSE}
+# Precisamos do pacote tidyverse, tire o símbolo de # se precisar instalar!
+# install.packages("tidyverse")
+
+# ative tidyverse
+library(tidyverse)
+
+# vamos usar a função select() do pacote tidyverse
+dadosSelecionados <- select (mcdonald, Cholesterol, Sodium, Carbohydrates)
+
+# faça uma tabela para o objeto dadosSelecionados
+tbl_summary(dadosSelecionados)
+```
+
+## Exemplo 3
+Algumas vezes é mais fácil excluir algumas variáveis, por exemplo queremos todas, menos **Item** e **Serving  Size**	
+```{r eval=FALSE}
+# vamos usar a função select() do pacote tidyverse e colocar o sinal de menos (-)
+# antes dos nomes das variáveis que queremos excluir
+# IMPORTANTE: Serving Size é um nome de variável com espaço 
+# então devemos referênciá-la entre aspas: `Serving Size`
+dadosSelecionados2 <- select (mcdonald, -Item, -`Serving Size`)
+
+# faça uma tabela para o objeto dadosSelecionados2
+tbl_summary(dadosSelecionados2)
+```
+
+
+## Exemplo 4
+Como selecinar um conjunto de variáveis que estão em sequência, por exemplo, de **Carbohydrates** a **Cholesterol (% Daily Value)**
+```{r eval=FALSE}
+# vamos usar a função select() do pacote tidyverse e colocar o sinal de dois pontos (:)
+# entre a primeira variável e a última da sequência 
+# IMPORTANTE: Cholesterol (% Daily Value) é um nome de variável com espaço 
+# então devemos referênciá-la entre aspas: `Cholesterol (% Daily Value)`
+dadosSelecionados3 <- select (mcdonald, Carbohydrates:`Cholesterol (% Daily Value)`)
+
+# faça uma tabela para o objeto dadosSelecionados
+tbl_summary(dadosSelecionados3)
+```
+
+> Saiba mais sobre o Tidyverse <https://www.tidyverse.org/packages/>
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 5
+
+**Escolha outro banco de dados (você pode até criar um banco fictício!), faça uma tabela descritiva dos dados e escreva sobre os dados (um ou dois parágrafos), afinal, o nosso trabalho não é só obter a tabela, é dissertar sobre o que essa tabela revela sobre a amostra em estudo!**
+
+
+
+<!--chapter:end:08-Instalando-Pacotes.Rmd-->
+
+# Gráficos
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kgyknvpj.json"  background="transparent"  speed="2"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+
+Nesse link <https://r-graph-gallery.com/> está algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos o pacote **GGPlot2** <https://ggplot2.tidyverse.org/>.
+
+Focaremos nossa atenção em dois gráficos específicos para variáveis quantitativas: **Histograma** e **Boxplot**, em nem faremos nada atrativo, usaremos o pacote básico do R que nos fornece as funções **hist()** e **boxplot()**, pois o nosso obtivo para esse momento é simplesmente estudar a importância desses gráficos.
+
+O que a gente levaria um tempinho... é simplesmente assim em código R:
+
+```{r eval=FALSE}
+Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 64, 71, 61, 54, 120)
+
+# Para fazer o Histograma de Batimentos
+hist(Batimentos)
+
+# Para fazer o Boxplot de Batimentos
+boxplot(Batimentos)
+```
+
+Na área de gráficos (**Plots**), abaixo do ambiente de memória, serão mostrados os gráficos:
+
+> Histograma
+
+```{r echo=FALSE}
+Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 64, 71, 61, 54, 120)
+hist(Batimentos)
+```
+
+
+> Boxplot
+
+```{r echo=FALSE}
+Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 64, 71, 61, 54, 120)
+boxplot(Batimentos)
+```
+
+> Observações
+
++ Os gráficos mostram a informação batimentos de duas formas diferentes, mas elas estão relacionadas!
+
++ Observe que eixo horizontal do histograma corresponde ao eixo vertical do boxplot
+
+## Histograma
+
+O histograma é um gráfico que usado para variáveis quantitativas contínua.
+
+O histograma pode nos dar uma noção do tipo de **distribuição de probabibilidade** que os dados seguem.
+
+A ideia desse gráfico é agrupar os dados em  **classes** (cada barra do histograma é uma classe) e no eixo vertical tem-se a contagem (frequência) de quantos valores foram alocados em cada classe.
+
+Para fazer a **leitura do histograma**:
+
+  + Identifique as classes no "eixo x" 
+  
+  + Identifique quantos elementos tem em cada classe no "eixo y"
+ 
+Acredito que nesse exemplo, é fácil verificar:
+
+  + A segunda classe: 40 - 50 batimentos, que tem 1 elemento (verifique no objeto Batimentos)
+  
+  + A terceira classe: 50 - 60 batimentos, que tem 6 elementos  
+  
+  + Então, a **aplitude das classes** é igual a 10. Logo, a primeira classe é de 30 - 40. 
+  
+  + As classes 80 - 90; 90 - 100 e 100 - 110 não tiveram ocorrências!
+  
+  + A classe 110-120 possui 1 elemento, que é aquele valor discrepante em relação aos demais valores.
+
+
+Se não for fácil identificar as classes (eixo x) você pode usar o comando abaixo: 
+
+```{r eval=FALSE}
+# Para obter as "quebras" de cada classe 
+hist(Batimentos)$breaks
+```
+
+Se não for fácil identificar as frequencias (eixo y) você pode usar o comando abaixo:  
+```{r eval=FALSE}
+# Para obter a frequência em cada classe
+hist(Batimentos)$count
+```
+
+De fato, o que estamos lendo por meio do histograma é o que chamamos de **tabela de frequência**: 
+
+|   Classe  | Frequência |
+|:---------:|:----------:|
+|  30 - 40  |      3     |
+|  40 - 50  |      1     |
+|  50 - 60  |      6     |
+|  60 - 70  |      7     |
+|  70 - 80  |      3     |
+|  80 - 90  |      0     |
+|  90 - 100 |      0     |
+| 100 - 110 |      0     |
+| 110 - 120 |      1     |
+|$\sum n$  |     21     |
+
+  + Por meio do histograma ou da tabela podemos concluir que a classe modal (moda) é a classe de 60 - 70 batimentos;
+  
+  + A frequência foi apresentada em termos absolutos mais pode ser transformada em frequência percentual.
+  
+  + Quando estamos aprendendo a fazer um histograma manualmente, primeiro construímos essa tabela de frenquência, e para construí-la é necessário calcular o número ótimo de classes, umas das regras mais usada é a Regra Sturges (essa é opção padrão do R).
+
+Podemos usar o pacote básico R para melhorar a aparência desse gráfico.
+```{r}
+hisBat <- hist(Batimentos,
+               main = "Histograma",
+               xlab = "Batimentos cardíacos",
+               sub = "por classes",
+               ylab = "Frequência absoluta",
+               xlim = c(20, 120),
+               ylim = c(0, 8),
+               col = "lightgreen")
+text(hisBat$mids, hisBat$counts, labels=hisBat$counts, adj = c(0.5,-0.5))
+
+# adicionar linha para indicar a média
+abline(v = mean(Batimentos),                      
+       col = "red",
+       lwd = 3)
+```
+
+## Boxplot
+
+Boxplot ou diagrama de caixa, é um gráfico que mostra as medidas: menor valor, primeiro quartil, mediana, terceiro quartil e máximo valor.
+
++ Valores discrepantes (_outliers_) são detectados pelo boxplot. Veja a figura:
+
+<center>![<font size="2">Figura: "Anatomia de um boxplot"</font>](Boxplotexemplo.png){width=50%}
+</center>
+
+Essa figura foi retirada do site da Prof. Fernanda https://fernandafperes.com.br/blog/interpretacao-boxplot/ (uma exelente referência para estudar estatística!)
+
+> Geralmente eles são representados na vertical, mas também é comum a representação na horizontal.
+
+```{r eval=FALSE}
+# Para fazer o Boxplot de Batimentos na horizontal
+boxplot(Batimentos, horizontal = TRUE)
+```
+
+> É uma forma de comparar dois grupos em relação a uma medida, por exemplo os batimentos cardiacos de grupo de homens e de mulheres
+```{r}
+# Geração de amostras simuladas
+set.seed(1)
+BatimentosMulheres <- rnorm(30, 70, 3)
+BatimentosHomens <- rnorm(30, 75, 8)
+# Boxplot para os dois grupos Homens e Mulheres 
+boxplot(BatimentosHomens, BatimentosMulheres)
+```
+
+
+> O boxplot também pode nos informar se uma distribuição de probabilidade é simétrica ou não. Analise os gráficos abaixo, veja a conexão entre histograma e boxplot.
+
+```{r echo=FALSE}
+set.seed(1000)
+simetrica <- rnorm(1000, 40, 5)
+hist(simetrica,
+     main="Distribuição SIMÉTRICA",
+     xlab = "",
+     ylab="")
+```
+
+
+
+```{r echo=FALSE}
+set.seed(1000)
+assimetrica <- 20 + 10*rexp(1000, 5)
+hist(assimetrica,
+     main="Distribuição ASSIMÉTRICA",
+     xlab = "",
+     ylab="")
+abline(v = mean(assimetrica),                      
+       col = "red",
+       lwd = 3)
+boxplot(assimetrica, horizontal = T)
+summary(assimetrica)
+```
+
+<center>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</center>
+## Atividade 6
+
+**Para o banco de dados escolhido na atividade 5, faça gráficos como o histograma e boxplot, além disso, pesquise outras formas de fazer gráficos no R.**
+
+<!--chapter:end:09-Graficos.Rmd-->
+
+# Distribuição de Probabilidade
+
+Uma distribuição de probabilidade é um modelo matemático que descreve a relação entre os valores possíveis de uma variável e as probabilidades de ocorrência desses valores. Essencialmente, ela nos permite prever a probabilidade de eventos com base em um conjunto de dados.
+
+Entre as distribuições mais comuns, destacam-se:
+
+- Distribuição Normal (ou Gaussiana)
+- Distribuição Binomial
+- Distribuição Poisson
+- Distribuição Exponencial
+- Distribuição Uniforme
+- Distribuição Qui-quadrado
+- Distribuição t-Student
+- Distribuição Gama, entre outras.
+
+Cada tipo de distribuição possui características próprias e é aplicada em diferentes contextos. A distribuição normal é uma das mais amplamente utilizadas, especialmente para modelar fenômenos naturais e sociais, como a altura de indivíduos ou o tempo de vida de produtos.
+
+> **Propriedades Gerais das Distribuições de Probabilidade**
+
+- **Área total sob a curva é igual a 1:** Isso significa que a soma de todas as probabilidades possíveis de ocorrência dos eventos é igual a 100%.
+- **A área sob a curva representa a probabilidade de um evento.** Por exemplo, a probabilidade de um evento ocorrer entre dois valores quaisquer pode ser calculada pela área sob a curva entre esses dois pontos.
+
+## Distribuição Normal
+
+A distribuição normal é uma das mais conhecidas na estatística. Ela modela fenômenos que seguem um comportamento simétrico em torno de uma média. A distribuição normal tem várias aplicações, desde a análise de medidas biológicas (como a pressão arterial) até a previsão de fenômenos econômicos (como o preço das ações).
+
+> **A distribuição normal é definida por dois parâmetros principais:**
+
+- **Média (μ):** Representa o valor central da distribuição.
+- **Desvio Padrão (σ):** Mede a dispersão dos dados em relação à média.
+
+> **Características da Distribuição Normal**
+
+- **Forma de sino:** A distribuição normal tem a forma de um sino simétrico, com a maior concentração de dados perto da média.
+- **Simetria:** A distribuição é simétrica em relação à média.
+- **Média, Mediana e Moda:** Para uma distribuição normal, a média, mediana e moda são "iguais" e localizam-se no centro da distribuição.
+
+> **Teoricamente o comportamento da Distribuição Normal é dado por:**
+
+<center>
+
+![<font size="2">Figura: Distribuição Normal teórica (Fonte: <https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG>)</font>](normalTeorica.png){width="80%"}
+
+</center>
+
+Onde:
+
+-   A média está representada por $\mu$
+-   O devio padrão está representado por $\sigma$
+
+> **Regra empirica 68% - 95% - 99,7%**
+Se os dados seguem uma distribuição normal, é possível fazer afirmações sobre a concentração dos dados em torno da média, conforme a regra empírica:
+
+- *68%* dos dados estão no intervalo de uma vez o desvio padrão (μ ± 1σ).
+- *95%* dos dados estão no intervalo de duas vezes o desvio padrão (μ ± 2σ).
+- *99,7%* dos dados estão no intervalo de três vezes o desvio padrão (μ ± 3σ).
+
+**Importante:** Dados fora do intervalo de μ ± 3σ são considerados raros.
+
+> Exemplo de distribuição Normal, com dados simulados usado a função rnorm().
+
+```{r}
+
+# semente de geração de números aleatórios 
+set.seed(1)
+
+# Será simulada uma amostra com a seguinte característica:
+# 1000 valores
+# média ~ 70
+# desvio padrão ~ 3
+# A função rnorm() gera números randômicos com comportamento de uma distribuição Normal 
+BatimentosMulheres <- rnorm(1000, 70, 3)
+
+# Arrendodamento com nenhuma casa depois da vírugula
+BatimentosMulheres <- round(BatimentosMulheres,0)
+
+# histograma
+hist(BatimentosMulheres)
+
+# Classes e frequencias do histograma
+hist(BatimentosMulheres)$breaks
+hist(BatimentosMulheres)$count
+
+# histograma e curva de densidade (da Dist. Normal)
+hist(BatimentosMulheres, prob = TRUE)
+lines(density(BatimentosMulheres), col = 4, lwd = 2)
+
+# idicação da média
+abline(v = mean(BatimentosMulheres), col = 2, lwd = 3)
+
+# medidas resumo
+summary(BatimentosMulheres)
+sort(table(BatimentosMulheres), decreasing = T)
+sd(BatimentosMulheres)
+
+# CV em %
+sd(BatimentosMulheres)/mean(BatimentosMulheres)*100
+```
+
+> As funções **pnorm()** e **dnorm()** são usadas para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
+
+**Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp.
+
+Calcule as probabilidades:
+
+-   de uma mulher ter batimentos inferior a 70bmp, ou seja, $P(x<70)$:
+
+```{r}
+# pnorm(): Calcula a probabilidade acumulada até um valor específico. Ou seja, retorna a probabilidade de que uma variável aleatória, que segue uma distribuição normal, seja menor ou igual a um determinado valor.
+
+# observação: a resposta é 0.5 pois a média 70.
+pnorm(70, 70, 3)
+```
+
+-   de uma mulher ter batimentos superior a 70bmp, ou seja, $P(x>70)$:
+
+```{r}
+# observação: 1 é o valor da área total
+# a pnorm() fornece a área á esquerda
+1 - pnorm(70, 70, 3)
+```
+
+-   de uma mulher ter batimentos igual a 70bmp, ou seja, $P(x=70)$:
+
+```{r}
+# dnorm(): Calcula a densidade de probabilidade de um valor específico em uma distribuição normal. Em outras palavras, ela retorna o valor da função densidade de probabilidade no ponto especificado.
+dnorm(70, 70, 3)
+```
+
+-   de uma mulher ter batimentos entre 67 e 73bmp $P(67 < x < 73)$:
+
+```{r}
+# Observe que estamos testando a regra empírica (68%)
+pnorm(73, 70, 3) - pnorm(67, 70, 3)
+```
+
+-   de uma mulher ter batimentos entre 67 e 73bmp $P(64 < x < 76)$:
+
+```{r}
+# Observe que estamos testando a regra empírica (95%)
+pnorm(76, 70, 3) - pnorm(64, 70, 3)
+```
+
+-   de uma mulher ter batimentos entre 61 e 79bmp $P(61 < x < 79)$:
+
+```{r}
+# Observe que estamos testando a regra empírica (99,7%)
+pnorm(79, 70, 3) - pnorm(61, 70, 3)
+```
+
+-   de uma mulher ter batimentos maior que 90bmp $P(x > 90)$:
+
+```{r}
+# Um evento raro
+1 - pnorm(90, 70, 3)
+```
+
+-   de uma mulher ter batimentos menor que 65bmp $P(x < 65)$:
+
+```{r}
+pnorm(65, 70, 3)
+```
+
+## Gráfico QQ
+
+Uma maneira comum de verificar a normalidade de uma distribuição é utilizando o gráfico QQ. Ele compara os quantis de uma amostra com os quantis de uma distribuição normal padrão, e é muito útil para identificar se os dados seguem uma distribuição normal.
+
+> **Distribuição Normal Padrão**
+
+A distribuição normal padrão tem duas características importantes:
+
+- Média (μ) igual a 0
+- Desvio padrão (σ) igual a 1
+
+
+> **Cálculo do Escore Z**
+
+Qualquer distribuição normal pode ser transformada na distribuição normal padrão utilizando o escore Z. O **escore Z** é calculado pela fórmula:
+
+\[
+z = \frac{(x - \mu)}{\sigma}
+\]
+
+Onde:
+
+- \(x\) é o valor da observação.
+- \(\mu\) é a média da distribuição.
+- \(\sigma\) é o desvio padrão da distribuição.
+
+O gráfico QQ realiza exatamente o que a fórmula do escore Z descreve: ele transforma os dados da amostra para a distribuição normal padrão (média 0 e desvio padrão 1) e então compara esses valores transformados com os quantis da distribuição normal teórica. Se os pontos formarem uma linha reta, isso sugere que os dados seguem uma distribuição normal.
+
+Veja um exemplo no R para uma Distribuição Normal Padrão: 
+
+```{r}
+set.seed(1)
+# rnorm(10000, 0, 1): normal padrão média 0, dp=1
+# ou simplesmente rnorm(10000)
+NormalPadrao <- rnorm(10000)
+hist(NormalPadrao, probability = T)
+lines(density(NormalPadrao), col = 4, lwd = 2)
+axis(side = 1, at = seq(-3, 3, by = 1), labels = seq(-3, 3, by = 1))
+abline(v = mean(NormalPadrao), col = 2, lwd = 3)
+```
+
+No gráfico QQ, os quantis da amostra são comparados com os quantis da distribuição normal padrão. Se a amostra segue uma distribuição normal, os pontos no gráfico QQ devem se alinhar aproximadamente a uma linha reta.
+
+Se os pontos se afastam dessa linha reta de forma sistemática, isso indica que os dados não seguem uma distribuição normal. O tipo de desvio pode dar pistas sobre a natureza dessa não-normalidade (por exemplo, se os pontos se curvam para cima ou para baixo, pode indicar assimetria ou caudas pesadas).
+
+
+> Distrbuição normal é usada para dados contínuos!
+
+```{r}
+# Gráfico QQ
+set.seed(1)
+BatimentosMulheres <- rnorm(1000, 70, 3)
+qqnorm(BatimentosMulheres)
+qqline(BatimentosMulheres, col="red")
+
+# Faça o arredondamento
+BatimentosMulheresR <- round(BatimentosMulheres,0)
+qqnorm(BatimentosMulheresR)
+qqline(BatimentosMulheresR)
+```
+
+> A distribuição Normal é uma distribuição para modelar variáveis **CONTÍNUAS**!
+
+## Atividade 7
+
+**Utilizando o banco de dados escolhido para as atividades 5 e 6, gere gráficos QQ para as variáveis quantitativas. Em seguida, avalie visualmente se essas variáveis seguem uma distribuição normal.**
+
+<!--chapter:end:10-DistribuicaoNormal.Rmd-->
+
+# Exemplos de distribuições
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
+<center>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+</center>
+
+## Distribuições Discretas
+
+### Binomial
+
+Modela o número de sucessos em n tentativas com probabilidade `p`.
+
+```{r binomial}
+n <- 10
+p <- 0.5
+x <- 0:n
+y <- dbinom(x, size = n, prob = p)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "Distribuição Binomial (n = 10, p = 0.5)", x = "Número de Sucessos", y = "Probabilidade")
+```
+
+### Poisson
+
+Modela o número de eventos raros num intervalo fixo.
+
+```{r poisson}
+lambda <- 3
+x <- 0:15
+y <- dpois(x, lambda)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "darkorange") +
+  labs(title = "Distribuição de Poisson (λ = 3)", x = "Número de Eventos", y = "Probabilidade")
+```
+
+### Geométrica
+
+Modela o número de falhas antes do primeiro sucesso.
+
+```{r geometrica}
+p <- 0.3
+x <- 0:10
+y <- dgeom(x, prob = p)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_bar(stat = "identity", fill = "purple") +
+  labs(title = "Distribuição Geométrica (p = 0.3)", x = "Tentativas até o 1º Sucesso", y = "Probabilidade")
+```
+
+## Distribuições Contínuas
+
+### Normal
+
+Modela fenômenos naturais e erros de medida.
+
+```{r normal_plot}
+x <- seq(-4, 4, length.out = 100)
+y <- dnorm(x)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "darkgreen", linewidth = 1.2) +
+  labs(title = "Distribuição Normal (média = 0, sd = 1)", x = "x", y = "Densidade")
+```
+
+### Exponencial
+
+Tempo até um evento ocorrer.
+
+```{r exponencial}
+lambda <- 1
+x <- seq(0, 5, length.out = 100)
+y <- dexp(x, rate = lambda)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "firebrick", size = 1.2) +
+  labs(title = "Distribuição Exponencial (λ = 1)", x = "Tempo", y = "Densidade")
+```
+
+### Uniforme Contínua
+
+Todos os valores têm a mesma chance.
+
+```{r uniforme}
+x <- seq(0, 1, length.out = 100)
+y <- dunif(x, min = 0, max = 1)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "goldenrod", size = 1.2) +
+  labs(title = "Distribuição Uniforme Contínua (0 a 1)", x = "x", y = "Densidade")
+```
+
+### t de Student
+
+Usada em testes com amostras pequenas.
+
+```{r student}
+x <- seq(-4, 4, length.out = 100)
+y <- dt(x, df = 5)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "navy", size = 1.2) +
+  labs(title = "Distribuição t de Student (df = 5)", x = "x", y = "Densidade")
+```
+
+### Qui-Quadrado (χ²)
+
+Usada para testes de aderência e independência.
+
+```{r chisq}
+x <- seq(0, 20, length.out = 100)
+y <- dchisq(x, df = 5)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "tomato", size = 1.2) +
+  labs(title = "Distribuição Qui-quadrado (df = 5)", x = "x", y = "Densidade")
+```
+
+### F de Fisher
+
+Usada em ANOVA para comparar variâncias.
+
+```{r fisher}
+x <- seq(0, 5, length.out = 100)
+y <- df(x, df1 = 5, df2 = 10)
+
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_line(color = "darkviolet", size = 1.2) +
+  labs(title = "Distribuição F de Fisher (df1 = 5, df2 = 10)", x = "x", y = "Densidade")
+```
+
+> Cada distribuição tem uma aplicação específica conforme o tipo de variável (discreta ou contínua), o contexto do problema e as suposições do modelo. Entender suas formas e usos ajuda na escolha correta da análise estatística.
+
+<!--chapter:end:11-Distribuicoes-Probabilidade.Rmd-->
+
+# Normal ou Não?
+
+<center>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/32368ff6-8150-40df-a981-abe61d0c919f/Uobp2rITzh.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+</center>
+
+Antes de avançarmos para a aplicação dos testes estatísticos, é importante avaliarmos se os dados seguem ou não uma distribuição normal. Essa verificação inicial é muito importante porque muitos testes paramétricos, como o teste t e a ANOVA, partem da suposição de normalidade dos dados. Compreender esse aspecto permite escolher os métodos estatísticos mais adequados, aumentando a confiabilidade dos resultados e evitando interpretações equivocadas que poderiam comprometer a análise.
+
+Esta seção apresenta uma análise visual da normalidade dos dados por meio de gráficos QQ (Quantil-Quantil), com a comparação de três cenários distintos: dados que seguem uma distribuição normal, dados que levantam dúvidas quanto à normalidade e dados que claramente não seguem essa distribuição.
+
+- Dados normalmente distribuídos
+- Dados que geram dúvida quanto à normalidade
+- Dados que claramente não seguem distribuição normal
+
+## Dados que seguem distribuição normal
+
+```{r enormal}
+set.seed(10)
+dados_normais <- rnorm(500, mean = 0, sd = 1)
+
+hist(dados_normais, main = "Histograma - Distribuição Normal", col = "lightblue")
+boxplot(dados_normais, main = "Boxplot - Distribuição Normal")
+qqnorm(dados_normais, main = "QQ Plot - Distribuição Normal")
+qqline(dados_normais, col = "blue", lwd = 2)
+```
+
+*Observação:* Os pontos seguem de perto a linha, indicando que os dados são normalmente distribuídos.
+
+## Dados que geram dúvida
+
+```{r duvidosa}
+set.seed(20)
+dados_mistos <- c(rnorm(250, 0, 1), rnorm(250, 2, 1))
+
+hist(dados_mistos, main = "Histograma - Mistura de Normais", col = "lightgreen")
+boxplot(dados_mistos, main = "Boxplot - Mistura de Normais")
+qqnorm(dados_mistos, main = "QQ Plot - Mistura de Normais")
+qqline(dados_mistos, col = "orange", lwd = 2)
+```
+
+*Observação:* As caudas do gráfico QQ começam a se afastar da linha, o que pode gerar dúvida sobre a normalidade.
+
+
+## Dados que não seguem distribuição normal
+
+```{r nnormal}
+set.seed(30)
+dados_chi <- rchisq(500, df = 3)
+
+hist(dados_chi, main = "Histograma - Distribuição Qui-quadrado", col = "lightpink")
+boxplot(dados_chi, main = "Boxplot - Qui-quadrado")
+qqnorm(dados_chi, main = "QQ Plot - Qui-quadrado")
+qqline(dados_chi, col = "red", lwd = 2)
+```
+
+*Observação:* A forte curvatura do gráfico QQ indica clara violação da normalidade (assimetria à direita).
+
+## Dados com forte concentração de repetição de valor (não seguem distribuição normal)
+
+```{r dados_repetidos}
+set.seed(42)
+dados_repetidos <- c(rep(18, 5), rep(23, 10), rep(26,7)) 
+
+# Histograma
+hist(dados_repetidos, main = "Histograma - Dados Repetidos", col = "lightblue", xlab = "Valor", ylab = "Frequência")
+
+# Boxplot
+boxplot(dados_repetidos, main = "Boxplot - Dados Repetidos", col = "lightgreen")
+
+# QQ Plot
+qqnorm(dados_repetidos, main = "QQ Plot - Dados Repetidos")
+qqline(dados_repetidos, col = "red", lwd = 2)
+```
+
+> O gráfico QQ é uma ferramenta visual poderosa para avaliar se um conjunto de dados segue uma distribuição normal. Em conjunto com histogramas e boxplots, permite identificar desvios, outliers e assimetrias de maneira clara.
+
+<!--chapter:end:12-diagnostico-normalidade.Rmd-->
+
+# Estatística Inferencial
+
+A **estatística inferencial** é uma área essencial da estatística que permite fazer generalizações sobre uma população com base em dados coletados de uma amostra. Um passo fundamental nesse processo é o **cálculo amostral**, que determina o tamanho ideal da amostra para garantir a validade dos resultados — e esse cálculo depende diretamente do **tipo de teste estatístico** que será utilizado, pois diferentes testes exigem diferentes parâmetros, como variabilidade, efeito esperado e poder do teste. 
+
+Ao conduzir uma análise inferencial, formulam-se **hipóteses**: a **hipótese nula (H₀)**, que representa a ausência de efeito ou diferença, e a **hipótese alternativa (H₁)**, que sugere a existência de um efeito ou diferença. Define-se também um **nível de significância (α)**, geralmente 0,05 (5%), que representa a probabilidade de rejeitar H₀ quando ela é verdadeira (**erro tipo I**). O **valor-p**, calculado a partir dos dados, indica a probabilidade de obter um resultado tão extremo quanto o observado, supondo que H₀ seja verdadeira. Com base na comparação entre o valor-p e o nível de significância, aplica-se o **critério de decisão**: se o valor-p for menor que α, rejeita-se H₀, o que indica **evidências estatísticas suficientes para apoiar a hipótese alternativa**.
+
+
+## Etapas de um Teste Estatístico
+
+Para realizar qualquer **teste estatístico**, seguimos uma sequência básica de passos:
+
+1. **Escrevemos as hipóteses do teste**, começando com a **hipótese nula (H₀)**, que geralmente afirma que não há efeito ou diferença, e a **hipótese alternativa (H₁)**, que propõe o contrário.
+
+2. **Definimos o nível de significância (α)**, que é a margem de erro aceitável. Esse valor, geralmente 0,05 (ou 5%), já foi considerado no **cálculo do tamanho da amostra**, garantindo que os resultados tenham confiabilidade.
+
+3. **Utilizamos um recurso computacional**, como um software estatístico, para calcular o **valor-p**, que mostra a probabilidade de observarmos os dados coletados caso a hipótese nula seja verdadeira.
+
+4. **Comparamos o valor-p com o nível de significância**. Se o valor-p for menor que α, **rejeitamos a hipótese nula**. Caso contrário, não rejeitamos.
+
+5. Por fim, **chegamos à conclusão do teste**, que nos diz se há ou não **evidência estatística** suficiente para apoiar a hipótese alternativa.
+
+
+
+
+## Erros Tipo I e Tipo II
+
+Em um **teste estatístico**, tomamos uma decisão com base nos dados coletados de uma amostra: **rejeitar** ou **não rejeitar a hipótese nula (H₀)**. Por isso, é fundamental realizar um **cálculo amostral adequado**, selecionar cuidadosamente a **técnica de amostragem** e estar atento às possíveis **fontes de vieses**, garantindo que a amostra seja representativa e que os resultados do teste sejam confiáveis.
+
+Entretanto, essa decisão envolve **riscos de erro**, que são inerentes ao processo justamente porque estamos baseando nossas conclusões em uma amostra e não na população inteira. Esses erros se dividem em dois tipos:
+
+- **Erro Tipo I (α) – Falso Positivo**  
+  Ocorre quando **rejeitamos H₀ mesmo ela sendo verdadeira**.  
+  É como afirmar que existe um efeito quando, na verdade, não existe.  
+ 
+  > Exemplo na medicina: concluir que um novo medicamento reduz a pressão arterial quando ele não tem efeito real, o que pode levar à aprovação de um tratamento ineficaz.  
+  
+  > Exemplo no esporte: afirmar que um programa de treinamento melhora o desempenho dos atletas quando ele não traz benefício real, gerando investimentos desnecessários.  
+  
+  > Exemplo na psicologia: dizer que uma terapia cognitivo-comportamental reduz a ansiedade, mesmo sem efeito comprovado, gerando falsas expectativas nos pacientes.  
+ 
+  Essa é a chance de um **falso positivo**, e o **nível de significância α** (geralmente 0,05) representa a probabilidade de cometer esse erro.
+
+- **Erro Tipo II (β) – Falso Negativo**  
+  Ocorre quando **não rejeitamos H₀ mesmo ela sendo falsa**.  
+  É como deixar passar um efeito real sem detectá-lo.  
+  
+  > Exemplo na medicina: não identificar que o medicamento é eficaz, rejeitando seu uso quando ele realmente funciona.  
+  
+  > Exemplo no esporte: não perceber a melhora no desempenho causada pelo programa de treinamento, deixando de adotá-lo e prejudicando os atletas.  
+  
+  > Exemplo na psicologia: não detectar que a terapia é eficaz para reduzir a ansiedade, levando à rejeição de um tratamento que poderia beneficiar os pacientes.  
+  
+  Isso é um **falso negativo**, e **β** é a probabilidade de cometer esse erro.
+
+## Poder do Teste Estatístico
+
+- O **poder do teste** é a probabilidade de **detectar um efeito real quando ele realmente existe**, ou seja, **rejeitar H₀ quando H₀ é falsa**.  
+- O poder é calculado como:  
+  **Poder = 1 - β**
+
+Um teste com **alto poder** (geralmente desejado acima de 80%) tem menos chance de cometer erro tipo II, o que significa maior capacidade de detectar diferenças reais quando elas existem. O poder depende do **tamanho da amostra**, do **nível de significância**, da **variabilidade dos dados** e da **magnitude do efeito** que se deseja identificar.
+
+
+## Tabela: Erros, Decisões e Poder do Teste
+
+| Situação Real       | Decisão: Rejeitar H₀            | Decisão: Não Rejeitar H₀          |
+|:-------------------:|:------------------------------:|:--------------------------------:|
+| H₀ é verdadeira     | Erro Tipo I (*α*)    | Decisão correta                  |
+| H₀ é falsa          | Decisão correta (*poder*)                | Erro Tipo II (*β*)    |
+
+
+- **Poder do teste:** Probabilidade de rejeitar H₀ quando H₀ é falsa (ou seja, evitar o erro tipo II).
+
+
+## Tamanho do Efeito
+
+### O que é o Tamanho do Efeito?
+
+O **tamanho do efeito** é uma medida que indica **o quanto uma diferença ou relação observada nos dados é relevante na prática**. 
+
+Enquanto o **valor-p** nos informa se um resultado é estatisticamente significativo (ou seja, se é improvável que tenha ocorrido por acaso), o tamanho do efeito **complementa essa análise mostrando a magnitude real do efeito observado**.
+
+
+### Exemplos para Entender Melhor
+
+> Imagine que um novo remédio reduza a pressão arterial em média em **1 mmHg** comparado ao tratamento padrão.  
+  Com uma amostra muito grande, essa pequena diferença pode ser estatisticamente significativa (*valor-p* < 0,05), mas **clinicamente irrelevante**. O tamanho do efeito, neste caso, mostra que, apesar do resultado ser significativo, **o impacto prático é muito pequeno**.
+
+> Suponha um estudo que compara dois métodos de treinamento de força e encontra uma diferença média de **0,5 kg** no aumento de carga máxima entre os grupos após 8 semanas.  
+  Com uma amostra grande, essa diferença pode ser estatisticamente significativa, mas **na prática, esse ganho é muito pequeno** para justificar a troca de método. O tamanho do efeito indica que, embora exista diferença detectada, **ela tem pouco impacto real no desempenho atlético**.
+
+> Considere uma pesquisa que compara níveis de ansiedade entre terapia online e presencial, com diferença média de **1 ponto** (em escala de 0 a 100).  
+  Mesmo que essa diferença seja estatisticamente significativa, **não representa uma mudança clinicamente relevante** no estado emocional dos pacientes. O tamanho do efeito ajuda a perceber que a diferença entre as modalidades pode ser mínima na prática.
+
+
+## Medidas Comuns de Tamanho do Efeito
+
+A escolha da medida depende do tipo de teste e das variáveis analisadas.
+
+### d de Cohen (teste t)
+
+Usado para comparar médias entre dois grupos, mede a diferença em unidades de desvio padrão.
+
+| Valor do d | Interpretação       |
+|:------------|:---------------------|
+| ≈ 0.2      | Efeito pequeno      |
+| ≈ 0.5      | Efeito médio        |
+| ≥ 0.8      | Efeito grande       |
+
+### C de Cramer, para tabela 2x2 (teste qui-quadrado)
+
+Mede a associação entre variáveis categóricas (varia de 0 a 1).
+
+| Valor de C | Interpretação       |
+|:------------|:---------------------|
+| ≈ 0.1      | Associação fraca    |
+| ≈ 0.3      | Associação moderada |
+| ≥ 0.5      | Associação forte    |
+
+### Coeficiente de Correlação de Pearson (r)
+
+Mede a força da relação linear entre duas variáveis quantitativas.
+
+| Valor de r   | Interpretação          |
+|:--------------|:------------------------|
+| ≈ 0.1        | Correlação fraca       |
+| ≈ 0.3        | Correlação moderada    |
+| ≥ 0.5        | Correlação forte       |
+| 0            | Nenhuma correlação     |
+| ±1           | Correlação perfeita    |
+
+
+## Por que o Tamanho do Efeito é Importante?
+
+Um resultado estatisticamente significativo **nem sempre indica relevância prática**. O tamanho do efeito responde à pergunta:  
+**"Esse resultado faz diferença no mundo real?"**
+
+
+
+## Testes
+
+### Comparação
+
+### Associação
+
+### Correlação
+
+#### Regressão
+
+
+
+
+<!--chapter:end:13-Estatística-Inferencial.Rmd-->
+
+`r if (knitr:::is_html_output()) '
+# Referências {-}
+'`
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_rklapo5f.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+
+<!--chapter:end:20-Referencias.Rmd-->
+

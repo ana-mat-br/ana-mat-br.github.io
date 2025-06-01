@@ -1,19 +1,151 @@
 # Estatística Inferencial
 
+A **estatística inferencial** é uma área essencial da estatística que permite fazer generalizações sobre uma população com base em dados coletados de uma amostra. Um passo fundamental nesse processo é o **cálculo amostral**, que determina o tamanho ideal da amostra para garantir a validade dos resultados — e esse cálculo depende diretamente do **tipo de teste estatístico** que será utilizado, pois diferentes testes exigem diferentes parâmetros, como variabilidade, efeito esperado e poder do teste. 
 
-## Conceitos iniciais
+Ao conduzir uma análise inferencial, formulam-se **hipóteses**: a **hipótese nula (H₀)**, que representa a ausência de efeito ou diferença, e a **hipótese alternativa (H₁)**, que sugere a existência de um efeito ou diferença. Define-se também um **nível de significância (α)**, geralmente 0,05 (5%), que representa a probabilidade de rejeitar H₀ quando ela é verdadeira (**erro tipo I**). O **valor-p**, calculado a partir dos dados, indica a probabilidade de obter um resultado tão extremo quanto o observado, supondo que H₀ seja verdadeira. Com base na comparação entre o valor-p e o nível de significância, aplica-se o **critério de decisão**: se o valor-p for menor que α, rejeita-se H₀, o que indica **evidências estatísticas suficientes para apoiar a hipótese alternativa**.
 
-teste
 
-## Etapas de um teste
+## Etapas de um Teste Estatístico
+
+Para realizar qualquer **teste estatístico**, seguimos uma sequência básica de passos:
+
+1. **Escrevemos as hipóteses do teste**, começando com a **hipótese nula (H₀)**, que geralmente afirma que não há efeito ou diferença, e a **hipótese alternativa (H₁)**, que propõe o contrário.
+
+2. **Definimos o nível de significância (α)**, que é a margem de erro aceitável. Esse valor, geralmente 0,05 (ou 5%), já foi considerado no **cálculo do tamanho da amostra**, garantindo que os resultados tenham confiabilidade.
+
+3. **Utilizamos um recurso computacional**, como um software estatístico, para calcular o **valor-p**, que mostra a probabilidade de observarmos os dados coletados caso a hipótese nula seja verdadeira.
+
+4. **Comparamos o valor-p com o nível de significância**. Se o valor-p for menor que α, **rejeitamos a hipótese nula**. Caso contrário, não rejeitamos.
+
+5. Por fim, **chegamos à conclusão do teste**, que nos diz se há ou não **evidência estatística** suficiente para apoiar a hipótese alternativa.
+
+
+
+
+## Erros Tipo I e Tipo II
+
+Em um **teste estatístico**, tomamos uma decisão com base nos dados coletados de uma amostra: **rejeitar** ou **não rejeitar a hipótese nula (H₀)**. Por isso, é fundamental realizar um **cálculo amostral adequado**, selecionar cuidadosamente a **técnica de amostragem** e estar atento às possíveis **fontes de vieses**, garantindo que a amostra seja representativa e que os resultados do teste sejam confiáveis.
+
+Entretanto, essa decisão envolve **riscos de erro**, que são inerentes ao processo justamente porque estamos baseando nossas conclusões em uma amostra e não na população inteira. Esses erros se dividem em dois tipos:
+
+- **Erro Tipo I (α) – Falso Positivo**  
+  Ocorre quando **rejeitamos H₀ mesmo ela sendo verdadeira**.  
+  É como afirmar que existe um efeito quando, na verdade, não existe.  
+ 
+  > Exemplo na medicina: concluir que um novo medicamento reduz a pressão arterial quando ele não tem efeito real, o que pode levar à aprovação de um tratamento ineficaz.  
+  
+  > Exemplo no esporte: afirmar que um programa de treinamento melhora o desempenho dos atletas quando ele não traz benefício real, gerando investimentos desnecessários.  
+  
+  > Exemplo na psicologia: dizer que uma terapia cognitivo-comportamental reduz a ansiedade, mesmo sem efeito comprovado, gerando falsas expectativas nos pacientes.  
+ 
+  Essa é a chance de um **falso positivo**, e o **nível de significância α** (geralmente 0,05) representa a probabilidade de cometer esse erro.
+
+- **Erro Tipo II (β) – Falso Negativo**  
+  Ocorre quando **não rejeitamos H₀ mesmo ela sendo falsa**.  
+  É como deixar passar um efeito real sem detectá-lo.  
+  
+  > Exemplo na medicina: não identificar que o medicamento é eficaz, rejeitando seu uso quando ele realmente funciona.  
+  
+  > Exemplo no esporte: não perceber a melhora no desempenho causada pelo programa de treinamento, deixando de adotá-lo e prejudicando os atletas.  
+  
+  > Exemplo na psicologia: não detectar que a terapia é eficaz para reduzir a ansiedade, levando à rejeição de um tratamento que poderia beneficiar os pacientes.  
+  
+  Isso é um **falso negativo**, e **β** é a probabilidade de cometer esse erro.
+
+## Poder do Teste Estatístico
+
+- O **poder do teste** é a probabilidade de **detectar um efeito real quando ele realmente existe**, ou seja, **rejeitar H₀ quando H₀ é falsa**.  
+- O poder é calculado como:  
+  **Poder = 1 - β**
+
+Um teste com **alto poder** (geralmente desejado acima de 80%) tem menos chance de cometer erro tipo II, o que significa maior capacidade de detectar diferenças reais quando elas existem. O poder depende do **tamanho da amostra**, do **nível de significância**, da **variabilidade dos dados** e da **magnitude do efeito** que se deseja identificar.
+
+
+## Tabela: Erros, Decisões e Poder do Teste
+
+| Situação Real       | Decisão: Rejeitar H₀            | Decisão: Não Rejeitar H₀          |
+|:-------------------:|:------------------------------:|:--------------------------------:|
+| H₀ é verdadeira     | Erro Tipo I (*α*)    | Decisão correta                  |
+| H₀ é falsa          | Decisão correta (*poder*)                | Erro Tipo II (*β*)    |
+
+
+- **Poder do teste:** Probabilidade de rejeitar H₀ quando H₀ é falsa (ou seja, evitar o erro tipo II).
+
+
+## Tamanho do Efeito
+
+### O que é o Tamanho do Efeito?
+
+O **tamanho do efeito** é uma medida que indica **o quanto uma diferença ou relação observada nos dados é relevante na prática**. 
+
+Enquanto o **valor-p** nos informa se um resultado é estatisticamente significativo (ou seja, se é improvável que tenha ocorrido por acaso), o tamanho do efeito **complementa essa análise mostrando a magnitude real do efeito observado**.
+
+
+### Exemplos para Entender Melhor
+
+> Imagine que um novo remédio reduza a pressão arterial em média em **1 mmHg** comparado ao tratamento padrão.  
+  Com uma amostra muito grande, essa pequena diferença pode ser estatisticamente significativa (*valor-p* < 0,05), mas **clinicamente irrelevante**. O tamanho do efeito, neste caso, mostra que, apesar do resultado ser significativo, **o impacto prático é muito pequeno**.
+
+> Suponha um estudo que compara dois métodos de treinamento de força e encontra uma diferença média de **0,5 kg** no aumento de carga máxima entre os grupos após 8 semanas.  
+  Com uma amostra grande, essa diferença pode ser estatisticamente significativa, mas **na prática, esse ganho é muito pequeno** para justificar a troca de método. O tamanho do efeito indica que, embora exista diferença detectada, **ela tem pouco impacto real no desempenho atlético**.
+
+> Considere uma pesquisa que compara níveis de ansiedade entre terapia online e presencial, com diferença média de **1 ponto** (em escala de 0 a 100).  
+  Mesmo que essa diferença seja estatisticamente significativa, **não representa uma mudança clinicamente relevante** no estado emocional dos pacientes. O tamanho do efeito ajuda a perceber que a diferença entre as modalidades pode ser mínima na prática.
+
+
+## Medidas Comuns de Tamanho do Efeito
+
+A escolha da medida depende do tipo de teste e das variáveis analisadas.
+
+### d de Cohen (teste t)
+
+Usado para comparar médias entre dois grupos, mede a diferença em unidades de desvio padrão.
+
+| Valor do d | Interpretação       |
+|:------------|:---------------------|
+| ≈ 0.2      | Efeito pequeno      |
+| ≈ 0.5      | Efeito médio        |
+| ≥ 0.8      | Efeito grande       |
+
+### C de Cramer, para tabela 2x2 (teste qui-quadrado)
+
+Mede a associação entre variáveis categóricas (varia de 0 a 1).
+
+| Valor de C | Interpretação       |
+|:------------|:---------------------|
+| ≈ 0.1      | Associação fraca    |
+| ≈ 0.3      | Associação moderada |
+| ≥ 0.5      | Associação forte    |
+
+### Coeficiente de Correlação de Pearson (r)
+
+Mede a força da relação linear entre duas variáveis quantitativas.
+
+| Valor de r   | Interpretação          |
+|:--------------|:------------------------|
+| ≈ 0.1        | Correlação fraca       |
+| ≈ 0.3        | Correlação moderada    |
+| ≥ 0.5        | Correlação forte       |
+| 0            | Nenhuma correlação     |
+| ±1           | Correlação perfeita    |
+
+
+## Por que o Tamanho do Efeito é Importante?
+
+Um resultado estatisticamente significativo **nem sempre indica relevância prática**. O tamanho do efeito responde à pergunta:  
+**"Esse resultado faz diferença no mundo real?"**
+
+
 
 ## Testes
+
+### Comparação
+
+### Associação
 
 ### Correlação
 
 #### Regressão
 
-### Associação
 
-### Comparação
 

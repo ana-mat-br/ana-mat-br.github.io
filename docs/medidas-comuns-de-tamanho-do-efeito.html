@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt" xml:lang="pt">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 15 Medidas Comuns de Tamanho do Efeito | Estatística + R</title>
+  <meta name="description" content="Capítulo 15 Medidas Comuns de Tamanho do Efeito | Estatística + R" />
+  <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 15 Medidas Comuns de Tamanho do Efeito | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 15 Medidas Comuns de Tamanho do Efeito | Estatística + R" />
+  
+  
+  
+
+<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estatística-inferencial-2.html"/>
+<link rel="next" href="por-que-o-tamanho-do-efeito-é-importante.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<h2><center>Estatística + R</center></h2>
+<center> roteiro de estudo </center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#estatística-descritiva"><i class="fa fa-check"></i><b>2.2</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#exemplo-1-saúde-mental-dos-estudantes"><i class="fa fa-check"></i><b>2.2.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#exemplo-2-prática-de-atividades-físicas"><i class="fa fa-check"></i><b>2.2.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#estatística-inferencial"><i class="fa fa-check"></i><b>2.3</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#exemplo-1-saúde-mental-dos-estudantes-1"><i class="fa fa-check"></i><b>2.3.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#exemplo-2-prática-de-atividades-físicas-1"><i class="fa fa-check"></i><b>2.3.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#conexão-com-a-probabilidade"><i class="fa fa-check"></i><b>2.4</b> Conexão com a Probabilidade</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#população-x-amostra"><i class="fa fa-check"></i><b>2.5</b> População x Amostra</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#população"><i class="fa fa-check"></i><b>2.5.1</b> <strong>População</strong></a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#amostra"><i class="fa fa-check"></i><b>2.5.2</b> <strong>Amostra</strong></a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#exemplo-aplicado"><i class="fa fa-check"></i><b>2.5.3</b> <strong>Exemplo aplicado</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#passos-básicos-para-o-cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>2.6</b> Passos básicos para o cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#exemplo-de-cálculo-simples"><i class="fa fa-check"></i><b>2.7</b> Exemplo de cálculo simples</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="intro.html"><a href="intro.html#ferramentas-para-cálculo-de-amostra"><i class="fa fa-check"></i><b>2.7.1</b> Ferramentas para cálculo de amostra</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>2.8</b> Cálculo do Tamanho da Amostra</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#conclusão"><i class="fa fa-check"></i><b>2.8.1</b> Conclusão</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#atividade-2"><i class="fa fa-check"></i><b>2.9</b> Atividade 2</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#amostragem-aleatória-simples"><i class="fa fa-check"></i><b>2.10</b> Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#amostragem-estratificada"><i class="fa fa-check"></i><b>2.11</b> Amostragem Estratificada</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#amostragem-sistemática"><i class="fa fa-check"></i><b>2.12</b> Amostragem Sistemática</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#amostragem-por-conglomerados"><i class="fa fa-check"></i><b>2.13</b> Amostragem por Conglomerados</a></li>
+<li class="chapter" data-level="2.14" data-path="intro.html"><a href="intro.html#combinando-técnicas-na-prática"><i class="fa fa-check"></i><b>2.14</b> Combinando Técnicas na Prática</a></li>
+<li class="chapter" data-level="2.15" data-path="intro.html"><a href="intro.html#evitar-viés-na-amostragem"><i class="fa fa-check"></i><b>2.15</b> Evitar Viés na Amostragem</a></li>
+<li class="chapter" data-level="2.16" data-path="intro.html"><a href="intro.html#vieses-no-uso-de-formulários-online"><i class="fa fa-check"></i><b>2.16</b> Vieses no uso de Formulários Online</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>3</b> Ambiente Computacional</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-pagos"><i class="fa fa-check"></i><b>3.1</b> Softwares pagos</a></li>
+<li class="chapter" data-level="3.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-livres"><i class="fa fa-check"></i><b>3.2</b> Softwares livres</a></li>
+<li class="chapter" data-level="3.3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#linguagens-computacionais"><i class="fa fa-check"></i><b>3.3</b> Linguagens computacionais</a></li>
+<li class="chapter" data-level="3.4" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#preparando-o-ambiente-computacional"><i class="fa fa-check"></i><b>3.4</b> Preparando o Ambiente Computacional</a></li>
+<li class="chapter" data-level="3.5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio"><i class="fa fa-check"></i><b>3.5</b> Plano A: Instalação do R e RStudio</a></li>
+<li class="chapter" data-level="3.6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem"><i class="fa fa-check"></i><b>3.6</b> Plano B: R e RStudio na Nuvem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>4</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="5" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>5</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>5.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="5.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>5.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="5.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>5.3</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>6</b> Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-quantitativas"><i class="fa fa-check"></i><b>6.1</b> Variáveis Quantitativas</a></li>
+<li class="chapter" data-level="6.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-qualitativas"><i class="fa fa-check"></i><b>6.2</b> Variáveis Qualitativas</a></li>
+<li class="chapter" data-level="6.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#aplicação-das-variáveis-em-estatística"><i class="fa fa-check"></i><b>6.3</b> Aplicação das Variáveis em Estatística</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-descritiva-1"><i class="fa fa-check"></i><b>6.3.1</b> Estatística Descritiva:</a></li>
+<li class="chapter" data-level="6.3.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-inferencial-1"><i class="fa fa-check"></i><b>6.3.2</b> Estatística Inferencial:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>6.4</b> Atividade 3</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#análise-das-tabelas"><i class="fa fa-check"></i><b>6.4.1</b> Análise das Tabelas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html"><i class="fa fa-check"></i><b>7</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>7.1</b> Medidas de Tendência Central (ou Posição)</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#média"><i class="fa fa-check"></i><b>7.1.1</b> Média</a></li>
+<li class="chapter" data-level="7.1.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#mediana"><i class="fa fa-check"></i><b>7.1.2</b> Mediana</a></li>
+<li class="chapter" data-level="7.1.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#quartis"><i class="fa fa-check"></i><b>7.1.3</b> Quartis</a></li>
+<li class="chapter" data-level="7.1.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#moda"><i class="fa fa-check"></i><b>7.1.4</b> Moda</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>7.2</b> Medidas de Dispersão (ou Variabilidade)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude"><i class="fa fa-check"></i><b>7.2.1</b> Amplitude</a></li>
+<li class="chapter" data-level="7.2.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#variância"><i class="fa fa-check"></i><b>7.2.2</b> Variância</a></li>
+<li class="chapter" data-level="7.2.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#desvio-padrão-dp"><i class="fa fa-check"></i><b>7.2.3</b> Desvio padrão (DP)</a></li>
+<li class="chapter" data-level="7.2.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude-interquartil-iqr"><i class="fa fa-check"></i><b>7.2.4</b> Amplitude interquartil (IQR)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>7.3</b> Medida Relativa de Variabilidade</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#coeficiente-de-variação-cv"><i class="fa fa-check"></i><b>7.3.1</b> Coeficiente de Variação (CV)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#funções-no-r"><i class="fa fa-check"></i><b>7.4</b> Funções no R</a></li>
+<li class="chapter" data-level="7.5" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#atividade-4"><i class="fa fa-check"></i><b>7.5</b> Atividade 4</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>8</b> Importando banco de dados</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>8.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="8.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>8.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="8.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>8.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="8.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>8.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="8.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>8.5</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>9</b> Instalando pacotes</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>9.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="9.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>9.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="9.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>9.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="9.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>9.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="9.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>9.5</b> Atividade 5</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>10</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>10.1</b> Histograma</a></li>
+<li class="chapter" data-level="10.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>10.2</b> Boxplot</a></li>
+<li class="chapter" data-level="10.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>10.3</b> Atividade 6</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>11</b> Distribuição de Probabilidade</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>11.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="11.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gráfico-qq"><i class="fa fa-check"></i><b>11.2</b> Gráfico QQ</a></li>
+<li class="chapter" data-level="11.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>11.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>12</b> Exemplos de distribuições</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-discretas"><i class="fa fa-check"></i><b>12.1</b> Distribuições Discretas</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>12.1.1</b> Binomial</a></li>
+<li class="chapter" data-level="12.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>12.1.2</b> Poisson</a></li>
+<li class="chapter" data-level="12.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geométrica"><i class="fa fa-check"></i><b>12.1.3</b> Geométrica</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-contínuas"><i class="fa fa-check"></i><b>12.2</b> Distribuições Contínuas</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>12.2.1</b> Normal</a></li>
+<li class="chapter" data-level="12.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>12.2.2</b> Exponencial</a></li>
+<li class="chapter" data-level="12.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-contínua"><i class="fa fa-check"></i><b>12.2.3</b> Uniforme Contínua</a></li>
+<li class="chapter" data-level="12.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>12.2.4</b> t de Student</a></li>
+<li class="chapter" data-level="12.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-χ²"><i class="fa fa-check"></i><b>12.2.5</b> Qui-Quadrado (χ²)</a></li>
+<li class="chapter" data-level="12.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>12.2.6</b> F de Fisher</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>13</b> Normal ou Não?</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Dados que seguem distribuição normal</a></li>
+<li class="chapter" data-level="13.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-dúvida"><i class="fa fa-check"></i><b>13.2</b> Dados que geram dúvida</a></li>
+<li class="chapter" data-level="13.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.3</b> Dados que não seguem distribuição normal</a></li>
+<li class="chapter" data-level="13.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentração-de-repetição-de-valor-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>14</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estatístico"><i class="fa fa-check"></i><b>14.1</b> Etapas de um Teste Estatístico</a></li>
+<li class="chapter" data-level="14.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>14.2</b> Erros Tipo I e Tipo II</a></li>
+<li class="chapter" data-level="14.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estatístico"><i class="fa fa-check"></i><b>14.3</b> Poder do Teste Estatístico</a></li>
+<li class="chapter" data-level="14.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decisões-e-poder-do-teste"><i class="fa fa-check"></i><b>14.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
+<li class="chapter" data-level="14.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>14.5</b> Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-é-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>14.5.1</b> O que é o Tamanho do Efeito?</a></li>
+<li class="chapter" data-level="14.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>14.5.2</b> Exemplos para Entender Melhor</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="medidas-comuns-de-tamanho-do-efeito.html"><a href="medidas-comuns-de-tamanho-do-efeito.html"><i class="fa fa-check"></i><b>15</b> Medidas Comuns de Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="medidas-comuns-de-tamanho-do-efeito.html"><a href="medidas-comuns-de-tamanho-do-efeito.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>15.1</b> d de Cohen (teste t)</a></li>
+<li class="chapter" data-level="15.2" data-path="medidas-comuns-de-tamanho-do-efeito.html"><a href="medidas-comuns-de-tamanho-do-efeito.html#c-de-cramer-teste-qui-quadrado"><i class="fa fa-check"></i><b>15.2</b> C de Cramer (teste qui-quadrado)</a></li>
+<li class="chapter" data-level="15.3" data-path="medidas-comuns-de-tamanho-do-efeito.html"><a href="medidas-comuns-de-tamanho-do-efeito.html#coeficiente-de-correlação-de-pearson-r"><i class="fa fa-check"></i><b>15.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="por-que-o-tamanho-do-efeito-é-importante.html"><a href="por-que-o-tamanho-do-efeito-é-importante.html"><i class="fa fa-check"></i><b>16</b> Por que o Tamanho do Efeito é Importante?</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="por-que-o-tamanho-do-efeito-é-importante.html"><a href="por-que-o-tamanho-do-efeito-é-importante.html#testes"><i class="fa fa-check"></i><b>16.1</b> Testes</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="por-que-o-tamanho-do-efeito-é-importante.html"><a href="por-que-o-tamanho-do-efeito-é-importante.html#comparação"><i class="fa fa-check"></i><b>16.1.1</b> Comparação</a></li>
+<li class="chapter" data-level="16.1.2" data-path="por-que-o-tamanho-do-efeito-é-importante.html"><a href="por-que-o-tamanho-do-efeito-é-importante.html#associação"><i class="fa fa-check"></i><b>16.1.2</b> Associação</a></li>
+<li class="chapter" data-level="16.1.3" data-path="por-que-o-tamanho-do-efeito-é-importante.html"><a href="por-que-o-tamanho-do-efeito-é-importante.html#correlação"><i class="fa fa-check"></i><b>16.1.3</b> Correlação</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="medidas-comuns-de-tamanho-do-efeito" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Capítulo 15</span> Medidas Comuns de Tamanho do Efeito<a href="medidas-comuns-de-tamanho-do-efeito.html#medidas-comuns-de-tamanho-do-efeito" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A escolha da medida depende do tipo de teste e das variáveis analisadas.</p>
+<div id="d-de-cohen-teste-t" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> d de Cohen (teste t)<a href="medidas-comuns-de-tamanho-do-efeito.html#d-de-cohen-teste-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usado para comparar médias entre dois grupos, mede a diferença em unidades de desvio padrão.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Valor do d</th>
+<th>Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≈ 0.2</td>
+<td>Efeito pequeno</td>
+</tr>
+<tr class="even">
+<td>≈ 0.5</td>
+<td>Efeito médio</td>
+</tr>
+<tr class="odd">
+<td>≥ 0.8</td>
+<td>Efeito grande</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="c-de-cramer-teste-qui-quadrado" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> C de Cramer (teste qui-quadrado)<a href="medidas-comuns-de-tamanho-do-efeito.html#c-de-cramer-teste-qui-quadrado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mede a associação entre variáveis categóricas (varia de 0 a 1).</p>
+<table>
+<thead>
+<tr class="header">
+<th>Valor de C</th>
+<th>Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≈ 0.1</td>
+<td>Associação fraca</td>
+</tr>
+<tr class="even">
+<td>≈ 0.3</td>
+<td>Associação moderada</td>
+</tr>
+<tr class="odd">
+<td>≥ 0.5</td>
+<td>Associação forte</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="coeficiente-de-correlação-de-pearson-r" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Coeficiente de Correlação de Pearson (r)<a href="medidas-comuns-de-tamanho-do-efeito.html#coeficiente-de-correlação-de-pearson-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mede a força da relação linear entre duas variáveis quantitativas.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Valor de r</th>
+<th>Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≈ 0.1</td>
+<td>Correlação fraca</td>
+</tr>
+<tr class="even">
+<td>≈ 0.3</td>
+<td>Correlação moderada</td>
+</tr>
+<tr class="odd">
+<td>≥ 0.5</td>
+<td>Correlação forte</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>Nenhuma correlação</td>
+</tr>
+<tr class="odd">
+<td>±1</td>
+<td>Correlação perfeita</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estatística-inferencial-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="por-que-o-tamanho-do-efeito-é-importante.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["twitter", "linkedin", "whatsapp", "github", "facebook"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Livro-Estatistica+R.pdf", "Livro-Estatistica+R.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "language": "pt",
+  "info": true
+});
+});
+</script>
+
+</body>
+
+</html>
