@@ -1732,9 +1732,9 @@ Para realizar qualquer **teste estatístico**, seguimos uma sequência básica d
 
 3. **Utilizamos um recurso computacional**, como um software estatístico, para calcular o **valor-p**, que mostra a probabilidade de observarmos os dados coletados caso a hipótese nula seja verdadeira.
 
-4. **Comparamos o valor-p com o nível de significância**. Se o valor-p for menor que α, **rejeitamos a hipótese nula**. Caso contrário, não rejeitamos.
+5. **Comparamos o valor-p com o nível de significância**. Se o valor-p for menor que α, **rejeitamos a hipótese nula**. Caso contrário, não rejeitamos.
 
-5. Por fim, **chegamos à conclusão do teste**, que nos diz se há ou não **evidência estatística** suficiente para apoiar a hipótese alternativa.
+6. Por fim, **chegamos à conclusão do teste**, que nos diz se há ou não **evidência estatística** suficiente para apoiar a hipótese alternativa.
 
 
 
@@ -1855,11 +1855,14 @@ Um resultado estatisticamente significativo **nem sempre indica relevância prá
 
 Nas próximas seções, abordaremos os testes de **comparação entre grupos** com base em uma variável quantitativa, os testes de **associação entre variáveis categóricas** nominais, e os testes de **correlação**, que podem envolver variáveis quantitativas ou qualitativas ordinais. Essa abordagem visa facilitar a compreensão e a interpretação dos resultados estatísticos em variados contextos, ressaltando sempre a importância de avaliar a relevância prática dos achados para uma tomada de decisão mais informada.
 
-### Testes de Comparação entre Grupos
+
+<!--chapter:end:13-Estatística-Inferencial.Rmd-->
+
+# Testes de Comparação entre Grupos
 
 Os testes de comparação são usados para verificar se existem diferenças significativas entre grupos em relação a uma variável quantitativa. Essas comparações podem variar conforme a relação entre os grupos, o número de grupos e o tipo de dado.
 
-#### Comparações Pareadas (Dependentes)
+## Comparações Pareadas (Dependentes)
 
 Quando os grupos comparados são relacionados ou “ligados” de alguma forma, dizemos que a comparação é **pareada** ou entre grupos **dependentes**. Isso acontece, por exemplo, quando medimos a mesma amostra em dois momentos diferentes — antes e depois de uma intervenção — ou quando comparamos pares de indivíduos relacionados, como gêmeos.
 
@@ -1871,7 +1874,7 @@ Quando os grupos comparados são relacionados ou “ligados” de alguma forma, 
 
 > Aplicar um teste de ansiedade em pacientes antes e depois de uma terapia.
 
-#### Comparações Não-Pareadas (Independentes)
+## Comparações Não-Pareadas (Independentes)
 
 As comparações são **não-pareadas** ou entre grupos **independentes** quando os grupos não têm relação entre si, ou seja, os participantes de um grupo não pertencem ao outro. Cada observação é independente das outras.
 
@@ -1883,14 +1886,14 @@ As comparações são **não-pareadas** ou entre grupos **independentes** quando
 
 > Comparar níveis de estresse entre grupos que fizeram terapia presencial e terapia online.
 
-#### Número de Grupos na Comparação
+## Número de Grupos na Comparação
 
 A comparação pode ser feita entre **dois grupos** ou **mais de dois grupos**:
 
 - **Dois grupos:** Por exemplo, comparar o desempenho entre dois métodos de ensino.
 - **Mais de dois grupos:** Por exemplo, comparar o efeito de três diferentes dietas no peso corporal.
 
-#### Testes Paramétricos e Não Paramétricos
+## Testes Paramétricos e Não Paramétricos
 
 Para escolher o teste estatístico adequado, é importante considerar as características dos dados:
 
@@ -1899,18 +1902,383 @@ Para escolher o teste estatístico adequado, é importante considerar as caracte
 
 - **Testes Não Paramétricos:**  
   Indicados quando os dados não atendem às condições dos testes paramétricos, como em distribuições assimétricas ou dados ordinais, oferecendo uma alternativa robusta para comparação.
+
+
+```{r setup2, include=FALSE}
+library(DiagrammeR)
+```
+
+# Comparação entre dois grupos
+
+O fluxograma abaixo apresenta a sequência de etapas para a escolha do teste estatístico mais adequado na comparação entre dois grupos, considerando o tipo de comparação entre os dois grupos (pareada ou não pareada) e a verificação da normalidade dos dados.
+
+```{r fluxograma, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+grViz("
+digraph fluxo_teste {
+  graph [layout = dot, rankdir = TB, bgcolor = white]
+
+  node [shape = box, style = solid, fontname = 'Arial']
+  grupos2      [label = '2 grupos']
+  pareados     [label = 'Pareados']
+  naopareados  [label = 'Não Pareados']
+  norm_p       [label = 'Normalidade?']
+  p_sim        [label = 'Teste t']
+  p_nao        [label = 'Teste Wilcoxon']
+  norm_np      [label = 'Normalidade?']
+  variancia    [label = 'Teste de variância']
+  t_indep      [label = 'Teste t']
+  wmw_indep    [label = 'Teste Wilcoxon']
+
+  # Círculos para Sim/Não
+  sim1         [label = 'Sim', shape = circle, width = 0.2, style = solid]
+  nao1         [label = 'Não', shape = circle, width = 0.2, style = solid]
+  sim2         [label = 'Sim', shape = circle, width = 0.2, style = solid]
+  nao2         [label = 'Não', shape = circle, width = 0.2, style = solid]
+
+  grupos2      -> pareados
+  grupos2      -> naopareados
+
+  pareados     -> norm_p
+  norm_p       -> sim1
+  norm_p       -> nao1
+  sim1         -> p_sim
+  nao1         -> p_nao
+
+  naopareados  -> norm_np
+  norm_np      -> sim2
+  norm_np      -> nao2
+  sim2         -> variancia
+  variancia    -> t_indep
+  nao2         -> wmw_indep
+}
+")
+```
+
+Exemplos didáticos para comparação entre dois grupos são mostrados a seguir. 
+
+## Teste t pareado
+
+O teste t (pareado ou não pareado) é um teste **paramétrico**, por isso, antes de aplicar o teste, recomenda-se verificar a normalidade dos dados.
+
+O teste t pareado avalia se há diferença entre as médias de dois conjuntos dependentes (ex: antes e depois em um mesmo grupo).
+
+**Hipóteses:**
+
+> H₀: A média antes é igual à média depois (não há efeito).
+
+> H₁: A média antes é diferente da média depois (há efeito).
+
+```{r t-pareado, message=FALSE}
+# Simulando dados: pressão antes e depois
+set.seed(123)
+antes <- rnorm(20, mean=120, sd=10)
+depois <- antes + rnorm(20, mean=-5, sd=8) # espera-se uma redução média de 5
+
+# Teste t pareado
+t.test(antes, depois, paired = TRUE)
+```
+
+No R, fazer o teste t pareado é muito fácil. Você só precisa usar uma linha: `t.test(antes, depois, paired = TRUE)`.  
+
+Basta colocar os seus dois conjuntos de dados (por exemplo, as medidas antes e depois) e escrever **`paired = TRUE`** para avisar ao R que os dados são do mesmo grupo em dois momentos.  
+
+Assim, o R faz todo o cálculo para você!
+
+Ao realizar o teste t pareado no R, a saída apresenta várias informações importantes:
+
+- **t**: Este é o valor do teste t calculado a partir dos dados. Ele indica o quanto a diferença média observada entre os grupos se afasta do que seria esperado se não houvesse diferença real.
+- **df**: Significa "degrees of freedom" (graus de liberdade), que neste caso é igual ao número de pares menos 1 (aqui, 19).
+- **p-value**: É a probabilidade de observarmos uma diferença igual ou maior que a encontrada, caso a hipótese nula (de que não há diferença) seja verdadeira. Um p-valor pequeno (por exemplo, menor que 0,05) indica que a diferença é estatisticamente significativa.
+- **alternative hypothesis**: Mostra qual hipótese alternativa está sendo testada – neste caso, que a diferença média entre "antes" e "depois" é diferente de zero.
+- **95 percent confidence interval**: Indica o intervalo de valores no qual a verdadeira diferença média está com 95% de confiança. Aqui, podemos dizer que a diferença média entre os grupos está provavelmente entre 2,30 e 8,52.
+- **mean difference**: É a diferença média observada nos dados, neste exemplo, aproximadamente 5,41.
+
+**Resumo:**  
+
+O resultado sugere que há uma diferença significativa entre "antes" e "depois" (p = 0,0017), com a diferença média estimada em 5,41 unidades e um intervalo de confiança que não inclui zero.
+
+> **Observação**: Se p é maior que 0,05, não rejeitamos H₀, nesse caso a conclusão seria que não há evidência de diferença significativa.
+
+
+## Wilcoxon pareado
+
+O teste de Wilcoxon para amostras pareadas é a alternativa não paramétrica ao teste t pareado, sendo utilizado quando os dados não seguem uma distribuição normal.
+
+**Hipóteses:**
+
+> H₀: As distribuições dos pares são iguais (não há diferença entre antes e depois).
+
+> H₁: As distribuições dos pares são diferentes (há diferença entre antes e depois).
+
+Formalmente, o teste verifica se a **distribuição das diferenças entre os pares** é simétrica em torno de zero. Quando essa condição de simetria é atendida, podemos interpretar o teste como uma comparação das **medianas** das duas situações (por exemplo, antes e depois).
+
+**Hipóteses:**
+
+> H₀: A mediana das diferenças entre os pares é igual a zero (não há diferença entre antes e depois).
+
+> H₁: A mediana das diferenças entre os pares é diferente de zero (há diferença entre antes e depois).
+
+*Observação: Esta formulação das hipóteses em termos de mediana é válida quando as diferenças apresentam distribuição simétrica.*
+
+```{r wilcoxon-pareado, message=FALSE}
+wilcox.test(antes, depois, paired = TRUE)
+```
+
+Ao fazer o teste de Wilcoxon pareado no R, a resposta traz as seguintes informações:
+
+- **V**: É o valor da estatística do teste de Wilcoxon, calculado a partir das diferenças entre os pares. Não precisamos interpretar esse número diretamente; ele serve para o cálculo do p-valor.
+- **p-value**: É a chance de observarmos uma diferença igual ou maior que a encontrada, caso não exista diferença real entre os grupos. Se o p-valor for menor que 0,05, dizemos que há diferença significativa entre "antes" e "depois".
+- **alternative hypothesis**: Mostra qual hipótese alternativa foi testada. Nesse caso, que a posição central (mediana) dos dois momentos não é igual.
+
+
+No R, por padrão, a função `wilcox.test()` não mostra o intervalo de confiança para a mediana das diferenças.
+No entanto, você pode pedir para calcular o intervalo de confiança usando o argumento **`conf.int = TRUE`**:
+
+```{r wilcoxon-pareado-ic, message=FALSE}
+wilcox.test(antes, depois, paired = TRUE, conf.int = TRUE)
+```
+
+Observações sobre o intervalo de confiança do teste de Wilcoxon
+
+**95 percent confidence interval:**  
+  O intervalo de confiança de 95% vai de 2,29 até 8,68. Isso significa que, com 95% de confiança, a verdadeira mediana da diferença entre "antes" e "depois" está entre esses valores.  
+  Como esse intervalo **não inclui o zero**, temos mais uma indicação de que existe diferença significativa entre os dois momentos.
+
+**(pseudo)median:**  
+  O valor de 5,55 indica a mediana das diferenças observadas nos dados.  
+  É chamado de “pseudo-median” porque, no teste de Wilcoxon, esse valor é uma estimativa robusta do deslocamento central entre os pares.
+ 
+  O termo “pseudo-median” aparece no teste de Wilcoxon porque, nesse teste, a maneira de calcular a “mediana” é um pouco diferente da mediana comum.
+
+**Mediana comum:** É o valor do meio quando colocamos todos os números em ordem.
+
+**Pseudo-median:** No teste de Wilcoxon, em vez de pegar só o valor do meio, o cálculo usa todos os pares possíveis de diferenças entre os grupos. Ele faz uma média especial desses valores do meio. Por isso, chama-se “pseudo” (uma “falsa” ou “quase” mediana).
+
   
+## Teste t não pareado
 
-### Associação
+Se você olhar no fluxograma apresentado no início do capítulo, você verá que antes de executar o teste t para amostras não pareadas, é necessário executar o teste de variância.
 
-### Correlação
+### Teste de variância
 
-#### Regressão
+**É um pré-requisito para o teste t não pareado** Verifica se as variâncias de dois grupos não pareados podem ser consideradas iguais ou não. 
+
+**Hipóteses:**
+
+> H₀: As variâncias dos dois grupos são iguais.
+
+> H₁: As variâncias dos dois grupos são diferentes.
+
+**Interpretação:**  
+
+Se p < 0,05, rejeitamos H₀ e concluímos que as variâncias são diferentes
+
+> No teste t acrescentado o argumento `var.equal=FALSE` ou `var.equal=F`.
+
+Se p > 0,05, consideramos as variâncias iguais.
+
+> No teste t acrescentado o argumento `var.equal=TRUE` ou `var.equal=T`
+
+**Importante:**  
+
+O argumento **`var.equal`** dentro de **`t.test()`** define qual versão do teste será utilizada: se `var.equal = TRUE`, o teste assume variâncias iguais; se `var.equal = FALSE`, é usada a correção de Welch, que não assume homogeneidade. A escolha incorreta desse parâmetro pode comprometer a validade do p-valor obtido, afetando a conclusão do teste.
+
+**Explicação didática**
+
+Imagine que você quer comparar as médias de duas turmas. A Turma A tem poucos alunos e notas parecidas; a Turma B tem muitos alunos, mas as notas variam bastante.
+
+Se você comparar as médias assumindo que ambas têm a mesma variação, o resultado pode ser injusto.
+
+A correção de Welch resolve isso: ela ajusta o cálculo do teste para considerar que as turmas são diferentes — olhando para a variação e o tamanho de cada grupo separadamente. Assim, o teste fica mais confiável quando os grupos são desiguais.
+
+---
+
+O teste t para amostras não pareadas compara médias de dois grupos independentes.
+
+**Hipóteses:**
+
+> H₀: A média do grupo A é igual à média do grupo B.
+
+> H₁: As médias dos grupos são diferentes.
+
+```{r t-independente, message=FALSE}
+# Simulando dados
+set.seed(456)
+grupoA <- rnorm(30, mean=50, sd=7)
+grupoB <- rnorm(30, mean=55, sd=7)
+
+# Teste de variância (pré-requisito do t independente)
+var.test(grupoA, grupoB)
+
+# Teste t independente
+t.test(grupoA, grupoB, var.equal = TRUE)
+```
+
+**Descrição dos resultados do teste F para comparação de variâncias**
+
+- **F = 1.8842**: Este é o valor da estatística F, que compara as duas variâncias. Ele é calculado dividindo a variância do grupo com maior variância pela variância do outro grupo.
+- **num df = 29, denom df = 29**: Esses são os graus de liberdade, relacionados ao tamanho de cada grupo (n - 1), neste caso ambos com 30 participantes.
+- **p-value = 0.09347**: Este é o valor de significância. Ele mostra a probabilidade de observarmos uma diferença entre as variâncias tão grande quanto a encontrada, caso as variâncias dos grupos fossem realmente iguais. Como o p-valor é maior que 0,05, não podemos dizer que as variâncias são diferentes de forma significativa.
+- **alternative hypothesis: true ratio of variances is not equal to 1**: Isso mostra que o teste está verificando se as variâncias são diferentes (não iguais).
+- **95 percent confidence interval: 0.896797 a 3.958627**: Com 95% de confiança, o verdadeiro valor da razão entre as variâncias está entre aproximadamente 0,90 e 3,96. Como esse intervalo inclui o valor 1, não há diferença significativa entre as variâncias.
+- **ratio of variances = 1.884167**: Esse é o valor observado da razão entre as variâncias dos dois grupos. O grupo com maior variância tem uma variância cerca de 1,88 vezes maior que o outro grupo.
+
+**Resumo:**  
+O teste F mostrou que não há diferença estatisticamente significativa entre as variâncias dos grupos A e B, pois o p-valor é maior que 0,05 e o intervalo de confiança inclui o valor 1.
 
 
+**Descrição dos resultados do teste t para duas amostras não pareadas**
+
+- **t = -2.4453**: Este é o valor da estatística t, que indica o quanto as médias dos grupos A e B diferem em relação à variação dos dados.
+- **df = 58**: São os graus de liberdade do teste, relacionados ao tamanho das amostras.
+- **p-value = 0.01753**: O p-valor representa a probabilidade de encontrar uma diferença igual ou maior que a observada entre as médias, caso realmente não haja diferença entre os grupos. Como o p-valor é menor que 0,05, podemos considerar que há diferença estatisticamente significativa entre as médias de grupoA e grupoB.
+- **alternative hypothesis: true difference in means is not equal to 0**: O teste verifica se existe diferença entre as médias dos dois grupos (hipótese alternativa de diferença).
+- **95 percent confidence interval: -8.13 a -0.81**: Com 95% de confiança, a diferença real entre as médias está entre -8,13 e -0,81. Como esse intervalo não inclui o zero, reforça a indicação de diferença significativa.
+- **mean of x (grupoA): 51.62**  
+  **mean of y (grupoB): 56.09**  
+  As médias dos grupos mostram que o grupo B teve, em média, um valor maior que o grupo A.
+
+**Resumo:**  
+O teste t indicou que existe uma diferença estatisticamente significativa entre as médias dos grupos A e B. O grupo B apresentou média maior que o grupo A, e essa diferença dificilmente ocorreu ao acaso.
 
 
-<!--chapter:end:13-Estatística-Inferencial.Rmd-->
+## Wilcoxon não pareado
+
+O teste é também conhecido como Wilcoxon-Mann-Whitney. É a alternativa não paramétrica ao t independente para comparar dois grupos independentes.
+
+**Hipóteses:**
+
+> H₀: As distribuições dos grupos são iguais.
+
+> H₁: As distribuições dos grupos são diferentes.
+
+```{r mann-whitney, message=FALSE}
+wilcox.test(grupoA, grupoB)
+```
+
+**Descrição dos resultados do teste de Wilcoxon para duas amostras não pareadas**
+
+- **W = 316**: Este é o valor da estatística de Wilcoxon, que representa a soma dos postos atribuídos aos valores dos grupos ao comparar suas distribuições.
+- **p-value = 0.04789**: O valor de p indica a probabilidade de observar uma diferença igual ou maior entre os grupos, caso não exista diferença real. Como é menor que 0,05, isso sugere que há diferença estatisticamente significativa entre os grupos A e B.
+- **alternative hypothesis: true location shift is not equal to 0**: O teste está avaliando se há diferença (deslocamento) entre as localizações centrais dos dois grupos (medianas diferentes).
+
+**Resumo:**  
+O teste de Wilcoxon mostrou que há uma diferença estatisticamente significativa nas distribuições dos grupos A e B, indicando que eles provavelmente apresentam medianas diferentes.
+
+
+## Teste bilateral vs. teste unilateral
+
+### O que são?
+
+- **Teste bilateral (bicaudal ou two-sided):**
+  - Verifica se há diferença **em qualquer direção** entre os grupos ou condições.
+  - Exemplo: "Será que a média do grupo A é **diferente** da média do grupo B?" (pode ser maior ou menor).
+
+- **Teste unilateral (caudal ou one-sided):**
+  - Verifica se há diferença **em uma direção específica**.
+  - Exemplo: "Será que a média do grupo A é **maior** que a média do grupo B?" ou "Será que é **menor**?".
+
+---
+
+### Formulação das hipóteses
+
+- **Teste bilateral:**
+  - Hipótese nula (\(H_0\)): não há diferença (\(\mu_A = \mu_B\))
+  - Hipótese alternativa (\(H_1\)): há diferença (\(\mu_A \neq \mu_B\))
+
+- **Teste unilateral (maior):**
+  - Hipótese nula (\(H_0\)): \(\mu_A \leq \mu_B\)
+  - Hipótese alternativa (\(H_1\)): \(\mu_A > \mu_B\)
+
+- **Teste unilateral (menor):**
+  - Hipótese nula (\(H_0\)): \(\mu_A \geq \mu_B\)
+  - Hipótese alternativa (\(H_1\)): \(\mu_A < \mu_B\)
+
+---
+
+### Influência no cálculo do p-valor
+
+- **Teste bilateral:**  
+  O p-valor representa a probabilidade de encontrar um resultado tão extremo quanto o observado **em ambas as direções** (para mais ou para menos).  
+  É mais rigoroso, pois considera desvios para cima e para baixo.
+
+- **Teste unilateral:**  
+  O p-valor considera apenas **uma direção** (maior ou menor).  
+  Geralmente, o p-valor do teste unilateral é a metade do bilateral, para o mesmo dado e direção, tornando o teste **mais sensível** a detectar diferenças naquela direção, mas exige justificativa teórica para ser usado.
+
+---
+
+### O que muda nas funções `t.test()` e `wilcox.test()`
+
+Nas duas funções, você controla o tipo de teste pelo argumento `alternative`:
+
+- **Teste bilateral (padrão):**
+  - `alternative = "two.sided"`
+
+- **Teste unilateral (maior):**
+  - `alternative = "greater"`
+
+- **Teste unilateral (menor):**
+  - `alternative = "less"`
+
+**Exemplo:**
+```r
+# Teste t bilateral (padrão)
+t.test(x, y, alternative = "two.sided")
+
+# Teste t unilateral (x maior que y)
+t.test(x, y, alternative = "greater")
+
+# Teste de Wilcoxon unilateral (x menor que y)
+wilcox.test(x, y, alternative = "less")
+```
+
+Ou seja:
+- **O argumento `alternative` define se o teste é bilateral ou unilateral.**
+- Isso altera a formulação das hipóteses, o cálculo do p-valor e a interpretação do resultado.
+
+
+## Exercício
+
+**Comparação da velocidade dos Pokémons verdes e amarelos**
+
+1. **Baixe o banco de dados**  
+   Use o banco de dados: [Pokemon.csv](https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st)  
+   Importe o arquivo **Pokemon.csv** para o RStudio.
+
+
+2. **Pergunta do exercício**  
+   Teste se existe diferença significativa entre a velocidade (**speed**) dos Pokémons verdes (**green**) e amarelos (**yellow**).
+
+
+3. **Formulação das hipóteses de acordo com os testes**
+   
+   > Hipótese nula (\(H_0\)): 
+  
+   > Hipótese alternativa (\(H_1\)): 
+
+
+4. **Nível de significância**  
+   Considere \(\alpha = 0,05\).
+   
+   
+5. **Passos para executar o teste adequado**
+   
+   a) Separe os dados dos Pokémons de cor verde e de cor amarela.  
+   b) Verifique a normalidade dos dados de velocidade de cada grupo (gráfico QQ).  
+   c) Escolha o teste mais apropriado:
+      - Se as duas amostras seguirem distibuição Normal → teste de variância → teste t
+      - Se uma das amostras não seguir distibuição Normal → teste de Wilcoxon
+   d) Execute o teste, compare o p-valor com \(\alpha\) e conclua
+   
+   
+6. **Conclusão**  
+   - Se \(p\)-valor < 0,05: rejeite a hipótese nula e conclua que há diferença significativa nas velocidades.
+   - Se \(p\)-valor ≥ 0,05: não rejeite a hipótese nula e conclua que não há diferença significativa nas velocidades.
+
+**Resposta** [Posit.cloud](https://posit.cloud/content/10470490)
+
+<!--chapter:end:14-Testes-Comparacao.Rmd-->
 
 `r if (knitr:::is_html_output()) '
 # Referências {-}

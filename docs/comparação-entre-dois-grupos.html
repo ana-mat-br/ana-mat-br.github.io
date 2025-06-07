@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 11 Importando banco de dados | Estatística + R</title>
-  <meta name="description" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <title>Capítulo 19 Comparação entre dois grupos | Estatística + R</title>
+  <meta name="description" content="Capítulo 19 Comparação entre dois grupos | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <meta property="og:title" content="Capítulo 19 Comparação entre dois grupos | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 19 Comparação entre dois grupos | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estatística-descritiva-2.html"/>
-<link rel="next" href="instalando-pacotes.html"/>
+<link rel="prev" href="testes-de-comparação-entre-grupos.html"/>
+<link rel="next" href="referências.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -359,119 +359,356 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importando-banco-de-dados" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">Capítulo 11</span> Importando banco de dados<a href="importando-banco-de-dados.html#importando-banco-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Na prática, os dados que vamos analisar estarão armazenado em um <strong>banco de dados</strong>, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:</p>
-<ul>
-<li><p>Arquivo do tipo Excel (xls ou xlsx)</p></li>
-<li><p>Arquivo de texto separado por vírgulas (csv - <em>comma-separated values</em>)</p></li>
-</ul>
+<div id="comparação-entre-dois-grupos" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Capítulo 19</span> Comparação entre dois grupos<a href="comparação-entre-dois-grupos.html#comparação-entre-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>O fluxograma abaixo apresenta a sequência de etapas para a escolha do teste estatístico mais adequado na comparação entre dois grupos, considerando o tipo de comparação entre os dois grupos (pareada ou não pareada) e a verificação da normalidade dos dados.</p>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-30e4409849e39179307f" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-30e4409849e39179307f">{"x":{"diagram":"\ndigraph fluxo_teste {\n  graph [layout = dot, rankdir = TB, bgcolor = white]\n\n  node [shape = box, style = solid, fontname = \"Arial\"]\n  grupos2      [label = \"2 grupos\"]\n  pareados     [label = \"Pareados\"]\n  naopareados  [label = \"Não Pareados\"]\n  norm_p       [label = \"Normalidade?\"]\n  p_sim        [label = \"Teste t\"]\n  p_nao        [label = \"Teste Wilcoxon\"]\n  norm_np      [label = \"Normalidade?\"]\n  variancia    [label = \"Teste de variância\"]\n  t_indep      [label = \"Teste t\"]\n  wmw_indep    [label = \"Teste Wilcoxon\"]\n\n  # Círculos para Sim/Não\n  sim1         [label = \"Sim\", shape = circle, width = 0.2, style = solid]\n  nao1         [label = \"Não\", shape = circle, width = 0.2, style = solid]\n  sim2         [label = \"Sim\", shape = circle, width = 0.2, style = solid]\n  nao2         [label = \"Não\", shape = circle, width = 0.2, style = solid]\n\n  grupos2      -> pareados\n  grupos2      -> naopareados\n\n  pareados     -> norm_p\n  norm_p       -> sim1\n  norm_p       -> nao1\n  sim1         -> p_sim\n  nao1         -> p_nao\n\n  naopareados  -> norm_np\n  norm_np      -> sim2\n  norm_np      -> nao2\n  sim2         -> variancia\n  variancia    -> t_indep\n  nao2         -> wmw_indep\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Exemplos didáticos para comparação entre dois grupos são mostrados a seguir.</p>
+<div id="teste-t-pareado" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Teste t pareado<a href="comparação-entre-dois-grupos.html#teste-t-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O teste t (pareado ou não pareado) é um teste <strong>paramétrico</strong>, por isso, antes de aplicar o teste, recomenda-se verificar a normalidade dos dados.</p>
+<p>O teste t pareado avalia se há diferença entre as médias de dois conjuntos dependentes (ex: antes e depois em um mesmo grupo).</p>
+<p><strong>Hipóteses:</strong></p>
 <blockquote>
-<p>Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:</p>
+<p>H₀: A média antes é igual à média depois (não há efeito).</p>
 </blockquote>
-<ul>
-<li><p>DataSus: <a href="https://datasus.saude.gov.br/transferencia-de-arquivos" class="uri">https://datasus.saude.gov.br/transferencia-de-arquivos</a></p></li>
-<li><p>OMS: <a href="https://www.who.int/data/collections" class="uri">https://www.who.int/data/collections</a></p></li>
-<li><p>Kaggle: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a></p></li>
-</ul>
 <blockquote>
-<p>No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <a href="https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st" class="uri">https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st</a></p>
+<p>H₁: A média antes é diferente da média depois (há efeito).</p>
 </blockquote>
-<div id="importando-um-banco-csv" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Importando um banco csv<a href="importando-banco-de-dados.html#importando-um-banco-csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="comparação-entre-dois-grupos.html#cb84-1" tabindex="-1"></a><span class="co"># Simulando dados: pressão antes e depois</span></span>
+<span id="cb84-2"><a href="comparação-entre-dois-grupos.html#cb84-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb84-3"><a href="comparação-entre-dois-grupos.html#cb84-3" tabindex="-1"></a>antes <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">120</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
+<span id="cb84-4"><a href="comparação-entre-dois-grupos.html#cb84-4" tabindex="-1"></a>depois <span class="ot">&lt;-</span> antes <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">8</span>) <span class="co"># espera-se uma redução média de 5</span></span>
+<span id="cb84-5"><a href="comparação-entre-dois-grupos.html#cb84-5" tabindex="-1"></a></span>
+<span id="cb84-6"><a href="comparação-entre-dois-grupos.html#cb84-6" tabindex="-1"></a><span class="co"># Teste t pareado</span></span>
+<span id="cb84-7"><a href="comparação-entre-dois-grupos.html#cb84-7" tabindex="-1"></a><span class="fu">t.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  antes and depois
+## t = 3.644, df = 19, p-value = 0.001726
+## alternative hypothesis: true mean difference is not equal to 0
+## 95 percent confidence interval:
+##  2.302671 8.517443
+## sample estimates:
+## mean difference 
+##        5.410057</code></pre>
+<p>No R, fazer o teste t pareado é muito fácil. Você só precisa usar uma linha: <code>t.test(antes, depois, paired = TRUE)</code>.</p>
+<p>Basta colocar os seus dois conjuntos de dados (por exemplo, as medidas antes e depois) e escrever <strong><code>paired = TRUE</code></strong> para avisar ao R que os dados são do mesmo grupo em dois momentos.</p>
+<p>Assim, o R faz todo o cálculo para você!</p>
+<p>Ao realizar o teste t pareado no R, a saída apresenta várias informações importantes:</p>
+<ul>
+<li><strong>t</strong>: Este é o valor do teste t calculado a partir dos dados. Ele indica o quanto a diferença média observada entre os grupos se afasta do que seria esperado se não houvesse diferença real.</li>
+<li><strong>df</strong>: Significa “degrees of freedom” (graus de liberdade), que neste caso é igual ao número de pares menos 1 (aqui, 19).</li>
+<li><strong>p-value</strong>: É a probabilidade de observarmos uma diferença igual ou maior que a encontrada, caso a hipótese nula (de que não há diferença) seja verdadeira. Um p-valor pequeno (por exemplo, menor que 0,05) indica que a diferença é estatisticamente significativa.</li>
+<li><strong>alternative hypothesis</strong>: Mostra qual hipótese alternativa está sendo testada – neste caso, que a diferença média entre “antes” e “depois” é diferente de zero.</li>
+<li><strong>95 percent confidence interval</strong>: Indica o intervalo de valores no qual a verdadeira diferença média está com 95% de confiança. Aqui, podemos dizer que a diferença média entre os grupos está provavelmente entre 2,30 e 8,52.</li>
+<li><strong>mean difference</strong>: É a diferença média observada nos dados, neste exemplo, aproximadamente 5,41.</li>
+</ul>
+<p><strong>Resumo:</strong></p>
+<p>O resultado sugere que há uma diferença significativa entre “antes” e “depois” (p = 0,0017), com a diferença média estimada em 5,41 unidades e um intervalo de confiança que não inclui zero.</p>
+<blockquote>
+<p><strong>Observação</strong>: Se p é maior que 0,05, não rejeitamos H₀, nesse caso a conclusão seria que não há evidência de diferença significativa.</p>
+</blockquote>
+</div>
+<div id="wilcoxon-pareado" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Wilcoxon pareado<a href="comparação-entre-dois-grupos.html#wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O teste de Wilcoxon para amostras pareadas é a alternativa não paramétrica ao teste t pareado, sendo utilizado quando os dados não seguem uma distribuição normal.</p>
+<p><strong>Hipóteses:</strong></p>
+<blockquote>
+<p>H₀: As distribuições dos pares são iguais (não há diferença entre antes e depois).</p>
+</blockquote>
+<blockquote>
+<p>H₁: As distribuições dos pares são diferentes (há diferença entre antes e depois).</p>
+</blockquote>
+<p>Formalmente, o teste verifica se a <strong>distribuição das diferenças entre os pares</strong> é simétrica em torno de zero. Quando essa condição de simetria é atendida, podemos interpretar o teste como uma comparação das <strong>medianas</strong> das duas situações (por exemplo, antes e depois).</p>
+<p><strong>Hipóteses:</strong></p>
+<blockquote>
+<p>H₀: A mediana das diferenças entre os pares é igual a zero (não há diferença entre antes e depois).</p>
+</blockquote>
+<blockquote>
+<p>H₁: A mediana das diferenças entre os pares é diferente de zero (há diferença entre antes e depois).</p>
+</blockquote>
+<p><em>Observação: Esta formulação das hipóteses em termos de mediana é válida quando as diferenças apresentam distribuição simétrica.</em></p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="comparação-entre-dois-grupos.html#cb86-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank exact test
+## 
+## data:  antes and depois
+## V = 179, p-value = 0.004221
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Ao fazer o teste de Wilcoxon pareado no R, a resposta traz as seguintes informações:</p>
+<ul>
+<li><strong>V</strong>: É o valor da estatística do teste de Wilcoxon, calculado a partir das diferenças entre os pares. Não precisamos interpretar esse número diretamente; ele serve para o cálculo do p-valor.</li>
+<li><strong>p-value</strong>: É a chance de observarmos uma diferença igual ou maior que a encontrada, caso não exista diferença real entre os grupos. Se o p-valor for menor que 0,05, dizemos que há diferença significativa entre “antes” e “depois”.</li>
+<li><strong>alternative hypothesis</strong>: Mostra qual hipótese alternativa foi testada. Nesse caso, que a posição central (mediana) dos dois momentos não é igual.</li>
+</ul>
+<p>No R, por padrão, a função <code>wilcox.test()</code> não mostra o intervalo de confiança para a mediana das diferenças.
+No entanto, você pode pedir para calcular o intervalo de confiança usando o argumento <strong><code>conf.int = TRUE</code></strong>:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="comparação-entre-dois-grupos.html#cb88-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon signed rank exact test
+## 
+## data:  antes and depois
+## V = 179, p-value = 0.004221
+## alternative hypothesis: true location shift is not equal to 0
+## 95 percent confidence interval:
+##  2.291397 8.680443
+## sample estimates:
+## (pseudo)median 
+##       5.545154</code></pre>
+<p>Observações sobre o intervalo de confiança do teste de Wilcoxon</p>
+<p><strong>95 percent confidence interval:</strong><br />
+O intervalo de confiança de 95% vai de 2,29 até 8,68. Isso significa que, com 95% de confiança, a verdadeira mediana da diferença entre “antes” e “depois” está entre esses valores.<br />
+Como esse intervalo <strong>não inclui o zero</strong>, temos mais uma indicação de que existe diferença significativa entre os dois momentos.</p>
+<p><strong>(pseudo)median:</strong><br />
+O valor de 5,55 indica a mediana das diferenças observadas nos dados.<br />
+É chamado de “pseudo-median” porque, no teste de Wilcoxon, esse valor é uma estimativa robusta do deslocamento central entre os pares.</p>
+<p>O termo “pseudo-median” aparece no teste de Wilcoxon porque, nesse teste, a maneira de calcular a “mediana” é um pouco diferente da mediana comum.</p>
+<p><strong>Mediana comum:</strong> É o valor do meio quando colocamos todos os números em ordem.</p>
+<p><strong>Pseudo-median:</strong> No teste de Wilcoxon, em vez de pegar só o valor do meio, o cálculo usa todos os pares possíveis de diferenças entre os grupos. Ele faz uma média especial desses valores do meio. Por isso, chama-se “pseudo” (uma “falsa” ou “quase” mediana).</p>
+</div>
+<div id="teste-t-não-pareado" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Teste t não pareado<a href="comparação-entre-dois-grupos.html#teste-t-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se você olhar no fluxograma apresentado no início do capítulo, você verá que antes de executar o teste t para amostras não pareadas, é necessário executar o teste de variância.</p>
+<div id="teste-de-variância" class="section level3 hasAnchor" number="19.3.1">
+<h3><span class="header-section-number">19.3.1</span> Teste de variância<a href="comparação-entre-dois-grupos.html#teste-de-variância" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>É um pré-requisito para o teste t não pareado</strong> Verifica se as variâncias de dois grupos não pareados podem ser consideradas iguais ou não.</p>
+<p><strong>Hipóteses:</strong></p>
+<blockquote>
+<p>H₀: As variâncias dos dois grupos são iguais.</p>
+</blockquote>
+<blockquote>
+<p>H₁: As variâncias dos dois grupos são diferentes.</p>
+</blockquote>
+<p><strong>Interpretação:</strong></p>
+<p>Se p &lt; 0,05, rejeitamos H₀ e concluímos que as variâncias são diferentes</p>
+<blockquote>
+<p>No teste t acrescentado o argumento <code>var.equal=FALSE</code> ou <code>var.equal=F</code>.</p>
+</blockquote>
+<p>Se p &gt; 0,05, consideramos as variâncias iguais.</p>
+<blockquote>
+<p>No teste t acrescentado o argumento <code>var.equal=TRUE</code> ou <code>var.equal=T</code></p>
+</blockquote>
+<p><strong>Importante:</strong></p>
+<p>O argumento <strong><code>var.equal</code></strong> dentro de <strong><code>t.test()</code></strong> define qual versão do teste será utilizada: se <code>var.equal = TRUE</code>, o teste assume variâncias iguais; se <code>var.equal = FALSE</code>, é usada a correção de Welch, que não assume homogeneidade. A escolha incorreta desse parâmetro pode comprometer a validade do p-valor obtido, afetando a conclusão do teste.</p>
+<p><strong>Explicação didática</strong></p>
+<p>Imagine que você quer comparar as médias de duas turmas. A Turma A tem poucos alunos e notas parecidas; a Turma B tem muitos alunos, mas as notas variam bastante.</p>
+<p>Se você comparar as médias assumindo que ambas têm a mesma variação, o resultado pode ser injusto.</p>
+<p>A correção de Welch resolve isso: ela ajusta o cálculo do teste para considerar que as turmas são diferentes — olhando para a variação e o tamanho de cada grupo separadamente. Assim, o teste fica mais confiável quando os grupos são desiguais.</p>
+<hr />
+<p>O teste t para amostras não pareadas compara médias de dois grupos independentes.</p>
+<p><strong>Hipóteses:</strong></p>
+<blockquote>
+<p>H₀: A média do grupo A é igual à média do grupo B.</p>
+</blockquote>
+<blockquote>
+<p>H₁: As médias dos grupos são diferentes.</p>
+</blockquote>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="comparação-entre-dois-grupos.html#cb90-1" tabindex="-1"></a><span class="co"># Simulando dados</span></span>
+<span id="cb90-2"><a href="comparação-entre-dois-grupos.html#cb90-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb90-3"><a href="comparação-entre-dois-grupos.html#cb90-3" tabindex="-1"></a>grupoA <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">50</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
+<span id="cb90-4"><a href="comparação-entre-dois-grupos.html#cb90-4" tabindex="-1"></a>grupoB <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">55</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
+<span id="cb90-5"><a href="comparação-entre-dois-grupos.html#cb90-5" tabindex="-1"></a></span>
+<span id="cb90-6"><a href="comparação-entre-dois-grupos.html#cb90-6" tabindex="-1"></a><span class="co"># Teste de variância (pré-requisito do t independente)</span></span>
+<span id="cb90-7"><a href="comparação-entre-dois-grupos.html#cb90-7" tabindex="-1"></a><span class="fu">var.test</span>(grupoA, grupoB)</span></code></pre></div>
+<pre><code>## 
+##  F test to compare two variances
+## 
+## data:  grupoA and grupoB
+## F = 1.8842, num df = 29, denom df = 29, p-value = 0.09347
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.896797 3.958627
+## sample estimates:
+## ratio of variances 
+##           1.884167</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="comparação-entre-dois-grupos.html#cb92-1" tabindex="-1"></a><span class="co"># Teste t independente</span></span>
+<span id="cb92-2"><a href="comparação-entre-dois-grupos.html#cb92-2" tabindex="-1"></a><span class="fu">t.test</span>(grupoA, grupoB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  grupoA and grupoB
+## t = -2.4453, df = 58, p-value = 0.01753
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -8.1306016 -0.8110054
+## sample estimates:
+## mean of x mean of y 
+##   51.6222   56.0930</code></pre>
+<p><strong>Descrição dos resultados do teste F para comparação de variâncias</strong></p>
+<ul>
+<li><strong>F = 1.8842</strong>: Este é o valor da estatística F, que compara as duas variâncias. Ele é calculado dividindo a variância do grupo com maior variância pela variância do outro grupo.</li>
+<li><strong>num df = 29, denom df = 29</strong>: Esses são os graus de liberdade, relacionados ao tamanho de cada grupo (n - 1), neste caso ambos com 30 participantes.</li>
+<li><strong>p-value = 0.09347</strong>: Este é o valor de significância. Ele mostra a probabilidade de observarmos uma diferença entre as variâncias tão grande quanto a encontrada, caso as variâncias dos grupos fossem realmente iguais. Como o p-valor é maior que 0,05, não podemos dizer que as variâncias são diferentes de forma significativa.</li>
+<li><strong>alternative hypothesis: true ratio of variances is not equal to 1</strong>: Isso mostra que o teste está verificando se as variâncias são diferentes (não iguais).</li>
+<li><strong>95 percent confidence interval: 0.896797 a 3.958627</strong>: Com 95% de confiança, o verdadeiro valor da razão entre as variâncias está entre aproximadamente 0,90 e 3,96. Como esse intervalo inclui o valor 1, não há diferença significativa entre as variâncias.</li>
+<li><strong>ratio of variances = 1.884167</strong>: Esse é o valor observado da razão entre as variâncias dos dois grupos. O grupo com maior variância tem uma variância cerca de 1,88 vezes maior que o outro grupo.</li>
+</ul>
+<p><strong>Resumo:</strong><br />
+O teste F mostrou que não há diferença estatisticamente significativa entre as variâncias dos grupos A e B, pois o p-valor é maior que 0,05 e o intervalo de confiança inclui o valor 1.</p>
+<p><strong>Descrição dos resultados do teste t para duas amostras não pareadas</strong></p>
+<ul>
+<li><strong>t = -2.4453</strong>: Este é o valor da estatística t, que indica o quanto as médias dos grupos A e B diferem em relação à variação dos dados.</li>
+<li><strong>df = 58</strong>: São os graus de liberdade do teste, relacionados ao tamanho das amostras.</li>
+<li><strong>p-value = 0.01753</strong>: O p-valor representa a probabilidade de encontrar uma diferença igual ou maior que a observada entre as médias, caso realmente não haja diferença entre os grupos. Como o p-valor é menor que 0,05, podemos considerar que há diferença estatisticamente significativa entre as médias de grupoA e grupoB.</li>
+<li><strong>alternative hypothesis: true difference in means is not equal to 0</strong>: O teste verifica se existe diferença entre as médias dos dois grupos (hipótese alternativa de diferença).</li>
+<li><strong>95 percent confidence interval: -8.13 a -0.81</strong>: Com 95% de confiança, a diferença real entre as médias está entre -8,13 e -0,81. Como esse intervalo não inclui o zero, reforça a indicação de diferença significativa.</li>
+<li><strong>mean of x (grupoA): 51.62</strong><br />
+<strong>mean of y (grupoB): 56.09</strong><br />
+As médias dos grupos mostram que o grupo B teve, em média, um valor maior que o grupo A.</li>
+</ul>
+<p><strong>Resumo:</strong><br />
+O teste t indicou que existe uma diferença estatisticamente significativa entre as médias dos grupos A e B. O grupo B apresentou média maior que o grupo A, e essa diferença dificilmente ocorreu ao acaso.</p>
+</div>
+</div>
+<div id="wilcoxon-não-pareado" class="section level2 hasAnchor" number="19.4">
+<h2><span class="header-section-number">19.4</span> Wilcoxon não pareado<a href="comparação-entre-dois-grupos.html#wilcoxon-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O teste é também conhecido como Wilcoxon-Mann-Whitney. É a alternativa não paramétrica ao t independente para comparar dois grupos independentes.</p>
+<p><strong>Hipóteses:</strong></p>
+<blockquote>
+<p>H₀: As distribuições dos grupos são iguais.</p>
+</blockquote>
+<blockquote>
+<p>H₁: As distribuições dos grupos são diferentes.</p>
+</blockquote>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="comparação-entre-dois-grupos.html#cb94-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(grupoA, grupoB)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum exact test
+## 
+## data:  grupoA and grupoB
+## W = 316, p-value = 0.04789
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p><strong>Descrição dos resultados do teste de Wilcoxon para duas amostras não pareadas</strong></p>
+<ul>
+<li><strong>W = 316</strong>: Este é o valor da estatística de Wilcoxon, que representa a soma dos postos atribuídos aos valores dos grupos ao comparar suas distribuições.</li>
+<li><strong>p-value = 0.04789</strong>: O valor de p indica a probabilidade de observar uma diferença igual ou maior entre os grupos, caso não exista diferença real. Como é menor que 0,05, isso sugere que há diferença estatisticamente significativa entre os grupos A e B.</li>
+<li><strong>alternative hypothesis: true location shift is not equal to 0</strong>: O teste está avaliando se há diferença (deslocamento) entre as localizações centrais dos dois grupos (medianas diferentes).</li>
+</ul>
+<p><strong>Resumo:</strong><br />
+O teste de Wilcoxon mostrou que há uma diferença estatisticamente significativa nas distribuições dos grupos A e B, indicando que eles provavelmente apresentam medianas diferentes.</p>
+</div>
+<div id="teste-bilateral-vs.-teste-unilateral" class="section level2 hasAnchor" number="19.5">
+<h2><span class="header-section-number">19.5</span> Teste bilateral vs. teste unilateral<a href="comparação-entre-dois-grupos.html#teste-bilateral-vs.-teste-unilateral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="o-que-são" class="section level3 hasAnchor" number="19.5.1">
+<h3><span class="header-section-number">19.5.1</span> O que são?<a href="comparação-entre-dois-grupos.html#o-que-são" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Teste bilateral (bicaudal ou two-sided):</strong>
+<ul>
+<li>Verifica se há diferença <strong>em qualquer direção</strong> entre os grupos ou condições.</li>
+<li>Exemplo: “Será que a média do grupo A é <strong>diferente</strong> da média do grupo B?” (pode ser maior ou menor).</li>
+</ul></li>
+<li><strong>Teste unilateral (caudal ou one-sided):</strong>
+<ul>
+<li>Verifica se há diferença <strong>em uma direção específica</strong>.</li>
+<li>Exemplo: “Será que a média do grupo A é <strong>maior</strong> que a média do grupo B?” ou “Será que é <strong>menor</strong>?”.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="formulação-das-hipóteses" class="section level3 hasAnchor" number="19.5.2">
+<h3><span class="header-section-number">19.5.2</span> Formulação das hipóteses<a href="comparação-entre-dois-grupos.html#formulação-das-hipóteses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Teste bilateral:</strong>
+<ul>
+<li>Hipótese nula (<span class="math inline">\(H_0\)</span>): não há diferença (<span class="math inline">\(\mu_A = \mu_B\)</span>)</li>
+<li>Hipótese alternativa (<span class="math inline">\(H_1\)</span>): há diferença (<span class="math inline">\(\mu_A \neq \mu_B\)</span>)</li>
+</ul></li>
+<li><strong>Teste unilateral (maior):</strong>
+<ul>
+<li>Hipótese nula (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\mu_A \leq \mu_B\)</span></li>
+<li>Hipótese alternativa (<span class="math inline">\(H_1\)</span>): <span class="math inline">\(\mu_A &gt; \mu_B\)</span></li>
+</ul></li>
+<li><strong>Teste unilateral (menor):</strong>
+<ul>
+<li>Hipótese nula (<span class="math inline">\(H_0\)</span>): <span class="math inline">\(\mu_A \geq \mu_B\)</span></li>
+<li>Hipótese alternativa (<span class="math inline">\(H_1\)</span>): <span class="math inline">\(\mu_A &lt; \mu_B\)</span></li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="influência-no-cálculo-do-p-valor" class="section level3 hasAnchor" number="19.5.3">
+<h3><span class="header-section-number">19.5.3</span> Influência no cálculo do p-valor<a href="comparação-entre-dois-grupos.html#influência-no-cálculo-do-p-valor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Teste bilateral:</strong><br />
+O p-valor representa a probabilidade de encontrar um resultado tão extremo quanto o observado <strong>em ambas as direções</strong> (para mais ou para menos).<br />
+É mais rigoroso, pois considera desvios para cima e para baixo.</p></li>
+<li><p><strong>Teste unilateral:</strong><br />
+O p-valor considera apenas <strong>uma direção</strong> (maior ou menor).<br />
+Geralmente, o p-valor do teste unilateral é a metade do bilateral, para o mesmo dado e direção, tornando o teste <strong>mais sensível</strong> a detectar diferenças naquela direção, mas exige justificativa teórica para ser usado.</p></li>
+</ul>
+<hr />
+</div>
+<div id="o-que-muda-nas-funções-t.test-e-wilcox.test" class="section level3 hasAnchor" number="19.5.4">
+<h3><span class="header-section-number">19.5.4</span> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code><a href="comparação-entre-dois-grupos.html#o-que-muda-nas-funções-t.test-e-wilcox.test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nas duas funções, você controla o tipo de teste pelo argumento <code>alternative</code>:</p>
+<ul>
+<li><strong>Teste bilateral (padrão):</strong>
+<ul>
+<li><code>alternative = "two.sided"</code></li>
+</ul></li>
+<li><strong>Teste unilateral (maior):</strong>
+<ul>
+<li><code>alternative = "greater"</code></li>
+</ul></li>
+<li><strong>Teste unilateral (menor):</strong>
+<ul>
+<li><code>alternative = "less"</code></li>
+</ul></li>
+</ul>
+<p><strong>Exemplo:</strong></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="comparação-entre-dois-grupos.html#cb96-1" tabindex="-1"></a><span class="co"># Teste t bilateral (padrão)</span></span>
+<span id="cb96-2"><a href="comparação-entre-dois-grupos.html#cb96-2" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb96-3"><a href="comparação-entre-dois-grupos.html#cb96-3" tabindex="-1"></a></span>
+<span id="cb96-4"><a href="comparação-entre-dois-grupos.html#cb96-4" tabindex="-1"></a><span class="co"># Teste t unilateral (x maior que y)</span></span>
+<span id="cb96-5"><a href="comparação-entre-dois-grupos.html#cb96-5" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb96-6"><a href="comparação-entre-dois-grupos.html#cb96-6" tabindex="-1"></a></span>
+<span id="cb96-7"><a href="comparação-entre-dois-grupos.html#cb96-7" tabindex="-1"></a><span class="co"># Teste de Wilcoxon unilateral (x menor que y)</span></span>
+<span id="cb96-8"><a href="comparação-entre-dois-grupos.html#cb96-8" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<p>Ou seja:
+- <strong>O argumento <code>alternative</code> define se o teste é bilateral ou unilateral.</strong>
+- Isso altera a formulação das hipóteses, o cálculo do p-valor e a interpretação do resultado.</p>
+</div>
+</div>
+<div id="exercício" class="section level2 hasAnchor" number="19.6">
+<h2><span class="header-section-number">19.6</span> Exercício<a href="comparação-entre-dois-grupos.html#exercício" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Comparação da velocidade dos Pokémons verdes e amarelos</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Faça <em>download</em> do banco de dados <strong>mcdonald.csv</strong>
-(fonte original: <a href="https://www.kaggle.com/datasets/mcdonalds/nutrition-facts" class="uri">https://www.kaggle.com/datasets/mcdonalds/nutrition-facts</a>)</p></li>
-<li><p>Na área de ambinete de memória, localize <strong>Import Dataset</strong>, ao clicar nessa opção você terá o seguinte:</p></li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
-</div>
-</center>
-<ul>
-<li><p>Como queremos importar um arquivo csv, a melhor opção é a segunda <strong>From Text (readr)</strong></p></li>
-<li><p><strong><em>readr</em></strong> é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)</p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Clicando na opção <strong>From Text (readr)</strong>, no botão <strong>browser</strong> indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportBrowser.png" alt=" Figura: Prévia dos dados" />
-<div class="figcaption"><font size="2"> Figura: Prévia dos dados</font></div>
-</div>
-</center>
-<ul>
-<li><p>No quadro <strong>Data Preview</strong>, temos uma “prévia” com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.</p></li>
-<li><p>No quadro <strong>Import Options</strong> temos as opções de importação, fique atento ao <strong>Name</strong> do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (’, ~ ou ç), é até permitido usar alguns desses caracteres especiais, mas evite.</p></li>
-<li><p>Ainda no quadro <strong>Import Options</strong>, observe que a opção <strong>Open Data Viewer</strong> está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.</p></li>
-<li><p>O quadro <strong>Code Preview</strong> mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.</p></li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Clique no botão <strong>Import</strong> e observe que no ambiente de memória será criado o objeto do tipo <strong>Data</strong> com o nome do banco de dados que foi importado.</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportObjetoData.png" style="width:60.0%" alt=" Figura: Import dataset" />
-<div class="figcaption"><font size="2"> Figura: Import dataset</font></div>
-</div>
-</center>
-<ul>
-<li><p>Observe que esse objeto do tipo <strong>Data</strong> é diferente dos objetos do tipo <strong>Values</strong> que vimos nos exemplos iniciais.</p></li>
-<li><p>Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!</p></li>
-</ul>
-</div>
-<div id="importando-um-banco-xls" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Importando um banco xls<a href="importando-banco-de-dados.html#importando-um-banco-xls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Na área de ambiente de memória, localize <strong>Import Dataset</strong>, ao clicar sobre essa opção, escolha <strong>From Excel…</strong></p>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
-</div>
-</center>
-<ul>
-<li>Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (<strong>readxl</strong>)! O RStudio mostrará um aviso parecido com este:</li>
-</ul>
-<center>
-<div class="float">
-<img src="telaImportPacote.png" style="width:40.0%" alt=" Figura: Aviso para instalação de pacote" />
-<div class="figcaption"><font size="2"> Figura: Aviso para instalação de pacote</font></div>
-</div>
-</center>
-</div>
-<div id="exemplo-1-1" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Exemplo 1<a href="importando-banco-de-dados.html#exemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como obter a média da variável <strong>Calories</strong> que é uma coluna do objeto <strong>mcdonald</strong>, que por sua vez, é um objeto do tipo <strong>Data</strong>?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="importando-banco-de-dados.html#cb13-1" tabindex="-1"></a><span class="co"># Usamos o operador $</span></span>
-<span id="cb13-2"><a href="importando-banco-de-dados.html#cb13-2" tabindex="-1"></a><span class="co"># Para calcular a média precisamos informar para função: </span></span>
-<span id="cb13-3"><a href="importando-banco-de-dados.html#cb13-3" tabindex="-1"></a><span class="co"># mean( NOME DO BANCO $ NOME DA COLUNA ): </span></span>
-<span id="cb13-4"><a href="importando-banco-de-dados.html#cb13-4" tabindex="-1"></a><span class="fu">mean</span>(mcdonald<span class="sc">$</span>Calories)</span></code></pre></div>
-</div>
-<div id="exemplo-2-1" class="section level2 hasAnchor" number="11.4">
-<h2><span class="header-section-number">11.4</span> Exemplo 2<a href="importando-banco-de-dados.html#exemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como armazenar os valores de uma variável (coluna), em um objeto do tipo <strong>Values</strong> e depois calcular a média?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="importando-banco-de-dados.html#cb14-1" tabindex="-1"></a><span class="co"># Uso o operador &lt;- </span></span>
-<span id="cb14-2"><a href="importando-banco-de-dados.html#cb14-2" tabindex="-1"></a><span class="co"># Criamos o objeto </span></span>
-<span id="cb14-3"><a href="importando-banco-de-dados.html#cb14-3" tabindex="-1"></a>caloria <span class="ot">&lt;-</span> mcdonald<span class="sc">$</span>Calories</span>
-<span id="cb14-4"><a href="importando-banco-de-dados.html#cb14-4" tabindex="-1"></a><span class="co"># Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão</span></span>
-<span id="cb14-5"><a href="importando-banco-de-dados.html#cb14-5" tabindex="-1"></a><span class="fu">mean</span>(caloria)</span>
-<span id="cb14-6"><a href="importando-banco-de-dados.html#cb14-6" tabindex="-1"></a><span class="fu">sd</span>(caloria)</span></code></pre></div>
-</div>
-<div id="exemplo-3-1" class="section level2 hasAnchor" number="11.5">
-<h2><span class="header-section-number">11.5</span> Exemplo 3<a href="importando-banco-de-dados.html#exemplo-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O que acontece se usamos a função <strong>summary()</strong> para o objeto <strong>mcdonald</strong>, sem usar o operador, isto é sem indicar uma variável?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importando-banco-de-dados.html#cb15-1" tabindex="-1"></a><span class="co"># No console será mostrado o resumo de todas as variáveis do banco!</span></span>
-<span id="cb15-2"><a href="importando-banco-de-dados.html#cb15-2" tabindex="-1"></a><span class="fu">summary</span>(mcdonald)</span></code></pre></div>
+<li><p><strong>Baixe o banco de dados</strong><br />
+Use o banco de dados: <a href="https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st">Pokemon.csv</a><br />
+Importe o arquivo <strong>Pokemon.csv</strong> para o RStudio.</p></li>
+<li><p><strong>Pergunta do exercício</strong><br />
+Teste se existe diferença significativa entre a velocidade (<strong>speed</strong>) dos Pokémons verdes (<strong>green</strong>) e amarelos (<strong>yellow</strong>).</p></li>
+<li><p><strong>Formulação das hipóteses de acordo com os testes</strong></p>
 <blockquote>
-<p>Essa forma de obter os resultados não é a melhor forma, vamos <strong>instalar um pacote</strong> para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto.</p>
+<p>Hipótese nula (<span class="math inline">\(H_0\)</span>):</p>
 </blockquote>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ynsr82zq.json"  background="transparent"  speed="2"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
-</center>
+<blockquote>
+<p>Hipótese alternativa (<span class="math inline">\(H_1\)</span>):</p>
+</blockquote></li>
+<li><p><strong>Nível de significância</strong><br />
+Considere <span class="math inline">\(\alpha = 0,05\)</span>.</p></li>
+<li><p><strong>Passos para executar o teste adequado</strong></p>
+<ol style="list-style-type: lower-alpha">
+<li>Separe os dados dos Pokémons de cor verde e de cor amarela.<br />
+</li>
+<li>Verifique a normalidade dos dados de velocidade de cada grupo (gráfico QQ).<br />
+</li>
+<li>Escolha o teste mais apropriado:
+<ul>
+<li>Se as duas amostras seguirem distibuição Normal → teste de variância → teste t</li>
+<li>Se uma das amostras não seguir distibuição Normal → teste de Wilcoxon</li>
+</ul></li>
+<li>Execute o teste, compare o p-valor com <span class="math inline">\(\alpha\)</span> e conclua</li>
+</ol></li>
+<li><p><strong>Conclusão</strong></p>
+<ul>
+<li>Se <span class="math inline">\(p\)</span>-valor &lt; 0,05: rejeite a hipótese nula e conclua que há diferença significativa nas velocidades.</li>
+<li>Se <span class="math inline">\(p\)</span>-valor ≥ 0,05: não rejeite a hipótese nula e conclua que não há diferença significativa nas velocidades.</li>
+</ul></li>
+</ol>
+<p><strong>Resposta</strong> <a href="https://posit.cloud/content/10470490">Posit.cloud</a></p>
 
 </div>
 </div>
@@ -480,8 +717,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="estatística-descritiva-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="instalando-pacotes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="testes-de-comparação-entre-grupos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

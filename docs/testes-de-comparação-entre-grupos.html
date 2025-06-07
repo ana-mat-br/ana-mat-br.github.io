@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 11 Importando banco de dados | Estatística + R</title>
-  <meta name="description" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <title>Capítulo 18 Testes de Comparação entre Grupos | Estatística + R</title>
+  <meta name="description" content="Capítulo 18 Testes de Comparação entre Grupos | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <meta property="og:title" content="Capítulo 18 Testes de Comparação entre Grupos | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 11 Importando banco de dados | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 18 Testes de Comparação entre Grupos | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="estatística-descritiva-2.html"/>
-<link rel="next" href="instalando-pacotes.html"/>
+<link rel="prev" href="estatística-inferencial-2.html"/>
+<link rel="next" href="comparação-entre-dois-grupos.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -359,120 +359,54 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="importando-banco-de-dados" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">Capítulo 11</span> Importando banco de dados<a href="importando-banco-de-dados.html#importando-banco-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Na prática, os dados que vamos analisar estarão armazenado em um <strong>banco de dados</strong>, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:</p>
-<ul>
-<li><p>Arquivo do tipo Excel (xls ou xlsx)</p></li>
-<li><p>Arquivo de texto separado por vírgulas (csv - <em>comma-separated values</em>)</p></li>
-</ul>
+<div id="testes-de-comparação-entre-grupos" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Capítulo 18</span> Testes de Comparação entre Grupos<a href="testes-de-comparação-entre-grupos.html#testes-de-comparação-entre-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Os testes de comparação são usados para verificar se existem diferenças significativas entre grupos em relação a uma variável quantitativa. Essas comparações podem variar conforme a relação entre os grupos, o número de grupos e o tipo de dado.</p>
+<div id="comparações-pareadas-dependentes" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> Comparações Pareadas (Dependentes)<a href="testes-de-comparação-entre-grupos.html#comparações-pareadas-dependentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quando os grupos comparados são relacionados ou “ligados” de alguma forma, dizemos que a comparação é <strong>pareada</strong> ou entre grupos <strong>dependentes</strong>. Isso acontece, por exemplo, quando medimos a mesma amostra em dois momentos diferentes — antes e depois de uma intervenção — ou quando comparamos pares de indivíduos relacionados, como gêmeos.</p>
+<p><strong>Exemplos:</strong></p>
 <blockquote>
-<p>Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:</p>
+<p>Avaliar a pressão arterial dos pacientes antes e depois de um tratamento.</p>
 </blockquote>
-<ul>
-<li><p>DataSus: <a href="https://datasus.saude.gov.br/transferencia-de-arquivos" class="uri">https://datasus.saude.gov.br/transferencia-de-arquivos</a></p></li>
-<li><p>OMS: <a href="https://www.who.int/data/collections" class="uri">https://www.who.int/data/collections</a></p></li>
-<li><p>Kaggle: <a href="https://www.kaggle.com/datasets" class="uri">https://www.kaggle.com/datasets</a></p></li>
-</ul>
 <blockquote>
-<p>No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <a href="https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st" class="uri">https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st</a></p>
+<p>Medir a força muscular dos atletas antes e após um programa de treinamento.</p>
 </blockquote>
-<div id="importando-um-banco-csv" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Importando um banco csv<a href="importando-banco-de-dados.html#importando-um-banco-csv" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li><p>Faça <em>download</em> do banco de dados <strong>mcdonald.csv</strong>
-(fonte original: <a href="https://www.kaggle.com/datasets/mcdonalds/nutrition-facts" class="uri">https://www.kaggle.com/datasets/mcdonalds/nutrition-facts</a>)</p></li>
-<li><p>Na área de ambinete de memória, localize <strong>Import Dataset</strong>, ao clicar nessa opção você terá o seguinte:</p></li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
-</div>
-</center>
-<ul>
-<li><p>Como queremos importar um arquivo csv, a melhor opção é a segunda <strong>From Text (readr)</strong></p></li>
-<li><p><strong><em>readr</em></strong> é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)</p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Clicando na opção <strong>From Text (readr)</strong>, no botão <strong>browser</strong> indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportBrowser.png" alt=" Figura: Prévia dos dados" />
-<div class="figcaption"><font size="2"> Figura: Prévia dos dados</font></div>
-</div>
-</center>
-<ul>
-<li><p>No quadro <strong>Data Preview</strong>, temos uma “prévia” com os nomes da variáveis, seus tipos computacionais e os primeiros valores que estão armazenados no banco de dados.</p></li>
-<li><p>No quadro <strong>Import Options</strong> temos as opções de importação, fique atento ao <strong>Name</strong> do seu banco de dados, geralmente usamos nomes sem espaços ou caracteres especiais (’, ~ ou ç), é até permitido usar alguns desses caracteres especiais, mas evite.</p></li>
-<li><p>Ainda no quadro <strong>Import Options</strong>, observe que a opção <strong>Open Data Viewer</strong> está marcada, isso significa que ao importar o banco de dados, o arquivo de banco de dados será aberto pelo RStudio. Caso esteja trabalhando com bancos com muitos dados (como os bancos do dataSUS), talvez seja melhor desmarcar essa opção para não sobrecarregar o processamento do seu computador.</p></li>
-<li><p>O quadro <strong>Code Preview</strong> mostra como é a importação (leitura) do banco de dados via código. É interessante copiar esse trecho de código para o arquivo de script.</p></li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Clique no botão <strong>Import</strong> e observe que no ambiente de memória será criado o objeto do tipo <strong>Data</strong> com o nome do banco de dados que foi importado.</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaImportObjetoData.png" style="width:60.0%" alt=" Figura: Import dataset" />
-<div class="figcaption"><font size="2"> Figura: Import dataset</font></div>
-</div>
-</center>
-<ul>
-<li><p>Observe que esse objeto do tipo <strong>Data</strong> é diferente dos objetos do tipo <strong>Values</strong> que vimos nos exemplos iniciais.</p></li>
-<li><p>Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!</p></li>
-</ul>
-</div>
-<div id="importando-um-banco-xls" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Importando um banco xls<a href="importando-banco-de-dados.html#importando-um-banco-xls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Na área de ambiente de memória, localize <strong>Import Dataset</strong>, ao clicar sobre essa opção, escolha <strong>From Excel…</strong></p>
-<center>
-<div class="float">
-<img src="telaImportDataset.png" style="width:40.0%" alt=" Figura: Importando banco de dados" />
-<div class="figcaption"><font size="2"> Figura: Importando banco de dados</font></div>
-</div>
-</center>
-<ul>
-<li>Se for a primeira vez que você estiver importando um arquivo Excel, pode ser necessária a instalação do pacote que fornece a biblioteca que tem a função de leitura de arquivo xls (<strong>readxl</strong>)! O RStudio mostrará um aviso parecido com este:</li>
-</ul>
-<center>
-<div class="float">
-<img src="telaImportPacote.png" style="width:40.0%" alt=" Figura: Aviso para instalação de pacote" />
-<div class="figcaption"><font size="2"> Figura: Aviso para instalação de pacote</font></div>
-</div>
-</center>
-</div>
-<div id="exemplo-1-1" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Exemplo 1<a href="importando-banco-de-dados.html#exemplo-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como obter a média da variável <strong>Calories</strong> que é uma coluna do objeto <strong>mcdonald</strong>, que por sua vez, é um objeto do tipo <strong>Data</strong>?</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="importando-banco-de-dados.html#cb13-1" tabindex="-1"></a><span class="co"># Usamos o operador $</span></span>
-<span id="cb13-2"><a href="importando-banco-de-dados.html#cb13-2" tabindex="-1"></a><span class="co"># Para calcular a média precisamos informar para função: </span></span>
-<span id="cb13-3"><a href="importando-banco-de-dados.html#cb13-3" tabindex="-1"></a><span class="co"># mean( NOME DO BANCO $ NOME DA COLUNA ): </span></span>
-<span id="cb13-4"><a href="importando-banco-de-dados.html#cb13-4" tabindex="-1"></a><span class="fu">mean</span>(mcdonald<span class="sc">$</span>Calories)</span></code></pre></div>
-</div>
-<div id="exemplo-2-1" class="section level2 hasAnchor" number="11.4">
-<h2><span class="header-section-number">11.4</span> Exemplo 2<a href="importando-banco-de-dados.html#exemplo-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como armazenar os valores de uma variável (coluna), em um objeto do tipo <strong>Values</strong> e depois calcular a média?</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="importando-banco-de-dados.html#cb14-1" tabindex="-1"></a><span class="co"># Uso o operador &lt;- </span></span>
-<span id="cb14-2"><a href="importando-banco-de-dados.html#cb14-2" tabindex="-1"></a><span class="co"># Criamos o objeto </span></span>
-<span id="cb14-3"><a href="importando-banco-de-dados.html#cb14-3" tabindex="-1"></a>caloria <span class="ot">&lt;-</span> mcdonald<span class="sc">$</span>Calories</span>
-<span id="cb14-4"><a href="importando-banco-de-dados.html#cb14-4" tabindex="-1"></a><span class="co"># Agora podemos usar o objeto que criamos, por exemplo para calcular a média e o desvio padrão</span></span>
-<span id="cb14-5"><a href="importando-banco-de-dados.html#cb14-5" tabindex="-1"></a><span class="fu">mean</span>(caloria)</span>
-<span id="cb14-6"><a href="importando-banco-de-dados.html#cb14-6" tabindex="-1"></a><span class="fu">sd</span>(caloria)</span></code></pre></div>
-</div>
-<div id="exemplo-3-1" class="section level2 hasAnchor" number="11.5">
-<h2><span class="header-section-number">11.5</span> Exemplo 3<a href="importando-banco-de-dados.html#exemplo-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O que acontece se usamos a função <strong>summary()</strong> para o objeto <strong>mcdonald</strong>, sem usar o operador, isto é sem indicar uma variável?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="importando-banco-de-dados.html#cb15-1" tabindex="-1"></a><span class="co"># No console será mostrado o resumo de todas as variáveis do banco!</span></span>
-<span id="cb15-2"><a href="importando-banco-de-dados.html#cb15-2" tabindex="-1"></a><span class="fu">summary</span>(mcdonald)</span></code></pre></div>
 <blockquote>
-<p>Essa forma de obter os resultados não é a melhor forma, vamos <strong>instalar um pacote</strong> para obter os resultados em uma tabela bem formatada que podemos copiar e colar diretamente para um editor de texto.</p>
+<p>Aplicar um teste de ansiedade em pacientes antes e depois de uma terapia.</p>
 </blockquote>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_ynsr82zq.json"  background="transparent"  speed="2"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
-</center>
-
+</div>
+<div id="comparações-não-pareadas-independentes" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Comparações Não-Pareadas (Independentes)<a href="testes-de-comparação-entre-grupos.html#comparações-não-pareadas-independentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As comparações são <strong>não-pareadas</strong> ou entre grupos <strong>independentes</strong> quando os grupos não têm relação entre si, ou seja, os participantes de um grupo não pertencem ao outro. Cada observação é independente das outras.</p>
+<p><strong>Exemplos:</strong></p>
+<blockquote>
+<p>Comparar a pressão arterial entre pacientes que receberam medicamento e pacientes que receberam placebo.</p>
+</blockquote>
+<blockquote>
+<p>Comparar a velocidade média de corrida entre dois times diferentes.</p>
+</blockquote>
+<blockquote>
+<p>Comparar níveis de estresse entre grupos que fizeram terapia presencial e terapia online.</p>
+</blockquote>
+</div>
+<div id="número-de-grupos-na-comparação" class="section level2 hasAnchor" number="18.3">
+<h2><span class="header-section-number">18.3</span> Número de Grupos na Comparação<a href="testes-de-comparação-entre-grupos.html#número-de-grupos-na-comparação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A comparação pode ser feita entre <strong>dois grupos</strong> ou <strong>mais de dois grupos</strong>:</p>
+<ul>
+<li><strong>Dois grupos:</strong> Por exemplo, comparar o desempenho entre dois métodos de ensino.</li>
+<li><strong>Mais de dois grupos:</strong> Por exemplo, comparar o efeito de três diferentes dietas no peso corporal.</li>
+</ul>
+</div>
+<div id="testes-paramétricos-e-não-paramétricos" class="section level2 hasAnchor" number="18.4">
+<h2><span class="header-section-number">18.4</span> Testes Paramétricos e Não Paramétricos<a href="testes-de-comparação-entre-grupos.html#testes-paramétricos-e-não-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para escolher o teste estatístico adequado, é importante considerar as características dos dados:</p>
+<ul>
+<li><p><strong>Testes Paramétricos:</strong><br />
+Utilizados quando os dados seguem certas condições, como distribuição normal e variância homogênea, permitindo uma análise mais precisa.</p></li>
+<li><p><strong>Testes Não Paramétricos:</strong><br />
+Indicados quando os dados não atendem às condições dos testes paramétricos, como em distribuições assimétricas ou dados ordinais, oferecendo uma alternativa robusta para comparação.</p></li>
+</ul>
 </div>
 </div>
             </section>
@@ -480,8 +414,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="estatística-descritiva-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="instalando-pacotes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estatística-inferencial-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comparação-entre-dois-grupos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
