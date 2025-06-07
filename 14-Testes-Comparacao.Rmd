@@ -378,7 +378,7 @@ Ou seja:
 - Isso altera a formulação das hipóteses, o cálculo do p-valor e a interpretação do resultado.
 
 
-## Exercício
+## Exercício 1 
 
 **Comparação da velocidade dos Pokémons verdes e amarelos**
 
@@ -417,3 +417,138 @@ Ou seja:
    - Se \(p\)-valor ≥ 0,05: não rejeite a hipótese nula e conclua que não há diferença significativa nas velocidades.
 
 **Resposta** [Posit.cloud](https://posit.cloud/content/10470490)
+
+## Exercício 2 
+
+Considere a tabela de resultados publicados no artigo [Resposta da Pressão Arterial ao Esforço em Adolescentes: Influência do Sobrepeso e Obesidade](https://www.google.com/search?q=teste+t+medicina+artigo+&sca_esv=e5b91424496cf486&ei=2bREaLDDNsnX5OUPnpW78Ac&ved=0ahUKEwjwk8eEpuCNAxXJK7kGHZ7KDn4Q4dUDCBA&uact=5&oq=teste+t+medicina+artigo+&gs_lp=Egxnd3Mtd2l6LXNlcnAiGHRlc3RlIHQgbWVkaWNpbmEgYXJ0aWdvIDIHECEYoAEYCjIHECEYoAEYCjIFECEYnwVIlhdQrQlY4BVwAngBkAEAmAG6AaABrwmqAQMwLji4AQPIAQD4AQGYAgqgAt8JwgIKEAAYsAMY1gQYR8ICBRAhGKABwgIIEAAYCBgNGB7CAgUQABjvBcICCBAAGIAEGKIEmAMAiAYBkAYIkgcDMi44oAflIrIHAzAuOLgH1gnCBwUwLjcuM8gHHA&sclient=gws-wiz-serp#:~:text=Resposta%20da%20Press%C3%A3o,br%20%E2%80%BA%20abc):
+
+| Grupo                  | GSO Meninas (n = 24) | GE Meninas (n = 24) | p        |
+|------------------------|:--------------------:|:-------------------:|:--------:|
+| **Idade** (anos)       | 12,1 ± 1,3           | 12,0 ± 1,5          | 0,86     |
+| **Peso** (kg)          | 59,3 ± 12,9          | 38,8 ± 9,3**         | <0,0001  |
+| **Estatura** (m)       | 1,53 ± 0,09          | 1,46 ± 0,10*         | 0,02     |
+| **IMC** (kg/m²)        | 25,2 ± 3,8           | 17,9 ± 2,3**         | <0,0001  |
+| **RT/S** (mm)          | 0,85 ± 0,19          | 1,43 ± 0,40**        | <0,0001  |
+| **PAS repouso** (mmHg) | 114 ± 12             | 108 ± 10             | 0,07     |
+| **PAD repouso** (mmHg) | 66 ± 6               | 67 ± 8               | 0,51     |
+| **PAM repouso** (mmHg) | 82 ± 7               | 81 ± 8               | 0,67     |
+| **FC** (bpm)           | 84 ± 10              | 87 ± 9               | 0,34     |
+
+*Teste t-Student para amostras independentes; *p ≤ 0,05; **p ≤ 0,01.  
+Diferenças entre médias do grupo de sobrepeso e obesos vs eutróficos.
+
+IMC - índice de massa corporal (peso/estatura²); 
+
+RT/S - relação tríceps/subescapular;  
+
+PAS - pressão arterial sistólica; 
+
+PAD - pressão arterial diastólica; 
+
+PAM - pressão arterial média; 
+
+FC - frequência cardíaca média.*
+
+
+**Contexto:**  
+A tabela acima apresenta características antropométricas e hemodinâmicas de meninas do grupo de sobrepeso/obesidade (GSO) e do grupo eutrófico (GE). Os autores utilizaram o teste t de Student para amostras independentes.
+
+**Pergunta:**  
+Escolha uma variável da tabela e formule as hipóteses nula e alternativa para a comparação entre os grupos GSO e GE. Depois, descreva a conclusão dos autores com base no valor de p apresentado na tabela.
+
+---
+
+**Exemplo de resposta:**
+
+**Variável escolhida:** Peso (kg)
+
+**Hipóteses:**
+
+- Hipótese nula (H₀):  
+  As médias de peso (kg) dos grupos GSO e GE são iguais.  
+
+- Hipótese alternativa (H₁):  
+  As médias de peso (kg) dos grupos GSO e GE são diferentes.  
+
+**Nível de significância:** α = 0,05
+
+**Valor de p na tabela:** p < 0,0001
+
+**Conclusão:**  
+Como o valor de p é menor que 0,05, rejeita-se a hipótese nula. Portanto, os autores concluem que existe diferença estatisticamente significativa entre as médias de peso dos grupos GSO e GE, sendo o peso significativamente maior no grupo GSO.
+
+**Você pensou nisso?** 
+O peso é a variável intrínseca à comparação, pois define os grupos.
+
+---
+
+## Exercício 3 
+
+O artigo [Sintomas de estresse pré-competitivo em atletas adolescentes de handebol](https://www.scielo.br/j/rbce/a/WkdgtTdkykSVHJ9rGYGh7Lx/?format=pdf&lang=pt) utilizou como instrumento a Lista de Sintomas de Estresse Pré-competitivo Infanto-juvenil (LSSPCI), uma escala do tipo Likert (De Rose Jr., 1998). A LSSPCI contém 31 sintomas, para os quais cada atleta responde em uma escala de 1 (nunca) a 5 (sempre) sobre a frequência com que cada situação ocorreu nas 24 horas anteriores à competição. Os escores dos sintomas são somados para cada atleta, resultando em um escore total de estresse. Analise os resultados da Tabela 1 do artigo:  
+
+**Tabela 1. Médias, desvios-padrão, valores p da diferença de médias e mediana dos sintomas de estresse medidos pela LSSPCI em atletas adolescentes de handebol, segundo o sexo (n = 97)** 
+
+| Sintomas de estresse – LSSPCI                         | Meninos  | Meninas  | Valor pᵃ |
+|------------------------------------------------------|:----------------------------:|:----------------------------:|:--------:|
+| Meu coração bate mais rápido que o normal            | 2,2 ± 1,0 (2,0)              | 2,5 ± 0,9 (2,5)              | 0,1      |
+| Suo bastante                                         | 2,5 ± 1,2 (2,0)              | 2,4 ± 1,3 (2,0)              | 0,4      |
+| Fico agitado (a)                                     | 3,0 ± 0,9 (3,0)              | 3,2 ± 1,3 (3,0)              | 0,5      |
+| Fico preocupado (a) com críticas das pessoas         | 2,9 ± 1,5 (3,0)              | 2,6 ± 1,4 (2,0)              | 0,2      |
+| Sinto muita vontade de fazer xixi                    | 2,0 ± 1,3 (1,0)              | 2,0 ± 1,2 (2,0)              | 0,7      |
+| Fico preocupado (a) com meus adversários             | 2,7 ± 1,2 (3,0)              | 2,9 ± 1,4 (3,0)              | 0,5      |
+| Bebo muita água                                      | 2,5 ± 1,2 (3,0)              | 2,9 ± 1,5 (3,0)              | 0,3      |
+| Roo (como) as unhas                                 | 2,5 ± 1,9 (2,0)              | 2,1 ± 1,5 (1,0)              | 0,2      |
+| Fico empolgado (a)                                   | 3,5 ± 1,3 (4,0)              | 3,6 ± 1,5 (4,0)              | 0,6      |
+| Fico aflito (a)                                      | 2,3 ± 1,7 (2,0)              | 2,8 ± 1,3 (3,0)              | 0,1      |
+| Tenho medo de competir mal                           | 2,6 ± 1,4 (3,0)              | 2,9 ± 1,4 (3,0)              | 0,4      |
+| Demoro muito para dormir                             | 2,8 ± 2,4 (3,0)              | 2,3 ± 2,0 (2,0)              | 0,05     |
+| Tenho dúvidas sobre minha capacidade de competir     | 2,4 ± 1,8 (2,0)              | 2,4 ± 1,2 (2,0)              | 0,7      |
+| Sonho com a competição                             |  2,4 ± 1,2 (2,0)          | 1,9 ± 1,3 (1,0)        | 0,04 |
+| Fico nervoso (a)                                     | 3,1 ± 1,6 (3,0)              | 3,3 ± 1,2 (3,0)              | 0,6      |
+| Fico preocupado (a) com o resultado da competição    | 3,1 ± 1,4 (3,0)              | 3,7 ± 1,4 (4,0)              | 0,1      |
+| Minha boca fica seca                                 | 2,4 ± 1,3 (2,0)              | 2,3 ± 1,4 (2,0)              | 0,6      |
+| Sinto muito cansaço no fim do treino                 | 2,6 ± 1,3 (2,0)              | 2,7 ± 1,3 (2,0)              | 0,9      |
+| A presença de meus pais na competição me preocupa    | 3,1 ± 1,7 (2,0)              | 2,6 ± 1,6 (2,0)              | 0,1      |
+| Falo muito sobre a competição                        | 3,0 ± 1,5 (3,0)              | 3,2 ± 1,3 (3,0)              | 0,6      |
+| Tenho medo de perder                                 | 2,9 ± 1,4 (3,0)              | 3,1 ± 1,4 (3,0)              | 0,4      |
+| Fico impaciente                                      | 2,4 ± 1,1 (2,0)              | 2,6 ± 1,3 (2,5)              | 0,5      |
+| Não penso em outra coisa a não ser na competição     | 2,2 ± 1,2 (2,0)              | 2,7 ± 1,4 (2,0)              | 0,2      |
+| Não vejo a hora de competir                          | 3,2 ± 1,4 (3,0)              | 3,3 ± 1,4 (3,0)              | 0,7      |
+| Fico emocionado (a)                                  | 1,8 ± 1,3 (1,0)              | 2,3 ± 1,3 (2,0)              | 0,1      |
+| Fico ansioso (a)                                     | 3,6 ± 1,2 (3,0)              | 3,4 ± 1,5 (4,0)              | 0,7      |
+| No dia da competição acordo mais cedo do que o normal| 3,1 ± 1,7 (3,0)              | 3,0 ± 1,6 (3,0)              | 0,8      |
+| Tenho medo de decepcionar as pessoas                 | 2,7 ± 1,4 (3,0)              | 3,0 ± 1,5 (3,0)              | 0,3      |
+| Sinto-me mais responsável                            | 3,1 ± 1,3 (3,0)              | 2,7 ± 1,3 (3,0)              | 0,2      |
+| Sinto que as pessoas exigem muito de mim             | 2,5 ± 1,4 (2,0)              | 2,4 ± 1,4 (2,0)              | 0,8      |
+| Tenho medo de cometer erros na competição            | 3,4 ± 1,4 (3,0)              | 3,6 ± 1,3 (4,0)              | 0,4      |
+
+Média ± DP (mediana); ᵃ Teste de Wilcoxon não pareado; p < 0,05.
+
+**Com base na Tabela 1, qual sintoma de estresse apresentou diferença estatisticamente significativa entre meninos e meninas segundo o teste de Wilcoxon? Explique como interpretar esse resultado considerando o contexto da escala LSSPCI.**
+
+## Exercício 4
+
+O artigo [Qualidade de vida de estudantes de Psicologia](https://pepsic.bvsalud.org/pdf/psicoinfo/v16n16/v16n16a07.pdf) avaliou a qualidade de vida de acadêmicos de psicologia e correlacionou-a com fatores sociodemográficos. Participaram 310 alunos de psicologia que responderam a um questionário sociodemográfico e ao The Medical Outcomes Study 36-item Short-Form Health Survey (SF-36) para avaliar a qualidade de vida. Veja os resultados do teste t na Tabela 2: 
+
+**Tabela 2: Comparação entre gêneros nas dimensões de qualidade de vida**
+
+| Dimensões             | Variável   | Média   | DP     | t    | p-valor |
+|-----------------------|:------------:|:---------:|:---------:|:------:|:---------:|
+| Capacidade funcional  | Masculino  | 89,74   | 14,49   | 2,44 | 0,119   |
+|                       | Feminino   | 86,95   | 11,6    |      |         |
+| Aspectos físicos      | Masculino  | 79,74   | 25,84   | 0,76 | 0,383   |
+|                       | Feminino   | 75,82   | 31,84   |      |         |
+| Dor                   | Masculino  | 74,93   | 22,05   | 4,33 | 0,038   |
+|                       | Feminino   | 68,26   | 22,00   |      |         |
+| Estado geral de saúde | Masculino  | 75,21   | 20,36   | 1,15 | 0,284   |
+|                       | Feminino   | 72,32   | 17,67   |      |         |
+| Vitalidade            | Masculino  | 61,38   | 22,47   | 1,50 | 0,222   |
+|                       | Feminino   | 57,92   | 18,57   |      |         |
+| Aspectos sociais      | Masculino  | 71,34   | 27,61   | 0,06 | 0,804   |
+|                       | Feminino   | 70,43   | 24,31   |      |         |
+| Aspecto emocional     | Masculino  | 63,16   | 40,67   | 0,38 | 0,536   |
+|                       | Feminino   | 59,51   | 39,85   |      |         |
+| Saúde mental          | Masculino  | 70,55   | 19,97   | 3,05 | 0,082   |
+|                       | Feminino   | 65,7    | 18,80   |      |         |
+
+**Com base na Tabela 2, em qual dimensão da qualidade de vida foi observada diferença estatisticamente significativa entre estudantes do sexo masculino e feminino? O que esse resultado sugere sobre a experiência dos alunos nesses grupos?**
