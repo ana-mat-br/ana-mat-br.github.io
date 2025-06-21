@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="pt" xml:lang="pt">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 20 Cálculo amostral no R | Estatística + R</title>
+  <meta name="description" content="Capítulo 20 Cálculo amostral no R | Estatística + R" />
+  <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 20 Cálculo amostral no R | Estatística + R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 20 Cálculo amostral no R | Estatística + R" />
+  
+  
+  
+
+<meta name="author" content="Ana Paula Fernandes (DESCO/UFTM)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="comparação-entre-dois-grupos.html"/>
+<link rel="next" href="memes-de-estatística-p-valor.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<h2><center>Estatística + R</center></h2>
+<center> roteiro de estudo </center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Bem-vindos!</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições Iniciais</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-descritiva"><i class="fa fa-check"></i><b>3.1</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes"><i class="fa fa-check"></i><b>3.1.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.1.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas"><i class="fa fa-check"></i><b>3.1.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-inferencial"><i class="fa fa-check"></i><b>3.2</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes-1"><i class="fa fa-check"></i><b>3.2.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.2.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas-1"><i class="fa fa-check"></i><b>3.2.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#conexão-com-a-probabilidade"><i class="fa fa-check"></i><b>3.3</b> Conexão com a Probabilidade</a></li>
+<li class="chapter" data-level="3.4" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população-x-amostra"><i class="fa fa-check"></i><b>3.4</b> População x Amostra</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população"><i class="fa fa-check"></i><b>3.4.1</b> <strong>População</strong></a></li>
+<li class="chapter" data-level="3.4.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#amostra"><i class="fa fa-check"></i><b>3.4.2</b> <strong>Amostra</strong></a></li>
+<li class="chapter" data-level="3.4.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-aplicado"><i class="fa fa-check"></i><b>3.4.3</b> <strong>Exemplo aplicado</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da Amostra</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#passos-básicos-para-o-cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.1</b> Passos básicos para o cálculo do tamanho da amostra</a></li>
+<li class="chapter" data-level="4.2" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#exemplo-de-cálculo-simples"><i class="fa fa-check"></i><b>4.2</b> Exemplo de cálculo simples</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#ferramentas-para-cálculo-de-amostra"><i class="fa fa-check"></i><b>4.2.1</b> Ferramentas para cálculo de amostra</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.3</b> Cálculo do Tamanho da Amostra</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#conclusão"><i class="fa fa-check"></i><b>4.3.1</b> Conclusão</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-2"><i class="fa fa-check"></i><b>4.4</b> Atividade 2</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html"><i class="fa fa-check"></i><b>5</b> Técnicas de Amostragem</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.1</b> Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.2" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-estratificada"><i class="fa fa-check"></i><b>5.2</b> Amostragem Estratificada</a></li>
+<li class="chapter" data-level="5.3" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-sistemática"><i class="fa fa-check"></i><b>5.3</b> Amostragem Sistemática</a></li>
+<li class="chapter" data-level="5.4" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-por-conglomerados"><i class="fa fa-check"></i><b>5.4</b> Amostragem por Conglomerados</a></li>
+<li class="chapter" data-level="5.5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#combinando-técnicas-na-prática"><i class="fa fa-check"></i><b>5.5</b> Combinando Técnicas na Prática</a></li>
+<li class="chapter" data-level="5.6" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#evitar-viés-na-amostragem"><i class="fa fa-check"></i><b>5.6</b> Evitar Viés na Amostragem</a></li>
+<li class="chapter" data-level="5.7" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#vieses-no-uso-de-formulários-online"><i class="fa fa-check"></i><b>5.7</b> Vieses no uso de Formulários Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>6</b> Ambiente Computacional</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-pagos"><i class="fa fa-check"></i><b>6.1</b> Softwares pagos</a></li>
+<li class="chapter" data-level="6.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-livres"><i class="fa fa-check"></i><b>6.2</b> Softwares livres</a></li>
+<li class="chapter" data-level="6.3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#linguagens-computacionais"><i class="fa fa-check"></i><b>6.3</b> Linguagens computacionais</a></li>
+<li class="chapter" data-level="6.4" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#preparando-o-ambiente-computacional"><i class="fa fa-check"></i><b>6.4</b> Preparando o Ambiente Computacional</a></li>
+<li class="chapter" data-level="6.5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio"><i class="fa fa-check"></i><b>6.5</b> Plano A: Instalação do R e RStudio</a></li>
+<li class="chapter" data-level="6.6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem"><i class="fa fa-check"></i><b>6.6</b> Plano B: R e RStudio na Nuvem</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>7</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="8" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>8</b> Primeiros exercícios no R</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>8.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="8.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>8.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="8.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>8.3</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>9</b> Tipos de Variáveis</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-quantitativas"><i class="fa fa-check"></i><b>9.1</b> Variáveis Quantitativas</a></li>
+<li class="chapter" data-level="9.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-qualitativas"><i class="fa fa-check"></i><b>9.2</b> Variáveis Qualitativas</a></li>
+<li class="chapter" data-level="9.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#aplicação-das-variáveis-em-estatística"><i class="fa fa-check"></i><b>9.3</b> Aplicação das Variáveis em Estatística</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-descritiva-1"><i class="fa fa-check"></i><b>9.3.1</b> Estatística Descritiva:</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-inferencial-1"><i class="fa fa-check"></i><b>9.3.2</b> Estatística Inferencial:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>9.4</b> Atividade 3</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#análise-das-tabelas"><i class="fa fa-check"></i><b>9.4.1</b> Análise das Tabelas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html"><i class="fa fa-check"></i><b>10</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>10.1</b> Medidas de Tendência Central (ou Posição)</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#média"><i class="fa fa-check"></i><b>10.1.1</b> Média</a></li>
+<li class="chapter" data-level="10.1.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#mediana"><i class="fa fa-check"></i><b>10.1.2</b> Mediana</a></li>
+<li class="chapter" data-level="10.1.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#quartis"><i class="fa fa-check"></i><b>10.1.3</b> Quartis</a></li>
+<li class="chapter" data-level="10.1.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#moda"><i class="fa fa-check"></i><b>10.1.4</b> Moda</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>10.2</b> Medidas de Dispersão (ou Variabilidade)</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude"><i class="fa fa-check"></i><b>10.2.1</b> Amplitude</a></li>
+<li class="chapter" data-level="10.2.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#variância"><i class="fa fa-check"></i><b>10.2.2</b> Variância</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#desvio-padrão-dp"><i class="fa fa-check"></i><b>10.2.3</b> Desvio padrão (DP)</a></li>
+<li class="chapter" data-level="10.2.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude-interquartil-iqr"><i class="fa fa-check"></i><b>10.2.4</b> Amplitude interquartil (IQR)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>10.3</b> Medida Relativa de Variabilidade</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#coeficiente-de-variação-cv"><i class="fa fa-check"></i><b>10.3.1</b> Coeficiente de Variação (CV)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#funções-no-r"><i class="fa fa-check"></i><b>10.4</b> Funções no R</a></li>
+<li class="chapter" data-level="10.5" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#atividade-4"><i class="fa fa-check"></i><b>10.5</b> Atividade 4</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>11</b> Importando banco de dados</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>11.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="11.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>11.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>11.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>11.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>12.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="12.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>12.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="12.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>12.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="12.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>12.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="12.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>12.5</b> Atividade 5</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>13</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>13.1</b> Histograma</a></li>
+<li class="chapter" data-level="13.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>13.2</b> Boxplot</a></li>
+<li class="chapter" data-level="13.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>13.3</b> Atividade 6</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>14</b> Distribuição de Probabilidade</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>14.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="14.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gráfico-qq"><i class="fa fa-check"></i><b>14.2</b> Gráfico QQ</a></li>
+<li class="chapter" data-level="14.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>14.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>15</b> Exemplos de distribuições</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-discretas"><i class="fa fa-check"></i><b>15.1</b> Distribuições Discretas</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>15.1.1</b> Binomial</a></li>
+<li class="chapter" data-level="15.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>15.1.2</b> Poisson</a></li>
+<li class="chapter" data-level="15.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geométrica"><i class="fa fa-check"></i><b>15.1.3</b> Geométrica</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-contínuas"><i class="fa fa-check"></i><b>15.2</b> Distribuições Contínuas</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>15.2.1</b> Normal</a></li>
+<li class="chapter" data-level="15.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>15.2.2</b> Exponencial</a></li>
+<li class="chapter" data-level="15.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-contínua"><i class="fa fa-check"></i><b>15.2.3</b> Uniforme Contínua</a></li>
+<li class="chapter" data-level="15.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>15.2.4</b> t de Student</a></li>
+<li class="chapter" data-level="15.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-χ²"><i class="fa fa-check"></i><b>15.2.5</b> Qui-Quadrado (χ²)</a></li>
+<li class="chapter" data-level="15.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>15.2.6</b> F de Fisher</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>16</b> Normal ou Não?</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.1</b> Dados que seguem distribuição normal</a></li>
+<li class="chapter" data-level="16.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-dúvida"><i class="fa fa-check"></i><b>16.2</b> Dados que geram dúvida</a></li>
+<li class="chapter" data-level="16.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.3</b> Dados que não seguem distribuição normal</a></li>
+<li class="chapter" data-level="16.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentração-de-repetição-de-valor-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>16.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>17</b> Estatística Inferencial</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estatístico"><i class="fa fa-check"></i><b>17.1</b> Etapas de um Teste Estatístico</a></li>
+<li class="chapter" data-level="17.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>17.2</b> Erros Tipo I e Tipo II</a></li>
+<li class="chapter" data-level="17.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estatístico"><i class="fa fa-check"></i><b>17.3</b> Poder do Teste Estatístico</a></li>
+<li class="chapter" data-level="17.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decisões-e-poder-do-teste"><i class="fa fa-check"></i><b>17.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
+<li class="chapter" data-level="17.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>17.5</b> Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-é-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>17.5.1</b> O que é o Tamanho do Efeito?</a></li>
+<li class="chapter" data-level="17.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>17.5.2</b> Exemplos para Entender Melhor</a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#medidas-comuns-de-tamanho-do-efeito"><i class="fa fa-check"></i><b>17.6</b> Medidas Comuns de Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>17.6.1</b> d de Cohen (teste t)</a></li>
+<li class="chapter" data-level="17.6.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#c-de-cramer-para-tabela-2x2-teste-qui-quadrado"><i class="fa fa-check"></i><b>17.6.2</b> C de Cramer, para tabela 2x2 (teste qui-quadrado)</a></li>
+<li class="chapter" data-level="17.6.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#coeficiente-de-correlação-de-pearson-r"><i class="fa fa-check"></i><b>17.6.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#por-que-o-tamanho-do-efeito-é-importante"><i class="fa fa-check"></i><b>17.7</b> Por que o Tamanho do Efeito é Importante?</a></li>
+<li class="chapter" data-level="17.8" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>17.8</b> Testes</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html"><i class="fa fa-check"></i><b>18</b> Testes de Comparação entre Grupos</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-pareadas-dependentes"><i class="fa fa-check"></i><b>18.1</b> Comparações Pareadas (Dependentes)</a></li>
+<li class="chapter" data-level="18.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-não-pareadas-independentes"><i class="fa fa-check"></i><b>18.2</b> Comparações Não-Pareadas (Independentes)</a></li>
+<li class="chapter" data-level="18.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#número-de-grupos-na-comparação"><i class="fa fa-check"></i><b>18.3</b> Número de Grupos na Comparação</a></li>
+<li class="chapter" data-level="18.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#testes-paramétricos-e-não-paramétricos"><i class="fa fa-check"></i><b>18.4</b> Testes Paramétricos e Não Paramétricos</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html"><i class="fa fa-check"></i><b>19</b> Comparação entre dois grupos</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-pareado"><i class="fa fa-check"></i><b>19.1</b> Teste t pareado</a></li>
+<li class="chapter" data-level="19.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-pareado"><i class="fa fa-check"></i><b>19.2</b> Wilcoxon pareado</a></li>
+<li class="chapter" data-level="19.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-não-pareado"><i class="fa fa-check"></i><b>19.3</b> Teste t não pareado</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-de-variância"><i class="fa fa-check"></i><b>19.3.1</b> Teste de variância</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-não-pareado"><i class="fa fa-check"></i><b>19.4</b> Wilcoxon não pareado</a></li>
+<li class="chapter" data-level="19.5" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-bilateral-vs.-teste-unilateral"><i class="fa fa-check"></i><b>19.5</b> Teste bilateral vs. teste unilateral</a>
+<ul>
+<li class="chapter" data-level="19.5.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-são"><i class="fa fa-check"></i><b>19.5.1</b> O que são?</a></li>
+<li class="chapter" data-level="19.5.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#formulação-das-hipóteses"><i class="fa fa-check"></i><b>19.5.2</b> Formulação das hipóteses</a></li>
+<li class="chapter" data-level="19.5.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#influência-no-cálculo-do-p-valor"><i class="fa fa-check"></i><b>19.5.3</b> Influência no cálculo do p-valor</a></li>
+<li class="chapter" data-level="19.5.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-muda-nas-funções-t.test-e-wilcox.test"><i class="fa fa-check"></i><b>19.5.4</b> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="19.6" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-1"><i class="fa fa-check"></i><b>19.6</b> Exercício 1</a></li>
+<li class="chapter" data-level="19.7" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-2"><i class="fa fa-check"></i><b>19.7</b> Exercício 2</a></li>
+<li class="chapter" data-level="19.8" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-3"><i class="fa fa-check"></i><b>19.8</b> Exercício 3</a></li>
+<li class="chapter" data-level="19.9" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-4"><i class="fa fa-check"></i><b>19.9</b> Exercício 4</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html"><i class="fa fa-check"></i><b>20</b> Cálculo amostral no R</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#principais-pacotes-para-cálculo-amostral"><i class="fa fa-check"></i><b>20.1</b> Principais Pacotes para Cálculo Amostral</a></li>
+<li class="chapter" data-level="20.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>20.2</b> Exemplo de cálculo amostral para teste t</a></li>
+<li class="chapter" data-level="20.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-é-o-d-de-cohen"><i class="fa fa-check"></i><b>20.3</b> O que é o d de Cohen?</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-geral"><i class="fa fa-check"></i><b>20.3.1</b> Fórmula Geral</a></li>
+<li class="chapter" data-level="20.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-prático-em-r"><i class="fa fa-check"></i><b>20.3.2</b> Exemplo prático em R</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-práticos"><i class="fa fa-check"></i><b>20.4</b> Exemplos práticos</a>
+<ul>
+<li class="chapter" data-level="20.4.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#medicina-comparação-de-dois-tratamentos-para-dor"><i class="fa fa-check"></i><b>20.4.1</b> Medicina: Comparação de dois tratamentos para dor</a></li>
+<li class="chapter" data-level="20.4.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#psicologia-intervenção-para-redução-de-ansiedade"><i class="fa fa-check"></i><b>20.4.2</b> Psicologia: Intervenção para redução de ansiedade</a></li>
+<li class="chapter" data-level="20.4.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#educação-física-efeito-de-um-programa-de-treinamento-na-performance-de-corrida"><i class="fa fa-check"></i><b>20.4.3</b> Educação Física: Efeito de um programa de treinamento na performance de corrida</a></li>
+</ul></li>
+<li class="chapter" data-level="20.5" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-você-já-tem-o-tamanho-da-amostra"><i class="fa fa-check"></i><b>20.5</b> Como calcular o poder do teste quando você já tem o tamanho da amostra</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo"><i class="fa fa-check"></i><b>20.5.1</b> Exemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#cálculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon"><i class="fa fa-check"></i><b>20.6</b> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon</a>
+<ul>
+<li class="chapter" data-level="20.6.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-t-pareado-1"><i class="fa fa-check"></i><b>20.6.1</b> Teste t Pareado</a></li>
+<li class="chapter" data-level="20.6.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-não-pareadas"><i class="fa fa-check"></i><b>20.6.2</b> Teste de Wilcoxon para Amostras Não Pareadas</a></li>
+<li class="chapter" data-level="20.6.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado"><i class="fa fa-check"></i><b>20.6.3</b> Teste de Wilcoxon Pareado</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html"><i class="fa fa-check"></i><b>21</b> Memes de Estatística: p-valor</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#quando-você-encontra-um-p-valor-baixo-e-sabe-que-deve-rejeitar-h0"><i class="fa fa-check"></i><b>21.1</b> Quando você encontra um p-valor baixo e sabe que deve rejeitar H0</a></li>
+<li class="chapter" data-level="21.2" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#homem-aranha-apontando"><i class="fa fa-check"></i><b>21.2</b> Homem-Aranha apontando</a></li>
+<li class="chapter" data-level="21.3" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#namorado-distraído"><i class="fa fa-check"></i><b>21.3</b> Namorado distraído</a></li>
+<li class="chapter" data-level="21.4" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#willy-wonka-e-o-p-valor-menor-que-005"><i class="fa fa-check"></i><b>21.4</b> Willy Wonka e o p-valor menor que 0,05</a></li>
+<li class="chapter" data-level="21.5" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#cantada-nerd"><i class="fa fa-check"></i><b>21.5</b> Cantada Nerd</a></li>
+<li class="chapter" data-level="21.6" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#p-valor-não-é-tudo"><i class="fa fa-check"></i><b>21.6</b> P-valor não é tudo</a></li>
+<li class="chapter" data-level="21.7" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#coitado-do-tamanho-do-efeito"><i class="fa fa-check"></i><b>21.7</b> Coitado do tamanho do efeito</a></li>
+<li class="chapter" data-level="21.8" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#senhora-estatística"><i class="fa fa-check"></i><b>21.8</b> Senhora estatística</a></li>
+<li class="chapter" data-level="21.9" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#pobi-do-gatinho"><i class="fa fa-check"></i><b>21.9</b> Pobi do gatinho</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html"><i class="fa fa-check"></i><b>22</b> Exercícios práticos com o pacote <code>pwr</code> no R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#exercício-1-calcular-o-tamanho-da-amostra-para-um-teste-t-não-pareado"><i class="fa fa-check"></i><b>22.1</b> Exercício 1: Calcular o tamanho da amostra para um teste t não pareado</a></li>
+<li class="chapter" data-level="22.2" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#exercício-2-calcular-o-poder-do-teste-para-uma-amostra-de-tamanho-fixo-t-não-pareado"><i class="fa fa-check"></i><b>22.2</b> Exercício 2: Calcular o poder do teste para uma amostra de tamanho fixo (t não pareado)</a></li>
+<li class="chapter" data-level="22.3" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#exercício-3-calcular-o-tamanho-do-efeito-detectável-t-não-pareado"><i class="fa fa-check"></i><b>22.3</b> Exercício 3: Calcular o tamanho do efeito detectável (t não pareado)</a></li>
+<li class="chapter" data-level="22.4" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#exercício-4-repita-os-cálculos-para-outros-testes-t-pareado-wilcoxon-não-pareadopareado"><i class="fa fa-check"></i><b>22.4</b> Exercício 4: Repita os cálculos para outros testes (t pareado, Wilcoxon não pareado/pareado)</a>
+<ul>
+<li class="chapter" data-level="22.4.1" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#a-teste-t-pareado"><i class="fa fa-check"></i><b>22.4.1</b> a) Teste t pareado</a></li>
+<li class="chapter" data-level="22.4.2" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#b-wilcoxon-não-pareado"><i class="fa fa-check"></i><b>22.4.2</b> b) Wilcoxon não pareado</a></li>
+<li class="chapter" data-level="22.4.3" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#c-wilcoxon-pareado"><i class="fa fa-check"></i><b>22.4.3</b> c) Wilcoxon pareado</a></li>
+</ul></li>
+<li class="chapter" data-level="22.5" data-path="exercícios-práticos-com-o-pacote-pwr-no-r.html"><a href="exercícios-práticos-com-o-pacote-pwr-no-r.html#dica-sobre-o-uso-da-função-pwr.t.test"><i class="fa fa-check"></i><b>22.5</b> Dica sobre o uso da função <code>pwr.t.test()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cálculo-amostral-no-r" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">Capítulo 20</span> Cálculo amostral no R<a href="cálculo-amostral-no-r.html#cálculo-amostral-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>O cálculo do tamanho da amostra é fundamental para garantir a validade estatística de um estudo. No R, esse cálculo pode ser realizado de forma prática utilizando diversos pacotes.</p>
+<div id="principais-pacotes-para-cálculo-amostral" class="section level2 hasAnchor" number="20.1">
+<h2><span class="header-section-number">20.1</span> Principais Pacotes para Cálculo Amostral<a href="cálculo-amostral-no-r.html#principais-pacotes-para-cálculo-amostral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><strong>pwr</strong>: Utilizado para análise de poder estatístico e cálculo do tamanho da amostra para diferentes testes (t-test, ANOVA, correlação, etc.).</li>
+<li><strong>epiDisplay</strong>: Oferece funções para cálculos amostrais em estudos epidemiológicos.</li>
+<li><strong>epiR</strong>: Bastante utilizado em epidemiologia, com funções para diferentes desenhos de estudo.</li>
+<li><strong>samplesize</strong>: Possui métodos para cálculo de tamanho amostral em diferentes contextos.</li>
+</ul>
+</div>
+<div id="exemplo-de-cálculo-amostral-para-teste-t" class="section level2 hasAnchor" number="20.2">
+<h2><span class="header-section-number">20.2</span> Exemplo de cálculo amostral para teste t<a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="cálculo-amostral-no-r.html#cb97-1" tabindex="-1"></a><span class="co"># Instale o pacote se necessário</span></span>
+<span id="cb97-2"><a href="cálculo-amostral-no-r.html#cb97-2" tabindex="-1"></a><span class="co"># install.packages(&quot;pwr&quot;)</span></span>
+<span id="cb97-3"><a href="cálculo-amostral-no-r.html#cb97-3" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb97-4"><a href="cálculo-amostral-no-r.html#cb97-4" tabindex="-1"></a></span>
+<span id="cb97-5"><a href="cálculo-amostral-no-r.html#cb97-5" tabindex="-1"></a><span class="co"># Cálculo do tamanho da amostra para detectar um efeito de tamanho médio (d = 0.5)</span></span>
+<span id="cb97-6"><a href="cálculo-amostral-no-r.html#cb97-6" tabindex="-1"></a><span class="co"># com poder de 80% e nível de significância de 5%</span></span>
+<span id="cb97-7"><a href="cálculo-amostral-no-r.html#cb97-7" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<p>O uso de funções e pacotes específicos no R torna o cálculo amostral mais acessível, permitindo maior precisão no planejamento de estudos. Sempre leve em conta os parâmetros do seu estudo, como efeito esperado, variância, poder e nível de significância.</p>
+<p>No exemplo os seguintes parâmetros foram utilizados:</p>
+<ul>
+<li><strong>d = 0.5</strong><br />
+<em>Tamanho do efeito (Effect size)</em>: Representa a magnitude da diferença que se espera detectar entre as médias dos grupos, em unidades de desvio padrão. Quanto maior o efeito, mais fácil é detectá-lo com uma amostra menor.
+<ul>
+<li>O tamanho do efeito pode ser estimado a partir de dados prévios, estudos semelhantes ou com base em uma suposição informada.<br />
+</li>
+<li>Categorias comuns: pequeno (~0,2), médio (~0,5) e grande (~0,8).</li>
+</ul></li>
+<li><strong>power = 0.8</strong><br />
+<em>Poder estatístico (Power)</em>: É a probabilidade de detectar uma diferença real quando ela de fato existe (ou seja, de rejeitar corretamente a hipótese nula se ela for falsa).
+<ul>
+<li>Poder = 1 - β, onde β é a probabilidade de erro tipo II (falso negativo).<br />
+</li>
+<li>O valor padrão mais utilizado é 0,80 (ou 80%).</li>
+</ul></li>
+<li><strong>sig.level = 0.05</strong><br />
+<em>Nível de significância (α)</em>: É a probabilidade de rejeitar a hipótese nula quando ela é verdadeira (erro tipo I, falso positivo).
+<ul>
+<li>O valor padrão é 0,05 (ou 5%), indicando que aceitamos até 5% de chance de um falso positivo.</li>
+</ul></li>
+<li><strong>type = “two.sample”</strong><br />
+Indica que estamos comparando dois grupos independentes (teste t para duas amostras).</li>
+</ul>
+<p><strong>Interpretação dos Resultados</strong></p>
+<p>Ao rodar o comando acima, o R retorna o tamanho mínimo de amostra necessário <strong>em cada grupo</strong> para que seja possível detectar uma diferença de tamanho de efeito <code>d = 0.5</code> com 80% de poder e 5% de nível de significância, usando um teste t para duas amostras.</p>
+<p>Por exemplo, o resultado pode ser algo assim:</p>
+<pre><code>     Two-sample t test power calculation 
+
+              n = 63.76561
+              d = 0.5
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group</code></pre>
+<p><strong>Explicação:</strong></p>
+<ul>
+<li><em>n ≈ 64</em>: Você precisaria de pelo menos <strong>64 participantes em cada grupo</strong> para ter 80% de chance de detectar uma diferença de tamanho médio (0,5 desvios padrão) entre os grupos, com risco de 5% de um falso positivo.</li>
+</ul>
+<p><strong>Considerações</strong></p>
+<ul>
+<li>O tamanho da amostra depende diretamente do tamanho do efeito esperado, do poder estatístico desejado e do nível de significância escolhido.</li>
+<li>Quanto maior o efeito esperado, menor precisa ser a amostra.</li>
+<li>Quanto maior o poder ou menor o nível de significância, maior será o tamanho da amostra necessária.</li>
+<li>Use dados prévios, literatura ou cálculos exploratórios para definir o tamanho do efeito.</li>
+</ul>
+</div>
+<div id="o-que-é-o-d-de-cohen" class="section level2 hasAnchor" number="20.3">
+<h2><span class="header-section-number">20.3</span> O que é o d de Cohen?<a href="cálculo-amostral-no-r.html#o-que-é-o-d-de-cohen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O d de Cohen é uma <strong>medida padronizada</strong> do tamanho do efeito para comparar a diferença entre duas médias, levando em conta a variabilidade dos dados. Ele é muito utilizado para quantificar o quão grande é a diferença entre dois grupos em termos de desvios padrão.</p>
+<div id="fórmula-geral" class="section level3 hasAnchor" number="20.3.1">
+<h3><span class="header-section-number">20.3.1</span> Fórmula Geral<a href="cálculo-amostral-no-r.html#fórmula-geral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[
+d = \frac{\bar{X}_1 - \bar{X}_2}{s_p}
+\]</span></p>
+<p>Onde:</p>
+<ul>
+<li><span class="math inline">\(\bar{X}_1\)</span> = média do grupo 1<br />
+</li>
+<li><span class="math inline">\(\bar{X}_2\)</span> = média do grupo 2<br />
+</li>
+<li><span class="math inline">\(s_p\)</span> = desvio padrão combinado (pooled) dos dois grupos</li>
+</ul>
+<p><strong>Como calcular o desvio padrão combinado</strong></p>
+<p><span class="math display">\[
+s_p = \sqrt{ \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2} }
+\]</span></p>
+<p>Onde:</p>
+<ul>
+<li><span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span> = tamanhos das amostras dos grupos 1 e 2<br />
+</li>
+<li><span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span> = desvios padrão dos grupos 1 e 2</li>
+</ul>
+</div>
+<div id="exemplo-prático-em-r" class="section level3 hasAnchor" number="20.3.2">
+<h3><span class="header-section-number">20.3.2</span> Exemplo prático em R<a href="cálculo-amostral-no-r.html#exemplo-prático-em-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suponha:</p>
+<ul>
+<li>Grupo 1: média = 10, desvio padrão = 2, n = 30<br />
+</li>
+<li>Grupo 2: média = 8, desvio padrão = 2.5, n = 35</li>
+</ul>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="cálculo-amostral-no-r.html#cb99-1" tabindex="-1"></a>media1 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb99-2"><a href="cálculo-amostral-no-r.html#cb99-2" tabindex="-1"></a>media2 <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb99-3"><a href="cálculo-amostral-no-r.html#cb99-3" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb99-4"><a href="cálculo-amostral-no-r.html#cb99-4" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb99-5"><a href="cálculo-amostral-no-r.html#cb99-5" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb99-6"><a href="cálculo-amostral-no-r.html#cb99-6" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">35</span></span>
+<span id="cb99-7"><a href="cálculo-amostral-no-r.html#cb99-7" tabindex="-1"></a></span>
+<span id="cb99-8"><a href="cálculo-amostral-no-r.html#cb99-8" tabindex="-1"></a><span class="co"># Desvio padrão combinado</span></span>
+<span id="cb99-9"><a href="cálculo-amostral-no-r.html#cb99-9" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( ((n1<span class="dv">-1</span>)<span class="sc">*</span>sd1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (n2<span class="dv">-1</span>)<span class="sc">*</span>sd2<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n1 <span class="sc">+</span> n2 <span class="sc">-</span> <span class="dv">2</span>) )</span>
+<span id="cb99-10"><a href="cálculo-amostral-no-r.html#cb99-10" tabindex="-1"></a></span>
+<span id="cb99-11"><a href="cálculo-amostral-no-r.html#cb99-11" tabindex="-1"></a><span class="co"># d de Cohen</span></span>
+<span id="cb99-12"><a href="cálculo-amostral-no-r.html#cb99-12" tabindex="-1"></a>d <span class="ot">&lt;-</span> (media1 <span class="sc">-</span> media2) <span class="sc">/</span> sp</span>
+<span id="cb99-13"><a href="cálculo-amostral-no-r.html#cb99-13" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## [1] 0.8758557</code></pre>
+<p><strong>Valores típicos para d de Cohen:</strong></p>
+<ul>
+<li><strong>0.2</strong>: efeito pequeno<br />
+</li>
+<li><strong>0.5</strong>: efeito médio<br />
+</li>
+<li><strong>0.8</strong>: efeito grande</li>
+</ul>
+<p>Assim, quanto maior o valor de d, maior a diferença entre os grupos em relação à variabilidade dos dados.</p>
+<p><strong>Explicação didática:</strong></p>
+<p>Pense no <strong>d de Cohen</strong> como uma régua que compara a diferença entre as médias de dois grupos, levando em conta o quanto os dados variam dentro desses grupos.</p>
+<ul>
+<li>Se d é pequeno, significa que a diferença entre as médias dos grupos é pequena em relação à “bagunça” (variação) dos dados – ou seja, os grupos são parecidos.</li>
+<li>Se d é grande, significa que a diferença entre as médias é grande em comparação com a variação dos dados – ou seja, os grupos são bem diferentes.</li>
+</ul>
+<p><strong>Resumindo:</strong></p>
+<p>Um valor alto de d indica que os grupos são realmente diferentes entre si, enquanto um valor baixo mostra que eles são muito parecidos, considerando o quanto os dados “dispersam” dentro de cada grupo.</p>
+</div>
+</div>
+<div id="exemplos-práticos" class="section level2 hasAnchor" number="20.4">
+<h2><span class="header-section-number">20.4</span> Exemplos práticos<a href="cálculo-amostral-no-r.html#exemplos-práticos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A seguir, apresento exemplos práticos para Medicina, Psicologia e Educação Física.</p>
+<div id="medicina-comparação-de-dois-tratamentos-para-dor" class="section level3 hasAnchor" number="20.4.1">
+<h3><span class="header-section-number">20.4.1</span> Medicina: Comparação de dois tratamentos para dor<a href="cálculo-amostral-no-r.html#medicina-comparação-de-dois-tratamentos-para-dor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Um estudo clínico quer comparar dois medicamentos para dor crônica.</p>
+<ul>
+<li>Tamanho do efeito esperado (Cohen’s d): 0.2 (pequeno)<br />
+</li>
+<li>Poder desejado: 0.80<br />
+</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="cálculo-amostral-no-r.html#cb101-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb101-2"><a href="cálculo-amostral-no-r.html#cb101-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb101-3"><a href="cálculo-amostral-no-r.html#cb101-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 393.4057
+##               d = 0.2
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>Tamanho da amostra: 394 em cada grupo</p>
+</div>
+<div id="psicologia-intervenção-para-redução-de-ansiedade" class="section level3 hasAnchor" number="20.4.2">
+<h3><span class="header-section-number">20.4.2</span> Psicologia: Intervenção para redução de ansiedade<a href="cálculo-amostral-no-r.html#psicologia-intervenção-para-redução-de-ansiedade" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Um psicólogo quer testar se uma nova terapia reduz a ansiedade em relação ao tratamento padrão.</p>
+<ul>
+<li>Tamanho do efeito esperado (Cohen’s d): 0.6 (médio/grande)<br />
+</li>
+<li>Poder desejado: 0.80<br />
+</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="cálculo-amostral-no-r.html#cb103-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb103-2"><a href="cálculo-amostral-no-r.html#cb103-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb103-3"><a href="cálculo-amostral-no-r.html#cb103-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.6</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 44.58577
+##               d = 0.6
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>Tamanho da amostra: 45 em cada grupo</p>
+</div>
+<div id="educação-física-efeito-de-um-programa-de-treinamento-na-performance-de-corrida" class="section level3 hasAnchor" number="20.4.3">
+<h3><span class="header-section-number">20.4.3</span> Educação Física: Efeito de um programa de treinamento na performance de corrida<a href="cálculo-amostral-no-r.html#educação-física-efeito-de-um-programa-de-treinamento-na-performance-de-corrida" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Um preparador físico quer comparar a performance de alunos submetidos a dois programas de treinamento diferentes.</p>
+<ul>
+<li>Tamanho do efeito esperado (Cohen’s d): 0.8 (grande)<br />
+</li>
+<li>Poder desejado: 0.80</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="cálculo-amostral-no-r.html#cb105-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb105-2"><a href="cálculo-amostral-no-r.html#cb105-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb105-3"><a href="cálculo-amostral-no-r.html#cb105-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 25.52458
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>Tamanho da amostra: 26 em cada grupo</p>
+<ul>
+<li>O resultado de cada função indica o <strong>número mínimo de participantes em cada grupo</strong> para atingir o <strong>poder estatístico</strong> desejado.</li>
+</ul>
+</div>
+</div>
+<div id="como-calcular-o-poder-do-teste-quando-você-já-tem-o-tamanho-da-amostra" class="section level2 hasAnchor" number="20.5">
+<h2><span class="header-section-number">20.5</span> Como calcular o poder do teste quando você já tem o tamanho da amostra<a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-você-já-tem-o-tamanho-da-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O pacote <code>pwr</code> do R não serve apenas para calcular o tamanho da amostra necessário. Ele também permite <strong>descobrir o poder do teste</strong> caso você já saiba quantos participantes terá em cada grupo.</p>
+<div id="exemplo" class="section level3 hasAnchor" number="20.5.1">
+<h3><span class="header-section-number">20.5.1</span> Exemplo<a href="cálculo-amostral-no-r.html#exemplo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suponha que você fez um estudo com <strong>26 participantes em cada grupo</strong> e espera encontrar um <strong>tamanho de efeito grande (d = 0.8)</strong>. O nível de significância que você escolheu é o padrão, <strong>0,05</strong>. Você quer saber: <em>com essa amostra, qual é o poder do meu teste</em>?</p>
+<p>Você pode usar:</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="cálculo-amostral-no-r.html#cb107-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 20
+##               d = 0.8
+##       sig.level = 0.05
+##           power = 0.6934042
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p><strong>Explicação dos parâmetros</strong></p>
+<ul>
+<li><code>n = 20</code>: tamanho da amostra em cada grupo já definido.</li>
+<li><code>d = 0.8</code>: tamanho do efeito (Cohen’s d), aqui considerado grande.</li>
+<li><code>sig.level = 0.05</code>: nível de significância (chance máxima de um falso positivo).</li>
+<li><code>type = "two.sample"</code>: teste t para dois grupos independentes.</li>
+<li><code>power = NULL</code>: ao deixar o parâmetro <code>power</code> em NULL, você está dizendo ao R para calcular <strong>qual é o poder do teste</strong> com esses valores.</li>
+</ul>
+<p>Nesse caso o poder do teste é de 70%.</p>
+<p><strong>O que acontece nesse cálculo?</strong></p>
+<p>O R resolve a equação para o poder estatístico usando os valores que você forneceu. Ou seja, ele vai informar a <strong>probabilidade de detectar uma diferença real (de tamanho d = 0.8) entre os grupos, com 26 participantes em cada grupo</strong>, considerando o nível de significância especificado.</p>
+<p><strong>Por que isso é útil?</strong></p>
+<ul>
+<li>Se o poder calculado for <strong>menor que 0,80</strong> (80%), pode ser interessante aumentar a amostra para garantir maior chance de detectar diferenças reais.</li>
+<li>Se o poder já for <strong>maior que 0,80</strong>, seu estudo tem boa sensibilidade para o efeito esperado.</li>
+</ul>
+<p><strong>Resumindo</strong></p>
+<ul>
+<li>Você pode usar <code>pwr.t.test</code> para calcular o poder do teste, <strong>bastando informar <code>n</code> e deixar <code>power = NULL</code></strong>.</li>
+<li>Isso é útil para analisar experimentos já realizados ou planejar com base em restrições de amostra.</li>
+</ul>
+</div>
+</div>
+<div id="cálculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon" class="section level2 hasAnchor" number="20.6">
+<h2><span class="header-section-number">20.6</span> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon<a href="cálculo-amostral-no-r.html#cálculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Além do teste t para amostras independentes, você pode calcular o tamanho da amostra para outras situações, como o teste t pareado e os testes não paramétricos de Wilcoxon (para amostras pareadas ou não pareadas). Para os testes não paramétricos, recomenda-se aumentar o tamanho da amostra em 15% em relação ao cálculo do teste t correspondente.</p>
+<div id="teste-t-pareado-1" class="section level3 hasAnchor" number="20.6.1">
+<h3><span class="header-section-number">20.6.1</span> Teste t Pareado<a href="cálculo-amostral-no-r.html#teste-t-pareado-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Você quer testar se uma intervenção reduz o nível de estresse dos mesmos participantes antes e depois do tratamento.</p>
+<ul>
+<li>Tamanho do efeito esperado (d de Cohen): 0.5<br />
+</li>
+<li>Poder desejado: 0.80<br />
+</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="cálculo-amostral-no-r.html#cb109-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb109-2"><a href="cálculo-amostral-no-r.html#cb109-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
+<span id="cb109-3"><a href="cálculo-amostral-no-r.html#cb109-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Paired t test power calculation 
+## 
+##               n = 33.36713
+##               d = 0.5
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number of *pairs*</code></pre>
+<p>Observe o argumento <strong>type = “paired”</strong> indicando que o cálculo é para amostras pareadas.</p>
+</div>
+<div id="teste-de-wilcoxon-para-amostras-não-pareadas" class="section level3 hasAnchor" number="20.6.2">
+<h3><span class="header-section-number">20.6.2</span> Teste de Wilcoxon para Amostras Não Pareadas<a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-não-pareadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Você deseja comparar dois grupos de pacientes com dados não normalmente distribuídos.</p>
+<ul>
+<li>Tamanho do efeito esperado (d de Cohen): 0.5<br />
+</li>
+<li>Poder desejado: 0.80<br />
+</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="cálculo-amostral-no-r.html#cb111-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb111-2"><a href="cálculo-amostral-no-r.html#cb111-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t de duas amostras</span></span>
+<span id="cb111-3"><a href="cálculo-amostral-no-r.html#cb111-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 63.76561
+##               d = 0.5
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="cálculo-amostral-no-r.html#cb113-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
+<span id="cb113-2"><a href="cálculo-amostral-no-r.html#cb113-2" tabindex="-1"></a><span class="fl">63.76</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
+<pre><code>## [1] 73.324</code></pre>
+<p>Acrescentando 15% ao cálculo amostral realizado com o <code>pwr.t.test</code>, são necessárias 74 amostras. Os testes não paramétricos, como o teste de Wilcoxon, geralmente apresentam menor poder estatístico em comparação aos testes paramétricos. Para compensar essa diferença e obter um poder semelhante ao dos testes paramétricos, recomenda-se aumentar o tamanho da amostra em cerca de 15%. Assim, o teste não paramétrico passa a ter uma chance semelhante de detectar um efeito real, caso ele exista.</p>
+</div>
+<div id="teste-de-wilcoxon-pareado" class="section level3 hasAnchor" number="20.6.3">
+<h3><span class="header-section-number">20.6.3</span> Teste de Wilcoxon Pareado<a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Cenário:</strong><br />
+Você avalia o desempenho dos mesmos alunos antes e depois de um programa de treinamento, com dados não normalmente distribuídos.</p>
+<ul>
+<li>Tamanho do efeito esperado (d de Cohen): 0.5<br />
+</li>
+<li>Poder desejado: 0.80<br />
+</li>
+<li>Nível de significância: 0.05</li>
+</ul>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="cálculo-amostral-no-r.html#cb115-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb115-2"><a href="cálculo-amostral-no-r.html#cb115-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
+<span id="cb115-3"><a href="cálculo-amostral-no-r.html#cb115-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      Paired t test power calculation 
+## 
+##               n = 33.36713
+##               d = 0.5
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+## 
+## NOTE: n is number of *pairs*</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="cálculo-amostral-no-r.html#cb117-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
+<span id="cb117-2"><a href="cálculo-amostral-no-r.html#cb117-2" tabindex="-1"></a><span class="dv">34</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
+<pre><code>## [1] 39.1</code></pre>
+<p>Acrescentando 15% ao cálculo amostral realizado com o <code>pwr.t.test</code>, são necessárias aproximadamente 40 amostras.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="comparação-entre-dois-grupos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="memes-de-estatística-p-valor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": true,
+    "facebook": false,
+    "twitter": false,
+    "linkedin": true,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": true,
+    "all": ["twitter", "linkedin", "whatsapp", "github", "facebook"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": null,
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Livro-Estatistica+R.pdf", "Livro-Estatistica+R.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "scroll_highlight": true
+  },
+  "language": "pt",
+  "info": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

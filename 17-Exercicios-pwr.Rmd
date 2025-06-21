@@ -1,0 +1,113 @@
+# Exercícios práticos com o pacote `pwr` no R
+
+O pacote `pwr` permite realizar cálculos de tamanho de amostra, poder estatístico e tamanho do efeito para diversos testes estatísticos. Abaixo, seguem exercícios aplicados aos testes t (pareado e não pareado) e Wilcoxon (pareado e não pareado).
+
+> Lembre se instalar o pacote `pwr`
+
+```r
+install.packages("pwr")
+```
+
+## Exercício 1: Calcular o tamanho da amostra para um teste t não pareado
+
+Utilize a função `pwr.t.test()` para determinar o tamanho da amostra necessário para detectar um tamanho de efeito (d) de 0.5, com poder (power) de 0.8 e nível de significância (sig.level) de 0.05, em um teste t bilateral para duas amostras independentes.
+
+```r
+library(pwr)
+# Tamanho da amostra para teste t não pareado
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+---
+
+## Exercício 2: Calcular o poder do teste para uma amostra de tamanho fixo (t não pareado)
+
+Considere agora que você dispõe de 26 observações em cada grupo. Calcule o poder estatístico para detectar um tamanho de efeito de 0.5, com nível de significância de 0.05.
+
+```r
+# Poder do teste t não pareado para n = 26 por grupo
+pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
+```
+
+---
+
+## Exercício 3: Calcular o tamanho do efeito detectável (t não pareado)
+
+Com uma amostra de 26 observações por grupo, poder de 0.8 e nível de significância de 0.05, qual o menor tamanho de efeito que pode ser detectado?
+
+```r
+# Tamanho do efeito detectável
+pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+---
+
+## Exercício 4: Repita os cálculos para outros testes (t pareado, Wilcoxon não pareado/pareado)
+
+### a) Teste t pareado
+
+```r
+# Tamanho da amostra para teste t pareado
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
+
+# Poder para n = 26 pares
+pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "paired")
+
+# Tamanho do efeito detectável
+pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "paired")
+```
+
+### b) Wilcoxon não pareado
+
+```r
+# Tamanho da amostra para Wilcoxon não pareado (usando pwr.t.test como aproximação)
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
+
+# Poder para n = 26 por grupo
+pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
+
+# Tamanho do efeito detectável
+pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+> **Dica**: Para testes não-paramétricos como o Wilcoxon, o pacote `pwr` não possui uma função específica. Nesses casos, costuma-se usar o cálculo feito para o teste t como uma aproximação. No entanto, recomenda-se aumentar o tamanho da amostra em cerca de 15% (ou seja, multiplicar o valor obtido para o teste t por 1,15), já que testes não-paramétricos geralmente requerem amostras um pouco maiores para alcançar o mesmo poder estatístico. Essa estratégia é especialmente útil para amostras de tamanho moderado ou grande.
+
+### c) Wilcoxon pareado
+
+```r
+# Tamanho da amostra para Wilcoxon pareado (usando pwr.t.test como aproximação)
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
+
+# Poder para n = 26 pares
+pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "paired")
+
+# Tamanho do efeito detectável
+pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "paired")
+```
+
+---
+
+## Dica sobre o uso da função `pwr.t.test()`
+
+A função `pwr.t.test()` possui os seguintes argumentos principais:
+
+- `n`: tamanho da amostra em cada grupo (ou número de pares, para o teste pareado)
+- `d`: tamanho do efeito (diferença padronizada entre grupos)
+- `power`: poder estatístico desejado (probabilidade de detectar o efeito, se houver)
+- `sig.level`: nível de significância (probabilidade de erro tipo I, geralmente 0.05)
+- `type`: especifica o tipo de teste t: `"two.sample"` (duas amostras independentes), `"paired"` (amostras pareadas), ou `"one.sample"` (amostra única)
+
+**Importante:**  
+Deixe como `NULL` o parâmetro que você deseja calcular. Por exemplo:  
+- Para calcular o tamanho do efeito: `d = NULL`
+- Para calcular o poder: `power = NULL`
+- Para calcular o tamanho da amostra: `n = NULL`
+
+Exemplo prático para calcular o tamanho do efeito detectável:
+
+```r
+pwr.t.test(n = 26, d = NULL, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+Neste exemplo, o argumento `d` fica como `NULL`, pois é o valor a ser calculado.  
+Da mesma forma, ajuste o parâmetro que deseja obter nas suas análises.

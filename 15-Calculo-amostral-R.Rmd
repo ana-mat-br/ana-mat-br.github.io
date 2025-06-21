@@ -1,0 +1,297 @@
+# Cálculo amostral no R
+
+O cálculo do tamanho da amostra é fundamental para garantir a validade estatística de um estudo. No R, esse cálculo pode ser realizado de forma prática utilizando diversos pacotes.
+
+## Principais Pacotes para Cálculo Amostral
+
+- **pwr**: Utilizado para análise de poder estatístico e cálculo do tamanho da amostra para diferentes testes (t-test, ANOVA, correlação, etc.).
+- **epiDisplay**: Oferece funções para cálculos amostrais em estudos epidemiológicos.
+- **epiR**: Bastante utilizado em epidemiologia, com funções para diferentes desenhos de estudo.
+- **samplesize**: Possui métodos para cálculo de tamanho amostral em diferentes contextos.
+
+## Exemplo de cálculo amostral para teste t
+
+```r
+# Instale o pacote se necessário
+# install.packages("pwr")
+library(pwr)
+
+# Cálculo do tamanho da amostra para detectar um efeito de tamanho médio (d = 0.5)
+# com poder de 80% e nível de significância de 5%
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+O uso de funções e pacotes específicos no R torna o cálculo amostral mais acessível, permitindo maior precisão no planejamento de estudos. Sempre leve em conta os parâmetros do seu estudo, como efeito esperado, variância, poder e nível de significância.
+
+
+No exemplo os seguintes parâmetros foram utilizados:
+
+- **d = 0.5**  
+  *Tamanho do efeito (Effect size)*: Representa a magnitude da diferença que se espera detectar entre as médias dos grupos, em unidades de desvio padrão. Quanto maior o efeito, mais fácil é detectá-lo com uma amostra menor.  
+  - O tamanho do efeito pode ser estimado a partir de dados prévios, estudos semelhantes ou com base em uma suposição informada.  
+  - Categorias comuns: pequeno (~0,2), médio (~0,5) e grande (~0,8).
+
+- **power = 0.8**  
+  *Poder estatístico (Power)*: É a probabilidade de detectar uma diferença real quando ela de fato existe (ou seja, de rejeitar corretamente a hipótese nula se ela for falsa).  
+  - Poder = 1 - β, onde β é a probabilidade de erro tipo II (falso negativo).  
+  - O valor padrão mais utilizado é 0,80 (ou 80%).
+
+- **sig.level = 0.05**  
+  *Nível de significância (α)*: É a probabilidade de rejeitar a hipótese nula quando ela é verdadeira (erro tipo I, falso positivo).  
+  - O valor padrão é 0,05 (ou 5%), indicando que aceitamos até 5% de chance de um falso positivo.
+
+- **type = "two.sample"**  
+  Indica que estamos comparando dois grupos independentes (teste t para duas amostras).
+
+**Interpretação dos Resultados**
+
+Ao rodar o comando acima, o R retorna o tamanho mínimo de amostra necessário **em cada grupo** para que seja possível detectar uma diferença de tamanho de efeito `d = 0.5` com 80% de poder e 5% de nível de significância, usando um teste t para duas amostras.
+
+Por exemplo, o resultado pode ser algo assim:
+
+```
+     Two-sample t test power calculation 
+
+              n = 63.76561
+              d = 0.5
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number in *each* group
+```
+
+**Explicação:**
+
+- *n ≈ 64*: Você precisaria de pelo menos **64 participantes em cada grupo** para ter 80% de chance de detectar uma diferença de tamanho médio (0,5 desvios padrão) entre os grupos, com risco de 5% de um falso positivo.
+
+**Considerações**
+
+- O tamanho da amostra depende diretamente do tamanho do efeito esperado, do poder estatístico desejado e do nível de significância escolhido.
+- Quanto maior o efeito esperado, menor precisa ser a amostra.
+- Quanto maior o poder ou menor o nível de significância, maior será o tamanho da amostra necessária.
+- Use dados prévios, literatura ou cálculos exploratórios para definir o tamanho do efeito.
+
+## O que é o d de Cohen?
+
+O d de Cohen é uma **medida padronizada** do tamanho do efeito para comparar a diferença entre duas médias, levando em conta a variabilidade dos dados. Ele é muito utilizado para quantificar o quão grande é a diferença entre dois grupos em termos de desvios padrão.
+
+### Fórmula Geral
+
+\[
+d = \frac{\bar{X}_1 - \bar{X}_2}{s_p}
+\]
+
+Onde:
+
+- \(\bar{X}_1\) = média do grupo 1  
+- \(\bar{X}_2\) = média do grupo 2  
+- \(s_p\) = desvio padrão combinado (pooled) dos dois grupos
+
+**Como calcular o desvio padrão combinado**
+
+\[
+s_p = \sqrt{ \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2} }
+\]
+
+Onde:
+
+- \(n_1\), \(n_2\) = tamanhos das amostras dos grupos 1 e 2  
+- \(s_1\), \(s_2\) = desvios padrão dos grupos 1 e 2
+
+### Exemplo prático em R
+
+Suponha:
+
+- Grupo 1: média = 10, desvio padrão = 2, n = 30  
+- Grupo 2: média = 8, desvio padrão = 2.5, n = 35
+
+```{r d-cohen, message=FALSE}
+media1 <- 10
+media2 <- 8
+sd1 <- 2
+sd2 <- 2.5
+n1 <- 30
+n2 <- 35
+
+# Desvio padrão combinado
+sp <- sqrt( ((n1-1)*sd1^2 + (n2-1)*sd2^2) / (n1 + n2 - 2) )
+
+# d de Cohen
+d <- (media1 - media2) / sp
+d
+```
+
+
+**Valores típicos para d de Cohen:**
+
+- **0.2**: efeito pequeno  
+- **0.5**: efeito médio  
+- **0.8**: efeito grande  
+
+Assim, quanto maior o valor de d, maior a diferença entre os grupos em relação à variabilidade dos dados.
+
+**Explicação didática:**
+
+Pense no **d de Cohen** como uma régua que compara a diferença entre as médias de dois grupos, levando em conta o quanto os dados variam dentro desses grupos.
+
+- Se d é pequeno, significa que a diferença entre as médias dos grupos é pequena em relação à “bagunça” (variação) dos dados – ou seja, os grupos são parecidos.
+- Se d é grande, significa que a diferença entre as médias é grande em comparação com a variação dos dados – ou seja, os grupos são bem diferentes.
+
+**Resumindo:**
+
+Um valor alto de d indica que os grupos são realmente diferentes entre si, enquanto um valor baixo mostra que eles são muito parecidos, considerando o quanto os dados “dispersam” dentro de cada grupo.
+
+## Exemplos práticos
+
+A seguir, apresento exemplos práticos para Medicina, Psicologia e Educação Física.
+
+### Medicina: Comparação de dois tratamentos para dor
+
+**Cenário:**  
+Um estudo clínico quer comparar dois medicamentos para dor crônica.  
+
+- Tamanho do efeito esperado (Cohen's d): 0.2 (pequeno)  
+- Poder desejado: 0.80  
+- Nível de significância: 0.05
+
+```{r pwr-med, message=FALSE,  warning=FALSE}
+library(pwr)
+# Calculando o tamanho da amostra necessária para cada grupo
+pwr.t.test(d = 0.2, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+Tamanho da amostra: 394 em cada grupo
+
+### Psicologia: Intervenção para redução de ansiedade
+
+**Cenário:**  
+Um psicólogo quer testar se uma nova terapia reduz a ansiedade em relação ao tratamento padrão.  
+
+- Tamanho do efeito esperado (Cohen's d): 0.6 (médio/grande)  
+- Poder desejado: 0.80  
+- Nível de significância: 0.05
+
+```{r pwr-psico, message=FALSE,  warning=FALSE}
+library(pwr)
+# Calculando o tamanho da amostra necessária para cada grupo
+pwr.t.test(d = 0.6, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+
+Tamanho da amostra: 45 em cada grupo
+
+### Educação Física: Efeito de um programa de treinamento na performance de corrida
+
+**Cenário:**  
+Um preparador físico quer comparar a performance de alunos submetidos a dois programas de treinamento diferentes.  
+
+- Tamanho do efeito esperado (Cohen's d): 0.8 (grande)  
+- Poder desejado: 0.80
+- Nível de significância: 0.05
+
+```{r pwr-educa, message=FALSE,  warning=FALSE}
+library(pwr)
+# Calculando o tamanho da amostra necessária para cada grupo
+pwr.t.test(d = 0.8, power = 0.8, sig.level = 0.05, type = "two.sample")
+```
+Tamanho da amostra: 26 em cada grupo
+
+- O resultado de cada função indica o **número mínimo de participantes em cada grupo** para atingir o **poder estatístico** desejado.
+
+
+## Como calcular o poder do teste quando você já tem o tamanho da amostra
+
+O pacote `pwr` do R não serve apenas para calcular o tamanho da amostra necessário. Ele também permite **descobrir o poder do teste** caso você já saiba quantos participantes terá em cada grupo.
+
+### Exemplo 
+
+Suponha que você fez um estudo com **26 participantes em cada grupo** e espera encontrar um **tamanho de efeito grande (d = 0.8)**. O nível de significância que você escolheu é o padrão, **0,05**. Você quer saber: *com essa amostra, qual é o poder do meu teste*?
+
+Você pode usar:
+
+```{r pwr-poder, message=FALSE,  warning=FALSE}
+pwr.t.test(n = 20, d = 0.8, power = NULL, sig.level = 0.05, type = "two.sample")
+```
+
+**Explicação dos parâmetros**
+
+- `n = 20`: tamanho da amostra em cada grupo já definido.
+- `d = 0.8`: tamanho do efeito (Cohen’s d), aqui considerado grande.
+- `sig.level = 0.05`: nível de significância (chance máxima de um falso positivo).
+- `type = "two.sample"`: teste t para dois grupos independentes.
+- `power = NULL`: ao deixar o parâmetro `power` em NULL, você está dizendo ao R para calcular **qual é o poder do teste** com esses valores.
+
+Nesse caso o poder do teste é de 70%.
+
+**O que acontece nesse cálculo?**
+
+O R resolve a equação para o poder estatístico usando os valores que você forneceu. Ou seja, ele vai informar a **probabilidade de detectar uma diferença real (de tamanho d = 0.8) entre os grupos, com 26 participantes em cada grupo**, considerando o nível de significância especificado.
+
+**Por que isso é útil?**
+
+- Se o poder calculado for **menor que 0,80** (80%), pode ser interessante aumentar a amostra para garantir maior chance de detectar diferenças reais.
+- Se o poder já for **maior que 0,80**, seu estudo tem boa sensibilidade para o efeito esperado.
+
+**Resumindo**
+
+- Você pode usar `pwr.t.test` para calcular o poder do teste, **bastando informar `n` e deixar `power = NULL`**.
+- Isso é útil para analisar experimentos já realizados ou planejar com base em restrições de amostra.
+
+
+## Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon
+
+Além do teste t para amostras independentes, você pode calcular o tamanho da amostra para outras situações, como o teste t pareado e os testes não paramétricos de Wilcoxon (para amostras pareadas ou não pareadas). Para os testes não paramétricos, recomenda-se aumentar o tamanho da amostra em 15% em relação ao cálculo do teste t correspondente.
+
+
+### Teste t Pareado
+
+**Cenário:**  
+Você quer testar se uma intervenção reduz o nível de estresse dos mesmos participantes antes e depois do tratamento.  
+
+- Tamanho do efeito esperado (d de Cohen): 0.5  
+- Poder desejado: 0.80  
+- Nível de significância: 0.05
+
+```{r pwr-t-pareado, message=FALSE,  warning=FALSE}
+library(pwr)
+# Tamanho da amostra para teste t pareado
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
+```
+
+Observe o argumento **type = "paired"** indicando que o cálculo é para amostras pareadas.
+
+### Teste de Wilcoxon para Amostras Não Pareadas
+
+**Cenário:**  
+Você deseja comparar dois grupos de pacientes com dados não normalmente distribuídos. 
+
+- Tamanho do efeito esperado (d de Cohen): 0.5  
+- Poder desejado: 0.80  
+- Nível de significância: 0.05
+
+```{r pwr-wilcox-naopareado, message=FALSE,  warning=FALSE}
+library(pwr)
+# Tamanho da amostra para teste t de duas amostras
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
+# Acrescentar 15% para o teste de Wilcoxon
+63.76 * 1.15
+```
+
+Acrescentando 15% ao cálculo amostral realizado com o `pwr.t.test`, são necessárias 74 amostras. Os testes não paramétricos, como o teste de Wilcoxon, geralmente apresentam menor poder estatístico em comparação aos testes paramétricos. Para compensar essa diferença e obter um poder semelhante ao dos testes paramétricos, recomenda-se aumentar o tamanho da amostra em cerca de 15%. Assim, o teste não paramétrico passa a ter uma chance semelhante de detectar um efeito real, caso ele exista.
+
+### Teste de Wilcoxon Pareado
+
+**Cenário:**  
+Você avalia o desempenho dos mesmos alunos antes e depois de um programa de treinamento, com dados não normalmente distribuídos.  
+
+- Tamanho do efeito esperado (d de Cohen): 0.5  
+- Poder desejado: 0.80  
+- Nível de significância: 0.05
+
+```{r pwr-wilcox-pareado, message=FALSE,  warning=FALSE}
+library(pwr)
+# Tamanho da amostra para teste t pareado
+pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
+# Acrescentar 15% para o teste de Wilcoxon
+34 * 1.15
+```
+Acrescentando 15% ao cálculo amostral realizado com o `pwr.t.test`, são necessárias aproximadamente 40 amostras.
