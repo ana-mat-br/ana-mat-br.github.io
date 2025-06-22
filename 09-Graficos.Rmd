@@ -197,7 +197,6 @@ O `ggplot2` é um dos pacotes mais populares do R para a criação de gráficos 
 - Permite adicionar camadas de informação facilmente.
 - Suporta uma variedade de tipos de gráficos.
 
----
 
 ## Exemplos de Gráficos Simples e Bonitos com ggplot2
 
@@ -207,6 +206,12 @@ Antes de começar, certifique-se de instalar e carregar o pacote:
 install.packages("ggplot2")
 library(ggplot2)
 ```
+
+Para ilustrar alguns gráficos utilizando o `ggplot2`, empregaremos o conjunto de dados *iris*, que já está disponível nativamente no R.
+
+O *iris* é um dos bancos de dados mais clássicos e utilizados em estatística e aprendizado de máquina, trazendo informações sobre 150 flores de três espécies diferentes, com quatro variáveis quantitativas (comprimento e largura das sépalas e pétalas). Ele é amplamente utilizado para exemplos de análise exploratória de dados, classificação e visualização de padrões.
+
+Além do iris, o R oferece outros conjuntos de dados nativos bastante úteis para exercícios e demonstrações em diversas áreas, como *mtcars* (carros), *ToothGrowth* (crescimento de dentes em cobaias), *sleep* (efeito de medicamentos no sono), *airquality* (qualidade do ar em Nova Iorque) e *CO2* (absorção de CO2 em plantas).
 
 ### Gráfico de Dispersão (Scatterplot)
 
@@ -257,7 +262,30 @@ ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
        y = "Comprimento da Pétala")
 ```
 
----
 
 O `ggplot2` oferece diversas opções de personalização, como cores, temas e anotações, permitindo criar gráficos bonitos e informativos para diferentes finalidades.
 
+
+## Exemplos de Bancos de Dados do R
+
+| Banco de Dados    | Pacote      | Área/Descrição                                               |
+|:-------------------|:-------------|:--------------------------------------------------------------|
+| iris              | datasets    | Botânica, estatística, aprendizado de máquina (flores)       |
+| mtcars            | datasets    | Automóveis, regressão, análise multivariada                  |
+| airquality        | datasets    | Qualidade do ar, saúde ambiental                             |
+| ToothGrowth       | datasets    | Farmacologia, saúde, crescimento de dentes                   |
+| sleep             | datasets    | Psicologia, farmacologia, estudo do sono                     |
+| ChickWeight       | datasets    | Nutrição, crescimento animal                                 |
+| USArrests         | datasets    | Sociologia, estatísticas criminais dos EUA                   |
+| CO2               | datasets    | Biologia, fisiologia vegetal                                 |
+| BOD               | datasets    | Biologia, demanda bioquímica de oxigênio                     |
+| Boston            | MASS        | Imobiliário, regressão, análise multivariada                 |
+| lung              | survival    | Medicina, análise de sobrevivência (dados de câncer de pulmão)|
+| bfi               | psych       | Psicologia, personalidade (Big Five Inventory)               |
+| NHANES            | NHANES      | Saúde pública, epidemiologia (pesquisa nacional dos EUA)     |
+| titanic           | titanic     | Sobrevivência, estatística, aprendizado de máquina           |
+| worldcup          | faraway     | Esportes (Copa do Mundo de Futebol)                          |
+
+**Nota:**  
+Os bancos do pacote `datasets` já vêm instalados por padrão no R. Outros, como `MASS`, `psych`, `NHANES`, `survival`, `titanic` e `faraway`, podem ser instalados via `install.packages("nome_do_pacote")`.  
+Verifique sempre a documentação do pacote para acessar o nome correto dos bancos de dados e exemplos de uso.

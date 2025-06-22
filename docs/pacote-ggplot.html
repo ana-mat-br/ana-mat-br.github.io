@@ -272,6 +272,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="14.2.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#histograma-1"><i class="fa fa-check"></i><b>14.2.3</b> Histograma</a></li>
 <li class="chapter" data-level="14.2.4" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#boxplot-1"><i class="fa fa-check"></i><b>14.2.4</b> Boxplot</a></li>
 </ul></li>
+<li class="chapter" data-level="14.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#exemplos-de-bancos-de-dados-do-r"><i class="fa fa-check"></i><b>14.3</b> Exemplos de Bancos de Dados do R</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>15</b> Distribuição de Probabilidade</a>
 <ul>
@@ -456,13 +457,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>Permite adicionar camadas de informação facilmente.</li>
 <li>Suporta uma variedade de tipos de gráficos.</li>
 </ul>
-<hr />
 </div>
 <div id="exemplos-de-gráficos-simples-e-bonitos-com-ggplot2" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Exemplos de Gráficos Simples e Bonitos com ggplot2<a href="pacote-ggplot.html#exemplos-de-gráficos-simples-e-bonitos-com-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Antes de começar, certifique-se de instalar e carregar o pacote:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="pacote-ggplot.html#cb29-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
 <span id="cb29-2"><a href="pacote-ggplot.html#cb29-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<p>Para ilustrar alguns gráficos utilizando o <code>ggplot2</code>, empregaremos o conjunto de dados <em>iris</em>, que já está disponível nativamente no R.</p>
+<p>O <em>iris</em> é um dos bancos de dados mais clássicos e utilizados em estatística e aprendizado de máquina, trazendo informações sobre 150 flores de três espécies diferentes, com quatro variáveis quantitativas (comprimento e largura das sépalas e pétalas). Ele é amplamente utilizado para exemplos de análise exploratória de dados, classificação e visualização de padrões.</p>
+<p>Além do iris, o R oferece outros conjuntos de dados nativos bastante úteis para exercícios e demonstrações em diversas áreas, como <em>mtcars</em> (carros), <em>ToothGrowth</em> (crescimento de dentes em cobaias), <em>sleep</em> (efeito de medicamentos no sono), <em>airquality</em> (qualidade do ar em Nova Iorque) e <em>CO2</em> (absorção de CO2 em plantas).</p>
 <div id="gráfico-de-dispersão-scatterplot" class="section level3 hasAnchor" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> Gráfico de Dispersão (Scatterplot)<a href="pacote-ggplot.html#gráfico-de-dispersão-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="Livro-Estatistica+R_files/figure-html/ggplot-1.png" width="672" /></p>
@@ -478,10 +481,106 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="boxplot-1" class="section level3 hasAnchor" number="14.2.4">
 <h3><span class="header-section-number">14.2.4</span> Boxplot<a href="pacote-ggplot.html#boxplot-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="Livro-Estatistica+R_files/figure-html/ggboxplot-1.png" width="672" /></p>
-<hr />
 <p>O <code>ggplot2</code> oferece diversas opções de personalização, como cores, temas e anotações, permitindo criar gráficos bonitos e informativos para diferentes finalidades.</p>
-
 </div>
+</div>
+<div id="exemplos-de-bancos-de-dados-do-r" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> Exemplos de Bancos de Dados do R<a href="pacote-ggplot.html#exemplos-de-bancos-de-dados-do-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="14%" />
+<col width="64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Banco de Dados</th>
+<th align="left">Pacote</th>
+<th align="left">Área/Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">iris</td>
+<td align="left">datasets</td>
+<td align="left">Botânica, estatística, aprendizado de máquina (flores)</td>
+</tr>
+<tr class="even">
+<td align="left">mtcars</td>
+<td align="left">datasets</td>
+<td align="left">Automóveis, regressão, análise multivariada</td>
+</tr>
+<tr class="odd">
+<td align="left">airquality</td>
+<td align="left">datasets</td>
+<td align="left">Qualidade do ar, saúde ambiental</td>
+</tr>
+<tr class="even">
+<td align="left">ToothGrowth</td>
+<td align="left">datasets</td>
+<td align="left">Farmacologia, saúde, crescimento de dentes</td>
+</tr>
+<tr class="odd">
+<td align="left">sleep</td>
+<td align="left">datasets</td>
+<td align="left">Psicologia, farmacologia, estudo do sono</td>
+</tr>
+<tr class="even">
+<td align="left">ChickWeight</td>
+<td align="left">datasets</td>
+<td align="left">Nutrição, crescimento animal</td>
+</tr>
+<tr class="odd">
+<td align="left">USArrests</td>
+<td align="left">datasets</td>
+<td align="left">Sociologia, estatísticas criminais dos EUA</td>
+</tr>
+<tr class="even">
+<td align="left">CO2</td>
+<td align="left">datasets</td>
+<td align="left">Biologia, fisiologia vegetal</td>
+</tr>
+<tr class="odd">
+<td align="left">BOD</td>
+<td align="left">datasets</td>
+<td align="left">Biologia, demanda bioquímica de oxigênio</td>
+</tr>
+<tr class="even">
+<td align="left">Boston</td>
+<td align="left">MASS</td>
+<td align="left">Imobiliário, regressão, análise multivariada</td>
+</tr>
+<tr class="odd">
+<td align="left">lung</td>
+<td align="left">survival</td>
+<td align="left">Medicina, análise de sobrevivência (dados de câncer de pulmão)</td>
+</tr>
+<tr class="even">
+<td align="left">bfi</td>
+<td align="left">psych</td>
+<td align="left">Psicologia, personalidade (Big Five Inventory)</td>
+</tr>
+<tr class="odd">
+<td align="left">NHANES</td>
+<td align="left">NHANES</td>
+<td align="left">Saúde pública, epidemiologia (pesquisa nacional dos EUA)</td>
+</tr>
+<tr class="even">
+<td align="left">titanic</td>
+<td align="left">titanic</td>
+<td align="left">Sobrevivência, estatística, aprendizado de máquina</td>
+</tr>
+<tr class="odd">
+<td align="left">worldcup</td>
+<td align="left">faraway</td>
+<td align="left">Esportes (Copa do Mundo de Futebol)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nota:</strong><br />
+Os bancos do pacote <code>datasets</code> já vêm instalados por padrão no R. Outros, como <code>MASS</code>, <code>psych</code>, <code>NHANES</code>, <code>survival</code>, <code>titanic</code> e <code>faraway</code>, podem ser instalados via <code>install.packages("nome_do_pacote")</code>.<br />
+Verifique sempre a documentação do pacote para acessar o nome correto dos bancos de dados e exemplos de uso.</p>
+
 </div>
 </div>
             </section>
