@@ -186,3 +186,78 @@ summary(assimetrica)
 ## Atividade 6
 
 **Para o banco de dados escolhido na atividade 5, faça gráficos como o histograma e boxplot, além disso, pesquise outras formas de fazer gráficos no R.**
+
+# Pacote `ggplot` 
+
+O `ggplot2` é um dos pacotes mais populares do R para a criação de gráficos estatísticos sofisticados e visualmente atraentes. Baseado no conceito da "Gramática dos Gráficos", o `ggplot2` permite construir gráficos de maneira flexível e modular, combinando camadas (layers) de dados, geometrias, escalas e temas.
+
+## Principais Vantagens
+
+- Produz gráficos de alta qualidade e personalizáveis.
+- Permite adicionar camadas de informação facilmente.
+- Suporta uma variedade de tipos de gráficos.
+
+---
+
+## Exemplos de Gráficos Simples e Bonitos com ggplot2
+
+Antes de começar, certifique-se de instalar e carregar o pacote:
+
+```r
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+### Gráfico de Dispersão (Scatterplot)
+
+```{r, ggplot, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+# Exemplo com o dataset iris
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(size = 3, alpha = 0.7) +
+  theme_minimal() +
+  labs(title = "Gráfico de Dispersão: iris",
+       x = "Comprimento da Sépala",
+       y = "Largura da Sépala")
+```
+
+### Gráfico de Barras
+
+```{r, ggbar, echo=FALSE}
+# Contagem das espécies no dataset iris
+ggplot(iris, aes(x = Species, fill = Species)) +
+  geom_bar() +
+  theme_classic() +
+  labs(title = "Gráfico de Barras: Contagem de Espécies",
+       x = "Espécie",
+       y = "Contagem")
+```
+
+### Histograma
+
+```{r, gghist, echo=FALSE}
+# Distribuição do comprimento da sépala
+ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
+  geom_histogram(binwidth = 0.3, color = "white", alpha = 0.7, position = "identity") +
+  theme_light() +
+  labs(title = "Histograma: Comprimento da Sépala",
+       x = "Comprimento da Sépala",
+       y = "Frequência")
+```
+
+### Boxplot
+
+```{r, ggboxplot, echo=FALSE}
+# Distribuição do comprimento da pétala por espécie
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
+  geom_boxplot(alpha = 0.7) +
+  theme_bw() +
+  labs(title = "Boxplot: Comprimento da Pétala por Espécie",
+       x = "Espécie",
+       y = "Comprimento da Pétala")
+```
+
+---
+
+O `ggplot2` oferece diversas opções de personalização, como cores, temas e anotações, permitindo criar gráficos bonitos e informativos para diferentes finalidades.
+

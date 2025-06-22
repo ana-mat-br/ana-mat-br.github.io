@@ -99,6 +99,30 @@ O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos card
 **Observação:**  
 Um CV inferior a 25% geralmente indica homogeneidade; valores muito altos indicam alta variabilidade.
 
+## Apresentação dos Resultados
+
+Uma maneira eficiente de apresentar estatísticas descritivas é organizar as variáveis em linhas, facilitando a visualização dos principais parâmetros de cada variável estudada. Veja abaixo uma sugestão de tabela para esse formato:
+
+| Variável           | n   | Média ± DP        | Mediana (Q1; Q3)   | Mínimo | Máximo |
+|--------------------|-----|-------------------|--------------------|--------|--------|
+| Idade (anos)       | 98  | 24,5 ± 4,2        | 24,0 (21,0; 28,0)  | 18     | 35     |
+| IMC (kg/m²)        | 98  | 22,3 ± 3,1        | 21,9 (20,3; 23,7)  | 17,0   | 31,5   |
+| Pressão Sistólica  | 98  | 118,5 ± 13,0      | 120 (110; 128)     | 90     | 145    |
+| Pressão Diastólica | 98  | 76,2 ± 9,1        | 76 (70; 82)        | 60     | 98     |
+
+> Reportar uma medida de tendência central (como média ou mediana) junto com uma medida de dispersão (como desvio padrão, intervalo interquartil ou amplitude) é fundamental porque, isoladamente, a tendência central não fornece informações suficientes sobre o conjunto de dados.
+
+
+Para variáveis qualitativas, a tabela pode ser organizada assim:
+
+| Variável     | Categoria         | n   | %     |
+|:--------------|:-------------------|:-----|:-------|
+| Sexo         | Masculino         | 52  | 53,1% |
+|              | Feminino          | 46  | 46,9% |
+| Tabagismo    | Sim               | 18  | 18,4% |
+|              | Não               | 80  | 81,6% |
+
+Essas tabelas permitem uma apresentação clara e objetiva das principais características da amostra analisada.
 
 ## Funções no R
 
