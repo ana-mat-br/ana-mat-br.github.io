@@ -461,13 +461,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </div>
 <div id="exemplo-de-cálculo-amostral-para-teste-t" class="section level2 hasAnchor" number="21.2">
 <h2><span class="header-section-number">21.2</span> Exemplo de cálculo amostral para teste t<a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="cálculo-amostral-no-r.html#cb98-1" tabindex="-1"></a><span class="co"># Instale o pacote se necessário</span></span>
-<span id="cb98-2"><a href="cálculo-amostral-no-r.html#cb98-2" tabindex="-1"></a><span class="co"># install.packages(&quot;pwr&quot;)</span></span>
-<span id="cb98-3"><a href="cálculo-amostral-no-r.html#cb98-3" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb98-4"><a href="cálculo-amostral-no-r.html#cb98-4" tabindex="-1"></a></span>
-<span id="cb98-5"><a href="cálculo-amostral-no-r.html#cb98-5" tabindex="-1"></a><span class="co"># Cálculo do tamanho da amostra para detectar um efeito de tamanho médio (d = 0.5)</span></span>
-<span id="cb98-6"><a href="cálculo-amostral-no-r.html#cb98-6" tabindex="-1"></a><span class="co"># com poder de 80% e nível de significância de 5%</span></span>
-<span id="cb98-7"><a href="cálculo-amostral-no-r.html#cb98-7" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="cálculo-amostral-no-r.html#cb102-1" tabindex="-1"></a><span class="co"># Instale o pacote se necessário</span></span>
+<span id="cb102-2"><a href="cálculo-amostral-no-r.html#cb102-2" tabindex="-1"></a><span class="co"># install.packages(&quot;pwr&quot;)</span></span>
+<span id="cb102-3"><a href="cálculo-amostral-no-r.html#cb102-3" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb102-4"><a href="cálculo-amostral-no-r.html#cb102-4" tabindex="-1"></a></span>
+<span id="cb102-5"><a href="cálculo-amostral-no-r.html#cb102-5" tabindex="-1"></a><span class="co"># Cálculo do tamanho da amostra para detectar um efeito de tamanho médio (d = 0.5)</span></span>
+<span id="cb102-6"><a href="cálculo-amostral-no-r.html#cb102-6" tabindex="-1"></a><span class="co"># com poder de 80% e nível de significância de 5%</span></span>
+<span id="cb102-7"><a href="cálculo-amostral-no-r.html#cb102-7" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <p>O uso de funções e pacotes específicos no R torna o cálculo amostral mais acessível, permitindo maior precisão no planejamento de estudos. Sempre leve em conta os parâmetros do seu estudo, como efeito esperado, variância, poder e nível de significância.</p>
 <p>No exemplo os seguintes parâmetros foram utilizados:</p>
 <ul>
@@ -552,19 +552,19 @@ s_p = \sqrt{ \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2} }
 </li>
 <li>Grupo 2: média = 8, desvio padrão = 2.5, n = 35</li>
 </ul>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="cálculo-amostral-no-r.html#cb100-1" tabindex="-1"></a>media1 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb100-2"><a href="cálculo-amostral-no-r.html#cb100-2" tabindex="-1"></a>media2 <span class="ot">&lt;-</span> <span class="dv">8</span></span>
-<span id="cb100-3"><a href="cálculo-amostral-no-r.html#cb100-3" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb100-4"><a href="cálculo-amostral-no-r.html#cb100-4" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
-<span id="cb100-5"><a href="cálculo-amostral-no-r.html#cb100-5" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">30</span></span>
-<span id="cb100-6"><a href="cálculo-amostral-no-r.html#cb100-6" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">35</span></span>
-<span id="cb100-7"><a href="cálculo-amostral-no-r.html#cb100-7" tabindex="-1"></a></span>
-<span id="cb100-8"><a href="cálculo-amostral-no-r.html#cb100-8" tabindex="-1"></a><span class="co"># Desvio padrão combinado</span></span>
-<span id="cb100-9"><a href="cálculo-amostral-no-r.html#cb100-9" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( ((n1<span class="dv">-1</span>)<span class="sc">*</span>sd1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (n2<span class="dv">-1</span>)<span class="sc">*</span>sd2<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n1 <span class="sc">+</span> n2 <span class="sc">-</span> <span class="dv">2</span>) )</span>
-<span id="cb100-10"><a href="cálculo-amostral-no-r.html#cb100-10" tabindex="-1"></a></span>
-<span id="cb100-11"><a href="cálculo-amostral-no-r.html#cb100-11" tabindex="-1"></a><span class="co"># d de Cohen</span></span>
-<span id="cb100-12"><a href="cálculo-amostral-no-r.html#cb100-12" tabindex="-1"></a>d <span class="ot">&lt;-</span> (media1 <span class="sc">-</span> media2) <span class="sc">/</span> sp</span>
-<span id="cb100-13"><a href="cálculo-amostral-no-r.html#cb100-13" tabindex="-1"></a>d</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="cálculo-amostral-no-r.html#cb104-1" tabindex="-1"></a>media1 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb104-2"><a href="cálculo-amostral-no-r.html#cb104-2" tabindex="-1"></a>media2 <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb104-3"><a href="cálculo-amostral-no-r.html#cb104-3" tabindex="-1"></a>sd1 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb104-4"><a href="cálculo-amostral-no-r.html#cb104-4" tabindex="-1"></a>sd2 <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb104-5"><a href="cálculo-amostral-no-r.html#cb104-5" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb104-6"><a href="cálculo-amostral-no-r.html#cb104-6" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">35</span></span>
+<span id="cb104-7"><a href="cálculo-amostral-no-r.html#cb104-7" tabindex="-1"></a></span>
+<span id="cb104-8"><a href="cálculo-amostral-no-r.html#cb104-8" tabindex="-1"></a><span class="co"># Desvio padrão combinado</span></span>
+<span id="cb104-9"><a href="cálculo-amostral-no-r.html#cb104-9" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( ((n1<span class="dv">-1</span>)<span class="sc">*</span>sd1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (n2<span class="dv">-1</span>)<span class="sc">*</span>sd2<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n1 <span class="sc">+</span> n2 <span class="sc">-</span> <span class="dv">2</span>) )</span>
+<span id="cb104-10"><a href="cálculo-amostral-no-r.html#cb104-10" tabindex="-1"></a></span>
+<span id="cb104-11"><a href="cálculo-amostral-no-r.html#cb104-11" tabindex="-1"></a><span class="co"># d de Cohen</span></span>
+<span id="cb104-12"><a href="cálculo-amostral-no-r.html#cb104-12" tabindex="-1"></a>d <span class="ot">&lt;-</span> (media1 <span class="sc">-</span> media2) <span class="sc">/</span> sp</span>
+<span id="cb104-13"><a href="cálculo-amostral-no-r.html#cb104-13" tabindex="-1"></a>d</span></code></pre></div>
 <pre><code>## [1] 0.8758557</code></pre>
 <p><strong>Valores típicos para d de Cohen:</strong></p>
 <ul>
@@ -599,9 +599,9 @@ Um estudo clínico quer comparar dois medicamentos para dor crônica.</p>
 </li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="cálculo-amostral-no-r.html#cb102-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb102-2"><a href="cálculo-amostral-no-r.html#cb102-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
-<span id="cb102-3"><a href="cálculo-amostral-no-r.html#cb102-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="cálculo-amostral-no-r.html#cb106-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb106-2"><a href="cálculo-amostral-no-r.html#cb106-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb106-3"><a href="cálculo-amostral-no-r.html#cb106-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.2</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -625,9 +625,9 @@ Um psicólogo quer testar se uma nova terapia reduz a ansiedade em relação ao 
 </li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="cálculo-amostral-no-r.html#cb104-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb104-2"><a href="cálculo-amostral-no-r.html#cb104-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
-<span id="cb104-3"><a href="cálculo-amostral-no-r.html#cb104-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.6</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="cálculo-amostral-no-r.html#cb108-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb108-2"><a href="cálculo-amostral-no-r.html#cb108-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb108-3"><a href="cálculo-amostral-no-r.html#cb108-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.6</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -650,9 +650,9 @@ Um preparador físico quer comparar a performance de alunos submetidos a dois pr
 <li>Poder desejado: 0.80</li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="cálculo-amostral-no-r.html#cb106-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb106-2"><a href="cálculo-amostral-no-r.html#cb106-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
-<span id="cb106-3"><a href="cálculo-amostral-no-r.html#cb106-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="cálculo-amostral-no-r.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb110-2"><a href="cálculo-amostral-no-r.html#cb110-2" tabindex="-1"></a><span class="co"># Calculando o tamanho da amostra necessária para cada grupo</span></span>
+<span id="cb110-3"><a href="cálculo-amostral-no-r.html#cb110-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -676,7 +676,7 @@ Um preparador físico quer comparar a performance de alunos submetidos a dois pr
 <h3><span class="header-section-number">21.5.1</span> Exemplo<a href="cálculo-amostral-no-r.html#exemplo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponha que você fez um estudo com <strong>26 participantes em cada grupo</strong> e espera encontrar um <strong>tamanho de efeito grande (d = 0.8)</strong>. O nível de significância que você escolheu é o padrão, <strong>0,05</strong>. Você quer saber: <em>com essa amostra, qual é o poder do meu teste</em>?</p>
 <p>Você pode usar:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="cálculo-amostral-no-r.html#cb108-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="cálculo-amostral-no-r.html#cb112-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -724,9 +724,9 @@ Você quer testar se uma intervenção reduz o nível de estresse dos mesmos par
 </li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="cálculo-amostral-no-r.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb110-2"><a href="cálculo-amostral-no-r.html#cb110-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
-<span id="cb110-3"><a href="cálculo-amostral-no-r.html#cb110-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="cálculo-amostral-no-r.html#cb114-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb114-2"><a href="cálculo-amostral-no-r.html#cb114-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
+<span id="cb114-3"><a href="cálculo-amostral-no-r.html#cb114-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Paired t test power calculation 
 ## 
@@ -750,9 +750,9 @@ Você deseja comparar dois grupos de pacientes com dados não normalmente distri
 </li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="cálculo-amostral-no-r.html#cb112-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb112-2"><a href="cálculo-amostral-no-r.html#cb112-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t de duas amostras</span></span>
-<span id="cb112-3"><a href="cálculo-amostral-no-r.html#cb112-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="cálculo-amostral-no-r.html#cb116-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb116-2"><a href="cálculo-amostral-no-r.html#cb116-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t de duas amostras</span></span>
+<span id="cb116-3"><a href="cálculo-amostral-no-r.html#cb116-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
@@ -763,8 +763,8 @@ Você deseja comparar dois grupos de pacientes com dados não normalmente distri
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="cálculo-amostral-no-r.html#cb114-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
-<span id="cb114-2"><a href="cálculo-amostral-no-r.html#cb114-2" tabindex="-1"></a><span class="fl">63.76</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="cálculo-amostral-no-r.html#cb118-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
+<span id="cb118-2"><a href="cálculo-amostral-no-r.html#cb118-2" tabindex="-1"></a><span class="fl">63.76</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
 <pre><code>## [1] 73.324</code></pre>
 <p>Acrescentando 15% ao cálculo amostral realizado com o <code>pwr.t.test</code>, são necessárias 74 amostras. Os testes não paramétricos, como o teste de Wilcoxon, geralmente apresentam menor poder estatístico em comparação aos testes paramétricos. Para compensar essa diferença e obter um poder semelhante ao dos testes paramétricos, recomenda-se aumentar o tamanho da amostra em cerca de 15%. Assim, o teste não paramétrico passa a ter uma chance semelhante de detectar um efeito real, caso ele exista.</p>
 </div>
@@ -779,9 +779,9 @@ Você avalia o desempenho dos mesmos alunos antes e depois de um programa de tre
 </li>
 <li>Nível de significância: 0.05</li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="cálculo-amostral-no-r.html#cb116-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb116-2"><a href="cálculo-amostral-no-r.html#cb116-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
-<span id="cb116-3"><a href="cálculo-amostral-no-r.html#cb116-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="cálculo-amostral-no-r.html#cb120-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb120-2"><a href="cálculo-amostral-no-r.html#cb120-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
+<span id="cb120-3"><a href="cálculo-amostral-no-r.html#cb120-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Paired t test power calculation 
 ## 
@@ -792,8 +792,8 @@ Você avalia o desempenho dos mesmos alunos antes e depois de um programa de tre
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number of *pairs*</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="cálculo-amostral-no-r.html#cb118-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
-<span id="cb118-2"><a href="cálculo-amostral-no-r.html#cb118-2" tabindex="-1"></a><span class="dv">34</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="cálculo-amostral-no-r.html#cb122-1" tabindex="-1"></a><span class="co"># Acrescentar 15% para o teste de Wilcoxon</span></span>
+<span id="cb122-2"><a href="cálculo-amostral-no-r.html#cb122-2" tabindex="-1"></a><span class="dv">34</span> <span class="sc">*</span> <span class="fl">1.15</span></span></code></pre></div>
 <pre><code>## [1] 39.1</code></pre>
 <p>Acrescentando 15% ao cálculo amostral realizado com o <code>pwr.t.test</code>, são necessárias aproximadamente 40 amostras.</p>
 

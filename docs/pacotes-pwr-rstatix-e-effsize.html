@@ -453,7 +453,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <blockquote>
 <p><strong>Importante:</strong> Antes de começar, certifique-se de instalar o pacote <code>pwr</code>, <code>rstatix</code> e <code>effsize</code>:</p>
 </blockquote>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb120-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;pwr&quot;</span>, <span class="st">&quot;rstatix&quot;</span>, <span class="st">&quot;effsize&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;pwr&quot;</span>, <span class="st">&quot;rstatix&quot;</span>, <span class="st">&quot;effsize&quot;</span>))</span></code></pre></div>
 <div id="cálculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr" class="section level2 hasAnchor" number="23.1">
 <h2><span class="header-section-number">23.1</span> Cálculos de tamanho de amostra, poder e efeito com o pacote <code>pwr</code><a href="pacotes-pwr-rstatix-e-effsize.html#cálculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O pacote <code>pwr</code> permite calcular:</p>
@@ -465,50 +465,50 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="exercício-1-tamanho-da-amostra-para-teste-t-não-pareado" class="section level3 hasAnchor" number="23.1.1">
 <h3><span class="header-section-number">23.1.1</span> Exercício 1: Tamanho da amostra para teste t não pareado<a href="pacotes-pwr-rstatix-e-effsize.html#exercício-1-tamanho-da-amostra-para-teste-t-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Calcule o tamanho da amostra necessário para detectar um efeito moderado (d = 0.5), com poder de 0.8 e nível de significância de 0.05, em um teste t bilateral para duas amostras independentes.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb121-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb121-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb121-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t não pareado</span></span>
-<span id="cb121-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb121-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb125-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb125-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb125-2" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t não pareado</span></span>
+<span id="cb125-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb125-3" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <hr />
 </div>
 <div id="exercício-2-poder-do-teste-t-não-pareado-para-n-fixo" class="section level3 hasAnchor" number="23.1.2">
 <h3><span class="header-section-number">23.1.2</span> Exercício 2: Poder do teste t não pareado para n fixo<a href="pacotes-pwr-rstatix-e-effsize.html#exercício-2-poder-do-teste-t-não-pareado-para-n-fixo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se você dispõe de 26 observações em cada grupo, qual é o poder do teste para detectar um efeito de 0.5, com sig.level = 0.05?</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb122-1" tabindex="-1"></a><span class="co"># Poder do teste t não pareado para n = 26 por grupo</span></span>
-<span id="cb122-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb122-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb126-1" tabindex="-1"></a><span class="co"># Poder do teste t não pareado para n = 26 por grupo</span></span>
+<span id="cb126-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb126-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <hr />
 </div>
 <div id="exercício-3-menor-efeito-detectável-no-teste-t-não-pareado" class="section level3 hasAnchor" number="23.1.3">
 <h3><span class="header-section-number">23.1.3</span> Exercício 3: Menor efeito detectável no teste t não pareado<a href="pacotes-pwr-rstatix-e-effsize.html#exercício-3-menor-efeito-detectável-no-teste-t-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Com 26 observações por grupo, poder de 0.8 e sig.level de 0.05, qual o menor tamanho de efeito detectável?</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb123-1" tabindex="-1"></a><span class="co"># Tamanho do efeito detectável</span></span>
-<span id="cb123-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb123-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb127-1" tabindex="-1"></a><span class="co"># Tamanho do efeito detectável</span></span>
+<span id="cb127-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb127-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <hr />
 </div>
 <div id="exercício-4-repita-para-outros-testes" class="section level3 hasAnchor" number="23.1.4">
 <h3><span class="header-section-number">23.1.4</span> Exercício 4: Repita para outros testes<a href="pacotes-pwr-rstatix-e-effsize.html#exercício-4-repita-para-outros-testes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="a-teste-t-pareado" class="section level4 hasAnchor" number="23.1.4.1">
 <h4><span class="header-section-number">23.1.4.1</span> a) Teste t pareado<a href="pacotes-pwr-rstatix-e-effsize.html#a-teste-t-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
-<span id="cb124-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span>
-<span id="cb124-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-3" tabindex="-1"></a></span>
-<span id="cb124-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-4" tabindex="-1"></a><span class="co"># Poder para n = 26 pares</span></span>
-<span id="cb124-5"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-5" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span>
-<span id="cb124-6"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-6" tabindex="-1"></a></span>
-<span id="cb124-7"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-7" tabindex="-1"></a><span class="co"># Tamanho do efeito detectável</span></span>
-<span id="cb124-8"><a href="pacotes-pwr-rstatix-e-effsize.html#cb124-8" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para teste t pareado</span></span>
+<span id="cb128-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span>
+<span id="cb128-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-3" tabindex="-1"></a></span>
+<span id="cb128-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-4" tabindex="-1"></a><span class="co"># Poder para n = 26 pares</span></span>
+<span id="cb128-5"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-5" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span>
+<span id="cb128-6"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-6" tabindex="-1"></a></span>
+<span id="cb128-7"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-7" tabindex="-1"></a><span class="co"># Tamanho do efeito detectável</span></span>
+<span id="cb128-8"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-8" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
 </div>
 <div id="b-wilcoxon-não-pareado" class="section level4 hasAnchor" number="23.1.4.2">
 <h4><span class="header-section-number">23.1.4.2</span> b) Wilcoxon não pareado<a href="pacotes-pwr-rstatix-e-effsize.html#b-wilcoxon-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb125-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para Wilcoxon não pareado (aproximação pelo teste t)</span></span>
-<span id="cb125-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb125-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb129-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para Wilcoxon não pareado (aproximação pelo teste t)</span></span>
+<span id="cb129-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb129-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <blockquote>
 <p><strong>Dica:</strong> O pacote <code>pwr</code> não possui funções específicas para testes não-paramétricos como Wilcoxon. Por isso, costuma-se usar o cálculo para teste t como aproximação, aumentando o tamanho da amostra em cerca de 15% (multiplique o valor obtido por 1,15), já que testes não-paramétricos geralmente requerem amostras maiores para o mesmo poder estatístico.</p>
 </blockquote>
 </div>
 <div id="c-wilcoxon-pareado" class="section level4 hasAnchor" number="23.1.4.3">
 <h4><span class="header-section-number">23.1.4.3</span> c) Wilcoxon pareado<a href="pacotes-pwr-rstatix-e-effsize.html#c-wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb126-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para Wilcoxon pareado (aproximação pelo teste t pareado)</span></span>
-<span id="cb126-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb126-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-1" tabindex="-1"></a><span class="co"># Tamanho da amostra para Wilcoxon pareado (aproximação pelo teste t pareado)</span></span>
+<span id="cb130-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-2" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;paired&quot;</span>)</span></code></pre></div>
 <blockquote>
 <p><strong>Atenção:</strong> O <strong>d de Cohen</strong> foi criado para testes paramétricos, como o teste t. Para testes não paramétricos (Wilcoxon), utilize medidas específicas, pois a interpretação do d não se aplica ao contexto de ranks.</p>
 </blockquote>
@@ -532,16 +532,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 - Para calcular o tamanho da amostra: <code>n = NULL</code></p>
 </blockquote>
 <p><strong>Exemplo para calcular o tamanho do efeito:</strong></p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb127-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="cn">NULL</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb131-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="cn">NULL</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <p>Neste exemplo, o argumento <code>d</code> é o valor a ser calculado.</p>
 <hr />
 </div>
 <div id="grupos-desbalanceados-usando-pwr.t2n.test" class="section level3 hasAnchor" number="23.1.6">
 <h3><span class="header-section-number">23.1.6</span> Grupos Desbalanceados: usando <code>pwr.t2n.test()</code><a href="pacotes-pwr-rstatix-e-effsize.html#grupos-desbalanceados-usando-pwr.t2n.test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Quando os grupos têm tamanhos diferentes, use <code>pwr.t2n.test()</code> para calcular o poder.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-1" tabindex="-1"></a><span class="co"># Exemplo: grupo 1 com 95, grupo 2 com 30 observações</span></span>
-<span id="cb128-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-2" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb128-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb128-3" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">95</span>, <span class="at">n2 =</span> <span class="dv">30</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb132-1" tabindex="-1"></a><span class="co"># Exemplo: grupo 1 com 95, grupo 2 com 30 observações</span></span>
+<span id="cb132-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb132-2" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb132-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb132-3" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">95</span>, <span class="at">n2 =</span> <span class="dv">30</span>, <span class="at">d =</span> <span class="fl">0.5</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <pre><code>## 
 ##      t test power calculation 
 ## 
@@ -579,38 +579,38 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <hr />
 <div id="r-de-wilcoxon-wilcoxon-rank-sum-não-pareado" class="section level4 hasAnchor" number="23.2.2.1">
 <h4><span class="header-section-number">23.2.2.1</span> r de Wilcoxon (Wilcoxon rank-sum, não pareado)<a href="pacotes-pwr-rstatix-e-effsize.html#r-de-wilcoxon-wilcoxon-rank-sum-não-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-1" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
-<span id="cb130-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb130-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-3" tabindex="-1"></a></span>
-<span id="cb130-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
-<span id="cb130-5"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-5" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
-<span id="cb130-6"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-6" tabindex="-1"></a></span>
-<span id="cb130-7"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-7" tabindex="-1"></a><span class="co"># Subconjunto com Pokémons verdes ou amarelos</span></span>
-<span id="cb130-8"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-8" tabindex="-1"></a>dados_filtrados <span class="ot">&lt;-</span> <span class="fu">subset</span>(Pokemon, Color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Yellow&quot;</span>))</span>
-<span id="cb130-9"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-9" tabindex="-1"></a></span>
-<span id="cb130-10"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-10" tabindex="-1"></a><span class="co"># Verifique os dados após o filtro</span></span>
-<span id="cb130-11"><a href="pacotes-pwr-rstatix-e-effsize.html#cb130-11" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">table</span>(dados_filtrados<span class="sc">$</span>Color))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-1" tabindex="-1"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb134-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb134-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-3" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
+<span id="cb134-5"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-5" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
+<span id="cb134-6"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-6" tabindex="-1"></a></span>
+<span id="cb134-7"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-7" tabindex="-1"></a><span class="co"># Subconjunto com Pokémons verdes ou amarelos</span></span>
+<span id="cb134-8"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-8" tabindex="-1"></a>dados_filtrados <span class="ot">&lt;-</span> <span class="fu">subset</span>(Pokemon, Color <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Yellow&quot;</span>))</span>
+<span id="cb134-9"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-9" tabindex="-1"></a></span>
+<span id="cb134-10"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-10" tabindex="-1"></a><span class="co"># Verifique os dados após o filtro</span></span>
+<span id="cb134-11"><a href="pacotes-pwr-rstatix-e-effsize.html#cb134-11" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">table</span>(dados_filtrados<span class="sc">$</span>Color))</span></code></pre></div>
 <pre><code>## 
 ##  Green Yellow 
 ##     79     64</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb132-1" tabindex="-1"></a><span class="co"># Boxplot</span></span>
-<span id="cb132-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb132-2" tabindex="-1"></a><span class="fu">boxplot</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb136-1" tabindex="-1"></a><span class="co"># Boxplot</span></span>
+<span id="cb136-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb136-2" tabindex="-1"></a><span class="fu">boxplot</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/rWilcox-1.png" width="672" /></p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb133-1" tabindex="-1"></a><span class="co"># Teste de Wilcoxon não pareado</span></span>
-<span id="cb133-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb133-2" tabindex="-1"></a><span class="fu">wilcox.test</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb137-1" tabindex="-1"></a><span class="co"># Teste de Wilcoxon não pareado</span></span>
+<span id="cb137-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb137-2" tabindex="-1"></a><span class="fu">wilcox.test</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  dados_filtrados$Speed by dados_filtrados$Color
 ## W = 1920.5, p-value = 0.01363
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb135-1" tabindex="-1"></a><span class="co"># Tamanho do efeito r de Wilcoxon para Green vs Yellow</span></span>
-<span id="cb135-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb135-2" tabindex="-1"></a><span class="fu">wilcox_effsize</span>(dados_filtrados, Speed <span class="sc">~</span> Color)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb139-1" tabindex="-1"></a><span class="co"># Tamanho do efeito r de Wilcoxon para Green vs Yellow</span></span>
+<span id="cb139-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb139-2" tabindex="-1"></a><span class="fu">wilcox_effsize</span>(dados_filtrados, Speed <span class="sc">~</span> Color)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 7
 ##   .y.   group1 group2 effsize    n1    n2 magnitude
 ## * &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;ord&gt;    
 ## 1 Speed Green  Yellow   0.206    79    64 small</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb137-1" tabindex="-1"></a><span class="fu">levels</span>(dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb141-1" tabindex="-1"></a><span class="fu">levels</span>(dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
 <pre><code>## NULL</code></pre>
 <p>A tabela apresentada é resultado da função <code>wilcox_effsize()</code> do pacote <code>rstatix</code> e resume o tamanho do efeito (r de Wilcoxon) para a comparação entre dois grupos (“Green” e “Yellow”) em relação à variável “Speed”. Veja como interpretar cada coluna:</p>
 <ul>
@@ -628,16 +628,16 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 A diferença de velocidade entre Pokémons verdes e amarelos é estatisticamente significativa (W = 1920.5, p-value = 0.01363), porém de <strong>pequena magnitude</strong> (r = 0.206). Isso indica que, embora exista uma diferença, ela é discreta do ponto de vista prático.</p>
 <blockquote>
 <p>No caso de teste pareado, acrescente o argumento <code>paired = TRUE</code>:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb139-1" tabindex="-1"></a><span class="fu">wilcox_effsize</span>(dados, antes <span class="sc">~</span> depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb143-1" tabindex="-1"></a><span class="fu">wilcox_effsize</span>(dados, antes <span class="sc">~</span> depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </blockquote>
 <hr />
 </div>
 <div id="delta-de-cliff" class="section level4 hasAnchor" number="23.2.2.2">
 <h4><span class="header-section-number">23.2.2.2</span> Delta de Cliff<a href="pacotes-pwr-rstatix-e-effsize.html#delta-de-cliff" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb140-1" tabindex="-1"></a><span class="fu">library</span>(effsize)</span>
-<span id="cb140-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb140-2" tabindex="-1"></a></span>
-<span id="cb140-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb140-3" tabindex="-1"></a><span class="co"># Calcule o Delta de Cliff</span></span>
-<span id="cb140-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb140-4" tabindex="-1"></a><span class="fu">cliff.delta</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="pacotes-pwr-rstatix-e-effsize.html#cb144-1" tabindex="-1"></a><span class="fu">library</span>(effsize)</span>
+<span id="cb144-2"><a href="pacotes-pwr-rstatix-e-effsize.html#cb144-2" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="pacotes-pwr-rstatix-e-effsize.html#cb144-3" tabindex="-1"></a><span class="co"># Calcule o Delta de Cliff</span></span>
+<span id="cb144-4"><a href="pacotes-pwr-rstatix-e-effsize.html#cb144-4" tabindex="-1"></a><span class="fu">cliff.delta</span>(dados_filtrados<span class="sc">$</span>Speed <span class="sc">~</span> dados_filtrados<span class="sc">$</span>Color)</span></code></pre></div>
 <pre><code>## 
 ## Cliff&#39;s Delta
 ## 

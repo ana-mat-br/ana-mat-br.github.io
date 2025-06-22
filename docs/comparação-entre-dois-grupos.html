@@ -464,13 +464,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <blockquote>
 <p>H₁: A média antes é diferente da média depois (há efeito).</p>
 </blockquote>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="comparação-entre-dois-grupos.html#cb85-1" tabindex="-1"></a><span class="co"># Simulando dados: pressão antes e depois</span></span>
-<span id="cb85-2"><a href="comparação-entre-dois-grupos.html#cb85-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb85-3"><a href="comparação-entre-dois-grupos.html#cb85-3" tabindex="-1"></a>antes <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">120</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
-<span id="cb85-4"><a href="comparação-entre-dois-grupos.html#cb85-4" tabindex="-1"></a>depois <span class="ot">&lt;-</span> antes <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">8</span>) <span class="co"># espera-se uma redução média de 5</span></span>
-<span id="cb85-5"><a href="comparação-entre-dois-grupos.html#cb85-5" tabindex="-1"></a></span>
-<span id="cb85-6"><a href="comparação-entre-dois-grupos.html#cb85-6" tabindex="-1"></a><span class="co"># Teste t pareado</span></span>
-<span id="cb85-7"><a href="comparação-entre-dois-grupos.html#cb85-7" tabindex="-1"></a><span class="fu">t.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="comparação-entre-dois-grupos.html#cb89-1" tabindex="-1"></a><span class="co"># Simulando dados: pressão antes e depois</span></span>
+<span id="cb89-2"><a href="comparação-entre-dois-grupos.html#cb89-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb89-3"><a href="comparação-entre-dois-grupos.html#cb89-3" tabindex="-1"></a>antes <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">120</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
+<span id="cb89-4"><a href="comparação-entre-dois-grupos.html#cb89-4" tabindex="-1"></a>depois <span class="ot">&lt;-</span> antes <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="sc">-</span><span class="dv">5</span>, <span class="at">sd=</span><span class="dv">8</span>) <span class="co"># espera-se uma redução média de 5</span></span>
+<span id="cb89-5"><a href="comparação-entre-dois-grupos.html#cb89-5" tabindex="-1"></a></span>
+<span id="cb89-6"><a href="comparação-entre-dois-grupos.html#cb89-6" tabindex="-1"></a><span class="co"># Teste t pareado</span></span>
+<span id="cb89-7"><a href="comparação-entre-dois-grupos.html#cb89-7" tabindex="-1"></a><span class="fu">t.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -519,7 +519,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>H₁: A mediana das diferenças entre os pares é diferente de zero (há diferença entre antes e depois).</p>
 </blockquote>
 <p><em>Observação: Esta formulação das hipóteses em termos de mediana é válida quando as diferenças apresentam distribuição simétrica.</em></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="comparação-entre-dois-grupos.html#cb87-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="comparação-entre-dois-grupos.html#cb91-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank exact test
 ## 
@@ -534,7 +534,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul>
 <p>No R, por padrão, a função <code>wilcox.test()</code> não mostra o intervalo de confiança para a mediana das diferenças.
 No entanto, você pode pedir para calcular o intervalo de confiança usando o argumento <strong><code>conf.int = TRUE</code></strong>:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="comparação-entre-dois-grupos.html#cb89-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="comparação-entre-dois-grupos.html#cb93-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(antes, depois, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank exact test
 ## 
@@ -594,13 +594,13 @@ O valor de 5,55 indica a mediana das diferenças observadas nos dados.<br />
 <blockquote>
 <p>H₁: As médias dos grupos são diferentes.</p>
 </blockquote>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="comparação-entre-dois-grupos.html#cb91-1" tabindex="-1"></a><span class="co"># Simulando dados</span></span>
-<span id="cb91-2"><a href="comparação-entre-dois-grupos.html#cb91-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
-<span id="cb91-3"><a href="comparação-entre-dois-grupos.html#cb91-3" tabindex="-1"></a>grupoA <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">50</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
-<span id="cb91-4"><a href="comparação-entre-dois-grupos.html#cb91-4" tabindex="-1"></a>grupoB <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">55</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
-<span id="cb91-5"><a href="comparação-entre-dois-grupos.html#cb91-5" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="comparação-entre-dois-grupos.html#cb91-6" tabindex="-1"></a><span class="co"># Teste de variância (pré-requisito do t independente)</span></span>
-<span id="cb91-7"><a href="comparação-entre-dois-grupos.html#cb91-7" tabindex="-1"></a><span class="fu">var.test</span>(grupoA, grupoB)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="comparação-entre-dois-grupos.html#cb95-1" tabindex="-1"></a><span class="co"># Simulando dados</span></span>
+<span id="cb95-2"><a href="comparação-entre-dois-grupos.html#cb95-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb95-3"><a href="comparação-entre-dois-grupos.html#cb95-3" tabindex="-1"></a>grupoA <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">50</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
+<span id="cb95-4"><a href="comparação-entre-dois-grupos.html#cb95-4" tabindex="-1"></a>grupoB <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean=</span><span class="dv">55</span>, <span class="at">sd=</span><span class="dv">7</span>)</span>
+<span id="cb95-5"><a href="comparação-entre-dois-grupos.html#cb95-5" tabindex="-1"></a></span>
+<span id="cb95-6"><a href="comparação-entre-dois-grupos.html#cb95-6" tabindex="-1"></a><span class="co"># Teste de variância (pré-requisito do t independente)</span></span>
+<span id="cb95-7"><a href="comparação-entre-dois-grupos.html#cb95-7" tabindex="-1"></a><span class="fu">var.test</span>(grupoA, grupoB)</span></code></pre></div>
 <pre><code>## 
 ##  F test to compare two variances
 ## 
@@ -612,8 +612,8 @@ O valor de 5,55 indica a mediana das diferenças observadas nos dados.<br />
 ## sample estimates:
 ## ratio of variances 
 ##           1.884167</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="comparação-entre-dois-grupos.html#cb93-1" tabindex="-1"></a><span class="co"># Teste t independente</span></span>
-<span id="cb93-2"><a href="comparação-entre-dois-grupos.html#cb93-2" tabindex="-1"></a><span class="fu">t.test</span>(grupoA, grupoB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="comparação-entre-dois-grupos.html#cb97-1" tabindex="-1"></a><span class="co"># Teste t independente</span></span>
+<span id="cb97-2"><a href="comparação-entre-dois-grupos.html#cb97-2" tabindex="-1"></a><span class="fu">t.test</span>(grupoA, grupoB, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 
@@ -661,7 +661,7 @@ O teste t indicou que existe uma diferença estatisticamente significativa entre
 <blockquote>
 <p>H₁: As distribuições dos grupos são diferentes.</p>
 </blockquote>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="comparação-entre-dois-grupos.html#cb95-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(grupoA, grupoB)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="comparação-entre-dois-grupos.html#cb99-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(grupoA, grupoB)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum exact test
 ## 
@@ -746,14 +746,14 @@ Geralmente, o p-valor do teste unilateral é a metade do bilateral, para o mesmo
 </ul></li>
 </ul>
 <p><strong>Exemplo:</strong></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="comparação-entre-dois-grupos.html#cb97-1" tabindex="-1"></a><span class="co"># Teste t bilateral (padrão)</span></span>
-<span id="cb97-2"><a href="comparação-entre-dois-grupos.html#cb97-2" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
-<span id="cb97-3"><a href="comparação-entre-dois-grupos.html#cb97-3" tabindex="-1"></a></span>
-<span id="cb97-4"><a href="comparação-entre-dois-grupos.html#cb97-4" tabindex="-1"></a><span class="co"># Teste t unilateral (x maior que y)</span></span>
-<span id="cb97-5"><a href="comparação-entre-dois-grupos.html#cb97-5" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb97-6"><a href="comparação-entre-dois-grupos.html#cb97-6" tabindex="-1"></a></span>
-<span id="cb97-7"><a href="comparação-entre-dois-grupos.html#cb97-7" tabindex="-1"></a><span class="co"># Teste de Wilcoxon unilateral (x menor que y)</span></span>
-<span id="cb97-8"><a href="comparação-entre-dois-grupos.html#cb97-8" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="comparação-entre-dois-grupos.html#cb101-1" tabindex="-1"></a><span class="co"># Teste t bilateral (padrão)</span></span>
+<span id="cb101-2"><a href="comparação-entre-dois-grupos.html#cb101-2" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb101-3"><a href="comparação-entre-dois-grupos.html#cb101-3" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="comparação-entre-dois-grupos.html#cb101-4" tabindex="-1"></a><span class="co"># Teste t unilateral (x maior que y)</span></span>
+<span id="cb101-5"><a href="comparação-entre-dois-grupos.html#cb101-5" tabindex="-1"></a><span class="fu">t.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb101-6"><a href="comparação-entre-dois-grupos.html#cb101-6" tabindex="-1"></a></span>
+<span id="cb101-7"><a href="comparação-entre-dois-grupos.html#cb101-7" tabindex="-1"></a><span class="co"># Teste de Wilcoxon unilateral (x menor que y)</span></span>
+<span id="cb101-8"><a href="comparação-entre-dois-grupos.html#cb101-8" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, y, <span class="at">alternative =</span> <span class="st">&quot;less&quot;</span>)</span></code></pre></div>
 <p>Ou seja:
 - <strong>O argumento <code>alternative</code> define se o teste é bilateral ou unilateral.</strong>
 - Isso altera a formulação das hipóteses, o cálculo do p-valor e a interpretação do resultado.</p>
