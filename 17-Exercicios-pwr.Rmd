@@ -164,6 +164,8 @@ wilcox.test(dados_filtrados$Speed ~ dados_filtrados$Color)
 
 # Tamanho do efeito r de Wilcoxon para Green vs Yellow
 wilcox_effsize(dados_filtrados, Speed ~ Color)
+
+levels(dados_filtrados$Color)
 ```
 
 A tabela apresentada é resultado da função `wilcox_effsize()` do pacote `rstatix` e resume o tamanho do efeito (r de Wilcoxon) para a comparação entre dois grupos ("Green" e "Yellow") em relação à variável "Speed". Veja como interpretar cada coluna:
@@ -171,9 +173,8 @@ A tabela apresentada é resultado da função `wilcox_effsize()` do pacote `rsta
 - **.y.**: variável de interesse analisada, neste caso, "Speed" (velocidade dos Pokémons).
 - **group1**: primeiro grupo comparado ("Green").
 - **group2**: segundo grupo comparado ("Yellow").
-- **effsize**: valor do tamanho de efeito calculado, aqui 0.206.  
-  - Este valor segue a interpretação dos tamanhos de efeito r:  
-    - 0.10 = pequeno, 0.30 = moderado, 0.50 = grande.
+- **effsize**: valor ABSOLUTO do tamanho de efeito calculado, aqui 0.206.  
+- O resultado apresentado na coluna `effsize` é sempre positivo, independentemente da ordem dos grupos definidos na variável categórica.
 - **n1**: número de observações no grupo 1 (79 Pokémons verdes).
 - **n2**: número de observações no grupo 2 (64 Pokémons amarelos).
 - **magnitude**: classificação qualitativa do tamanho de efeito ("small", ou seja, efeito pequeno).
@@ -181,8 +182,7 @@ A tabela apresentada é resultado da função `wilcox_effsize()` do pacote `rsta
 **Interpretação:**  
 A diferença de velocidade entre Pokémons verdes e amarelos é estatisticamente significativa (W = 1920.5, p-value = 0.01363), porém de **pequena magnitude** (r = 0.206). Isso indica que, embora exista uma diferença, ela é discreta do ponto de vista prático.
 
-- O grupo "Green" tende a apresentar velocidades um pouco maiores que o grupo "Yellow", mas a diferença é considerada pequena. **Observe que isso contradiz o boxplot!**
-- Sempre avalie se essa diferença é relevante no contexto do seu estudo ou aplicação.
+
 
 > No caso de teste pareado, acrescente o argumento `paired = TRUE`:
 > ```r
@@ -256,9 +256,7 @@ Quando realizamos testes não paramétricos para comparar grupos, como o teste d
 - **Como interpretar os valores do Delta de Cliff?**  
   O **Delta de Cliff** mostra o tamanho da diferença entre dois grupos. O mais comum é considerar o valor absoluto de $\delta$ (ou seja, ignorar se é positivo ou negativo e olhar só para o tamanho do número).
 
-**Classificação da magnitude do efeito**
-
-, segundo Romano et al. (2006)
+**Classificação da magnitude do efeito**, segundo Romano et al. (2006)
 
 | Valor absoluto de $\delta$ | Interpretação    |
 |:--------------------------|:----------------|
