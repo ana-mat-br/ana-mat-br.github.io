@@ -1,16 +1,23 @@
-# Exercícios práticos com o pacote `pwr` no R
+# Pacotes `pwr`, `rstatix` e `effsize`
 
-O pacote `pwr` permite realizar cálculos de tamanho de amostra, poder estatístico e tamanho do efeito para diversos testes estatísticos. Abaixo, seguem exercícios aplicados aos testes t (pareado e não pareado) e Wilcoxon (pareado e não pareado).
+Nesse capítulo, abordaremos como calcular tamanho de amostra, poder estatístico e tamanho do efeito em diferentes testes estatísticos usando os pacotes `pwr`, `rstatix` e `effsize`. O foco será nos testes t (pareado e não pareado) e Wilcoxon (pareado e não pareado), com exemplos práticos e orientações sobre interpretação dos resultados.
 
-> Lembre se instalar o pacote `pwr`
-
+> **Importante:** Antes de começar, certifique-se de instalar o pacote `pwr`, `rstatix` e `effsize`:
 ```r
-install.packages("pwr")
+install.packages(c("pwr", "rstatix", "effsize"))
 ```
 
-## Exercício 1: Calcular o tamanho da amostra para um teste t não pareado
+## Cálculos de tamanho de amostra, poder e efeito com o pacote `pwr`
 
-Utilize a função `pwr.t.test()` para determinar o tamanho da amostra necessário para detectar um tamanho de efeito (d) de 0.5, com poder (power) de 0.8 e nível de significância (sig.level) de 0.05, em um teste t bilateral para duas amostras independentes.
+O pacote `pwr` permite calcular:
+
+- **Tamanho de amostra** necessário para detectar um determinado efeito;
+- **Poder estatístico** de um teste para amostras de tamanho fixo;
+- **Menor tamanho de efeito** que pode ser detectado para um dado poder e amostra.
+
+### Exercício 1: Tamanho da amostra para teste t não pareado
+
+Calcule o tamanho da amostra necessário para detectar um efeito moderado (d = 0.5), com poder de 0.8 e nível de significância de 0.05, em um teste t bilateral para duas amostras independentes.
 
 ```r
 library(pwr)
@@ -20,9 +27,9 @@ pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
 
 ---
 
-## Exercício 2: Calcular o poder do teste para uma amostra de tamanho fixo (t não pareado)
+### Exercício 2: Poder do teste t não pareado para n fixo
 
-Considere agora que você dispõe de 26 observações em cada grupo. Calcule o poder estatístico para detectar um tamanho de efeito de 0.5, com nível de significância de 0.05.
+Se você dispõe de 26 observações em cada grupo, qual é o poder do teste para detectar um efeito de 0.5, com sig.level = 0.05?
 
 ```r
 # Poder do teste t não pareado para n = 26 por grupo
@@ -31,9 +38,9 @@ pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
 
 ---
 
-## Exercício 3: Calcular o tamanho do efeito detectável (t não pareado)
+### Exercício 3: Menor efeito detectável no teste t não pareado
 
-Com uma amostra de 26 observações por grupo, poder de 0.8 e nível de significância de 0.05, qual o menor tamanho de efeito que pode ser detectado?
+Com 26 observações por grupo, poder de 0.8 e sig.level de 0.05, qual o menor tamanho de efeito detectável?
 
 ```r
 # Tamanho do efeito detectável
@@ -42,9 +49,9 @@ pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
 
 ---
 
-## Exercício 4: Repita os cálculos para outros testes (t pareado, Wilcoxon não pareado/pareado)
+### Exercício 4: Repita para outros testes
 
-### a) Teste t pareado
+#### a) Teste t pareado
 
 ```r
 # Tamanho da amostra para teste t pareado
@@ -57,57 +64,248 @@ pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "paired")
 pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "paired")
 ```
 
-### b) Wilcoxon não pareado
+#### b) Wilcoxon não pareado
 
 ```r
-# Tamanho da amostra para Wilcoxon não pareado (usando pwr.t.test como aproximação)
+# Tamanho da amostra para Wilcoxon não pareado (aproximação pelo teste t)
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
-
-# Poder para n = 26 por grupo
-pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
-
-# Tamanho do efeito detectável
-pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
 ```
 
-> **Dica**: Para testes não-paramétricos como o Wilcoxon, o pacote `pwr` não possui uma função específica. Nesses casos, costuma-se usar o cálculo feito para o teste t como uma aproximação. No entanto, recomenda-se aumentar o tamanho da amostra em cerca de 15% (ou seja, multiplicar o valor obtido para o teste t por 1,15), já que testes não-paramétricos geralmente requerem amostras um pouco maiores para alcançar o mesmo poder estatístico. Essa estratégia é especialmente útil para amostras de tamanho moderado ou grande.
+> **Dica:** O pacote `pwr` não possui funções específicas para testes não-paramétricos como Wilcoxon. Por isso, costuma-se usar o cálculo para teste t como aproximação, aumentando o tamanho da amostra em cerca de 15% (multiplique o valor obtido por 1,15), já que testes não-paramétricos geralmente requerem amostras maiores para o mesmo poder estatístico.
 
-### c) Wilcoxon pareado
+#### c) Wilcoxon pareado
 
 ```r
-# Tamanho da amostra para Wilcoxon pareado (usando pwr.t.test como aproximação)
+# Tamanho da amostra para Wilcoxon pareado (aproximação pelo teste t pareado)
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
-
-# Poder para n = 26 pares
-pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "paired")
-
-# Tamanho do efeito detectável
-pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "paired")
 ```
+
+> **Atenção:** O **d de Cohen** foi criado para testes paramétricos, como o teste t. Para testes não paramétricos (Wilcoxon), utilize medidas específicas, pois a interpretação do d não se aplica ao contexto de ranks.
 
 ---
 
-## Dica sobre o uso da função `pwr.t.test()`
+### Argumentos principais da função `pwr.t.test()`
 
 A função `pwr.t.test()` possui os seguintes argumentos principais:
 
-- `n`: tamanho da amostra em cada grupo (ou número de pares, para o teste pareado)
+- `n`: tamanho da amostra em cada grupo (ou número de pares, para teste pareado)
 - `d`: tamanho do efeito (diferença padronizada entre grupos)
-- `power`: poder estatístico desejado (probabilidade de detectar o efeito, se houver)
-- `sig.level`: nível de significância (probabilidade de erro tipo I, geralmente 0.05)
-- `type`: especifica o tipo de teste t: `"two.sample"` (duas amostras independentes), `"paired"` (amostras pareadas), ou `"one.sample"` (amostra única)
+- `power`: poder estatístico desejado
+- `sig.level`: nível de significância (geralmente 0.05)
+- `type`: tipo de teste t: `"two.sample"`, `"paired"` ou `"one.sample"`
 
-**Importante:**  
-Deixe como `NULL` o parâmetro que você deseja calcular. Por exemplo:  
-- Para calcular o tamanho do efeito: `d = NULL`
-- Para calcular o poder: `power = NULL`
-- Para calcular o tamanho da amostra: `n = NULL`
+> **Dica:** Deixe como `NULL` o parâmetro que você deseja calcular.
+> - Para calcular o tamanho do efeito: `d = NULL`
+> - Para calcular o poder: `power = NULL`
+> - Para calcular o tamanho da amostra: `n = NULL`
 
-Exemplo prático para calcular o tamanho do efeito detectável:
-
+**Exemplo para calcular o tamanho do efeito:**
 ```r
 pwr.t.test(n = 26, d = NULL, power = 0.8, sig.level = 0.05, type = "two.sample")
 ```
+Neste exemplo, o argumento `d` é o valor a ser calculado.
 
-Neste exemplo, o argumento `d` fica como `NULL`, pois é o valor a ser calculado.  
-Da mesma forma, ajuste o parâmetro que deseja obter nas suas análises.
+---
+
+### Grupos Desbalanceados: usando `pwr.t2n.test()`
+
+Quando os grupos têm tamanhos diferentes, use `pwr.t2n.test()` para calcular o poder.
+
+```{r pwr-2n, message=FALSE,  warning=FALSE}
+# Exemplo: grupo 1 com 95, grupo 2 com 30 observações
+library(pwr)
+pwr.t2n.test(n1 = 95, n2 = 30, d = 0.5, sig.level = 0.05)
+```
+
+- **n1**: tamanho do primeiro grupo
+- **n2**: tamanho do segundo grupo
+
+**Atenção:** Grupos desbalanceados podem comprometer o poder do teste, aumentar a variância e dificultar a interpretação dos resultados. Sempre que possível, busque amostras equilibradas.
+
+---
+
+## Tamanho do efeito em testes de Wilcoxon
+
+O tamanho do efeito complementa a análise estatística, indicando a magnitude da diferença entre grupos. Para testes paramétricos (como o t), usa-se o **d de Cohen**. Para testes não paramétricos (Wilcoxon), utilize medidas apropriadas, como **r de Wilcoxon** e **Delta de Cliff**.
+
+### Por que NÃO usar d de Cohen no Wilcoxon?
+
+- O d de Cohen pressupõe distribuição normal e comparação direta de médias/desvios.
+- O Wilcoxon compara **ranks**, não médias.
+- Aplicar o d de Cohen em dados de Wilcoxon pode gerar interpretações erradas.
+
+### Medidas recomendadas para Wilcoxon:
+
+- **r de Wilcoxon:** Calculado com o pacote `rstatix`.
+- **Cliff’s Delta:** Disponível no pacote `effsize`.
+
+---
+
+#### r de Wilcoxon (Wilcoxon rank-sum, não pareado)
+
+```{r rWilcox, eval=TRUE, message=FALSE,  warning=FALSE}
+library(rstatix)
+library(readr)
+
+# Importe o banco de dados Pokemon
+Pokemon <- read_csv("Pokemon.csv")
+
+# Subconjunto com Pokémons verdes ou amarelos
+dados_filtrados <- subset(Pokemon, Color %in% c("Green", "Yellow"))
+
+# Verifique os dados após o filtro
+print(table(dados_filtrados$Color))
+
+# Boxplot
+boxplot(dados_filtrados$Speed ~ dados_filtrados$Color)
+
+# Teste de Wilcoxon não pareado
+wilcox.test(dados_filtrados$Speed ~ dados_filtrados$Color)
+
+# Tamanho do efeito r de Wilcoxon para Green vs Yellow
+wilcox_effsize(dados_filtrados, Speed ~ Color)
+```
+
+A tabela apresentada é resultado da função `wilcox_effsize()` do pacote `rstatix` e resume o tamanho do efeito (r de Wilcoxon) para a comparação entre dois grupos ("Green" e "Yellow") em relação à variável "Speed". Veja como interpretar cada coluna:
+
+- **.y.**: variável de interesse analisada, neste caso, "Speed" (velocidade dos Pokémons).
+- **group1**: primeiro grupo comparado ("Green").
+- **group2**: segundo grupo comparado ("Yellow").
+- **effsize**: valor do tamanho de efeito calculado, aqui 0.206.  
+  - Este valor segue a interpretação dos tamanhos de efeito r:  
+    - 0.10 = pequeno, 0.30 = moderado, 0.50 = grande.
+- **n1**: número de observações no grupo 1 (79 Pokémons verdes).
+- **n2**: número de observações no grupo 2 (64 Pokémons amarelos).
+- **magnitude**: classificação qualitativa do tamanho de efeito ("small", ou seja, efeito pequeno).
+
+**Interpretação:**  
+A diferença de velocidade entre Pokémons verdes e amarelos é estatisticamente significativa (W = 1920.5, p-value = 0.01363), porém de **pequena magnitude** (r = 0.206). Isso indica que, embora exista uma diferença, ela é discreta do ponto de vista prático.
+
+- O grupo "Green" tende a apresentar velocidades um pouco maiores que o grupo "Yellow", mas a diferença é considerada pequena. **Observe que isso contradiz o boxplot!**
+- Sempre avalie se essa diferença é relevante no contexto do seu estudo ou aplicação.
+
+> No caso de teste pareado, acrescente o argumento `paired = TRUE`:
+> ```r
+> wilcox_effsize(dados, antes ~ depois, paired = TRUE)
+> ```
+
+---
+
+#### Delta de Cliff
+
+```{r, DCliff, message=FALSE, warning=FALSE}
+library(effsize)
+
+# Calcule o Delta de Cliff
+cliff.delta(dados_filtrados$Speed ~ dados_filtrados$Color)
+```
+
+O **Delta de Cliff** estimado foi de **-0,24**, classificado como efeito **pequeno** ("small"). O intervalo de confiança de 95% vai de aproximadamente **-0,41** a **-0,05**, indicando que, com alta confiança, o efeito verdadeiro é negativo e pequeno.
+
+- **Sinal negativo:** Indica que o grupo "Yellow" tende a apresentar velocidades maiores do que o grupo "Green". Ou seja, ao comparar aleatoriamente um Pokémon amarelo com um verde, é mais provável que o amarelo tenha uma velocidade superior.
+- **Magnitude pequena:** O valor absoluto de -0,24 mostra que a diferença entre os grupos existe, mas é de pouca relevância prática.
+- **Intervalo de confiança não inclui zero:** Como o intervalo vai de -0,41 a -0,05, podemos afirmar que existe uma diferença real entre os grupos, embora seja pequena.
+- **Interpretação prática:** Apesar de haver uma diferença estatística, ela não é marcante. É importante avaliar se essa diferença tem relevância biológica ou prática no contexto do seu estudo.
+
+O Delta de Cliff indica que Pokémons amarelos tendem a ser um pouco mais rápidos do que os verdes, mas a diferença é pequena do ponto de vista prático.
+
+
+### Comparação entre o r de Wilcoxon e o Delta de Cliff
+
+Quando realizamos testes não paramétricos para comparar grupos, como o teste de Wilcoxon (Mann-Whitney ou Wilcoxon pareado), é importante complementar o resultado do teste com uma medida de tamanho de efeito. As duas opções mais comuns são o **r de Wilcoxon** e o **Delta de Cliff**. Veja a seguir uma comparação entre elas:
+
+### r de Wilcoxon
+
+- **Definição:** Mede a magnitude da diferença entre grupos com base nos postos (ranks) dos dados. O cálculo é semelhante ao coeficiente de correlação de Pearson, mas aplicado a dados não paramétricos.
+- **Variação dos valores:** O r de Wilcoxon varia de -1 a 1.
+  - Valores próximos de 0 indicam pouca diferença entre grupos.
+  - Valores próximos de -1 ou 1 indicam diferenças muito grandes.
+  - O sinal indica a direção da diferença.
+
+**Qualificação dos valores**, segundo Cohen (1988):
+
+| Valor absoluto de $r$ | Interpretação    |
+|:---------------------|:----------------|
+| aproximadamente 0,10                | Pequeno         |
+| aproximadamente 0,30                | Moderado        |
+| maior ou igual 0,50                | Grande          |
+
+**Exemplos:**
+
+- **Efeito pequeno:**  
+  Se o valor absoluto de r estiver próximo de **0,10**, a diferença entre os grupos é pequena.  
+  _(Exemplo: |r| = 0,10 → efeito pequeno)_
+
+- **Efeito moderado:**  
+  Se o valor absoluto de r estiver próximo de **0,30**, a diferença entre os grupos é moderada.  
+  _(Exemplo: |r| = 0,30 → efeito moderado)_
+
+- **Efeito grande:**  
+  Se o valor absoluto de r for igual ou superior a **0,50**, a diferença é grande.  
+  _(Exemplo: |r| = 0,55 → efeito grande)_
+
+
+
+### Delta de Cliff ($\delta$) 
+
+- **Definição:** Mede a probabilidade de um valor de um grupo ser maior do que de outro grupo, subtraída da probabilidade contrária. É totalmente não paramétrico e não depende de distribuição, sendo adequado para variáveis ordinais ou dados assimétricos.
+- **Variação dos valores:** O Delta de Cliff varia de -1 a 1.
+    - Valor 0: não há diferença entre os grupos.
+    - Valor positivo: o grupo 1 tende a ter valores maiores que o grupo 2.
+    - Valor negativo: o grupo 2 tende a ter valores maiores que o grupo 1.
+- **Como interpretar os valores do Delta de Cliff?**  
+  O **Delta de Cliff** mostra o tamanho da diferença entre dois grupos. O mais comum é considerar o valor absoluto de $\delta$ (ou seja, ignorar se é positivo ou negativo e olhar só para o tamanho do número).
+
+**Classificação da magnitude do efeito**
+
+, segundo Romano et al. (2006)
+
+| Valor absoluto de $\delta$ | Interpretação    |
+|:--------------------------|:----------------|
+| menor que 0.147                    | Desprezível     |
+| de 0.147 e menor que 0.33             | Pequeno         |
+| de 0.33 e menor que 0.474             | Médio           |
+| maior ou igual a 0.474                    | Grande          |
+
+**Exemplos:**
+
+- **Efeito desprezível:**  
+  Se o valor absoluto do delta for menor que **0,147**, a diferença entre os grupos é desprezível.  
+  _(Exemplo: |$\delta$| = 0,10 → efeito desprezível)_
+
+- **Efeito pequeno:**  
+  Se o valor absoluto do delta for igual ou maior que **0,147** e menor que **0,33**, a diferença é pequena.  
+  _(Exemplo: |$\delta$| = 0,20 → efeito pequeno)_
+
+- **Efeito médio:**  
+  Se o valor absoluto do delta for igual ou maior que **0,33** e menor que **0,474**, a diferença é média.  
+  _(Exemplo: |$\delta$| = 0,40 → efeito médio)_
+
+- **Efeito grande:**  
+  Se o valor absoluto do delta for igual ou maior que **0,474**, a diferença é grande.  
+  _(Exemplo: |$\delta$| = 0,50 → efeito grande)_
+
+**Resumindo:**  
+Quanto mais próximo de zero, menor a diferença. Quanto mais próximo de 1 (ou -1), maior a diferença entre os grupos.
+
+> **Dica:** Sempre use o valor absoluto, ou seja, olhe apenas para o tamanho do número, sem se preocupar se ele é positivo ou negativo.
+
+
+### Qual é melhor usar?
+
+- **Ambos** são válidos e amplamente aceitos para dados não paramétricos.
+- O **r de Wilcoxon** é intuitivo se você já está acostumado com o coeficiente de correlação, e é facilmente interpretável em contextos onde se deseja uma analogia ao r de Pearson.
+- O **Delta de Cliff** é mais robusto em situações com muitos empates, diferentes tamanhos de grupo ou dados ordinais, e fornece uma interpretação mais direta da diferença de probabilidades entre grupos.
+- **Recomendação prática:**  
+  - Para estudos com dados ordenados, amostras desbalanceadas ou muitos empates, o Delta de Cliff pode ser preferido.
+  - Se você busca uma medida análoga ao r de Pearson para facilitar comparações, use o r de Wilcoxon.
+  - Em muitos casos, apresentar ambos os valores enriquece a interpretação dos resultados.
+
+Não existe uma medida "melhor" de forma absoluta; a escolha depende do contexto do estudo e das características dos dados. Ambas são úteis para interpretar a relevância prática das diferenças identificadas em testes não paramétricos.
+
+
+> **Nota:** Para a comparação entre os grupos *Green* e *Yellow* na variável *Speed*, o tamanho de efeito calculado pelo **r de Wilcoxon** foi **0,206** (efeito pequeno), enquanto o **delta de Cliff** foi **-0,240** (efeito pequeno, IC 95%: -0,414 a -0,050). É esperado que os valores numéricos dessas métricas diferem, pois são baseados em cálculos estatísticos distintos, mas ambos apontam para uma diferença de pequena magnitude entre os grupos.
+
+No entanto, é importante destacar que, neste caso, o valor negativo do delta de Cliff está condizente com o observado no boxplot: o grupo *Yellow* tende a apresentar valores de *Speed* ligeiramente maiores que o grupo *Green*, o que é evidenciado pela direção negativa do delta. 
+
+Esse alinhamento entre o resultado numérico do delta de Cliff e a visualização gráfica reforça a importância de sempre analisar os dados de forma complementar, utilizando tanto medidas estatísticas quanto representações visuais (como boxplots). A visualização gráfica pode revelar padrões, tendências e assimetrias que enriquecem a interpretação do tamanho de efeito e facilitam a comunicação dos resultados.
