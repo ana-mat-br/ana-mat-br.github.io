@@ -209,7 +209,7 @@ Suponha que você fez um estudo com **26 participantes em cada grupo** e espera 
 Você pode usar:
 
 ```{r pwr-poder, message=FALSE,  warning=FALSE}
-pwr.t.test(n = 20, d = 0.8, power = NULL, sig.level = 0.05, type = "two.sample")
+pwr.t.test(n = 26, d = 0.8, power = NULL, sig.level = 0.05, type = "two.sample")
 ```
 
 **Explicação dos parâmetros**

@@ -521,42 +521,42 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </div>
 <div id="exemplo-prático-em-r-1" class="section level3 hasAnchor" number="24.2.2">
 <h3><span class="header-section-number">24.2.2</span> Exemplo Prático em R<a href="teste-de-normalidade.html#exemplo-prático-em-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="teste-de-normalidade.html#cb146-1" tabindex="-1"></a><span class="co">#install.packages(&quot;nortest&quot;)</span></span>
-<span id="cb146-2"><a href="teste-de-normalidade.html#cb146-2" tabindex="-1"></a><span class="co">#install.packages(&quot;moments&quot;)</span></span>
-<span id="cb146-3"><a href="teste-de-normalidade.html#cb146-3" tabindex="-1"></a></span>
-<span id="cb146-4"><a href="teste-de-normalidade.html#cb146-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
-<span id="cb146-5"><a href="teste-de-normalidade.html#cb146-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb146-6"><a href="teste-de-normalidade.html#cb146-6" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
-<span id="cb146-7"><a href="teste-de-normalidade.html#cb146-7" tabindex="-1"></a></span>
-<span id="cb146-8"><a href="teste-de-normalidade.html#cb146-8" tabindex="-1"></a><span class="co"># Veja o QQ</span></span>
-<span id="cb146-9"><a href="teste-de-normalidade.html#cb146-9" tabindex="-1"></a><span class="fu">qqnorm</span>(Pokemon<span class="sc">$</span>Speed)</span>
-<span id="cb146-10"><a href="teste-de-normalidade.html#cb146-10" tabindex="-1"></a><span class="fu">qqline</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="teste-de-normalidade.html#cb162-1" tabindex="-1"></a><span class="co">#install.packages(&quot;nortest&quot;)</span></span>
+<span id="cb162-2"><a href="teste-de-normalidade.html#cb162-2" tabindex="-1"></a><span class="co">#install.packages(&quot;moments&quot;)</span></span>
+<span id="cb162-3"><a href="teste-de-normalidade.html#cb162-3" tabindex="-1"></a></span>
+<span id="cb162-4"><a href="teste-de-normalidade.html#cb162-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
+<span id="cb162-5"><a href="teste-de-normalidade.html#cb162-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb162-6"><a href="teste-de-normalidade.html#cb162-6" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
+<span id="cb162-7"><a href="teste-de-normalidade.html#cb162-7" tabindex="-1"></a></span>
+<span id="cb162-8"><a href="teste-de-normalidade.html#cb162-8" tabindex="-1"></a><span class="co"># Veja o QQ</span></span>
+<span id="cb162-9"><a href="teste-de-normalidade.html#cb162-9" tabindex="-1"></a><span class="fu">qqnorm</span>(Pokemon<span class="sc">$</span>Speed)</span>
+<span id="cb162-10"><a href="teste-de-normalidade.html#cb162-10" tabindex="-1"></a><span class="fu">qqline</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/testenorm-1.png" width="672" /></p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="teste-de-normalidade.html#cb147-1" tabindex="-1"></a><span class="co"># Shapiro-Wilk</span></span>
-<span id="cb147-2"><a href="teste-de-normalidade.html#cb147-2" tabindex="-1"></a><span class="fu">shapiro.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="teste-de-normalidade.html#cb163-1" tabindex="-1"></a><span class="co"># Shapiro-Wilk</span></span>
+<span id="cb163-2"><a href="teste-de-normalidade.html#cb163-2" tabindex="-1"></a><span class="fu">shapiro.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  Pokemon$Speed
 ## W = 0.98574, p-value = 1.757e-06</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="teste-de-normalidade.html#cb149-1" tabindex="-1"></a><span class="co"># Anderson-Darling</span></span>
-<span id="cb149-2"><a href="teste-de-normalidade.html#cb149-2" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
-<span id="cb149-3"><a href="teste-de-normalidade.html#cb149-3" tabindex="-1"></a><span class="fu">ad.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="teste-de-normalidade.html#cb165-1" tabindex="-1"></a><span class="co"># Anderson-Darling</span></span>
+<span id="cb165-2"><a href="teste-de-normalidade.html#cb165-2" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
+<span id="cb165-3"><a href="teste-de-normalidade.html#cb165-3" tabindex="-1"></a><span class="fu">ad.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  Pokemon$Speed
 ## A = 3.0665, p-value = 1.064e-07</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="teste-de-normalidade.html#cb151-1" tabindex="-1"></a><span class="co"># Lilliefors</span></span>
-<span id="cb151-2"><a href="teste-de-normalidade.html#cb151-2" tabindex="-1"></a><span class="fu">lillie.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="teste-de-normalidade.html#cb167-1" tabindex="-1"></a><span class="co"># Lilliefors</span></span>
+<span id="cb167-2"><a href="teste-de-normalidade.html#cb167-2" tabindex="-1"></a><span class="fu">lillie.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
 ## data:  Pokemon$Speed
 ## D = 0.06446, p-value = 1.662e-07</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="teste-de-normalidade.html#cb153-1" tabindex="-1"></a><span class="co"># D&#39;Agostino</span></span>
-<span id="cb153-2"><a href="teste-de-normalidade.html#cb153-2" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
-<span id="cb153-3"><a href="teste-de-normalidade.html#cb153-3" tabindex="-1"></a><span class="fu">agostino.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="teste-de-normalidade.html#cb169-1" tabindex="-1"></a><span class="co"># D&#39;Agostino</span></span>
+<span id="cb169-2"><a href="teste-de-normalidade.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb169-3"><a href="teste-de-normalidade.html#cb169-3" tabindex="-1"></a><span class="fu">agostino.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  D&#39;Agostino skewness test
 ## 

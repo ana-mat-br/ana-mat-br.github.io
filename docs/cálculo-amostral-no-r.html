@@ -676,14 +676,14 @@ Um preparador físico quer comparar a performance de alunos submetidos a dois pr
 <h3><span class="header-section-number">21.5.1</span> Exemplo<a href="cálculo-amostral-no-r.html#exemplo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suponha que você fez um estudo com <strong>26 participantes em cada grupo</strong> e espera encontrar um <strong>tamanho de efeito grande (d = 0.8)</strong>. O nível de significância que você escolheu é o padrão, <strong>0,05</strong>. Você quer saber: <em>com essa amostra, qual é o poder do meu teste</em>?</p>
 <p>Você pode usar:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="cálculo-amostral-no-r.html#cb112-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="cálculo-amostral-no-r.html#cb112-1" tabindex="-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">26</span>, <span class="at">d =</span> <span class="fl">0.8</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">type =</span> <span class="st">&quot;two.sample&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Two-sample t test power calculation 
 ## 
-##               n = 20
+##               n = 26
 ##               d = 0.8
 ##       sig.level = 0.05
-##           power = 0.6934042
+##           power = 0.8074866
 ##     alternative = two.sided
 ## 
 ## NOTE: n is number in *each* group</code></pre>
