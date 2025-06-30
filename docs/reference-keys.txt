@@ -1,6 +1,7 @@
 bem-vindos
 intro
 atividade-1
+definições-iniciais
 estatística-descritiva
 exemplo-1-saúde-mental-dos-estudantes
 exemplo-2-prática-de-atividades-físicas
@@ -12,12 +13,14 @@ população-x-amostra
 população
 amostra
 exemplo-aplicado
+tamanho-da-amostra
 passos-básicos-para-o-cálculo-do-tamanho-da-amostra
 exemplo-de-cálculo-simples
 ferramentas-para-cálculo-de-amostra
 cálculo-do-tamanho-da-amostra
 conclusão
 atividade-2
+técnicas-de-amostragem
 amostragem-aleatória-simples
 amostragem-estratificada
 amostragem-sistemática
@@ -78,6 +81,7 @@ gráficos
 histograma
 boxplot
 atividade-6
+pacote-ggplot
 principais-vantagens
 exemplos-de-gráficos-simples-e-bonitos-com-ggplot2
 gráfico-de-dispersão-scatterplot
@@ -125,6 +129,7 @@ comparações-pareadas-dependentes
 comparações-não-pareadas-independentes
 número-de-grupos-na-comparação
 testes-paramétricos-e-não-paramétricos
+comparação-entre-dois-grupos
 teste-t-pareado
 wilcoxon-pareado
 teste-t-não-pareado

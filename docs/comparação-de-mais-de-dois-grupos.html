@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 20 Comparação de mais de dois grupos | Estatística + R</title>
-  <meta name="description" content="Capítulo 20 Comparação de mais de dois grupos | Estatística + R" />
+  <title>Capítulo 25 Comparação de mais de dois grupos | Estatística + R</title>
+  <meta name="description" content="Capítulo 25 Comparação de mais de dois grupos | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 20 Comparação de mais de dois grupos | Estatística + R" />
+  <meta property="og:title" content="Capítulo 25 Comparação de mais de dois grupos | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 20 Comparação de mais de dois grupos | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 25 Comparação de mais de dois grupos | Estatística + R" />
   
   
   
@@ -51,6 +51,11 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 <style type="text/css">
@@ -138,307 +143,322 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introdução</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#atividade-1"><i class="fa fa-check"></i><b>2.1</b> Atividade 1</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#estatística-descritiva"><i class="fa fa-check"></i><b>2.2</b> Estatística Descritiva</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#exemplo-1-saúde-mental-dos-estudantes"><i class="fa fa-check"></i><b>2.2.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
-<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#exemplo-2-prática-de-atividades-físicas"><i class="fa fa-check"></i><b>2.2.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#estatística-inferencial"><i class="fa fa-check"></i><b>2.3</b> Estatística Inferencial</a>
+<li class="chapter" data-level="3" data-path="definições-iniciais.html"><a href="definições-iniciais.html"><i class="fa fa-check"></i><b>3</b> Definições Iniciais</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="intro.html"><a href="intro.html#exemplo-1-saúde-mental-dos-estudantes-1"><i class="fa fa-check"></i><b>2.3.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
-<li class="chapter" data-level="2.3.2" data-path="intro.html"><a href="intro.html#exemplo-2-prática-de-atividades-físicas-1"><i class="fa fa-check"></i><b>2.3.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
+<li class="chapter" data-level="3.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-descritiva"><i class="fa fa-check"></i><b>3.1</b> Estatística Descritiva</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes"><i class="fa fa-check"></i><b>3.1.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.1.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas"><i class="fa fa-check"></i><b>3.1.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#conexão-com-a-probabilidade"><i class="fa fa-check"></i><b>2.4</b> Conexão com a Probabilidade</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#população-x-amostra"><i class="fa fa-check"></i><b>2.5</b> População x Amostra</a>
+<li class="chapter" data-level="3.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#estatística-inferencial"><i class="fa fa-check"></i><b>3.2</b> Estatística Inferencial</a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#população"><i class="fa fa-check"></i><b>2.5.1</b> <strong>População</strong></a></li>
-<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#amostra"><i class="fa fa-check"></i><b>2.5.2</b> <strong>Amostra</strong></a></li>
-<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#exemplo-aplicado"><i class="fa fa-check"></i><b>2.5.3</b> <strong>Exemplo aplicado</strong></a></li>
+<li class="chapter" data-level="3.2.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-1-saúde-mental-dos-estudantes-1"><i class="fa fa-check"></i><b>3.2.1</b> Exemplo 1: <strong>Saúde Mental dos Estudantes</strong></a></li>
+<li class="chapter" data-level="3.2.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-2-prática-de-atividades-físicas-1"><i class="fa fa-check"></i><b>3.2.2</b> Exemplo 2: <strong>Prática de Atividades Físicas</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#passos-básicos-para-o-cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>2.6</b> Passos básicos para o cálculo do tamanho da amostra</a>
+<li class="chapter" data-level="3.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#conexão-com-a-probabilidade"><i class="fa fa-check"></i><b>3.3</b> Conexão com a Probabilidade</a></li>
+<li class="chapter" data-level="3.4" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população-x-amostra"><i class="fa fa-check"></i><b>3.4</b> População x Amostra</a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="intro.html"><a href="intro.html#exemplo-de-cálculo-simples"><i class="fa fa-check"></i><b>2.6.1</b> Exemplo de cálculo simples</a></li>
-<li class="chapter" data-level="2.6.2" data-path="intro.html"><a href="intro.html#ferramentas-para-cálculo-de-amostra"><i class="fa fa-check"></i><b>2.6.2</b> Ferramentas para cálculo de amostra</a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>2.7</b> Cálculo do Tamanho da Amostra</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#conclusão"><i class="fa fa-check"></i><b>2.8</b> Conclusão</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#atividade-2"><i class="fa fa-check"></i><b>2.9</b> Atividade 2</a></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#amostragem-aleatória-simples"><i class="fa fa-check"></i><b>2.10</b> Amostragem Aleatória Simples</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#amostragem-estratificada"><i class="fa fa-check"></i><b>2.11</b> Amostragem Estratificada</a></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#amostragem-sistemática"><i class="fa fa-check"></i><b>2.12</b> Amostragem Sistemática</a></li>
-<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#amostragem-por-conglomerados"><i class="fa fa-check"></i><b>2.13</b> Amostragem por Conglomerados</a></li>
-<li class="chapter" data-level="2.14" data-path="intro.html"><a href="intro.html#amostragem-por-conveniência"><i class="fa fa-check"></i><b>2.14</b> Amostragem por Conveniência</a></li>
-<li class="chapter" data-level="2.15" data-path="intro.html"><a href="intro.html#combinando-técnicas-na-prática"><i class="fa fa-check"></i><b>2.15</b> Combinando Técnicas na Prática</a></li>
-<li class="chapter" data-level="2.16" data-path="intro.html"><a href="intro.html#evitar-viés-na-amostragem"><i class="fa fa-check"></i><b>2.16</b> Evitar Viés na Amostragem</a></li>
-<li class="chapter" data-level="2.17" data-path="intro.html"><a href="intro.html#resumindo"><i class="fa fa-check"></i><b>2.17</b> Resumindo</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>3</b> Ambiente Computacional</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-pagos"><i class="fa fa-check"></i><b>3.1</b> Softwares pagos</a></li>
-<li class="chapter" data-level="3.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-livres"><i class="fa fa-check"></i><b>3.2</b> Softwares livres</a></li>
-<li class="chapter" data-level="3.3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#linguagens-computacionais"><i class="fa fa-check"></i><b>3.3</b> Linguagens computacionais</a></li>
-<li class="chapter" data-level="3.4" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#preparando-o-ambiente-computacional"><i class="fa fa-check"></i><b>3.4</b> Preparando o Ambiente Computacional</a></li>
-<li class="chapter" data-level="3.5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio"><i class="fa fa-check"></i><b>3.5</b> Plano A: Instalação do R e RStudio</a></li>
-<li class="chapter" data-level="3.6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem"><i class="fa fa-check"></i><b>3.6</b> Plano B: R e RStudio na Nuvem</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>4</b> Trabalhando no RStudio</a></li>
-<li class="chapter" data-level="5" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>5</b> Primeiros exercícios no R</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>5.1</b> Exemplo 1</a></li>
-<li class="chapter" data-level="5.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>5.2</b> Exemplo 2</a></li>
-<li class="chapter" data-level="5.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>5.3</b> Exemplo 3</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>6</b> Tipos de Variáveis</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-quantitativas"><i class="fa fa-check"></i><b>6.1</b> Variáveis Quantitativas</a></li>
-<li class="chapter" data-level="6.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-qualitativas"><i class="fa fa-check"></i><b>6.2</b> Variáveis Qualitativas</a></li>
-<li class="chapter" data-level="6.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#aplicação-das-variáveis-em-estatística"><i class="fa fa-check"></i><b>6.3</b> Aplicação das Variáveis em Estatística</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-descritiva-1"><i class="fa fa-check"></i><b>6.3.1</b> Estatística Descritiva:</a></li>
-<li class="chapter" data-level="6.3.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-inferencial-1"><i class="fa fa-check"></i><b>6.3.2</b> Estatística Inferencial:</a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>6.4</b> Atividade 3</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#análise-das-tabelas"><i class="fa fa-check"></i><b>6.4.1</b> Análise das Tabelas</a></li>
+<li class="chapter" data-level="3.4.1" data-path="definições-iniciais.html"><a href="definições-iniciais.html#população"><i class="fa fa-check"></i><b>3.4.1</b> <strong>População</strong></a></li>
+<li class="chapter" data-level="3.4.2" data-path="definições-iniciais.html"><a href="definições-iniciais.html#amostra"><i class="fa fa-check"></i><b>3.4.2</b> <strong>Amostra</strong></a></li>
+<li class="chapter" data-level="3.4.3" data-path="definições-iniciais.html"><a href="definições-iniciais.html#exemplo-aplicado"><i class="fa fa-check"></i><b>3.4.3</b> <strong>Exemplo aplicado</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html"><i class="fa fa-check"></i><b>7</b> Estatística Descritiva</a>
+<li class="chapter" data-level="4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html"><i class="fa fa-check"></i><b>4</b> Tamanho da Amostra</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>7.1</b> Medidas de Tendência Central (ou Posição)</a>
+<li class="chapter" data-level="4.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#passos-básicos-para-o-cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.1</b> Passos básicos para o cálculo do tamanho da amostra</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#média"><i class="fa fa-check"></i><b>7.1.1</b> Média</a></li>
-<li class="chapter" data-level="7.1.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#mediana"><i class="fa fa-check"></i><b>7.1.2</b> Mediana</a></li>
-<li class="chapter" data-level="7.1.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#quartis"><i class="fa fa-check"></i><b>7.1.3</b> Quartis</a></li>
-<li class="chapter" data-level="7.1.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#moda"><i class="fa fa-check"></i><b>7.1.4</b> Moda</a></li>
+<li class="chapter" data-level="4.1.1" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#exemplo-de-cálculo-simples"><i class="fa fa-check"></i><b>4.1.1</b> Exemplo de cálculo simples</a></li>
+<li class="chapter" data-level="4.1.2" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#ferramentas-para-cálculo-de-amostra"><i class="fa fa-check"></i><b>4.1.2</b> Ferramentas para cálculo de amostra</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>7.2</b> Medidas de Dispersão (ou Variabilidade)</a>
-<ul>
-<li class="chapter" data-level="7.2.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude"><i class="fa fa-check"></i><b>7.2.1</b> Amplitude</a></li>
-<li class="chapter" data-level="7.2.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#variância"><i class="fa fa-check"></i><b>7.2.2</b> Variância</a></li>
-<li class="chapter" data-level="7.2.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#desvio-padrão-dp"><i class="fa fa-check"></i><b>7.2.3</b> Desvio padrão (DP)</a></li>
-<li class="chapter" data-level="7.2.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude-interquartil-iqr"><i class="fa fa-check"></i><b>7.2.4</b> Amplitude interquartil (IQR)</a></li>
+<li class="chapter" data-level="4.2" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#cálculo-do-tamanho-da-amostra"><i class="fa fa-check"></i><b>4.2</b> Cálculo do Tamanho da Amostra</a></li>
+<li class="chapter" data-level="4.3" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#conclusão"><i class="fa fa-check"></i><b>4.3</b> Conclusão</a></li>
+<li class="chapter" data-level="4.4" data-path="tamanho-da-amostra.html"><a href="tamanho-da-amostra.html#atividade-2"><i class="fa fa-check"></i><b>4.4</b> Atividade 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>7.3</b> Medida Relativa de Variabilidade</a>
+<li class="chapter" data-level="5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html"><i class="fa fa-check"></i><b>5</b> Técnicas de Amostragem</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#coeficiente-de-variação-cv"><i class="fa fa-check"></i><b>7.3.1</b> Coeficiente de Variação (CV)</a></li>
+<li class="chapter" data-level="5.1" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-aleatória-simples"><i class="fa fa-check"></i><b>5.1</b> Amostragem Aleatória Simples</a></li>
+<li class="chapter" data-level="5.2" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-estratificada"><i class="fa fa-check"></i><b>5.2</b> Amostragem Estratificada</a></li>
+<li class="chapter" data-level="5.3" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-sistemática"><i class="fa fa-check"></i><b>5.3</b> Amostragem Sistemática</a></li>
+<li class="chapter" data-level="5.4" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-por-conglomerados"><i class="fa fa-check"></i><b>5.4</b> Amostragem por Conglomerados</a></li>
+<li class="chapter" data-level="5.5" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#amostragem-por-conveniência"><i class="fa fa-check"></i><b>5.5</b> Amostragem por Conveniência</a></li>
+<li class="chapter" data-level="5.6" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#combinando-técnicas-na-prática"><i class="fa fa-check"></i><b>5.6</b> Combinando Técnicas na Prática</a></li>
+<li class="chapter" data-level="5.7" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#evitar-viés-na-amostragem"><i class="fa fa-check"></i><b>5.7</b> Evitar Viés na Amostragem</a></li>
+<li class="chapter" data-level="5.8" data-path="técnicas-de-amostragem.html"><a href="técnicas-de-amostragem.html#resumindo"><i class="fa fa-check"></i><b>5.8</b> Resumindo</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#apresentação-dos-resultados"><i class="fa fa-check"></i><b>7.4</b> Apresentação dos Resultados</a></li>
-<li class="chapter" data-level="7.5" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#funções-no-r"><i class="fa fa-check"></i><b>7.5</b> Funções no R</a></li>
-<li class="chapter" data-level="7.6" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#atividade-4"><i class="fa fa-check"></i><b>7.6</b> Atividade 4</a></li>
+<li class="chapter" data-level="6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html"><i class="fa fa-check"></i><b>6</b> Ambiente Computacional</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-pagos"><i class="fa fa-check"></i><b>6.1</b> Softwares pagos</a></li>
+<li class="chapter" data-level="6.2" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#softwares-livres"><i class="fa fa-check"></i><b>6.2</b> Softwares livres</a></li>
+<li class="chapter" data-level="6.3" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#linguagens-computacionais"><i class="fa fa-check"></i><b>6.3</b> Linguagens computacionais</a></li>
+<li class="chapter" data-level="6.4" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#preparando-o-ambiente-computacional"><i class="fa fa-check"></i><b>6.4</b> Preparando o Ambiente Computacional</a></li>
+<li class="chapter" data-level="6.5" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio"><i class="fa fa-check"></i><b>6.5</b> Plano A: Instalação do R e RStudio</a></li>
+<li class="chapter" data-level="6.6" data-path="ambiente-computacional.html"><a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem"><i class="fa fa-check"></i><b>6.6</b> Plano B: R e RStudio na Nuvem</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>8</b> Importando banco de dados</a>
+<li class="chapter" data-level="7" data-path="trabalhando-RStudio.html"><a href="trabalhando-RStudio.html"><i class="fa fa-check"></i><b>7</b> Trabalhando no RStudio</a></li>
+<li class="chapter" data-level="8" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html"><i class="fa fa-check"></i><b>8</b> Primeiros exercícios no R</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>8.1</b> Importando um banco csv</a></li>
-<li class="chapter" data-level="8.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>8.2</b> Importando um banco xls</a></li>
-<li class="chapter" data-level="8.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>8.3</b> Exemplo 1</a></li>
-<li class="chapter" data-level="8.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>8.4</b> Exemplo 2</a></li>
-<li class="chapter" data-level="8.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>8.5</b> Exemplo 3</a></li>
+<li class="chapter" data-level="8.1" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-1"><i class="fa fa-check"></i><b>8.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="8.2" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-2"><i class="fa fa-check"></i><b>8.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="8.3" data-path="primeiros-exercícios-no-r.html"><a href="primeiros-exercícios-no-r.html#exemplo-3"><i class="fa fa-check"></i><b>8.3</b> Exemplo 3</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>9</b> Instalando pacotes</a>
+<li class="chapter" data-level="9" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html"><i class="fa fa-check"></i><b>9</b> Tipos de Variáveis</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>9.1</b> Exemplo 1</a></li>
-<li class="chapter" data-level="9.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>9.2</b> Exemplo 2</a></li>
-<li class="chapter" data-level="9.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>9.3</b> Exemplo 3</a></li>
-<li class="chapter" data-level="9.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>9.4</b> Exemplo 4</a></li>
-<li class="chapter" data-level="9.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>9.5</b> Atividade 5</a></li>
+<li class="chapter" data-level="9.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-quantitativas"><i class="fa fa-check"></i><b>9.1</b> Variáveis Quantitativas</a></li>
+<li class="chapter" data-level="9.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#variáveis-qualitativas"><i class="fa fa-check"></i><b>9.2</b> Variáveis Qualitativas</a></li>
+<li class="chapter" data-level="9.3" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#aplicação-das-variáveis-em-estatística"><i class="fa fa-check"></i><b>9.3</b> Aplicação das Variáveis em Estatística</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-descritiva-1"><i class="fa fa-check"></i><b>9.3.1</b> Estatística Descritiva:</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#estatística-inferencial-1"><i class="fa fa-check"></i><b>9.3.2</b> Estatística Inferencial:</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>10</b> Gráficos</a>
+<li class="chapter" data-level="9.4" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#atividade-3"><i class="fa fa-check"></i><b>9.4</b> Atividade 3</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>10.1</b> Histograma</a></li>
-<li class="chapter" data-level="10.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>10.2</b> Boxplot</a></li>
-<li class="chapter" data-level="10.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>10.3</b> Atividade 6</a></li>
-<li class="chapter" data-level="10.4" data-path="gráficos.html"><a href="gráficos.html#principais-vantagens"><i class="fa fa-check"></i><b>10.4</b> Principais Vantagens</a></li>
-<li class="chapter" data-level="10.5" data-path="gráficos.html"><a href="gráficos.html#exemplos-de-gráficos-simples-e-bonitos-com-ggplot2"><i class="fa fa-check"></i><b>10.5</b> Exemplos de Gráficos Simples e Bonitos com ggplot2</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="gráficos.html"><a href="gráficos.html#gráfico-de-dispersão-scatterplot"><i class="fa fa-check"></i><b>10.5.1</b> Gráfico de Dispersão (Scatterplot)</a></li>
-<li class="chapter" data-level="10.5.2" data-path="gráficos.html"><a href="gráficos.html#gráfico-de-barras"><i class="fa fa-check"></i><b>10.5.2</b> Gráfico de Barras</a></li>
-<li class="chapter" data-level="10.5.3" data-path="gráficos.html"><a href="gráficos.html#histograma-1"><i class="fa fa-check"></i><b>10.5.3</b> Histograma</a></li>
-<li class="chapter" data-level="10.5.4" data-path="gráficos.html"><a href="gráficos.html#boxplot-1"><i class="fa fa-check"></i><b>10.5.4</b> Boxplot</a></li>
-</ul></li>
-<li class="chapter" data-level="10.6" data-path="gráficos.html"><a href="gráficos.html#exemplos-de-bancos-de-dados-do-r"><i class="fa fa-check"></i><b>10.6</b> Exemplos de Bancos de Dados do R</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>11</b> Distribuição de Probabilidade</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>11.1</b> Distribuição Normal</a></li>
-<li class="chapter" data-level="11.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gráfico-qq"><i class="fa fa-check"></i><b>11.2</b> Gráfico QQ</a></li>
-<li class="chapter" data-level="11.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>11.3</b> Atividade 7</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>12</b> Exemplos de distribuições</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-discretas"><i class="fa fa-check"></i><b>12.1</b> Distribuições Discretas</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>12.1.1</b> Binomial</a></li>
-<li class="chapter" data-level="12.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>12.1.2</b> Poisson</a></li>
-<li class="chapter" data-level="12.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geométrica"><i class="fa fa-check"></i><b>12.1.3</b> Geométrica</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-contínuas"><i class="fa fa-check"></i><b>12.2</b> Distribuições Contínuas</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>12.2.1</b> Normal</a></li>
-<li class="chapter" data-level="12.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>12.2.2</b> Exponencial</a></li>
-<li class="chapter" data-level="12.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-contínua"><i class="fa fa-check"></i><b>12.2.3</b> Uniforme Contínua</a></li>
-<li class="chapter" data-level="12.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>12.2.4</b> t de Student</a></li>
-<li class="chapter" data-level="12.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-χ²"><i class="fa fa-check"></i><b>12.2.5</b> Qui-Quadrado (χ²)</a></li>
-<li class="chapter" data-level="12.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>12.2.6</b> F de Fisher</a></li>
+<li class="chapter" data-level="9.4.1" data-path="tipos-de-variáveis.html"><a href="tipos-de-variáveis.html#análise-das-tabelas"><i class="fa fa-check"></i><b>9.4.1</b> Análise das Tabelas</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>13</b> Normal ou Não?</a>
+<li class="chapter" data-level="10" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html"><i class="fa fa-check"></i><b>10</b> Estatística Descritiva</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.1</b> Dados que seguem distribuição normal</a></li>
-<li class="chapter" data-level="13.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-dúvida"><i class="fa fa-check"></i><b>13.2</b> Dados que geram dúvida</a></li>
-<li class="chapter" data-level="13.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.3</b> Dados que não seguem distribuição normal</a></li>
-<li class="chapter" data-level="13.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentração-de-repetição-de-valor-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>13.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+<li class="chapter" data-level="10.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-tendência-central-ou-posição"><i class="fa fa-check"></i><b>10.1</b> Medidas de Tendência Central (ou Posição)</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#média"><i class="fa fa-check"></i><b>10.1.1</b> Média</a></li>
+<li class="chapter" data-level="10.1.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#mediana"><i class="fa fa-check"></i><b>10.1.2</b> Mediana</a></li>
+<li class="chapter" data-level="10.1.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#quartis"><i class="fa fa-check"></i><b>10.1.3</b> Quartis</a></li>
+<li class="chapter" data-level="10.1.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#moda"><i class="fa fa-check"></i><b>10.1.4</b> Moda</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>14</b> Estatística Inferencial</a>
+<li class="chapter" data-level="10.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medidas-de-dispersão-ou-variabilidade"><i class="fa fa-check"></i><b>10.2</b> Medidas de Dispersão (ou Variabilidade)</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estatístico"><i class="fa fa-check"></i><b>14.1</b> Etapas de um Teste Estatístico</a></li>
-<li class="chapter" data-level="14.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>14.2</b> Erros Tipo I e Tipo II</a></li>
-<li class="chapter" data-level="14.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estatístico"><i class="fa fa-check"></i><b>14.3</b> Poder do Teste Estatístico</a></li>
-<li class="chapter" data-level="14.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decisões-e-poder-do-teste"><i class="fa fa-check"></i><b>14.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
-<li class="chapter" data-level="14.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>14.5</b> Tamanho do Efeito</a>
-<ul>
-<li class="chapter" data-level="14.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-é-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>14.5.1</b> O que é o Tamanho do Efeito?</a></li>
-<li class="chapter" data-level="14.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>14.5.2</b> Exemplos para Entender Melhor</a></li>
+<li class="chapter" data-level="10.2.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude"><i class="fa fa-check"></i><b>10.2.1</b> Amplitude</a></li>
+<li class="chapter" data-level="10.2.2" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#variância"><i class="fa fa-check"></i><b>10.2.2</b> Variância</a></li>
+<li class="chapter" data-level="10.2.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#desvio-padrão-dp"><i class="fa fa-check"></i><b>10.2.3</b> Desvio padrão (DP)</a></li>
+<li class="chapter" data-level="10.2.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#amplitude-interquartil-iqr"><i class="fa fa-check"></i><b>10.2.4</b> Amplitude interquartil (IQR)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.6" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#medidas-comuns-de-tamanho-do-efeito"><i class="fa fa-check"></i><b>14.6</b> Medidas Comuns de Tamanho do Efeito</a>
+<li class="chapter" data-level="10.3" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#medida-relativa-de-variabilidade"><i class="fa fa-check"></i><b>10.3</b> Medida Relativa de Variabilidade</a>
 <ul>
-<li class="chapter" data-level="14.6.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>14.6.1</b> d de Cohen (teste t)</a></li>
-<li class="chapter" data-level="14.6.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#c-de-cramer-para-tabela-2x2-teste-qui-quadrado"><i class="fa fa-check"></i><b>14.6.2</b> C de Cramer, para tabela 2x2 (teste qui-quadrado)</a></li>
-<li class="chapter" data-level="14.6.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#coeficiente-de-correlação-de-pearson-r"><i class="fa fa-check"></i><b>14.6.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+<li class="chapter" data-level="10.3.1" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#coeficiente-de-variação-cv"><i class="fa fa-check"></i><b>10.3.1</b> Coeficiente de Variação (CV)</a></li>
 </ul></li>
-<li class="chapter" data-level="14.7" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#por-que-o-tamanho-do-efeito-é-importante"><i class="fa fa-check"></i><b>14.7</b> Por que o Tamanho do Efeito é Importante?</a></li>
-<li class="chapter" data-level="14.8" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>14.8</b> Testes</a></li>
+<li class="chapter" data-level="10.4" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#apresentação-dos-resultados"><i class="fa fa-check"></i><b>10.4</b> Apresentação dos Resultados</a></li>
+<li class="chapter" data-level="10.5" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#funções-no-r"><i class="fa fa-check"></i><b>10.5</b> Funções no R</a></li>
+<li class="chapter" data-level="10.6" data-path="estatística-descritiva-2.html"><a href="estatística-descritiva-2.html#atividade-4"><i class="fa fa-check"></i><b>10.6</b> Atividade 4</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html"><i class="fa fa-check"></i><b>15</b> Testes de Comparação entre Grupos</a>
+<li class="chapter" data-level="11" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>11</b> Importando banco de dados</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-pareadas-dependentes"><i class="fa fa-check"></i><b>15.1</b> Comparações Pareadas (Dependentes)</a></li>
-<li class="chapter" data-level="15.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-não-pareadas-independentes"><i class="fa fa-check"></i><b>15.2</b> Comparações Não-Pareadas (Independentes)</a></li>
-<li class="chapter" data-level="15.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#número-de-grupos-na-comparação"><i class="fa fa-check"></i><b>15.3</b> Número de Grupos na Comparação</a></li>
-<li class="chapter" data-level="15.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#testes-paramétricos-e-não-paramétricos"><i class="fa fa-check"></i><b>15.4</b> Testes Paramétricos e Não Paramétricos</a></li>
-<li class="chapter" data-level="15.5" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-t-pareado"><i class="fa fa-check"></i><b>15.5</b> Teste t pareado</a></li>
-<li class="chapter" data-level="15.6" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#wilcoxon-pareado"><i class="fa fa-check"></i><b>15.6</b> Wilcoxon pareado</a></li>
-<li class="chapter" data-level="15.7" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-t-não-pareado"><i class="fa fa-check"></i><b>15.7</b> Teste t não pareado</a>
-<ul>
-<li class="chapter" data-level="15.7.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-de-variância"><i class="fa fa-check"></i><b>15.7.1</b> Teste de variância</a></li>
+<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-csv"><i class="fa fa-check"></i><b>11.1</b> Importando um banco csv</a></li>
+<li class="chapter" data-level="11.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#importando-um-banco-xls"><i class="fa fa-check"></i><b>11.2</b> Importando um banco xls</a></li>
+<li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>11.3</b> Exemplo 1</a></li>
+<li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>11.4</b> Exemplo 2</a></li>
+<li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
 </ul></li>
-<li class="chapter" data-level="15.8" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#wilcoxon-não-pareado"><i class="fa fa-check"></i><b>15.8</b> Wilcoxon não pareado</a></li>
-<li class="chapter" data-level="15.9" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-bilateral-vs.-teste-unilateral"><i class="fa fa-check"></i><b>15.9</b> Teste bilateral vs. teste unilateral</a>
+<li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
 <ul>
-<li class="chapter" data-level="15.9.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#o-que-são"><i class="fa fa-check"></i><b>15.9.1</b> O que são?</a></li>
-<li class="chapter" data-level="15.9.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#formulação-das-hipóteses"><i class="fa fa-check"></i><b>15.9.2</b> Formulação das hipóteses</a></li>
-<li class="chapter" data-level="15.9.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#influência-no-cálculo-do-p-valor"><i class="fa fa-check"></i><b>15.9.3</b> Influência no cálculo do p-valor</a></li>
-<li class="chapter" data-level="15.9.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#o-que-muda-nas-funções-t.test-e-wilcox.test"><i class="fa fa-check"></i><b>15.9.4</b> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code></a></li>
+<li class="chapter" data-level="12.1" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-1-2"><i class="fa fa-check"></i><b>12.1</b> Exemplo 1</a></li>
+<li class="chapter" data-level="12.2" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-2-2"><i class="fa fa-check"></i><b>12.2</b> Exemplo 2</a></li>
+<li class="chapter" data-level="12.3" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-3-2"><i class="fa fa-check"></i><b>12.3</b> Exemplo 3</a></li>
+<li class="chapter" data-level="12.4" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#exemplo-4"><i class="fa fa-check"></i><b>12.4</b> Exemplo 4</a></li>
+<li class="chapter" data-level="12.5" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html#atividade-5"><i class="fa fa-check"></i><b>12.5</b> Atividade 5</a></li>
 </ul></li>
-<li class="chapter" data-level="15.10" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exercício-1"><i class="fa fa-check"></i><b>15.10</b> Exercício 1</a></li>
-<li class="chapter" data-level="15.11" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exercício-2"><i class="fa fa-check"></i><b>15.11</b> Exercício 2</a></li>
-<li class="chapter" data-level="15.12" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exercício-3"><i class="fa fa-check"></i><b>15.12</b> Exercício 3</a></li>
-<li class="chapter" data-level="15.13" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exercício-4"><i class="fa fa-check"></i><b>15.13</b> Exercício 4</a></li>
+<li class="chapter" data-level="13" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>13</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>13.1</b> Histograma</a></li>
+<li class="chapter" data-level="13.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>13.2</b> Boxplot</a></li>
+<li class="chapter" data-level="13.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>13.3</b> Atividade 6</a></li>
 </ul></li>
-<li class="chapter" data-level="16" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html"><i class="fa fa-check"></i><b>16</b> Cálculo amostral no R</a>
+<li class="chapter" data-level="14" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html"><i class="fa fa-check"></i><b>14</b> Pacote <code>ggplot</code></a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#principais-pacotes-para-cálculo-amostral"><i class="fa fa-check"></i><b>16.1</b> Principais Pacotes para Cálculo Amostral</a></li>
-<li class="chapter" data-level="16.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>16.2</b> Exemplo de cálculo amostral para teste t</a></li>
-<li class="chapter" data-level="16.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-é-o-d-de-cohen"><i class="fa fa-check"></i><b>16.3</b> O que é o d de Cohen?</a>
+<li class="chapter" data-level="14.1" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#principais-vantagens"><i class="fa fa-check"></i><b>14.1</b> Principais Vantagens</a></li>
+<li class="chapter" data-level="14.2" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#exemplos-de-gráficos-simples-e-bonitos-com-ggplot2"><i class="fa fa-check"></i><b>14.2</b> Exemplos de Gráficos Simples e Bonitos com ggplot2</a>
 <ul>
-<li class="chapter" data-level="16.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-geral"><i class="fa fa-check"></i><b>16.3.1</b> Fórmula Geral</a></li>
-<li class="chapter" data-level="16.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-prático-em-r"><i class="fa fa-check"></i><b>16.3.2</b> Exemplo prático em R</a></li>
+<li class="chapter" data-level="14.2.1" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#gráfico-de-dispersão-scatterplot"><i class="fa fa-check"></i><b>14.2.1</b> Gráfico de Dispersão (Scatterplot)</a></li>
+<li class="chapter" data-level="14.2.2" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#gráfico-de-barras"><i class="fa fa-check"></i><b>14.2.2</b> Gráfico de Barras</a></li>
+<li class="chapter" data-level="14.2.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#histograma-1"><i class="fa fa-check"></i><b>14.2.3</b> Histograma</a></li>
+<li class="chapter" data-level="14.2.4" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#boxplot-1"><i class="fa fa-check"></i><b>14.2.4</b> Boxplot</a></li>
 </ul></li>
-<li class="chapter" data-level="16.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-práticos"><i class="fa fa-check"></i><b>16.4</b> Exemplos práticos</a>
-<ul>
-<li class="chapter" data-level="16.4.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#medicina-comparação-de-dois-tratamentos-para-dor"><i class="fa fa-check"></i><b>16.4.1</b> Medicina: Comparação de dois tratamentos para dor</a></li>
-<li class="chapter" data-level="16.4.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#psicologia-intervenção-para-redução-de-ansiedade"><i class="fa fa-check"></i><b>16.4.2</b> Psicologia: Intervenção para redução de ansiedade</a></li>
-<li class="chapter" data-level="16.4.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#educação-física-efeito-de-um-programa-de-treinamento-na-performance-de-corrida"><i class="fa fa-check"></i><b>16.4.3</b> Educação Física: Efeito de um programa de treinamento na performance de corrida</a></li>
+<li class="chapter" data-level="14.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#exemplos-de-bancos-de-dados-do-r"><i class="fa fa-check"></i><b>14.3</b> Exemplos de Bancos de Dados do R</a></li>
 </ul></li>
-<li class="chapter" data-level="16.5" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-você-já-tem-o-tamanho-da-amostra"><i class="fa fa-check"></i><b>16.5</b> Como calcular o poder do teste quando você já tem o tamanho da amostra</a>
+<li class="chapter" data-level="15" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>15</b> Distribuição de Probabilidade</a>
 <ul>
-<li class="chapter" data-level="16.5.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo"><i class="fa fa-check"></i><b>16.5.1</b> Exemplo</a></li>
+<li class="chapter" data-level="15.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribuição-normal"><i class="fa fa-check"></i><b>15.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="15.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gráfico-qq"><i class="fa fa-check"></i><b>15.2</b> Gráfico QQ</a></li>
+<li class="chapter" data-level="15.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>15.3</b> Atividade 7</a></li>
 </ul></li>
-<li class="chapter" data-level="16.6" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#cálculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon"><i class="fa fa-check"></i><b>16.6</b> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon</a>
+<li class="chapter" data-level="16" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>16</b> Exemplos de distribuições</a>
 <ul>
-<li class="chapter" data-level="16.6.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-t-pareado-1"><i class="fa fa-check"></i><b>16.6.1</b> Teste t Pareado</a></li>
-<li class="chapter" data-level="16.6.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-não-pareadas"><i class="fa fa-check"></i><b>16.6.2</b> Teste de Wilcoxon para Amostras Não Pareadas</a></li>
-<li class="chapter" data-level="16.6.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado"><i class="fa fa-check"></i><b>16.6.3</b> Teste de Wilcoxon Pareado</a></li>
+<li class="chapter" data-level="16.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-discretas"><i class="fa fa-check"></i><b>16.1</b> Distribuições Discretas</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>16.1.1</b> Binomial</a></li>
+<li class="chapter" data-level="16.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>16.1.2</b> Poisson</a></li>
+<li class="chapter" data-level="16.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geométrica"><i class="fa fa-check"></i><b>16.1.3</b> Geométrica</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html"><i class="fa fa-check"></i><b>17</b> Memes de Estatística: p-valor</a>
+<li class="chapter" data-level="16.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribuições-contínuas"><i class="fa fa-check"></i><b>16.2</b> Distribuições Contínuas</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#quando-você-encontra-um-p-valor-baixo-e-sabe-que-deve-rejeitar-h0"><i class="fa fa-check"></i><b>17.1</b> Quando você encontra um p-valor baixo e sabe que deve rejeitar H0</a></li>
-<li class="chapter" data-level="17.2" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#homem-aranha-apontando"><i class="fa fa-check"></i><b>17.2</b> Homem-Aranha apontando</a></li>
-<li class="chapter" data-level="17.3" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#namorado-distraído"><i class="fa fa-check"></i><b>17.3</b> Namorado distraído</a></li>
-<li class="chapter" data-level="17.4" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#willy-wonka-e-o-p-valor-menor-que-005"><i class="fa fa-check"></i><b>17.4</b> Willy Wonka e o p-valor menor que 0,05</a></li>
-<li class="chapter" data-level="17.5" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#cantada-nerd"><i class="fa fa-check"></i><b>17.5</b> Cantada Nerd</a></li>
-<li class="chapter" data-level="17.6" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#p-valor-não-é-tudo"><i class="fa fa-check"></i><b>17.6</b> P-valor não é tudo</a></li>
-<li class="chapter" data-level="17.7" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#coitado-do-tamanho-do-efeito"><i class="fa fa-check"></i><b>17.7</b> Coitado do tamanho do efeito</a></li>
-<li class="chapter" data-level="17.8" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#senhora-estatística"><i class="fa fa-check"></i><b>17.8</b> Senhora estatística</a></li>
-<li class="chapter" data-level="17.9" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#pobi-do-gatinho"><i class="fa fa-check"></i><b>17.9</b> Pobi do gatinho</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html"><i class="fa fa-check"></i><b>18</b> Pacotes <code>pwr</code>, <code>rstatix</code> e <code>effsize</code></a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#cálculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr"><i class="fa fa-check"></i><b>18.1</b> Cálculos de tamanho de amostra, poder e efeito com o pacote <code>pwr</code></a>
-<ul>
-<li class="chapter" data-level="18.1.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-1-tamanho-da-amostra-para-teste-t-não-pareado"><i class="fa fa-check"></i><b>18.1.1</b> Exercício 1: Tamanho da amostra para teste t não pareado</a></li>
-<li class="chapter" data-level="18.1.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-2-poder-do-teste-t-não-pareado-para-n-fixo"><i class="fa fa-check"></i><b>18.1.2</b> Exercício 2: Poder do teste t não pareado para n fixo</a></li>
-<li class="chapter" data-level="18.1.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-3-menor-efeito-detectável-no-teste-t-não-pareado"><i class="fa fa-check"></i><b>18.1.3</b> Exercício 3: Menor efeito detectável no teste t não pareado</a></li>
-<li class="chapter" data-level="18.1.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-4-repita-para-outros-testes"><i class="fa fa-check"></i><b>18.1.4</b> Exercício 4: Repita para outros testes</a></li>
-<li class="chapter" data-level="18.1.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#argumentos-principais-da-função-pwr.t.test"><i class="fa fa-check"></i><b>18.1.5</b> Argumentos principais da função <code>pwr.t.test()</code></a></li>
-<li class="chapter" data-level="18.1.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#grupos-desbalanceados-usando-pwr.t2n.test"><i class="fa fa-check"></i><b>18.1.6</b> Grupos Desbalanceados: usando <code>pwr.t2n.test()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#tamanho-do-efeito-em-testes-de-wilcoxon"><i class="fa fa-check"></i><b>18.2</b> Tamanho do efeito em testes de Wilcoxon</a>
-<ul>
-<li class="chapter" data-level="18.2.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#por-que-não-usar-d-de-cohen-no-wilcoxon"><i class="fa fa-check"></i><b>18.2.1</b> Por que NÃO usar d de Cohen no Wilcoxon?</a></li>
-<li class="chapter" data-level="18.2.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#medidas-recomendadas-para-wilcoxon"><i class="fa fa-check"></i><b>18.2.2</b> Medidas recomendadas para Wilcoxon:</a></li>
-<li class="chapter" data-level="18.2.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#comparação-entre-o-r-de-wilcoxon-e-o-delta-de-cliff"><i class="fa fa-check"></i><b>18.2.3</b> Comparação entre o r de Wilcoxon e o Delta de Cliff</a></li>
-<li class="chapter" data-level="18.2.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#r-de-wilcoxon"><i class="fa fa-check"></i><b>18.2.4</b> r de Wilcoxon</a></li>
-<li class="chapter" data-level="18.2.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#delta-de-cliff-delta"><i class="fa fa-check"></i><b>18.2.5</b> Delta de Cliff (<span class="math inline">\(\delta\)</span>)</a></li>
-<li class="chapter" data-level="18.2.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#qual-é-melhor-usar"><i class="fa fa-check"></i><b>18.2.6</b> Qual é melhor usar?</a></li>
+<li class="chapter" data-level="16.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>16.2.1</b> Normal</a></li>
+<li class="chapter" data-level="16.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>16.2.2</b> Exponencial</a></li>
+<li class="chapter" data-level="16.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-contínua"><i class="fa fa-check"></i><b>16.2.3</b> Uniforme Contínua</a></li>
+<li class="chapter" data-level="16.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>16.2.4</b> t de Student</a></li>
+<li class="chapter" data-level="16.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-χ²"><i class="fa fa-check"></i><b>16.2.5</b> Qui-Quadrado (χ²)</a></li>
+<li class="chapter" data-level="16.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>16.2.6</b> F de Fisher</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html"><i class="fa fa-check"></i><b>19</b> Teste de Normalidade</a>
+<li class="chapter" data-level="17" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>17</b> Normal ou Não?</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#hipóteses-nos-testes-de-normalidade"><i class="fa fa-check"></i><b>19.1</b> Hipóteses nos Testes de Normalidade</a></li>
-<li class="chapter" data-level="19.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#principais-testes-de-normalidade"><i class="fa fa-check"></i><b>19.2</b> Principais Testes de Normalidade</a>
-<ul>
-<li class="chapter" data-level="19.2.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#dicas-de-uso"><i class="fa fa-check"></i><b>19.2.1</b> Dicas de Uso</a></li>
-<li class="chapter" data-level="19.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-prático-em-r-1"><i class="fa fa-check"></i><b>19.2.2</b> Exemplo Prático em R</a></li>
+<li class="chapter" data-level="17.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribuição-normal"><i class="fa fa-check"></i><b>17.1</b> Dados que seguem distribuição normal</a></li>
+<li class="chapter" data-level="17.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-dúvida"><i class="fa fa-check"></i><b>17.2</b> Dados que geram dúvida</a></li>
+<li class="chapter" data-level="17.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>17.3</b> Dados que não seguem distribuição normal</a></li>
+<li class="chapter" data-level="17.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentração-de-repetição-de-valor-não-seguem-distribuição-normal"><i class="fa fa-check"></i><b>17.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
 </ul></li>
-<li class="chapter" data-level="19.3" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#assimetria-e-curtose-o-que-são-e-por-que-são-importantes"><i class="fa fa-check"></i><b>19.3</b> Assimetria e Curtose: O que são e por que são importantes?</a>
+<li class="chapter" data-level="18" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>18</b> Estatística Inferencial</a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-é-assimetria-skewness"><i class="fa fa-check"></i><b>19.3.1</b> O que é Assimetria (Skewness)?</a></li>
-<li class="chapter" data-level="19.3.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-é-curtose-kurtosis"><i class="fa fa-check"></i><b>19.3.2</b> O que é Curtose (Kurtosis)?</a></li>
+<li class="chapter" data-level="18.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estatístico"><i class="fa fa-check"></i><b>18.1</b> Etapas de um Teste Estatístico</a></li>
+<li class="chapter" data-level="18.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>18.2</b> Erros Tipo I e Tipo II</a></li>
+<li class="chapter" data-level="18.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estatístico"><i class="fa fa-check"></i><b>18.3</b> Poder do Teste Estatístico</a></li>
+<li class="chapter" data-level="18.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decisões-e-poder-do-teste"><i class="fa fa-check"></i><b>18.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
+<li class="chapter" data-level="18.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>18.5</b> Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-é-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>18.5.1</b> O que é o Tamanho do Efeito?</a></li>
+<li class="chapter" data-level="18.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>18.5.2</b> Exemplos para Entender Melhor</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#medidas-comuns-de-tamanho-do-efeito"><i class="fa fa-check"></i><b>18.6</b> Medidas Comuns de Tamanho do Efeito</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>18.6.1</b> d de Cohen (teste t)</a></li>
+<li class="chapter" data-level="18.6.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#c-de-cramer-para-tabela-2x2-teste-qui-quadrado"><i class="fa fa-check"></i><b>18.6.2</b> C de Cramer, para tabela 2x2 (teste qui-quadrado)</a></li>
+<li class="chapter" data-level="18.6.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#coeficiente-de-correlação-de-pearson-r"><i class="fa fa-check"></i><b>18.6.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#por-que-o-tamanho-do-efeito-é-importante"><i class="fa fa-check"></i><b>18.7</b> Por que o Tamanho do Efeito é Importante?</a></li>
+<li class="chapter" data-level="18.8" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>18.8</b> Testes</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html"><i class="fa fa-check"></i><b>19</b> Testes de Comparação entre Grupos</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-pareadas-dependentes"><i class="fa fa-check"></i><b>19.1</b> Comparações Pareadas (Dependentes)</a></li>
+<li class="chapter" data-level="19.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#comparações-não-pareadas-independentes"><i class="fa fa-check"></i><b>19.2</b> Comparações Não-Pareadas (Independentes)</a></li>
+<li class="chapter" data-level="19.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#número-de-grupos-na-comparação"><i class="fa fa-check"></i><b>19.3</b> Número de Grupos na Comparação</a></li>
+<li class="chapter" data-level="19.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#testes-paramétricos-e-não-paramétricos"><i class="fa fa-check"></i><b>19.4</b> Testes Paramétricos e Não Paramétricos</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html"><i class="fa fa-check"></i><b>20</b> Comparação entre dois grupos</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-pareado"><i class="fa fa-check"></i><b>20.1</b> Teste t pareado</a></li>
+<li class="chapter" data-level="20.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-pareado"><i class="fa fa-check"></i><b>20.2</b> Wilcoxon pareado</a></li>
+<li class="chapter" data-level="20.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-não-pareado"><i class="fa fa-check"></i><b>20.3</b> Teste t não pareado</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-de-variância"><i class="fa fa-check"></i><b>20.3.1</b> Teste de variância</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-não-pareado"><i class="fa fa-check"></i><b>20.4</b> Wilcoxon não pareado</a></li>
+<li class="chapter" data-level="20.5" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-bilateral-vs.-teste-unilateral"><i class="fa fa-check"></i><b>20.5</b> Teste bilateral vs. teste unilateral</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-são"><i class="fa fa-check"></i><b>20.5.1</b> O que são?</a></li>
+<li class="chapter" data-level="20.5.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#formulação-das-hipóteses"><i class="fa fa-check"></i><b>20.5.2</b> Formulação das hipóteses</a></li>
+<li class="chapter" data-level="20.5.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#influência-no-cálculo-do-p-valor"><i class="fa fa-check"></i><b>20.5.3</b> Influência no cálculo do p-valor</a></li>
+<li class="chapter" data-level="20.5.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-muda-nas-funções-t.test-e-wilcox.test"><i class="fa fa-check"></i><b>20.5.4</b> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-1"><i class="fa fa-check"></i><b>20.6</b> Exercício 1</a></li>
+<li class="chapter" data-level="20.7" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-2"><i class="fa fa-check"></i><b>20.7</b> Exercício 2</a></li>
+<li class="chapter" data-level="20.8" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-3"><i class="fa fa-check"></i><b>20.8</b> Exercício 3</a></li>
+<li class="chapter" data-level="20.9" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exercício-4"><i class="fa fa-check"></i><b>20.9</b> Exercício 4</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html"><i class="fa fa-check"></i><b>21</b> Cálculo amostral no R</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#principais-pacotes-para-cálculo-amostral"><i class="fa fa-check"></i><b>21.1</b> Principais Pacotes para Cálculo Amostral</a></li>
+<li class="chapter" data-level="21.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>21.2</b> Exemplo de cálculo amostral para teste t</a></li>
+<li class="chapter" data-level="21.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-é-o-d-de-cohen"><i class="fa fa-check"></i><b>21.3</b> O que é o d de Cohen?</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-geral"><i class="fa fa-check"></i><b>21.3.1</b> Fórmula Geral</a></li>
+<li class="chapter" data-level="21.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-prático-em-r"><i class="fa fa-check"></i><b>21.3.2</b> Exemplo prático em R</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-práticos"><i class="fa fa-check"></i><b>21.4</b> Exemplos práticos</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#medicina-comparação-de-dois-tratamentos-para-dor"><i class="fa fa-check"></i><b>21.4.1</b> Medicina: Comparação de dois tratamentos para dor</a></li>
+<li class="chapter" data-level="21.4.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#psicologia-intervenção-para-redução-de-ansiedade"><i class="fa fa-check"></i><b>21.4.2</b> Psicologia: Intervenção para redução de ansiedade</a></li>
+<li class="chapter" data-level="21.4.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#educação-física-efeito-de-um-programa-de-treinamento-na-performance-de-corrida"><i class="fa fa-check"></i><b>21.4.3</b> Educação Física: Efeito de um programa de treinamento na performance de corrida</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-você-já-tem-o-tamanho-da-amostra"><i class="fa fa-check"></i><b>21.5</b> Como calcular o poder do teste quando você já tem o tamanho da amostra</a>
+<ul>
+<li class="chapter" data-level="21.5.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo"><i class="fa fa-check"></i><b>21.5.1</b> Exemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#cálculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon"><i class="fa fa-check"></i><b>21.6</b> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon</a>
+<ul>
+<li class="chapter" data-level="21.6.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-t-pareado-1"><i class="fa fa-check"></i><b>21.6.1</b> Teste t Pareado</a></li>
+<li class="chapter" data-level="21.6.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-não-pareadas"><i class="fa fa-check"></i><b>21.6.2</b> Teste de Wilcoxon para Amostras Não Pareadas</a></li>
+<li class="chapter" data-level="21.6.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado"><i class="fa fa-check"></i><b>21.6.3</b> Teste de Wilcoxon Pareado</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html"><i class="fa fa-check"></i><b>20</b> Comparação de mais de dois grupos</a>
+<li class="chapter" data-level="22" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html"><i class="fa fa-check"></i><b>22</b> Memes de Estatística: p-valor</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hipóteses-da-comparação-entre-dois-grupos"><i class="fa fa-check"></i><b>20.1</b> Revisando as hipóteses da comparação entre dois grupos</a></li>
-<li class="chapter" data-level="20.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#hipóteses-para-a-comparação-entre-mais-de-dois-grupos"><i class="fa fa-check"></i><b>20.2</b> Hipóteses para a comparação entre mais de dois grupos</a></li>
-<li class="chapter" data-level="20.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-paramétricos"><i class="fa fa-check"></i><b>20.3</b> Testes Paramétricos</a>
-<ul>
-<li class="chapter" data-level="20.3.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pré-requisitos-para-anova-dados-pareados-ou-não"><i class="fa fa-check"></i><b>20.3.1</b> Pré-requisitos para ANOVA (dados pareados ou não)</a></li>
+<li class="chapter" data-level="22.1" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#quando-você-encontra-um-p-valor-baixo-e-sabe-que-deve-rejeitar-h0"><i class="fa fa-check"></i><b>22.1</b> Quando você encontra um p-valor baixo e sabe que deve rejeitar H0</a></li>
+<li class="chapter" data-level="22.2" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#homem-aranha-apontando"><i class="fa fa-check"></i><b>22.2</b> Homem-Aranha apontando</a></li>
+<li class="chapter" data-level="22.3" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#namorado-distraído"><i class="fa fa-check"></i><b>22.3</b> Namorado distraído</a></li>
+<li class="chapter" data-level="22.4" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#willy-wonka-e-o-p-valor-menor-que-005"><i class="fa fa-check"></i><b>22.4</b> Willy Wonka e o p-valor menor que 0,05</a></li>
+<li class="chapter" data-level="22.5" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#cantada-nerd"><i class="fa fa-check"></i><b>22.5</b> Cantada Nerd</a></li>
+<li class="chapter" data-level="22.6" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#p-valor-não-é-tudo"><i class="fa fa-check"></i><b>22.6</b> P-valor não é tudo</a></li>
+<li class="chapter" data-level="22.7" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#coitado-do-tamanho-do-efeito"><i class="fa fa-check"></i><b>22.7</b> Coitado do tamanho do efeito</a></li>
+<li class="chapter" data-level="22.8" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#senhora-estatística"><i class="fa fa-check"></i><b>22.8</b> Senhora estatística</a></li>
+<li class="chapter" data-level="22.9" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#pobi-do-gatinho"><i class="fa fa-check"></i><b>22.9</b> Pobi do gatinho</a></li>
 </ul></li>
-<li class="chapter" data-level="20.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-não-paramétricos"><i class="fa fa-check"></i><b>20.4</b> Testes Não Paramétricos</a></li>
-<li class="chapter" data-level="20.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r"><i class="fa fa-check"></i><b>20.5</b> ANOVA de uma via no R</a>
+<li class="chapter" data-level="23" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html"><i class="fa fa-check"></i><b>23</b> Pacotes <code>pwr</code>, <code>rstatix</code> e <code>effsize</code></a>
 <ul>
-<li class="chapter" data-level="20.5.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#simulação-de-dados"><i class="fa fa-check"></i><b>20.5.1</b> Simulação de Dados</a></li>
-<li class="chapter" data-level="20.5.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualização-dos-dados"><i class="fa fa-check"></i><b>20.5.2</b> Visualização dos Dados</a></li>
-<li class="chapter" data-level="20.5.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#verificação-dos-pré-requisitos-para-anova"><i class="fa fa-check"></i><b>20.5.3</b> Verificação dos Pré-requisitos para ANOVA</a></li>
-<li class="chapter" data-level="20.5.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via"><i class="fa fa-check"></i><b>20.5.4</b> ANOVA de Uma Via</a></li>
+<li class="chapter" data-level="23.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#cálculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr"><i class="fa fa-check"></i><b>23.1</b> Cálculos de tamanho de amostra, poder e efeito com o pacote <code>pwr</code></a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-1-tamanho-da-amostra-para-teste-t-não-pareado"><i class="fa fa-check"></i><b>23.1.1</b> Exercício 1: Tamanho da amostra para teste t não pareado</a></li>
+<li class="chapter" data-level="23.1.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-2-poder-do-teste-t-não-pareado-para-n-fixo"><i class="fa fa-check"></i><b>23.1.2</b> Exercício 2: Poder do teste t não pareado para n fixo</a></li>
+<li class="chapter" data-level="23.1.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-3-menor-efeito-detectável-no-teste-t-não-pareado"><i class="fa fa-check"></i><b>23.1.3</b> Exercício 3: Menor efeito detectável no teste t não pareado</a></li>
+<li class="chapter" data-level="23.1.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exercício-4-repita-para-outros-testes"><i class="fa fa-check"></i><b>23.1.4</b> Exercício 4: Repita para outros testes</a></li>
+<li class="chapter" data-level="23.1.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#argumentos-principais-da-função-pwr.t.test"><i class="fa fa-check"></i><b>23.1.5</b> Argumentos principais da função <code>pwr.t.test()</code></a></li>
+<li class="chapter" data-level="23.1.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#grupos-desbalanceados-usando-pwr.t2n.test"><i class="fa fa-check"></i><b>23.1.6</b> Grupos Desbalanceados: usando <code>pwr.t2n.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="20.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r"><i class="fa fa-check"></i><b>20.6</b> Kruskal-Wallis no R</a>
+<li class="chapter" data-level="23.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#tamanho-do-efeito-em-testes-de-wilcoxon"><i class="fa fa-check"></i><b>23.2</b> Tamanho do efeito em testes de Wilcoxon</a>
 <ul>
-<li class="chapter" data-level="20.6.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis"><i class="fa fa-check"></i><b>20.6.1</b> Teste Post Hoc para Kruskal-Wallis</a></li>
+<li class="chapter" data-level="23.2.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#por-que-não-usar-d-de-cohen-no-wilcoxon"><i class="fa fa-check"></i><b>23.2.1</b> Por que NÃO usar d de Cohen no Wilcoxon?</a></li>
+<li class="chapter" data-level="23.2.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#medidas-recomendadas-para-wilcoxon"><i class="fa fa-check"></i><b>23.2.2</b> Medidas recomendadas para Wilcoxon:</a></li>
+<li class="chapter" data-level="23.2.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#comparação-entre-o-r-de-wilcoxon-e-o-delta-de-cliff"><i class="fa fa-check"></i><b>23.2.3</b> Comparação entre o r de Wilcoxon e o Delta de Cliff</a></li>
+<li class="chapter" data-level="23.2.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#r-de-wilcoxon"><i class="fa fa-check"></i><b>23.2.4</b> r de Wilcoxon</a></li>
+<li class="chapter" data-level="23.2.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#delta-de-cliff-delta"><i class="fa fa-check"></i><b>23.2.5</b> Delta de Cliff (<span class="math inline">\(\delta\)</span>)</a></li>
+<li class="chapter" data-level="23.2.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#qual-é-melhor-usar"><i class="fa fa-check"></i><b>23.2.6</b> Qual é melhor usar?</a></li>
 </ul></li>
-<li class="chapter" data-level="20.7" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente"><i class="fa fa-check"></i><b>20.7</b> Por que não é indicado comparar os grupos dois a dois diretamente?</a></li>
-<li class="chapter" data-level="20.8" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r"><i class="fa fa-check"></i><b>20.8</b> ANOVA para Dados Repetidos no R</a>
-<ul>
-<li class="chapter" data-level="20.8.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados"><i class="fa fa-check"></i><b>20.8.1</b> Gerar dados simulados</a></li>
-<li class="chapter" data-level="20.8.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo"><i class="fa fa-check"></i><b>20.8.2</b> Converter para formato longo</a></li>
-<li class="chapter" data-level="20.8.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualização-opcional"><i class="fa fa-check"></i><b>20.8.3</b> Visualização (opcional)</a></li>
-<li class="chapter" data-level="20.8.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferenças-pré-requisito"><i class="fa fa-check"></i><b>20.8.4</b> Teste de normalidade das diferenças (pré-requisito)</a></li>
-<li class="chapter" data-level="20.8.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade"><i class="fa fa-check"></i><b>20.8.5</b> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)</a></li>
-<li class="chapter" data-level="20.8.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pós-hoc-comparações-múltiplas-entre-as-provas"><i class="fa fa-check"></i><b>20.8.6</b> Pós-hoc: Comparações múltiplas entre as provas</a></li>
 </ul></li>
-<li class="chapter" data-level="20.9" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman"><i class="fa fa-check"></i><b>20.9</b> Teste de Friedman</a>
+<li class="chapter" data-level="24" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html"><i class="fa fa-check"></i><b>24</b> Teste de Normalidade</a>
 <ul>
-<li class="chapter" data-level="20.9.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pós-teste-comparações-múltiplas-wilcoxon-pareado"><i class="fa fa-check"></i><b>20.9.1</b> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)</a></li>
+<li class="chapter" data-level="24.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#hipóteses-nos-testes-de-normalidade"><i class="fa fa-check"></i><b>24.1</b> Hipóteses nos Testes de Normalidade</a></li>
+<li class="chapter" data-level="24.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#principais-testes-de-normalidade"><i class="fa fa-check"></i><b>24.2</b> Principais Testes de Normalidade</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#dicas-de-uso"><i class="fa fa-check"></i><b>24.2.1</b> Dicas de Uso</a></li>
+<li class="chapter" data-level="24.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-prático-em-r-1"><i class="fa fa-check"></i><b>24.2.2</b> Exemplo Prático em R</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#assimetria-e-curtose-o-que-são-e-por-que-são-importantes"><i class="fa fa-check"></i><b>24.3</b> Assimetria e Curtose: O que são e por que são importantes?</a>
+<ul>
+<li class="chapter" data-level="24.3.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-é-assimetria-skewness"><i class="fa fa-check"></i><b>24.3.1</b> O que é Assimetria (Skewness)?</a></li>
+<li class="chapter" data-level="24.3.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-é-curtose-kurtosis"><i class="fa fa-check"></i><b>24.3.2</b> O que é Curtose (Kurtosis)?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html"><i class="fa fa-check"></i><b>25</b> Comparação de mais de dois grupos</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hipóteses-da-comparação-entre-dois-grupos"><i class="fa fa-check"></i><b>25.1</b> Revisando as hipóteses da comparação entre dois grupos</a></li>
+<li class="chapter" data-level="25.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#hipóteses-para-a-comparação-entre-mais-de-dois-grupos"><i class="fa fa-check"></i><b>25.2</b> Hipóteses para a comparação entre mais de dois grupos</a></li>
+<li class="chapter" data-level="25.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-paramétricos"><i class="fa fa-check"></i><b>25.3</b> Testes Paramétricos</a>
+<ul>
+<li class="chapter" data-level="25.3.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pré-requisitos-para-anova-dados-pareados-ou-não"><i class="fa fa-check"></i><b>25.3.1</b> Pré-requisitos para ANOVA (dados pareados ou não)</a></li>
+</ul></li>
+<li class="chapter" data-level="25.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-não-paramétricos"><i class="fa fa-check"></i><b>25.4</b> Testes Não Paramétricos</a></li>
+<li class="chapter" data-level="25.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r"><i class="fa fa-check"></i><b>25.5</b> ANOVA de uma via no R</a>
+<ul>
+<li class="chapter" data-level="25.5.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#simulação-de-dados"><i class="fa fa-check"></i><b>25.5.1</b> Simulação de Dados</a></li>
+<li class="chapter" data-level="25.5.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualização-dos-dados"><i class="fa fa-check"></i><b>25.5.2</b> Visualização dos Dados</a></li>
+<li class="chapter" data-level="25.5.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#verificação-dos-pré-requisitos-para-anova"><i class="fa fa-check"></i><b>25.5.3</b> Verificação dos Pré-requisitos para ANOVA</a></li>
+<li class="chapter" data-level="25.5.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via"><i class="fa fa-check"></i><b>25.5.4</b> ANOVA de Uma Via</a></li>
+</ul></li>
+<li class="chapter" data-level="25.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r"><i class="fa fa-check"></i><b>25.6</b> Kruskal-Wallis no R</a>
+<ul>
+<li class="chapter" data-level="25.6.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis"><i class="fa fa-check"></i><b>25.6.1</b> Teste Post Hoc para Kruskal-Wallis</a></li>
+</ul></li>
+<li class="chapter" data-level="25.7" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente"><i class="fa fa-check"></i><b>25.7</b> Por que não é indicado comparar os grupos dois a dois diretamente?</a></li>
+<li class="chapter" data-level="25.8" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r"><i class="fa fa-check"></i><b>25.8</b> ANOVA para Dados Repetidos no R</a>
+<ul>
+<li class="chapter" data-level="25.8.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados"><i class="fa fa-check"></i><b>25.8.1</b> Gerar dados simulados</a></li>
+<li class="chapter" data-level="25.8.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo"><i class="fa fa-check"></i><b>25.8.2</b> Converter para formato longo</a></li>
+<li class="chapter" data-level="25.8.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualização-opcional"><i class="fa fa-check"></i><b>25.8.3</b> Visualização (opcional)</a></li>
+<li class="chapter" data-level="25.8.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferenças-pré-requisito"><i class="fa fa-check"></i><b>25.8.4</b> Teste de normalidade das diferenças (pré-requisito)</a></li>
+<li class="chapter" data-level="25.8.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade"><i class="fa fa-check"></i><b>25.8.5</b> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)</a></li>
+<li class="chapter" data-level="25.8.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pós-hoc-comparações-múltiplas-entre-as-provas"><i class="fa fa-check"></i><b>25.8.6</b> Pós-hoc: Comparações múltiplas entre as provas</a></li>
+</ul></li>
+<li class="chapter" data-level="25.9" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman"><i class="fa fa-check"></i><b>25.9</b> Teste de Friedman</a>
+<ul>
+<li class="chapter" data-level="25.9.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pós-teste-comparações-múltiplas-wilcoxon-pareado"><i class="fa fa-check"></i><b>25.9.1</b> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
@@ -462,11 +482,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="comparação-de-mais-de-dois-grupos" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">Capítulo 20</span> Comparação de mais de dois grupos<a href="comparação-de-mais-de-dois-grupos.html#comparação-de-mais-de-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="comparação-de-mais-de-dois-grupos" class="section level1 hasAnchor" number="25">
+<h1><span class="header-section-number">Capítulo 25</span> Comparação de mais de dois grupos<a href="comparação-de-mais-de-dois-grupos.html#comparação-de-mais-de-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Assim como na comparação entre dois grupos, ao desejarmos comparar mais de dois grupos em uma análise estatística, é fundamental selecionar o teste mais adequado de acordo com as características dos dados. Os testes podem ser <strong>paramétricos</strong> ou <strong>não paramétricos</strong>, e a escolha correta depende da verificação prévia de alguns pressupostos, como normalidade, homogeneidade de variâncias e independência das observações.</p>
-<div id="revisando-as-hipóteses-da-comparação-entre-dois-grupos" class="section level2 hasAnchor" number="20.1">
-<h2><span class="header-section-number">20.1</span> Revisando as hipóteses da comparação entre dois grupos<a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hipóteses-da-comparação-entre-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="revisando-as-hipóteses-da-comparação-entre-dois-grupos" class="section level2 hasAnchor" number="25.1">
+<h2><span class="header-section-number">25.1</span> Revisando as hipóteses da comparação entre dois grupos<a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hipóteses-da-comparação-entre-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Paramétrico (Teste t)</strong>
 <ul>
@@ -497,8 +517,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul>
 <p>Na comparação entre <strong>dois grupos</strong>, tanto nos testes paramétricos quanto nos não paramétricos, a hipótese nula (H₀) geralmente afirma que as médias (ou distribuições) dos dois grupos são iguais, enquanto a hipótese alternativa (H₁) aponta que elas são diferentes. Ou seja, o teste busca identificar uma diferença específica entre os dois grupos analisados.</p>
 </div>
-<div id="hipóteses-para-a-comparação-entre-mais-de-dois-grupos" class="section level2 hasAnchor" number="20.2">
-<h2><span class="header-section-number">20.2</span> Hipóteses para a comparação entre mais de dois grupos<a href="comparação-de-mais-de-dois-grupos.html#hipóteses-para-a-comparação-entre-mais-de-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="hipóteses-para-a-comparação-entre-mais-de-dois-grupos" class="section level2 hasAnchor" number="25.2">
+<h2><span class="header-section-number">25.2</span> Hipóteses para a comparação entre mais de dois grupos<a href="comparação-de-mais-de-dois-grupos.html#hipóteses-para-a-comparação-entre-mais-de-dois-grupos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Paramétrico (ANOVA)</strong>
 <ul>
@@ -532,14 +552,14 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p><strong>Atenção:</strong> É importante notar que, no contexto de mais de dois grupos, a hipótese alternativa não identifica quais grupos são diferentes, apenas aponta que existe pelo menos uma diferença.</p>
 </blockquote>
 </div>
-<div id="testes-paramétricos" class="section level2 hasAnchor" number="20.3">
-<h2><span class="header-section-number">20.3</span> Testes Paramétricos<a href="comparação-de-mais-de-dois-grupos.html#testes-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="testes-paramétricos" class="section level2 hasAnchor" number="25.3">
+<h2><span class="header-section-number">25.3</span> Testes Paramétricos<a href="comparação-de-mais-de-dois-grupos.html#testes-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Não Pareados:</strong> O teste mais utilizado é a <strong>ANOVA de uma via</strong>, que compara as médias de três ou mais grupos independentes.</li>
 <li><strong>Pareados:</strong> Utiliza-se a <strong>ANOVA para medidas repetidas</strong> quando as medições são feitas nos mesmos indivíduos em diferentes condições ou tempos.</li>
 </ul>
-<div id="pré-requisitos-para-anova-dados-pareados-ou-não" class="section level3 hasAnchor" number="20.3.1">
-<h3><span class="header-section-number">20.3.1</span> Pré-requisitos para ANOVA (dados pareados ou não)<a href="comparação-de-mais-de-dois-grupos.html#pré-requisitos-para-anova-dados-pareados-ou-não" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pré-requisitos-para-anova-dados-pareados-ou-não" class="section level3 hasAnchor" number="25.3.1">
+<h3><span class="header-section-number">25.3.1</span> Pré-requisitos para ANOVA (dados pareados ou não)<a href="comparação-de-mais-de-dois-grupos.html#pré-requisitos-para-anova-dados-pareados-ou-não" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><strong>Normalidade dos resíduos:</strong> Os resíduos do modelo devem seguir uma distribuição normal.</li>
 <li><strong>Homogeneidade de variâncias:</strong> As variâncias dos grupos devem ser semelhantes.</li>
@@ -549,45 +569,45 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>Se algum desses pré-requisitos não for atendido, é recomendado utilizar testes não paramétricos.</p>
 </div>
 </div>
-<div id="testes-não-paramétricos" class="section level2 hasAnchor" number="20.4">
-<h2><span class="header-section-number">20.4</span> Testes Não Paramétricos<a href="comparação-de-mais-de-dois-grupos.html#testes-não-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="testes-não-paramétricos" class="section level2 hasAnchor" number="25.4">
+<h2><span class="header-section-number">25.4</span> Testes Não Paramétricos<a href="comparação-de-mais-de-dois-grupos.html#testes-não-paramétricos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Não Pareados:</strong> O teste de <strong>Kruskal-Wallis</strong> é utilizado para comparar mais de dois grupos independentes.</li>
 <li><strong>Pareados:</strong> O teste de <strong>Friedman</strong> é usado para comparar três ou mais grupos pareados.</li>
 </ul>
 </div>
-<div id="anova-de-uma-via-no-r" class="section level2 hasAnchor" number="20.5">
-<h2><span class="header-section-number">20.5</span> ANOVA de uma via no R<a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="anova-de-uma-via-no-r" class="section level2 hasAnchor" number="25.5">
+<h2><span class="header-section-number">25.5</span> ANOVA de uma via no R<a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A seguir, apresentamos um exemplo de ANOVA de uma via e do teste de Kruskal-Wallis, incluindo a verificação dos pré-requisitos.</p>
-<div id="simulação-de-dados" class="section level3 hasAnchor" number="20.5.1">
-<h3><span class="header-section-number">20.5.1</span> Simulação de Dados<a href="comparação-de-mais-de-dois-grupos.html#simulação-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="comparação-de-mais-de-dois-grupos.html#cb1-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-2"><a href="comparação-de-mais-de-dois-grupos.html#cb1-2" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>))</span>
-<span id="cb1-3"><a href="comparação-de-mais-de-dois-grupos.html#cb1-3" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb1-4"><a href="comparação-de-mais-de-dois-grupos.html#cb1-4" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb1-5"><a href="comparação-de-mais-de-dois-grupos.html#cb1-5" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
-<span id="cb1-6"><a href="comparação-de-mais-de-dois-grupos.html#cb1-6" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(grupo, valor)</span></code></pre></div>
+<div id="simulação-de-dados" class="section level3 hasAnchor" number="25.5.1">
+<h3><span class="header-section-number">25.5.1</span> Simulação de Dados<a href="comparação-de-mais-de-dois-grupos.html#simulação-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="comparação-de-mais-de-dois-grupos.html#cb171-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb171-2"><a href="comparação-de-mais-de-dois-grupos.html#cb171-2" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb171-3"><a href="comparação-de-mais-de-dois-grupos.html#cb171-3" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb171-4"><a href="comparação-de-mais-de-dois-grupos.html#cb171-4" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb171-5"><a href="comparação-de-mais-de-dois-grupos.html#cb171-5" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb171-6"><a href="comparação-de-mais-de-dois-grupos.html#cb171-6" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(grupo, valor)</span></code></pre></div>
 </div>
-<div id="visualização-dos-dados" class="section level3 hasAnchor" number="20.5.2">
-<h3><span class="header-section-number">20.5.2</span> Visualização dos Dados<a href="comparação-de-mais-de-dois-grupos.html#visualização-dos-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="comparação-de-mais-de-dois-grupos.html#cb2-1" tabindex="-1"></a><span class="fu">boxplot</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados, <span class="at">main =</span> <span class="st">&quot;Boxplot dos Grupos&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Valor&quot;</span>)</span></code></pre></div>
+<div id="visualização-dos-dados" class="section level3 hasAnchor" number="25.5.2">
+<h3><span class="header-section-number">25.5.2</span> Visualização dos Dados<a href="comparação-de-mais-de-dois-grupos.html#visualização-dos-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="comparação-de-mais-de-dois-grupos.html#cb172-1" tabindex="-1"></a><span class="fu">boxplot</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados, <span class="at">main =</span> <span class="st">&quot;Boxplot dos Grupos&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Valor&quot;</span>)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/boxplotAnova-1.png" width="672" /></p>
 </div>
-<div id="verificação-dos-pré-requisitos-para-anova" class="section level3 hasAnchor" number="20.5.3">
-<h3><span class="header-section-number">20.5.3</span> Verificação dos Pré-requisitos para ANOVA<a href="comparação-de-mais-de-dois-grupos.html#verificação-dos-pré-requisitos-para-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="normalidade-dos-resíduos" class="section level4 hasAnchor" number="20.5.3.1">
-<h4><span class="header-section-number">20.5.3.1</span> Normalidade dos resíduos<a href="comparação-de-mais-de-dois-grupos.html#normalidade-dos-resíduos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="comparação-de-mais-de-dois-grupos.html#cb3-1" tabindex="-1"></a>modelo_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span>
-<span id="cb3-2"><a href="comparação-de-mais-de-dois-grupos.html#cb3-2" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_aov)</span>
-<span id="cb3-3"><a href="comparação-de-mais-de-dois-grupos.html#cb3-3" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="comparação-de-mais-de-dois-grupos.html#cb3-4" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code></pre></div>
+<div id="verificação-dos-pré-requisitos-para-anova" class="section level3 hasAnchor" number="25.5.3">
+<h3><span class="header-section-number">25.5.3</span> Verificação dos Pré-requisitos para ANOVA<a href="comparação-de-mais-de-dois-grupos.html#verificação-dos-pré-requisitos-para-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="normalidade-dos-resíduos" class="section level4 hasAnchor" number="25.5.3.1">
+<h4><span class="header-section-number">25.5.3.1</span> Normalidade dos resíduos<a href="comparação-de-mais-de-dois-grupos.html#normalidade-dos-resíduos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="comparação-de-mais-de-dois-grupos.html#cb173-1" tabindex="-1"></a>modelo_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span>
+<span id="cb173-2"><a href="comparação-de-mais-de-dois-grupos.html#cb173-2" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_aov)</span>
+<span id="cb173-3"><a href="comparação-de-mais-de-dois-grupos.html#cb173-3" tabindex="-1"></a></span>
+<span id="cb173-4"><a href="comparação-de-mais-de-dois-grupos.html#cb173-4" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  residuos
 ## W = 0.96213, p-value = 0.3507</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="comparação-de-mais-de-dois-grupos.html#cb5-1" tabindex="-1"></a><span class="fu">qqnorm</span>(residuos)</span>
-<span id="cb5-2"><a href="comparação-de-mais-de-dois-grupos.html#cb5-2" tabindex="-1"></a><span class="fu">qqline</span>(residuos)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="comparação-de-mais-de-dois-grupos.html#cb175-1" tabindex="-1"></a><span class="fu">qqnorm</span>(residuos)</span>
+<span id="cb175-2"><a href="comparação-de-mais-de-dois-grupos.html#cb175-2" tabindex="-1"></a><span class="fu">qqline</span>(residuos)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/residuosAnova-1.png" width="672" /></p>
 <ul>
 <li><p>A função <code>aov</code> no R é utilizada para realizar <strong>análise de variância (ANOVA)</strong>.</p></li>
@@ -600,11 +620,11 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 <p>Neste exemplo, tanto o teste de normalidade quanto a inspeção visual do gráfico QQ sugerem que os resíduos seguem uma distribuição normal.</p>
 </blockquote>
 </div>
-<div id="homogeneidade-de-variâncias" class="section level4 hasAnchor" number="20.5.3.2">
-<h4><span class="header-section-number">20.5.3.2</span> Homogeneidade de variâncias<a href="comparação-de-mais-de-dois-grupos.html#homogeneidade-de-variâncias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="comparação-de-mais-de-dois-grupos.html#cb6-1" tabindex="-1"></a><span class="co"># Instale &#39;car&#39; se necessário: install.packages(&quot;car&quot;)</span></span>
-<span id="cb6-2"><a href="comparação-de-mais-de-dois-grupos.html#cb6-2" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb6-3"><a href="comparação-de-mais-de-dois-grupos.html#cb6-3" tabindex="-1"></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div id="homogeneidade-de-variâncias" class="section level4 hasAnchor" number="25.5.3.2">
+<h4><span class="header-section-number">25.5.3.2</span> Homogeneidade de variâncias<a href="comparação-de-mais-de-dois-grupos.html#homogeneidade-de-variâncias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="comparação-de-mais-de-dois-grupos.html#cb176-1" tabindex="-1"></a><span class="co"># Instale &#39;car&#39; se necessário: install.packages(&quot;car&quot;)</span></span>
+<span id="cb176-2"><a href="comparação-de-mais-de-dois-grupos.html#cb176-2" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb176-3"><a href="comparação-de-mais-de-dois-grupos.html#cb176-3" tabindex="-1"></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2   5e-04 0.9995
@@ -618,9 +638,9 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 </blockquote>
 </div>
 </div>
-<div id="anova-de-uma-via" class="section level3 hasAnchor" number="20.5.4">
-<h3><span class="header-section-number">20.5.4</span> ANOVA de Uma Via<a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="comparação-de-mais-de-dois-grupos.html#cb8-1" tabindex="-1"></a><span class="fu">summary</span>(modelo_aov)</span></code></pre></div>
+<div id="anova-de-uma-via" class="section level3 hasAnchor" number="25.5.4">
+<h3><span class="header-section-number">25.5.4</span> ANOVA de Uma Via<a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="comparação-de-mais-de-dois-grupos.html#cb178-1" tabindex="-1"></a><span class="fu">summary</span>(modelo_aov)</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
 ## grupo        2  12.24   6.122   6.435 0.00518 **
 ## Residuals   27  25.68   0.951                   
@@ -630,9 +650,9 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 <li><p><strong>Valor de p (Pr(&gt;F)) = 0.00518:</strong> O valor de p é menor que 0,05, indicando que existem diferenças estatisticamente significativas entre as médias dos grupos analisados.</p></li>
 <li><p>Rejeita-se a hipótese nula de igualdade das médias. Isso significa que pelo menos um dos grupos difere significativamente dos demais. Recomenda-se realizar <em>testes post hoc (por exemplo, Tukey)</em> para identificar quais grupos apresentam diferenças entre si.</p></li>
 </ul>
-<div id="teste-post-hoc-se-anova-for-significativa" class="section level4 hasAnchor" number="20.5.4.1">
-<h4><span class="header-section-number">20.5.4.1</span> Teste Post Hoc (se ANOVA for significativa)<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-se-anova-for-significativa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="comparação-de-mais-de-dois-grupos.html#cb10-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(modelo_aov)</span></code></pre></div>
+<div id="teste-post-hoc-se-anova-for-significativa" class="section level4 hasAnchor" number="25.5.4.1">
+<h4><span class="header-section-number">25.5.4.1</span> Teste Post Hoc (se ANOVA for significativa)<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-se-anova-for-significativa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="comparação-de-mais-de-dois-grupos.html#cb180-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(modelo_aov)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -662,10 +682,10 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </div>
 </div>
 </div>
-<div id="kruskal-wallis-no-r" class="section level2 hasAnchor" number="20.6">
-<h2><span class="header-section-number">20.6</span> Kruskal-Wallis no R<a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="kruskal-wallis-no-r" class="section level2 hasAnchor" number="25.6">
+<h2><span class="header-section-number">25.6</span> Kruskal-Wallis no R<a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Se os pré-requisitos da ANOVA não forem atendidos, utilize o Kruskal-Wallis:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="comparação-de-mais-de-dois-grupos.html#cb12-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="comparação-de-mais-de-dois-grupos.html#cb182-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -675,11 +695,11 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <li><p><strong>Valor de p (p-value) = 0.01669:</strong> O valor de p é menor que 0,05, indicando que há diferença estatisticamente significativa entre pelo menos dois dos grupos analisados.</p></li>
 <li><p>Rejeita-se a hipótese nula de que as distribuições dos grupos são todas iguais. Ou seja, pelo menos um dos grupos apresenta distribuição diferente dos demais. Para identificar especificamente quais grupos diferem entre si, é recomendada a realização de testes post hoc apropriados (por exemplo, Dunn ou pairwise Wilcoxon com ajuste para múltiplas comparações).</p></li>
 </ul>
-<div id="teste-post-hoc-para-kruskal-wallis" class="section level3 hasAnchor" number="20.6.1">
-<h3><span class="header-section-number">20.6.1</span> Teste Post Hoc para Kruskal-Wallis<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="comparação-de-mais-de-dois-grupos.html#cb14-1" tabindex="-1"></a><span class="co"># Instale PMCMRplus se necessário: install.packages(&quot;PMCMRplus&quot;)</span></span>
-<span id="cb14-2"><a href="comparação-de-mais-de-dois-grupos.html#cb14-2" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span>
-<span id="cb14-3"><a href="comparação-de-mais-de-dois-grupos.html#cb14-3" tabindex="-1"></a><span class="fu">kwAllPairsDunnTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div id="teste-post-hoc-para-kruskal-wallis" class="section level3 hasAnchor" number="25.6.1">
+<h3><span class="header-section-number">25.6.1</span> Teste Post Hoc para Kruskal-Wallis<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="comparação-de-mais-de-dois-grupos.html#cb184-1" tabindex="-1"></a><span class="co"># Instale PMCMRplus se necessário: install.packages(&quot;PMCMRplus&quot;)</span></span>
+<span id="cb184-2"><a href="comparação-de-mais-de-dois-grupos.html#cb184-2" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span>
+<span id="cb184-3"><a href="comparação-de-mais-de-dois-grupos.html#cb184-3" tabindex="-1"></a><span class="fu">kwAllPairsDunnTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>##   A     B    
 ## B 0.058 -    
 ## C 0.021 0.611</code></pre>
@@ -695,26 +715,26 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </blockquote>
 </div>
 </div>
-<div id="por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente" class="section level2 hasAnchor" number="20.7">
-<h2><span class="header-section-number">20.7</span> Por que não é indicado comparar os grupos dois a dois diretamente?<a href="comparação-de-mais-de-dois-grupos.html#por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente" class="section level2 hasAnchor" number="25.7">
+<h2><span class="header-section-number">25.7</span> Por que não é indicado comparar os grupos dois a dois diretamente?<a href="comparação-de-mais-de-dois-grupos.html#por-que-não-é-indicado-comparar-os-grupos-dois-a-dois-diretamente" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Quando se tem mais de dois grupos, pode parecer tentador realizar múltiplos testes de comparação entre pares de grupos (por exemplo, vários testes t para todos os pares possíveis). No entanto, esse procedimento <strong>não é recomendado</strong>, pois aumenta significativamente o risco de cometer um <strong>erro do tipo I</strong> (falso positivo).</p>
 <p>Cada teste realizado tem uma determinada probabilidade de indicar uma diferença por acaso (erro tipo I), geralmente 5% se α = 0,05. Ao fazer muitos testes independentes, a probabilidade de encontrar pelo menos um resultado “significativo” apenas por acaso aumenta. Esse fenômeno é chamado de <strong>inflacionamento da taxa de erro tipo I</strong>.</p>
 <p>Por isso, para comparação de mais de dois grupos, utiliza-se primeiro um teste global (como ANOVA ou Kruskal-Wallis). Se o resultado for significativo, aí sim são realizados testes post hoc, que já incluem correções para múltiplas comparações (como o teste de Tukey), controlando o risco de erro tipo I.</p>
 </div>
-<div id="anova-para-dados-repetidos-no-r" class="section level2 hasAnchor" number="20.8">
-<h2><span class="header-section-number">20.8</span> ANOVA para Dados Repetidos no R<a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="anova-para-dados-repetidos-no-r" class="section level2 hasAnchor" number="25.8">
+<h2><span class="header-section-number">25.8</span> ANOVA para Dados Repetidos no R<a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Vamos analisar o desempenho de 6 alunos em 3 provas diferentes (Prova 1, Prova 2 e Prova 3). Cada aluno fez todas as provas, ou seja, temos medidas repetidas!</p>
-<div id="gerar-dados-simulados" class="section level3 hasAnchor" number="20.8.1">
-<h3><span class="header-section-number">20.8.1</span> Gerar dados simulados<a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="comparação-de-mais-de-dois-grupos.html#cb16-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb16-2"><a href="comparação-de-mais-de-dois-grupos.html#cb16-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb16-3"><a href="comparação-de-mais-de-dois-grupos.html#cb16-3" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb16-4"><a href="comparação-de-mais-de-dois-grupos.html#cb16-4" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span>n),</span>
-<span id="cb16-5"><a href="comparação-de-mais-de-dois-grupos.html#cb16-5" tabindex="-1"></a>  <span class="at">prova1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
-<span id="cb16-6"><a href="comparação-de-mais-de-dois-grupos.html#cb16-6" tabindex="-1"></a>  <span class="at">prova2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">7.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
-<span id="cb16-7"><a href="comparação-de-mais-de-dois-grupos.html#cb16-7" tabindex="-1"></a>  <span class="at">prova3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
-<span id="cb16-8"><a href="comparação-de-mais-de-dois-grupos.html#cb16-8" tabindex="-1"></a>)</span>
-<span id="cb16-9"><a href="comparação-de-mais-de-dois-grupos.html#cb16-9" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code></pre></div>
+<div id="gerar-dados-simulados" class="section level3 hasAnchor" number="25.8.1">
+<h3><span class="header-section-number">25.8.1</span> Gerar dados simulados<a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="comparação-de-mais-de-dois-grupos.html#cb186-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb186-2"><a href="comparação-de-mais-de-dois-grupos.html#cb186-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb186-3"><a href="comparação-de-mais-de-dois-grupos.html#cb186-3" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb186-4"><a href="comparação-de-mais-de-dois-grupos.html#cb186-4" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span>n),</span>
+<span id="cb186-5"><a href="comparação-de-mais-de-dois-grupos.html#cb186-5" tabindex="-1"></a>  <span class="at">prova1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
+<span id="cb186-6"><a href="comparação-de-mais-de-dois-grupos.html#cb186-6" tabindex="-1"></a>  <span class="at">prova2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">7.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
+<span id="cb186-7"><a href="comparação-de-mais-de-dois-grupos.html#cb186-7" tabindex="-1"></a>  <span class="at">prova3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb186-8"><a href="comparação-de-mais-de-dois-grupos.html#cb186-8" tabindex="-1"></a>)</span>
+<span id="cb186-9"><a href="comparação-de-mais-de-dois-grupos.html#cb186-9" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code></pre></div>
 <pre><code>##   aluno prova1 prova2 prova3
 ## 1     1    6.4    6.4    7.3
 ## 2     2    6.8    7.3    7.8
@@ -723,16 +743,16 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 ## 5     5    7.1    6.9    9.2
 ## 6     6    8.7    5.8    6.9</code></pre>
 </div>
-<div id="converter-para-formato-longo" class="section level3 hasAnchor" number="20.8.2">
-<h3><span class="header-section-number">20.8.2</span> Converter para formato longo<a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="comparação-de-mais-de-dois-grupos.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb18-2"><a href="comparação-de-mais-de-dois-grupos.html#cb18-2" tabindex="-1"></a>dados_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
-<span id="cb18-3"><a href="comparação-de-mais-de-dois-grupos.html#cb18-3" tabindex="-1"></a>  dados,</span>
-<span id="cb18-4"><a href="comparação-de-mais-de-dois-grupos.html#cb18-4" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>),</span>
-<span id="cb18-5"><a href="comparação-de-mais-de-dois-grupos.html#cb18-5" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;prova&quot;</span>,</span>
-<span id="cb18-6"><a href="comparação-de-mais-de-dois-grupos.html#cb18-6" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;nota&quot;</span></span>
-<span id="cb18-7"><a href="comparação-de-mais-de-dois-grupos.html#cb18-7" tabindex="-1"></a>)</span>
-<span id="cb18-8"><a href="comparação-de-mais-de-dois-grupos.html#cb18-8" tabindex="-1"></a><span class="fu">head</span>(dados_long)</span></code></pre></div>
+<div id="converter-para-formato-longo" class="section level3 hasAnchor" number="25.8.2">
+<h3><span class="header-section-number">25.8.2</span> Converter para formato longo<a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="comparação-de-mais-de-dois-grupos.html#cb188-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb188-2"><a href="comparação-de-mais-de-dois-grupos.html#cb188-2" tabindex="-1"></a>dados_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb188-3"><a href="comparação-de-mais-de-dois-grupos.html#cb188-3" tabindex="-1"></a>  dados,</span>
+<span id="cb188-4"><a href="comparação-de-mais-de-dois-grupos.html#cb188-4" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>),</span>
+<span id="cb188-5"><a href="comparação-de-mais-de-dois-grupos.html#cb188-5" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;prova&quot;</span>,</span>
+<span id="cb188-6"><a href="comparação-de-mais-de-dois-grupos.html#cb188-6" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;nota&quot;</span></span>
+<span id="cb188-7"><a href="comparação-de-mais-de-dois-grupos.html#cb188-7" tabindex="-1"></a>)</span>
+<span id="cb188-8"><a href="comparação-de-mais-de-dois-grupos.html#cb188-8" tabindex="-1"></a><span class="fu">head</span>(dados_long)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   aluno prova   nota
 ##   &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -746,52 +766,52 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <p>Transformar os dados para o formato longo é fundamental para análises de medidas repetidas porque permite que o R identifique corretamente as repetições de cada aluno ao longo das diferentes provas. Sem isso, não é possível fazer ANOVA de medidas repetidas de forma adequada!</p>
 </blockquote>
 </div>
-<div id="visualização-opcional" class="section level3 hasAnchor" number="20.8.3">
-<h3><span class="header-section-number">20.8.3</span> Visualização (opcional)<a href="comparação-de-mais-de-dois-grupos.html#visualização-opcional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="comparação-de-mais-de-dois-grupos.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="comparação-de-mais-de-dois-grupos.html#cb20-2" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb20-3"><a href="comparação-de-mais-de-dois-grupos.html#cb20-3" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="comparação-de-mais-de-dois-grupos.html#cb20-4" tabindex="-1"></a><span class="co"># Use uma paleta de cores apropriada para até 20 alunos</span></span>
-<span id="cb20-5"><a href="comparação-de-mais-de-dois-grupos.html#cb20-5" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))(<span class="dv">20</span>)</span>
-<span id="cb20-6"><a href="comparação-de-mais-de-dois-grupos.html#cb20-6" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="comparação-de-mais-de-dois-grupos.html#cb20-7" tabindex="-1"></a><span class="fu">ggplot</span>(dados_long, <span class="fu">aes</span>(<span class="at">x =</span> prova, <span class="at">y =</span> nota, <span class="at">group =</span> aluno, <span class="at">color =</span> aluno)) <span class="sc">+</span></span>
-<span id="cb20-8"><a href="comparação-de-mais-de-dois-grupos.html#cb20-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb20-9"><a href="comparação-de-mais-de-dois-grupos.html#cb20-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb20-10"><a href="comparação-de-mais-de-dois-grupos.html#cb20-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Avaliações&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Pontuação&quot;</span>) <span class="sc">+</span></span>
-<span id="cb20-11"><a href="comparação-de-mais-de-dois-grupos.html#cb20-11" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cores) <span class="sc">+</span></span>
-<span id="cb20-12"><a href="comparação-de-mais-de-dois-grupos.html#cb20-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Notas dos Alunos nas Três Provas&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Aluno&quot;</span>) <span class="sc">+</span></span>
-<span id="cb20-13"><a href="comparação-de-mais-de-dois-grupos.html#cb20-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb20-14"><a href="comparação-de-mais-de-dois-grupos.html#cb20-14" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+<div id="visualização-opcional" class="section level3 hasAnchor" number="25.8.3">
+<h3><span class="header-section-number">25.8.3</span> Visualização (opcional)<a href="comparação-de-mais-de-dois-grupos.html#visualização-opcional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="comparação-de-mais-de-dois-grupos.html#cb190-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb190-2"><a href="comparação-de-mais-de-dois-grupos.html#cb190-2" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb190-3"><a href="comparação-de-mais-de-dois-grupos.html#cb190-3" tabindex="-1"></a></span>
+<span id="cb190-4"><a href="comparação-de-mais-de-dois-grupos.html#cb190-4" tabindex="-1"></a><span class="co"># Use uma paleta de cores apropriada para até 20 alunos</span></span>
+<span id="cb190-5"><a href="comparação-de-mais-de-dois-grupos.html#cb190-5" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))(<span class="dv">20</span>)</span>
+<span id="cb190-6"><a href="comparação-de-mais-de-dois-grupos.html#cb190-6" tabindex="-1"></a></span>
+<span id="cb190-7"><a href="comparação-de-mais-de-dois-grupos.html#cb190-7" tabindex="-1"></a><span class="fu">ggplot</span>(dados_long, <span class="fu">aes</span>(<span class="at">x =</span> prova, <span class="at">y =</span> nota, <span class="at">group =</span> aluno, <span class="at">color =</span> aluno)) <span class="sc">+</span></span>
+<span id="cb190-8"><a href="comparação-de-mais-de-dois-grupos.html#cb190-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb190-9"><a href="comparação-de-mais-de-dois-grupos.html#cb190-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb190-10"><a href="comparação-de-mais-de-dois-grupos.html#cb190-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Avaliações&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Pontuação&quot;</span>) <span class="sc">+</span></span>
+<span id="cb190-11"><a href="comparação-de-mais-de-dois-grupos.html#cb190-11" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cores) <span class="sc">+</span></span>
+<span id="cb190-12"><a href="comparação-de-mais-de-dois-grupos.html#cb190-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Notas dos Alunos nas Três Provas&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Aluno&quot;</span>) <span class="sc">+</span></span>
+<span id="cb190-13"><a href="comparação-de-mais-de-dois-grupos.html#cb190-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb190-14"><a href="comparação-de-mais-de-dois-grupos.html#cb190-14" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/AnovaRg-1.png" width="672" /></p>
 </div>
-<div id="teste-de-normalidade-das-diferenças-pré-requisito" class="section level3 hasAnchor" number="20.8.4">
-<h3><span class="header-section-number">20.8.4</span> Teste de normalidade das diferenças (pré-requisito)<a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferenças-pré-requisito" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="comparação-de-mais-de-dois-grupos.html#cb21-1" tabindex="-1"></a>dif12 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova2</span>
-<span id="cb21-2"><a href="comparação-de-mais-de-dois-grupos.html#cb21-2" tabindex="-1"></a>dif13 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
-<span id="cb21-3"><a href="comparação-de-mais-de-dois-grupos.html#cb21-3" tabindex="-1"></a>dif23 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova2 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
-<span id="cb21-4"><a href="comparação-de-mais-de-dois-grupos.html#cb21-4" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="comparação-de-mais-de-dois-grupos.html#cb21-5" tabindex="-1"></a><span class="fu">qqnorm</span>(dif12)</span>
-<span id="cb21-6"><a href="comparação-de-mais-de-dois-grupos.html#cb21-6" tabindex="-1"></a><span class="fu">qqline</span>(dif12)</span></code></pre></div>
+<div id="teste-de-normalidade-das-diferenças-pré-requisito" class="section level3 hasAnchor" number="25.8.4">
+<h3><span class="header-section-number">25.8.4</span> Teste de normalidade das diferenças (pré-requisito)<a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferenças-pré-requisito" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="comparação-de-mais-de-dois-grupos.html#cb191-1" tabindex="-1"></a>dif12 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova2</span>
+<span id="cb191-2"><a href="comparação-de-mais-de-dois-grupos.html#cb191-2" tabindex="-1"></a>dif13 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
+<span id="cb191-3"><a href="comparação-de-mais-de-dois-grupos.html#cb191-3" tabindex="-1"></a>dif23 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova2 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
+<span id="cb191-4"><a href="comparação-de-mais-de-dois-grupos.html#cb191-4" tabindex="-1"></a></span>
+<span id="cb191-5"><a href="comparação-de-mais-de-dois-grupos.html#cb191-5" tabindex="-1"></a><span class="fu">qqnorm</span>(dif12)</span>
+<span id="cb191-6"><a href="comparação-de-mais-de-dois-grupos.html#cb191-6" tabindex="-1"></a><span class="fu">qqline</span>(dif12)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/AnovaRnorm-1.png" width="672" /></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="comparação-de-mais-de-dois-grupos.html#cb22-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif12)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="comparação-de-mais-de-dois-grupos.html#cb192-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif12)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  dif12
 ## W = 0.94596, p-value = 0.3099</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="comparação-de-mais-de-dois-grupos.html#cb24-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif13)</span>
-<span id="cb24-2"><a href="comparação-de-mais-de-dois-grupos.html#cb24-2" tabindex="-1"></a><span class="fu">qqline</span>(dif13)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="comparação-de-mais-de-dois-grupos.html#cb194-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif13)</span>
+<span id="cb194-2"><a href="comparação-de-mais-de-dois-grupos.html#cb194-2" tabindex="-1"></a><span class="fu">qqline</span>(dif13)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/AnovaRnorm-2.png" width="672" /></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="comparação-de-mais-de-dois-grupos.html#cb25-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif13)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="comparação-de-mais-de-dois-grupos.html#cb195-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif13)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  dif13
 ## W = 0.96929, p-value = 0.7398</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="comparação-de-mais-de-dois-grupos.html#cb27-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif23)</span>
-<span id="cb27-2"><a href="comparação-de-mais-de-dois-grupos.html#cb27-2" tabindex="-1"></a><span class="fu">qqline</span>(dif23)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="comparação-de-mais-de-dois-grupos.html#cb197-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif23)</span>
+<span id="cb197-2"><a href="comparação-de-mais-de-dois-grupos.html#cb197-2" tabindex="-1"></a><span class="fu">qqline</span>(dif23)</span></code></pre></div>
 <p><img src="Livro-Estatistica+R_files/figure-html/AnovaRnorm-3.png" width="672" /></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="comparação-de-mais-de-dois-grupos.html#cb28-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif23)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="comparação-de-mais-de-dois-grupos.html#cb198-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif23)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -801,18 +821,18 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <p>As diferenças seguem distribuição normal.</p>
 </blockquote>
 </div>
-<div id="anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="section level3 hasAnchor" number="20.8.5">
-<h3><span class="header-section-number">20.8.5</span> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)<a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="section level3 hasAnchor" number="25.8.5">
+<h3><span class="header-section-number">25.8.5</span> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)<a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>aov_ez()</code>, do pacote <code>afex</code> realiza toda a ANOVA de medidas repetidas de forma prática e automática.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="comparação-de-mais-de-dois-grupos.html#cb30-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;afex&quot;)</span></span>
-<span id="cb30-2"><a href="comparação-de-mais-de-dois-grupos.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
-<span id="cb30-3"><a href="comparação-de-mais-de-dois-grupos.html#cb30-3" tabindex="-1"></a>modelo_afex <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
-<span id="cb30-4"><a href="comparação-de-mais-de-dois-grupos.html#cb30-4" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">&quot;aluno&quot;</span>,</span>
-<span id="cb30-5"><a href="comparação-de-mais-de-dois-grupos.html#cb30-5" tabindex="-1"></a>  <span class="at">dv =</span> <span class="st">&quot;nota&quot;</span>,</span>
-<span id="cb30-6"><a href="comparação-de-mais-de-dois-grupos.html#cb30-6" tabindex="-1"></a>  <span class="at">within =</span> <span class="st">&quot;prova&quot;</span>,</span>
-<span id="cb30-7"><a href="comparação-de-mais-de-dois-grupos.html#cb30-7" tabindex="-1"></a>  <span class="at">data =</span> dados_long</span>
-<span id="cb30-8"><a href="comparação-de-mais-de-dois-grupos.html#cb30-8" tabindex="-1"></a>)</span>
-<span id="cb30-9"><a href="comparação-de-mais-de-dois-grupos.html#cb30-9" tabindex="-1"></a>modelo_afex</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="comparação-de-mais-de-dois-grupos.html#cb200-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;afex&quot;)</span></span>
+<span id="cb200-2"><a href="comparação-de-mais-de-dois-grupos.html#cb200-2" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
+<span id="cb200-3"><a href="comparação-de-mais-de-dois-grupos.html#cb200-3" tabindex="-1"></a>modelo_afex <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
+<span id="cb200-4"><a href="comparação-de-mais-de-dois-grupos.html#cb200-4" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">&quot;aluno&quot;</span>,</span>
+<span id="cb200-5"><a href="comparação-de-mais-de-dois-grupos.html#cb200-5" tabindex="-1"></a>  <span class="at">dv =</span> <span class="st">&quot;nota&quot;</span>,</span>
+<span id="cb200-6"><a href="comparação-de-mais-de-dois-grupos.html#cb200-6" tabindex="-1"></a>  <span class="at">within =</span> <span class="st">&quot;prova&quot;</span>,</span>
+<span id="cb200-7"><a href="comparação-de-mais-de-dois-grupos.html#cb200-7" tabindex="-1"></a>  <span class="at">data =</span> dados_long</span>
+<span id="cb200-8"><a href="comparação-de-mais-de-dois-grupos.html#cb200-8" tabindex="-1"></a>)</span>
+<span id="cb200-9"><a href="comparação-de-mais-de-dois-grupos.html#cb200-9" tabindex="-1"></a>modelo_afex</span></code></pre></div>
 <pre><code>## Anova Table (Type 3 tests)
 ## 
 ## Response: nota
@@ -835,12 +855,12 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <p>A análise de variância (ANOVA) mostrou que o fator “prova” teve um efeito significativo sobre as notas (F(1.91, 36.27) = 5.53, p = 0.009, ges = 0.168), indicando que as médias das notas diferem entre as provas.</p>
 </blockquote>
 </div>
-<div id="pós-hoc-comparações-múltiplas-entre-as-provas" class="section level3 hasAnchor" number="20.8.6">
-<h3><span class="header-section-number">20.8.6</span> Pós-hoc: Comparações múltiplas entre as provas<a href="comparação-de-mais-de-dois-grupos.html#pós-hoc-comparações-múltiplas-entre-as-provas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="comparação-de-mais-de-dois-grupos.html#cb32-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;emmeans&quot;)</span></span>
-<span id="cb32-2"><a href="comparação-de-mais-de-dois-grupos.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
-<span id="cb32-3"><a href="comparação-de-mais-de-dois-grupos.html#cb32-3" tabindex="-1"></a>emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_afex, <span class="sc">~</span> prova)</span>
-<span id="cb32-4"><a href="comparação-de-mais-de-dois-grupos.html#cb32-4" tabindex="-1"></a><span class="fu">pairs</span>(emm, <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="co"># ou &quot;holm&quot;, &quot;sidak&quot;, etc.</span></span></code></pre></div>
+<div id="pós-hoc-comparações-múltiplas-entre-as-provas" class="section level3 hasAnchor" number="25.8.6">
+<h3><span class="header-section-number">25.8.6</span> Pós-hoc: Comparações múltiplas entre as provas<a href="comparação-de-mais-de-dois-grupos.html#pós-hoc-comparações-múltiplas-entre-as-provas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparação-de-mais-de-dois-grupos.html#cb202-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;emmeans&quot;)</span></span>
+<span id="cb202-2"><a href="comparação-de-mais-de-dois-grupos.html#cb202-2" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb202-3"><a href="comparação-de-mais-de-dois-grupos.html#cb202-3" tabindex="-1"></a>emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_afex, <span class="sc">~</span> prova)</span>
+<span id="cb202-4"><a href="comparação-de-mais-de-dois-grupos.html#cb202-4" tabindex="-1"></a><span class="fu">pairs</span>(emm, <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="co"># ou &quot;holm&quot;, &quot;sidak&quot;, etc.</span></span></code></pre></div>
 <pre><code>##  contrast        estimate    SE df t.ratio p.value
 ##  prova1 - prova2   -0.315 0.300 19  -1.050  0.9212
 ##  prova1 - prova3   -0.975 0.326 19  -2.993  0.0225
@@ -857,23 +877,23 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </blockquote>
 </div>
 </div>
-<div id="teste-de-friedman" class="section level2 hasAnchor" number="20.9">
-<h2><span class="header-section-number">20.9</span> Teste de Friedman<a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="comparação-de-mais-de-dois-grupos.html#cb34-1" tabindex="-1"></a><span class="co"># O teste de Friedman compara as três provas considerando a repetição por aluno</span></span>
-<span id="cb34-2"><a href="comparação-de-mais-de-dois-grupos.html#cb34-2" tabindex="-1"></a><span class="fu">friedman.test</span>(<span class="fu">as.matrix</span>(dados[, <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>)]))</span></code></pre></div>
+<div id="teste-de-friedman" class="section level2 hasAnchor" number="25.9">
+<h2><span class="header-section-number">25.9</span> Teste de Friedman<a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparação-de-mais-de-dois-grupos.html#cb204-1" tabindex="-1"></a><span class="co"># O teste de Friedman compara as três provas considerando a repetição por aluno</span></span>
+<span id="cb204-2"><a href="comparação-de-mais-de-dois-grupos.html#cb204-2" tabindex="-1"></a><span class="fu">friedman.test</span>(<span class="fu">as.matrix</span>(dados[, <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>)]))</span></code></pre></div>
 <pre><code>## 
 ##  Friedman rank sum test
 ## 
 ## data:  as.matrix(dados[, c(&quot;prova1&quot;, &quot;prova2&quot;, &quot;prova3&quot;)])
 ## Friedman chi-squared = 10.101, df = 2, p-value = 0.006405</code></pre>
-<div id="pós-teste-comparações-múltiplas-wilcoxon-pareado" class="section level3 hasAnchor" number="20.9.1">
-<h3><span class="header-section-number">20.9.1</span> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)<a href="comparação-de-mais-de-dois-grupos.html#pós-teste-comparações-múltiplas-wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="comparação-de-mais-de-dois-grupos.html#cb36-1" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(</span>
-<span id="cb36-2"><a href="comparação-de-mais-de-dois-grupos.html#cb36-2" tabindex="-1"></a>  dados_long<span class="sc">$</span>nota,</span>
-<span id="cb36-3"><a href="comparação-de-mais-de-dois-grupos.html#cb36-3" tabindex="-1"></a>  dados_long<span class="sc">$</span>prova,</span>
-<span id="cb36-4"><a href="comparação-de-mais-de-dois-grupos.html#cb36-4" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb36-5"><a href="comparação-de-mais-de-dois-grupos.html#cb36-5" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span></span>
-<span id="cb36-6"><a href="comparação-de-mais-de-dois-grupos.html#cb36-6" tabindex="-1"></a>)</span></code></pre></div>
+<div id="pós-teste-comparações-múltiplas-wilcoxon-pareado" class="section level3 hasAnchor" number="25.9.1">
+<h3><span class="header-section-number">25.9.1</span> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)<a href="comparação-de-mais-de-dois-grupos.html#pós-teste-comparações-múltiplas-wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="comparação-de-mais-de-dois-grupos.html#cb206-1" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(</span>
+<span id="cb206-2"><a href="comparação-de-mais-de-dois-grupos.html#cb206-2" tabindex="-1"></a>  dados_long<span class="sc">$</span>nota,</span>
+<span id="cb206-3"><a href="comparação-de-mais-de-dois-grupos.html#cb206-3" tabindex="-1"></a>  dados_long<span class="sc">$</span>prova,</span>
+<span id="cb206-4"><a href="comparação-de-mais-de-dois-grupos.html#cb206-4" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb206-5"><a href="comparação-de-mais-de-dois-grupos.html#cb206-5" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span></span>
+<span id="cb206-6"><a href="comparação-de-mais-de-dois-grupos.html#cb206-6" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using Wilcoxon signed rank test with continuity correction 
 ## 
