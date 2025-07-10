@@ -1,6 +1,6 @@
 # Exemplos de distribuições
 
-```{r setup, include=FALSE}
+```{r setupDist, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 library(dplyr)
@@ -16,7 +16,7 @@ library(dplyr)
 
 Modela o número de sucessos em n tentativas com probabilidade `p`.
 
-```{r binomial}
+```{r binomialDist}
 n <- 10
 p <- 0.5
 x <- 0:n
@@ -31,21 +31,21 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Modela o número de eventos raros num intervalo fixo.
 
-```{r poisson}
+```{r poissonDist}
 lambda <- 3
 x <- 0:15
 y <- dpois(x, lambda)
 
 ggplot(data.frame(x, y), aes(x, y)) +
   geom_bar(stat = "identity", fill = "darkorange") +
-  labs(title = "Distribuição de Poisson (λ = 3)", x = "Número de Eventos", y = "Probabilidade")
+  labs(title = "Distribuição de Poisson", x = "Número de Eventos", y = "Probabilidade")
 ```
 
 ### Geométrica
 
 Modela o número de falhas antes do primeiro sucesso.
 
-```{r geometrica}
+```{r geometricaDist}
 p <- 0.3
 x <- 0:10
 y <- dgeom(x, prob = p)
@@ -61,7 +61,7 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Modela fenômenos naturais e erros de medida.
 
-```{r normal_plot}
+```{r normal_plot_Dist}
 x <- seq(-4, 4, length.out = 100)
 y <- dnorm(x)
 
@@ -74,21 +74,21 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Tempo até um evento ocorrer.
 
-```{r exponencial}
+```{r exponencialDist}
 lambda <- 1
 x <- seq(0, 5, length.out = 100)
 y <- dexp(x, rate = lambda)
 
 ggplot(data.frame(x, y), aes(x, y)) +
   geom_line(color = "firebrick", size = 1.2) +
-  labs(title = "Distribuição Exponencial (λ = 1)", x = "Tempo", y = "Densidade")
+  labs(title = "Distribuição Exponencial", x = "Tempo", y = "Densidade")
 ```
 
 ### Uniforme Contínua
 
 Todos os valores têm a mesma chance.
 
-```{r uniforme}
+```{r uniformeDist}
 x <- seq(0, 1, length.out = 100)
 y <- dunif(x, min = 0, max = 1)
 
@@ -101,7 +101,7 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Usada em testes com amostras pequenas.
 
-```{r student}
+```{r studentDist}
 x <- seq(-4, 4, length.out = 100)
 y <- dt(x, df = 5)
 
@@ -114,7 +114,7 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Usada para testes de aderência e independência.
 
-```{r chisq}
+```{r chisqDist}
 x <- seq(0, 20, length.out = 100)
 y <- dchisq(x, df = 5)
 
@@ -127,7 +127,7 @@ ggplot(data.frame(x, y), aes(x, y)) +
 
 Usada em ANOVA para comparar variâncias.
 
-```{r fisher}
+```{r fisherDist}
 x <- seq(0, 5, length.out = 100)
 y <- df(x, df1 = 5, df2 = 10)
 

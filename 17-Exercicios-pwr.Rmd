@@ -19,7 +19,7 @@ O pacote `pwr` permite calcular:
 
 Calcule o tamanho da amostra necessário para detectar um efeito moderado (d = 0.5), com poder de 0.8 e nível de significância de 0.05, em um teste t bilateral para duas amostras independentes.
 
-```{r n-tnp, message=FALSE,  warning=FALSE}
+```{r n-tnpcal, message=FALSE,  warning=FALSE}
 library(pwr)
 # Tamanho da amostra para teste t não pareado
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
@@ -31,7 +31,7 @@ pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
 
 Se você dispõe de 26 observações em cada grupo, qual é o poder do teste para detectar um efeito de 0.5, com sig.level = 0.05?
 
-```{r p-tnp, message=FALSE,  warning=FALSE}
+```{r p-tnpcal, message=FALSE,  warning=FALSE}
 # Poder do teste t não pareado para n = 26 por grupo
 pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
 ```
@@ -42,7 +42,7 @@ pwr.t.test(n = 26, d = 0.5, sig.level = 0.05, type = "two.sample")
 
 Com 26 observações por grupo, poder de 0.8 e sig.level de 0.05, qual o menor tamanho de efeito detectável?
 
-```{r d-tnp, message=FALSE,  warning=FALSE}
+```{r d-tnpcal, message=FALSE,  warning=FALSE}
 # Tamanho do efeito detectável
 pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
 ```
@@ -53,7 +53,7 @@ pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "two.sample")
 
 #### a) Teste t pareado
 
-```{r n-tp, message=FALSE,  warning=FALSE}
+```{r n-tpcal, message=FALSE,  warning=FALSE}
 # Tamanho da amostra para teste t pareado
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
 
@@ -66,33 +66,33 @@ pwr.t.test(n = 26, power = 0.8, sig.level = 0.05, type = "paired")
 
 #### b) Wilcoxon não pareado
 
-```{r n-wnp, message=FALSE,  warning=FALSE}
+```{r n-wnpcal, message=FALSE,  warning=FALSE}
 # Tamanho da amostra para Wilcoxon não pareado (aproximação pelo teste t)
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "two.sample")
 ```
 
 > **Dica:** O pacote `pwr` não possui funções específicas para testes não-paramétricos como Wilcoxon. Por isso, costuma-se usar o cálculo para teste t como aproximação, aumentando o tamanho da amostra em cerca de 15% (multiplique o valor obtido por 1,15), já que testes não-paramétricos geralmente requerem amostras maiores para o mesmo poder estatístico.
 
-```{r p-wnp, message=FALSE,  warning=FALSE}
+```{r p-wnpcal, message=FALSE,  warning=FALSE}
 # Recalculando o tamanho da amostra
 63.76561*1.15
 ```
 
 > O *tamanho do efeito para o teste de Wilcoxon* pode ser aproximado *por d × 0,86*, sendo d o tamanho do efeito de Cohen, desde que as distribuições dos grupos sejam aproximadamente normais e com variâncias semelhantes (Lehmann, 2006; Noether, 1987).
 
-```{r e-wnp, message=FALSE,  warning=FALSE}
+```{r e-wnpcal, message=FALSE,  warning=FALSE}
 # Poder da amostra para Wilcoxon não pareado (aproximação pelo teste t)
 pwr.t.test(n = 26, d = 0.5*0.86, sig.level = 0.05, type = "two.sample")
 ```
 
 #### c) Wilcoxon pareado
 
-```{r n-wp, message=FALSE,  warning=FALSE}
+```{r n-wpcal, message=FALSE,  warning=FALSE}
 # Tamanho da amostra para Wilcoxon pareado (aproximação pelo teste t pareado)
 pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
 ```
 
-```{r p-wp, message=FALSE,  warning=FALSE}
+```{r p-wpcal, message=FALSE,  warning=FALSE}
 # Poder da amostra para Wilcoxon não pareado (aproximação pelo teste t)
 pwr.t.test(n = 26, d = 0.5*0.86, sig.level = 0.05, type = "two.sample")
 ```
@@ -128,7 +128,7 @@ Neste exemplo, o argumento `d` é o valor a ser calculado.
 
 Quando os grupos têm tamanhos diferentes, use `pwr.t2n.test()` para calcular o poder.
 
-```{r pwr-2n, message=FALSE,  warning=FALSE}
+```{r pwr-2ncal, message=FALSE,  warning=FALSE}
 # Exemplo: grupo 1 com 95, grupo 2 com 30 observações
 library(pwr)
 pwr.t2n.test(n1 = 95, n2 = 30, d = 0.5, sig.level = 0.05)
@@ -160,7 +160,7 @@ O tamanho do efeito complementa a análise estatística, indicando a magnitude d
 
 #### r de Wilcoxon (Wilcoxon rank-sum, não pareado)
 
-```{r rWilcox, eval=TRUE, message=FALSE,  warning=FALSE}
+```{r rWilcoxcal, eval=TRUE, message=FALSE,  warning=FALSE}
 library(rstatix)
 library(readr)
 
@@ -210,7 +210,7 @@ A diferença de velocidade entre Pokémons verdes e amarelos é estatisticamente
 
 #### Delta de Cliff
 
-```{r, DCliff, message=FALSE, warning=FALSE}
+```{r, DCliffcal, message=FALSE, warning=FALSE}
 library(effsize)
 
 # Calcule o Delta de Cliff

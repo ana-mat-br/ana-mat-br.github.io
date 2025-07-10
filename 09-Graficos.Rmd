@@ -215,7 +215,7 @@ Além do iris, o R oferece outros conjuntos de dados nativos bastante úteis par
 
 ### Gráfico de Dispersão (Scatterplot)
 
-```{r, ggplot, message=FALSE, warning=FALSE}
+```{r, ggplotIris, message=FALSE, warning=FALSE}
 library(ggplot2)
 # Exemplo com o dataset iris
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
@@ -228,7 +228,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ### Gráfico de Barras
 
-```{r, ggbar}
+```{r, ggbarIris}
 # Contagem das espécies no dataset iris
 ggplot(iris, aes(x = Species, fill = Species)) +
   geom_bar() +
@@ -240,7 +240,7 @@ ggplot(iris, aes(x = Species, fill = Species)) +
 
 ### Histograma
 
-```{r, gghist}
+```{r, gghistIris}
 # Distribuição do comprimento da sépala
 ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
   geom_histogram(binwidth = 0.3, color = "white", alpha = 0.7, position = "identity") +
@@ -252,7 +252,7 @@ ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
 
 ### Boxplot
 
-```{r, ggboxplot}
+```{r, ggboxplotIris}
 # Distribuição do comprimento da pétala por espécie
 ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
   geom_boxplot(alpha = 0.7) +

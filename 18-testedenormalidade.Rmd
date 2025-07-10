@@ -36,7 +36,7 @@ Abaixo estão os testes de normalidade mais conhecidos, quando são mais recomen
 
 ### Exemplo Prático em R
 
-```{r, testenorm, message=FALSE, warning=FALSE}
+```{r, testenormex, message=FALSE, warning=FALSE}
 
 #install.packages("nortest")
 #install.packages("moments")

@@ -1,13 +1,13 @@
 bookdown::gitbook:
   highlight: haddock
   config:
-    language: pt
+    language: pt-BR
     toc:
       collapse: section
       scroll_highlight: true
       before: |
         <h2><center>Estatística + R</center></h2>
-        <center> roteiro de estudo </center>
+        <center> ISBN 978-65-01-56980-2 </center>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
     edit: null

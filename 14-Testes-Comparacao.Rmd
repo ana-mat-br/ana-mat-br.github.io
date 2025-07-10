@@ -44,7 +44,7 @@ Para escolher o teste estatístico adequado, é importante considerar as caracte
   Indicados quando os dados não atendem às condições dos testes paramétricos, como em distribuições assimétricas ou dados ordinais, oferecendo uma alternativa robusta para comparação.
 
 
-```{r setup2, include=FALSE}
+```{r setup2diag, include=FALSE}
 library(DiagrammeR)
 ```
 
@@ -52,7 +52,7 @@ library(DiagrammeR)
 
 O fluxograma abaixo apresenta a sequência de etapas para a escolha do teste estatístico mais adequado na comparação entre dois grupos, considerando o tipo de comparação entre os dois grupos (pareada ou não pareada) e a verificação da normalidade dos dados.
 
-```{r fluxograma, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+```{r fluxograma2gr, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 grViz("
 digraph fluxo_teste {
   graph [layout = dot, rankdir = TB, bgcolor = white]
@@ -108,7 +108,7 @@ O teste t pareado avalia se há diferença entre as médias de dois conjuntos de
 
 > H₁: A média antes é diferente da média depois (há efeito).
 
-```{r t-pareado, message=FALSE}
+```{r t-pareadotest, message=FALSE}
 # Simulando dados: pressão antes e depois
 set.seed(123)
 antes <- rnorm(20, mean=120, sd=10)
@@ -160,7 +160,7 @@ Formalmente, o teste verifica se a **distribuição das diferenças entre os par
 
 *Observação: Esta formulação das hipóteses em termos de mediana é válida quando as diferenças apresentam distribuição simétrica.*
 
-```{r wilcoxon-pareado, message=FALSE}
+```{r wilcoxon-pareadotest, message=FALSE}
 wilcox.test(antes, depois, paired = TRUE)
 ```
 
@@ -174,7 +174,7 @@ Ao fazer o teste de Wilcoxon pareado no R, a resposta traz as seguintes informa�
 No R, por padrão, a função `wilcox.test()` não mostra o intervalo de confiança para a mediana das diferenças.
 No entanto, você pode pedir para calcular o intervalo de confiança usando o argumento **`conf.int = TRUE`**:
 
-```{r wilcoxon-pareado-ic, message=FALSE}
+```{r wilcoxon-pareado-ictest, message=FALSE}
 wilcox.test(antes, depois, paired = TRUE, conf.int = TRUE)
 ```
 
@@ -241,7 +241,7 @@ O teste t para amostras não pareadas compara médias de dois grupos independent
 
 > H₁: As médias dos grupos são diferentes.
 
-```{r t-independente, message=FALSE}
+```{r t-independentetest, message=FALSE}
 # Simulando dados
 set.seed(456)
 grupoA <- rnorm(30, mean=50, sd=7)
@@ -292,7 +292,7 @@ O teste é também conhecido como Wilcoxon-Mann-Whitney. É a alternativa não p
 
 > H₁: As distribuições dos grupos são diferentes.
 
-```{r mann-whitney, message=FALSE}
+```{r mann-whitneytest, message=FALSE}
 wilcox.test(grupoA, grupoB)
 ```
 

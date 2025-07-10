@@ -70,7 +70,7 @@ A seguir, apresentamos um exemplo de ANOVA de uma via e do teste de Kruskal-Wall
 
 ### Simulação de Dados
 
-```{r dadosAnova, message=FALSE,  warning=FALSE}
+```{r dadosAnovatest, message=FALSE,  warning=FALSE}
 set.seed(123)
 grupo <- factor(rep(c("A", "B", "C"), each = 10))
 valor <- c(rnorm(10, mean = 5, sd = 1),
@@ -81,7 +81,7 @@ dados <- data.frame(grupo, valor)
 
 ### Visualização dos Dados
 
-```{r boxplotAnova, message=FALSE,  warning=FALSE}
+```{r boxplotAnovabp, message=FALSE,  warning=FALSE}
 boxplot(valor ~ grupo, data = dados, main = "Boxplot dos Grupos", ylab = "Valor")
 ```
 
@@ -89,7 +89,7 @@ boxplot(valor ~ grupo, data = dados, main = "Boxplot dos Grupos", ylab = "Valor"
 
 #### Normalidade dos resíduos
 
-```{r residuosAnova, message=FALSE,  warning=FALSE}
+```{r residuosAnovatest, message=FALSE,  warning=FALSE}
 modelo_aov <- aov(valor ~ grupo, data = dados)
 residuos <- residuals(modelo_aov)
 
@@ -110,7 +110,7 @@ qqline(residuos)
 
 #### Homogeneidade de variâncias
 
-```{r leveneAnova, message=FALSE,  warning=FALSE}
+```{r leveneAnovatest, message=FALSE,  warning=FALSE}
 # Instale 'car' se necessário: install.packages("car")
 library(car)
 leveneTest(valor ~ grupo, data = dados)
@@ -124,7 +124,7 @@ leveneTest(valor ~ grupo, data = dados)
 
 ### ANOVA de Uma Via
 
-```{r Anova, message=FALSE,  warning=FALSE}
+```{r Anovatest, message=FALSE,  warning=FALSE}
 summary(modelo_aov)
 ```
 
@@ -134,7 +134,7 @@ summary(modelo_aov)
 
 #### Teste Post Hoc (se ANOVA for significativa)
 
-```{r TukeyHSD, message=FALSE,  warning=FALSE}
+```{r TukeyHSDtest, message=FALSE,  warning=FALSE}
 TukeyHSD(modelo_aov)
 ```
 
@@ -160,7 +160,7 @@ O teste de Tukey compara as médias dos grupos dois a dois, após a ANOVA indica
 
 Se os pré-requisitos da ANOVA não forem atendidos, utilize o Kruskal-Wallis:
 
-```{r KW, message=FALSE,  warning=FALSE}
+```{r KWtest, message=FALSE,  warning=FALSE}
 kruskal.test(valor ~ grupo, data = dados)
 ```
 
@@ -170,7 +170,7 @@ kruskal.test(valor ~ grupo, data = dados)
   
 ### Teste Post Hoc para Kruskal-Wallis
 
-```{r KWph, message=FALSE,  warning=FALSE}
+```{r KWphtest, message=FALSE,  warning=FALSE}
 # Instale PMCMRplus se necessário: install.packages("PMCMRplus")
 library(PMCMRplus)
 kwAllPairsDunnTest(valor ~ grupo, data = dados)
@@ -201,7 +201,7 @@ Vamos analisar o desempenho de 6 alunos em 3 provas diferentes (Prova 1, Prova 2
 
 ### Gerar dados simulados
 
-```{r AnovaR, message=FALSE,  warning=FALSE}
+```{r AnovaRtest, message=FALSE,  warning=FALSE}
 set.seed(123)
 n <- 20
 dados <- data.frame(
@@ -215,7 +215,7 @@ head(dados)
 
 ### Converter para formato longo
 
-```{r AnovaRl, message=FALSE,  warning=FALSE}
+```{r AnovaRltest, message=FALSE,  warning=FALSE}
 library(tidyr)
 dados_long <- pivot_longer(
   dados,
@@ -230,7 +230,7 @@ head(dados_long)
 
 ### Visualização (opcional)
 
-```{r AnovaRg, message=FALSE,  warning=FALSE}
+```{r AnovaRgtest, message=FALSE,  warning=FALSE}
 library(ggplot2)
 library(RColorBrewer)
 
@@ -250,7 +250,7 @@ ggplot(dados_long, aes(x = prova, y = nota, group = aluno, color = aluno)) +
 
 ### Teste de normalidade das diferenças (pré-requisito)
 
-```{r AnovaRnorm, message=FALSE,  warning=FALSE}
+```{r AnovaRnormtest, message=FALSE,  warning=FALSE}
 dif12 <- dados$prova1 - dados$prova2
 dif13 <- dados$prova1 - dados$prova3
 dif23 <- dados$prova2 - dados$prova3
@@ -274,7 +274,7 @@ shapiro.test(dif23)
 
 A função `aov_ez()`, do pacote `afex` realiza toda a ANOVA de medidas repetidas de forma prática e automática.
 
-```{r AnovaRe, message=FALSE,  warning=FALSE}
+```{r AnovaRetest, message=FALSE,  warning=FALSE}
 # Instale se necessário: install.packages("afex")
 library(afex)
 modelo_afex <- aov_ez(
@@ -298,7 +298,7 @@ modelo_afex
 
 ### Pós-hoc: Comparações múltiplas entre as provas
 
-```{r AnovaRph, message=FALSE,  warning=FALSE}
+```{r AnovaRphtest, message=FALSE,  warning=FALSE}
 # Instale se necessário: install.packages("emmeans")
 library(emmeans)
 emm <- emmeans(modelo_afex, ~ prova)
@@ -314,14 +314,14 @@ pairs(emm, adjust = "bonferroni") # ou "holm", "sidak", etc.
  
 ## Teste de Friedman
 
-```{r Friedman, message=FALSE,  warning=FALSE}
+```{r Friedmantest, message=FALSE,  warning=FALSE}
 # O teste de Friedman compara as três provas considerando a repetição por aluno
 friedman.test(as.matrix(dados[, c("prova1", "prova2", "prova3")]))
 ```
 
 ### Pós-teste: Comparações Múltiplas (Wilcoxon pareado)
 
-```{r Friedmanph, message=FALSE,  warning=FALSE}
+```{r Friedmanphtest, message=FALSE,  warning=FALSE}
 pairwise.wilcox.test(
   dados_long$nota,
   dados_long$prova,

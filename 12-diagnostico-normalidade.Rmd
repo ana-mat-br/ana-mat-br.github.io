@@ -15,7 +15,7 @@ Esta seção apresenta uma análise visual da normalidade dos dados por meio de 
 
 ## Dados que seguem distribuição normal
 
-```{r enormal}
+```{r enormalDist}
 set.seed(10)
 dados_normais <- rnorm(500, mean = 0, sd = 1)
 
@@ -29,7 +29,7 @@ qqline(dados_normais, col = "blue", lwd = 2)
 
 ## Dados que geram dúvida
 
-```{r duvidosa}
+```{r duvidosaDist}
 set.seed(20)
 dados_mistos <- c(rnorm(250, 0, 1), rnorm(250, 2, 1))
 
@@ -44,7 +44,7 @@ qqline(dados_mistos, col = "orange", lwd = 2)
 
 ## Dados que não seguem distribuição normal
 
-```{r nnormal}
+```{r nnormalDist}
 set.seed(30)
 dados_chi <- rchisq(500, df = 3)
 
@@ -58,7 +58,7 @@ qqline(dados_chi, col = "red", lwd = 2)
 
 ## Dados com forte concentração de repetição de valor (não seguem distribuição normal)
 
-```{r dados_repetidos}
+```{r dados_repetidos_dist}
 set.seed(42)
 dados_repetidos <- c(rep(18, 5), rep(23, 10), rep(26,7)) 
 
