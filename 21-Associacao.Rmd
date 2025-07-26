@@ -1,289 +1,437 @@
-# Correlação
+```{r setup, include=FALSE}
+# Instale os pacotes se necessário:
+# install.packages(c("tidyverse", "pwr", "epitools"))
 
-Correlação é uma medida estatística que expressa a intensidade e a direção da relação entre duas variáveis. No caso do coeficiente de Pearson, ela mede a relação linear. 
-
-| Estar correlacionado significa que ao observar o comportamento de uma variável, podemos prever uma tendência no comportamento da outra, por exemplo, se uma aumenta, a outra também tende a aumentar (correlação positiva), ou tende a diminuir (correlação negativa).
-
-## Tipos de Variáveis
-Para analisar correlação, usamos variáveis numéricas (quantitativas ou qualitativas ordinais). Quando as variáveis são qualitativas ordinais (por exemplo, escala Likert), geralmente usamos métodos não paramétricos como Spearman ou Kendall, que funcionam bem mesmo sem normalidade ou relação linear.
-
-## Diagrama de Dispersão
-Gráfico que permite visualizar a relação entre duas variáveis. A seguir, exemplos de diferentes padrões de correlação:
-
-```{r exemplo-correlacoes, echo=FALSE, message=FALSE, warning=FALSE}
-set.seed(2025)
-df_cor <- data.frame(
-  x = rnorm(100)
-)
-df_cor$y_pos_forte <- df_cor$x + rnorm(100, 0, 0.3)
-df_cor$y_neg_forte <- -df_cor$x + rnorm(100, 0, 0.3)
-df_cor$y_moderada <- 0.5*df_cor$x + rnorm(100, 0, 0.7)
-df_cor$y_fraca <- df_cor$x + rnorm(100, 0, 3)
-df_cor$y_sem <- rnorm(100,0,10)
-df_cor$y_nlinear <- (df_cor$x)^2 + rnorm(100)
-
-par(mfrow = c(2, 3), mgp = c(1.1, 0.1, 0)) # mgp aproxima xlab/ylab do gráfico
-
-plot(df_cor$x, df_cor$y_pos_forte, 
-     main = "Correlação Positiva Forte", 
-     xlab = expression("variável 1" ~ "\u2192"), # seta para a direita
-     ylab = expression("variável 2" ~ "\u2192"), # seta para a direita
-     xaxt = "n", yaxt = "n")
-
-plot(df_cor$x, df_cor$y_moderada, 
-     main = "Correlação Positiva Moderada", 
-     xlab = expression("variável 1" ~ "\u2192"), # seta para a direita
-     ylab = expression("variável 2" ~ "\u2192"), # seta para a direita
-     xaxt = "n", yaxt = "n")
-
-plot(df_cor$x, df_cor$y_fraca, 
-     main = "Correlação Positiva Fraca", 
-     xlab = expression("variável 1" ~ "\u2192"), # seta para a direita
-     ylab = expression("variável 2" ~ "\u2192"), # seta para a direita 
-     xaxt = "n", yaxt = "n")
-
-plot(df_cor$x, df_cor$y_neg_forte, 
-     main = "Correlação Negativa Forte", 
-     xlab = expression("variável 1" ~ "\u2192"), # seta para a direita
-     ylab = expression("variável 2" ~ "\u2190"), # seta para a esquerda
-     xaxt = "n", yaxt = "n")
-
-plot(df_cor$x, df_cor$y_sem, 
-     main = "Sem Correlação", 
-     xlab = expression("variável 1"), # seta para a direita
-     ylab = expression("variável 2"), # seta para a direita
-     xaxt = "n", yaxt = "n")
-
-plot(df_cor$x, df_cor$y_nlinear, 
-     main = "Correlação Não Linear", 
-     xlab = expression("variável 1"), # seta para a direita
-     ylab = expression("variável 2"), # seta para a direita 
-     xaxt = "n", yaxt = "n")
+library(tidyverse)
+library(pwr)
+library(epitools)
 ```
 
-## Coeficientes de Correlação
+# Associação entre variáveis
 
-### Coeficiente de Correlação de Pearson
+Testes de associação são usados para verificar se existe uma relação estatisticamente significativa entre duas variáveis categóricas. A escolha do teste depende do tipo de variável e do tamanho da amostra.
 
-O coeficiente de correlação de **Pearson** ($r$) é utilizado quando se deseja avaliar a relação linear entre duas variáveis quantitativas contínuas. Ele pressupõe que os dados de ambas as variáveis seguem uma **distribuição normal** (ou aproximadamente normal) e que a relação entre elas é linear, ou seja, uma linha reta pode descrever bem o padrão dos dados em um gráfico de dispersão. É sensível a outliers.
+A aplicação desses testes é fundamental em diversas áreas do conhecimento. 
 
-### Coeficiente de Correlação de Spearman
+## Tipos de Variáveis Envolvidas
 
-O coeficiente de **Spearman** ($\rho$) avalia a força e a direção da associação entre duas variáveis com base em seus **ranks** (postos) em vez dos valores originais. Ele é indicado quando a relação entre as variáveis é **monotônica**, ou seja, conforme uma variável aumenta, a outra também aumenta ou diminui, mas não necessariamente de maneira linear. O Spearman é apropriado para dados que não seguem a normalidade ou para situações em que a relação não pode ser descrita por uma linha reta. Além disso, é menos sensível a outliers do que o Pearson.
+Os testes de associação são aplicados principalmente a **variáveis qualitativas nominais**, como:
+
+- Sexo (Masculino, Feminino)
+- Presença de Doença (Sim, Não)
+
+## Tabela de Contingência
+
+Uma **tabela de contingência** é uma ferramenta estatística utilizada para organizar e analisar a relação entre duas (ou mais) variáveis categóricas. Ela apresenta a distribuição conjunta das frequências observadas de cada combinação possível dos níveis das variáveis, facilitando a identificação de possíveis associações entre elas.
+
+**Exemplo:**
+
+Considere uma pesquisa em que se investiga a associação entre sexo e presença de uma determinada doença em uma amostra de pessoas:
+
+|              | Doença: Sim | Doença: Não | Total |
+|--------------|:-------------:|:-------------:|:-------:|
+| Masculino    |      8      |      7      |  15   |
+| Feminino     |      5      |     10      |  15   |
+| **Total**    |     13      |     17      |  30   |
+
+Cada célula da tabela mostra o número de pessoas de cada sexo que têm ou não têm a doença, permitindo analisar se existe associação entre essas variáveis.
+
+### Cálculo das Frequências Esperadas
+
+As **frequências esperadas** são valores teóricos que indicam quantas ocorrências seriam esperadas em cada célula de uma tabela de contingência caso não houvesse associação entre as variáveis (ou seja, se fossem independentes). Elas são fundamentais para a realização do teste qui-quadrado de independência.
+
+**Como calcular?**
+
+Para cada célula da tabela de contigência (frequências observadas), usamos a seguinte conta:
+
+\[
+\text{Frequência Esperada} = \frac{\text{Total da Linha} \times \text{Total da Coluna}}{\text{Total Geral}}
+\]
 
 
-### Coeficiente de Correlação de Kendall
+- O “Total da Linha” é o total de pessoas daquela linha (por exemplo, todos os homens).
 
-O coeficiente de **Kendall** ($\tau$) também se baseia nos postos dos dados, sendo utilizado para medir a força da associação entre duas variáveis. É especialmente útil em situações com **pequenas amostras** ou quando há muitos **empates** nos valores dos dados (valores iguais). Assim como o Spearman, o Kendall não exige normalidade dos dados e é apropriado para relações monotônicas. Em geral, o tau de Kendall é visto como mais robusto em amostras pequenas ou com muitos empates.
+- O “Total da Coluna” é o total de pessoas daquela coluna (por exemplo, todos que têm a doença).
 
-### Interpretação dos Coeficientes
+- O “Total Geral” é o total de pessoas da tabela toda.
 
-O valor a correlação varia de -1 (correlação negativa perfeita) a +1 (correlação positiva perfeita), sendo 0 a ausência de correlação linear. 
 
-| Faixa de valores     | Interpretação    |
-|:-------------------------:|:-------------:|
-| 0,00 – 0,10          | Desprezível      |
-| 0,10 – 0,30          | Fraca            |
-| 0,30 – 0,50          | Moderada         |
-| 0,50 – 0,70          | Forte            |
-| 0,70 – 1,00          | Muito forte      |
+**Da tabela de contigência do exemplo anterior, podemos efetuar os cálculos**
+
+1. **Masculino, Doença: Sim**
+   \[
+   \frac{15 \times 13}{30} = \frac{195}{30} = 6,5
+   \]
+
+2. **Masculino, Doença: Não**
+   \[
+   \frac{15 \times 17}{30} = \frac{255}{30} = 8,5
+   \]
+
+3. **Feminino, Doença: Sim**
+   \[
+   \frac{15 \times 13}{30} = 6,5
+   \]
+
+4. **Feminino, Doença: Não**
+   \[
+   \frac{15 \times 17}{30} = 8,5
+   \]
+
+Então, nesse caso a tabela de frequências esperadas é dada por:
+
+|              | Doença: Sim | Doença: Não | Total da linha |
+|--------------|:-------------:|:-------------:|:---------------:|
+| Masculino    |     6,5     |     8,5     |      15       |
+| Feminino     |     6,5     |     8,5     |      15       |
+| **Total da coluna** |   13       |    17       |      30       |
+
+A tabela acima mostra as frequências que seriam esperadas em cada célula caso não existisse associação entre sexo e presença de doença.
+
+A essência dos testes de associação é comparar a tabela de frequências observadas (com os dados reais coletados) com a tabela de frequências esperadas (calculada considerando que não exista relação entre as variáveis, ou seja, que sejam independentes). A tabela observada mostra quantas vezes cada combinação de categorias realmente aconteceu, enquanto a tabela esperada mostra quantas vezes cada combinação seria esperada ao acaso. O teste avalia se as diferenças entre o que foi observado e o que seria esperado são grandes o suficiente para indicar uma associação entre as variáveis. Portanto, a comparação entre essas duas tabelas está no centro da análise para determinar se existe ou não uma relação significativa entre as variáveis estudadas.
+
+Na prática, todos esses cálculos acontecem nos bastidores, pois utilizamos ferramentas computacionais que realizam automaticamente tanto o cálculo das frequências esperadas quanto a comparação com os valores observados. Assim, normalmente não precisamos calcular manualmente cada valor esperado ou montar todas as tabelas. No entanto, é fundamental compreender o conceito central dos testes de associação: eles servem para comparar o que foi realmente observado com o que seria esperado caso não houvesse relação entre as variáveis, ajudando a identificar se existe ou não uma associação significativa entre elas.
+
+
+## Principais Testes de Associação
+
+É importante destacar que existem diversos métodos estatísticos para analisar a associação entre variáveis categóricas, dependendo do tipo de dados e da estrutura da tabela de contingência.
+
+Além dos tradicionais teste qui-quadrado e teste exato de Fisher, há outros métodos que podem ser aplicados conforme a situação:  
+- O **teste G** (ou teste da razão de verossimilhança) é uma alternativa ao qui-quadrado, baseado em outra abordagem matemática, mas com objetivo semelhante.  
+- O **teste de McNemar** é indicado para tabelas 2x2 com dados pareados, como em estudos antes e depois.  
+- O **teste de Mantel-Haenszel** avalia a associação entre variáveis, controlando possíveis fatores de confusão por meio da estratificação, sendo muito usado em estudos epidemiológicos.  
+- O **teste de tendência linear de Cochran-Armitage** é recomendado quando as categorias possuem uma ordem natural e se deseja avaliar a existência de tendência linear entre elas.  
+- Existem ainda o **teste de concordância Kappa de Cohen**, que mede o grau de concordância entre avaliadores, e o **teste exato de Barnard**, alternativa ao teste de Fisher em tabelas 2x2.
+
+A escolha do teste adequado depende do tamanho da amostra, da distribuição dos dados, do tipo de variável (nominal ou ordinal), da estrutura dos dados (independentes ou pareados) e do objetivo da análise.
+
+
+### Exemplos 
+
+**Exemplo na Medicina:**  
+
+Investigar se há associação entre o sexo do paciente (masculino/feminino) e a presença de hipertensão (sim/não).  
+
+- **Variáveis:** Sexo (masculino, feminino) e hipertensão (sim, não)  
+
+- **Aplicação:** Monta-se uma tabela de contingência 2x2 e aplica-se o teste de associação para verificar se a proporção de hipertensos difere entre os sexos.
+
+
+**Exemplos na Psicologia**
+
+Verificar se existe associação entre tipo de terapia utilizada (cognitivo-comportamental, psicanalítica, humanista) e desfecho do tratamento (melhorou/não melhorou) em pacientes.  
+
+- **Variáveis:** Tipo de terapia (três categorias) e desfecho (melhorou, não melhorou)  
+
+- **Aplicação:** Monta-se uma tabela de contingência 3x2 e aplica-se o teste associação para analisar se o tipo de terapia está associado ao desfecho.
+
+
+**Exemplo na Educação Física** 
+
+Analisar se há associação entre a participação em atividades extracurriculares (sim/não) e o nível de aptidão física (baixo/médio/alto) em estudantes do ensino médio.  
+
+- **Variáveis:** Participação em atividades (sim, não) e aptidão física (baixo, médio, alto)  
+
+- **Aplicação:** Cria-se uma tabela de contingência 2x3 e utiliza-se o teste de associação para verificar se a aptidão física difere conforme a participação em atividades extracurriculares.
+
+
+### Teste Qui-Quadrado
+
+O teste **qui-quadrado** ($\chi^2$) é um dos métodos mais utilizados para avaliar se existe associação entre duas variáveis categóricas. Ele funciona comparando as frequências observadas nas células de uma tabela de contingência com as frequências que seriam esperadas caso não houvesse relação entre as variáveis.
+
+- **Hipótese nula ($H_0$):** Não existe associação entre as variáveis “x” e “y”, ou seja, elas são independentes.
+- **Hipótese alternativa ($H_1$):** Existe associação entre as variáveis.
+
+**Principais requisitos:**
+- A amostra deve ser aleatória.
+- Pelo menos 80% das células da tabela devem ter frequência esperada igual ou superior a 5.
+- Nenhuma célula deve ter frequência esperada igual a zero.
+
+> **Observação:** Nenhuma célula deve ter frequência esperada igual a zero porque, no teste qui-quadrado, a fórmula envolve dividir pela frequência esperada. Se algum valor esperado for zero, não é possível fazer a divisão, pois divisão por zero é indefinida. Além disso, uma frequência esperada igual a zero indica que, teoricamente, aquela combinação de categorias não deveria ocorrer nunca, o que torna os cálculos e os resultados do teste estatístico inválidos ou sem sentido. Por isso, é importante garantir que todas as células tenham valores esperados maiores que zero para que o teste seja matematicamente correto e confiável.
+
+O teste qui-quadrado pode ser aplicado em tabelas maiores que 2x2.
+
+### Teste Exato de Fisher
+
+O **teste exato de Fisher** é recomendado quando os tamanhos das amostras são pequenos ou quando as frequências esperadas em alguma célula da tabela são menores que 5, situação em que o teste qui-quadrado pode não ser confiável.
+
+- **Hipótese nula ($H_0$):** Não existe associação entre as variáveis “x” e “y”, ou seja, elas são independentes.
+- **Hipótese alternativa ($H_1$):** Existe associação entre as variáveis.
+
+- É mais conservador do que o qui-quadrado, pois calcula a probabilidade exata de ocorrência das frequências observadas.
+
+- Tradicionalmente, é utilizado para tabelas 2x2 (dois grupos e duas categorias), mas pode ser estendido a tabelas maiores com recursos computacionais.
+
+- Não depende das condições de frequência esperada mínima.
 
 ### Exemplo no R
 
-Vamos supor que temos os dados de 18 alunos: a quantidade de aulas frequentadas (de um total de 20) e suas notas finais na disciplina de Estatística (de 0 a 10).
+Vamos analisar se há associação entre sexo (Masculino/Feminino) e presença de doença (Sim/Não) com os seguintes dados, da tabela de contingência que foi mencionada anteriormente:
+
+|              | Doença: Sim | Doença: Não |  
+|--------------|:-----------:|:-----------:|  
+| Masculino    |      8      |      7      |  
+| Feminino     |      5      |     10      |  
+
+
+Essa tabela pode ser repassada diretamente para o R:
 
 ```{r}
-# Vetor de presenças (número de aulas frequentadas)
-presencas <- c(20, 18, 17, 19, 15, 16, 20, 18, 17, 19, 14, 15, 12, 16, 20, 13, 17, 18)
+# Crie a matriz de dados
+tabela <- matrix(c(8, 7,       # observe o uso de matrix() e c()
+                   5, 10),     # observe os parentes  
+                 nrow = 2,     # numero de linhas 
+                 byrow = TRUE) # você está informando por linhas (by row)
+                 
+# é opcional, mas ficará mais claro que se você nomear 
+# as linhas (row) e colunas (col) da sua tabela
+colnames(tabela) <- c("Doença: Sim", "Doença: Não")
+rownames(tabela) <- c("Masculino", "Feminino")
 
-# Vetor de notas finais em Estatística
-notas <- c(9.8, 9.0, 8.5, 9.5, 7.0, 7.5, 10.0, 8.7, 8.0, 9.2, 6.5, 7.2, 5.0, 7.8, 9.7, 6.0, 8.2, 8.8)
+# Veja como ficou a tabela
+tabela
 ```
 
-```{r correlation-matrix}
-# Para calcular o r de Pearson
-cor(presencas, notas, method = "pearson")
-# Para calcular o rho de Spearman
-cor(presencas, notas, method = "spearman")
-# Para calular o tau de Kendall
-cor(presencas, notas, method = "kendall")
+Para fazer o teste Qui-quadrado no R usamos `chisq.test()`:
 
-# Dica: dá para abreviar o nome de cada método
-# Para calcular o r de Pearson
-cor(presencas, notas, method = "p")
-# Para calcular o rho de Spearman
-cor(presencas, notas, method = "s")
-#para calular o tau de Kendall
-cor(presencas, notas, method = "k")
+```{r}
+# Aplicando o teste qui-quadrado
+resultado <- chisq.test(tabela)
 
+# Veja o resultado
+resultado
 ```
 
-## Testes de Correlação
+O resultado apresentado refere-se ao teste qui-quadrado de Pearson com a correção de continuidade de Yates, usada para tabelas 2x2:
 
-### Pearson
-- H0: $r = 0$ (não há correlação linear entre as variáveis "x" e "y")
-- H1: $r \neq 0$ (existe correlação)
-```{r pearson-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "pearson")
+A **correção de continuidade de Yates** é um ajuste aplicado ao teste qui-quadrado em tabelas 2x2 para evitar superestimação da significância estatística, especialmente em amostras pequenas. Ela consiste em diminuir a diferença entre os valores observados e esperados antes de calcular o qui-quadrado, tornando o teste mais conservador.
+
+- **X-squared**: Valor do qui-quadrado calculado $\chi^2 = 0,543$.  
+- **df**: Graus de liberdade (1), determinado pelo número de linhas e colunas da tabela.  O cálculo é feito pela fórmula:  
+  **df = (número de linhas – 1) × (número de colunas – 1)**.  
+  No exemplo, temos 2 linhas e 2 colunas: (2–1) × (2–1) = 1.
+- **p-value**: Valor de p (0,4612)
+
+Como o valor de p é 0,4612 (maior do que o nível de significância de 0,05), **não há evidências suficientes para rejeitar a hipótese nula**. Portanto, não foi encontrada associação estatisticamente significativa entre sexo e presença de doença nessa amostra.
+
+
+E, caso queira vizualizar as tabelas de valores observados e esperados basta fazer o seguinte: 
+
+```{r}
+# Exibir os valores observados
+resultado$observed
+
+# Exibir os valores esperados
+resultado$expected
 ```
 
-### Spearman
-- H0: $\rho = 0$ (não há correlação entre as variáveis "x" e "y")
-- H1: $\rho \neq 0$ (existe correlação)
-```{r spearman-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "spearman")
+> **Observação:** Se alguma frequência esperada for menor que 5, o R emitirá um alerta. Nesses casos, considere usar o teste exato de Fisher:
+>
+> ```r
+> fisher.test(tabela)
+> ```
+
+Por, exemplos se substituirmos o 7 por 1, teremos
+```{r, echo=FALSE, message=FALSE, warning=TRUE}
+# Crie a matriz de dados
+tabela2 <- matrix(c(8, 1,       # observe o uso de matrix() e c()
+                   5, 10),     # observe os parentes  
+                 nrow = 2,     # numero de linhas 
+                 byrow = TRUE) # você está informando por linhas (by row)
+                 
+# é opcional, mas ficará mais claro que se você nomear 
+# as linhas (row) e colunas (col) da sua tabela
+colnames(tabela2) <- c("Doença: Sim", "Doença: Não")
+rownames(tabela2) <- c("Masculino", "Feminino")
+
+# Veja como ficou a tabela
+tabela2
+
+# Aplicando o teste qui-quadrado
+resultado <- chisq.test(tabela2)
+
+# Veja o resultado
+resultado
+
+# trocando por teste de Fisher 
+fisher.test(tabela2)
+```
+- **p-value = 0.01306:** O valor de p é menor que 0,05, indicando que existe uma associação estatisticamente significativa entre as duas variáveis analisadas. Isso significa que a chance de observarmos essa diferença (ou uma diferença maior) apenas por acaso é de aproximadamente 1,3%.
+
+- **Odds ratio = 14.07:** A razão de chances estimada é 14 vezes maior em um grupo do que no outro, sugerindo uma associação forte entre as categorias das variáveis.
+
+- **Intervalo de confiança (1,30 a 774,69):** O intervalo de confiança de 95% mostra que a razão de chances verdadeira, na população, pode variar de cerca de 1,3 até 774,7. Como esse intervalo não inclui o valor 1, reforça-se a evidência de associação.
+
+### Observação sobre tabelas de contingência em artigos científicos
+
+Quando lemos um artigo que apresenta uma **tabela de contingência** (por exemplo, uma tabela cruzando sexo e presença de doença), estamos vendo exatamente a amostra utilizada pelo autor, com a distribuição real dos indivíduos nos diferentes grupos. Isso é diferente do que ocorre em testes de comparação de médias (como t-teste) ou correlação, onde geralmente temos acesso apenas a medidas-resumo (como média, desvio-padrão, coeficiente de correlação), e não aos dados individuais.
+
+Nesse sentido, **ter a tabela de contingência é praticamente o mesmo que ter os dados brutos** dos autores, pois conhecemos exatamente a quantidade de participantes em cada combinação de categorias. Isso possibilita que qualquer leitor possa refazer os cálculos dos testes estatísticos (como o qui-quadrado ou Fisher) e, inclusive, explorar outras análises categóricas de interesse.
+
+Em resumo, a tabela de contingência oferece um grau de transparência e reprodutibilidade muito maior do que apenas apresentar medidas-resumo, pois expõe toda a estrutura dos dados da amostra analisada.
+
+
+## Tamanho do Efeito: Medidas de Associação
+
+Ao realizar testes de independência como o Qui-Quadrado ou o teste exato de Fisher para tabelas de contingência, é importante não apenas analisar o p-valor, mas também quantificar o tamanho do efeito, ou seja, a força da associação entre as variáveis categóricas.
+
+A seguir são mostradas as principais medidas de tamanho de efeito. 
+
+### V de Cramer
+
+- **Descrição**: mede a intensidade da associação entre duas variáveis categóricas. Varia de 0 (nenhuma associação) a 1 (associação perfeita).
+- **Uso**: Indicado para tabelas de contingência de qualquer dimensão.
+
+**Fórmula:**
+\[
+V = \sqrt{\frac{\chi^2}{n(k-1)}}
+\]
+
+- \(\chi^2\) = valor do teste Qui-Quadrado
+
+- \(n\) = total de observações
+
+- \(k\) = menor número entre linhas ou colunas
+
+**No R:**
+```{r, message=FALSE, warning=FALSE}
+library(rcompanion)
+cramerV(tabela)
+```
+ou
+```{r, message=FALSE, warning=FALSE}
+library(DescTools)
+CramerV(tabela)
 ```
 
-### Kendall
-- H0: $\tau = 0$ (não há correlação entre as variáveis "x" e "y")
-- H1: $\tau \neq 0$ (existe correlação)
-```{r kendall-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "kendall")
+###  Phi de Pearson $(\phi)$
+
+- **Descrição**: Medida de associação para tabelas 2x2. Varia de 0 a 1.
+- **Uso**: Exclusivo para tabelas 2x2.
+
+**Fórmula:**
+\[
+\phi = \sqrt{\frac{\chi^2}{n}}
+\]
+
+**No R:**
+```{r, message=FALSE, warning=FALSE}
+library(DescTools)
+Phi(tabela)
+```
+
+Interpretação dos valores:
+
+- **V de Cramer**:
+  - Pequeno: ~ 0,1
+  - Moderado: ~ 0,3
+  - Forte: ~ 0,5 ou mais
+
+- **Phi**: Interpretação semelhante ao V de Cramer para 2x2.
+
+No exemplo, o valor obtido para o **V de Cramer** ou **Phi** foi de **0,20**. De acordo com os critérios usuais para essa medida, valores em torno de 0,1 indicam associação pequena, valores próximos de 0,3 associação moderada e valores a partir de 0,5 associação forte entre as variáveis analisadas.
+
+Além disso, como o teste estatístico realizado (por exemplo, Qui-Quadrado ou Fisher) indicou que **não há associação significativa** entre as variáveis (p>0,05), o resultado do V de Cramer reforça essa conclusão. Um valor de 0,20 sugere uma associação fraca, e como não há significância estatística, não se pode afirmar que exista uma relação relevante entre as variáveis na população estudada.
+
+### Odds Ratio (Razão de Chances)
+
+- **Descrição**: O Odds Ratio (OR) mede a força da associação entre dois eventos em tabelas 2x2, comparando as chances (odds) de um evento ocorrer em dois grupos diferentes. Ele indica se a ocorrência do evento em um grupo é mais, menos ou igualmente provável em relação ao outro grupo.
+
+- **Uso**: Teste de Fisher e tabelas 2x2.
+
+Considere a estrutura da tabela 2x2:
+
+|                   | Evento Presente | Evento Ausente |
+|-------------------|:-----------------:|:---------------:|
+| **Grupo 1**       | a               | b             |
+| **Grupo 2**       | c               | d             |
+
+Então odds ratio (OR), pode ser facilmente calculado: 
+
+\[
+OR = \frac{a \times d}{b \times c}
+\]
+
+Onde:
+
+- **a** = número de casos com o evento presente no Grupo 1  
+- **b** = número de casos com o evento ausente no Grupo 1  
+- **c** = número de casos com o evento presente no Grupo 2  
+- **d** = número de casos com o evento ausente no Grupo 2  
+
+A interpretação do OR é a seguinte:
+
+- **OR = 1:**  
+  Não há diferença entre os grupos. O evento tem a mesma chance de acontecer no Grupo 1 e no Grupo 2.  
+  **Exemplo:** Se o OR for 1, os dois grupos têm risco igual para o evento.
+
+- **OR > 1:**  
+  O evento é mais provável no **Grupo 1** do que no Grupo 2.  
+  **Exemplo:** Se o OR for 2, o Grupo 1 tem o dobro de chance do evento comparado ao Grupo 2.
+
+- **OR < 1:**  
+  O evento é menos provável no **Grupo 1** do que no Grupo 2.  
+  **Exemplo:** Se o OR for 0,5, o Grupo 1 tem metade da chance do evento comparado ao Grupo 2.
+
+  
+**No R:**
+```{r} 
+fisher.test(tabela)$estimate
 ```
 
 
-## Tamanho do Efeito (Effect Size)
+O **odds ratio (OR)** calculado foi de **2,22**.
 
-Em estudos de correlação, o **tamanho do efeito** é representado pelo valor absoluto do coeficiente de correlação (por exemplo, Pearson, Spearman ou Kendall). Isso significa que consideramos apenas a intensidade da relação entre as variáveis, independentemente de ser positiva ou negativa.
+- O OR compara as chances de ocorrência da doença entre os grupos "Masculino" e "Feminino".
 
-Por exemplo, tanto um coeficiente de +0,65 quanto de -0,65 indicam um tamanho de efeito de 0,65. Quanto mais próximo de 1 (ou -1), mais forte é a correlação; quanto mais próximo de 0, mais fraca.
+- **OR = 2,22** indica que as chances de um indivíduo do sexo masculino ter a doença são aproximadamente **2,2 vezes maiores** do que as chances de um indivíduo do sexo feminino.
 
-## Cálculo do Tamanho da Amostra e Poder Estatístico
+- Em outras palavras, a doença é mais provável entre os homens do que entre as mulheres neste conjunto de dados.
 
-### Exemplo com `pwr`
-Calcular o tamanho da amostra necessário para detectar uma correlação de 0.4 com poder de 80% e α = 0.05:
 
-```{r power-analysis, message=FALSE, warning=FALSE}
-library(pwr)
-pwr.r.test(r = 0.4, power = 0.8, sig.level = 0.05, alternative = "two.sided")
+Ou usando o pacote `epitools`:
+```{r} 
+# install.packages("epitools")
+library(epitools)
+oddsratio(tabela)
 ```
 
-### Verificar o poder para uma amostra de tamanho 30:
 
-```{r power-given-n}
-pwr.r.test(n = 30, r = 0.4, sig.level = 0.05, alternative = "two.sided")
+- O odds ratio (OR) indica que as chances de "Doença: Sim" são cerca de 2,2 vezes maiores no grupo **Masculino** em relação ao grupo **Feminino**.
+
+- O intervalo de confiança (IC) de 95% para o OR do grupo Feminino é de 0,50 a 10,61, o que inclui o valor 1. Isso sugere que esta diferença **não é estatisticamente significativa**.
+
+- Valores de p
+
+| Grupo     | midp.exact | fisher.exact | chi.square |
+|-----------|:------------:|:--------------:|:------------:|
+| Feminino  |  0,3008    |   0,4621     |  0,2690    |
+
+- Todos os valores de p são **maiores do que 0,05**, indicando que não há associação estatisticamente significativa entre sexo e presença de doença nesta amostra.
+
+- O uso da função `oddsratio()` do pacote `epitools` mostrou um OR de 2,2 para o grupo masculino, mas essa diferença (entre os grupos feminino e masculino) não é estatisticamente significativa. Isso significa que, com base nesses dados, não se pode concluir que há uma associação real entre sexo e presença de doença.
+
+## Cálculo do Poder Estatístico
+
+O poder estatístico pode ser estimado usando o pacote `pwr`, útil para calcular tamanho de efeito ou tamanho de amostra necessário.
+
+```{r poder-estatistico}
+# Exemplo para efeito 0,2, alfa = 0.05 e N = 30 (OBSERVE o N em MAIÚSCULO, tamanho da amostra)
+pwr.chisq.test(w = 0.2, df = 1, N = 30, sig.level = 0.05)
 ```
 
-## Outros recursos 
+- **w (tamanho do efeito):**
+  - Representa o tamanho do efeito, w é igual ao V de Cramer
 
-```{r setup, include=FALSE}
-# Instalar pacotes, se necessário:
-# install.packages(c("tidyverse", "GGally"))
+- **df (graus de liberdade):**
+  - Indica o número de graus de liberdade do teste.
+  - Em uma tabela de contingência, é calculado como:  
+    (número de linhas – 1) × (número de colunas – 1)
+  - Exemplo: Para uma tabela 2x2, df = (2-1) × (2-1) = 1
 
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(GGally)
-```
-Para explorar um pouco mais o estudo de correlação, vamos usar o banco de dados `iris`, que já vem instalado por padrão no R.
+Com uma amostra de 30 indivíduos, tentando detectar um efeito pequeno (w = 0,2) em um teste do qui-quadrado com 1 grau de liberdade e nível de significância de 5%, o poder do teste é de apenas cerca de **19,5%**.
 
-O dataset `iris` é um conjunto de dados clássico em estatística e aprendizado de máquina (*machine learning*). Ele contém 150 observações de flores de íris de três espécies diferentes: *setosa*, *versicolor* e *virginica*. As variáveis numéricas são:
+Isso significa que, se realmente existir uma associação do tamanho especificado entre as variáveis, o teste só terá cerca de 19,5% de chance de detectar essa associação (ou seja, rejeitar a hipótese nula corretamente).
 
-- **Sepal.Length:** comprimento da sépala (em centímetros), a sépala é a parte externa da flor, que protege os botões florais.
-
-- **Sepal.Width:** largura da sépala (em centímetros).
-
-- **Petal.Length:** comprimento da pétala (em centímetros), as pétalas são as partes geralmente coloridas da flor.
-
-- **Petal.Width:** largura da pétala (em centímetros).
-
-Estas medidas são úteis para estudar relações entre características morfológicas das flores.
-
-### Visualização com `pairs()`
-
-A função `pairs()` mostra uma matriz de gráficos de dispersão, útil para observar visualmente correlações entre todas as variáveis numéricas.
-
-```{r pairs-plot}
-pairs(iris[, 1:4])
-```
-
-A função `pairs` no R gera uma matriz de gráficos de dispersão mostrando a relação entre todas as variáveis numéricas de um conjunto de dados. Cada gráfico da matriz compara duas variáveis diferentes:
-
-- Cada linha e cada coluna representam uma variável.
-- Os gráficos mostram como cada variável se relaciona com as outras: por exemplo, a relação entre Sepal.Length e Petal.Length.
-- Quando os pontos formam uma linha inclinada, isso indica uma correlação (positiva ou negativa) entre as variáveis.
-- Se os pontos estão espalhados, sem padrão, indica pouca ou nenhuma relação.
-- A diagonal mostra o nome de cada variável.
-
-Assim, ao olhar para a matriz, você consegue visualizar rapidamente quais variáveis têm relação entre si e qual é o tipo dessa relação (mais forte, mais fraca, positiva ou negativa).
-
-### Matriz de Correlação com `cor()`
-
-A função `cor()` calcula a matriz de correlação entre variáveis numéricas. A seguir, uma matriz com correlação de Pearson:
-
-```{r cor-matrix}
-# use o método adequado method = "pearson";  method = "spearman" ou method = "kendall"
-cor(iris[, 1:4], method = "pearson")
-```
-
-A matriz de correlação é uma tabela que mostra os coeficientes de correlação entre todas as combinações possíveis de variáveis numéricas em um conjunto de dados. Cada valor da matriz indica o grau de associação linear entre um par de variáveis. A diagonal principal sempre apresenta o valor 1, pois cada variável é perfeitamente correlacionada com ela mesma. Assim, a matriz de correlação permite identificar rapidamente quais variáveis estão mais relacionadas entre si, facilitando a análise exploratória dos dados. Observe que essa matriz é simétrica
-
-
-### Matriz Visual com `GGally::ggcorr()`
-
-O `ggcorr()` do pacote `GGally` mostra graficamente os coeficientes de correlação, com intensidade e direção representadas por cor.
-
-```{r ggcorr-matrix}
-# Instale os pacotes se necessário:
-# install.packages("GGally")
-# install.packages("ggplot2")
-
-library(GGally)
-library(ggplot2)
-
-# Matriz de correlação tipo heatmap com valores destacados
-ggcorr(
-  data = iris[, 1:4],
-  method = c("everything", "pearson"), # calcula todas as correlações de Pearson
-  label = TRUE,             # mostra os coeficientes nas células
-  label_round = 2,          # arredonda os valores para 2 casas decimais
-  label_size = 5,           # tamanho do texto dos coeficientes
-  hjust = 0.5,              # centraliza os rótulos nas células
-  layout.exp = 2,           # expande o tamanho das células
-  low = "#D73027",          # cor para correlação negativa forte
-  mid = "white",            # cor para correlação nula
-  high = "#3366CC"          # cor para correlação positiva forte
-) +
-  ggtitle("Matriz de Correlação de Pearson - iris (Heatmap)") +
-  theme_minimal(base_size = 14) + # visual minimalista e tamanho de fonte maior
-  theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"), # centraliza e destaca o título
-    axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1) # gira rótulos do eixo x para melhor leitura
-  )
-```
-
-A função `ggpairs()` combina histogramas, correlações e gráficos de dispersão em uma visualização integrada.
-
-Este comando cria uma matriz de gráficos que facilita visualizar a distribuição e a relação entre as variáveis numéricas do conjunto. É muito útil para identificar padrões, tendências, outliers e possíveis correlações antes de uma análise estatística mais aprofundada.
-
-- **Considerando todos os dados:**
-```{r ggpairs-plot0, message=FALSE, warning=FALSE}
-GGally::ggpairs(iris, columns = 1:4)
-```
-
-- **Considerando as categorias de especies (variável Species)**
-```{r ggpairs-plot, message=FALSE, warning=FALSE}
-GGally::ggpairs(iris, columns = 1:4, aes(color = Species))
-```
-
-**O que a figura mostra?**
-
-Esta figura é uma **matriz de gráficos de pares** (pairs) das variáveis numéricas do conjunto de dados, nesse caso, `Sepal.Length`, `Sepal.Width`, `Petal.Length` e `Petal.Width`.
-
-- **Diagonal principal**: exibe a distribuição de cada variável individualmente, usando histogramas ou curvas de densidade. Quando os dados estão divididos por categoria (como diferentes espécies no exemplo do iris), cada cor representa uma categoria distinta, permitindo visualizar e comparar facilmente como os valores da variável se distribuem em cada grupo.
-
-- **Abaixo da diagonal**: mostra gráficos de dispersão, permitindo observar visualmente as relações entre os pares de variáveis para cada espécie.
-
-- **Acima da diagonal**: apresenta os **coeficientes de correlação** para cada par de variáveis:
-  - O valor principal (exemplo: Corr: 0.872***) corresponde à correlação considerando todas as espécies juntas.
-  - Abaixo, aparecem as correlações **por espécie**:
-    - setosa (vermelho)
-    - versicolor (verde)
-    - virginica (azul)
-  - Os valores são coloridos conforme a espécie correspondente.
-
-- **Sobre os asteriscos**: os asteriscos após os valores de correlação indicam o **nível de significância estatística** do coeficiente calculado, ou seja, quão provável é que a correlação observada seja diferente de zero apenas pelo acaso. A convenção usual é:
-
-- `*` : p < 0,05 
-- `**` : p < 0,01 
-- `***` : p < 0,001
-- Sem asteriscos: correlação **não** significativa
+**Em geral, recomenda-se um poder estatístico de pelo menos 80%** (0,8) para que o teste tenha boa chance de detectar uma associação real. Portanto, **com essa configuração, o teste está subdimensionado (pouco poder)** para detectar efeitos pequenos.

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Ambiente Computacional | Estatística + R</title>
-  <meta name="description" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <title>Capítulo 26 Correlação entre variáveis | Estatística + R</title>
+  <meta name="description" content="Capítulo 26 Correlação entre variáveis | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <meta property="og:title" content="Capítulo 26 Correlação entre variáveis | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 26 Correlação entre variáveis | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="técnicas-de-amostragem.html"/>
-<link rel="next" href="trabalhando-RStudio.html"/>
+<link rel="prev" href="comparação-de-mais-de-dois-grupos.html"/>
+<link rel="next" href="associação-entre-variáveis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -536,104 +536,348 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ambiente-computacional" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Capítulo 6</span> Ambiente Computacional<a href="ambiente-computacional.html#ambiente-computacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Existem diversos softwares dedicados à análise estatística, que vão desde planilhas eletrônicas, como o Excel, até programas mais robustos, como o SPSS. Abaixo, listamos algumas das principais ferramentas utilizadas:</p>
-<div id="softwares-pagos" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Softwares pagos<a href="ambiente-computacional.html#softwares-pagos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://www.ibm.com/br-pt/spss">SPSS (IBM)</a></li>
-<li><a href="https://www.stata-brasil.com/software/stata.html">Stata</a></li>
-<li><a href="https://www.sas.com/pt_br">SAS</a></li>
-<li><a href="https://www.jmp.com/">JMP</a></li>
-<li><a href="https://software.com.br/p/prism">Prism</a></li>
-<li><a href="https://osbsoftware.com.br/produto/minitab-statistical-software">Minitab</a></li>
-<li>Microsoft Excel</li>
-</ul>
-</div>
-<div id="softwares-livres" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Softwares livres<a href="ambiente-computacional.html#softwares-livres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://www.jamovi.org">Jamovi</a></li>
-<li><a href="https://openstat.info">OpenStat</a></li>
-</ul>
-</div>
-<div id="linguagens-computacionais" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Linguagens computacionais<a href="ambiente-computacional.html#linguagens-computacionais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://www.r-project.org">R</a></li>
-<li><a href="https://www.python.org/">Python</a></li>
-</ul>
-<p>Neste curso, utilizaremos a linguagem <strong>R</strong>, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha? Recomendamos a leitura: <a href="https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/">Por que usar R?</a></p>
-</div>
-<div id="preparando-o-ambiente-computacional" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Preparando o Ambiente Computacional<a href="ambiente-computacional.html#preparando-o-ambiente-computacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Vamos preparar o ambiente computacional para realizar nossas análises com R.</p>
+<div id="correlação-entre-variáveis" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Capítulo 26</span> Correlação entre variáveis<a href="correlação-entre-variáveis.html#correlação-entre-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A correlação é uma forma de medir o grau de relação entre duas variáveis. Quando duas variáveis estão correlacionadas, significa que podemos esperar que, ao mudar uma delas, a outra também sofra alguma alteração. Se ambas aumentam juntas, dizemos que a correlação é positiva; se uma aumenta enquanto a outra diminui, a correlação é negativa.</p>
+<p>É importante destacar que a correlação indica apenas que as variáveis variam juntas, mas não prova que uma causa a mudança na outra. Outros fatores podem estar influenciando essa relação, ou pode ser apenas uma coincidência. Por isso, correlação mostra como as variáveis estão relacionadas, mas não estabelece uma relação de causa e efeito.</p>
 <blockquote>
-<p>Para esclarecer:
-- <strong>R</strong> é uma linguagem de programação (mas não se preocupe, não vamos programar profundamente).
-- <strong>RStudio</strong> é o software onde os códigos R serão executados. É o que chamamos de IDE – <em>Integrated Development Environment</em> (Ambiente de Desenvolvimento Integrado).</p>
+<p>Na medicina, um exemplo clássico é investigar a correlação entre o índice de massa corporal (IMC) e a pressão arterial sistólica. Pesquisadores podem avaliar se pessoas com IMC mais elevado tendem a ter pressão arterial mais alta, o que ajuda a entender riscos cardiovasculares.</p>
+</blockquote>
+<blockquote>
+<p>Na psicologia, pode-se analisar a correlação entre a pontuação em uma escala de ansiedade (por exemplo, a pontuação total em um questionário) e o número de horas de sono por noite. Essa relação ajuda a compreender como o sono influencia o nível de ansiedade.</p>
+</blockquote>
+<blockquote>
+<p>Na educação física, um exemplo é estudar a correlação entre o tempo gasto em atividade física semanal (em horas) e a porcentagem de gordura corporal. Isso auxilia na avaliação do impacto do exercício sobre a composição corporal.</p>
+</blockquote>
+<div id="tipos-de-variáveis-1" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> Tipos de Variáveis<a href="correlação-entre-variáveis.html#tipos-de-variáveis-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para analisar correlação, usamos variáveis numéricas (quantitativas ou qualitativas ordinais).</p>
+</div>
+<div id="diagrama-de-dispersão" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Diagrama de Dispersão<a href="correlação-entre-variáveis.html#diagrama-de-dispersão" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O diagrama de dispersão é um gráfico que permite visualizar a relação entre duas variáveis. A seguir, exemplos de diferentes padrões de correlação:</p>
+<p><img src="LivroEstatisticaR_files/figure-html/exemplo-correlacoes-1.png" width="672" /></p>
+<p>Para criar um gráfico de dispersão no R, você pode usar a função <code>plot()</code>. Os argumentos básicos que você deve fornecer entre os parênteses são:</p>
+<ul>
+<li>“x”: um vetor numérico com os valores do eixo x (variável independente).</li>
+<li>“y”: um vetor numérico com os valores do eixo y (variável dependente).</li>
+</ul>
+<blockquote>
+<p>Ou seja, algo como: <code>plot(x,y)</code></p>
 </blockquote>
 </div>
-<div id="plano-a-instalação-do-r-e-rstudio" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Plano A: Instalação do R e RStudio<a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Nos laboratórios da UFTM, o R e o RStudio já estão instalados. No entanto, sugerimos que você também os instale em seu computador pessoal, pois nem sempre conseguiremos realizar todas as atividades em sala.</p>
-<p>Siga estes passos:</p>
-<ol style="list-style-type: decimal">
-<li>Instale o R: <a href="https://cran.rstudio.com">https://cran.rstudio.com</a></li>
-<li>Instale o RStudio Desktop: <a href="https://posit.co/download/rstudio-desktop">https://posit.co/download/rstudio-desktop</a></li>
-</ol>
-<blockquote>
-<p>Certifique-se de baixar versões compatíveis com o sistema operacional do seu computador.</p>
-</blockquote>
-<p>Se tudo estiver correto, ao abrir o RStudio, você verá uma tela semelhante a esta:</p>
-<center>
-<div class="float">
-<img src="telaRStudio.png" alt="Figura: Tela inicial do RStudio" />
-<div class="figcaption">Figura: Tela inicial do RStudio</div>
+<div id="coeficientes-de-correlação" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Coeficientes de Correlação<a href="correlação-entre-variáveis.html#coeficientes-de-correlação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existem diferentes métodos para medir a correlação entre variáveis, cada um adequado a tipos específicos de dados e relações. Os três tipos mais comuns são: a <strong>correlação de Pearson</strong>, que avalia a relação linear entre variáveis numéricas contínuas; a <strong>correlação de Spearman</strong>, que mede associações monotônicas usando postos, sendo indicada para dados ordinais ou quando a relação não é estritamente linear; e a <strong>correlação de Kendall</strong>, também baseada em postos, que é especialmente útil em amostras pequenas ou com muitos empates nos dados. Conhecer essas diferenças é fundamental para escolher o método mais apropriado em cada situação.</p>
+<div id="coeficiente-de-correlação-de-pearson" class="section level3 hasAnchor" number="26.3.1">
+<h3><span class="header-section-number">26.3.1</span> Coeficiente de Correlação de Pearson<a href="correlação-entre-variáveis.html#coeficiente-de-correlação-de-pearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O coeficiente de correlação de <strong>Pearson</strong> (<span class="math inline">\(r\)</span>) é utilizado quando se deseja avaliar a relação linear entre duas variáveis quantitativas contínuas. Ele pressupõe que os dados de ambas as variáveis seguem uma <strong>distribuição normal</strong> (ou aproximadamente normal) e que a relação entre elas é linear, ou seja, uma linha reta pode descrever bem o padrão dos dados em um gráfico de dispersão. É sensível a outliers.</p>
 </div>
-</center>
-<p>Caso enfrente dificuldades, siga para o Plano B.</p>
+<div id="coeficiente-de-correlação-de-spearman" class="section level3 hasAnchor" number="26.3.2">
+<h3><span class="header-section-number">26.3.2</span> Coeficiente de Correlação de Spearman<a href="correlação-entre-variáveis.html#coeficiente-de-correlação-de-spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O coeficiente de <strong>Spearman</strong> (<span class="math inline">\(\rho\)</span>) avalia a força e a direção da associação entre duas variáveis com base em seus <strong>ranks</strong> (postos) em vez dos valores originais. Ele é indicado quando a relação entre as variáveis é <strong>monotônica</strong>, ou seja, conforme uma variável aumenta, a outra também aumenta ou diminui, mas não necessariamente de maneira linear. O Spearman é apropriado para dados que não seguem a normalidade ou para situações em que a relação não pode ser descrita por uma linha reta. Além disso, é menos sensível a outliers do que o Pearson.</p>
 </div>
-<div id="plano-b-r-e-rstudio-na-nuvem" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Plano B: R e RStudio na Nuvem<a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O Plano B é utilizar o RStudio diretamente na nuvem, sem precisar instalar nada. Essa alternativa é excelente, mas requer uma boa conexão com a internet.</p>
-<p>Siga os passos:</p>
-<ol style="list-style-type: decimal">
-<li>Acesse: <a href="https://posit.cloud">https://posit.cloud</a></li>
-<li>Faça login (você pode usar sua conta do Google, por exemplo)</li>
-<li>Após o login, você verá esta tela:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaPosit.png" alt="Figura: Tela inicial na nuvem da Posit" />
-<div class="figcaption">Figura: Tela inicial na nuvem da Posit</div>
+<div id="coeficiente-de-correlação-de-kendall" class="section level3 hasAnchor" number="26.3.3">
+<h3><span class="header-section-number">26.3.3</span> Coeficiente de Correlação de Kendall<a href="correlação-entre-variáveis.html#coeficiente-de-correlação-de-kendall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O coeficiente de <strong>Kendall</strong> (<span class="math inline">\(\tau\)</span>) também se baseia nos postos dos dados, sendo utilizado para medir a força da associação entre duas variáveis. É especialmente útil em situações com <strong>pequenas amostras</strong> ou quando há muitos <strong>empates</strong> nos valores dos dados (valores iguais). Assim como o Spearman, o Kendall não exige normalidade dos dados e é apropriado para relações monotônicas. Em geral, o tau de Kendall é visto como mais robusto em amostras pequenas ou com muitos empates.</p>
 </div>
-</center>
-<ol start="4" style="list-style-type: decimal">
-<li>Crie um novo projeto clicando em <em>New Project</em> e, depois, <em>New RStudio Project</em>:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaCriarProjetoRStudio.png" style="width:40.0%" alt="Figura: Botão de criação de um novo projeto" />
-<div class="figcaption">Figura: Botão de criação de um novo projeto</div>
+<div id="interpretação-dos-coeficientes" class="section level3 hasAnchor" number="26.3.4">
+<h3><span class="header-section-number">26.3.4</span> Interpretação dos Coeficientes<a href="correlação-entre-variáveis.html#interpretação-dos-coeficientes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O valor a correlação varia de -1 (correlação negativa perfeita) a +1 (correlação positiva perfeita), sendo 0 a ausência de correlação linear.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Faixa de valores</th>
+<th align="center">Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0,00 – 0,10</td>
+<td align="center">Desprezível</td>
+</tr>
+<tr class="even">
+<td align="center">0,10 – 0,30</td>
+<td align="center">Fraca</td>
+</tr>
+<tr class="odd">
+<td align="center">0,30 – 0,50</td>
+<td align="center">Moderada</td>
+</tr>
+<tr class="even">
+<td align="center">0,50 – 0,70</td>
+<td align="center">Forte</td>
+</tr>
+<tr class="odd">
+<td align="center">0,70 – 1,00</td>
+<td align="center">Muito forte</td>
+</tr>
+</tbody>
+</table>
 </div>
-</center>
-<ol start="5" style="list-style-type: decimal">
-<li>Pronto! A interface do RStudio será carregada na nuvem:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaRStudioPosit.png" alt="Figura: Tela do RStudio online na Posit Cloud" />
-<div class="figcaption">Figura: Tela do RStudio online na Posit Cloud</div>
+<div id="exemplo-no-r" class="section level3 hasAnchor" number="26.3.5">
+<h3><span class="header-section-number">26.3.5</span> Exemplo no R<a href="correlação-entre-variáveis.html#exemplo-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos supor que temos os dados de 18 alunos: a quantidade de aulas frequentadas (de um total de 20) e suas notas finais na disciplina de Estatística (de 0 a 10).</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="correlação-entre-variáveis.html#cb210-1" tabindex="-1"></a><span class="co"># Vetor de presenças (número de aulas frequentadas)</span></span>
+<span id="cb210-2"><a href="correlação-entre-variáveis.html#cb210-2" tabindex="-1"></a>presencas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">20</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">18</span>)</span>
+<span id="cb210-3"><a href="correlação-entre-variáveis.html#cb210-3" tabindex="-1"></a></span>
+<span id="cb210-4"><a href="correlação-entre-variáveis.html#cb210-4" tabindex="-1"></a><span class="co"># Vetor de notas finais em Estatística</span></span>
+<span id="cb210-5"><a href="correlação-entre-variáveis.html#cb210-5" tabindex="-1"></a>notas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.8</span>, <span class="fl">9.0</span>, <span class="fl">8.5</span>, <span class="fl">9.5</span>, <span class="fl">7.0</span>, <span class="fl">7.5</span>, <span class="fl">10.0</span>, <span class="fl">8.7</span>, <span class="fl">8.0</span>, <span class="fl">9.2</span>, <span class="fl">6.5</span>, <span class="fl">7.2</span>, <span class="fl">5.0</span>, <span class="fl">7.8</span>, <span class="fl">9.7</span>, <span class="fl">6.0</span>, <span class="fl">8.2</span>, <span class="fl">8.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="correlação-entre-variáveis.html#cb211-1" tabindex="-1"></a><span class="co"># Para calcular o r de Pearson</span></span>
+<span id="cb211-2"><a href="correlação-entre-variáveis.html#cb211-2" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.992563</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="correlação-entre-variáveis.html#cb213-1" tabindex="-1"></a><span class="co"># Para calcular o rho de Spearman</span></span>
+<span id="cb213-2"><a href="correlação-entre-variáveis.html#cb213-2" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9922299</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="correlação-entre-variáveis.html#cb215-1" tabindex="-1"></a><span class="co"># Para calular o tau de Kendall</span></span>
+<span id="cb215-2"><a href="correlação-entre-variáveis.html#cb215-2" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9599837</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="correlação-entre-variáveis.html#cb217-1" tabindex="-1"></a><span class="co"># Dica: dá para abreviar o nome de cada método</span></span>
+<span id="cb217-2"><a href="correlação-entre-variáveis.html#cb217-2" tabindex="-1"></a><span class="co"># Para calcular o r de Pearson</span></span>
+<span id="cb217-3"><a href="correlação-entre-variáveis.html#cb217-3" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;p&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.992563</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="correlação-entre-variáveis.html#cb219-1" tabindex="-1"></a><span class="co"># Para calcular o rho de Spearman</span></span>
+<span id="cb219-2"><a href="correlação-entre-variáveis.html#cb219-2" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;s&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9922299</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="correlação-entre-variáveis.html#cb221-1" tabindex="-1"></a><span class="co">#para calular o tau de Kendall</span></span>
+<span id="cb221-2"><a href="correlação-entre-variáveis.html#cb221-2" tabindex="-1"></a><span class="fu">cor</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;k&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 0.9599837</code></pre>
 </div>
-</center>
-<blockquote>
-<p>Vantagem: seus arquivos e análises ficam salvos na nuvem, em um local seguro e acessível de qualquer lugar.</p>
-</blockquote>
-<hr />
-<p>Com o ambiente configurado, estaremos prontos para explorar o mundo da estatística com R!</p>
+</div>
+<div id="testes-de-correlação" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> Testes de Correlação<a href="correlação-entre-variáveis.html#testes-de-correlação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pearson" class="section level3 hasAnchor" number="26.4.1">
+<h3><span class="header-section-number">26.4.1</span> Pearson<a href="correlação-entre-variáveis.html#pearson" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>H0: <span class="math inline">\(r = 0\)</span> (não há correlação linear entre as variáveis “x” e “y”)</li>
+<li>H1: <span class="math inline">\(r \neq 0\)</span> (existe correlação)</li>
+</ul>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="correlação-entre-variáveis.html#cb223-1" tabindex="-1"></a><span class="fu">cor.test</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  presencas and notas
+## t = 32.615, df = 16, p-value = 4.597e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.9796700 0.9972906
+## sample estimates:
+##      cor 
+## 0.992563</code></pre>
+<p>O teste de correlação de Pearson realizado entre as variáveis <code>presencas</code> e <code>notas</code> apresentou os seguintes resultados:</p>
+<ul>
+<li><p><strong>t = 32.615</strong>:<br />
+Este é o valor do teste t calculado, que indica uma diferença extremamente significativa entre a correlação observada e a hipótese nula (correlação igual a zero). Quanto maior o valor de t, maior a evidência contra a hipótese nula.</p></li>
+<li><p><strong>df = 16</strong>:<br />
+Refere-se aos graus de liberdade do teste, calculados por (n - 2), onde n é o número de pares de dados analisados. Neste caso, indica que havia 18 observações.</p></li>
+<li><p><strong>p-value = 4.597e-16</strong>:<br />
+O valor-p extremamente baixo mostra que a probabilidade de obter uma correlação tão forte por acaso é praticamente nula. Portanto, a correlação é estatisticamente significativa.</p></li>
+<li><p><strong>alternative hypothesis: true correlation is not equal to 0</strong>:<br />
+A hipótese alternativa testada é de que existe alguma correlação (positiva ou negativa) diferente de zero entre as variáveis.</p></li>
+<li><p><strong>95 percent confidence interval: 0.9796700 a 0.9972906</strong>:<br />
+O intervalo de confiança indica que, com 95% de certeza, o valor real da correlação populacional entre <code>presencas</code> e <code>notas</code> está entre aproximadamente 0,98 e 0,997. Isso é considerado uma correlação extremamente forte.</p></li>
+<li><p><strong>sample estimates: cor = 0.992563</strong>:<br />
+O coeficiente de correlação de Pearson (<span class="math inline">\(r\)</span>) observado foi de 0,99, indicando uma relação positiva, muito forte e praticamente perfeita: quanto maior o número de presenças, maior tende a ser a nota.</p></li>
+</ul>
+<p><strong>Resumo:</strong><br />
+Os resultados mostram uma associação positiva fortíssima e estatisticamente significativa entre presenças e notas, sugerindo que alunos que frequentam mais tendem a obter notas mais altas.</p>
+</div>
+<div id="spearman" class="section level3 hasAnchor" number="26.4.2">
+<h3><span class="header-section-number">26.4.2</span> Spearman<a href="correlação-entre-variáveis.html#spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>H0: <span class="math inline">\(\rho = 0\)</span> (não há correlação entre as variáveis “x” e “y”)</li>
+<li>H1: <span class="math inline">\(\rho \neq 0\)</span> (existe correlação)</li>
+</ul>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="correlação-entre-variáveis.html#cb225-1" tabindex="-1"></a><span class="fu">cor.test</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Spearman&#39;s rank correlation rho
+## 
+## data:  presencas and notas
+## S = 7.5293, p-value = 6.52e-16
+## alternative hypothesis: true rho is not equal to 0
+## sample estimates:
+##       rho 
+## 0.9922299</code></pre>
+<p>O teste de correlação de Spearman realizado entre as variáveis <code>presencas</code> e <code>notas</code> apresentou os seguintes resultados:</p>
+<ul>
+<li><p><strong>S = 7.5293</strong>:<br />
+Este é o valor da estatística de teste S, usada no cálculo da correlação de Spearman. Ele reflete as diferenças nas posições (ranks) entre as duas variáveis analisadas.</p></li>
+<li><p><strong>p-value = 6.52e-16</strong>:<br />
+O valor-p extremamente baixo indica que a probabilidade de observar uma correlação tão alta por acaso, caso não exista correlação real, é praticamente nula. Portanto, a correlação encontrada é estatisticamente significativa.</p></li>
+<li><p><strong>alternative hypothesis: true rho is not equal to 0</strong>:<br />
+A hipótese alternativa do teste é de que o coeficiente de Spearman (<span class="math inline">\(\rho\)</span>) é diferente de zero, ou seja, existe uma associação monotônica entre as variáveis.</p></li>
+<li><p><strong>sample estimates: rho = 0.9922299</strong>:<br />
+O coeficiente de correlação de Spearman observado foi de 0,99, indicando uma relação positiva, extremamente forte, entre <code>presencas</code> e <code>notas</code>. Isso significa que, à medida que o número de presenças aumenta, as notas tendem a aumentar de forma consistente, mesmo que a relação não seja perfeitamente linear.</p></li>
+</ul>
+<p><strong>Resumo:</strong><br />
+Os resultados demonstram uma associação positiva e muito forte entre presenças e notas, estatisticamente significativa. Isso sugere que alunos com mais presenças tendem a obter notas mais altas, mesmo considerando possíveis variações não lineares na relação entre as variáveis.</p>
+</div>
+<div id="kendall" class="section level3 hasAnchor" number="26.4.3">
+<h3><span class="header-section-number">26.4.3</span> Kendall<a href="correlação-entre-variáveis.html#kendall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>H0: <span class="math inline">\(\tau = 0\)</span> (não há correlação entre as variáveis “x” e “y”)</li>
+<li>H1: <span class="math inline">\(\tau \neq 0\)</span> (existe correlação)</li>
+</ul>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="correlação-entre-variáveis.html#cb227-1" tabindex="-1"></a><span class="fu">cor.test</span>(presencas, notas, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##  Kendall&#39;s rank correlation tau
+## 
+## data:  presencas and notas
+## z = 5.3952, p-value = 6.844e-08
+## alternative hypothesis: true tau is not equal to 0
+## sample estimates:
+##       tau 
+## 0.9599837</code></pre>
+<p>O teste de correlação de Kendall realizado entre as variáveis <code>presencas</code> e <code>notas</code> apresentou os seguintes resultados:</p>
+<ul>
+<li><p><strong>z = 5.3952</strong>:<br />
+Este é o valor da estatística z calculado para o teste de Kendall. Valores de z elevados indicam forte evidência contra a hipótese nula de ausência de associação entre as variáveis.</p></li>
+<li><p><strong>p-value = 6.844e-08</strong>:<br />
+O valor-p extremamente baixo indica que a probabilidade de obter uma correlação tão alta por acaso é praticamente nula. Portanto, a associação observada entre as variáveis é estatisticamente significativa.</p></li>
+<li><p><strong>alternative hypothesis: true tau is not equal to 0</strong>:<br />
+A hipótese alternativa do teste é de que o coeficiente de Kendall (<span class="math inline">\(\tau\)</span>) é diferente de zero, ou seja, existe uma associação monotônica entre as variáveis.</p></li>
+<li><p><strong>sample estimates: tau = 0.9599837</strong>:<br />
+O coeficiente de correlação de Kendall (<span class="math inline">\(\tau\)</span>) encontrado foi de 0,96, indicando uma associação positiva, muito forte, entre <code>presencas</code> e <code>notas</code>. Isso significa que, à medida que o número de presenças aumenta, as notas também tendem a aumentar de forma consistente, mesmo considerando possíveis empates (valores iguais) entre as observações.</p></li>
+</ul>
+<p><strong>Resumo:</strong><br />
+Os resultados mostram uma associação positiva e extremamente forte entre presenças e notas, estatisticamente significativa. Isso sugere que alunos com mais presenças tendem a obter notas mais altas, mesmo considerando a ordem dos dados e possíveis empates nas avaliações.</p>
+</div>
+</div>
+<div id="tamanho-do-efeito-effect-size" class="section level2 hasAnchor" number="26.5">
+<h2><span class="header-section-number">26.5</span> Tamanho do Efeito (Effect Size)<a href="correlação-entre-variáveis.html#tamanho-do-efeito-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Em estudos de correlação, o <strong>tamanho do efeito</strong> é representado pelo valor absoluto do coeficiente de correlação (por exemplo, Pearson, Spearman ou Kendall). Isso significa que consideramos apenas a intensidade da relação entre as variáveis, independentemente de ser positiva ou negativa.</p>
+<p>Por exemplo, tanto um coeficiente de +0,65 quanto de -0,65 indicam um tamanho de efeito de 0,65. Quanto mais próximo de 1 (ou -1), mais forte é a correlação; quanto mais próximo de 0, mais fraca.</p>
+</div>
+<div id="cálculo-do-tamanho-da-amostra-e-poder-estatístico" class="section level2 hasAnchor" number="26.6">
+<h2><span class="header-section-number">26.6</span> Cálculo do Tamanho da Amostra e Poder Estatístico<a href="correlação-entre-variáveis.html#cálculo-do-tamanho-da-amostra-e-poder-estatístico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exemplo-com-pwr" class="section level3 hasAnchor" number="26.6.1">
+<h3><span class="header-section-number">26.6.1</span> Exemplo com <code>pwr</code><a href="correlação-entre-variáveis.html#exemplo-com-pwr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Calcular o tamanho da amostra necessário para detectar uma correlação de 0,4 com poder de 80% e α = 0,05:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="correlação-entre-variáveis.html#cb229-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb229-2"><a href="correlação-entre-variáveis.html#cb229-2" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">r =</span> <span class="fl">0.4</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      approximate correlation power calculation (arctangh transformation) 
+## 
+##               n = 45.91614
+##               r = 0.4
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided</code></pre>
+</div>
+<div id="verificar-o-poder-para-uma-amostra-de-tamanho-30" class="section level3 hasAnchor" number="26.6.2">
+<h3><span class="header-section-number">26.6.2</span> Verificar o poder para uma amostra de tamanho 30:<a href="correlação-entre-variáveis.html#verificar-o-poder-para-uma-amostra-de-tamanho-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="correlação-entre-variáveis.html#cb231-1" tabindex="-1"></a><span class="fu">pwr.r.test</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">r =</span> <span class="fl">0.4</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+##      approximate correlation power calculation (arctangh transformation) 
+## 
+##               n = 30
+##               r = 0.4
+##       sig.level = 0.05
+##           power = 0.6075135
+##     alternative = two.sided</code></pre>
+</div>
+</div>
+<div id="outros-recursos" class="section level2 hasAnchor" number="26.7">
+<h2><span class="header-section-number">26.7</span> Outros recursos<a href="correlação-entre-variáveis.html#outros-recursos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para explorar um pouco mais o estudo de correlação, vamos usar o banco de dados <code>iris</code>, que já vem instalado por padrão no R.</p>
+<p>O dataset <code>iris</code> é um conjunto de dados clássico em estatística e aprendizado de máquina (<em>machine learning</em>). Ele contém 150 observações de flores de íris de três espécies diferentes: <em>setosa</em>, <em>versicolor</em> e <em>virginica</em>. As variáveis numéricas são:</p>
+<ul>
+<li><p><strong>Sepal.Length:</strong> comprimento da sépala (em centímetros), a sépala é a parte externa da flor, que protege os botões florais.</p></li>
+<li><p><strong>Sepal.Width:</strong> largura da sépala (em centímetros).</p></li>
+<li><p><strong>Petal.Length:</strong> comprimento da pétala (em centímetros), as pétalas são as partes geralmente coloridas da flor.</p></li>
+<li><p><strong>Petal.Width:</strong> largura da pétala (em centímetros).</p></li>
+</ul>
+<p>Estas medidas são úteis para estudar relações entre características morfológicas das flores.</p>
+<div id="visualização-com-pairs" class="section level3 hasAnchor" number="26.7.1">
+<h3><span class="header-section-number">26.7.1</span> Visualização com <code>pairs()</code><a href="correlação-entre-variáveis.html#visualização-com-pairs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A função <code>pairs()</code> mostra uma matriz de gráficos de dispersão, útil para observar visualmente correlações entre todas as variáveis numéricas.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="correlação-entre-variáveis.html#cb233-1" tabindex="-1"></a><span class="fu">pairs</span>(iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/pairs-plot-1.png" width="672" /></p>
+<p>A função <code>pairs</code> no R gera uma matriz de gráficos de dispersão mostrando a relação entre todas as variáveis numéricas de um conjunto de dados. Cada gráfico da matriz compara duas variáveis diferentes:</p>
+<ul>
+<li>Cada linha e cada coluna representam uma variável.</li>
+<li>Os gráficos mostram como cada variável se relaciona com as outras: por exemplo, a relação entre Sepal.Length e Petal.Length.</li>
+<li>Quando os pontos formam uma linha inclinada, isso indica uma correlação (positiva ou negativa) entre as variáveis.</li>
+<li>Se os pontos estão espalhados, sem padrão, indica pouca ou nenhuma relação.</li>
+<li>A diagonal mostra o nome de cada variável.</li>
+</ul>
+<p>Assim, ao olhar para a matriz, você consegue visualizar rapidamente quais variáveis têm relação entre si e qual é o tipo dessa relação (mais forte, mais fraca, positiva ou negativa).</p>
+</div>
+<div id="matriz-de-correlação-com-cor" class="section level3 hasAnchor" number="26.7.2">
+<h3><span class="header-section-number">26.7.2</span> Matriz de Correlação com <code>cor()</code><a href="correlação-entre-variáveis.html#matriz-de-correlação-com-cor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A função <code>cor()</code> calcula a matriz de correlação entre variáveis numéricas. A seguir, uma matriz com correlação de Pearson:</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="correlação-entre-variáveis.html#cb234-1" tabindex="-1"></a><span class="co"># use o método adequado method = &quot;pearson&quot;;  method = &quot;spearman&quot; ou method = &quot;kendall&quot;</span></span>
+<span id="cb234-2"><a href="correlação-entre-variáveis.html#cb234-2" tabindex="-1"></a><span class="fu">cor</span>(iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre><code>##              Sepal.Length Sepal.Width Petal.Length Petal.Width
+## Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
+## Sepal.Width    -0.1175698   1.0000000   -0.4284401  -0.3661259
+## Petal.Length    0.8717538  -0.4284401    1.0000000   0.9628654
+## Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
+<p>A matriz de correlação é uma tabela que mostra os coeficientes de correlação entre todas as combinações possíveis de variáveis numéricas em um conjunto de dados. Cada valor da matriz indica o grau de associação linear entre um par de variáveis. A diagonal principal sempre apresenta o valor 1, pois cada variável é perfeitamente correlacionada com ela mesma. Assim, a matriz de correlação permite identificar rapidamente quais variáveis estão mais relacionadas entre si, facilitando a análise exploratória dos dados. Observe que essa matriz é simétrica</p>
+</div>
+<div id="matriz-visual-com-ggallyggcorr" class="section level3 hasAnchor" number="26.7.3">
+<h3><span class="header-section-number">26.7.3</span> Matriz Visual com <code>GGally::ggcorr()</code><a href="correlação-entre-variáveis.html#matriz-visual-com-ggallyggcorr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O <code>ggcorr()</code> do pacote <code>GGally</code> mostra graficamente os coeficientes de correlação, com intensidade e direção representadas por cor.</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="correlação-entre-variáveis.html#cb236-1" tabindex="-1"></a><span class="co"># Instale os pacotes se necessário:</span></span>
+<span id="cb236-2"><a href="correlação-entre-variáveis.html#cb236-2" tabindex="-1"></a><span class="co"># install.packages(&quot;GGally&quot;)</span></span>
+<span id="cb236-3"><a href="correlação-entre-variáveis.html#cb236-3" tabindex="-1"></a><span class="co"># install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb236-4"><a href="correlação-entre-variáveis.html#cb236-4" tabindex="-1"></a></span>
+<span id="cb236-5"><a href="correlação-entre-variáveis.html#cb236-5" tabindex="-1"></a><span class="co"># Matriz de correlação tipo heatmap com valores destacados</span></span>
+<span id="cb236-6"><a href="correlação-entre-variáveis.html#cb236-6" tabindex="-1"></a><span class="fu">ggcorr</span>(</span>
+<span id="cb236-7"><a href="correlação-entre-variáveis.html#cb236-7" tabindex="-1"></a>  <span class="at">data =</span> iris[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
+<span id="cb236-8"><a href="correlação-entre-variáveis.html#cb236-8" tabindex="-1"></a>  <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;everything&quot;</span>, <span class="st">&quot;pearson&quot;</span>), <span class="co"># calcula todas as correlações de Pearson</span></span>
+<span id="cb236-9"><a href="correlação-entre-variáveis.html#cb236-9" tabindex="-1"></a>  <span class="at">label =</span> <span class="cn">TRUE</span>,             <span class="co"># mostra os coeficientes nas células</span></span>
+<span id="cb236-10"><a href="correlação-entre-variáveis.html#cb236-10" tabindex="-1"></a>  <span class="at">label_round =</span> <span class="dv">2</span>,          <span class="co"># arredonda os valores para 2 casas decimais</span></span>
+<span id="cb236-11"><a href="correlação-entre-variáveis.html#cb236-11" tabindex="-1"></a>  <span class="at">label_size =</span> <span class="dv">5</span>,           <span class="co"># tamanho do texto dos coeficientes</span></span>
+<span id="cb236-12"><a href="correlação-entre-variáveis.html#cb236-12" tabindex="-1"></a>  <span class="at">hjust =</span> <span class="fl">0.5</span>,              <span class="co"># centraliza os rótulos nas células</span></span>
+<span id="cb236-13"><a href="correlação-entre-variáveis.html#cb236-13" tabindex="-1"></a>  <span class="at">layout.exp =</span> <span class="dv">2</span>,           <span class="co"># expande o tamanho das células</span></span>
+<span id="cb236-14"><a href="correlação-entre-variáveis.html#cb236-14" tabindex="-1"></a>  <span class="at">low =</span> <span class="st">&quot;#D73027&quot;</span>,          <span class="co"># cor para correlação negativa forte</span></span>
+<span id="cb236-15"><a href="correlação-entre-variáveis.html#cb236-15" tabindex="-1"></a>  <span class="at">mid =</span> <span class="st">&quot;white&quot;</span>,            <span class="co"># cor para correlação nula</span></span>
+<span id="cb236-16"><a href="correlação-entre-variáveis.html#cb236-16" tabindex="-1"></a>  <span class="at">high =</span> <span class="st">&quot;#3366CC&quot;</span>          <span class="co"># cor para correlação positiva forte</span></span>
+<span id="cb236-17"><a href="correlação-entre-variáveis.html#cb236-17" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb236-18"><a href="correlação-entre-variáveis.html#cb236-18" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Matriz de Correlação de Pearson - iris (Heatmap)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb236-19"><a href="correlação-entre-variáveis.html#cb236-19" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> <span class="co"># visual minimalista e tamanho de fonte maior</span></span>
+<span id="cb236-20"><a href="correlação-entre-variáveis.html#cb236-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb236-21"><a href="correlação-entre-variáveis.html#cb236-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>), <span class="co"># centraliza e destaca o título</span></span>
+<span id="cb236-22"><a href="correlação-entre-variáveis.html#cb236-22" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="co"># gira rótulos do eixo x para melhor leitura</span></span>
+<span id="cb236-23"><a href="correlação-entre-variáveis.html#cb236-23" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/ggcorr-matrix-1.png" width="672" /></p>
+<p>A função <code>ggpairs()</code> combina histogramas, correlações e gráficos de dispersão em uma visualização integrada.</p>
+<p>Este comando cria uma matriz de gráficos que facilita visualizar a distribuição e a relação entre as variáveis numéricas do conjunto. É muito útil para identificar padrões, tendências, outliers e possíveis correlações antes de uma análise estatística mais aprofundada.</p>
+<ul>
+<li><strong>Considerando todos os dados:</strong></li>
+</ul>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="correlação-entre-variáveis.html#cb237-1" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris, <span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/ggpairs-plot0-1.png" width="672" /></p>
+<ul>
+<li><strong>Considerando as categorias de especies (variável Species)</strong></li>
+</ul>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="correlação-entre-variáveis.html#cb238-1" tabindex="-1"></a>GGally<span class="sc">::</span><span class="fu">ggpairs</span>(iris, <span class="at">columns =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">aes</span>(<span class="at">color =</span> Species))</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/ggpairs-plot-1.png" width="672" /></p>
+<p><strong>O que a figura mostra?</strong></p>
+<p>Esta figura é uma <strong>matriz de gráficos de pares</strong> (pairs) das variáveis numéricas do conjunto de dados, nesse caso, <code>Sepal.Length</code>, <code>Sepal.Width</code>, <code>Petal.Length</code> e <code>Petal.Width</code>.</p>
+<ul>
+<li><p><strong>Diagonal principal</strong>: exibe a distribuição de cada variável individualmente, usando histogramas ou curvas de densidade. Quando os dados estão divididos por categoria (como diferentes espécies no exemplo do iris), cada cor representa uma categoria distinta, permitindo visualizar e comparar facilmente como os valores da variável se distribuem em cada grupo.</p></li>
+<li><p><strong>Abaixo da diagonal</strong>: mostra gráficos de dispersão, permitindo observar visualmente as relações entre os pares de variáveis para cada espécie.</p></li>
+<li><p><strong>Acima da diagonal</strong>: apresenta os <strong>coeficientes de correlação</strong> para cada par de variáveis:</p>
+<ul>
+<li>O valor principal (exemplo: Corr: 0.872***) corresponde à correlação considerando todas as espécies juntas.</li>
+<li>Abaixo, aparecem as correlações <strong>por espécie</strong>:
+<ul>
+<li>setosa (vermelho)</li>
+<li>versicolor (verde)</li>
+<li>virginica (azul)</li>
+</ul></li>
+<li>Os valores são coloridos conforme a espécie correspondente.</li>
+</ul></li>
+<li><p><strong>Sobre os asteriscos</strong>: os asteriscos após os valores de correlação indicam o <strong>nível de significância estatística</strong> do coeficiente calculado, ou seja, quão provável é que a correlação observada seja diferente de zero apenas pelo acaso. A convenção usual é:</p></li>
+<li><p><code>*</code> : p &lt; 0,05</p></li>
+<li><p><code>**</code> : p &lt; 0,01</p></li>
+<li><p><code>***</code> : p &lt; 0,001</p></li>
+<li><p>Sem asteriscos: correlação <strong>não</strong> significativa</p></li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>
@@ -641,8 +885,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="técnicas-de-amostragem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="trabalhando-RStudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="comparação-de-mais-de-dois-grupos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="associação-entre-variáveis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

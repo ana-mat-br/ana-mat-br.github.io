@@ -1,14 +1,21 @@
-# Correlação
+# Correlação entre variáveis
 
-Correlação é uma medida estatística que expressa a intensidade e a direção da relação entre duas variáveis. No caso do coeficiente de Pearson, ela mede a relação linear. 
+A correlação é uma forma de medir o grau de relação entre duas variáveis. Quando duas variáveis estão correlacionadas, significa que podemos esperar que, ao mudar uma delas, a outra também sofra alguma alteração. Se ambas aumentam juntas, dizemos que a correlação é positiva; se uma aumenta enquanto a outra diminui, a correlação é negativa.
 
-| Estar correlacionado significa que ao observar o comportamento de uma variável, podemos prever uma tendência no comportamento da outra, por exemplo, se uma aumenta, a outra também tende a aumentar (correlação positiva), ou tende a diminuir (correlação negativa).
+É importante destacar que a correlação indica apenas que as variáveis variam juntas, mas não prova que uma causa a mudança na outra. Outros fatores podem estar influenciando essa relação, ou pode ser apenas uma coincidência. Por isso, correlação mostra como as variáveis estão relacionadas, mas não estabelece uma relação de causa e efeito.
+
+
+> Na medicina, um exemplo clássico é investigar a correlação entre o índice de massa corporal (IMC) e a pressão arterial sistólica. Pesquisadores podem avaliar se pessoas com IMC mais elevado tendem a ter pressão arterial mais alta, o que ajuda a entender riscos cardiovasculares.
+
+> Na psicologia, pode-se analisar a correlação entre a pontuação em uma escala de ansiedade (por exemplo, a pontuação total em um questionário) e o número de horas de sono por noite. Essa relação ajuda a compreender como o sono influencia o nível de ansiedade.
+
+> Na educação física, um exemplo é estudar a correlação entre o tempo gasto em atividade física semanal (em horas) e a porcentagem de gordura corporal. Isso auxilia na avaliação do impacto do exercício sobre a composição corporal.
 
 ## Tipos de Variáveis
-Para analisar correlação, usamos variáveis numéricas (quantitativas ou qualitativas ordinais). Quando as variáveis são qualitativas ordinais (por exemplo, escala Likert), geralmente usamos métodos não paramétricos como Spearman ou Kendall, que funcionam bem mesmo sem normalidade ou relação linear.
+Para analisar correlação, usamos variáveis numéricas (quantitativas ou qualitativas ordinais).
 
 ## Diagrama de Dispersão
-Gráfico que permite visualizar a relação entre duas variáveis. A seguir, exemplos de diferentes padrões de correlação:
+O diagrama de dispersão é um gráfico que permite visualizar a relação entre duas variáveis. A seguir, exemplos de diferentes padrões de correlação:
 
 ```{r exemplo-correlacoes, echo=FALSE, message=FALSE, warning=FALSE}
 set.seed(2025)
@@ -61,7 +68,16 @@ plot(df_cor$x, df_cor$y_nlinear,
      xaxt = "n", yaxt = "n")
 ```
 
+Para criar um gráfico de dispersão no R, você pode usar a função `plot()`. Os argumentos básicos que você deve fornecer entre os parênteses são:
+
+- "x": um vetor numérico com os valores do eixo x (variável independente).
+- "y": um vetor numérico com os valores do eixo y (variável dependente).
+
+> Ou seja, algo como: `plot(x,y)`  
+
 ## Coeficientes de Correlação
+
+Existem diferentes métodos para medir a correlação entre variáveis, cada um adequado a tipos específicos de dados e relações. Os três tipos mais comuns são: a **correlação de Pearson**, que avalia a relação linear entre variáveis numéricas contínuas; a **correlação de Spearman**, que mede associações monotônicas usando postos, sendo indicada para dados ordinais ou quando a relação não é estritamente linear; e a **correlação de Kendall**, também baseada em postos, que é especialmente útil em amostras pequenas ou com muitos empates nos dados. Conhecer essas diferenças é fundamental para escolher o método mais apropriado em cada situação.
 
 ### Coeficiente de Correlação de Pearson
 
@@ -124,23 +140,79 @@ cor(presencas, notas, method = "k")
 - H0: $r = 0$ (não há correlação linear entre as variáveis "x" e "y")
 - H1: $r \neq 0$ (existe correlação)
 ```{r pearson-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "pearson")
+cor.test(presencas, notas, method = "pearson")
 ```
+
+O teste de correlação de Pearson realizado entre as variáveis `presencas` e `notas` apresentou os seguintes resultados:
+
+- **t = 32.615**:  
+  Este é o valor do teste t calculado, que indica uma diferença extremamente significativa entre a correlação observada e a hipótese nula (correlação igual a zero). Quanto maior o valor de t, maior a evidência contra a hipótese nula.
+
+- **df = 16**:  
+  Refere-se aos graus de liberdade do teste, calculados por (n - 2), onde n é o número de pares de dados analisados. Neste caso, indica que havia 18 observações.
+
+- **p-value = 4.597e-16**:  
+  O valor-p extremamente baixo mostra que a probabilidade de obter uma correlação tão forte por acaso é praticamente nula. Portanto, a correlação é estatisticamente significativa.
+
+- **alternative hypothesis: true correlation is not equal to 0**:  
+  A hipótese alternativa testada é de que existe alguma correlação (positiva ou negativa) diferente de zero entre as variáveis.
+
+- **95 percent confidence interval: 0.9796700 a 0.9972906**:  
+  O intervalo de confiança indica que, com 95% de certeza, o valor real da correlação populacional entre `presencas` e `notas` está entre aproximadamente 0,98 e 0,997. Isso é considerado uma correlação extremamente forte.
+
+- **sample estimates: cor = 0.992563**:  
+  O coeficiente de correlação de Pearson ($r$) observado foi de 0,99, indicando uma relação positiva, muito forte e praticamente perfeita: quanto maior o número de presenças, maior tende a ser a nota.
+
+**Resumo:**  
+Os resultados mostram uma associação positiva fortíssima e estatisticamente significativa entre presenças e notas, sugerindo que alunos que frequentam mais tendem a obter notas mais altas.
 
 ### Spearman
 - H0: $\rho = 0$ (não há correlação entre as variáveis "x" e "y")
 - H1: $\rho \neq 0$ (existe correlação)
-```{r spearman-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "spearman")
+```{r spearman-test, warning=FALSE}
+cor.test(presencas, notas, method = "spearman")
 ```
+
+O teste de correlação de Spearman realizado entre as variáveis `presencas` e `notas` apresentou os seguintes resultados:
+
+- **S = 7.5293**:  
+  Este é o valor da estatística de teste S, usada no cálculo da correlação de Spearman. Ele reflete as diferenças nas posições (ranks) entre as duas variáveis analisadas.
+
+- **p-value = 6.52e-16**:  
+  O valor-p extremamente baixo indica que a probabilidade de observar uma correlação tão alta por acaso, caso não exista correlação real, é praticamente nula. Portanto, a correlação encontrada é estatisticamente significativa.
+
+- **alternative hypothesis: true rho is not equal to 0**:  
+  A hipótese alternativa do teste é de que o coeficiente de Spearman ($\rho$) é diferente de zero, ou seja, existe uma associação monotônica entre as variáveis.
+
+- **sample estimates: rho = 0.9922299**:  
+  O coeficiente de correlação de Spearman observado foi de 0,99, indicando uma relação positiva, extremamente forte, entre `presencas` e `notas`. Isso significa que, à medida que o número de presenças aumenta, as notas tendem a aumentar de forma consistente, mesmo que a relação não seja perfeitamente linear.
+
+**Resumo:**  
+Os resultados demonstram uma associação positiva e muito forte entre presenças e notas, estatisticamente significativa. Isso sugere que alunos com mais presenças tendem a obter notas mais altas, mesmo considerando possíveis variações não lineares na relação entre as variáveis.
 
 ### Kendall
 - H0: $\tau = 0$ (não há correlação entre as variáveis "x" e "y")
 - H1: $\tau \neq 0$ (existe correlação)
-```{r kendall-test}
-cor.test(iris$Sepal.Length, iris$Petal.Length, method = "kendall")
+```{r kendall-test, warning=FALSE }
+cor.test(presencas, notas, method = "kendall")
 ```
 
+O teste de correlação de Kendall realizado entre as variáveis `presencas` e `notas` apresentou os seguintes resultados:
+
+- **z = 5.3952**:  
+  Este é o valor da estatística z calculado para o teste de Kendall. Valores de z elevados indicam forte evidência contra a hipótese nula de ausência de associação entre as variáveis.
+
+- **p-value = 6.844e-08**:  
+  O valor-p extremamente baixo indica que a probabilidade de obter uma correlação tão alta por acaso é praticamente nula. Portanto, a associação observada entre as variáveis é estatisticamente significativa.
+
+- **alternative hypothesis: true tau is not equal to 0**:  
+  A hipótese alternativa do teste é de que o coeficiente de Kendall ($\tau$) é diferente de zero, ou seja, existe uma associação monotônica entre as variáveis.
+
+- **sample estimates: tau = 0.9599837**:  
+  O coeficiente de correlação de Kendall ($\tau$) encontrado foi de 0,96, indicando uma associação positiva, muito forte, entre `presencas` e `notas`. Isso significa que, à medida que o número de presenças aumenta, as notas também tendem a aumentar de forma consistente, mesmo considerando possíveis empates (valores iguais) entre as observações.
+
+**Resumo:**  
+Os resultados mostram uma associação positiva e extremamente forte entre presenças e notas, estatisticamente significativa. Isso sugere que alunos com mais presenças tendem a obter notas mais altas, mesmo considerando a ordem dos dados e possíveis empates nas avaliações.
 
 ## Tamanho do Efeito (Effect Size)
 
@@ -151,7 +223,7 @@ Por exemplo, tanto um coeficiente de +0,65 quanto de -0,65 indicam um tamanho de
 ## Cálculo do Tamanho da Amostra e Poder Estatístico
 
 ### Exemplo com `pwr`
-Calcular o tamanho da amostra necessário para detectar uma correlação de 0.4 com poder de 80% e α = 0.05:
+Calcular o tamanho da amostra necessário para detectar uma correlação de 0,4 com poder de 80% e α = 0,05:
 
 ```{r power-analysis, message=FALSE, warning=FALSE}
 library(pwr)
@@ -166,11 +238,9 @@ pwr.r.test(n = 30, r = 0.4, sig.level = 0.05, alternative = "two.sided")
 
 ## Outros recursos 
 
-```{r setup, include=FALSE}
+```{r setup2, include=FALSE}
 # Instalar pacotes, se necessário:
 # install.packages(c("tidyverse", "GGally"))
-
-knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(GGally)
 ```
@@ -226,9 +296,6 @@ O `ggcorr()` do pacote `GGally` mostra graficamente os coeficientes de correlaç
 # Instale os pacotes se necessário:
 # install.packages("GGally")
 # install.packages("ggplot2")
-
-library(GGally)
-library(ggplot2)
 
 # Matriz de correlação tipo heatmap com valores destacados
 ggcorr(

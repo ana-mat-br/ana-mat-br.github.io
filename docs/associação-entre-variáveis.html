@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 6 Ambiente Computacional | Estatística + R</title>
-  <meta name="description" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <title>Capítulo 27 Associação entre variáveis | Estatística + R</title>
+  <meta name="description" content="Capítulo 27 Associação entre variáveis | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <meta property="og:title" content="Capítulo 27 Associação entre variáveis | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 6 Ambiente Computacional | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 27 Associação entre variáveis | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="técnicas-de-amostragem.html"/>
-<link rel="next" href="trabalhando-RStudio.html"/>
+<link rel="prev" href="correlação-entre-variáveis.html"/>
+<link rel="next" href="referências.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -536,103 +536,499 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ambiente-computacional" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Capítulo 6</span> Ambiente Computacional<a href="ambiente-computacional.html#ambiente-computacional" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Existem diversos softwares dedicados à análise estatística, que vão desde planilhas eletrônicas, como o Excel, até programas mais robustos, como o SPSS. Abaixo, listamos algumas das principais ferramentas utilizadas:</p>
-<div id="softwares-pagos" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Softwares pagos<a href="ambiente-computacional.html#softwares-pagos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="associação-entre-variáveis" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">Capítulo 27</span> Associação entre variáveis<a href="associação-entre-variáveis.html#associação-entre-variáveis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Testes de associação são usados para verificar se existe uma relação estatisticamente significativa entre duas variáveis categóricas. A escolha do teste depende do tipo de variável e do tamanho da amostra.</p>
+<p>A aplicação desses testes é fundamental em diversas áreas do conhecimento.</p>
+<div id="tipos-de-variáveis-envolvidas" class="section level2 hasAnchor" number="27.1">
+<h2><span class="header-section-number">27.1</span> Tipos de Variáveis Envolvidas<a href="associação-entre-variáveis.html#tipos-de-variáveis-envolvidas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Os testes de associação são aplicados principalmente a <strong>variáveis qualitativas nominais</strong>, como:</p>
 <ul>
-<li><a href="https://www.ibm.com/br-pt/spss">SPSS (IBM)</a></li>
-<li><a href="https://www.stata-brasil.com/software/stata.html">Stata</a></li>
-<li><a href="https://www.sas.com/pt_br">SAS</a></li>
-<li><a href="https://www.jmp.com/">JMP</a></li>
-<li><a href="https://software.com.br/p/prism">Prism</a></li>
-<li><a href="https://osbsoftware.com.br/produto/minitab-statistical-software">Minitab</a></li>
-<li>Microsoft Excel</li>
+<li>Sexo (Masculino, Feminino)</li>
+<li>Presença de Doença (Sim, Não)</li>
 </ul>
 </div>
-<div id="softwares-livres" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Softwares livres<a href="ambiente-computacional.html#softwares-livres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tabela-de-contingência" class="section level2 hasAnchor" number="27.2">
+<h2><span class="header-section-number">27.2</span> Tabela de Contingência<a href="associação-entre-variáveis.html#tabela-de-contingência" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Uma <strong>tabela de contingência</strong> é uma ferramenta estatística utilizada para organizar e analisar a relação entre duas (ou mais) variáveis categóricas. Ela apresenta a distribuição conjunta das frequências observadas de cada combinação possível dos níveis das variáveis, facilitando a identificação de possíveis associações entre elas.</p>
+<p><strong>Exemplo:</strong></p>
+<p>Considere uma pesquisa em que se investiga a associação entre sexo e presença de uma determinada doença em uma amostra de pessoas:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Doença: Sim</th>
+<th align="center">Doença: Não</th>
+<th align="center">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Masculino</td>
+<td align="center">8</td>
+<td align="center">7</td>
+<td align="center">15</td>
+</tr>
+<tr class="even">
+<td>Feminino</td>
+<td align="center">5</td>
+<td align="center">10</td>
+<td align="center">15</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td align="center">13</td>
+<td align="center">17</td>
+<td align="center">30</td>
+</tr>
+</tbody>
+</table>
+<p>Cada célula da tabela mostra o número de pessoas de cada sexo que têm ou não têm a doença, permitindo analisar se existe associação entre essas variáveis.</p>
+<div id="cálculo-das-frequências-esperadas" class="section level3 hasAnchor" number="27.2.1">
+<h3><span class="header-section-number">27.2.1</span> Cálculo das Frequências Esperadas<a href="associação-entre-variáveis.html#cálculo-das-frequências-esperadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As <strong>frequências esperadas</strong> são valores teóricos que indicam quantas ocorrências seriam esperadas em cada célula de uma tabela de contingência caso não houvesse associação entre as variáveis (ou seja, se fossem independentes). Elas são fundamentais para a realização do teste qui-quadrado de independência.</p>
+<p><strong>Como calcular?</strong></p>
+<p>Para cada célula da tabela de contigência (frequências observadas), usamos a seguinte conta:</p>
+<p><span class="math display">\[
+\text{Frequência Esperada} = \frac{\text{Total da Linha} \times \text{Total da Coluna}}{\text{Total Geral}}
+\]</span></p>
 <ul>
-<li><a href="https://www.jamovi.org">Jamovi</a></li>
-<li><a href="https://openstat.info">OpenStat</a></li>
+<li><p>O “Total da Linha” é o total de pessoas daquela linha (por exemplo, todos os homens).</p></li>
+<li><p>O “Total da Coluna” é o total de pessoas daquela coluna (por exemplo, todos que têm a doença).</p></li>
+<li><p>O “Total Geral” é o total de pessoas da tabela toda.</p></li>
 </ul>
-</div>
-<div id="linguagens-computacionais" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Linguagens computacionais<a href="ambiente-computacional.html#linguagens-computacionais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><a href="https://www.r-project.org">R</a></li>
-<li><a href="https://www.python.org/">Python</a></li>
-</ul>
-<p>Neste curso, utilizaremos a linguagem <strong>R</strong>, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha? Recomendamos a leitura: <a href="https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/">Por que usar R?</a></p>
-</div>
-<div id="preparando-o-ambiente-computacional" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Preparando o Ambiente Computacional<a href="ambiente-computacional.html#preparando-o-ambiente-computacional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Vamos preparar o ambiente computacional para realizar nossas análises com R.</p>
-<blockquote>
-<p>Para esclarecer:
-- <strong>R</strong> é uma linguagem de programação (mas não se preocupe, não vamos programar profundamente).
-- <strong>RStudio</strong> é o software onde os códigos R serão executados. É o que chamamos de IDE – <em>Integrated Development Environment</em> (Ambiente de Desenvolvimento Integrado).</p>
-</blockquote>
-</div>
-<div id="plano-a-instalação-do-r-e-rstudio" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Plano A: Instalação do R e RStudio<a href="ambiente-computacional.html#plano-a-instalação-do-r-e-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Nos laboratórios da UFTM, o R e o RStudio já estão instalados. No entanto, sugerimos que você também os instale em seu computador pessoal, pois nem sempre conseguiremos realizar todas as atividades em sala.</p>
-<p>Siga estes passos:</p>
+<p><strong>Da tabela de contigência do exemplo anterior, podemos efetuar os cálculos</strong></p>
 <ol style="list-style-type: decimal">
-<li>Instale o R: <a href="https://cran.rstudio.com">https://cran.rstudio.com</a></li>
-<li>Instale o RStudio Desktop: <a href="https://posit.co/download/rstudio-desktop">https://posit.co/download/rstudio-desktop</a></li>
+<li><p><strong>Masculino, Doença: Sim</strong>
+<span class="math display">\[
+\frac{15 \times 13}{30} = \frac{195}{30} = 6,5
+\]</span></p></li>
+<li><p><strong>Masculino, Doença: Não</strong>
+<span class="math display">\[
+\frac{15 \times 17}{30} = \frac{255}{30} = 8,5
+\]</span></p></li>
+<li><p><strong>Feminino, Doença: Sim</strong>
+<span class="math display">\[
+\frac{15 \times 13}{30} = 6,5
+\]</span></p></li>
+<li><p><strong>Feminino, Doença: Não</strong>
+<span class="math display">\[
+\frac{15 \times 17}{30} = 8,5
+\]</span></p></li>
 </ol>
+<p>Então, nesse caso a tabela de frequências esperadas é dada por:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Doença: Sim</th>
+<th align="center">Doença: Não</th>
+<th align="center">Total da linha</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Masculino</td>
+<td align="center">6,5</td>
+<td align="center">8,5</td>
+<td align="center">15</td>
+</tr>
+<tr class="even">
+<td>Feminino</td>
+<td align="center">6,5</td>
+<td align="center">8,5</td>
+<td align="center">15</td>
+</tr>
+<tr class="odd">
+<td><strong>Total da coluna</strong></td>
+<td align="center">13</td>
+<td align="center">17</td>
+<td align="center">30</td>
+</tr>
+</tbody>
+</table>
+<p>A tabela acima mostra as frequências que seriam esperadas em cada célula caso não existisse associação entre sexo e presença de doença.</p>
+<p>A essência dos testes de associação é comparar a tabela de frequências observadas (com os dados reais coletados) com a tabela de frequências esperadas (calculada considerando que não exista relação entre as variáveis, ou seja, que sejam independentes). A tabela observada mostra quantas vezes cada combinação de categorias realmente aconteceu, enquanto a tabela esperada mostra quantas vezes cada combinação seria esperada ao acaso. O teste avalia se as diferenças entre o que foi observado e o que seria esperado são grandes o suficiente para indicar uma associação entre as variáveis. Portanto, a comparação entre essas duas tabelas está no centro da análise para determinar se existe ou não uma relação significativa entre as variáveis estudadas.</p>
+<p>Na prática, todos esses cálculos acontecem nos bastidores, pois utilizamos ferramentas computacionais que realizam automaticamente tanto o cálculo das frequências esperadas quanto a comparação com os valores observados. Assim, normalmente não precisamos calcular manualmente cada valor esperado ou montar todas as tabelas. No entanto, é fundamental compreender o conceito central dos testes de associação: eles servem para comparar o que foi realmente observado com o que seria esperado caso não houvesse relação entre as variáveis, ajudando a identificar se existe ou não uma associação significativa entre elas.</p>
+</div>
+</div>
+<div id="principais-testes-de-associação" class="section level2 hasAnchor" number="27.3">
+<h2><span class="header-section-number">27.3</span> Principais Testes de Associação<a href="associação-entre-variáveis.html#principais-testes-de-associação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>É importante destacar que existem diversos métodos estatísticos para analisar a associação entre variáveis categóricas, dependendo do tipo de dados e da estrutura da tabela de contingência.</p>
+<p>Além dos tradicionais teste qui-quadrado e teste exato de Fisher, há outros métodos que podem ser aplicados conforme a situação:<br />
+- O <strong>teste G</strong> (ou teste da razão de verossimilhança) é uma alternativa ao qui-quadrado, baseado em outra abordagem matemática, mas com objetivo semelhante.<br />
+- O <strong>teste de McNemar</strong> é indicado para tabelas 2x2 com dados pareados, como em estudos antes e depois.<br />
+- O <strong>teste de Mantel-Haenszel</strong> avalia a associação entre variáveis, controlando possíveis fatores de confusão por meio da estratificação, sendo muito usado em estudos epidemiológicos.<br />
+- O <strong>teste de tendência linear de Cochran-Armitage</strong> é recomendado quando as categorias possuem uma ordem natural e se deseja avaliar a existência de tendência linear entre elas.<br />
+- Existem ainda o <strong>teste de concordância Kappa de Cohen</strong>, que mede o grau de concordância entre avaliadores, e o <strong>teste exato de Barnard</strong>, alternativa ao teste de Fisher em tabelas 2x2.</p>
+<p>A escolha do teste adequado depende do tamanho da amostra, da distribuição dos dados, do tipo de variável (nominal ou ordinal), da estrutura dos dados (independentes ou pareados) e do objetivo da análise.</p>
+<div id="exemplos" class="section level3 hasAnchor" number="27.3.1">
+<h3><span class="header-section-number">27.3.1</span> Exemplos<a href="associação-entre-variáveis.html#exemplos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Exemplo na Medicina:</strong></p>
+<p>Investigar se há associação entre o sexo do paciente (masculino/feminino) e a presença de hipertensão (sim/não).</p>
+<ul>
+<li><p><strong>Variáveis:</strong> Sexo (masculino, feminino) e hipertensão (sim, não)</p></li>
+<li><p><strong>Aplicação:</strong> Monta-se uma tabela de contingência 2x2 e aplica-se o teste de associação para verificar se a proporção de hipertensos difere entre os sexos.</p></li>
+</ul>
+<p><strong>Exemplos na Psicologia</strong></p>
+<p>Verificar se existe associação entre tipo de terapia utilizada (cognitivo-comportamental, psicanalítica, humanista) e desfecho do tratamento (melhorou/não melhorou) em pacientes.</p>
+<ul>
+<li><p><strong>Variáveis:</strong> Tipo de terapia (três categorias) e desfecho (melhorou, não melhorou)</p></li>
+<li><p><strong>Aplicação:</strong> Monta-se uma tabela de contingência 3x2 e aplica-se o teste associação para analisar se o tipo de terapia está associado ao desfecho.</p></li>
+</ul>
+<p><strong>Exemplo na Educação Física</strong></p>
+<p>Analisar se há associação entre a participação em atividades extracurriculares (sim/não) e o nível de aptidão física (baixo/médio/alto) em estudantes do ensino médio.</p>
+<ul>
+<li><p><strong>Variáveis:</strong> Participação em atividades (sim, não) e aptidão física (baixo, médio, alto)</p></li>
+<li><p><strong>Aplicação:</strong> Cria-se uma tabela de contingência 2x3 e utiliza-se o teste de associação para verificar se a aptidão física difere conforme a participação em atividades extracurriculares.</p></li>
+</ul>
+</div>
+<div id="teste-qui-quadrado" class="section level3 hasAnchor" number="27.3.2">
+<h3><span class="header-section-number">27.3.2</span> Teste Qui-Quadrado<a href="associação-entre-variáveis.html#teste-qui-quadrado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O teste <strong>qui-quadrado</strong> (<span class="math inline">\(\chi^2\)</span>) é um dos métodos mais utilizados para avaliar se existe associação entre duas variáveis categóricas. Ele funciona comparando as frequências observadas nas células de uma tabela de contingência com as frequências que seriam esperadas caso não houvesse relação entre as variáveis.</p>
+<ul>
+<li><strong>Hipótese nula (<span class="math inline">\(H_0\)</span>):</strong> Não existe associação entre as variáveis “x” e “y”, ou seja, elas são independentes.</li>
+<li><strong>Hipótese alternativa (<span class="math inline">\(H_1\)</span>):</strong> Existe associação entre as variáveis.</li>
+</ul>
+<p><strong>Principais requisitos:</strong>
+- A amostra deve ser aleatória.
+- Pelo menos 80% das células da tabela devem ter frequência esperada igual ou superior a 5.
+- Nenhuma célula deve ter frequência esperada igual a zero.</p>
 <blockquote>
-<p>Certifique-se de baixar versões compatíveis com o sistema operacional do seu computador.</p>
+<p><strong>Observação:</strong> Nenhuma célula deve ter frequência esperada igual a zero porque, no teste qui-quadrado, a fórmula envolve dividir pela frequência esperada. Se algum valor esperado for zero, não é possível fazer a divisão, pois divisão por zero é indefinida. Além disso, uma frequência esperada igual a zero indica que, teoricamente, aquela combinação de categorias não deveria ocorrer nunca, o que torna os cálculos e os resultados do teste estatístico inválidos ou sem sentido. Por isso, é importante garantir que todas as células tenham valores esperados maiores que zero para que o teste seja matematicamente correto e confiável.</p>
 </blockquote>
-<p>Se tudo estiver correto, ao abrir o RStudio, você verá uma tela semelhante a esta:</p>
-<center>
-<div class="float">
-<img src="telaRStudio.png" alt="Figura: Tela inicial do RStudio" />
-<div class="figcaption">Figura: Tela inicial do RStudio</div>
+<p>O teste qui-quadrado pode ser aplicado em tabelas maiores que 2x2.</p>
 </div>
-</center>
-<p>Caso enfrente dificuldades, siga para o Plano B.</p>
+<div id="teste-exato-de-fisher" class="section level3 hasAnchor" number="27.3.3">
+<h3><span class="header-section-number">27.3.3</span> Teste Exato de Fisher<a href="associação-entre-variáveis.html#teste-exato-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O <strong>teste exato de Fisher</strong> é recomendado quando os tamanhos das amostras são pequenos ou quando as frequências esperadas em alguma célula da tabela são menores que 5, situação em que o teste qui-quadrado pode não ser confiável.</p>
+<ul>
+<li><p><strong>Hipótese nula (<span class="math inline">\(H_0\)</span>):</strong> Não existe associação entre as variáveis “x” e “y”, ou seja, elas são independentes.</p></li>
+<li><p><strong>Hipótese alternativa (<span class="math inline">\(H_1\)</span>):</strong> Existe associação entre as variáveis.</p></li>
+<li><p>É mais conservador do que o qui-quadrado, pois calcula a probabilidade exata de ocorrência das frequências observadas.</p></li>
+<li><p>Tradicionalmente, é utilizado para tabelas 2x2 (dois grupos e duas categorias), mas pode ser estendido a tabelas maiores com recursos computacionais.</p></li>
+<li><p>Não depende das condições de frequência esperada mínima.</p></li>
+</ul>
 </div>
-<div id="plano-b-r-e-rstudio-na-nuvem" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Plano B: R e RStudio na Nuvem<a href="ambiente-computacional.html#plano-b-r-e-rstudio-na-nuvem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O Plano B é utilizar o RStudio diretamente na nuvem, sem precisar instalar nada. Essa alternativa é excelente, mas requer uma boa conexão com a internet.</p>
-<p>Siga os passos:</p>
-<ol style="list-style-type: decimal">
-<li>Acesse: <a href="https://posit.cloud">https://posit.cloud</a></li>
-<li>Faça login (você pode usar sua conta do Google, por exemplo)</li>
-<li>Após o login, você verá esta tela:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaPosit.png" alt="Figura: Tela inicial na nuvem da Posit" />
-<div class="figcaption">Figura: Tela inicial na nuvem da Posit</div>
-</div>
-</center>
-<ol start="4" style="list-style-type: decimal">
-<li>Crie um novo projeto clicando em <em>New Project</em> e, depois, <em>New RStudio Project</em>:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaCriarProjetoRStudio.png" style="width:40.0%" alt="Figura: Botão de criação de um novo projeto" />
-<div class="figcaption">Figura: Botão de criação de um novo projeto</div>
-</div>
-</center>
-<ol start="5" style="list-style-type: decimal">
-<li>Pronto! A interface do RStudio será carregada na nuvem:</li>
-</ol>
-<center>
-<div class="float">
-<img src="telaRStudioPosit.png" alt="Figura: Tela do RStudio online na Posit Cloud" />
-<div class="figcaption">Figura: Tela do RStudio online na Posit Cloud</div>
-</div>
-</center>
+<div id="exemplo-no-r-1" class="section level3 hasAnchor" number="27.3.4">
+<h3><span class="header-section-number">27.3.4</span> Exemplo no R<a href="associação-entre-variáveis.html#exemplo-no-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vamos analisar se há associação entre sexo (Masculino/Feminino) e presença de doença (Sim/Não) com os seguintes dados, da tabela de contingência que foi mencionada anteriormente:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Doença: Sim</th>
+<th align="center">Doença: Não</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Masculino</td>
+<td align="center">8</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td>Feminino</td>
+<td align="center">5</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+<p>Essa tabela pode ser repassada diretamente para o R:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="associação-entre-variáveis.html#cb239-1" tabindex="-1"></a><span class="co"># Crie a matriz de dados</span></span>
+<span id="cb239-2"><a href="associação-entre-variáveis.html#cb239-2" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">7</span>,       <span class="co"># observe o uso de matrix() e c()</span></span>
+<span id="cb239-3"><a href="associação-entre-variáveis.html#cb239-3" tabindex="-1"></a>                   <span class="dv">5</span>, <span class="dv">10</span>),     <span class="co"># observe os parentes  </span></span>
+<span id="cb239-4"><a href="associação-entre-variáveis.html#cb239-4" tabindex="-1"></a>                 <span class="at">nrow =</span> <span class="dv">2</span>,     <span class="co"># numero de linhas </span></span>
+<span id="cb239-5"><a href="associação-entre-variáveis.html#cb239-5" tabindex="-1"></a>                 <span class="at">byrow =</span> <span class="cn">TRUE</span>) <span class="co"># você está informando por linhas (by row)</span></span>
+<span id="cb239-6"><a href="associação-entre-variáveis.html#cb239-6" tabindex="-1"></a>                 </span>
+<span id="cb239-7"><a href="associação-entre-variáveis.html#cb239-7" tabindex="-1"></a><span class="co"># é opcional, mas ficará mais claro que se você nomear </span></span>
+<span id="cb239-8"><a href="associação-entre-variáveis.html#cb239-8" tabindex="-1"></a><span class="co"># as linhas (row) e colunas (col) da sua tabela</span></span>
+<span id="cb239-9"><a href="associação-entre-variáveis.html#cb239-9" tabindex="-1"></a><span class="fu">colnames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Doença: Sim&quot;</span>, <span class="st">&quot;Doença: Não&quot;</span>)</span>
+<span id="cb239-10"><a href="associação-entre-variáveis.html#cb239-10" tabindex="-1"></a><span class="fu">rownames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Masculino&quot;</span>, <span class="st">&quot;Feminino&quot;</span>)</span>
+<span id="cb239-11"><a href="associação-entre-variáveis.html#cb239-11" tabindex="-1"></a></span>
+<span id="cb239-12"><a href="associação-entre-variáveis.html#cb239-12" tabindex="-1"></a><span class="co"># Veja como ficou a tabela</span></span>
+<span id="cb239-13"><a href="associação-entre-variáveis.html#cb239-13" tabindex="-1"></a>tabela</span></code></pre></div>
+<pre><code>##           Doença: Sim Doença: Não
+## Masculino           8           7
+## Feminino            5          10</code></pre>
+<p>Para fazer o teste Qui-quadrado no R usamos <code>chisq.test()</code>:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="associação-entre-variáveis.html#cb241-1" tabindex="-1"></a><span class="co"># Aplicando o teste qui-quadrado</span></span>
+<span id="cb241-2"><a href="associação-entre-variáveis.html#cb241-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabela)</span>
+<span id="cb241-3"><a href="associação-entre-variáveis.html#cb241-3" tabindex="-1"></a></span>
+<span id="cb241-4"><a href="associação-entre-variáveis.html#cb241-4" tabindex="-1"></a><span class="co"># Veja o resultado</span></span>
+<span id="cb241-5"><a href="associação-entre-variáveis.html#cb241-5" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  tabela
+## X-squared = 0.54299, df = 1, p-value = 0.4612</code></pre>
+<p>O resultado apresentado refere-se ao teste qui-quadrado de Pearson com a correção de continuidade de Yates, usada para tabelas 2x2:</p>
+<p>A <strong>correção de continuidade de Yates</strong> é um ajuste aplicado ao teste qui-quadrado em tabelas 2x2 para evitar superestimação da significância estatística, especialmente em amostras pequenas. Ela consiste em diminuir a diferença entre os valores observados e esperados antes de calcular o qui-quadrado, tornando o teste mais conservador.</p>
+<ul>
+<li><strong>X-squared</strong>: Valor do qui-quadrado calculado <span class="math inline">\(\chi^2 = 0,543\)</span>.<br />
+</li>
+<li><strong>df</strong>: Graus de liberdade (1), determinado pelo número de linhas e colunas da tabela. O cálculo é feito pela fórmula:<br />
+<strong>df = (número de linhas – 1) × (número de colunas – 1)</strong>.<br />
+No exemplo, temos 2 linhas e 2 colunas: (2–1) × (2–1) = 1.</li>
+<li><strong>p-value</strong>: Valor de p (0,4612)</li>
+</ul>
+<p>Como o valor de p é 0,4612 (maior do que o nível de significância de 0,05), <strong>não há evidências suficientes para rejeitar a hipótese nula</strong>. Portanto, não foi encontrada associação estatisticamente significativa entre sexo e presença de doença nessa amostra.</p>
+<p>E, caso queira vizualizar as tabelas de valores observados e esperados basta fazer o seguinte:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="associação-entre-variáveis.html#cb243-1" tabindex="-1"></a><span class="co"># Exibir os valores observados</span></span>
+<span id="cb243-2"><a href="associação-entre-variáveis.html#cb243-2" tabindex="-1"></a>resultado<span class="sc">$</span>observed</span></code></pre></div>
+<pre><code>##           Doença: Sim Doença: Não
+## Masculino           8           7
+## Feminino            5          10</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="associação-entre-variáveis.html#cb245-1" tabindex="-1"></a><span class="co"># Exibir os valores esperados</span></span>
+<span id="cb245-2"><a href="associação-entre-variáveis.html#cb245-2" tabindex="-1"></a>resultado<span class="sc">$</span>expected</span></code></pre></div>
+<pre><code>##           Doença: Sim Doença: Não
+## Masculino         6.5         8.5
+## Feminino          6.5         8.5</code></pre>
 <blockquote>
-<p>Vantagem: seus arquivos e análises ficam salvos na nuvem, em um local seguro e acessível de qualquer lugar.</p>
+<p><strong>Observação:</strong> Se alguma frequência esperada for menor que 5, o R emitirá um alerta. Nesses casos, considere usar o teste exato de Fisher:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="associação-entre-variáveis.html#cb247-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)</span></code></pre></div>
 </blockquote>
-<hr />
-<p>Com o ambiente configurado, estaremos prontos para explorar o mundo da estatística com R!</p>
+<p>Por, exemplos se substituirmos o 7 por 1, teremos</p>
+<pre><code>##           Doença: Sim Doença: Não
+## Masculino           8           1
+## Feminino            5          10</code></pre>
+<pre><code>## Warning in chisq.test(tabela2): Chi-squared approximation may be incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  tabela2
+## X-squared = 4.9343, df = 1, p-value = 0.02633</code></pre>
+<pre><code>## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  tabela2
+## p-value = 0.01306
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##    1.30156 774.69430
+## sample estimates:
+## odds ratio 
+##   14.06912</code></pre>
+<ul>
+<li><p><strong>p-value = 0.01306:</strong> O valor de p é menor que 0,05, indicando que existe uma associação estatisticamente significativa entre as duas variáveis analisadas. Isso significa que a chance de observarmos essa diferença (ou uma diferença maior) apenas por acaso é de aproximadamente 1,3%.</p></li>
+<li><p><strong>Odds ratio = 14.07:</strong> A razão de chances estimada é 14 vezes maior em um grupo do que no outro, sugerindo uma associação forte entre as categorias das variáveis.</p></li>
+<li><p><strong>Intervalo de confiança (1,30 a 774,69):</strong> O intervalo de confiança de 95% mostra que a razão de chances verdadeira, na população, pode variar de cerca de 1,3 até 774,7. Como esse intervalo não inclui o valor 1, reforça-se a evidência de associação.</p></li>
+</ul>
+</div>
+<div id="observação-sobre-tabelas-de-contingência-em-artigos-científicos" class="section level3 hasAnchor" number="27.3.5">
+<h3><span class="header-section-number">27.3.5</span> Observação sobre tabelas de contingência em artigos científicos<a href="associação-entre-variáveis.html#observação-sobre-tabelas-de-contingência-em-artigos-científicos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quando lemos um artigo que apresenta uma <strong>tabela de contingência</strong> (por exemplo, uma tabela cruzando sexo e presença de doença), estamos vendo exatamente a amostra utilizada pelo autor, com a distribuição real dos indivíduos nos diferentes grupos. Isso é diferente do que ocorre em testes de comparação de médias (como t-teste) ou correlação, onde geralmente temos acesso apenas a medidas-resumo (como média, desvio-padrão, coeficiente de correlação), e não aos dados individuais.</p>
+<p>Nesse sentido, <strong>ter a tabela de contingência é praticamente o mesmo que ter os dados brutos</strong> dos autores, pois conhecemos exatamente a quantidade de participantes em cada combinação de categorias. Isso possibilita que qualquer leitor possa refazer os cálculos dos testes estatísticos (como o qui-quadrado ou Fisher) e, inclusive, explorar outras análises categóricas de interesse.</p>
+<p>Em resumo, a tabela de contingência oferece um grau de transparência e reprodutibilidade muito maior do que apenas apresentar medidas-resumo, pois expõe toda a estrutura dos dados da amostra analisada.</p>
+</div>
+</div>
+<div id="tamanho-do-efeito-medidas-de-associação" class="section level2 hasAnchor" number="27.4">
+<h2><span class="header-section-number">27.4</span> Tamanho do Efeito: Medidas de Associação<a href="associação-entre-variáveis.html#tamanho-do-efeito-medidas-de-associação" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ao realizar testes de independência como o Qui-Quadrado ou o teste exato de Fisher para tabelas de contingência, é importante não apenas analisar o p-valor, mas também quantificar o tamanho do efeito, ou seja, a força da associação entre as variáveis categóricas.</p>
+<p>A seguir são mostradas as principais medidas de tamanho de efeito.</p>
+<div id="v-de-cramer" class="section level3 hasAnchor" number="27.4.1">
+<h3><span class="header-section-number">27.4.1</span> V de Cramer<a href="associação-entre-variáveis.html#v-de-cramer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Descrição</strong>: mede a intensidade da associação entre duas variáveis categóricas. Varia de 0 (nenhuma associação) a 1 (associação perfeita).</li>
+<li><strong>Uso</strong>: Indicado para tabelas de contingência de qualquer dimensão.</li>
+</ul>
+<p><strong>Fórmula:</strong>
+<span class="math display">\[
+V = \sqrt{\frac{\chi^2}{n(k-1)}}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\chi^2\)</span> = valor do teste Qui-Quadrado</p></li>
+<li><p><span class="math inline">\(n\)</span> = total de observações</p></li>
+<li><p><span class="math inline">\(k\)</span> = menor número entre linhas ou colunas</p></li>
+</ul>
+<p><strong>No R:</strong></p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="associação-entre-variáveis.html#cb252-1" tabindex="-1"></a><span class="fu">library</span>(rcompanion)</span>
+<span id="cb252-2"><a href="associação-entre-variáveis.html#cb252-2" tabindex="-1"></a><span class="fu">cramerV</span>(tabela)</span></code></pre></div>
+<pre><code>## Cramer V 
+##   0.2018</code></pre>
+<p>ou</p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="associação-entre-variáveis.html#cb254-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb254-2"><a href="associação-entre-variáveis.html#cb254-2" tabindex="-1"></a><span class="fu">CramerV</span>(tabela)</span></code></pre></div>
+<pre><code>## [1] 0.2018018</code></pre>
+</div>
+<div id="phi-de-pearson-phi" class="section level3 hasAnchor" number="27.4.2">
+<h3><span class="header-section-number">27.4.2</span> Phi de Pearson <span class="math inline">\((\phi)\)</span><a href="associação-entre-variáveis.html#phi-de-pearson-phi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Descrição</strong>: Medida de associação para tabelas 2x2. Varia de 0 a 1.</li>
+<li><strong>Uso</strong>: Exclusivo para tabelas 2x2.</li>
+</ul>
+<p><strong>Fórmula:</strong>
+<span class="math display">\[
+\phi = \sqrt{\frac{\chi^2}{n}}
+\]</span></p>
+<p><strong>No R:</strong></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="associação-entre-variáveis.html#cb256-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb256-2"><a href="associação-entre-variáveis.html#cb256-2" tabindex="-1"></a><span class="fu">Phi</span>(tabela)</span></code></pre></div>
+<pre><code>## [1] 0.2018018</code></pre>
+<p>Interpretação dos valores:</p>
+<ul>
+<li><strong>V de Cramer</strong>:
+<ul>
+<li>Pequeno: ~ 0,1</li>
+<li>Moderado: ~ 0,3</li>
+<li>Forte: ~ 0,5 ou mais</li>
+</ul></li>
+<li><strong>Phi</strong>: Interpretação semelhante ao V de Cramer para 2x2.</li>
+</ul>
+<p>No exemplo, o valor obtido para o <strong>V de Cramer</strong> ou <strong>Phi</strong> foi de <strong>0,20</strong>. De acordo com os critérios usuais para essa medida, valores em torno de 0,1 indicam associação pequena, valores próximos de 0,3 associação moderada e valores a partir de 0,5 associação forte entre as variáveis analisadas.</p>
+<p>Além disso, como o teste estatístico realizado (por exemplo, Qui-Quadrado ou Fisher) indicou que <strong>não há associação significativa</strong> entre as variáveis (p&gt;0,05), o resultado do V de Cramer reforça essa conclusão. Um valor de 0,20 sugere uma associação fraca, e como não há significância estatística, não se pode afirmar que exista uma relação relevante entre as variáveis na população estudada.</p>
+</div>
+<div id="odds-ratio-razão-de-chances" class="section level3 hasAnchor" number="27.4.3">
+<h3><span class="header-section-number">27.4.3</span> Odds Ratio (Razão de Chances)<a href="associação-entre-variáveis.html#odds-ratio-razão-de-chances" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><strong>Descrição</strong>: O Odds Ratio (OR) mede a força da associação entre dois eventos em tabelas 2x2, comparando as chances (odds) de um evento ocorrer em dois grupos diferentes. Ele indica se a ocorrência do evento em um grupo é mais, menos ou igualmente provável em relação ao outro grupo.</p></li>
+<li><p><strong>Uso</strong>: Teste de Fisher e tabelas 2x2.</p></li>
+</ul>
+<p>Considere a estrutura da tabela 2x2:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="center">Evento Presente</th>
+<th align="center">Evento Ausente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Grupo 1</strong></td>
+<td align="center">a</td>
+<td align="center">b</td>
+</tr>
+<tr class="even">
+<td><strong>Grupo 2</strong></td>
+<td align="center">c</td>
+<td align="center">d</td>
+</tr>
+</tbody>
+</table>
+<p>Então odds ratio (OR), pode ser facilmente calculado:</p>
+<p><span class="math display">\[
+OR = \frac{a \times d}{b \times c}
+\]</span></p>
+<p>Onde:</p>
+<ul>
+<li><strong>a</strong> = número de casos com o evento presente no Grupo 1<br />
+</li>
+<li><strong>b</strong> = número de casos com o evento ausente no Grupo 1<br />
+</li>
+<li><strong>c</strong> = número de casos com o evento presente no Grupo 2<br />
+</li>
+<li><strong>d</strong> = número de casos com o evento ausente no Grupo 2</li>
+</ul>
+<p>A interpretação do OR é a seguinte:</p>
+<ul>
+<li><p><strong>OR = 1:</strong><br />
+Não há diferença entre os grupos. O evento tem a mesma chance de acontecer no Grupo 1 e no Grupo 2.<br />
+<strong>Exemplo:</strong> Se o OR for 1, os dois grupos têm risco igual para o evento.</p></li>
+<li><p><strong>OR &gt; 1:</strong><br />
+O evento é mais provável no <strong>Grupo 1</strong> do que no Grupo 2.<br />
+<strong>Exemplo:</strong> Se o OR for 2, o Grupo 1 tem o dobro de chance do evento comparado ao Grupo 2.</p></li>
+<li><p><strong>OR &lt; 1:</strong><br />
+O evento é menos provável no <strong>Grupo 1</strong> do que no Grupo 2.<br />
+<strong>Exemplo:</strong> Se o OR for 0,5, o Grupo 1 tem metade da chance do evento comparado ao Grupo 2.</p></li>
+</ul>
+<p><strong>No R:</strong></p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="associação-entre-variáveis.html#cb258-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)<span class="sc">$</span>estimate</span></code></pre></div>
+<pre><code>## odds ratio 
+##    2.22194</code></pre>
+<p>O <strong>odds ratio (OR)</strong> calculado foi de <strong>2,22</strong>.</p>
+<ul>
+<li><p>O OR compara as chances de ocorrência da doença entre os grupos “Masculino” e “Feminino”.</p></li>
+<li><p><strong>OR = 2,22</strong> indica que as chances de um indivíduo do sexo masculino ter a doença são aproximadamente <strong>2,2 vezes maiores</strong> do que as chances de um indivíduo do sexo feminino.</p></li>
+<li><p>Em outras palavras, a doença é mais provável entre os homens do que entre as mulheres neste conjunto de dados.</p></li>
+</ul>
+<p>Ou usando o pacote <code>epitools</code>:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="associação-entre-variáveis.html#cb260-1" tabindex="-1"></a><span class="co"># install.packages(&quot;epitools&quot;)</span></span>
+<span id="cb260-2"><a href="associação-entre-variáveis.html#cb260-2" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
+<span id="cb260-3"><a href="associação-entre-variáveis.html#cb260-3" tabindex="-1"></a><span class="fu">oddsratio</span>(tabela)</span></code></pre></div>
+<pre><code>## $data
+##           Doença: Sim Doença: Não Total
+## Masculino           8           7    15
+## Feminino            5          10    15
+## Total              13          17    30
+## 
+## $measure
+##                         NA
+## odds ratio with 95% C.I. estimate    lower    upper
+##                Masculino 1.000000       NA       NA
+##                Feminino  2.203004 0.498955 10.60706
+## 
+## $p.value
+##            NA
+## two-sided   midp.exact fisher.exact chi.square
+##   Masculino         NA           NA         NA
+##   Feminino   0.3007786    0.4621374  0.2690235
+## 
+## $correction
+## [1] FALSE
+## 
+## attr(,&quot;method&quot;)
+## [1] &quot;median-unbiased estimate &amp; mid-p exact CI&quot;</code></pre>
+<ul>
+<li><p>O odds ratio (OR) indica que as chances de “Doença: Sim” são cerca de 2,2 vezes maiores no grupo <strong>Masculino</strong> em relação ao grupo <strong>Feminino</strong>.</p></li>
+<li><p>O intervalo de confiança (IC) de 95% para o OR do grupo Feminino é de 0,50 a 10,61, o que inclui o valor 1. Isso sugere que esta diferença <strong>não é estatisticamente significativa</strong>.</p></li>
+<li><p>Valores de p</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Grupo</th>
+<th align="center">midp.exact</th>
+<th align="center">fisher.exact</th>
+<th align="center">chi.square</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Feminino</td>
+<td align="center">0,3008</td>
+<td align="center">0,4621</td>
+<td align="center">0,2690</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Todos os valores de p são <strong>maiores do que 0,05</strong>, indicando que não há associação estatisticamente significativa entre sexo e presença de doença nesta amostra.</p></li>
+<li><p>O uso da função <code>oddsratio()</code> do pacote <code>epitools</code> mostrou um OR de 2,2 para o grupo masculino, mas essa diferença (entre os grupos feminino e masculino) não é estatisticamente significativa. Isso significa que, com base nesses dados, não se pode concluir que há uma associação real entre sexo e presença de doença.</p></li>
+</ul>
+</div>
+</div>
+<div id="cálculo-do-poder-estatístico" class="section level2 hasAnchor" number="27.5">
+<h2><span class="header-section-number">27.5</span> Cálculo do Poder Estatístico<a href="associação-entre-variáveis.html#cálculo-do-poder-estatístico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O poder estatístico pode ser estimado usando o pacote <code>pwr</code>, útil para calcular tamanho de efeito ou tamanho de amostra necessário.</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="associação-entre-variáveis.html#cb262-1" tabindex="-1"></a><span class="co"># Exemplo para efeito 0,2, alfa = 0.05 e N = 30 (OBSERVE o N em MAIÚSCULO, tamanho da amostra)</span></span>
+<span id="cb262-2"><a href="associação-entre-variáveis.html#cb262-2" tabindex="-1"></a><span class="fu">pwr.chisq.test</span>(<span class="at">w =</span> <span class="fl">0.2</span>, <span class="at">df =</span> <span class="dv">1</span>, <span class="at">N =</span> <span class="dv">30</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<pre><code>## 
+##      Chi squared power calculation 
+## 
+##               w = 0.2
+##               N = 30
+##              df = 1
+##       sig.level = 0.05
+##           power = 0.1947752
+## 
+## NOTE: N is the number of observations</code></pre>
+<ul>
+<li><strong>w (tamanho do efeito):</strong>
+<ul>
+<li>Representa o tamanho do efeito, w é igual ao V de Cramer</li>
+</ul></li>
+<li><strong>df (graus de liberdade):</strong>
+<ul>
+<li>Indica o número de graus de liberdade do teste.</li>
+<li>Em uma tabela de contingência, é calculado como:<br />
+(número de linhas – 1) × (número de colunas – 1)</li>
+<li>Exemplo: Para uma tabela 2x2, df = (2-1) × (2-1) = 1</li>
+</ul></li>
+</ul>
+<p>Com uma amostra de 30 indivíduos, tentando detectar um efeito pequeno (w = 0,2) em um teste do qui-quadrado com 1 grau de liberdade e nível de significância de 5%, o poder do teste é de apenas cerca de <strong>19,5%</strong>.</p>
+<p>Isso significa que, se realmente existir uma associação do tamanho especificado entre as variáveis, o teste só terá cerca de 19,5% de chance de detectar essa associação (ou seja, rejeitar a hipótese nula corretamente).</p>
+<p><strong>Em geral, recomenda-se um poder estatístico de pelo menos 80%</strong> (0,8) para que o teste tenha boa chance de detectar uma associação real. Portanto, <strong>com essa configuração, o teste está subdimensionado (pouco poder)</strong> para detectar efeitos pequenos.</p>
 
 </div>
 </div>
@@ -641,8 +1037,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="técnicas-de-amostragem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="trabalhando-RStudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="correlação-entre-variáveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
