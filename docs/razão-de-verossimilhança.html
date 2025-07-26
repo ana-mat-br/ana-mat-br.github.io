@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 15 Distribuição de Probabilidade | Estatística + R</title>
-  <meta name="description" content="Capítulo 15 Distribuição de Probabilidade | Estatística + R" />
+  <title>Capítulo 28 Razão de Verossimilhança | Razão de Verossimilhança em Epidemiologia</title>
+  <meta name="description" content="Capítulo 28 Razão de Verossimilhança | Razão de Verossimilhança em Epidemiologia" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 15 Distribuição de Probabilidade | Estatística + R" />
+  <meta property="og:title" content="Capítulo 28 Razão de Verossimilhança | Razão de Verossimilhança em Epidemiologia" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 15 Distribuição de Probabilidade | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 28 Razão de Verossimilhança | Razão de Verossimilhança em Epidemiologia" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pacote-ggplot.html"/>
-<link rel="next" href="exemplos-de-distribuições.html"/>
+<link rel="prev" href="sensibilidade-e-especificidade.html"/>
+<link rel="next" href="exemplo-prático.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -462,6 +462,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="chapter" data-level="26" data-path="introdução.html"><a href="introdução.html"><i class="fa fa-check"></i><b>26</b> Introdução</a></li>
+<li class="chapter" data-level="27" data-path="sensibilidade-e-especificidade.html"><a href="sensibilidade-e-especificidade.html"><i class="fa fa-check"></i><b>27</b> Sensibilidade e Especificidade</a></li>
+<li class="chapter" data-level="28" data-path="razão-de-verossimilhança.html"><a href="razão-de-verossimilhança.html"><i class="fa fa-check"></i><b>28</b> Razão de Verossimilhança</a></li>
+<li class="chapter" data-level="29" data-path="exemplo-prático.html"><a href="exemplo-prático.html"><i class="fa fa-check"></i><b>29</b> Exemplo Prático</a></li>
+<li class="chapter" data-level="30" data-path="probabilidade-pré-teste-e-pós-teste.html"><a href="probabilidade-pré-teste-e-pós-teste.html"><i class="fa fa-check"></i><b>30</b> Probabilidade Pré-teste e Pós-teste</a></li>
+<li class="chapter" data-level="31" data-path="exemplo-numérico-probabilidade-pós-teste.html"><a href="exemplo-numérico-probabilidade-pós-teste.html"><i class="fa fa-check"></i><b>31</b> Exemplo Numérico: Probabilidade Pós-teste</a></li>
+<li class="chapter" data-level="32" data-path="resumo.html"><a href="resumo.html"><i class="fa fa-check"></i><b>32</b> Resumo</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
 
@@ -474,7 +481,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estatística + R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Razão de Verossimilhança em Epidemiologia</a>
           </h1>
         </div>
 
@@ -482,238 +489,33 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="distribuição-de-probabilidade" class="section level1 hasAnchor" number="15">
-<h1><span class="header-section-number">Capítulo 15</span> Distribuição de Probabilidade<a href="distribuição-de-probabilidade.html#distribuição-de-probabilidade" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Uma distribuição de probabilidade é um modelo matemático que descreve a relação entre os valores possíveis de uma variável e as probabilidades de ocorrência desses valores. Essencialmente, ela nos permite prever a probabilidade de eventos com base em um conjunto de dados.</p>
-<p>Entre as distribuições mais comuns, destacam-se:</p>
+<div id="razão-de-verossimilhança" class="section level1 hasAnchor" number="28">
+<h1><span class="header-section-number">Capítulo 28</span> Razão de Verossimilhança<a href="razão-de-verossimilhança.html#razão-de-verossimilhança" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
-<li>Distribuição Normal (ou Gaussiana)</li>
-<li>Distribuição Binomial</li>
-<li>Distribuição Poisson</li>
-<li>Distribuição Exponencial</li>
-<li>Distribuição Uniforme</li>
-<li>Distribuição Qui-quadrado</li>
-<li>Distribuição t-Student</li>
-<li>Distribuição Gama, entre outras.</li>
-</ul>
-<p>Cada tipo de distribuição possui características próprias e é aplicada em diferentes contextos. A distribuição normal é uma das mais amplamente utilizadas, especialmente para modelar fenômenos naturais e sociais, como a altura de indivíduos ou o tempo de vida de produtos.</p>
-<blockquote>
-<p><strong>Propriedades Gerais das Distribuições de Probabilidade</strong></p>
-</blockquote>
+<li><strong>Razão de verossimilhança positiva (RV+):</strong>
 <ul>
-<li><strong>Área total sob a curva é igual a 1:</strong> Isso significa que a soma de todas as probabilidades possíveis de ocorrência dos eventos é igual a 100%.</li>
-<li><strong>A área sob a curva representa a probabilidade de um evento.</strong> Por exemplo, a probabilidade de um evento ocorrer entre dois valores quaisquer pode ser calculada pela área sob a curva entre esses dois pontos.</li>
-</ul>
-<div id="distribuição-normal" class="section level2 hasAnchor" number="15.1">
-<h2><span class="header-section-number">15.1</span> Distribuição Normal<a href="distribuição-de-probabilidade.html#distribuição-normal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A distribuição normal é uma das mais conhecidas na estatística. Ela modela fenômenos que seguem um comportamento simétrico em torno de uma média. A distribuição normal tem várias aplicações, desde a análise de medidas biológicas (como a pressão arterial) até a previsão de fenômenos econômicos (como o preço das ações).</p>
-<blockquote>
-<p><strong>A distribuição normal é definida por dois parâmetros principais:</strong></p>
-</blockquote>
+<li>Indica quanto mais provável é um resultado positivo em doentes do que em não-doentes.</li>
+<li><span class="math display">\[ RV+ = \frac{\text{Sensibilidade}}{1 - \text{Especificidade}} \]</span></li>
+</ul></li>
+<li><strong>Razão de verossimilhança negativa (RV-):</strong>
 <ul>
-<li><strong>Média (μ):</strong> Representa o valor central da distribuição.</li>
-<li><strong>Desvio Padrão (σ):</strong> Mede a dispersão dos dados em relação à média.</li>
+<li>Indica quanto mais provável é um resultado negativo em doentes do que em não-doentes.</li>
+<li><span class="math display">\[ RV- = \frac{1 - \text{Sensibilidade}}{\text{Especificidade}} \]</span></li>
+</ul></li>
 </ul>
-<blockquote>
-<p><strong>Características da Distribuição Normal</strong></p>
-</blockquote>
-<ul>
-<li><strong>Forma de sino:</strong> A distribuição normal tem a forma de um sino simétrico, com a maior concentração de dados perto da média.</li>
-<li><strong>Simetria:</strong> A distribuição é simétrica em relação à média.</li>
-<li><strong>Média, Mediana e Moda:</strong> Para uma distribuição normal, a média, mediana e moda são “iguais” e localizam-se no centro da distribuição.</li>
-</ul>
-<blockquote>
-<p><strong>Teoricamente o comportamento da Distribuição Normal é dado por:</strong></p>
-</blockquote>
-<center>
-<div class="float">
-<img src="normalTeorica.png" style="width:80.0%" alt="Figura: Distribuição Normal teórica (Fonte: https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG)" />
-<div class="figcaption"><font size="2">Figura: Distribuição Normal teórica (Fonte: <a href="https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG" class="uri">https://www.inf.ufsc.br/~andre.zibetti/probabilidade/figures/normal.PNG</a>)</font></div>
-</div>
-</center>
-<p>Onde:</p>
-<ul>
-<li>A média está representada por <span class="math inline">\(\mu\)</span></li>
-<li>O devio padrão está representado por <span class="math inline">\(\sigma\)</span></li>
-</ul>
-<blockquote>
-<p><strong>Regra empirica 68% - 95% - 99,7%</strong>
-Se os dados seguem uma distribuição normal, é possível fazer afirmações sobre a concentração dos dados em torno da média, conforme a regra empírica:</p>
-</blockquote>
-<ul>
-<li><em>68%</em> dos dados estão no intervalo de uma vez o desvio padrão (μ ± 1σ).</li>
-<li><em>95%</em> dos dados estão no intervalo de duas vezes o desvio padrão (μ ± 2σ).</li>
-<li><em>99,7%</em> dos dados estão no intervalo de três vezes o desvio padrão (μ ± 3σ).</li>
-</ul>
-<p><strong>Importante:</strong> Dados fora do intervalo de μ ± 3σ são considerados raros.</p>
-<blockquote>
-<p>Exemplo de distribuição Normal, com dados simulados usado a função rnorm().</p>
-</blockquote>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="distribuição-de-probabilidade.html#cb34-1" tabindex="-1"></a><span class="co"># semente de geração de números aleatórios </span></span>
-<span id="cb34-2"><a href="distribuição-de-probabilidade.html#cb34-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb34-3"><a href="distribuição-de-probabilidade.html#cb34-3" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="distribuição-de-probabilidade.html#cb34-4" tabindex="-1"></a><span class="co"># Será simulada uma amostra com a seguinte característica:</span></span>
-<span id="cb34-5"><a href="distribuição-de-probabilidade.html#cb34-5" tabindex="-1"></a><span class="co"># 1000 valores</span></span>
-<span id="cb34-6"><a href="distribuição-de-probabilidade.html#cb34-6" tabindex="-1"></a><span class="co"># média ~ 70</span></span>
-<span id="cb34-7"><a href="distribuição-de-probabilidade.html#cb34-7" tabindex="-1"></a><span class="co"># desvio padrão ~ 3</span></span>
-<span id="cb34-8"><a href="distribuição-de-probabilidade.html#cb34-8" tabindex="-1"></a><span class="co"># A função rnorm() gera números randômicos com comportamento de uma distribuição Normal </span></span>
-<span id="cb34-9"><a href="distribuição-de-probabilidade.html#cb34-9" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
-<span id="cb34-10"><a href="distribuição-de-probabilidade.html#cb34-10" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="distribuição-de-probabilidade.html#cb34-11" tabindex="-1"></a><span class="co"># Arrendodamento com nenhuma casa depois da vírugula</span></span>
-<span id="cb34-12"><a href="distribuição-de-probabilidade.html#cb34-12" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">round</span>(BatimentosMulheres,<span class="dv">0</span>)</span>
-<span id="cb34-13"><a href="distribuição-de-probabilidade.html#cb34-13" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="distribuição-de-probabilidade.html#cb34-14" tabindex="-1"></a><span class="co"># histograma</span></span>
-<span id="cb34-15"><a href="distribuição-de-probabilidade.html#cb34-15" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="distribuição-de-probabilidade.html#cb35-1" tabindex="-1"></a><span class="co"># Classes e frequencias do histograma</span></span>
-<span id="cb35-2"><a href="distribuição-de-probabilidade.html#cb35-2" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres)<span class="sc">$</span>breaks</span></code></pre></div>
-<pre><code>##  [1] 60 62 64 66 68 70 72 74 76 78 80 82</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="distribuição-de-probabilidade.html#cb37-1" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres)<span class="sc">$</span>count</span></code></pre></div>
-<pre><code>##  [1]   8  35  85 177 264 227 128  57  17   1   1</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="distribuição-de-probabilidade.html#cb39-1" tabindex="-1"></a><span class="co"># histograma e curva de densidade (da Dist. Normal)</span></span>
-<span id="cb39-2"><a href="distribuição-de-probabilidade.html#cb39-2" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb39-3"><a href="distribuição-de-probabilidade.html#cb39-3" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(BatimentosMulheres), <span class="at">col =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb39-4"><a href="distribuição-de-probabilidade.html#cb39-4" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="distribuição-de-probabilidade.html#cb39-5" tabindex="-1"></a><span class="co"># idicação da média</span></span>
-<span id="cb39-6"><a href="distribuição-de-probabilidade.html#cb39-6" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(BatimentosMulheres), <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="distribuição-de-probabilidade.html#cb40-1" tabindex="-1"></a><span class="co"># medidas resumo</span></span>
-<span id="cb40-2"><a href="distribuição-de-probabilidade.html#cb40-2" tabindex="-1"></a><span class="fu">summary</span>(BatimentosMulheres)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   61.00   68.00   70.00   69.97   72.00   81.00</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="distribuição-de-probabilidade.html#cb42-1" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(BatimentosMulheres), <span class="at">decreasing =</span> T)</span></code></pre></div>
-<pre><code>## BatimentosMulheres
-##  69  70  71  72  68  67  73  66  74  75  65  64  63  76  77  61  62  78  79  81 
-## 138 126 116 111  95  82  82  56  46  41  29  18  17  16  15   4   4   2   1   1</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="distribuição-de-probabilidade.html#cb44-1" tabindex="-1"></a><span class="fu">sd</span>(BatimentosMulheres)</span></code></pre></div>
-<pre><code>## [1] 3.10594</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="distribuição-de-probabilidade.html#cb46-1" tabindex="-1"></a><span class="co"># CV em %</span></span>
-<span id="cb46-2"><a href="distribuição-de-probabilidade.html#cb46-2" tabindex="-1"></a><span class="fu">sd</span>(BatimentosMulheres)<span class="sc">/</span><span class="fu">mean</span>(BatimentosMulheres)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
-<pre><code>## [1] 4.438833</code></pre>
-<blockquote>
-<p>As funções <strong>pnorm()</strong> e <strong>dnorm()</strong> são usadas para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.</p>
-</blockquote>
-<p><strong>Exemplo:</strong> Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp.</p>
-<p>Calcule as probabilidades:</p>
-<ul>
-<li>de uma mulher ter batimentos inferior a 70bmp, ou seja, <span class="math inline">\(P(x&lt;70)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="distribuição-de-probabilidade.html#cb48-1" tabindex="-1"></a><span class="co"># pnorm(): Calcula a probabilidade acumulada até um valor específico. Ou seja, retorna a probabilidade de que uma variável aleatória, que segue uma distribuição normal, seja menor ou igual a um determinado valor.</span></span>
-<span id="cb48-2"><a href="distribuição-de-probabilidade.html#cb48-2" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="distribuição-de-probabilidade.html#cb48-3" tabindex="-1"></a><span class="co"># observação: a resposta é 0.5 pois a média 70.</span></span>
-<span id="cb48-4"><a href="distribuição-de-probabilidade.html#cb48-4" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.5</code></pre>
-<ul>
-<li>de uma mulher ter batimentos superior a 70bmp, ou seja, <span class="math inline">\(P(x&gt;70)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="distribuição-de-probabilidade.html#cb50-1" tabindex="-1"></a><span class="co"># observação: 1 é o valor da área total</span></span>
-<span id="cb50-2"><a href="distribuição-de-probabilidade.html#cb50-2" tabindex="-1"></a><span class="co"># a pnorm() fornece a área á esquerda</span></span>
-<span id="cb50-3"><a href="distribuição-de-probabilidade.html#cb50-3" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.5</code></pre>
-<ul>
-<li>de uma mulher ter batimentos igual a 70bmp, ou seja, <span class="math inline">\(P(x=70)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="distribuição-de-probabilidade.html#cb52-1" tabindex="-1"></a><span class="co"># dnorm(): Calcula a densidade de probabilidade de um valor específico em uma distribuição normal. Em outras palavras, ela retorna o valor da função densidade de probabilidade no ponto especificado.</span></span>
-<span id="cb52-2"><a href="distribuição-de-probabilidade.html#cb52-2" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">70</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.1329808</code></pre>
-<ul>
-<li>de uma mulher ter batimentos entre 67 e 73bmp <span class="math inline">\(P(67 &lt; x &lt; 73)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="distribuição-de-probabilidade.html#cb54-1" tabindex="-1"></a><span class="co"># Observe que estamos testando a regra empírica (68%)</span></span>
-<span id="cb54-2"><a href="distribuição-de-probabilidade.html#cb54-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">73</span>, <span class="dv">70</span>, <span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">67</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.6826895</code></pre>
-<ul>
-<li>de uma mulher ter batimentos entre 67 e 73bmp <span class="math inline">\(P(64 &lt; x &lt; 76)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="distribuição-de-probabilidade.html#cb56-1" tabindex="-1"></a><span class="co"># Observe que estamos testando a regra empírica (95%)</span></span>
-<span id="cb56-2"><a href="distribuição-de-probabilidade.html#cb56-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">76</span>, <span class="dv">70</span>, <span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">64</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.9544997</code></pre>
-<ul>
-<li>de uma mulher ter batimentos entre 61 e 79bmp <span class="math inline">\(P(61 &lt; x &lt; 79)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="distribuição-de-probabilidade.html#cb58-1" tabindex="-1"></a><span class="co"># Observe que estamos testando a regra empírica (99,7%)</span></span>
-<span id="cb58-2"><a href="distribuição-de-probabilidade.html#cb58-2" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">79</span>, <span class="dv">70</span>, <span class="dv">3</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">61</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.9973002</code></pre>
-<ul>
-<li>de uma mulher ter batimentos maior que 90bmp <span class="math inline">\(P(x &gt; 90)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="distribuição-de-probabilidade.html#cb60-1" tabindex="-1"></a><span class="co"># Um evento raro</span></span>
-<span id="cb60-2"><a href="distribuição-de-probabilidade.html#cb60-2" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">90</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 1.308398e-11</code></pre>
-<ul>
-<li>de uma mulher ter batimentos menor que 65bmp <span class="math inline">\(P(x &lt; 65)\)</span>:</li>
-</ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="distribuição-de-probabilidade.html#cb62-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">65</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 0.04779035</code></pre>
-</div>
-<div id="gráfico-qq" class="section level2 hasAnchor" number="15.2">
-<h2><span class="header-section-number">15.2</span> Gráfico QQ<a href="distribuição-de-probabilidade.html#gráfico-qq" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Uma maneira comum de verificar a normalidade de uma distribuição é utilizando o gráfico QQ. Ele compara os quantis de uma amostra com os quantis de uma distribuição normal padrão, e é muito útil para identificar se os dados seguem uma distribuição normal.</p>
-<blockquote>
-<p><strong>Distribuição Normal Padrão</strong></p>
-</blockquote>
-<p>A distribuição normal padrão tem duas características importantes:</p>
-<ul>
-<li>Média (μ) igual a 0</li>
-<li>Desvio padrão (σ) igual a 1</li>
-</ul>
-<blockquote>
-<p><strong>Cálculo do Escore Z</strong></p>
-</blockquote>
-<p>Qualquer distribuição normal pode ser transformada na distribuição normal padrão utilizando o escore Z. O <strong>escore Z</strong> é calculado pela fórmula:</p>
-<p><span class="math display">\[
-z = \frac{(x - \mu)}{\sigma}
-\]</span></p>
-<p>Onde:</p>
-<ul>
-<li><span class="math inline">\(x\)</span> é o valor da observação.</li>
-<li><span class="math inline">\(\mu\)</span> é a média da distribuição.</li>
-<li><span class="math inline">\(\sigma\)</span> é o desvio padrão da distribuição.</li>
-</ul>
-<p>O gráfico QQ realiza exatamente o que a fórmula do escore Z descreve: ele transforma os dados da amostra para a distribuição normal padrão (média 0 e desvio padrão 1) e então compara esses valores transformados com os quantis da distribuição normal teórica. Se os pontos formarem uma linha reta, isso sugere que os dados seguem uma distribuição normal.</p>
-<p>Veja um exemplo no R para uma Distribuição Normal Padrão:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="distribuição-de-probabilidade.html#cb64-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb64-2"><a href="distribuição-de-probabilidade.html#cb64-2" tabindex="-1"></a><span class="co"># rnorm(10000, 0, 1): normal padrão média 0, dp=1</span></span>
-<span id="cb64-3"><a href="distribuição-de-probabilidade.html#cb64-3" tabindex="-1"></a><span class="co"># ou simplesmente rnorm(10000)</span></span>
-<span id="cb64-4"><a href="distribuição-de-probabilidade.html#cb64-4" tabindex="-1"></a>NormalPadrao <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
-<span id="cb64-5"><a href="distribuição-de-probabilidade.html#cb64-5" tabindex="-1"></a><span class="fu">hist</span>(NormalPadrao, <span class="at">probability =</span> T)</span>
-<span id="cb64-6"><a href="distribuição-de-probabilidade.html#cb64-6" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(NormalPadrao), <span class="at">col =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb64-7"><a href="distribuição-de-probabilidade.html#cb64-7" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="dv">1</span>))</span>
-<span id="cb64-8"><a href="distribuição-de-probabilidade.html#cb64-8" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(NormalPadrao), <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
-<p>No gráfico QQ, os quantis da amostra são comparados com os quantis da distribuição normal padrão. Se a amostra segue uma distribuição normal, os pontos no gráfico QQ devem se alinhar aproximadamente a uma linha reta.</p>
-<p>Se os pontos se afastam dessa linha reta de forma sistemática, isso indica que os dados não seguem uma distribuição normal. O tipo de desvio pode dar pistas sobre a natureza dessa não-normalidade (por exemplo, se os pontos se curvam para cima ou para baixo, pode indicar assimetria ou caudas pesadas).</p>
-<blockquote>
-<p>Distrbuição normal é usada para dados contínuos!</p>
-</blockquote>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="distribuição-de-probabilidade.html#cb65-1" tabindex="-1"></a><span class="co"># Gráfico QQ</span></span>
-<span id="cb65-2"><a href="distribuição-de-probabilidade.html#cb65-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb65-3"><a href="distribuição-de-probabilidade.html#cb65-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
-<span id="cb65-4"><a href="distribuição-de-probabilidade.html#cb65-4" tabindex="-1"></a><span class="fu">qqnorm</span>(BatimentosMulheres)</span>
-<span id="cb65-5"><a href="distribuição-de-probabilidade.html#cb65-5" tabindex="-1"></a><span class="fu">qqline</span>(BatimentosMulheres, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="distribuição-de-probabilidade.html#cb66-1" tabindex="-1"></a><span class="co"># Faça o arredondamento</span></span>
-<span id="cb66-2"><a href="distribuição-de-probabilidade.html#cb66-2" tabindex="-1"></a>BatimentosMulheresR <span class="ot">&lt;-</span> <span class="fu">round</span>(BatimentosMulheres,<span class="dv">0</span>)</span>
-<span id="cb66-3"><a href="distribuição-de-probabilidade.html#cb66-3" tabindex="-1"></a><span class="fu">qqnorm</span>(BatimentosMulheresR)</span>
-<span id="cb66-4"><a href="distribuição-de-probabilidade.html#cb66-4" tabindex="-1"></a><span class="fu">qqline</span>(BatimentosMulheresR)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
-<blockquote>
-<p>A distribuição Normal é uma distribuição para modelar variáveis <strong>CONTÍNUAS</strong>!</p>
-</blockquote>
-</div>
-<div id="atividade-7" class="section level2 hasAnchor" number="15.3">
-<h2><span class="header-section-number">15.3</span> Atividade 7<a href="distribuição-de-probabilidade.html#atividade-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Utilizando o banco de dados escolhido para as atividades 5 e 6, gere gráficos QQ para as variáveis quantitativas. Em seguida, avalie visualmente se essas variáveis seguem uma distribuição normal.</strong></p>
-
-</div>
+<p><strong>Interpretação:</strong>
+- RV+ &gt; 10: Teste excelente para confirmar doença
+- RV- &lt; 0,1: Teste excelente para descartar doença
+- Valores próximos de 1: Teste não altera muito a probabilidade</p>
+<hr />
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pacote-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exemplos-de-distribuições.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sensibilidade-e-especificidade.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exemplo-prático.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

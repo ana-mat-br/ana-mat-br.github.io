@@ -75,7 +75,9 @@ NOTE: n is number in *each* group
 
 O d de Cohen é uma **medida padronizada** do tamanho do efeito para comparar a diferença entre duas médias, levando em conta a variabilidade dos dados. Ele é muito utilizado para quantificar o quão grande é a diferença entre dois grupos em termos de desvios padrão.
 
-### Fórmula Geral
+---
+
+### Fórmula Geral para Dados Não Pareados (Amostras Independentes)
 
 \[
 d = \frac{\bar{X}_1 - \bar{X}_2}{s_p}
@@ -98,7 +100,7 @@ Onde:
 - \(n_1\), \(n_2\) = tamanhos das amostras dos grupos 1 e 2  
 - \(s_1\), \(s_2\) = desvios padrão dos grupos 1 e 2
 
-### Exemplo prático em R
+#### Exemplo prático em R
 
 Suponha:
 
@@ -116,11 +118,39 @@ n2 <- 35
 # Desvio padrão combinado
 sp <- sqrt( ((n1-1)*sd1^2 + (n2-1)*sd2^2) / (n1 + n2 - 2) )
 
-# d de Cohen
-d <- (media1 - media2) / sp
-d
+# d de Cohen para dados não pareados
+d_np <- (media1 - media2) / sp
+d_np
 ```
 
+
+### Fórmula para Dados Pareados (Amostras Dependentes)
+
+Quando os dados são pareados (por exemplo, antes e depois para o mesmo grupo de indivíduos), o cálculo do d de Cohen é diferente:
+
+\[
+d = \frac{\bar{d}}{s_d}
+\]
+
+Onde:
+
+- \(\bar{d}\) = média das diferenças entre os pares  
+- \(s_d\) = desvio padrão das diferenças
+
+#### Exemplo prático em R
+
+Suponha que temos as diferenças entre as medições de 5 sujeitos: -0,5; 0; 0,6; 1,2 e 1,7.
+
+```{r d-cohenpareado, message=FALSE}
+diferencas <- c(-0.5, 0.0, 0.6, 1.2, 1.7)
+
+media_dif <- mean(diferencas)
+sd_dif <- sd(diferencas)
+
+# d de Cohen para dados pareados
+d_p <- media_dif / sd_dif
+d_p
+```
 
 **Valores típicos para d de Cohen:**
 
@@ -130,14 +160,11 @@ d
 
 Assim, quanto maior o valor de d, maior a diferença entre os grupos em relação à variabilidade dos dados.
 
-**Explicação didática:**
 
 Pense no **d de Cohen** como uma régua que compara a diferença entre as médias de dois grupos, levando em conta o quanto os dados variam dentro desses grupos.
 
 - Se d é pequeno, significa que a diferença entre as médias dos grupos é pequena em relação à “bagunça” (variação) dos dados – ou seja, os grupos são parecidos.
 - Se d é grande, significa que a diferença entre as médias é grande em comparação com a variação dos dados – ou seja, os grupos são bem diferentes.
-
-**Resumindo:**
 
 Um valor alto de d indica que os grupos são realmente diferentes entre si, enquanto um valor baixo mostra que eles são muito parecidos, considerando o quanto os dados “dispersam” dentro de cada grupo.
 

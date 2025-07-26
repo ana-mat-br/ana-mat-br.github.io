@@ -359,8 +359,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="21.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-cálculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>21.2</b> Exemplo de cálculo amostral para teste t</a></li>
 <li class="chapter" data-level="21.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-é-o-d-de-cohen"><i class="fa fa-check"></i><b>21.3</b> O que é o d de Cohen?</a>
 <ul>
-<li class="chapter" data-level="21.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-geral"><i class="fa fa-check"></i><b>21.3.1</b> Fórmula Geral</a></li>
-<li class="chapter" data-level="21.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-prático-em-r"><i class="fa fa-check"></i><b>21.3.2</b> Exemplo prático em R</a></li>
+<li class="chapter" data-level="21.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-geral-para-dados-não-pareados-amostras-independentes"><i class="fa fa-check"></i><b>21.3.1</b> Fórmula Geral para Dados Não Pareados (Amostras Independentes)</a></li>
+<li class="chapter" data-level="21.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#fórmula-para-dados-pareados-amostras-dependentes"><i class="fa fa-check"></i><b>21.3.2</b> Fórmula para Dados Pareados (Amostras Dependentes)</a></li>
 </ul></li>
 <li class="chapter" data-level="21.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-práticos"><i class="fa fa-check"></i><b>21.4</b> Exemplos práticos</a>
 <ul>
@@ -418,7 +418,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="24.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#principais-testes-de-normalidade"><i class="fa fa-check"></i><b>24.2</b> Principais Testes de Normalidade</a>
 <ul>
 <li class="chapter" data-level="24.2.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#dicas-de-uso"><i class="fa fa-check"></i><b>24.2.1</b> Dicas de Uso</a></li>
-<li class="chapter" data-level="24.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-prático-em-r-1"><i class="fa fa-check"></i><b>24.2.2</b> Exemplo Prático em R</a></li>
+<li class="chapter" data-level="24.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-prático-em-r-2"><i class="fa fa-check"></i><b>24.2.2</b> Exemplo Prático em R</a></li>
 </ul></li>
 <li class="chapter" data-level="24.3" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#assimetria-e-curtose-o-que-são-e-por-que-são-importantes"><i class="fa fa-check"></i><b>24.3</b> Assimetria e Curtose: O que são e por que são importantes?</a>
 <ul>
@@ -554,44 +554,44 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li>Para análises em econometria ou séries temporais, o <strong>Jarque-Bera</strong> (<code>jarque.bera.test()</code> do pacote <code>tseries</code>) é bastante utilizado.</li>
 </ul>
 </div>
-<div id="exemplo-prático-em-r-1" class="section level3 hasAnchor" number="24.2.2">
-<h3><span class="header-section-number">24.2.2</span> Exemplo Prático em R<a href="teste-de-normalidade.html#exemplo-prático-em-r-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="teste-de-normalidade.html#cb162-1" tabindex="-1"></a><span class="co">#install.packages(&quot;nortest&quot;)</span></span>
-<span id="cb162-2"><a href="teste-de-normalidade.html#cb162-2" tabindex="-1"></a><span class="co">#install.packages(&quot;moments&quot;)</span></span>
-<span id="cb162-3"><a href="teste-de-normalidade.html#cb162-3" tabindex="-1"></a></span>
-<span id="cb162-4"><a href="teste-de-normalidade.html#cb162-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
-<span id="cb162-5"><a href="teste-de-normalidade.html#cb162-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb162-6"><a href="teste-de-normalidade.html#cb162-6" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
-<span id="cb162-7"><a href="teste-de-normalidade.html#cb162-7" tabindex="-1"></a></span>
-<span id="cb162-8"><a href="teste-de-normalidade.html#cb162-8" tabindex="-1"></a><span class="co"># Veja o QQ</span></span>
-<span id="cb162-9"><a href="teste-de-normalidade.html#cb162-9" tabindex="-1"></a><span class="fu">qqnorm</span>(Pokemon<span class="sc">$</span>Speed)</span>
-<span id="cb162-10"><a href="teste-de-normalidade.html#cb162-10" tabindex="-1"></a><span class="fu">qqline</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div id="exemplo-prático-em-r-2" class="section level3 hasAnchor" number="24.2.2">
+<h3><span class="header-section-number">24.2.2</span> Exemplo Prático em R<a href="teste-de-normalidade.html#exemplo-prático-em-r-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="teste-de-normalidade.html#cb164-1" tabindex="-1"></a><span class="co">#install.packages(&quot;nortest&quot;)</span></span>
+<span id="cb164-2"><a href="teste-de-normalidade.html#cb164-2" tabindex="-1"></a><span class="co">#install.packages(&quot;moments&quot;)</span></span>
+<span id="cb164-3"><a href="teste-de-normalidade.html#cb164-3" tabindex="-1"></a></span>
+<span id="cb164-4"><a href="teste-de-normalidade.html#cb164-4" tabindex="-1"></a><span class="co"># Importe o banco de dados Pokemon</span></span>
+<span id="cb164-5"><a href="teste-de-normalidade.html#cb164-5" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb164-6"><a href="teste-de-normalidade.html#cb164-6" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Pokemon.csv&quot;</span>)</span>
+<span id="cb164-7"><a href="teste-de-normalidade.html#cb164-7" tabindex="-1"></a></span>
+<span id="cb164-8"><a href="teste-de-normalidade.html#cb164-8" tabindex="-1"></a><span class="co"># Veja o QQ</span></span>
+<span id="cb164-9"><a href="teste-de-normalidade.html#cb164-9" tabindex="-1"></a><span class="fu">qqnorm</span>(Pokemon<span class="sc">$</span>Speed)</span>
+<span id="cb164-10"><a href="teste-de-normalidade.html#cb164-10" tabindex="-1"></a><span class="fu">qqline</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/testenormex-1.png" width="672" /></p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="teste-de-normalidade.html#cb163-1" tabindex="-1"></a><span class="co"># Shapiro-Wilk</span></span>
-<span id="cb163-2"><a href="teste-de-normalidade.html#cb163-2" tabindex="-1"></a><span class="fu">shapiro.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="teste-de-normalidade.html#cb165-1" tabindex="-1"></a><span class="co"># Shapiro-Wilk</span></span>
+<span id="cb165-2"><a href="teste-de-normalidade.html#cb165-2" tabindex="-1"></a><span class="fu">shapiro.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  Pokemon$Speed
 ## W = 0.98574, p-value = 1.757e-06</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="teste-de-normalidade.html#cb165-1" tabindex="-1"></a><span class="co"># Anderson-Darling</span></span>
-<span id="cb165-2"><a href="teste-de-normalidade.html#cb165-2" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
-<span id="cb165-3"><a href="teste-de-normalidade.html#cb165-3" tabindex="-1"></a><span class="fu">ad.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="teste-de-normalidade.html#cb167-1" tabindex="-1"></a><span class="co"># Anderson-Darling</span></span>
+<span id="cb167-2"><a href="teste-de-normalidade.html#cb167-2" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
+<span id="cb167-3"><a href="teste-de-normalidade.html#cb167-3" tabindex="-1"></a><span class="fu">ad.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
 ## data:  Pokemon$Speed
 ## A = 3.0665, p-value = 1.064e-07</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="teste-de-normalidade.html#cb167-1" tabindex="-1"></a><span class="co"># Lilliefors</span></span>
-<span id="cb167-2"><a href="teste-de-normalidade.html#cb167-2" tabindex="-1"></a><span class="fu">lillie.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="teste-de-normalidade.html#cb169-1" tabindex="-1"></a><span class="co"># Lilliefors</span></span>
+<span id="cb169-2"><a href="teste-de-normalidade.html#cb169-2" tabindex="-1"></a><span class="fu">lillie.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  Lilliefors (Kolmogorov-Smirnov) normality test
 ## 
 ## data:  Pokemon$Speed
 ## D = 0.06446, p-value = 1.662e-07</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="teste-de-normalidade.html#cb169-1" tabindex="-1"></a><span class="co"># D&#39;Agostino</span></span>
-<span id="cb169-2"><a href="teste-de-normalidade.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
-<span id="cb169-3"><a href="teste-de-normalidade.html#cb169-3" tabindex="-1"></a><span class="fu">agostino.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="teste-de-normalidade.html#cb171-1" tabindex="-1"></a><span class="co"># D&#39;Agostino</span></span>
+<span id="cb171-2"><a href="teste-de-normalidade.html#cb171-2" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb171-3"><a href="teste-de-normalidade.html#cb171-3" tabindex="-1"></a><span class="fu">agostino.test</span>(Pokemon<span class="sc">$</span>Speed)</span></code></pre></div>
 <pre><code>## 
 ##  D&#39;Agostino skewness test
 ## 

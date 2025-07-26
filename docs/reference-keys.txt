@@ -148,8 +148,10 @@ cálculo-amostral-no-r
 principais-pacotes-para-cálculo-amostral
 exemplo-de-cálculo-amostral-para-teste-t
 o-que-é-o-d-de-cohen
-fórmula-geral
+fórmula-geral-para-dados-não-pareados-amostras-independentes
 exemplo-prático-em-r
+fórmula-para-dados-pareados-amostras-dependentes
+exemplo-prático-em-r-1
 exemplos-práticos
 medicina-comparação-de-dois-tratamentos-para-dor
 psicologia-intervenção-para-redução-de-ansiedade
@@ -194,7 +196,7 @@ teste-de-normalidade
 hipóteses-nos-testes-de-normalidade
 principais-testes-de-normalidade
 dicas-de-uso
-exemplo-prático-em-r-1
+exemplo-prático-em-r-2
 assimetria-e-curtose-o-que-são-e-por-que-são-importantes
 o-que-é-assimetria-skewness
 o-que-é-curtose-kurtosis
