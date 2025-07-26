@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 2 Introdução | Estatística + R</title>
-  <meta name="description" content="Capítulo 2 Introdução | Estatística + R" />
+  <title>Capítulo 27 Regressão | Estatística + R</title>
+  <meta name="description" content="Capítulo 27 Regressão | Estatística + R" />
   <meta name="generator" content="bookdown 0.42.2 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 2 Introdução | Estatística + R" />
+  <meta property="og:title" content="Capítulo 27 Regressão | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 2 Introdução | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 27 Regressão | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="definições-iniciais.html"/>
+<link rel="prev" href="correlação-entre-variáveis.html"/>
+<link rel="next" href="associação-entre-variáveis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -547,80 +547,491 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Capítulo 2</span> Introdução<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.</p>
-<p>Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.</p>
-<p>A estatística é <strong>MULTIDICIPLINAR</strong>, ela está em tudo na verdade… e para dizer uma coisa “bem chique” a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes e músicas que aparecem no seu <em>streamming</em> favorito? Ou no ranque de busca realzada por meio do <em>Google</em>? Ou no <em>Chat</em> GTP?</p>
-<p>E sendo um pouco mais “acadêmica”, dentro do nosso propósito:</p>
-<p>Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:</p>
+<div id="regressão" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">Capítulo 27</span> Regressão<a href="regressão.html#regressão" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A <strong>regressão</strong> é uma técnica estatística usada para estudar a relação entre uma variável de interesse (chamada de variável dependente ou resposta) e uma ou mais variáveis que podem influenciá-la (chamadas de variáveis independentes ou preditoras). O objetivo principal é <strong>prever</strong> ou <strong>explicar</strong> o comportamento da variável resposta a partir das informações das variáveis preditoras.</p>
+<p><strong>Regressão Linear Simples:</strong><br />
+É o tipo mais básico de regressão, analisando a relação entre duas variáveis: uma resposta (por exemplo, peso) e uma preditora (por exemplo, altura). A relação é representada por uma linha reta:<br />
+<span class="math display">\[
+\text{Resposta} = a + b \times \text{Preditora}
+\]</span><br />
+Exemplo: Prever o peso de uma pessoa a partir de sua altura. O modelo estima qual seria o peso esperado para cada altura.</p>
+<p><strong>Regressão Linear Múltipla:</strong><br />
+Quando queremos analisar o efeito de duas ou mais variáveis preditoras sobre a variável resposta, usamos a regressão linear múltipla. A equação fica:<br />
+<span class="math display">\[
+\text{Resposta} = a + b_1 \times \text{Preditora}_1 + b_2 \times \text{Preditora}_2 + \ldots
+\]</span><br />
+Exemplo: Prever o preço de uma casa considerando área, número de quartos e localização.</p>
+<p><strong>Regressão Logística:</strong><br />
+É usada quando a resposta é categórica, por exemplo: sim/não, doente/sadio, aprovado/reprovado. Em vez de prever um número, ela estima a probabilidade de um determinado evento ocorrer. Exemplo: Prever a chance de um paciente ter uma certa doença com base em exames. O resultado é sempre um valor entre 0 e 1 (uma probabilidade).</p>
+<p><strong>Outros Modelos de Regressão:</strong><br />
+Além dos modelos acima, existem outros tipos de regressão para diferentes situações, como:<br />
+- Regressão de Poisson: para contagem de eventos (exemplo: número de acidentes por mês);
+- Regressão de Prais-Winsten: utilizada em séries temporais, especialmente quando os dados têm dependência ao longo do tempo (como dados econômicos mensais);
+- Regressão polinomial: ajusta curvas em vez de retas, para relações não-lineares;
+- Regressão robusta, Ridge, Lasso: abordam problemas específicos como dados com valores extremos ou quando há muitas variáveis preditoras.</p>
+<p>Em resumo, a regressão é uma ferramenta poderosa e versátil, útil em diferentes áreas como saúde, economia, educação e ciências sociais. Ela nos ajuda a compreender relações, prever resultados e tomar decisões baseadas em dados, mesmo sem precisar de conhecimentos avançados em matemática.</p>
+<div id="regressão-linear-simples" class="section level2 hasAnchor" number="27.1">
+<h2><span class="header-section-number">27.1</span> Regressão Linear Simples<a href="regressão.html#regressão-linear-simples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A correlação responde à pergunta: <strong>“Existe relação linear? Qual a força e o sentido dessa relação?”</strong></p>
+<p>A <strong>regressão linear simples</strong> vai além: além de indicar se existe relação, ela fornece uma equação que <strong>quantifica e permite prever</strong> uma variável a partir da outra.<br />
+A equação tem a forma:</p>
+<p><span class="math display">\[
+Y = a + bX
+\]</span></p>
+<p>onde:
+- <strong>Y</strong>: variável resposta (dependente)
+- <strong>X</strong>: variável explicativa (independente)
+- <strong>a</strong>: intercepto (valor esperado de Y quando X = 0)
+- <strong>b</strong>: inclinação (quanto Y varia, em média, a cada unidade de X)</p>
+<p>A regressão responde à pergunta: <strong>“Como prever Y a partir de X?”</strong></p>
+<p>É comum estudar primeiro a correlação, pois ela mostra se vale a pena tentar ajustar um modelo de regressão linear.</p>
+<div id="regressão-linear-simples-no-r" class="section level3 hasAnchor" number="27.1.1">
+<h3><span class="header-section-number">27.1.1</span> Regressão Linear Simples no R<a href="regressão.html#regressão-linear-simples-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como exemplo, vamos estudar a relação entre a <strong>frequência cardíaca</strong> (x, em batimentos por minuto - bpm) e o <strong>comprimento do intervalo QT</strong> (y, em milissegundos) de um eletrocardiograma (ECG). O intervalo QT representa o tempo que o coração leva para se despolarizar e repolarizar, sendo um importante marcador clínico.</p>
+<p>Vamos considerar a seguinte amostra:</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="regressão.html#cb239-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
+<span id="cb239-2"><a href="regressão.html#cb239-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
+<span id="cb239-3"><a href="regressão.html#cb239-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
+<span id="cb239-4"><a href="regressão.html#cb239-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span></code></pre></div>
+<p>Vamos, primeiro, verificar o comportamento das variáveis pelo gráfio de dispersão:</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="regressão.html#cb240-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
+<span id="cb240-2"><a href="regressão.html#cb240-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Frequência Cardíaca (bpm)&quot;</span>, </span>
+<span id="cb240-3"><a href="regressão.html#cb240-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Intervalo QT (ms)&quot;</span>, </span>
+<span id="cb240-4"><a href="regressão.html#cb240-4" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb240-5"><a href="regressão.html#cb240-5" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>O teste de correlação nos fornece:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="regressão.html#cb241-1" tabindex="-1"></a><span class="co"># antes, verifique a normalidade das variáveis </span></span>
+<span id="cb241-2"><a href="regressão.html#cb241-2" tabindex="-1"></a><span class="fu">cor.test</span>(x, y) <span class="co"># Teste estatístico da correlação</span></span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  x and y
+## t = -8.2944, df = 11, p-value = 4.625e-06
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.9787673 -0.7730054
+## sample estimates:
+##        cor 
+## -0.9285203</code></pre>
+<ul>
+<li><strong>Coeficiente de correlação (r):</strong> -0,93</li>
+<li><strong>Valor de t:</strong> -8,29</li>
+<li><strong>Graus de liberdade (df):</strong> 11</li>
+<li><strong>Valor-p:</strong> 0,0000046</li>
+<li><strong>Intervalo de confiança (95%):</strong> de -0,98 a -0,77</li>
+</ul>
+<p>O que isso significa?</p>
+<ul>
+<li><strong>Força e direção:</strong> O coeficiente de correlação de Pearson (<strong>r = -0,93</strong>) indica uma <strong>correlação negativa muito forte</strong> entre as variáveis x e y. Isso significa que, à medida que uma variável aumenta, a outra tende a diminuir de forma bastante consistente.</li>
+<li><strong>Significância estatística:</strong> O valor-p (<strong>p &lt; 0,001</strong>) mostra que essa correlação é <strong>estatisticamente significativa</strong>. Ou seja, é extremamente improvável que essa relação forte e negativa tenha ocorrido por acaso.</li>
+<li><strong>Intervalo de confiança:</strong> O intervalo de -0,98 a -0,77 indica que, com 95% de confiança, a verdadeira correlação na população está dentro desse intervalo — sempre indicando uma relação negativa forte.</li>
+<li><strong>Hipótese nula:</strong> Como o valor-p é muito pequeno, rejeitamos a hipótese nula de que não existe correlação linear entre x e y.</li>
+</ul>
+<p>Como há uma correlação linear forte e significativa, <strong>faz sentido estudar um modelo de regressão linear</strong> para quantificar e prever a relação entre essas variáveis.</p>
+<p>Para ajustarmos um modelo onde o intervalo QT é explicado pela frequência cardíaca no R, usamos a função <code>lm()</code>, onde lm significa <em>linear model</em>.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="regressão.html#cb243-1" tabindex="-1"></a>regressao <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb243-2"><a href="regressão.html#cb243-2" tabindex="-1"></a>regressao</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Coefficients:
+## (Intercept)            x  
+##     520.668       -2.044</code></pre>
+<p>O modelo ajustado de regressão linear simples foi:</p>
+<p><span class="math display">\[
+\text{Intervalo QT} = 520,67 - 2,04 \times \text{Frequência Cardíaca}
+\]</span></p>
+<p><strong>Interpretação dos coeficientes:</strong></p>
+<ul>
+<li><p><strong>Intercepto (520,67):</strong><br />
+Este valor representa a estimativa do intervalo QT (em milissegundos) quando a frequência cardíaca (x) é zero. Embora uma frequência cardíaca de zero não faça sentido fisiológico, o intercepto é necessário para construir a reta de regressão e serve como referência matemática.</p></li>
+<li><p><strong>Inclinação (-2,04):</strong><br />
+Esse coeficiente indica que, para cada aumento de 1 batimento por minuto (bpm) na frequência cardíaca, o intervalo QT diminui, em média, cerca de 2,04 milissegundos.<br />
+Ou seja, existe uma relação negativa: quanto maior a frequência cardíaca, menor tende a ser o intervalo QT.</p></li>
+</ul>
+<p>O resumo da regressão é obtido a partir da função <code>summary()</code></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="regressão.html#cb245-1" tabindex="-1"></a><span class="fu">summary</span>(regressao)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -14.689  -5.418  -2.900   8.188  15.750 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 520.6683    19.1158  27.238 1.90e-11 ***
+## x            -2.0438     0.2464  -8.294 4.63e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.38 on 11 degrees of freedom
+## Multiple R-squared:  0.8622, Adjusted R-squared:  0.8496 
+## F-statistic:  68.8 on 1 and 11 DF,  p-value: 4.625e-06</code></pre>
+<ul>
+<li><p><strong>Valor-p para ambos os coeficientes (p &lt; 0,001):</strong> Os dois coeficientes são significativos, ou seja, existe evidência estatística muito forte de que ambos são diferentes de zero.</p></li>
+<li><p><strong>R² (Multiple R-squared): 0,86:</strong> Aproximadamente 86% da variação do intervalo QT é explicada pela frequência cardíaca. É um valor alto, indicando que o modelo ajusta bem os dados.</p></li>
+<li><p><strong>R² Ajustado (0,85):</strong> Leva em conta o número de variáveis e tamanho da amostra, e também é alto.</p></li>
+<li><p><strong>Erro padrão residual (Residual standard error: 10,38):</strong> Mede o desvio médio dos pontos em relação à reta ajustada (quanto menor, melhor).</p></li>
+<li><p><strong>Resíduos:</strong> Representam a diferença entre os valores observados e os previstos pelo modelo. Os valores mínimos e máximos indicam a dispersão dos erros.</p></li>
+<li><p><strong>F-statistic: 68,8, p-value: 4,6e-06:</strong> Teste global do modelo, confirma que a relação encontrada é altamente significativa.</p></li>
+</ul>
+<p>O modelo de regressão linear simples mostra que existe uma <strong>forte relação linear negativa</strong> e estatisticamente significativa entre a frequência cardíaca e o intervalo QT: quanto maior a frequência cardíaca, menor tende a ser o intervalo QT. O modelo explica a maior parte da variação dos dados, sendo útil para previsões e interpretações clínicas dessa relação.</p>
+<p>O intervalos de confiança para os coeficientes da reta é dado por:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="regressão.html#cb247-1" tabindex="-1"></a><span class="fu">confint</span>(regressao)</span></code></pre></div>
+<pre><code>##                  2.5 %     97.5 %
+## (Intercept) 478.594702 562.741896
+## x            -2.586164  -1.501475</code></pre>
+<ul>
+<li><p><strong>Intercepto (a):</strong><br />
+O intervalo de confiança de 95% para o intercepto vai de <strong>478,59</strong> a <strong>562,74</strong>. Isso significa que, com 95% de confiança, o verdadeiro valor do intercepto está dentro desse intervalo. O intercepto representa o valor estimado do intervalo QT quando a frequência cardíaca é zero (valor teórico/matemático).</p></li>
+<li><p><strong>Inclinação (b):</strong><br />
+O intervalo de confiança de 95% para a inclinação vai de <strong>-2,59</strong> a <strong>-1,50</strong>. Como o intervalo é totalmente negativo, reforça que a relação entre frequência cardíaca e intervalo QT é negativa: a cada aumento de 1 bpm na frequência cardíaca, o intervalo QT diminui, em média, entre 1,50 e 2,59 ms.</p></li>
+</ul>
+<p><strong>Limitações e Cuidados na Regressão Linear</strong></p>
+<p>Apesar do modelo indicar uma associação significativa, é importante considerar algumas limitações e pontos de atenção:</p>
+<ul>
+<li><strong>Extrapolação:</strong> O modelo é válido apenas para a faixa de dados observados. Prever valores de QT para frequências cardíacas muito fora do intervalo observado pode gerar resultados sem sentido.</li>
+<li><strong>Suposições do modelo:</strong>
+<ul>
+<li><strong>Linearidade:</strong> A relação entre as variáveis deve ser aproximadamente linear.</li>
+<li><strong>Normalidade dos resíduos:</strong> Os resíduos (erros) devem ser aproximadamente distribuídos normalmente.</li>
+<li><strong>Homoscedasticidade:</strong> A variância dos resíduos deve ser constante ao longo dos valores previstos.</li>
+<li><strong>Independência:</strong> As observações devem ser independentes entre si.
+Recomenda-se sempre checar essas suposições usando gráficos de resíduos e testes estatísticos.</li>
+</ul></li>
+<li><strong>Possíveis valores extremos (outliers):</strong> Valores muito diferentes dos demais podem influenciar fortemente o ajuste, distorcendo os resultados.</li>
+<li><strong>Correlação não implica causalidade:</strong> A regressão mostra associação, mas não garante que uma variável causa a outra.</li>
+</ul>
+</div>
+<div id="o-que-deve-ser-checado-ao-ajustar-uma-regressão-linear" class="section level3 hasAnchor" number="27.1.2">
+<h3><span class="header-section-number">27.1.2</span> O que deve ser checado ao ajustar uma regressão linear?<a href="regressão.html#o-que-deve-ser-checado-ao-ajustar-uma-regressão-linear" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><strong>Gráfico de resíduos:</strong> Para avaliar linearidade, homoscedasticidade e detectar outliers.</li>
+<li><strong>Histograma/QQ-plot dos resíduos:</strong> Para verificar a normalidade dos resíduos.</li>
+<li><strong>Verificar influências:</strong> Avaliar se algum ponto influencia demais o resultado (diagnóstico de outliers/influência).</li>
+<li><strong>Intervalos de confiança:</strong> Analisar a precisão das estimativas dos parâmetros.</li>
+<li><strong>R² e R² ajustado:</strong> Avaliar o quanto do comportamento da variável resposta é explicado pelo modelo.</li>
+</ul>
+</div>
+</div>
+<div id="regressão-linear-múltipla" class="section level2 hasAnchor" number="27.2">
+<h2><span class="header-section-number">27.2</span> Regressão Linear Múltipla<a href="regressão.html#regressão-linear-múltipla" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Depois de entender a regressão linear simples, é fácil expandir para a <strong>regressão linear múltipla</strong>, onde podemos incluir mais de uma variável preditora para explicar a variável resposta. No nosso exemplo, além da <strong>frequência cardíaca (x)</strong>, vamos acrescentar a <strong>idade dos indivíduos (z)</strong>, que também pode influenciar o intervalo QT do eletrocardiograma (y).</p>
+<p>Vamos supor os seguintes valores de idade para os mesmos indivíduos:</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="regressão.html#cb249-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
+<span id="cb249-2"><a href="regressão.html#cb249-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
+<span id="cb249-3"><a href="regressão.html#cb249-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
+<span id="cb249-4"><a href="regressão.html#cb249-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span>
+<span id="cb249-5"><a href="regressão.html#cb249-5" tabindex="-1"></a><span class="co"># Idade (anos) - exemplo hipotético</span></span>
+<span id="cb249-6"><a href="regressão.html#cb249-6" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">40</span>,<span class="dv">30</span>,<span class="dv">22</span>,<span class="dv">53</span>,<span class="dv">60</span>,<span class="dv">28</span>,<span class="dv">27</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">59</span>,<span class="dv">41</span>,<span class="dv">55</span>)</span></code></pre></div>
+<p>Vamos ajustar agora um modelo que considera tanto a frequência cardíaca quanto a idade como preditoras do intervalo QT:</p>
+<ul>
+<li>O modelo ajustado tem a forma:
+<span class="math display">\[
+\text{QT} = a + b_1 \times \text{Frequência Cardíaca (x)} + b_2 \times \text{Idade (z)}
+\]</span></li>
+</ul>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="regressão.html#cb250-1" tabindex="-1"></a>regressao_multipla <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z)</span>
+<span id="cb250-2"><a href="regressão.html#cb250-2" tabindex="-1"></a><span class="fu">summary</span>(regressao_multipla)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x + z)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -16.055  -5.737  -2.952   8.566  15.082 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 514.3929    37.2473  13.810 7.72e-08 ***
+## x            -1.8827     0.8466  -2.224   0.0504 .  
+## z            -0.1505     0.7534  -0.200   0.8457    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 10.87 on 10 degrees of freedom
+## Multiple R-squared:  0.8627, Adjusted R-squared:  0.8352 
+## F-statistic: 31.42 on 2 and 10 DF,  p-value: 4.88e-05</code></pre>
+<p><strong>Modelo ajustado:</strong><br />
+<span class="math display">\[
+\text{QT} = 514,39 - 1,88 \times \text{Frequência Cardíaca (x)} - 0,15 \times \text{Idade (z)}
+\]</span></p>
+<ul>
+<li><p><strong>Intercepto (514,39):</strong><br />
+Valor estimado do QT quando frequência cardíaca e idade são zero (valor teórico, apenas referência matemática).</p></li>
+<li><p><strong>Frequência Cardíaca (x):</strong><br />
+O coeficiente é -1,88, ou seja, para cada aumento de 1 bpm, o QT diminui em média 1,88 ms, mantendo a idade constante.<br />
+O valor-p (0,0504) é limítrofe, indicando que a influência da frequência cardíaca sobre o QT <strong>ainda é significativa</strong>, mas no limite do nível de significância tradicional (5%).</p></li>
+<li><p><strong>Idade (z):</strong><br />
+O coeficiente é -0,15, ou seja, para cada aumento de 1 ano de idade, o QT diminui, em média, 0,15 ms, mantendo a frequência cardíaca constante.<br />
+No entanto, o valor-p (0,8457) mostra que essa associação <strong>não é estatisticamente significativa</strong> — ou seja, não há evidência de que a idade tenha efeito relevante sobre o QT neste conjunto de dados.</p></li>
+</ul>
 <blockquote>
-<p><strong>Velocidade e resistência de velocidade de sprint em atletas de Futebol amador</strong> <a href="http://www.rbff.com.br/index.php/rbff/article/view/866" class="uri">http://www.rbff.com.br/index.php/rbff/article/view/866</a></p>
+<p>Qualidade do ajuste</p>
 </blockquote>
-<p>Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:</p>
+<ul>
+<li><strong>R² (0,86):</strong><br />
+Aproximadamente 86% da variação do QT é explicada pelo modelo com as duas variáveis preditoras, indicando bom ajuste.</li>
+<li><strong>R² ajustado (0,83):</strong><br />
+Leva em conta o número de variáveis, também indicando bom ajuste.</li>
+<li><strong>Erro padrão residual (10,87):</strong><br />
+Média dos desvios dos pontos em relação à reta ajustada, semelhante ao modelo simples.</li>
+</ul>
 <blockquote>
-<p><strong>Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional</strong> <a href="https://rbc.inca.gov.br/index.php/revista/article/view/3554" class="uri">https://rbc.inca.gov.br/index.php/revista/article/view/3554</a></p>
+<p>Análise dos resíduos</p>
 </blockquote>
-<p>Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:</p>
+<ul>
+<li>A distribuição dos resíduos sugere que o modelo está adequado, mas sempre é recomendado visualizar os gráficos de resíduos para avaliar possíveis violações das suposições.</li>
+</ul>
 <blockquote>
-<p><strong>Escala de Comportamentos Antissociais: construção e estudos psicométricos</strong> <a href="https://periodicos.pucpr.br/psicologiaargumento/article/view/27071" class="uri">https://periodicos.pucpr.br/psicologiaargumento/article/view/27071</a></p>
+<p>Teste F</p>
 </blockquote>
-<p>Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!</p>
-<p>Quando olhamos os artigos acima, podemos ver que todos eles tem resultados <strong>descritivos</strong> e <strong>inferenciais</strong>. Discutiremos sobre estatística descritiva (de descrever - os dados amostrados para uma dada análise) e inferencial (de inferir - tirar conclusões a partir dos dados amostrados) no próximo tópico.</p>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<p><lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player></p>
-</center>
-<div id="atividade-1" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Atividade 1<a href="intro.html#atividade-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Busque um artigo do campo de seu interesse que utiliza a estatística.</strong></p>
-<ol style="list-style-type: decimal">
-<li><strong>Qual é o principal objetivo da pesquisa?</strong>
 <ul>
-<li>Qual é a questão central que a pesquisa busca responder? Os autores apresentam claramente os objetivos do estudo e o que se espera alcançar com os resultados?</li>
-</ul></li>
-<li><strong>Como a pesquisa foi conduzida?</strong>
+<li><strong>F-statistic: 31,42, p-value: 4,88e-05:</strong><br />
+O modelo como um todo é altamente significativo, ou seja, pelo menos uma das variáveis preditoras está relacionada ao QT.</li>
+</ul>
+<blockquote>
+<p>Conclusão</p>
+</blockquote>
 <ul>
-<li>Quais métodos foram utilizados para coletar os dados? A pesquisa é qualitativa ou quantitativa? Os autores descrevem o procedimento de forma detalhada, incluindo a amostra, os instrumentos de coleta de dados e a análise estatística realizada?</li>
-</ul></li>
-<li><strong>O que é apresentado por meio de tabelas ou gráficos?</strong>
+<li>O modelo de <strong>regressão múltipla</strong> mostra que, <strong>mantendo a idade constante</strong>, a frequência cardíaca segue sendo um preditor importante e significativo para o intervalo QT.</li>
+<li>A idade, por outro lado, <strong>não contribuiu de forma significativa</strong> para explicar o QT nesse exemplo.</li>
+<li>O ajuste da regressão múltipla no R é simples e a interpretação amplia a compreensão das relações entre várias variáveis e a resposta.<br />
+</li>
+<li><strong>Importante:</strong> Sempre verifique as suposições do modelo e a significância de cada preditor.</li>
+</ul>
+</div>
+<div id="no-r-é-fácil" class="section level2 hasAnchor" number="27.3">
+<h2><span class="header-section-number">27.3</span> No R é fácil<a href="regressão.html#no-r-é-fácil" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A sintaxe para ajustar a regressão múltipla é muito parecida com a da simples, basta acrescentar as variáveis ao modelo:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="regressão.html#cb252-1" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z, <span class="at">data =</span> dados)</span></code></pre></div>
+<p>Se quiser incluir ainda mais variáveis, basta adicioná-las na fórmula, separadas por <code>+</code>.</p>
+<blockquote>
+<p>Visualização dos resíduos</p>
+</blockquote>
+<p>É importante, como sempre, checar os resíduos para garantir que as suposições do modelo continuam válidas:</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regressão.html#cb253-1" tabindex="-1"></a><span class="fu">plot</span>(regressao_multipla)</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-1.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-2.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-3.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-4.png" width="672" /></p>
+<blockquote>
+<p>Resíduos vs Valores Ajustados</p>
+</blockquote>
 <ul>
-<li>Quais informações estão sendo representadas visualmente? Os gráficos e tabelas são claros e bem organizados para facilitar a compreensão dos dados? Como os resultados são interpretados a partir dessas representações?</li>
-</ul></li>
-<li><strong>Faça uma lista de termos relacionados à estatística encontrados no artigo.</strong>
+<li><strong>Objetivo:</strong> Avaliar linearidade e homocedasticidade (variância constante dos resíduos).</li>
+<li><strong>Interpretação:</strong> Os resíduos estão distribuídos de forma aproximadamente aleatória ao redor de zero, sem padrões claros. Isso sugere que a relação linear é adequada e que a variância dos resíduos é razoavelmente constante. Não há grandes evidências de problemas de ajuste, ainda que um ou outro ponto se afaste mais do centro (possíveis outliers).</li>
+</ul>
+<blockquote>
+<p>Q-Q Plot dos Resíduos</p>
+</blockquote>
 <ul>
-<li>Identifique e liste os termos e conceitos estatísticos mencionados no artigo. Isso pode incluir testes de hipótese, modelos estatísticos, variáveis dependentes e independentes, intervalos de confiança, p-valor, etc.</li>
-</ul></li>
+<li><strong>Objetivo:</strong> Verificar se os resíduos seguem uma distribuição normal (suposição importante para testes de hipóteses na regressão).</li>
+<li><strong>Interpretação:</strong> Os pontos seguem bem a linha reta, indicando que a normalidade dos resíduos é atendida na maior parte dos casos. Pequenos desvios nas extremidades são toleráveis, especialmente com amostras pequenas, como neste exemplo.</li>
+</ul>
+<blockquote>
+<p>Scale-Location (Homocedasticidade)</p>
+</blockquote>
+<ul>
+<li><strong>Objetivo:</strong> Avaliar se a variância dos resíduos é constante para todos os valores ajustados (homocedasticidade).</li>
+<li><strong>Interpretação:</strong> Os pontos estão relativamente dispersos de forma homogênea ao longo do eixo dos valores ajustados, sem formar um funil ou padrão crescente/decrescente marcante. Isso reforça que a suposição de homocedasticidade está sendo atendida.</li>
+</ul>
+<blockquote>
+<p>Resíduos Padronizados vs Leverage</p>
+</blockquote>
+<ul>
+<li><strong>Objetivo:</strong> Identificar pontos com alto potencial de influência no modelo (outliers ou observações influentes).</li>
+<li><strong>Interpretação:</strong> A maioria dos pontos está dentro dos limites aceitáveis de leverage e resíduos. Apenas um ou dois pontos apresentam valores de leverage mais altos, mas sem exceder drasticamente os limites de distância de Cook. Isso sugere que não há observações extremamente influentes comprometendo o modelo.</li>
+</ul>
+<p>Os diagnósticos gráficos indicam que:
+- <strong>As suposições do modelo de regressão múltipla estão razoavelmente bem atendidas:</strong> linearidade, normalidade dos resíduos, homocedasticidade e ausência de pontos influentes extremos.
+- <strong>O modelo é adequado para os dados analisados</strong>, com apenas leves indícios de possíveis outliers, mas sem comprometer as conclusões.</p>
+</div>
+<div id="exercício" class="section level2 hasAnchor" number="27.4">
+<h2><span class="header-section-number">27.4</span> Exercício<a href="regressão.html#exercício" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O exercício “nutrientes em cereais matinais” foi retirado do livro Estatística Básica de Larson &amp; Farber.</p>
+<p>A <em>U.S. Food and Drug Administration</em> (FDA) exige a rotulagem nutricional para a maioria dos alimentos. Sob os regulamentos da FDA, os produtores são obrigados a listar as quantidades de certos nutrientes em seus alimentos, tais como: calorias, açúcar, gordura e carboidratos. Essa informação nutricional é exibida em uma tabela na embalagem do alimento.</p>
+<p>A Tabela mostra o teor nutricional para uma xícara de 21 cereais matinais diferentes.</p>
+<p><em>C</em> = calorias<br />
+<em>S</em> = açúcar em gramas<br />
+<em>F</em> = gordura em gramas<br />
+<em>R</em> = carboidratos em gramas</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">C</th>
+<th align="center">S</th>
+<th align="center">F</th>
+<th align="left">R</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">100</td>
+<td align="center">12</td>
+<td align="center">0.5</td>
+<td align="left">25</td>
+</tr>
+<tr class="even">
+<td align="right">130</td>
+<td align="center">11</td>
+<td align="center">1.5</td>
+<td align="left">29</td>
+</tr>
+<tr class="odd">
+<td align="right">110</td>
+<td align="center">10</td>
+<td align="center">1.0</td>
+<td align="left">29</td>
+</tr>
+<tr class="even">
+<td align="right">130</td>
+<td align="center">15</td>
+<td align="center">2.0</td>
+<td align="left">31</td>
+</tr>
+<tr class="odd">
+<td align="right">130</td>
+<td align="center">13</td>
+<td align="center">1.5</td>
+<td align="left">29</td>
+</tr>
+<tr class="even">
+<td align="right">120</td>
+<td align="center">3</td>
+<td align="center">0.5</td>
+<td align="left">26</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="center">2</td>
+<td align="center">0.0</td>
+<td align="left">24</td>
+</tr>
+<tr class="even">
+<td align="right">120</td>
+<td align="center">0</td>
+<td align="center">0.0</td>
+<td align="left">29</td>
+</tr>
+<tr class="odd">
+<td align="right">150</td>
+<td align="center">16</td>
+<td align="center">1.5</td>
+<td align="left">31</td>
+</tr>
+<tr class="even">
+<td align="right">110</td>
+<td align="center">4</td>
+<td align="center">0.0</td>
+<td align="left">25</td>
+</tr>
+<tr class="odd">
+<td align="right">110</td>
+<td align="center">12</td>
+<td align="center">1.0</td>
+<td align="left">23</td>
+</tr>
+<tr class="even">
+<td align="right">160</td>
+<td align="center">15</td>
+<td align="center">1.5</td>
+<td align="left">35</td>
+</tr>
+<tr class="odd">
+<td align="right">150</td>
+<td align="center">12</td>
+<td align="center">2.0</td>
+<td align="left">36</td>
+</tr>
+<tr class="even">
+<td align="right">150</td>
+<td align="center">15</td>
+<td align="center">1.5</td>
+<td align="left">29</td>
+</tr>
+<tr class="odd">
+<td align="right">110</td>
+<td align="center">15</td>
+<td align="center">0.0</td>
+<td align="left">29</td>
+</tr>
+<tr class="even">
+<td align="right">190</td>
+<td align="center">13</td>
+<td align="center">1.5</td>
+<td align="left">45</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="center">3</td>
+<td align="center">0.0</td>
+<td align="left">23</td>
+</tr>
+<tr class="even">
+<td align="right">120</td>
+<td align="center">4</td>
+<td align="center">0.5</td>
+<td align="left">23</td>
+</tr>
+<tr class="odd">
+<td align="right">120</td>
+<td align="center">11</td>
+<td align="center">1.5</td>
+<td align="left">28</td>
+</tr>
+<tr class="even">
+<td align="right">120</td>
+<td align="center">11</td>
+<td align="center">1.0</td>
+<td align="left">29</td>
+</tr>
+<tr class="odd">
+<td align="right">130</td>
+<td align="center">5</td>
+<td align="center">0.5</td>
+<td align="left">29</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.</strong> Use o R para obter um diagrama de dispersão dos seguintes pares <span class="math inline">\((x, y)\)</span> no conjunto de dados.</p>
+<ol style="list-style-type: lower-alpha">
+<li>(Calorias, açúcar.)<br />
+</li>
+<li>(Calorias, gordura.)<br />
+</li>
+<li>(Calorias, carboidratos.)<br />
+</li>
+<li>(Açúcar, gordura.)<br />
+</li>
+<li>(Açúcar, carboidratos.)<br />
+</li>
+<li>(Gordura, carboidratos.)</li>
 </ol>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<p><lottie-player src="https://assets6.lottiefiles.com/packages/lf20_LKXG6QRgtE.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player></p>
-<blockquote>
-<p>Periódicos da área da Ciência dos Esportes</p>
-</blockquote>
-<ul>
-<li><p>RBFF - Revista Brasileira de Futsal e Futebol <a href="http://www.rbff.com.br" class="uri">http://www.rbff.com.br</a></p></li>
-<li><p>RBME - Revista Brasileira de Medicina do Esporte <a href="https://www.scielo.br/j/rbme" class="uri">https://www.scielo.br/j/rbme</a></p></li>
-<li><p>RBPE - Revista Brasileira de Psicologia do Esporte <a href="http://pepsic.bvsalud.org" class="uri">http://pepsic.bvsalud.org</a></p></li>
-</ul>
-<blockquote>
-<p>Periódicos da área de Medicina</p>
-</blockquote>
-<ul>
-<li><p>RBC - Revista Brasileira de Cancerologia <a href="https://rbc.inca.gov.br/index.php/revista" class="uri">https://rbc.inca.gov.br/index.php/revista</a></p></li>
-<li><p>RBCMS - Revista Brasileira de Ciências Médicas e da Saúde <a href="http://www.rbcms.com.br" class="uri">http://www.rbcms.com.br</a></p></li>
-<li><p>Revista da Associação Brasileira de Saúde Coletiva <a href="https://cienciaesaudecoletiva.com.br" class="uri">https://cienciaesaudecoletiva.com.br</a></p></li>
-</ul>
-<blockquote>
-<p>Periódicos da área de Piscologia</p>
-</blockquote>
-<ul>
-<li><p>Psicologia argumento <a href="https://periodicos.pucpr.br/psicologiaargumento" class="uri">https://periodicos.pucpr.br/psicologiaargumento</a></p></li>
-<li><p>Estudos de psicologia (Campinas) <a href="https://www.scielo.br/j/estpsi/" class="uri">https://www.scielo.br/j/estpsi/</a></p></li>
-<li><p>Psicologia em foco <a href="https://revistas.fw.uri.br/index.php/psicologiaemfoco" class="uri">https://revistas.fw.uri.br/index.php/psicologiaemfoco</a></p></li>
-</ul>
-<blockquote>
-<p>Ou busque na ferramenta <em>Mendeley</em> <a href="https://www.mendeley.com" class="uri">https://www.mendeley.com</a></p>
-</blockquote>
+<p><strong>2.</strong> Dos diagramas de dispersão no Exercício 1, quais pares de variáveis parecem ter uma correlação linear forte?</p>
+<p><strong>3.</strong> Use o R para encontrar o coeficiente de correlação para cada par de variáveis no Exercício 1. Qual tem a correlação linear mais forte?</p>
+<p><strong>4.</strong> Use tecnologia para encontrar a equação de uma reta de regressão para os seguintes pares de variáveis.</p>
+<ol style="list-style-type: lower-alpha">
+<li>(Calorias, açúcar.)<br />
+</li>
+<li>(Calorias, carboidratos.)</li>
+</ol>
+<p><strong>5.</strong> Use os resultados do Exercício 4 para prever o seguinte:</p>
+<ol style="list-style-type: lower-alpha">
+<li>O teor de açúcar de uma xícara de cereal que tem 120 calorias.<br />
+</li>
+<li>O teor de carboidrato de uma xícara de cereal que tem 120 calorias.</li>
+</ol>
+<p><strong>6.</strong> Use tecnologia para encontrar as equações de regressão múltipla dos seguintes modelos:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(C = b + m_1S + m_2F + m_3R\)</span><br />
+</li>
+<li><span class="math inline">\(C = b + m_1S + m_2R\)</span></li>
+</ol>
+<p><strong>7.</strong> Use as equações do Exercício 6 para prever as calorias em 1 xícara de cereal que tem 7 gramas de açúcar; 0,5 grama de gordura e 31 gramas de carboidratos.</p>
+
 </div>
 </div>
             </section>
@@ -628,8 +1039,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="definições-iniciais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="correlação-entre-variáveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="associação-entre-variáveis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

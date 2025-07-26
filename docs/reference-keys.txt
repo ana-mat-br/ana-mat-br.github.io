@@ -247,6 +247,13 @@ outros-recursos
 visualização-com-pairs
 matriz-de-correlação-com-cor
 matriz-visual-com-ggallyggcorr
+regressão
+regressão-linear-simples
+regressão-linear-simples-no-r
+o-que-deve-ser-checado-ao-ajustar-uma-regressão-linear
+regressão-linear-múltipla
+no-r-é-fácil
+exercício
 associação-entre-variáveis
 tipos-de-variáveis-envolvidas
 tabela-de-contingência
