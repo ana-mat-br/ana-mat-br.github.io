@@ -144,8 +144,11 @@ O teste **qui-quadrado** ($\chi^2$) é um dos métodos mais utilizados para aval
 - **Hipótese alternativa ($H_1$):** Existe associação entre as variáveis.
 
 **Principais requisitos:**
+
 - A amostra deve ser aleatória.
+
 - Pelo menos 80% das células da tabela devem ter frequência esperada igual ou superior a 5.
+
 - Nenhuma célula deve ter frequência esperada igual a zero.
 
 > **Observação:** Nenhuma célula deve ter frequência esperada igual a zero porque, no teste qui-quadrado, a fórmula envolve dividir pela frequência esperada. Se algum valor esperado for zero, não é possível fazer a divisão, pois divisão por zero é indefinida. Além disso, uma frequência esperada igual a zero indica que, teoricamente, aquela combinação de categorias não deveria ocorrer nunca, o que torna os cálculos e os resultados do teste estatístico inválidos ou sem sentido. Por isso, é importante garantir que todas as células tenham valores esperados maiores que zero para que o teste seja matematicamente correto e confiável.
