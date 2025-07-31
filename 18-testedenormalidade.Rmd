@@ -10,8 +10,8 @@ Todo teste de normalidade avalia as seguintes hipóteses:
 - **Hipótese Alternativa (H₁):** Os dados **não** seguem uma distribuição normal.
 
 
-- Se o valor de p for menor que 0,05: **Não rejeitamos** a hipótese nula. Os dados **podem ser tratados como normais**.
-- Se o valor de p for maior ou igual 0,05: **Rejeitamos** a hipótese nula. **Os dados não seguem distribuição normal**.
+- Se o valor de p for menor que 0,05: **Rejeitamos** a hipótese nula. 
+- Se o valor de p for maior ou igual 0,05: **Não rejeitamos** a hipótese nula. 
 
 ## Principais Testes de Normalidade
 
