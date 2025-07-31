@@ -629,7 +629,7 @@ Se os dados seguem uma distribuição normal, é possível fazer afirmações so
 <span id="cb34-13"><a href="distribuição-de-probabilidade.html#cb34-13" tabindex="-1"></a></span>
 <span id="cb34-14"><a href="distribuição-de-probabilidade.html#cb34-14" tabindex="-1"></a><span class="co"># histograma</span></span>
 <span id="cb34-15"><a href="distribuição-de-probabilidade.html#cb34-15" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="distribuição-de-probabilidade.html#cb35-1" tabindex="-1"></a><span class="co"># Classes e frequencias do histograma</span></span>
 <span id="cb35-2"><a href="distribuição-de-probabilidade.html#cb35-2" tabindex="-1"></a><span class="fu">hist</span>(BatimentosMulheres)<span class="sc">$</span>breaks</span></code></pre></div>
 <pre><code>##  [1] 60 62 64 66 68 70 72 74 76 78 80 82</code></pre>
@@ -641,7 +641,7 @@ Se os dados seguem uma distribuição normal, é possível fazer afirmações so
 <span id="cb39-4"><a href="distribuição-de-probabilidade.html#cb39-4" tabindex="-1"></a></span>
 <span id="cb39-5"><a href="distribuição-de-probabilidade.html#cb39-5" tabindex="-1"></a><span class="co"># idicação da média</span></span>
 <span id="cb39-6"><a href="distribuição-de-probabilidade.html#cb39-6" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(BatimentosMulheres), <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-24-2.png" width="672" /></p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="distribuição-de-probabilidade.html#cb40-1" tabindex="-1"></a><span class="co"># medidas resumo</span></span>
 <span id="cb40-2"><a href="distribuição-de-probabilidade.html#cb40-2" tabindex="-1"></a><span class="fu">summary</span>(BatimentosMulheres)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -745,7 +745,7 @@ z = \frac{(x - \mu)}{\sigma}
 <span id="cb64-6"><a href="distribuição-de-probabilidade.html#cb64-6" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(NormalPadrao), <span class="at">col =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
 <span id="cb64-7"><a href="distribuição-de-probabilidade.html#cb64-7" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="at">labels =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="dv">1</span>))</span>
 <span id="cb64-8"><a href="distribuição-de-probabilidade.html#cb64-8" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(NormalPadrao), <span class="at">col =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>No gráfico QQ, os quantis da amostra são comparados com os quantis da distribuição normal padrão. Se a amostra segue uma distribuição normal, os pontos no gráfico QQ devem se alinhar aproximadamente a uma linha reta.</p>
 <p>Se os pontos se afastam dessa linha reta de forma sistemática, isso indica que os dados não seguem uma distribuição normal. O tipo de desvio pode dar pistas sobre a natureza dessa não-normalidade (por exemplo, se os pontos se curvam para cima ou para baixo, pode indicar assimetria ou caudas pesadas).</p>
 <blockquote>
@@ -756,12 +756,12 @@ z = \frac{(x - \mu)}{\sigma}
 <span id="cb65-3"><a href="distribuição-de-probabilidade.html#cb65-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
 <span id="cb65-4"><a href="distribuição-de-probabilidade.html#cb65-4" tabindex="-1"></a><span class="fu">qqnorm</span>(BatimentosMulheres)</span>
 <span id="cb65-5"><a href="distribuição-de-probabilidade.html#cb65-5" tabindex="-1"></a><span class="fu">qqline</span>(BatimentosMulheres, <span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="distribuição-de-probabilidade.html#cb66-1" tabindex="-1"></a><span class="co"># Faça o arredondamento</span></span>
 <span id="cb66-2"><a href="distribuição-de-probabilidade.html#cb66-2" tabindex="-1"></a>BatimentosMulheresR <span class="ot">&lt;-</span> <span class="fu">round</span>(BatimentosMulheres,<span class="dv">0</span>)</span>
 <span id="cb66-3"><a href="distribuição-de-probabilidade.html#cb66-3" tabindex="-1"></a><span class="fu">qqnorm</span>(BatimentosMulheresR)</span>
 <span id="cb66-4"><a href="distribuição-de-probabilidade.html#cb66-4" tabindex="-1"></a><span class="fu">qqline</span>(BatimentosMulheresR)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
 <blockquote>
 <p>A distribuição Normal é uma distribuição para modelar variáveis <strong>CONTÍNUAS</strong>!</p>
 </blockquote>

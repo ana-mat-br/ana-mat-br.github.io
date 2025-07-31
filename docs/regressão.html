@@ -600,7 +600,7 @@ Y = a + bX
 <span id="cb240-3"><a href="regressão.html#cb240-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Intervalo QT (ms)&quot;</span>, </span>
 <span id="cb240-4"><a href="regressão.html#cb240-4" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb240-5"><a href="regressão.html#cb240-5" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>O teste de correlação nos fornece:</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="regressão.html#cb241-1" tabindex="-1"></a><span class="co"># antes, verifique a normalidade das variáveis </span></span>
 <span id="cb241-2"><a href="regressão.html#cb241-2" tabindex="-1"></a><span class="fu">cor.test</span>(x, y) <span class="co"># Teste estatístico da correlação</span></span></code></pre></div>
@@ -816,7 +816,7 @@ O modelo como um todo é altamente significativo, ou seja, pelo menos uma das va
 </blockquote>
 <p>É importante, como sempre, checar os resíduos para garantir que as suposições do modelo continuam válidas:</p>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="regressão.html#cb253-1" tabindex="-1"></a><span class="fu">plot</span>(regressao_multipla)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-1.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-2.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-3.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-43-4.png" width="672" /></p>
+<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-44-1.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-44-2.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-44-3.png" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-44-4.png" width="672" /></p>
 <blockquote>
 <p>Resíduos vs Valores Ajustados</p>
 </blockquote>
