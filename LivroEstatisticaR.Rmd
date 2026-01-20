@@ -23,7 +23,7 @@ language: "pt-BR"
 
 </center>
 
-Esse livro *online* tem como propósito principal ser um guia para as aulas de estatística, referente as disciplinas de **Bioestatística** para os curso de Medicina e Educação Física e **Estatística Aplicada** para o curso de Psicologia da [Universidade Federal do Triângulo Mineiro - UFTM](http://www.uftm.edu.br). E como objetivo secundário, ser uma referência de consulta para todos os discentes que passaram por essas disciplinas, bem como, para todos que estão interessados em realizar análises de dados por meio da linguagem R e o ambiente de desenvolvimento RStudio.
+Esse livro *online* tem como propósito principal ser um guia para as aulas de estatística, referente as disciplinas de **Bioestatística** para os cursos de Medicina e Educação Física e **Estatística Aplicada** para o curso de Psicologia da [Universidade Federal do Triângulo Mineiro - UFTM](http://www.uftm.edu.br). E como objetivo secundário, ser uma referência de consulta para todos os discentes que passaram por essas disciplinas, bem como, para todos que estão interessados em realizar análises de dados por meio da linguagem R e o ambiente de desenvolvimento RStudio.
 
 Sugestões, correções ou qualquer outra forma de interação são sempre bem-vindas! Então, por favor, não hesite em me escrever ([anapaula.fernandes\@uftm.edu.br](mailto:anapaula.fernandes@uftm.edu.br){.email}).
 
