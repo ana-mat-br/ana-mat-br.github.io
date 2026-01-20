@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 4 Tamanho da Amostra | Estatística + R</title>
-  <meta name="description" content="Capítulo 4 Tamanho da Amostra | Estatística + R" />
+  <title>Capítulo 2 Por Que Estudar Estatística com Recursos Computacionais? | Estatística + R</title>
+  <meta name="description" content="Capítulo 2 Por Que Estudar Estatística com Recursos Computacionais? | Estatística + R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 4 Tamanho da Amostra | Estatística + R" />
+  <meta property="og:title" content="Capítulo 2 Por Que Estudar Estatística com Recursos Computacionais? | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 4 Tamanho da Amostra | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 2 Por Que Estudar Estatística com Recursos Computacionais? | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="conceitos-fundamentais.html"/>
-<link rel="next" href="técnicas-de-amostragem.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="conceitos-fundamentais.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -504,101 +504,359 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tamanho-da-amostra" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Capítulo 4</span> Tamanho da Amostra<a href="tamanho-da-amostra.html#tamanho-da-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>O cálculo do <strong>tamanho da amostra</strong> é um passo importante em qualquer pesquisa. Ele nos ajuda a determinar quantos participantes precisamos para que os resultados sejam representativos e estatisticamente confiáveis. Embora o cálculo envolva alguns conceitos de <strong>estatística inferencial</strong>, hoje em dia, esse processo pode ser muito mais simples, graças a ferramentas online e até mesmo com o auxílio de <strong>Inteligência Artificial (IA)</strong>.</p>
-<div id="passos-básicos-para-o-cálculo-do-tamanho-da-amostra" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Passos básicos para o cálculo do tamanho da amostra<a href="tamanho-da-amostra.html#passos-b%C3%A1sicos-para-o-c%C3%A1lculo-do-tamanho-da-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Quando o <strong>objetivo é estimar uma proporção</strong>, o cálculo do tamanho amostral exige algumas informações essenciais:</p>
-<ol style="list-style-type: decimal">
-<li><strong>Tamanho da população</strong>: Neste caso, os estudantes da UFTM, que somam cerca de <strong>6.900</strong>.</li>
-<li><strong>Margem de erro</strong>: A precisão com que queremos que nossa estimativa esteja próxima da realidade. Por exemplo, uma margem de erro de <strong>5%</strong> é comum em muitos estudos.</li>
-<li><strong>Nível de confiança</strong>: Normalmente, utiliza-se 95%, que indica a probabilidade de que o intervalo de confiança contenha o valor real.</li>
-</ol>
-<p>A fórmula para calcular o tamanho da amostra é:</p>
-<p><span class="math display">\[
-n = \frac{{Z^2 \cdot p \cdot (1 - p)}}{{E^2}}
-\]</span></p>
-<p>Onde:</p>
+<div id="por-que-estudar-estatística-com-recursos-computacionais" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Por Que Estudar Estatística com Recursos Computacionais?<a href="por-que-estudar-estatística-com-recursos-computacionais.html#por-que-estudar-estat%C3%ADstica-com-recursos-computacionais" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ao longo de algum tempo ministrando aulas de estatística, concluí que estudar estatística com auxílio de recursos computacionais é bem mais eficaz. Quero dizer, é mais fácil entender os conceitos teóricos, lidar com recursos visuais (gráficos) e, de fato, transformar o conteúdo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.</p>
+<div id="desconstruindo-mitos" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Desconstruindo Mitos<a href="por-que-estudar-estatística-com-recursos-computacionais.html#desconstruindo-mitos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ministrando aulas para os cursos da área de <strong>saúde</strong>, <strong>esporte</strong> e <strong>psicologia</strong>, sempre ouvi dos discentes que “estatística é matemática”, e sempre digo que <strong>estatística é estatística!</strong></p>
+<p>É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso. Alguns acham até que é um assunto que deveria ficar restrito aos cursos das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.</p>
+<div id="a-estatística-é-multidisciplinar" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> A Estatística é MULTIDISCIPLINAR<a href="por-que-estudar-estatística-com-recursos-computacionais.html#a-estat%C3%ADstica-%C3%A9-multidisciplinar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A estatística está em tudo na verdade… e para dizer uma coisa “bem chique”: <strong>a estatística é a base da Inteligência Artificial</strong>.</p>
+<p>Advinha quem está por trás de:</p>
 <ul>
-<li><span class="math inline">\(n\)</span> = tamanho da amostra</li>
-<li><span class="math inline">\(Z\)</span> = valor da distribuição normal (geralmente 1,96 para 95% de confiança)</li>
-<li><span class="math inline">\(p\)</span> = proporção estimada (por exemplo, 0,5 para o pior cenário)</li>
-<li><span class="math inline">\(E\)</span> = margem de erro (por exemplo, 0,05 para 5%)</li>
+<li><p>🤖 Os famosos algoritmos das redes sociais</p></li>
+<li><p>🎬 As sugestões de filmes e músicas que aparecem no seu <em>streaming</em> favorito</p></li>
+<li><p>🔍 O ranqueamento de busca realizado por meio do <em>Google</em>?</p></li>
+<li><p>💬 O <em>ChatGPT</em></p></li>
 </ul>
-<div id="exemplo-de-cálculo-simples" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Exemplo de cálculo simples<a href="tamanho-da-amostra.html#exemplo-de-c%C3%A1lculo-simples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Vamos calcular o tamanho da amostra para uma pesquisa na UFTM, onde sabemos que a população tem <strong>6.900 estudantes</strong>, a margem de erro é <strong>5%</strong>, o nível de confiança é <strong>95%</strong>, e vamos supor que queremos estimar uma proporção de <strong>50%</strong> (o pior cenário para garantir maior precisão).</p>
-<p>Usando a fórmula, temos:</p>
+<hr />
+</div>
+</div>
+<div id="aplicações-práticas-da-estatística" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Aplicações Práticas da Estatística<a href="por-que-estudar-estatística-com-recursos-computacionais.html#aplica%C3%A7%C3%B5es-pr%C3%A1ticas-da-estat%C3%ADstica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>E sendo um pouco mais “acadêmica”, dentro do nosso propósito:</p>
+<div id="no-esporte" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> 🏃 No Esporte<a href="#no-esporte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Qualquer competição ou treinamento esportivo está recheado de estatística. Como medir o desempenho de um time ou atleta?</p>
+<p><strong>Exemplo:</strong></p>
+<blockquote>
+<p><strong>Uso de suplementos alimentares e acompanhamento nutricional por frequentadores de academias</strong><br />
+📄 <a href="https://www.rbne.com.br/index.php/rbne/article/view/2440" class="uri">https://www.rbne.com.br/index.php/rbne/article/view/2440</a></p>
+</blockquote>
+</div>
+<div id="na-medicina" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> 🏥 Na Medicina<a href="#na-medicina" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Estudos epidemiológicos e, claro, da medicina baseada em evidências têm o suporte da estatística.</p>
+<p><strong>Exemplo:</strong></p>
+<blockquote>
+<p><strong>Síndrome Coronariana Aguda no Brasil: Registro dos Fatores Predisponentes e Perfil Populacional em um Instituto Cardiológico Público de Referência Nacional</strong><br />
+📄 <a href="https://www.scielo.br/j/abc/a/gPrBrwLpGxWgzjFCgLkJJLN/?format=html&amp;lang=pt" class="uri">https://www.scielo.br/j/abc/a/gPrBrwLpGxWgzjFCgLkJJLN/?format=html&amp;lang=pt</a></p>
+</blockquote>
+</div>
+<div id="na-psicologia" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> 🧠 Na Psicologia<a href="#na-psicologia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Na psicologia, a estatística é a ferramenta utilizada na psicometria.</p>
+<p><strong>Exemplo:</strong></p>
+<blockquote>
+<p><strong>Avaliação do sofrimento psíquico em estudantes do internato médico</strong><br />
+📄 <a href="https://acervomais.com.br/index.php/cientifico/article/view/21295" class="uri">https://acervomais.com.br/index.php/cientifico/article/view/21295</a></p>
+</blockquote>
+<hr />
+</div>
+</div>
+<div id="desafio-para-você" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> 💡 Desafio para Você<a href="#desafio-para-voc%C3%AA" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Basta realizar uma busca com os termos <strong>“estatística”</strong> + <strong>um campo do seu curso que você se interessa</strong>, que você encontrará um artigo científico.</p>
+<blockquote>
+<p><strong>E se você não encontrar, comece a escrever sobre o tema! </strong> 🚀</p>
+</blockquote>
+<hr />
+<div id="periódicos-recomendados-por-área" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> 📚 Periódicos Recomendados por Área<a href="#peri%C3%B3dicos-recomendados-por-%C3%A1rea" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para facilitar sua pesquisa, aqui estão alguns periódicos científicos organizados por área de conhecimento:</p>
+<div id="ciência-dos-esportes" class="section level4 hasAnchor" number="2.3.1.1">
+<h4><span class="header-section-number">2.3.1.1</span> 🏃‍♂️ Ciência dos Esportes<a href="#ci%C3%AAncia-dos-esportes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="64%" />
+<col width="35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Periódico</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RBFF</strong> - Revista Brasileira de Futsal e Futebol</td>
+<td><a href="http://www.rbff.com.br" class="uri">http://www.rbff.com.br</a></td>
+</tr>
+<tr class="even">
+<td><strong>RBME</strong> - Revista Brasileira de Medicina do Esporte</td>
+<td><a href="https://www.scielo.br/j/rbme" class="uri">https://www.scielo.br/j/rbme</a></td>
+</tr>
+<tr class="odd">
+<td><strong>RBPE</strong> - Revista Brasileira de Psicologia do Esporte</td>
+<td><a href="http://pepsic.bvsalud.org" class="uri">http://pepsic.bvsalud.org</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="medicina-e-saúde" class="section level4 hasAnchor" number="2.3.1.2">
+<h4><span class="header-section-number">2.3.1.2</span> 🏥 Medicina e Saúde<a href="#medicina-e-sa%C3%BAde" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="64%" />
+<col width="35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Periódico</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RBC</strong> - Revista Brasileira de Cancerologia</td>
+<td><a href="https://rbc.inca.gov.br/index.php/revista" class="uri">https://rbc.inca.gov.br/index.php/revista</a></td>
+</tr>
+<tr class="even">
+<td><strong>RBCMS</strong> - Revista Brasileira de Ciências Médicas e da Saúde</td>
+<td><a href="http://www.rbcms.com.br" class="uri">http://www.rbcms.com.br</a></td>
+</tr>
+<tr class="odd">
+<td><strong>ABRASCO</strong> - Revista da Associação Brasileira de Saúde Coletiva</td>
+<td><a href="https://cienciaesaudecoletiva.com.br" class="uri">https://cienciaesaudecoletiva.com.br</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="psicologia" class="section level4 hasAnchor" number="2.3.1.3">
+<h4><span class="header-section-number">2.3.1.3</span> 🧠 Psicologia<a href="#psicologia" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<table>
+<colgroup>
+<col width="64%" />
+<col width="35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Periódico</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Psicologia Argumento</strong></td>
+<td><a href="https://periodicos.pucpr.br/psicologiaargumento" class="uri">https://periodicos.pucpr.br/psicologiaargumento</a></td>
+</tr>
+<tr class="even">
+<td><strong>Estudos de Psicologia</strong> (Campinas)</td>
+<td><a href="https://www.scielo.br/j/estpsi/" class="uri">https://www.scielo.br/j/estpsi/</a></td>
+</tr>
+<tr class="odd">
+<td><strong>Psicologia em Foco</strong></td>
+<td><a href="https://revistas.fw.uri.br/index.php/psicologiaemfoco" class="uri">https://revistas.fw.uri.br/index.php/psicologiaemfoco</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+</div>
+<div id="outras-ferramentas-de-busca-acadêmica" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> 🔎 Outras Ferramentas de Busca Acadêmica<a href="#outras-ferramentas-de-busca-acad%C3%AAmica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Expanda sua pesquisa utilizando estas bases de dados e ferramentas especializadas:</p>
 <ul>
-<li><span class="math inline">\(Z = 1,96\)</span> (para 95% de confiança)</li>
-<li><span class="math inline">\(p = 0,5\)</span> (proporção estimada)</li>
-<li><span class="math inline">\(E = 0,05\)</span> (margem de erro de 5%)</li>
+<li>📚 <strong><a href="https://www.mendeley.com">Mendeley</a></strong> - Gerenciador de referências e descoberta de artigos científicos</li>
+<li>🌎 <strong><a href="https://scielo.org">SciELO</a></strong> - Scientific Electronic Library Online (foco em América Latina)</li>
+<li>🔍 <strong><a href="https://scholar.google.com">Google Scholar</a></strong> - Busca abrangente em literatura acadêmica</li>
+<li>🏥 <strong><a href="https://pubmed.ncbi.nlm.nih.gov">PubMed</a></strong> - Especializada em ciências biomédicas e da saúde</li>
 </ul>
-<p>Substituindo os valores na fórmula, obtemos:</p>
-<p><span class="math display">\[
-n = \frac{{1,96^2 \cdot 0,5 \cdot (1 - 0,5)}}{{0,05^2}} = 384
-\]</span></p>
-<p>Logo, o tamanho da amostra necessário é <strong>384</strong> estudantes para garantir uma margem de erro de 5% com 95% de confiança.</p>
-<p><strong>Observação:</strong> A fórmula apresentada acima é utilizada para o cálculo do tamanho amostral quando se deseja estimar uma proporção, assumindo uma população infinita (ou muito grande). Para situações em que o objetivo é estimar a média populacional, a fórmula adequada é diferente e leva em conta o desvio padrão da variável em vez da proporção. Além disso, se a população for finita, é necessário aplicar o fator de correção amostral.</p>
-</div>
-<div id="ferramentas-para-cálculo-de-amostra" class="section level3 hasAnchor" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Ferramentas para cálculo de amostra<a href="tamanho-da-amostra.html#ferramentas-para-c%C3%A1lculo-de-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Nosso foco aqui não é ensinar a fazer os cálculos manualmente, mas compreender os conceitos envolvidos. Existem diversas ferramentas online gratuitas que fazem o cálculo automaticamente. Por exemplo:</p>
+<p><strong>💡 Dica de busca avançada:</strong>
+- Use <code>"aspas"</code> para termos exatos: <code>"análise estatística"</code>
+- Combine com operadores: <code>estatística AND psicologia</code>
+- Filtre por período: adicione ano nas opções de busca</p>
+<hr />
 </div>
 </div>
-<div id="cálculo-do-tamanho-da-amostra" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Cálculo do Tamanho da Amostra<a href="tamanho-da-amostra.html#c%C3%A1lculo-do-tamanho-da-amostra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para calcular o tamanho da amostra, podemos utilizar diferentes ferramentas, tanto no <strong>R</strong> quanto online. Aqui estão algumas opções:</p>
-<ul>
-<li><p><strong>No R</strong>: Para calcular o tamanho da amostra, podemos utilizar o <strong>pacote pwr</strong>, que oferece funções específicas para realizar esses cálculos de forma simples e eficaz. O pacote é ideal para quem precisa calcular o tamanho da amostra para testes de hipóteses, como testes de médias, proporções ou análise de variância, ajustando facilmente os parâmetros conforme as necessidades da pesquisa.</p></li>
-<li><p><strong>Calculadora Amostral Online da USP Bauru</strong>: <a href="http://estatistica.bauru.usp.br/calculoamostral/">Clique aqui para acessar</a> - Uma ferramenta simples e eficiente para cálculos amostrais.</p></li>
-<li><p><strong>G*Power</strong>: Um software gratuito que pode ajudar a calcular o tamanho da amostra dependendo do tipo de análise estatística que você irá realizar. <a href="https://www.gpower.hhu.de/en.html">Saiba mais sobre o G*Power</a>.</p></li>
-<li><p><strong>OpenEpi – Sample Size</strong>: <a href="https://www.openepi.com/SampleSize/SSMean.htm">Acesse aqui</a> - Muito usado na área da saúde, permite calcular amostras para média, proporção, estudos de caso-controle, coorte, entre outros.</p></li>
-</ul>
+<div id="tipos-de-análise-estatística" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> 📊 Tipos de Análise Estatística<a href="#tipos-de-an%C3%A1lise-estat%C3%ADstica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quando olhamos os artigos acima, podemos ver que todos eles têm resultados <strong>descritivos</strong> e <strong>inferenciais</strong>:</p>
+<table>
+<colgroup>
+<col width="35%" />
+<col width="64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>📈 Estatística Descritiva</strong></td>
+<td>Descrever os dados amostrados para uma dada análise</td>
+</tr>
+<tr class="even">
+<td><strong>🔬 Estatística Inferencial</strong></td>
+<td>Inferir - tirar conclusões a partir dos dados amostrados</td>
+</tr>
+</tbody>
+</table>
+<p>Discutiremos sobre ambas ao longo do curso!</p>
+<hr />
 </div>
-<div id="conclusão-1" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Conclusão<a href="tamanho-da-amostra.html#conclus%C3%A3o-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Em resumo, o cálculo do <strong>tamanho da amostra</strong> é um passo essencial para garantir que suas pesquisas sejam precisas e representativas. Embora os cálculos possam parecer complexos, hoje em dia, existem ferramentas poderosas e <strong>Inteligência Artificial</strong> para facilitar esse processo, economizando tempo e esforço na sua pesquisa.</p>
+<div id="conclusão" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> 🎯 Conclusão<a href="#conclus%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A estatística não é apenas matemática abstrata - é uma <strong>ferramenta essencial</strong> para transformar dados em conhecimento, independentemente da sua área de atuação!</p>
+<hr />
 <center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<p><lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player></p>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
 </center>
 </div>
-<div id="atividade-2" class="section level2 hasAnchor" number="4.4">
-<h2><span class="header-section-number">4.4</span> Atividade 2<a href="tamanho-da-amostra.html#atividade-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Responda a partir do artigo buscado na atividade 1.</strong></p>
-<ol style="list-style-type: decimal">
-<li><strong>Os autores discutem o cálculo do tamanho da amostra no estudo?</strong>
-<ul>
-<li>Você consegue identificar se os autores fornecem uma explicação clara sobre como determinaram o tamanho da amostra na pesquisa? Eles utilizaram alguma fórmula específica ou ferramenta estatística para esse cálculo?</li>
-</ul></li>
-<li><strong>A população da pesquisa foi claramente definida pelos autores?</strong>
-<ul>
-<li>Os autores descreveram com clareza quem compõe a população da pesquisa (por exemplo, características demográficas, contexto da amostra, entre outros)? A população foi bem delineada para garantir que os resultados sejam representativos?</li>
-</ul></li>
-<li><strong>O tamanho da amostra utilizado no estudo foi adequado?</strong>
-<ul>
-<li>Com base no cálculo do tamanho de amostra, você acha que a amostra utilizada no estudo foi grande o suficiente para garantir a precisão dos resultados? Ela foi suficientemente representativa da população alvo da pesquisa?</li>
-</ul></li>
-<li><strong>Realize o cálculo do tamanho de amostra para este estudo.</strong>
-<ul>
-<li>Com as informações fornecidas pelos autores, você pode calcular o tamanho da amostra necessário para o estudo utilizando uma fórmula ou ferramenta de cálculo amostral. Considere aspectos como o nível de confiança, margem de erro e variabilidade dos dados.</li>
-</ul></li>
-<li><strong>Os autores mencionaram se a pesquisa foi aprovada pelo Comitê de Ética?</strong>
-<ul>
-<li>No artigo, há alguma referência sobre a aprovação ética da pesquisa? Os autores informaram se a pesquisa foi submetida e aprovada por um Comitê de Ética em Pesquisa (CEP)?</li>
-</ul></li>
-<li><strong>Qual é a importância de submeter a pesquisa ao Comitê de Ética?</strong>
-<ul>
-<li>Por que é essencial que a pesquisa seja submetida a um Comitê de Ética? Quais são as implicações éticas de não realizar essa submissão, especialmente em pesquisas que envolvem seres humanos?</li>
-</ul></li>
-</ol>
-<p><strong>Importante</strong></p>
+<div id="atividade-1-explorando-a-estatística-na-pesquisa-científica" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> 📋 Atividade 1: Explorando a Estatística na Pesquisa Científica<a href="#atividade-1-explorando-a-estat%C3%ADstica-na-pesquisa-cient%C3%ADfica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A metodologia científica é composta por etapas estruturadas que guiam o processo de investigação. <strong>A estatística está presente em várias dessas etapas</strong>, desde o planejamento da coleta de dados até a análise e interpretação dos resultados. Nesta atividade, você irá identificar como a estatística é aplicada em um estudo real da sua área de interesse.</p>
+<hr />
+<div id="objetivo-da-atividade" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> 🎯 Objetivo da Atividade<a href="#objetivo-da-atividade" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Busque um artigo científico do campo de seu interesse que utiliza a estatística.</strong></p>
+<p>Ao analisar o artigo, você irá mapear as principais etapas da metodologia científica e identificar onde e como a estatística foi aplicada.</p>
+<hr />
+</div>
+<div id="roteiro-de-análise" class="section level3 hasAnchor" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> 📝 Roteiro de Análise<a href="#roteiro-de-an%C3%A1lise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>1️⃣ PROBLEMA DE PESQUISA - Qual é o principal objetivo da pesquisa?</strong></p>
 <blockquote>
-<p>Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM</p>
+<p><em>Na metodologia científica, toda pesquisa começa com uma pergunta ou problema a ser investigado.</em></p>
 </blockquote>
-<p><a href="https://www.uftm.edu.br/comitesecomissoes/cep" class="uri">https://www.uftm.edu.br/comitesecomissoes/cep</a></p>
+<p><strong>Reflita:</strong></p>
+<ul>
+<li><p>❓ Qual é a questão central que a pesquisa busca responder?</p></li>
+<li><p>🎯 Os autores apresentam claramente os objetivos do estudo?</p></li>
+<li><p>📊 O que se espera alcançar com os resultados?</p></li>
+<li><p>💡 Existem hipóteses formuladas? Se sim, quais são?</p></li>
+</ul>
+<hr />
+<p><strong>2️⃣ METODOLOGIA - Como a pesquisa foi conduzida?</strong></p>
+<blockquote>
+<p><em>A metodologia descreve o “caminho” percorrido pelo pesquisador. É aqui que a estatística começa a aparecer no planejamento da pesquisa.</em></p>
+</blockquote>
+<p><strong>Analise os seguintes aspectos:</strong></p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="74%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspecto</th>
+<th>O que observar no artigo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>🔬 Tipo de pesquisa</strong></td>
+<td>A pesquisa é qualitativa, quantitativa ou mista?</td>
+</tr>
+<tr class="even">
+<td><strong>👥 População e Amostra</strong></td>
+<td>Qual é a população-alvo? Quantos participantes compõem a amostra?</td>
+</tr>
+<tr class="odd">
+<td><strong>🧮 Cálculo Amostral</strong></td>
+<td>Os autores justificam o tamanho da amostra? Foi realizado cálculo amostral?</td>
+</tr>
+<tr class="even">
+<td><strong>📊 Técnica de Amostragem</strong></td>
+<td>Como os participantes foram selecionados? (aleatória, por conveniência, estratificada, etc.)</td>
+</tr>
+<tr class="odd">
+<td><strong>📋 Instrumentos de Coleta</strong></td>
+<td>Quais instrumentos foram utilizados? (questionários, testes, medições, observações, etc.)</td>
+</tr>
+<tr class="even">
+<td><strong>📈 Análise Estatística</strong></td>
+<td>Quais técnicas estatísticas foram aplicadas para analisar os dados?</td>
+</tr>
+<tr class="odd">
+<td><strong>💻 Software Utilizado</strong></td>
+<td>Qual programa foi usado para as análises? (SPSS, R, Python, Excel, etc.)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>💭 Reflita:</strong> <em>Por que essas escolhas metodológicas são importantes para a validade da pesquisa?</em></p>
+<hr />
+<p><strong>3️⃣ RESULTADOS - O que é apresentado por meio de tabelas ou gráficos?</strong></p>
+<blockquote>
+<p><em>A estatística descritiva organiza e resume os dados coletados, facilitando a visualização e interpretação dos resultados.</em></p>
+</blockquote>
+<p><strong>Observe:</strong></p>
+<ul>
+<li><p>📊 Quais informações estão sendo representadas visualmente?</p></li>
+<li><p>✅ Os gráficos e tabelas são claros e bem organizados?</p></li>
+<li><p>🔍 Que tipo de gráficos foram utilizados? (barras, dispersão, boxplot, histograma, pizza, etc.)</p></li>
+<li><p>📉 Os dados apresentados respondem aos objetivos da pesquisa?</p></li>
+<li><p>💬 Como os autores interpretam os resultados a partir dessas representações?</p></li>
+</ul>
+<p><strong>💡 Dica:</strong> <em>Preste atenção nas legendas, títulos e notas de rodapé das tabelas e gráficos - eles contêm informações importantes! </em></p>
+<hr />
+<p><strong>4️⃣ GLOSSÁRIO ESTATÍSTICO - Termos encontrados no artigo</strong></p>
+<blockquote>
+<p><em>Familiarizar-se com a terminologia estatística é essencial para compreender e aplicar essas técnicas em suas próprias pesquisas.</em></p>
+</blockquote>
+<p><strong>Crie uma lista dos termos e conceitos estatísticos mencionados no artigo.</strong></p>
+<p><strong>Exemplos do que você pode encontrar:</strong></p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categoria</th>
+<th>Exemplos de Termos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>📏 Medidas Descritivas</strong></td>
+<td>Média, mediana, moda, desvio-padrão, variância, percentis</td>
+</tr>
+<tr class="even">
+<td><strong>📊 Tipos de Variáveis</strong></td>
+<td>Variável dependente, independente, qualitativa, quantitativa</td>
+</tr>
+<tr class="odd">
+<td><strong>🔬 Testes de Hipótese</strong></td>
+<td>Teste t, ANOVA, qui-quadrado, Mann-Whitney, Kruskal-Wallis</td>
+</tr>
+<tr class="even">
+<td><strong>📈 Análises de Relação</strong></td>
+<td>Correlação de Pearson, Spearman, regressão linear, regressão logística</td>
+</tr>
+<tr class="odd">
+<td><strong>🎯 Conceitos Inferenciais</strong></td>
+<td>Intervalo de confiança, nível de significância, p-valor, poder do teste, tamanho do efeito</td>
+</tr>
+<tr class="even">
+<td><strong>📐 Outros</strong></td>
+<td>Normalidade, homocedasticidade, distribuição, outliers</td>
+</tr>
+</tbody>
+</table>
+<p><strong>✍️ Para cada termo identificado:</strong></p>
+<ul>
+<li><p>Anote a página onde aparece</p></li>
+<li><p>Tente definir com suas próprias palavras</p></li>
+<li><p>Pesquise o significado caso não conheça</p></li>
+</ul>
+<hr />
+</div>
+<div id="reflexão-final" class="section level3 hasAnchor" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> 🎓 Reflexão Final<a href="#reflex%C3%A3o-final" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Após completar esta análise, você será capaz de:</p>
+<p>✅ Reconhecer como a estatística se integra às etapas da metodologia científica<br />
+✅ Identificar as principais técnicas estatísticas aplicadas na sua área<br />
+✅ Compreender a importância do planejamento estatístico para a qualidade da pesquisa<br />
+✅ Desenvolver um olhar crítico sobre a apresentação e interpretação de dados</p>
+<p><strong>💬 Questão Bônus:</strong> <em>Com base no artigo analisado, que decisões metodológicas você faria diferente se fosse conduzir uma pesquisa semelhante?</em></p>
+<hr />
+</div>
 </div>
 </div>
             </section>
@@ -606,8 +864,8 @@ n = \frac{{1,96^2 \cdot 0,5 \cdot (1 - 0,5)}}{{0,05^2}} = 384
           </div>
         </div>
       </div>
-<a href="conceitos-fundamentais.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="técnicas-de-amostragem.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conceitos-fundamentais.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -3,167 +3,575 @@ output:
   html_document: default
   pdf_document: default
 ---
-# Introdução {#intro}
+# Por Que Estudar Estatística com Recursos Computacionais? 
 
-Ao longo de algum tempo ministrando aulas de estatísticas conclui que estudar estatística com auxílio de recursos computacionais é bem mais eficaz, quero dizer, é mais fácil entender os conceitos téoricos, lidar com recusos visuais (gráficos) e, de fato, transformar o contéudo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
+Ao longo de algum tempo ministrando aulas de estatística, concluí que estudar estatística com auxílio de recursos computacionais é bem mais eficaz.  Quero dizer, é mais fácil entender os conceitos teóricos, lidar com recursos visuais (gráficos) e, de fato, transformar o conteúdo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
 
-Ministrando aulas para os cursos da área de saúde, esporte e psicologia sempre ouvi dos discentes que estatística é matemática, e sempre digo que estatística é estatística! É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso, e realmente, alguns acham até que é assunto que deveria ficar restrito aos curso das exatas. Assim, a primeira tarefa é sempre desconstruir essa ideia.
+## Desconstruindo Mitos
 
-A estatística é **MULTIDICIPLINAR**, ela está em tudo na verdade... e para dizer uma coisa "bem chique" a estatística é a base da Inteligência Artificial. Advinha quem está por trás dos famosos algortimos das redes sociais? Ou das sugestões de filmes e músicas que aparecem no seu *streamming* favorito? Ou no ranque de busca realzada por meio do *Google*? Ou no *Chat* GTP?
+Ministrando aulas para os cursos da área de **saúde**, **esporte** e **psicologia**, sempre ouvi dos discentes que "estatística é matemática", e sempre digo que **estatística é estatística!** 
+
+É normal alguns discentes não assimilarem, em princípio, a importância da disciplina na grade do seu curso.  Alguns acham até que é um assunto que deveria ficar restrito aos cursos das exatas.  Assim, a primeira tarefa é sempre desconstruir essa ideia. 
+
+### A Estatística é MULTIDISCIPLINAR
+
+A estatística está em tudo na verdade... e para dizer uma coisa "bem chique":  **a estatística é a base da Inteligência Artificial**. 
+
+Advinha quem está por trás de: 
+
+- 🤖 Os famosos algoritmos das redes sociais
+
+- 🎬 As sugestões de filmes e músicas que aparecem no seu *streaming* favorito
+
+- 🔍 O ranqueamento de busca realizado por meio do *Google*?
+
+- 💬 O *ChatGPT*
+
+---
+
+## Aplicações Práticas da Estatística
 
 E sendo um pouco mais "acadêmica", dentro do nosso propósito:
 
-Qualquer competição ou treinamento esportivo está recheado de estatística, como medir o desempenho de um time ou atleta? Veja esse exemplo aqui:
+### 🏃 No Esporte
 
-> **Velocidade e resistência de velocidade de sprint em atletas de Futebol amador** <http://www.rbff.com.br/index.php/rbff/article/view/866>
+Qualquer competição ou treinamento esportivo está recheado de estatística.  Como medir o desempenho de um time ou atleta? 
 
-Na medicina, estudos epidemiologicos, e claro, da medicina baseada em evidências, tem o suporte da estatística. Veja esse exemplo aqui:
+**Exemplo:**
 
-> **Qualidade de Vida Relacionada à Saúde e Satisfação com o Tratamento Hospitalar de Adultos com Câncer: Estudo Observacional** <https://rbc.inca.gov.br/index.php/revista/article/view/3554>
+> **Uso de suplementos alimentares e acompanhamento nutricional por frequentadores de academias**  
+> 📄 <https://www.rbne.com.br/index.php/rbne/article/view/2440>
 
-Na psicologia a estatística é a ferramenta utilizada na psicometria. Veja esse exemplo:
+### 🏥 Na Medicina
 
-> **Escala de Comportamentos Antissociais: construção e estudos psicométricos** <https://periodicos.pucpr.br/psicologiaargumento/article/view/27071>
+Estudos epidemiológicos e, claro, da medicina baseada em evidências têm o suporte da estatística. 
 
-Basta realizar uma busca com os termos estatística e um campo do seu curso que você se interessa, que você encontrará um artigo científico. E se você não encontrar, comece a escreve sobre o tema!
+**Exemplo:**
 
-Quando olhamos os artigos acima, podemos ver que todos eles tem resultados **descritivos** e **inferenciais**. Discutiremos sobre estatística descritiva (de descrever - os dados amostrados para uma dada análise) e inferencial (de inferir - tirar conclusões a partir dos dados amostrados) no próximo tópico.
+> **Síndrome Coronariana Aguda no Brasil: Registro dos Fatores Predisponentes e Perfil Populacional em um Instituto Cardiológico Público de Referência Nacional**  
+> 📄 <https://www.scielo.br/j/abc/a/gPrBrwLpGxWgzjFCgLkJJLN/?format=html&lang=pt>
+
+### 🧠 Na Psicologia
+
+Na psicologia, a estatística é a ferramenta utilizada na psicometria. 
+
+**Exemplo:**
+
+> **Avaliação do sofrimento psíquico em estudantes do internato médico**  
+> 📄 <https://acervomais.com.br/index.php/cientifico/article/view/21295>
+
+---
+
+## 💡 Desafio para Você
+
+Basta realizar uma busca com os termos **"estatística"** + **um campo do seu curso que você se interessa**, que você encontrará um artigo científico. 
+
+> **E se você não encontrar, comece a escrever sobre o tema! ** 🚀
+
+---
+
+### 📚 Periódicos Recomendados por Área
+
+Para facilitar sua pesquisa, aqui estão alguns periódicos científicos organizados por área de conhecimento:
+
+#### 🏃‍♂️ Ciência dos Esportes
+
+| Periódico | Link |
+|-----------|------|
+| **RBFF** - Revista Brasileira de Futsal e Futebol | <http://www.rbff.com.br> |
+| **RBME** - Revista Brasileira de Medicina do Esporte | <https://www.scielo.br/j/rbme> |
+| **RBPE** - Revista Brasileira de Psicologia do Esporte | <http://pepsic.bvsalud.org> |
+
+#### 🏥 Medicina e Saúde
+
+| Periódico | Link |
+|-----------|------|
+| **RBC** - Revista Brasileira de Cancerologia | <https://rbc.inca.gov.br/index.php/revista> |
+| **RBCMS** - Revista Brasileira de Ciências Médicas e da Saúde | <http://www.rbcms.com.br> |
+| **ABRASCO** - Revista da Associação Brasileira de Saúde Coletiva | <https://cienciaesaudecoletiva.com.br> |
+
+#### 🧠 Psicologia
+
+| Periódico | Link |
+|-----------|------|
+| **Psicologia Argumento** | <https://periodicos.pucpr.br/psicologiaargumento> |
+| **Estudos de Psicologia** (Campinas) | <https://www.scielo.br/j/estpsi/> |
+| **Psicologia em Foco** | <https://revistas.fw.uri.br/index.php/psicologiaemfoco> |
+
+---
+
+### 🔎 Outras Ferramentas de Busca Acadêmica
+
+Expanda sua pesquisa utilizando estas bases de dados e ferramentas especializadas:
+
+- 📚 **[Mendeley](https://www.mendeley.com)** - Gerenciador de referências e descoberta de artigos científicos
+- 🌎 **[SciELO](https://scielo.org)** - Scientific Electronic Library Online (foco em América Latina)
+- 🔍 **[Google Scholar](https://scholar.google.com)** - Busca abrangente em literatura acadêmica
+- 🏥 **[PubMed](https://pubmed.ncbi.nlm.nih.gov)** - Especializada em ciências biomédicas e da saúde
+
+**💡 Dica de busca avançada:**
+- Use `"aspas"` para termos exatos: `"análise estatística"`
+- Combine com operadores:  `estatística AND psicologia`
+- Filtre por período: adicione ano nas opções de busca
+
+---
+
+## 📊 Tipos de Análise Estatística
+
+Quando olhamos os artigos acima, podemos ver que todos eles têm resultados **descritivos** e **inferenciais**: 
+
+| Tipo | Descrição |
+|------|-----------|
+| **📈 Estatística Descritiva** | Descrever os dados amostrados para uma dada análise |
+| **🔬 Estatística Inferencial** | Inferir - tirar conclusões a partir dos dados amostrados |
+
+Discutiremos sobre ambas ao longo do curso! 
+
+---
+
+## 🎯 Conclusão
+
+A estatística não é apenas matemática abstrata - é uma **ferramenta essencial** para transformar dados em conhecimento, independentemente da sua área de atuação! 
+
+---
 
 <center>
 
 ```{=html}
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 ```
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 
+<dotlottie-wc src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
 </center>
 
-## Atividade 1
+## 📋 Atividade 1: Explorando a Estatística na Pesquisa Científica
 
-**Busque um artigo do campo de seu interesse que utiliza a estatística.**
+A metodologia científica é composta por etapas estruturadas que guiam o processo de investigação.   **A estatística está presente em várias dessas etapas**, desde o planejamento da coleta de dados até a análise e interpretação dos resultados.  Nesta atividade, você irá identificar como a estatística é aplicada em um estudo real da sua área de interesse.
 
-1. **Qual é o principal objetivo da pesquisa?**
-   - Qual é a questão central que a pesquisa busca responder? Os autores apresentam claramente os objetivos do estudo e o que se espera alcançar com os resultados?
+---
 
-2. **Como a pesquisa foi conduzida?**
-   - Quais métodos foram utilizados para coletar os dados? A pesquisa é qualitativa ou quantitativa? Os autores descrevem o procedimento de forma detalhada, incluindo a amostra, os instrumentos de coleta de dados e a análise estatística realizada?
+### 🎯 Objetivo da Atividade
 
-3. **O que é apresentado por meio de tabelas ou gráficos?**
-   - Quais informações estão sendo representadas visualmente? Os gráficos e tabelas são claros e bem organizados para facilitar a compreensão dos dados? Como os resultados são interpretados a partir dessas representações?
+**Busque um artigo científico do campo de seu interesse que utiliza a estatística.**
 
-4. **Faça uma lista de termos relacionados à estatística encontrados no artigo.**
-   - Identifique e liste os termos e conceitos estatísticos mencionados no artigo. Isso pode incluir testes de hipótese, modelos estatísticos, variáveis dependentes e independentes, intervalos de confiança, p-valor, etc.
+Ao analisar o artigo, você irá mapear as principais etapas da metodologia científica e identificar onde e como a estatística foi aplicada. 
 
+---
+
+### 📝 Roteiro de Análise
+
+ **1️⃣ PROBLEMA DE PESQUISA - Qual é o principal objetivo da pesquisa?**
+
+> *Na metodologia científica, toda pesquisa começa com uma pergunta ou problema a ser investigado.*
+
+**Reflita:**
+
+- ❓ Qual é a questão central que a pesquisa busca responder?
+
+- 🎯 Os autores apresentam claramente os objetivos do estudo? 
+
+- 📊 O que se espera alcançar com os resultados? 
+
+- 💡 Existem hipóteses formuladas?  Se sim, quais são?
+
+---
+
+ **2️⃣ METODOLOGIA - Como a pesquisa foi conduzida?**
+
+> *A metodologia descreve o "caminho" percorrido pelo pesquisador.   É aqui que a estatística começa a aparecer no planejamento da pesquisa.*
+
+**Analise os seguintes aspectos:**
+
+| Aspecto | O que observar no artigo |
+|---------|--------------------------|
+| **🔬 Tipo de pesquisa** | A pesquisa é qualitativa, quantitativa ou mista? |
+| **👥 População e Amostra** | Qual é a população-alvo? Quantos participantes compõem a amostra? |
+| **🧮 Cálculo Amostral** | Os autores justificam o tamanho da amostra? Foi realizado cálculo amostral? |
+| **📊 Técnica de Amostragem** | Como os participantes foram selecionados? (aleatória, por conveniência, estratificada, etc.) |
+| **📋 Instrumentos de Coleta** | Quais instrumentos foram utilizados? (questionários, testes, medições, observações, etc.) |
+| **📈 Análise Estatística** | Quais técnicas estatísticas foram aplicadas para analisar os dados? |
+| **💻 Software Utilizado** | Qual programa foi usado para as análises? (SPSS, R, Python, Excel, etc.) |
+
+**💭 Reflita:** *Por que essas escolhas metodológicas são importantes para a validade da pesquisa?*
+
+---
+
+ **3️⃣ RESULTADOS - O que é apresentado por meio de tabelas ou gráficos?**
+
+> *A estatística descritiva organiza e resume os dados coletados, facilitando a visualização e interpretação dos resultados.*
+
+**Observe:**
+
+- 📊 Quais informações estão sendo representadas visualmente?
+
+- ✅ Os gráficos e tabelas são claros e bem organizados? 
+
+- 🔍 Que tipo de gráficos foram utilizados?  (barras, dispersão, boxplot, histograma, pizza, etc.)
+
+- 📉 Os dados apresentados respondem aos objetivos da pesquisa? 
+
+- 💬 Como os autores interpretam os resultados a partir dessas representações?
+
+**💡 Dica:** *Preste atenção nas legendas, títulos e notas de rodapé das tabelas e gráficos - eles contêm informações importantes! *
+
+---
+
+**4️⃣ GLOSSÁRIO ESTATÍSTICO - Termos encontrados no artigo**
+
+> *Familiarizar-se com a terminologia estatística é essencial para compreender e aplicar essas técnicas em suas próprias pesquisas.*
+
+**Crie uma lista dos termos e conceitos estatísticos mencionados no artigo.**
+
+**Exemplos do que você pode encontrar:**
+
+| Categoria | Exemplos de Termos |
+|-----------|-------------------|
+| **📏 Medidas Descritivas** | Média, mediana, moda, desvio-padrão, variância, percentis |
+| **📊 Tipos de Variáveis** | Variável dependente, independente, qualitativa, quantitativa |
+| **🔬 Testes de Hipótese** | Teste t, ANOVA, qui-quadrado, Mann-Whitney, Kruskal-Wallis |
+| **📈 Análises de Relação** | Correlação de Pearson, Spearman, regressão linear, regressão logística |
+| **🎯 Conceitos Inferenciais** | Intervalo de confiança, nível de significância, p-valor, poder do teste, tamanho do efeito |
+| **📐 Outros** | Normalidade, homocedasticidade, distribuição, outliers |
+
+**✍️ Para cada termo identificado:**
+
+- Anote a página onde aparece
+
+- Tente definir com suas próprias palavras
+
+- Pesquise o significado caso não conheça
+
+---
+
+### 🎓 Reflexão Final
+
+Após completar esta análise, você será capaz de: 
+
+✅ Reconhecer como a estatística se integra às etapas da metodologia científica  
+✅ Identificar as principais técnicas estatísticas aplicadas na sua área  
+✅ Compreender a importância do planejamento estatístico para a qualidade da pesquisa  
+✅ Desenvolver um olhar crítico sobre a apresentação e interpretação de dados  
+
+**💬 Questão Bônus:** *Com base no artigo analisado, que decisões metodológicas você faria diferente se fosse conduzir uma pesquisa semelhante?*
+
+---
+
+
+# Conceitos Fundamentais
+
+Antes de mergulharmos nas análises estatísticas, é fundamental compreender dois conceitos essenciais que formam a base de qualquer estudo quantitativo:  **Estatística Descritiva** e **Estatística Inferencial**. 
+
+Pense assim: a Estatística Descritiva **organiza e resume** os dados que você coletou, enquanto a Estatística Inferencial **tira conclusões** sobre uma população maior a partir da amostra. 
+
+Vamos entender cada uma com exemplos práticos! 
+
+---
+
+## 📊 Estatística Descritiva
+
+> **O que é? **  
+> A Estatística Descritiva organiza, resume e apresenta dados de forma clara e compreensível, usando tabelas, gráficos e medidas numéricas.
+
+### 💭 Exemplo 1: Saúde Mental dos Estudantes
+
+Imagine que você deseja avaliar a **saúde mental dos estudantes da UFTM**, coletando informações sobre: 
+
+- Níveis de **estresse**
+
+- Níveis de **ansiedade**  
+
+- Presença de **depressão**
+
+- **Bem-estar geral**
+
+> **Como esses dados são coletados? **  
+> Essas informações são obtidas por meio de **instrumentos psicométricos** - questionários e escalas científicas padronizadas que medem características psicológicas de forma objetiva e confiável.  Esses instrumentos passam por rigorosos processos de validação estatística para garantir que realmente medem o que se propõem a medir.
+
+**Exemplos de instrumentos que podem ser aplicados:**
+
+| Aspecto Avaliado | Instrumento | Descrição |
+|------------------|-------------|-----------|
+| **Estresse** | **PSS-10** (Escala de Estresse Percebido) | Avalia o quanto situações da vida são percebidas como estressantes |
+| **Ansiedade** | **BAI** (Inventário de Ansiedade de Beck) ou **GAD-7** | Medem sintomas de ansiedade em diferentes intensidades |
+| **Depressão** | **BDI-II** (Inventário de Depressão de Beck) ou **PHQ-9** | Avaliam presença e gravidade de sintomas depressivos |
+| **Bem-estar** | **Escala de Bem-Estar Subjetivo** ou **WHO-5** | Medem qualidade de vida e satisfação geral |
+
+💡 **Importante:** Embora muitos desses instrumentos possam ser aplicados por pesquisadores de diferentes áreas (não apenas psicólogos), a **interpretação clínica** e o **diagnóstico** devem ser realizados exclusivamente por profissionais habilitados em psicologia ou psiquiatria. 
+
+
+#### 🔧 O que a Estatística Descritiva faz com esses dados? 
+
+| Ação | Como ajuda?  | Exemplo prático |
+|------|-------------|-----------------|
+| **1. Organizar dados** | Cria tabelas sistemáticas | Agrupar respostas por curso, período, faixa etária |
+| **2. Calcular médias** | Resume os dados em um número | Média de estresse = 6,5 (escala 0-10) |
+| **3. Criar gráficos** | Facilita a visualização | Gráfico de barras mostrando % de alunos com ansiedade baixa/média/alta |
+| **4. Medir variabilidade** | Mostra o quanto os dados variam | Desvio padrão alto = muita diferença entre os alunos |
+| **5. Identificar padrões** | Encontra relações entre variáveis | Alunos que dormem menos têm mais estresse?  |
+
+#### 💡 Por que isso é importante? 
+
+Essas análises criam um **panorama claro** da saúde mental dos estudantes, fornecendo base para:
+
+- ✅ Programas de apoio psicológico
+
+- ✅ Políticas institucionais de bem-estar
+
+- ✅ Identificação de grupos que precisam de mais atenção
+
+---
+
+### 🏃‍♂️ Exemplo 2: Prática de Atividades Físicas
+
+Agora, suponha que você quer entender **como os estudantes se exercitam**. 
+
+#### 📋 Dados que você pode coletar:
+
+1. **Frequência semanal**
+   - Quantos alunos praticam atividades **mais de 3x por semana**?
+   - Resultado: 45% dos estudantes
+
+2. **Tipos de atividade**
+   - Use um **gráfico ou tabela** para mostrar a distribuição: 
+     - 🏃 Corrida: 30%
+     - 💪 Musculação: 25%
+     - ⚽ Futebol: 20%
+     - 💃 Dança: 15%
+     - 🧘 Yoga: 10%
+
+3. **Intensidade da prática**
+   - Crie categorias:  leve, moderada, intensa
+   - Use um **gráfico ou tabela** para comparar
+
+#### 🎯 Aplicação prática:
+
+Com essas informações, a universidade pode:
+
+- ✅ Criar campanhas direcionadas
+
+- ✅ Oferecer novas modalidades esportivas
+
+- ✅ Melhorar a infraestrutura de acordo com as preferências
+
+---
+
+## 🔬 Estatística Inferencial
+
+> **O que é?**  
+> A Estatística Inferencial usa dados de uma **amostra** (grupo menor) para tirar conclusões sobre a **população inteira**, com margem de confiança conhecida.
+
+### 💭 Exemplo 1: Saúde Mental dos Estudantes
+
+Você pesquisou **200 estudantes** (amostra) e quer saber sobre **todos os 6.900 estudantes** da UFTM (população).
+
+#### 🎯 O que a Estatística Inferencial permite fazer?
+
+**Situação 1: Estimar a média populacional**
+
+| Da amostra...  | Para a população... |
+|---------------|---------------------|
+| Média de ansiedade = 7,0 (escala 0-10) | Estimativa:  ansiedade média de todos os estudantes está entre **6,5 e 7,5** |
+| Baseado em 200 alunos | Com **95% de confiança** |
+
+**Situação 2: Comparar grupos diferentes**
+
+Pergunta: *"Estudantes de Medicina têm mais ansiedade que estudantes de Engenharia?"*
+
+
+📊 **Teste de Hipótese:**
+
+- Média Medicina: 7,8
+
+- Média Engenharia: 6,2
+
+- Diferença: 1,6 pontos
+
+- Resultado do teste:  Diferença é estatisticamente significativa (p < 0,05)
+
+- Conclusão: Sim, estudantes de Medicina apresentam níveis significativamente maiores de ansiedade
+
+
+#### ✅ Vantagem: 
+
+Você **não precisa pesquisar todos os 6.900 alunos** - com uma amostra bem planejada, pode fazer afirmações confiáveis sobre toda a universidade! 
+
+---
+
+### 🏃‍♂️ Exemplo 2: Prática de Atividades Físicas
+
+Você pesquisou **300 estudantes** de diferentes cursos. 
+
+#### 🎯 Perguntas que a Estatística Inferencial responde:
+
+**1. Qual a proporção real de estudantes ativos? **
+
+- 📊 Na amostra:  60% praticam exercícios regularmente
+
+- 📈 Estimativa para toda UFTM: entre 55% e 65%
+
+- 🎯 Confiança: 95%
+
+
+**2. Educação Física vs. Medicina: quem se exercita mais?**
+
+- 🎓 Educação Física: 85% ativos
+
+- 🏥 Medicina: 42% ativos
+
+- 📊 Teste estatístico: Diferença é significativa
+
+- 💡 Conclusão: Estudantes de Educação Física são mais ativos fisicamente
+
+
+---
+
+## 🎲 Conexão com a Probabilidade
+
+A **Teoria de Probabilidade** é a ponte entre Estatística Descritiva e Inferencial! 
+
+### 🔗 Como funciona? 
+
+```
+Estatística Descritiva
+        ↓
+   (Probabilidade)
+        ↓
+Estatística Inferencial
+```
+
+**Exemplo prático:**
+
+Com base nos dados descritivos, podemos calcular a **probabilidade** de: 
+
+- Um estudante desenvolver sintomas de estresse durante o semestre
+
+- Um aluno que dorme menos de 6h ter ansiedade alta
+
+- Estudantes que praticam exercícios terem melhor bem-estar mental
+
+Isso permite **prever** e **prevenir**, não apenas descrever!
+
+---
+
+## 👥 População vs. Amostra
+
+Entender essa diferença é **FUNDAMENTAL** para qualquer pesquisa!
+
+### 🌍 População
+
+> É o **conjunto completo** de todos os indivíduos que você quer estudar.
+
+**Exemplo UFTM:**
+
+- 👨‍🎓 **6.900 estudantes** (dado:  DRCA, dezembro/2024 - Incluindo:  graduação, cursos técnicos e pós-graduação)
+
+### 🎯 Amostra
+
+> É um **grupo menor e representativo** selecionado da população.
+
+**Exemplo UFTM:**
+
+- 👥 **364 estudantes** selecionados aleatoriamente
+
+- Representa toda a população com **95% de confiança**
+
+- Erro máximo de **5%**
+
+---
+
+### 📐 Exemplo Aplicado Completo
+
+Vamos juntar tudo em um exemplo real:
+
+#### 🎯 Objetivo da Pesquisa
+Avaliar o **bem-estar emocional** dos estudantes da UFTM. 
+
+#### 📊 Etapa 1: Coleta de Dados (Estatística Descritiva)
+- **População:** 6.900 estudantes
+- **Amostra:** 364 estudantes (seleção aleatória)
+- **Instrumento:** Questionário padronizado (escala 0-10)
+
+#### 📈 Etapa 2: Análise Descritiva
+
+Resultados da amostra (364 estudantes):
+
+- Média de bem-estar:  6,8
+
+- Desvio padrão: 1,5
+
+- Mínimo: 2,0
+
+- Máximo: 10,0
+
+
+#### 🔬 Etapa 3: Inferência Estatística
+
+Generalização para TODA a UFTM (6.900 estudantes):
+
+-✅ Média estimada: 6,8
+
+-📏 Intervalo de confiança (IC95%): 6,46 a 7,14
+
+-⚠️ Margem de erro: ±5%
+
+-🎯 **Interpretação:** 
+Temos 95% de confiança de que o bem-estar emocional médio de TODOS os estudantes da UFTM está entre 6,46 e 7,14.
+
+
+#### 💡 O que é IC95%?
+
+Se você repetisse essa pesquisa **100 vezes** com diferentes amostras aleatórias de 364 estudantes: 
+
+- ✅ Em **95 vezes**, a média estaria entre 6,46 e 7,14
+
+- ❌ Em **5 vezes**, poderia estar fora desse intervalo (erro amostral)
+
+---
+
+### ✨ Resumo Visual
+
+```
+POPULAÇÃO (6.900 estudantes)
+        ↓
+   Seleção aleatória
+        ↓
+AMOSTRA (364 estudantes)
+        ↓
+   Estatística Descritiva
+   (organizar, calcular, visualizar)
+        ↓
+   Estatística Inferencial
+   (estimar, comparar, concluir)
+        ↓
+CONCLUSÕES sobre a POPULAÇÃO INTEIRA
+   (com margem de erro conhecida)
+```
+
+---
+
+## 🎓 Recapitulando
+
+| Conceito | O que faz?  | Quando usar? |
+|----------|------------|--------------|
+| **Estatística Descritiva** | Organiza e resume os dados | Quando você quer **descrever** o que coletou |
+| **Estatística Inferencial** | Tira conclusões sobre a população | Quando você quer **generalizar** da amostra para todos |
+| **População** | Todos que você quer estudar | Define o **alcance** da sua pesquisa |
+| **Amostra** | Grupo menor representativo | Torna a pesquisa **viável** |
+| **Probabilidade** | Calcula chances e incertezas | **Conecta** descritiva e inferencial |
+
+---
+
+
+<center>
 
 ```{=html}
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 ```
-<lottie-player src="https://assets6.lottiefiles.com/packages/lf20_LKXG6QRgtE.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"  loop  autoplay></lottie-player>
 
-> Periódicos da área da Ciência dos Esportes
+<dotlottie-wc src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+</center>
 
--   RBFF - Revista Brasileira de Futsal e Futebol <http://www.rbff.com.br>
-
--   RBME - Revista Brasileira de Medicina do Esporte <https://www.scielo.br/j/rbme>
-
--   RBPE - Revista Brasileira de Psicologia do Esporte <http://pepsic.bvsalud.org>
-
-> Periódicos da área de Medicina
-
--   RBC - Revista Brasileira de Cancerologia <https://rbc.inca.gov.br/index.php/revista>
-
--   RBCMS - Revista Brasileira de Ciências Médicas e da Saúde <http://www.rbcms.com.br>
-
--   Revista da Associação Brasileira de Saúde Coletiva <https://cienciaesaudecoletiva.com.br>
-
-> Periódicos da área de Piscologia
-
--   Psicologia argumento <https://periodicos.pucpr.br/psicologiaargumento>
-
--   Estudos de psicologia (Campinas) <https://www.scielo.br/j/estpsi/>
-
--   Psicologia em foco <https://revistas.fw.uri.br/index.php/psicologiaemfoco>
-
-> Ou busque na ferramenta *Mendeley* <https://www.mendeley.com>
-
-# Definições Iniciais
-
-A **Estatística** é uma área fundamental para entender e analisar dados de diversas áreas do conhecimento.
-
-## Estatística Descritiva
-
-### Exemplo 1: **Saúde Mental dos Estudantes**
-
-Suponha que você deseje realizar uma pesquisa na UFTM para avaliar a saúde mental dos estudantes. Os dados coletados provavelmente incluirão informações sobre os níveis de **estresse**, **ansiedade**, **depressão** e **bem-estar geral** dos alunos. Nesse contexto, a **Estatística Descritiva** seria uma ferramenta essencial para organizar esses dados e apresentá-los de maneira clara, objetiva e compreensível.
-
-Utilizando a Estatística Descritiva, você poderia:
-
-1.  **Organizar e estruturar os dados**, criando tabelas que agrupem as respostas dos estudantes de forma sistemática, o que facilitaria a análise dos padrões e a visualização de tendências.
-2.  **Calcular medidas de tendência central**, como a **média** dos níveis de estresse ou ansiedade, permitindo que você obtenha uma visão geral dos aspectos mais comuns da saúde mental entre os estudantes.
-3.  **Elaborar gráficos**, como **gráficos de barras** ou **diagramas de caixa (boxplot)**, para representar visualmente os dados e facilitar a interpretação. Por exemplo, esses gráficos poderiam mostrar quantos alunos estão em diferentes faixas de intensidade de ansiedade (baixo, moderado ou alto).
-4.  **Calcular medidas de dispersão**, como o **desvio padrão**, para avaliar a variabilidade dos dados. Um desvio padrão alto, por exemplo, indicaria que há uma grande diferença entre os níveis de estresse ou ansiedade dos estudantes, o que poderia apontar para a necessidade de abordagens personalizadas em programas de apoio.
-5.  **Identificar padrões e correlações** nos dados, como a relação entre o nível de estresse e o número de horas de estudo, ou entre o bem-estar geral e a prática de atividades físicas, ajudando a identificar fatores que influenciam a saúde mental dos estudantes.
-
-Essas análises permitiriam que você compreendesse melhor o panorama da saúde mental dos alunos da UFTM e fornecesse uma base sólida para tomar decisões informadas sobre possíveis ações e programas de apoio psicológico.
-
-### Exemplo 2: **Prática de Atividades Físicas**
-
-Se o objetivo for entender a frequência com que os estudantes da UFTM praticam atividades físicas regularmente, podemos coletar dados específicos, como:
-
--   **Percentual de alunos que praticam esportes regularmente**: A porcentagem de estudantes que praticam atividades físicas **mais de três vezes por semana**. Este dado oferece uma visão geral sobre a adesão à prática de exercícios e pode ser útil para identificar possíveis áreas de melhoria no incentivo à saúde física.
-
--   **Distribuição por tipo de atividade física**: Podemos utilizar gráficos como **gráficos de pizza** ou **barras empilhadas** para mostrar a diversidade de atividades praticadas pelos estudantes. Por exemplo, os gráficos poderiam ilustrar a proporção de alunos que praticam **corrida**, **musculação**, **dança**, **futebol**, entre outras atividades, permitindo uma visão clara sobre as preferências esportivas da comunidade acadêmica.
-
--   **Intensidade da prática de atividades físicas**: Coletar dados sobre a intensidade das atividades (leve, moderada ou intensa) também seria relevante, pois ajudaria a universidade a entender não só a frequência, mas também o impacto potencial dessas atividades na saúde física e mental dos estudantes.
-
-Essas informações não apenas proporcionam um panorama claro sobre o comportamento dos estudantes em relação à saúde física, mas também podem embasar a criação de novos programas e campanhas para incentivar a prática de atividades físicas, promovendo o bem-estar geral da comunidade acadêmica.
-
-## Estatística Inferencial
-
-### Exemplo 1: **Saúde Mental dos Estudantes**
-
-Suponha que você queira avaliar a saúde mental dos estudantes da UFTM e, para isso, tenha realizado uma pesquisa com uma amostra de 200 estudantes. Neste caso, a **Estatística Inferencial** será uma ferramenta essencial para generalizar os resultados dessa amostra para toda a população de estudantes da universidade.
-
-- **Estimativa da média de ansiedade**: Se a média da amostra indicar que os estudantes têm um nível de ansiedade de 7 (em uma escala de 0 a 10), a Estatística Inferencial permitirá que você estime o nível médio de ansiedade de todos os estudantes da UFTM. A partir dessa amostra, podemos calcular um **intervalo de confiança**, que nos dirá com que precisão a média da amostra reflete a média da população inteira. Isso nos dá uma estimativa com uma margem de erro, ajudando a compreender a variabilidade e a precisão do resultado.
-
-- **Testes de hipóteses**: Suponha que você queira comparar os níveis de ansiedade entre estudantes de diferentes cursos. Por exemplo, você deseja saber se os estudantes do curso de Medicina apresentam níveis de ansiedade significativamente mais altos do que os estudantes do curso de Engenharia. A Estatística Inferencial permite realizar um **teste de hipótese**, que nos ajuda a determinar se a diferença observada entre as médias dos dois grupos é **estatisticamente significativa** ou se pode ter ocorrido por acaso. Isso nos permite tomar decisões informadas sobre possíveis relações entre variáveis, com base em dados e não em suposições.
-
-Esses exemplos demonstram como a Estatística Inferencial pode ser usada para tirar conclusões sobre toda a população de estudantes da UFTM, com base em uma amostra representativa. Isso é essencial para planejar intervenções e políticas de apoio à saúde mental de forma mais eficaz.
-
-### Exemplo 2: **Prática de Atividades Físicas**
-
-Suponha que você esteja interessado em saber como os hábitos de atividade física variam entre os cursos da UFTM. A universidade realiza uma pesquisa com uma amostra de 300 estudantes, incluindo alunos de Medicina e de Educação Física. A **Estatística Inferencial** pode ser usada para tirar conclusões sobre toda a população de estudantes com base nessa amostra.
-
-- **Estimar a proporção de estudantes ativos fisicamente**: Se 60% dos estudantes da amostra afirmam praticar atividades físicas regularmente, podemos usar a **probabilidade** para estimar a proporção de todos os estudantes da UFTM que têm esse hábito. A partir desses dados, também é possível calcular um **intervalo de confiança**, indicando com que precisão essa estimativa reflete a realidade da população.
-
-- **Comparação entre cursos**: Podemos realizar um **teste de comparação de proporções** para verificar se a prática de atividades físicas é mais frequente entre estudantes de Educação Física do que entre estudantes de Medicina. Esse teste nos ajudaria a determinar se a diferença observada entre os dois cursos é estatisticamente significativa ou se pode ser explicada por variações aleatórias. 
-
-Essas análises ajudam a universidade a entender os padrões de comportamento relacionados à saúde física entre diferentes grupos acadêmicos e a planejar ações mais específicas para incentivar o bem-estar entre os estudantes.
-
-
-## Conexão com a Probabilidade
-
-Esses dois tipos de análise estão profundamente conectados com a **Teoria de Probabilidade**, que nos permite estimar as chances de um evento acontecer e tomar decisões com base nesses dados. No caso da UFTM, podemos usar a **probabilidade** para prever, por exemplo, a chance de um estudante desenvolver sintomas de estresse durante o semestre, com base em comportamentos anteriores, como hábitos de estudo e participação em atividades de lazer.
-
-## População x Amostra
-
-### **População**
-
-A **população** é o conjunto completo de indivíduos que queremos estudar. No contexto de uma pesquisa com estudantes da UFTM, a população pode ser definida como **todos os 6.900 estudantes** da instituição, considerando alunos da graduação, cursos técnicos e pós-graduação (dados do DRCA, em dezembro de 2024).
-
-### **Amostra**
-
-Uma **amostra** é um grupo menor selecionado dessa população, que deve ser representativo o suficiente para permitir inferências sobre o todo. Por exemplo, em vez de aplicar um questionário para todos os 6.900 estudantes, podemos selecionar uma **amostra aleatória de 364 estudantes**.
-
-Esse tamanho de amostra é adequado para garantir um **erro máximo de 5%**, com **95% de confiança** nos resultados. Isso significa que, com essa amostra, conseguimos estimar com boa precisão como é a situação da saúde dos estudantes da universidade como um todo.
-
-### **Exemplo aplicado**
-
-Suponha que você queira avaliar o nível de bem-estar emocional dos estudantes da UFTM. Você aplica um questionário padronizado para uma amostra aleatória de **364 estudantes**. A partir das respostas, você calcula que a média de bem-estar emocional, numa escala de 0 a 10, é **6,8**.
-
-Com esse resultado e a ajuda da **estatística inferencial**, você pode estimar com segurança que o nível médio de bem-estar emocional da **população inteira** de estudantes da UFTM está próximo de **6,8**, com uma **margem de erro de 5%**.
-
-Isso significa que, com **95% de confiança**, o **intervalo de confiança** para a média do bem-estar emocional está entre **6,46 e 7,14**. Em outras palavras, se essa pesquisa fosse repetida várias vezes com diferentes amostras aleatórias de 364 estudantes, em 95% das vezes o valor da média real da população estaria dentro desse intervalo.
+**💭 Agora reflita:** *Em uma pesquisa sobre hábitos alimentares dos estudantes, como você aplicaria esses conceitos?*
 
 # Tamanho da Amostra
 

@@ -16,9 +16,10 @@ language: "pt-BR"
 <center>
 
 ```{=html}
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 ```
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3rqwsqnj.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+
+<dotlottie-wc src="https://lottie.host/8e0b4579-4516-47c6-a45a-6e6744211efc/WpKBlZ2U4F.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
 
 </center>
 
