@@ -6,9 +6,9 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: referencias.bib
 biblio-style: apalike
-link-citations: yes
-csl: https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl
-language: pt-BR
+link-citations: true
+csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+language: "pt-BR"
 ---
 
 # Bem-vindos!
@@ -27,6 +27,8 @@ Esse livro *online* tem como propósito principal ser um guia para as aulas de e
 Sugestões, correções ou qualquer outra forma de interação são sempre bem-vindas! Então, por favor, não hesite em me escrever ([anapaula.fernandes\@uftm.edu.br](mailto:anapaula.fernandes@uftm.edu.br){.email}).
 
 Para mais informações sobre minha trajetória acadêmica e profissional, acesse meu [Currículo Lattes](https://lattes.cnpq.br/5582801060910261).
+
+Curso online em vídeo.
 
 > Esta obra, registrada sob o **ISBN 978-65-01-56980-2**, traz conteúdos atualizados e essenciais para estudantes e profissionais interessados no tema.
 
