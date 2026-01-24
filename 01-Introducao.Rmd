@@ -3,7 +3,7 @@ output:
   html_document: default
   pdf_document: default
 ---
-# Por Que Estudar Estatística com Recursos Computacionais? 
+# Introdução 
 
 Ao longo de algum tempo ministrando aulas de estatística, concluí que estudar estatística com auxílio de recursos computacionais é bem mais eficaz.  Quero dizer, é mais fácil entender os conceitos teóricos, lidar com recursos visuais (gráficos) e, de fato, transformar o conteúdo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
 
@@ -573,109 +573,678 @@ CONCLUSÕES sobre a POPULAÇÃO INTEIRA
 
 **💭 Agora reflita:** *Em uma pesquisa sobre hábitos alimentares dos estudantes, como você aplicaria esses conceitos?*
 
+
 # Tamanho da Amostra
 
-O cálculo do **tamanho da amostra** é um passo importante em qualquer pesquisa. Ele nos ajuda a determinar quantos participantes precisamos para que os resultados sejam representativos e estatisticamente confiáveis. Embora o cálculo envolva alguns conceitos de **estatística inferencial**, hoje em dia, esse processo pode ser muito mais simples, graças a ferramentas online e até mesmo com o auxílio de **Inteligência Artificial (IA)**.
+## 🎯 Por Que Calcular o Tamanho da Amostra?
 
-## Passos básicos para o cálculo do tamanho da amostra
+O cálculo do **tamanho da amostra** é uma etapa **fundamental** no planejamento de qualquer pesquisa científica. Ele determina quantos participantes precisamos incluir no estudo para que os resultados sejam:
 
-Quando o **objetivo é estimar uma proporção**, o cálculo do tamanho amostral exige algumas informações essenciais:
+- ✅ **Representativos** da população estudada
+- ✅ **Estatisticamente confiáveis** 
+- ✅ **Precisos** o suficiente para responder à pergunta de pesquisa
+- ✅ **Viáveis** em termos de tempo e recursos
 
-1. **Tamanho da população**: Neste caso, os estudantes da UFTM, que somam cerca de **6.900**.
-2. **Margem de erro**: A precisão com que queremos que nossa estimativa esteja próxima da realidade. Por exemplo, uma margem de erro de **5%** é comum em muitos estudos.
-3. **Nível de confiança**: Normalmente, utiliza-se 95%, que indica a probabilidade de que o intervalo de confiança contenha o valor real.
+### 💡 O Que Acontece se Erramos no Tamanho da Amostra?
 
-A fórmula para calcular o tamanho da amostra é:
+| Amostra Muito Pequena | Amostra Muito Grande |
+|----------------------|---------------------|
+| ❌ Resultados não confiáveis | ⚠️ Desperdício de recursos |
+| ❌ Conclusões equivocadas | ⚠️ Tempo excessivo de coleta |
+| ❌ Baixo poder estatístico | ⚠️ Custos desnecessários |
+| ❌ Pesquisa pode ser invalidada | ⚠️ Questões éticas (expor mais pessoas que o necessário) |
 
-\[
-n = \frac{{Z^2 \cdot p \cdot (1 - p)}}{{E^2}}
-\]
+> **Em resumo:** Calcular corretamente o tamanho da amostra garante que sua pesquisa seja **cientificamente válida** e **eticamente responsável**.
 
-Onde:
+---
 
-- \(n\) = tamanho da amostra
-- \(Z\) = valor da distribuição normal (geralmente 1,96 para 95% de confiança)
-- \(p\) = proporção estimada (por exemplo, 0,5 para o pior cenário)
-- \(E\) = margem de erro (por exemplo, 0,05 para 5%)
+## 🔢 Tipos de Cálculo Amostral Segundo o Objetivo Estatístico
 
-### Exemplo de cálculo simples
+O método de cálculo amostral varia conforme o que você deseja estimar ou testar:
 
-Vamos calcular o tamanho da amostra para uma pesquisa na UFTM, onde sabemos que a população tem **6.900 estudantes**, a margem de erro é **5%**, o nível de confiança é **95%**, e vamos supor que queremos estimar uma proporção de **50%** (o pior cenário para garantir maior precisão).
+| Objetivo da Pesquisa | Tipo de Cálculo | Quando Usar | Informações Necessárias |
+|---------------------|----------------|-------------|------------------------|
+| **Estimar uma proporção** | Cálculo para proporção | Percentual de alunos com ansiedade | Margem de erro, nível de confiança, proporção estimada |
+| **Estimar uma média** | Cálculo para média | Média de horas de estudo por dia | Desvio padrão, margem de erro, nível de confiança |
+| **Comparar dois grupos** | Teste t ou ANOVA | Comparar estresse entre cursos | Tamanho do efeito, poder estatístico, nível de significância |
+| **Testar correlação** | Cálculo para correlação | Relação entre sono e desempenho | Tamanho do efeito esperado, poder estatístico |
+| **Estudos experimentais** | Ensaio clínico/experimento | Efeito de uma intervenção | Grupos controle/experimental, poder, efeito esperado |
 
-Usando a fórmula, temos:
+💭 **Importante:** Cada tipo de análise estatística requer uma fórmula específica para cálculo amostral!
 
-- \(Z = 1,96\) (para 95% de confiança)
-- \(p = 0,5\) (proporção estimada)
-- \(E = 0,05\) (margem de erro de 5%)
+---
 
-Substituindo os valores na fórmula, obtemos:
+## 📊 Cálculo Para Estimar uma Proporção: Passo a Passo
 
-\[
-n = \frac{{1,96^2 \cdot 0,5 \cdot (1 - 0,5)}}{{0,05^2}} = 384
-\]
+Quando o **objetivo é estimar uma proporção** (por exemplo, "Qual percentual de estudantes tem ansiedade?"), precisamos de algumas informações:
 
-Logo, o tamanho da amostra necessário é **384** estudantes para garantir uma margem de erro de 5% com 95% de confiança.
+### 🔑 Informações Necessárias
 
-**Observação:** A fórmula apresentada acima é utilizada para o cálculo do tamanho amostral quando se deseja estimar uma proporção, assumindo uma população infinita (ou muito grande). Para situações em que o objetivo é estimar a média populacional, a fórmula adequada é diferente e leva em conta o desvio padrão da variável em vez da proporção. Além disso, se a população for finita, é necessário aplicar o fator de correção amostral.
+| Parâmetro | O que é? | Exemplo UFTM |
+|-----------|----------|--------------|
+| **1. Tamanho da População (N)** | Total de indivíduos que você quer estudar | 6.900 estudantes |
+| **2. Margem de Erro (E)** | Quanto você aceita "errar" na estimativa | 5% (0,05) |
+| **3. Nível de Confiança** | Quão confiante você quer estar | 95% (padrão) |
+| **4. Proporção Estimada (p)** | Estimativa inicial do fenômeno | 50% (0,5) = pior cenário |
 
-### Ferramentas para cálculo de amostra
+---
 
-Nosso foco aqui não é ensinar a fazer os cálculos manualmente, mas compreender os conceitos envolvidos. Existem diversas ferramentas online gratuitas que fazem o cálculo automaticamente. Por exemplo:
+### 📐 A Fórmula
 
-## Cálculo do Tamanho da Amostra
+Para população **infinita** ou **muito grande**:
 
-Para calcular o tamanho da amostra, podemos utilizar diferentes ferramentas, tanto no **R** quanto online. Aqui estão algumas opções:
+$$
+n = \frac{Z^2 \cdot p \cdot (1 - p)}{E^2}
+$$
 
-- **No R**: Para calcular o tamanho da amostra, podemos utilizar o **pacote pwr**, que oferece funções específicas para realizar esses cálculos de forma simples e eficaz. O pacote é ideal para quem precisa calcular o tamanho da amostra para testes de hipóteses, como testes de médias, proporções ou análise de variância, ajustando facilmente os parâmetros conforme as necessidades da pesquisa.
+**Onde:**
 
-- **Calculadora Amostral Online da USP Bauru**: [Clique aqui para acessar](http://estatistica.bauru.usp.br/calculoamostral/) - Uma ferramenta simples e eficiente para cálculos amostrais.
+- $n$ = tamanho da amostra necessário
 
-- **G\*Power**: Um software gratuito que pode ajudar a calcular o tamanho da amostra dependendo do tipo de análise estatística que você irá realizar. [Saiba mais sobre o G*Power](https://www.gpower.hhu.de/en.html).
+- $Z$ = valor da distribuição normal padrão
 
-- **OpenEpi – Sample Size**: [Acesse aqui](https://www.openepi.com/SampleSize/SSMean.htm) - Muito usado na área da saúde, permite calcular amostras para média, proporção, estudos de caso-controle, coorte, entre outros.
+  - Para 95% de confiança: **Z = 1,96**
 
-## Conclusão
+  - Para 99% de confiança: **Z = 2,58**
 
-Em resumo, o cálculo do **tamanho da amostra** é um passo essencial para garantir que suas pesquisas sejam precisas e representativas. Embora os cálculos possam parecer complexos, hoje em dia, existem ferramentas poderosas e **Inteligência Artificial** para facilitar esse processo, economizando tempo e esforço na sua pesquisa.
+- $p$ = proporção estimada (use 0,5 quando não souber)
 
+- $E$ = margem de erro (em decimal: 5% = 0,05)
+
+---
+
+### 🧮 Exemplo Prático: Pesquisa na UFTM
+
+**Situação:** Queremos estimar a proporção de estudantes com sintomas de ansiedade.
+
+**Dados:**
+
+- População: **6.900 estudantes**
+
+- Margem de erro: **5%** (queremos estar "corretos" com ±5%)
+
+- Nível de confiança: **95%**
+
+- Proporção estimada: **50%** (não sabemos, então usamos o pior cenário)
+
+**Cálculo:**
+
+$$
+n = \frac{1,96^2 \cdot 0,5 \cdot (1 - 0,5)}{0,05^2}
+$$
+
+$$
+n = \frac{3,8416 \cdot 0,5 \cdot 0,5}{0,0025}
+$$
+
+$$
+n = \frac{0,9604}{0,0025} = 384,16
+$$
+
+**Resultado:** Precisamos de **384 estudantes** na amostra.
+
+---
+
+### 🔄 Ajuste Para População Finita
+
+Quando a população é "pequena" (geralmente N < 10.000), aplicamos uma **correção**:
+
+$$
+n_{ajustado} = \frac{n}{1 + \frac{n-1}{N}}
+$$
+
+**Para nosso exemplo:**
+
+$$
+n_{ajustado} = \frac{384}{1 + \frac{384-1}{6900}} = \frac{384}{1 + 0,0555} = \frac{384}{1,0555} = 364
+$$
+
+**Resultado final:** Com a correção, precisamos de **364 estudantes**.
+
+---
+
+### 💭 Interpretando os Resultados
+
+```
+Com uma amostra de 364 estudantes:
+
+✅ Temos 95% de confiança nos resultados
+✅ Nossa margem de erro é de ±5%
+✅ Os resultados representam bem toda a população (6.900 alunos)
+
+Exemplo prático:
+Se 60% da amostra relata ansiedade, podemos dizer que:
+"Entre 55% e 65% de TODOS os estudantes da UFTM têm ansiedade"
+(com 95% de confiança)
+```
+
+---
+
+## ⚠️ Atenção: Diferentes Objetivos = Diferentes Cálculos!
+
+Até agora, calculamos amostra apenas para **estimar proporção** (exemplo: "Qual % de alunos tem ansiedade?").
+
+Mas o cálculo **muda conforme seu objetivo**. Veja:
+
+---
+
+### 🎯 Tipos de Cálculo Amostral
+
+| Seu Objetivo | Quando Usar | Exemplo Prático | O Que Muda no Cálculo |
+|--------------|-------------|-----------------|----------------------|
+| **Estimar PROPORÇÃO** | Quer saber **quantos %** | "Qual % pratica exercícios?" | Usa margem de erro e proporção estimada |
+| **Estimar MÉDIA** | Quer saber **valor médio** | "Quantas horas de sono em média?" | Precisa do **desvio padrão** (variabilidade) |
+| **Comparar GRUPOS** | Quer ver se há **diferença** | "Medicina tem mais estresse que Ed. Física?" | Precisa do **tamanho do efeito** esperado |
+| **Testar CORRELAÇÃO** | Quer ver se há **relação** | "Sono afeta o desempenho?" | Precisa da **força da correlação** esperada |
+
+---
+
+## 🤔 E Quando Tenho VÁRIOS Objetivos?
+
+### Regra Simples:
+
+> **Calcule CADA objetivo separadamente e use a MAIOR amostra!**
+
+### Exemplo Prático:
+
+Sua pesquisa tem 4 objetivos:
+
+```
+✓ Estimar % com ansiedade        → precisa de 364 alunos
+✓ Calcular média de bem-estar    → precisa de 280 alunos  
+✓ Comparar 3 cursos              → precisa de 120 alunos
+✓ Testar correlação sono×stress  → precisa de 85 alunos
+
+DECISÃO: Use 364 alunos (o maior número)
+```
+
+**Por quê?** Porque 364 alunos são suficientes para **todos** os objetivos!
+
+---
+
+### 💡 Dica Extra: Ajuste para Perdas
+
+Nem todos vão participar ou responder. Adicione uma margem de segurança:
+
+```
+Amostra final = Amostra calculada / (1 - % de perda esperada)
+
+Exemplo:
+364 / (1 - 0,20) = 364 / 0,80 = 455 alunos
+
+Alcance 455 amostras para garantir 364 respostas válidas
+```
+
+---
+
+
+## 🛠️ Ferramentas Para Cálculo de Amostra
+
+Nosso foco aqui **não é fazer cálculos manualmente**, mas sim **compreender os conceitos** e saber **onde buscar ajuda**. 
+
+Hoje existem ferramentas gratuitas que fazem todo o trabalho para você!
+
+---
+
+### 💻 Calculadoras Online (Gratuitas)
+
+| Ferramenta | Melhor Para | Vantagens | Link |
+|------------|-------------|-----------|------|
+| **Calculadora USP Bauru** | Proporções e médias simples | ✅ Rápida e intuitiva<br>✅ Em português<br>✅ Não precisa instalar | [Acessar](http://estatistica.bauru.usp.br/calculoamostral/) |
+| **OpenEpi** | Estudos em saúde e epidemiologia | ✅ Diversos tipos de cálculo<br>✅ Estudos caso-controle, coorte<br>✅ Interface simples | [Acessar](https://www.openepi.com/SampleSize/SSMean.htm) |
+| **G\*Power** | Comparações e testes complexos | ✅ Muito completo<br>✅ Padrão em pesquisas<br>✅ Calcula poder estatístico | [Download](https://www.gpower.hhu.de/en.html) |
+
+---
+
+### 📊 No Software R (Para Quem Já Usa)
+
+**A ideia aqui é simples:** em vez de calcular manualmente usando fórmulas matemáticas, usamos **funções prontas** que fazem tudo para nós!
+
+---
+
+#### **Pacote `samplingbook`** - Cálculo de Amostra para Proporção
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Instalar o pacote (se ainda não tiver)
+# install.packages("samplingbook")
+
+# Carregar
+library(samplingbook)
+
+# Calcular amostra para proporção (considerando a população infinita)
+sample.size.prop(
+  e = 0.05,          # Margem de erro (5%)
+  P = 0.5,           # Proporção estimada (50%)
+  N = Inf,           # Tamanho da população: infinita
+  level = 0.95       # Nível de confiança (95%)
+  )
+
+# Calcular amostra para proporção (considerando a população finita)
+sample.size.prop(
+  e = 0.05, 
+  P = 0.5, 
+  N = 6900,           # Tamanho da população: finita 
+  level = 0.95
+  )
+
+```
+
+**Pronto!** Você precisa de **364 estudantes**
+
+> (Sample = amostra; size = tamanho; needed = necessário → tamanho de amostra necessário)
+
+---
+
+#### **Alternativa: Fórmula Direto no R**
+
+```{r echo=TRUE}
+# Cálculo direto
+N <- 6900
+Z <- 1.96
+p <- 0.5
+E <- 0.05
+
+n <- (Z^2 * p * (1-p)) / E^2
+n_final <- ceiling(n / (1 + (n-1) / N))
+n_final
+```
+
+---
+
+#### ✅ **Vantagens**
+
+- ⚡ Rápido e sem erros
+- 📝 Reprodutível (qualquer um pode rodar)
+- 🔄 Fácil testar diferentes cenários
+
+---
+
+### 🤖 Usando Inteligência Artificial
+
+Você também pode pedir ajuda a **ChatGPT**, **Copilot** ou outras IAs!
+
+**💬 Exemplo de prompt:**
+
+```
+"Preciso calcular o tamanho da amostra para uma pesquisa 
+com estudantes universitários (população de 6.900). 
+Quero estimar a proporção de alunos com ansiedade, 
+com 95% de confiança e margem de erro de 5%. 
+Como faço e qual o resultado?"
+```
+
+**⚠️ Importante:** Sempre **valide** os resultados da IA usando uma das calculadoras acima!
+
+---
+
+### 🎯 Qual Ferramenta Escolher?
+
+```
+Você é iniciante?
+    → Calculadora USP Bauru
+
+Pesquisa na área da saúde?
+    → OpenEpi
+
+Precisa comparar grupos ou correlações?
+    → G*Power
+
+Já usa R para análises?
+    → Pacote pwr, samplingbook
+
+Quer entender o conceito rapidamente?
+    → IA + validação em calculadora
+```
+
+---
+
+### 💡 Dica Prática
+
+**Não sabe qual usar?** Faça o seguinte:
+
+1️⃣ Use uma **IA** para entender o cálculo  
+2️⃣ Valide em uma **calculadora online**  
+3️⃣ Documente qual ferramenta usou no seu projeto  
+
+**Exemplo de como citar:**
+
+> *"O tamanho amostral foi calculado utilizando a Calculadora Amostral da USP Bauru (http://estatistica.bauru.usp.br/calculoamostral/), considerando população de 6.900 estudantes, margem de erro de 5% e nível de confiança de 95%."*
+
+---
+
+## 🎓 Conclusão
+
+O cálculo do **tamanho da amostra** é essencial para garantir pesquisas **precisas e confiáveis**. 
+
+A boa notícia? **Você não precisa ser expert em matemática!** 
+
+Com as ferramentas certas, esse processo se torna simples e rápido, permitindo que você foque no que realmente importa: **planejar e executar uma pesquisa de qualidade**.
+
+---
 
 <center>
 
 ```{=html}
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
 ```
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
 
+<dotlottie-wc src="https://lottie.host/74a90344-947f-476a-a118-7d9d5c6cd810/z76UXstist.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
 </center>
 
-## Atividade 2
 
-**Responda a partir do artigo buscado na atividade 1.**
+## 📝 Atividade 2: Análise Crítica do Artigo
 
-1. **Os autores discutem o cálculo do tamanho da amostra no estudo?**
-   - Você consegue identificar se os autores fornecem uma explicação clara sobre como determinaram o tamanho da amostra na pesquisa? Eles utilizaram alguma fórmula específica ou ferramenta estatística para esse cálculo?
+**Com base no artigo que você buscou na Atividade 1, responda:**
 
-2. **A população da pesquisa foi claramente definida pelos autores?**
-   - Os autores descreveram com clareza quem compõe a população da pesquisa (por exemplo, características demográficas, contexto da amostra, entre outros)? A população foi bem delineada para garantir que os resultados sejam representativos?
+---
 
-3. **O tamanho da amostra utilizado no estudo foi adequado?**
-   - Com base no cálculo do tamanho de amostra, você acha que a amostra utilizada no estudo foi grande o suficiente para garantir a precisão dos resultados? Ela foi suficientemente representativa da população alvo da pesquisa?
+### 🔍 Análise Metodológica
 
-4. **Realize o cálculo do tamanho de amostra para este estudo.**
-   - Com as informações fornecidas pelos autores, você pode calcular o tamanho da amostra necessário para o estudo utilizando uma fórmula ou ferramenta de cálculo amostral. Considere aspectos como o nível de confiança, margem de erro e variabilidade dos dados.
+**1. Os autores discutem o cálculo do tamanho da amostra?**
 
-5. **Os autores mencionaram se a pesquisa foi aprovada pelo Comitê de Ética?**
-   - No artigo, há alguma referência sobre a aprovação ética da pesquisa? Os autores informaram se a pesquisa foi submetida e aprovada por um Comitê de Ética em Pesquisa (CEP)?
+Investigue:
 
-6. **Qual é a importância de submeter a pesquisa ao Comitê de Ética?**
-   - Por que é essencial que a pesquisa seja submetida a um Comitê de Ética? Quais são as implicações éticas de não realizar essa submissão, especialmente em pesquisas que envolvem seres humanos?
+- ✅ Há explicação sobre **como** o tamanho foi determinado?
+
+- ✅ Mencionam **fórmula**, **software** ou **ferramenta** utilizada?
+
+- ✅ Apresentam os **parâmetros** (margem de erro, confiança)?
+
+💭 *Se não houver essa informação, isso é uma limitação do estudo?*
+
+---
+
+**2. A população da pesquisa foi claramente definida?**
+
+Verifique:
+
+- 👥 Quem compõe a população-alvo?
+
+- 📋 Há critérios de **inclusão e exclusão**?
+
+- 🌍 O contexto está bem delimitado (local, período)?
+
+💭 *Uma população mal definida compromete a validade dos resultados.*
+
+---
+
+**3. O tamanho da amostra utilizado foi adequado?**
+
+Avalie criticamente:
+
+- ✅ A amostra parece **grande o suficiente**?
+
+- ⚖️ É **representativa** da população?
+
+- ⚠️ Os autores discutem **limitações** relacionadas ao tamanho da amostra?
+
+---
+
+### 🧮 Cálculo Prático
+
+**4. Refaça o cálculo do tamanho de amostra**
+
+Use uma das ferramentas indicadas e preencha:
+
+| Item | Informação do Artigo | Seu Cálculo |
+|------|---------------------|-------------|
+| Tamanho da população (N) | | |
+| Margem de erro | | |
+| Nível de confiança | | |
+| Tipo de cálculo necessário | | |
+| **Tamanho no artigo** | | |
+| **Seu resultado** | | |
+| **Coincidem?** | | ☐ Sim  ☐ Não |
+
+💭 *Se não coincidem, quais podem ser as razões?*
+
+---
+
+### ⚖️ Aspectos Éticos
+
+**5. A pesquisa foi aprovada pelo Comitê de Ética?**
+
+Procure no artigo:
+
+- ✅ Há menção à aprovação do **CEP**?
+
+- 📋 O **número do parecer** está informado?
+
+- 📝 Há referência ao **TCLE** (Termo de Consentimento)?
+
+---
+
+**6. Qual a importância de submeter ao Comitê de Ética?**
+
+Reflita sobre:
+
+| Aspecto | Por Que É Importante? |
+|---------|----------------------|
+| **Proteção dos participantes** | Garante que os direitos sejam respeitados |
+| **Consentimento informado** | Participação voluntária e esclarecida |
+| **Confidencialidade** | Proteção dos dados pessoais |
+| **Riscos e benefícios** | Avaliação ética da relação custo-benefício |
+| **Integridade científica** | Credibilidade da pesquisa |
+
+**⚠️ Consequências de NÃO submeter:**
+
+- Violação de direitos dos participantes
+
+- Infração às Resoluções CNS 466/2012 e 510/2016
+
+- Artigo pode ser rejeitado ou retratado
+
+- Sanções ao pesquisador
+
+---
+
+### 📚 Para Saber Mais
+
+> **Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM**
+> 
+> 🔗 <https://www.uftm.edu.br/comitesecomissoes/cep>
+
+ **Você encontrará:**
+
+ - Como submeter projetos
+
+ - Documentos necessários
+
+ - Prazos e tramitação
+
+ - Regulamentações vigentes
+
+---
+
+**💬 Questão bônus:** *Se você fosse revisor deste artigo, aprovaria a metodologia amostral? Justifique.*
+
+---
 
 
-**Importante**
+## 🧮 Exercício Prático: Calculadora USP Bauru
 
-> Conheça o Comitê de Ética em Pesquisa (CEP) da UFTM
+### 🎯 Situação-Problema
 
-<https://www.uftm.edu.br/comitesecomissoes/cep>
+Você é pesquisador(a) e quer investigar a **adesão ao uso de equipamentos de proteção individual (EPIs)** entre profissionais de enfermagem de um hospital universitário.
+
+**Dados da instituição:**
+
+- **População:** 450 profissionais de enfermagem (enfermeiros, técnicos e auxiliares)
+
+- **Estimativa inicial:** Estudos semelhantes mostram que cerca de **70%** dos profissionais utilizam EPIs corretamente
+
+- **Parâmetros desejados:** 95% de confiança e margem de erro de 5%
+
+**Pergunta:** Quantos profissionais você precisa incluir na sua amostra?
+
+---
+
+### 📝 Passo a Passo na Calculadora
+
+**1. Acesse a calculadora:**
+
+- 🔗 http://estatistica.bauru.usp.br/calculoamostral/
+
+- Clique em **"Cálculos"** no menu
+
+- Selecione **"1 - Intervalo de Confiança de uma Proporção"**
+
+**2. Preencha os campos conforme a imagem:**
+
+<center>
+![Calculadora USP Bauru](calc-usp-bauru.png)
+</center>
+
+| Campo | O que colocar | Valor |
+|-------|---------------|:-------:|
+| **Nível de Confiança** | Deixe marcado 95% | 🔵 95% |
+| **Erro (%)** | Margem de erro desejada | **5** |
+| **Proporção Estimada na População (%)** | Uso correto de EPIs | **70** |
+| **☑️ População finita** | ✅ Marque a caixa | **450** |
+
+**3. Clique em "Calcular"**
+
+---
+
+### ✅ Anote Seus Resultados
+
+**a) Quantos profissionais você precisa pesquisar?**  
+
+> **R:** _______ profissionais
+
+**b) Qual a diferença do tamano da amostra considerando população finita e infinita?**  
+
+> **R: sem considerar população finita (infinita):** _______ profissionais  
+
+> **R: considerando população finita (450):** _______ profissionais  
+
+> **Diferença:** _______ profissionais
+
+**c) Volte às configurações originais. Agora aumente o nível de confiança para 99%. O que acontece?**  
+
+> **R: com 99% de confiança:** _______ profissionais
+
+**d) Retorne para 95% de confiança. Agora diminua a margem de erro para 3%. Qual o impacto?**  
+
+> **R: com erro de 3%:** _______ profissionais
+
+**e) Use o campo "Perda de elementos (%)" e considere 20% de perdas (profissionais de férias, licença, recusa). Quantas amostras você deveria ter?**  
+
+>**R: ajustado para perdas:** _______ profissionais
+
+---
+
+### 🎓 Questões Para Reflexão
+
+**1. Viabilidade prática:**  
+Considerando que você precisa pesquisar _____ profissionais de um total de 450, isso representa aproximadamente _____% da população. Isso é viável? Por quê?
+
+**2. Comparação:**  
+Por que o tamanho da amostra é MENOR quando consideramos população finita (450) em vez de infinita?
+
+**3. Decisões metodológicas:**  
+Se você tivesse que escolher entre:
+
+- Opção A: Erro 5% e confiança 95%
+
+- Opção B: Erro 3% e confiança 95%
+
+Qual você escolheria considerando tempo e recursos limitados? Justifique.
+
+---
+
+### 💡 Desafio Extra: Mude o Contexto
+
+Agora imagine um cenário diferente:
+
+**Situação:** Você não tem ideia de qual a proporção de profissionais que usam EPIs corretamente.
+
+**O que fazer?** Quando não temos estimativa prévia, usamos **50%** (pior cenário, que gera maior amostra).
+
+**Teste:** Volte à calculadora e mude a "Proporção Estimada" para **50%**. Recalcule.
+
+**Qual o novo tamanho da amostra?** _______ profissionais
+
+**Por que mudou?** _______________________________________
+
+---
+
+### ✅ Gabarito
+
+<details>
+<summary>👁️ Clique para ver as respostas</summary>
+
+**População finita: 450 profissionais | Proporção: 70%**
+
+**a) Amostra necessária (erro 5%, conf 95%):** 189 profissionais
+
+**b) Comparação:**
+
+- Sem população finita (infinita): 323 profissionais
+
+- Com população finita (450): 189 profissionais
+
+- Diferença: 134 profissionais (a correção reduz bastante!)
+
+**c) Com 99% de confiança:** 
+
+- pop. finita: 250 profissionais (aumenta!) 
+
+- pop. infinita: 560 profissionais (nem faz sentido, por ser maior que a população)
+
+**d) Com erro de 3%:** 
+
+- pop. finita: 300 profissionais (pop finita)
+
+- pop. infinita: 897 profissionais (nem faz sentido)
+
+**e) Ajustado para 20% de perdas:** 
+
+- pop. finita: 312 profissionais (250 ÷ 0,80)
+
+**Desafio Extra (proporção 50%):** 
+
+- pop. finita: 269 profissionais
+- Mudou porque 50% é o cenário mais conservador (gera maior variabilidade)
+
+🤔 Entendendo a Variabilidade
+
+Pense assim: quando calculamos o tamanho da amostra para proporção, usamos a fórmula que inclui **p × (1 - p)**, onde **p** é a proporção estimada.
+
+Veja o que acontece com diferentes proporções:
+
+| Proporção (p) | Cálculo p × (1-p) | Variabilidade |
+|---------------|-------------------|---------------|
+| 10% (0,10) | 0,10 × 0,90 = **0,09** | Baixa |
+| 30% (0,30) | 0,30 × 0,70 = **0,21** | Média |
+| **50% (0,50)** | **0,50 × 0,50 = 0,25** | **MÁXIMA** ✅ |
+| 70% (0,70) | 0,70 × 0,30 = **0,21** | Média |
+| 90% (0,90) | 0,90 × 0,10 = **0,09** | Baixa |
+
+**📊 Observe:** O valor **0,25 (quando p = 50%)** é o **MAIOR POSSÍVEL!**
+
+
+**Reflexão 1:** 189/450 = 42% da população - é uma amostra grande, mas viável em um hospital.
+
+**Reflexão 2:** A correção para população finita considera que estamos pegando uma fração significativa do total (42%), então precisamos de menos pessoas para ter precisão.
+
+</details>
+
+---
+
+### 🎯 O Que Você Aprendeu
+
+✅ Como usar a Calculadora USP Bauru passo a passo  
+✅ A importância da correção para população finita  
+✅ Como confiança e erro afetam o tamanho da amostra  
+✅ Por que usar 50% quando não temos estimativa  
+✅ Como ajustar para perdas esperadas  
+
+**💬 Próximo passo:** Use esses conhecimentos para calcular a amostra da SUA pesquisa!
+
+---
+
+
 
 
 # Técnicas de Amostragem
