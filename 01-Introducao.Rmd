@@ -7,7 +7,7 @@ output:
 
 Ao longo de algum tempo ministrando aulas de estatística, concluí que estudar estatística com auxílio de recursos computacionais é bem mais eficaz.  Quero dizer, é mais fácil entender os conceitos teóricos, lidar com recursos visuais (gráficos) e, de fato, transformar o conteúdo estudado na disciplina em uma ferramenta para pesquisas científicas, quando se trata de analisar dados.
 
-## Desconstruindo Mitos
+## 💥 Desconstruindo Mitos
 
 Ministrando aulas para os cursos da área de **saúde**, **esporte** e **psicologia**, sempre ouvi dos discentes que "estatística é matemática", e sempre digo que **estatística é estatística!** 
 
@@ -17,19 +17,19 @@ Ministrando aulas para os cursos da área de **saúde**, **esporte** e **psicolo
 
 A estatística está em tudo na verdade... e para dizer uma coisa "bem chique":  **a estatística é a base da Inteligência Artificial**. 
 
-Advinha quem está por trás de: 
+Advinha quem está por trás: 
 
-- 🤖 Os famosos algoritmos das redes sociais
+- 🤖 dos famosos algoritmos das redes sociais
 
-- 🎬 As sugestões de filmes e músicas que aparecem no seu *streaming* favorito
+- 🎬 das sugestões de filmes e músicas que aparecem no seu *streaming* favorito
 
-- 🔍 O ranqueamento de busca realizado por meio do *Google*?
+- 🔍 do ranqueamento de busca realizado por meio do *Google*?
 
-- 💬 O *ChatGPT*
+- 💬 dos agentes de IA
 
 ---
 
-## Aplicações Práticas da Estatística
+## 🔧 Aplicações Práticas da Estatística
 
 E sendo um pouco mais "acadêmica", dentro do nosso propósito:
 
