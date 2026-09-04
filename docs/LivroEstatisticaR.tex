@@ -2073,13 +2073,15 @@ O coeficiente de variação (CV) foi calculado como X\%, o que reflete a dispers
 
 \chapter{Importando banco de dados}\label{importando-banco-de-dados}
 
-Na prática, os dados que vamos analisar estarão armazenados em um \textbf{banco de dados}, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+Até aqui, todos os dados que usamos foram digitados por nós mesmos, direto no script, como no vetor \texttt{idades} ou no \texttt{Batimentos}. Isso funciona para dez ou vinte valores. Na prática, os dados de uma pesquisa vêm em um \textbf{arquivo}, com centenas ou milhares de linhas, e o nosso trabalho passa a ser \textbf{trazer esse arquivo para dentro do R}. É disso que trata este capítulo.
+
+Os dois tipos de arquivo mais comuns são:
 
 \begin{itemize}
 \item
   Arquivo do tipo Excel (xls ou xlsx)
 \item
-  Arquivo de texto separado por vírgulas (csv - \emph{comma-separated values})
+  Arquivo de texto separado por vírgulas (csv, de \emph{comma-separated values})
 \end{itemize}
 
 \begin{quote}
@@ -2095,17 +2097,40 @@ Existem várias fontes de dados abertas, onde podemos baixar um banco de dados p
   Kaggle: \url{https://www.kaggle.com/datasets}
 \end{itemize}
 
-\begin{quote}
-No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: \url{https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st}
-\end{quote}
+\section{Antes de tudo: onde o arquivo mora}\label{antes-de-tudo-onde-o-arquivo-mora}
 
-\section{Importando um banco csv}\label{importando-um-banco-csv}
+Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Leia com calma.
+
+Quando você baixa um arquivo da internet, ele \textbf{não fica solto no computador}: ele é guardado dentro de uma \textbf{pasta}. Na maioria dos computadores, essa pasta se chama \textbf{Downloads}, e é para lá que tudo vai por padrão, sem perguntar nada.
+
+O R, por sua vez, não adivinha onde as coisas estão. Se você simplesmente pedir ``abra o arquivo dos nascimentos'', ele não sabe em qual das centenas de pastas do computador procurar. \textbf{Você precisa dizer onde o arquivo está} --- e é só isso que aquelas linhas de código com barras e aspas estão fazendo.
+
+A boa notícia é que existem quatro formas de dizer isso ao R, e \textbf{três delas não exigem que você entenda de pastas}. Vamos ver as quatro, da mais simples para a mais técnica:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Pelo botão do RStudio}, apontando o arquivo na tela.
+\item
+  \textbf{Pelo endereço da internet}, sem nem baixar o arquivo.
+\item
+  \textbf{Escolhendo o arquivo em uma janela}, que o próprio R abre para você.
+\item
+  \textbf{Escrevendo o caminho da pasta}, que é o que você vai usar quando os dados forem seus.
+\end{enumerate}
+
+Comece pela primeira. As outras fazem mais sentido depois que você viu uma funcionar.
+
+\section{Forma 1: pelo botão Import Dataset}\label{forma-1-pelo-botuxe3o-import-dataset}
+
+Esta é a forma mais segura para começar, porque você \textbf{navega até o arquivo com o mouse}, do mesmo jeito que faz para abrir uma foto ou um documento. E tem um bônus: no fim, o RStudio \textbf{escreve o código para você}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Faça \emph{download} do banco de dados \textbf{mcdonald.csv}
-  (fonte original: \url{https://www.kaggle.com/datasets/mcdonalds/nutrition-facts})
+  Faça o \emph{download} do banco de dados \textbf{mcdonald.csv}
+  (fonte original: \url{https://www.kaggle.com/datasets/mcdonalds/nutrition-facts}). Repare em qual pasta o seu navegador salvou o arquivo --- quase sempre é a \textbf{Downloads}.
 \item
   Na área de ambiente de memória, localize \textbf{Import Dataset}, ao clicar nessa opção você terá o seguinte:
 \end{enumerate}
@@ -2128,7 +2153,7 @@ No link (google drive) existem alguns bancos que podemos usar para compreender c
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Clicando na opção \textbf{From Text (readr)}, no botão \textbf{browser} indique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+  Clicando na opção \textbf{From Text (readr)}, no botão \textbf{browser} indique onde (no seu computador) está localizado o arquivo a ser importado. É aqui que você navega até a pasta Downloads e clica no arquivo. A seguinte tela será apresentada:
 \end{enumerate}
 
 \begin{figure}
@@ -2168,6 +2193,80 @@ No link (google drive) existem alguns bancos que podemos usar para compreender c
 \item
   Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!
 \end{itemize}
+
+\begin{quote}
+\textbf{Olhe de novo para o quadro Code Preview antes de clicar em Import.} Aquele texto esquisito, cheio de barras, é o \textbf{caminho} do arquivo: é o endereço da pasta onde ele está, escrito do jeito que o computador entende. O botão fez por você exatamente o que você faria à mão. Copie esse código para o seu script: da próxima vez, basta executá-lo, sem precisar repetir os cliques.
+\end{quote}
+
+\section{Forma 2: sem baixar nada}\label{forma-2-sem-baixar-nada}
+
+Se o arquivo está na internet e você sabe o endereço dele, o R busca sozinho. Não precisa baixar, não precisa saber de pasta nenhuma, não precisa de caminho. Você copia o endereço e coloca entre aspas, no lugar do nome do arquivo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/nascimentos.csv"}\NormalTok{)}
+
+\FunctionTok{nrow}\NormalTok{(nascimentos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3602
+\end{verbatim}
+
+Pronto: o banco está na memória do R. Esta é a forma mais rápida de todas, e é a que usaremos nos exemplos deste livro, justamente para que você possa copiar o código e executá-lo sem nenhum preparo.
+
+\begin{quote}
+A única exigência é estar conectado à internet. Se a conexão cair, o R não encontra o arquivo.
+\end{quote}
+
+\section{Forma 3: escolhendo o arquivo na tela}\label{forma-3-escolhendo-o-arquivo-na-tela}
+
+Existe um meio-termo entre o botão e o caminho escrito: a função \texttt{file.choose()}. Ela abre a mesma janelinha de procurar arquivo que você já conhece, e devolve o caminho para o R automaticamente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# a janela de escolher arquivo vai abrir; navegue até o arquivo e clique nele}
+\NormalTok{mcdonald }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{file.choose}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+É prática e não exige saber onde nada está. A desvantagem é que ela \textbf{pergunta toda vez}: se você fechar o RStudio e voltar amanhã, terá que procurar o arquivo de novo. Por isso ela serve para um teste rápido, mas não para um trabalho que você vai repetir.
+
+\section{Forma 4: escrevendo o caminho}\label{forma-4-escrevendo-o-caminho}
+
+Esta é a forma que você vai usar quando os dados forem \textbf{seus}, porque os seus dados não vão estar em endereço nenhum da internet. E é a que exige entender a ideia de pasta --- mas o RStudio tem um recurso que resolve quase todo o problema.
+
+\subsection{O Projeto do RStudio}\label{o-projeto-do-rstudio}
+
+Um \textbf{Projeto} é simplesmente \textbf{uma pasta que o RStudio considera a sua casa}. Tudo o que estiver dentro dela, o R acha sozinho, sem você precisar escrever caminho nenhum.
+
+Para criar um: no menu, \textbf{File → New Project → New Directory → New Project}, escolha um nome (por exemplo, \texttt{estatistica}) e um lugar para ele ficar. O RStudio cria a pasta e abre o projeto. Você vai ver o nome dele no \textbf{canto superior direito} da tela --- se estiver escrito ali, você está dentro do projeto.
+
+Agora, se você \textbf{arrastar o arquivo \texttt{mcdonald.csv} para dentro dessa pasta}, o R passa a encontrá-lo só pelo nome:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mcdonald }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"mcdonald.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Sem barras, sem endereço, sem nada. É por isso que vale a pena criar o Projeto logo no começo: ele transforma o problema de ``onde está o arquivo'' em ``está aqui do lado''.
+
+Se você quiser organizar melhor e criar uma subpasta chamada \texttt{dados} dentro do projeto, o nome dela entra antes, separado por uma barra:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mcdonald }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/mcdonald.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+A barra quer dizer ``dentro de''. Leia como: \emph{dentro da pasta \texttt{dados}, o arquivo \texttt{mcdonald.csv}}.
+
+\begin{quote}
+\textbf{Se aparecer o erro \texttt{does\ not\ exist\ in\ current\ working\ directory}}, o R não achou o arquivo. Na ordem, confira: (1) o nome do projeto aparece no canto superior direito do RStudio? (2) o arquivo está mesmo dentro da pasta do projeto? (3) o nome está escrito exatamente igual, inclusive maiúsculas e a terminação \texttt{.csv}? Quase sempre é uma dessas três.
+\end{quote}
 
 \section{Importando um banco xls}\label{importando-um-banco-xls}
 
@@ -2240,20 +2339,20 @@ Os exemplos anteriores usaram o \texttt{mcdonald}, que serve bem para aprender o
 
 Repare que todos eles têm \textbf{dados faltantes}, como qualquer coleta real. Vamos aprender a lidar com isso já aqui.
 
-\subsection{Como obter os bancos}\label{como-obter-os-bancos}
+\subsection{Onde estão estes bancos}\label{onde-estuxe3o-estes-bancos}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2258}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1935}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5806}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3043}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2609}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4348}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Banco
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Área
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Link para baixar
+Endereço
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -2265,32 +2364,7 @@ Link para baixar
 \end{longtable}
 }
 
-Há duas maneiras de usá-los, e vale conhecer as duas.
-
-\textbf{A mais rápida: nem baixe.} O R lê um arquivo direto da internet, bastando dar o endereço no lugar do nome do arquivo. Copie a linha, cole no seu script e execute:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(readr)}
-\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/nascimentos.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Funciona na hora e evita o erro mais comum de quem está começando, que é o R não encontrar o arquivo. A única exigência é estar conectado à internet.
-
-\textbf{A segunda: baixe o arquivo.} Clique no link da tabela acima, salve o arquivo dentro da pasta do seu projeto do RStudio, em uma subpasta chamada \texttt{dados}. Aí o caminho fica curto:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/nascimentos.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-Esta é a forma que usaremos daqui em diante, porque é a que você vai precisar quando estiver analisando os \textbf{seus} dados, que não estarão em endereço nenhum da internet. Se você preferir, também pode usar o botão \textbf{Import Dataset} que aprendemos no começo do capítulo --- ele faz exatamente a mesma coisa e escreve o código para você.
-
-\begin{quote}
-\textbf{Dica:} se aparecer a mensagem \texttt{does\ not\ exist\ in\ current\ working\ directory}, o R não achou o arquivo. Confira se você está dentro do Projeto certo (canto superior direito do RStudio) e se a pasta \texttt{dados} está no mesmo lugar que o seu arquivo \texttt{.Rproj}.
-\end{quote}
+Nos exemplos abaixo usamos a \textbf{Forma 2}, o endereço da internet, para que você possa copiar o código e executar na hora. Se preferir baixar o arquivo e usar o botão \textbf{Import Dataset}, clique no endereço da tabela e siga a \textbf{Forma 1} --- o resultado é exatamente o mesmo.
 
 \subsection{Medicina: nascidos vivos em Uberaba}\label{medicina-nascidos-vivos-em-uberaba}
 
@@ -2299,7 +2373,7 @@ O arquivo \texttt{nascimentos.csv} traz os \textbf{3.602 nascimentos registrados
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(readr)}
-\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/nascimentos.csv"}\NormalTok{)}
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/nascimentos.csv"}\NormalTok{)}
 
 \CommentTok{\# quantas linhas e colunas?}
 \FunctionTok{dim}\NormalTok{(nascimentos)}
@@ -2329,7 +2403,7 @@ O arquivo \texttt{saude-mental.csv} traz escores de 320 universitários em três
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{saude }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/saude{-}mental.csv"}\NormalTok{)}
+\NormalTok{saude }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/saude{-}mental.csv"}\NormalTok{)}
 \FunctionTok{dim}\NormalTok{(saude)}
 \end{Highlighting}
 \end{Shaded}
@@ -2361,7 +2435,7 @@ O arquivo \texttt{aptidao-fisica.csv} traz 280 participantes com minutos semanai
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{aptidao }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/aptidao{-}fisica.csv"}\NormalTok{)}
+\NormalTok{aptidao }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/aptidao{-}fisica.csv"}\NormalTok{)}
 \FunctionTok{dim}\NormalTok{(aptidao)}
 \end{Highlighting}
 \end{Shaded}

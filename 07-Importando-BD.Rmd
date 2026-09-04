@@ -1,11 +1,12 @@
 # Importando banco de dados
 
-Na prática, os dados que vamos analisar estarão armazenados em um **banco de dados**, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+Até aqui, todos os dados que usamos foram digitados por nós mesmos, direto no script, como no vetor `idades` ou no `Batimentos`. Isso funciona para dez ou vinte valores. Na prática, os dados de uma pesquisa vêm em um **arquivo**, com centenas ou milhares de linhas, e o nosso trabalho passa a ser **trazer esse arquivo para dentro do R**. É disso que trata este capítulo.
+
+Os dois tipos de arquivo mais comuns são:
 
 + Arquivo do tipo Excel (xls ou xlsx)
 
-+ Arquivo de texto separado por vírgulas (csv - _comma-separated values_)
-
++ Arquivo de texto separado por vírgulas (csv, de *comma-separated values*)
 
 > Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar análises estatísticas, aqui estão algumas delas:
 
@@ -15,13 +16,29 @@ Na prática, os dados que vamos analisar estarão armazenados em um **banco de d
 
 + Kaggle: <https://www.kaggle.com/datasets>
 
+## Antes de tudo: onde o arquivo mora
 
-> No link (google drive) existem alguns bancos que podemos usar para compreender como importar um banco de dados para o ambiente do RStudio: <https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st>
+Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Leia com calma.
 
-## Importando um banco csv
+Quando você baixa um arquivo da internet, ele **não fica solto no computador**: ele é guardado dentro de uma **pasta**. Na maioria dos computadores, essa pasta se chama **Downloads**, e é para lá que tudo vai por padrão, sem perguntar nada.
 
-1. Faça _download_ do banco de dados **mcdonald.csv** 
-(fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts)
+O R, por sua vez, não adivinha onde as coisas estão. Se você simplesmente pedir "abra o arquivo dos nascimentos", ele não sabe em qual das centenas de pastas do computador procurar. **Você precisa dizer onde o arquivo está** — e é só isso que aquelas linhas de código com barras e aspas estão fazendo.
+
+A boa notícia é que existem quatro formas de dizer isso ao R, e **três delas não exigem que você entenda de pastas**. Vamos ver as quatro, da mais simples para a mais técnica:
+
+1. **Pelo botão do RStudio**, apontando o arquivo na tela.
+2. **Pelo endereço da internet**, sem nem baixar o arquivo.
+3. **Escolhendo o arquivo em uma janela**, que o próprio R abre para você.
+4. **Escrevendo o caminho da pasta**, que é o que você vai usar quando os dados forem seus.
+
+Comece pela primeira. As outras fazem mais sentido depois que você viu uma funcionar.
+
+## Forma 1: pelo botão Import Dataset
+
+Esta é a forma mais segura para começar, porque você **navega até o arquivo com o mouse**, do mesmo jeito que faz para abrir uma foto ou um documento. E tem um bônus: no fim, o RStudio **escreve o código para você**.
+
+1. Faça o *download* do banco de dados **mcdonald.csv**
+(fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts). Repare em qual pasta o seu navegador salvou o arquivo — quase sempre é a **Downloads**.
 
 2. Na área de ambiente de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:
 
@@ -32,7 +49,7 @@ Na prática, os dados que vamos analisar estarão armazenados em um **banco de d
 
 + **_readr_** é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)
 
-3. Clicando na opção **From Text (readr)**, no botão **browser** indique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+3. Clicando na opção **From Text (readr)**, no botão **browser** indique onde (no seu computador) está localizado o arquivo a ser importado. É aqui que você navega até a pasta Downloads e clica no arquivo. A seguinte tela será apresentada:
 
 <center>![<font size="2"> Figura: Prévia dos dados</font>](telaImportBrowser.png)
 </center>
@@ -53,6 +70,62 @@ Na prática, os dados que vamos analisar estarão armazenados em um **banco de d
 + Observe que esse objeto do tipo **Data** é diferente dos objetos do tipo **Values** que vimos nos exemplos iniciais.
 
 + Ao clicar no ícone ao lado do nome do objeto, temos acesso ao nomes e tipos computacionais das variáveis, e ao clicar sobre nome do objeto, o banco será aberto!
+
+> **Olhe de novo para o quadro Code Preview antes de clicar em Import.** Aquele texto esquisito, cheio de barras, é o **caminho** do arquivo: é o endereço da pasta onde ele está, escrito do jeito que o computador entende. O botão fez por você exatamente o que você faria à mão. Copie esse código para o seu script: da próxima vez, basta executá-lo, sem precisar repetir os cliques.
+
+## Forma 2: sem baixar nada
+
+Se o arquivo está na internet e você sabe o endereço dele, o R busca sozinho. Não precisa baixar, não precisa saber de pasta nenhuma, não precisa de caminho. Você copia o endereço e coloca entre aspas, no lugar do nome do arquivo:
+
+```{r importurl, message=FALSE, warning=FALSE}
+library(readr)
+nascimentos <- read_csv("https://ana-mat-br.github.io/dados/nascimentos.csv")
+
+nrow(nascimentos)
+```
+
+Pronto: o banco está na memória do R. Esta é a forma mais rápida de todas, e é a que usaremos nos exemplos deste livro, justamente para que você possa copiar o código e executá-lo sem nenhum preparo.
+
+> A única exigência é estar conectado à internet. Se a conexão cair, o R não encontra o arquivo.
+
+## Forma 3: escolhendo o arquivo na tela
+
+Existe um meio-termo entre o botão e o caminho escrito: a função `file.choose()`. Ela abre a mesma janelinha de procurar arquivo que você já conhece, e devolve o caminho para o R automaticamente.
+
+```r
+# a janela de escolher arquivo vai abrir; navegue até o arquivo e clique nele
+mcdonald <- read_csv(file.choose())
+```
+
+É prática e não exige saber onde nada está. A desvantagem é que ela **pergunta toda vez**: se você fechar o RStudio e voltar amanhã, terá que procurar o arquivo de novo. Por isso ela serve para um teste rápido, mas não para um trabalho que você vai repetir.
+
+## Forma 4: escrevendo o caminho
+
+Esta é a forma que você vai usar quando os dados forem **seus**, porque os seus dados não vão estar em endereço nenhum da internet. E é a que exige entender a ideia de pasta — mas o RStudio tem um recurso que resolve quase todo o problema.
+
+### O Projeto do RStudio
+
+Um **Projeto** é simplesmente **uma pasta que o RStudio considera a sua casa**. Tudo o que estiver dentro dela, o R acha sozinho, sem você precisar escrever caminho nenhum.
+
+Para criar um: no menu, **File → New Project → New Directory → New Project**, escolha um nome (por exemplo, `estatistica`) e um lugar para ele ficar. O RStudio cria a pasta e abre o projeto. Você vai ver o nome dele no **canto superior direito** da tela — se estiver escrito ali, você está dentro do projeto.
+
+Agora, se você **arrastar o arquivo `mcdonald.csv` para dentro dessa pasta**, o R passa a encontrá-lo só pelo nome:
+
+```r
+mcdonald <- read_csv("mcdonald.csv")
+```
+
+Sem barras, sem endereço, sem nada. É por isso que vale a pena criar o Projeto logo no começo: ele transforma o problema de "onde está o arquivo" em "está aqui do lado".
+
+Se você quiser organizar melhor e criar uma subpasta chamada `dados` dentro do projeto, o nome dela entra antes, separado por uma barra:
+
+```r
+mcdonald <- read_csv("dados/mcdonald.csv")
+```
+
+A barra quer dizer "dentro de". Leia como: *dentro da pasta `dados`, o arquivo `mcdonald.csv`*.
+
+> **Se aparecer o erro `does not exist in current working directory`**, o R não achou o arquivo. Na ordem, confira: (1) o nome do projeto aparece no canto superior direito do RStudio? (2) o arquivo está mesmo dentro da pasta do projeto? (3) o nome está escrito exatamente igual, inclusive maiúsculas e a terminação `.csv`? Quase sempre é uma dessas três.
 
 ## Importando um banco xls
 
@@ -107,34 +180,15 @@ Os exemplos anteriores usaram o `mcdonald`, que serve bem para aprender o mecani
 
 Repare que todos eles têm **dados faltantes**, como qualquer coleta real. Vamos aprender a lidar com isso já aqui.
 
-### Como obter os bancos
+### Onde estão estes bancos
 
-| Banco | Área | Link para baixar |
-|-------|------|------------------|
+| Banco | Área | Endereço |
+|-------|------|----------|
 | `nascimentos.csv` | Medicina | <https://ana-mat-br.github.io/dados/nascimentos.csv> |
 | `saude-mental.csv` | Psicologia | <https://ana-mat-br.github.io/dados/saude-mental.csv> |
 | `aptidao-fisica.csv` | Educação Física | <https://ana-mat-br.github.io/dados/aptidao-fisica.csv> |
 
-Há duas maneiras de usá-los, e vale conhecer as duas.
-
-**A mais rápida: nem baixe.** O R lê um arquivo direto da internet, bastando dar o endereço no lugar do nome do arquivo. Copie a linha, cole no seu script e execute:
-
-```r
-library(readr)
-nascimentos <- read_csv("https://ana-mat-br.github.io/dados/nascimentos.csv")
-```
-
-Funciona na hora e evita o erro mais comum de quem está começando, que é o R não encontrar o arquivo. A única exigência é estar conectado à internet.
-
-**A segunda: baixe o arquivo.** Clique no link da tabela acima, salve o arquivo dentro da pasta do seu projeto do RStudio, em uma subpasta chamada `dados`. Aí o caminho fica curto:
-
-```r
-nascimentos <- read_csv("dados/nascimentos.csv")
-```
-
-Esta é a forma que usaremos daqui em diante, porque é a que você vai precisar quando estiver analisando os **seus** dados, que não estarão em endereço nenhum da internet. Se você preferir, também pode usar o botão **Import Dataset** que aprendemos no começo do capítulo — ele faz exatamente a mesma coisa e escreve o código para você.
-
-> **Dica:** se aparecer a mensagem `does not exist in current working directory`, o R não achou o arquivo. Confira se você está dentro do Projeto certo (canto superior direito do RStudio) e se a pasta `dados` está no mesmo lugar que o seu arquivo `.Rproj`.
+Nos exemplos abaixo usamos a **Forma 2**, o endereço da internet, para que você possa copiar o código e executar na hora. Se preferir baixar o arquivo e usar o botão **Import Dataset**, clique no endereço da tabela e siga a **Forma 1** — o resultado é exatamente o mesmo.
 
 ### Medicina: nascidos vivos em Uberaba
 
@@ -142,7 +196,7 @@ O arquivo `nascimentos.csv` traz os **3.602 nascimentos registrados em Uberaba e
 
 ```{r ex4med, message=FALSE, warning=FALSE}
 library(readr)
-nascimentos <- read_csv("dados/nascimentos.csv")
+nascimentos <- read_csv("https://ana-mat-br.github.io/dados/nascimentos.csv")
 
 # quantas linhas e colunas?
 dim(nascimentos)
@@ -158,7 +212,7 @@ As variáveis são: `peso_g` (peso ao nascer em gramas), `idade_mae`, `sem_gesta
 O arquivo `saude-mental.csv` traz escores de 320 universitários em três instrumentos que você viu no capítulo de conceitos fundamentais: **PSS-10** (estresse percebido, de 0 a 40), **GAD-7** (ansiedade, de 0 a 21) e **WHO-5** (bem-estar, de 0 a 100).
 
 ```{r ex4psi, message=FALSE, warning=FALSE}
-saude <- read_csv("dados/saude-mental.csv")
+saude <- read_csv("https://ana-mat-br.github.io/dados/saude-mental.csv")
 dim(saude)
 
 # média do escore de estresse percebido
@@ -174,7 +228,7 @@ As variáveis são: `pss10`, `gad7`, `who5`, `horas_sono`, `curso`, `sexo`, `ida
 O arquivo `aptidao-fisica.csv` traz 280 participantes com minutos semanais de atividade física, IMC, percentual de gordura e VO₂ máximo estimado.
 
 ```{r ex4edf, message=FALSE, warning=FALSE}
-aptidao <- read_csv("dados/aptidao-fisica.csv")
+aptidao <- read_csv("https://ana-mat-br.github.io/dados/aptidao-fisica.csv")
 dim(aptidao)
 
 # mediana de minutos de atividade física por semana
