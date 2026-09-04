@@ -260,7 +260,7 @@ mean(saude$pss10)
 
 As variáveis são: `pss10`, `gad7`, `who5`, `horas_sono`, `curso`, `sexo`, `idade` e `ansiedade` (alta ou baixa, pelo ponto de corte do GAD-7).
 
-> **Atenção:** este banco é **simulado**. Ele não vem de uma coleta real: foi gerado por computador com médias e desvios plausíveis para universitários brasileiros. O script que o gera está em `scripts/gera-bancos-simulados.R`. Usamos simulação aqui porque bancos reais com escalas psicométricas raramente são públicos, e porque as grandes pesquisas nacionais que teriam esses dados (como a PNS) exigem técnicas de amostragem complexa que estão além do nosso escopo.
+> **Atenção:** este banco é **simulado**. Ele não vem de uma coleta real: foi gerado por computador com médias e desvios plausíveis para universitários brasileiros. O script que o gera está aqui: [**gera-bancos-simulados.R**](https://ana-mat-br.github.io/scripts/gera-bancos-simulados.R). Usamos simulação aqui porque bancos reais com escalas psicométricas raramente são públicos, e porque as grandes pesquisas nacionais que teriam esses dados (como a PNS) exigem técnicas de amostragem complexa que estão além do nosso escopo.
 
 ### Educação Física: aptidão física e atividade semanal
 

@@ -15,13 +15,16 @@ Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::epub_book')"
 
 # O GitHub Pages publica a partir de docs/, então os bancos de dados
 # precisam ser copiados para lá — senão o aluno recebe 404 ao tentar baixar.
-rm -rf docs/dados
-cp -r dados docs/dados
+rm -rf docs/dados docs/scripts
+cp -r dados   docs/dados
+cp -r scripts docs/scripts
 
 # Confere se os arquivos oferecidos no botão de download existem em docs/
 for f in docs/LivroEstatisticaR.pdf docs/LivroEstatisticaR.epub \
          docs/dados/nascimentos.csv docs/dados/saude-mental.csv \
-         docs/dados/aptidao-fisica.csv; do
+         docs/dados/aptidao-fisica.csv docs/dados/mcdonald.csv \
+         docs/dados/Pokemon.csv docs/scripts/dados-nascimentos.R \
+         docs/scripts/gera-bancos-simulados.R; do
   [ -f "$f" ] || { echo "ERRO: $f nao foi gerado"; exit 1; }
 done
 
