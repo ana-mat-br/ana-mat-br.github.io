@@ -165,7 +165,7 @@ library(rstatix)
 library(readr)
 
 # Importe o banco de dados Pokemon
-Pokemon <- read_csv("Pokemon.csv")
+Pokemon <- read_csv("https://ana-mat-br.github.io/dados/Pokemon.csv")
 
 # Subconjunto com Pokémons verdes ou amarelos
 dados_filtrados <- subset(Pokemon, Color %in% c("Green", "Yellow"))

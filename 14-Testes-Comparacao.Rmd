@@ -383,8 +383,13 @@ Ou seja:
 **Comparação da velocidade dos Pokémons verdes e amarelos**
 
 1. **Baixe o banco de dados**  
-   Use o banco de dados: [Pokemon.csv](https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st)  
-   Importe o arquivo **Pokemon.csv** para o RStudio.
+   Use o banco de dados [Pokemon.csv](https://ana-mat-br.github.io/dados/Pokemon.csv).  
+   Importe o arquivo para o RStudio pelo botão **Import Dataset**, ou leia direto pelo endereço:
+
+   ```r
+   library(readr)
+   Pokemon <- read_csv("https://ana-mat-br.github.io/dados/Pokemon.csv")
+   ```
 
 
 2. **Pergunta do exercício**  

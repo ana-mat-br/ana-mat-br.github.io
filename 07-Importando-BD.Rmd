@@ -16,6 +16,8 @@ Os dois tipos de arquivo mais comuns são:
 
 + Kaggle: <https://www.kaggle.com/datasets>
 
+> Os bancos usados neste livro ficam reunidos em <https://ana-mat-br.github.io/dados/>. Cada capítulo apresenta o endereço do arquivo que vai usar, para você baixar ou ler direto pelo R.
+
 ## Antes de tudo: onde o arquivo mora
 
 Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Leia com calma.
@@ -37,7 +39,7 @@ Comece pela primeira. As outras fazem mais sentido depois que você viu uma func
 
 Esta é a forma mais segura para começar, porque você **navega até o arquivo com o mouse**, do mesmo jeito que faz para abrir uma foto ou um documento. E tem um bônus: no fim, o RStudio **escreve o código para você**.
 
-1. Faça o *download* do banco de dados **mcdonald.csv**
+1. Faça o *download* do banco de dados **mcdonald.csv**, clicando aqui: <https://ana-mat-br.github.io/dados/mcdonald.csv>
 (fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts). Repare em qual pasta o seu navegador salvou o arquivo — quase sempre é a **Downloads**.
 
 2. Na área de ambiente de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:

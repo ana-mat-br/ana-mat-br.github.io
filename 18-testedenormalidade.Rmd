@@ -47,7 +47,7 @@ Abaixo estão os testes de normalidade mais conhecidos, quando são mais recomen
 
 # Importe o banco de dados Pokemon
 library(readr)
-Pokemon <- read_csv("Pokemon.csv")
+Pokemon <- read_csv("https://ana-mat-br.github.io/dados/Pokemon.csv")
 
 # Veja o QQ
 qqnorm(Pokemon$Speed)
