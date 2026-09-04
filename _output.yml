@@ -1,5 +1,6 @@
 bookdown::gitbook:
   highlight: haddock
+  css: style.css
   config:
     language: pt-BR
     toc:
