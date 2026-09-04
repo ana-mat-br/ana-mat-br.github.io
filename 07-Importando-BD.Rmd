@@ -8,13 +8,15 @@ Os dois tipos de arquivo mais comuns são:
 
 + Arquivo de texto separado por vírgulas (csv, de *comma-separated values*)
 
-> Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar análises estatísticas, aqui estão algumas delas:
+Muitos dados de pesquisa são hoje publicados livremente, para que qualquer pessoa possa conferir os resultados de um estudo ou fazer perguntas novas com o mesmo material. Esse movimento se chama **ciência aberta**, e é graças a ele que você consegue fazer um bom trabalho sem precisar coletar dados próprios. Algumas fontes para começar:
 
 + DataSus: <https://datasus.saude.gov.br/transferencia-de-arquivos>
 
 + OMS: <https://www.who.int/data/collections>
 
 + Kaggle: <https://www.kaggle.com/datasets>
+
+> O assunto é grande e rende bons trabalhos, então tem dois capítulos só para ele no fim do livro: um sobre **ciência aberta** e onde encontrar dados e artigos abertos, e outro sobre os **dados do DATASUS**, que é a principal fonte brasileira para quem é da área da saúde.
 
 > Os bancos usados neste livro ficam reunidos em <https://ana-mat-br.github.io/dados/>. Cada capítulo apresenta o endereço do arquivo que vai usar, para você baixar ou ler direto pelo R.
 

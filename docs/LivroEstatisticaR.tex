@@ -2084,9 +2084,7 @@ Os dois tipos de arquivo mais comuns são:
   Arquivo de texto separado por vírgulas (csv, de \emph{comma-separated values})
 \end{itemize}
 
-\begin{quote}
-Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar análises estatísticas, aqui estão algumas delas:
-\end{quote}
+Muitos dados de pesquisa são hoje publicados livremente, para que qualquer pessoa possa conferir os resultados de um estudo ou fazer perguntas novas com o mesmo material. Esse movimento se chama \textbf{ciência aberta}, e é graças a ele que você consegue fazer um bom trabalho sem precisar coletar dados próprios. Algumas fontes para começar:
 
 \begin{itemize}
 \item
@@ -2096,6 +2094,10 @@ Existem várias fontes de dados abertas, onde podemos baixar um banco de dados p
 \item
   Kaggle: \url{https://www.kaggle.com/datasets}
 \end{itemize}
+
+\begin{quote}
+O assunto é grande e rende bons trabalhos, então tem dois capítulos só para ele no fim do livro: um sobre \textbf{ciência aberta} e onde encontrar dados e artigos abertos, e outro sobre os \textbf{dados do DATASUS}, que é a principal fonte brasileira para quem é da área da saúde.
+\end{quote}
 
 \begin{quote}
 Os bancos usados neste livro ficam reunidos em \url{https://ana-mat-br.github.io/dados/}. Cada capítulo apresenta o endereço do arquivo que vai usar, para você baixar ou ler direto pelo R.
@@ -9174,6 +9176,297 @@ Isso significa que, se realmente existir uma associação do tamanho especificad
 
 \textbf{Em geral, recomenda-se um poder estatístico de pelo menos 80\%} (0,8) para que o teste tenha boa chance de detectar uma associação real. Portanto, \textbf{com essa configuração, o teste está subdimensionado (pouco poder)} para detectar efeitos pequenos.
 
+\chapter{Ciência Aberta}\label{ciuxeancia-aberta}
+
+Ao longo do livro, todos os bancos que usamos vieram de fontes abertas: o SINASC do DATASUS, o Pokemon e a tabela nutricional do McDonald's, publicados por quem os produziu para que qualquer pessoa pudesse usar. Isso não é coincidência nem conveniência. É um movimento com nome: \textbf{ciência aberta}.
+
+E ele tem consequência prática direta para você, que está começando a pesquisar: é ciência aberta que torna possível fazer um bom trabalho sem ter orçamento para coletar dados próprios.
+
+\section{O que é ciência aberta}\label{o-que-uxe9-ciuxeancia-aberta}
+
+A ideia central é simples: o conhecimento produzido com dinheiro público deve estar disponível para qualquer pessoa. Na prática, isso se desdobra em quatro frentes.
+
+\textbf{Acesso aberto} é o artigo poder ser lido sem assinatura. Muita revista científica cobra caro pelo acesso, e sem vínculo com uma universidade rica você fica de fora. As revistas de acesso aberto derrubam essa barreira.
+
+\textbf{Dados abertos} é o banco de dados por trás do artigo estar disponível. Isso permite que outra pessoa confira os resultados, e permite que alguém faça uma pergunta nova com os mesmos dados --- que é exatamente o que fizemos neste livro.
+
+\textbf{Código aberto} é o programa usado na análise poder ser inspecionado. O R é software livre: qualquer um pode ler o código de qualquer função, verificar o que ela faz e corrigi-la. Você não precisa acreditar que a \texttt{t.test()} está certa; pode conferir.
+
+\textbf{Reprodutibilidade} é conseguir refazer a análise e chegar ao mesmo resultado. É por isso que usamos \texttt{set.seed()} em toda simulação deste livro: sem a semente, cada execução daria números diferentes, e você não teria como confirmar que o que está impresso aqui é o que o código realmente produz.
+
+\section{Por que isso importa para o seu trabalho}\label{por-que-isso-importa-para-o-seu-trabalho}
+
+Coletar dados custa tempo e dinheiro. Um TCC que dependa de coleta própria pode levar um semestre inteiro só na etapa de aplicar questionários, e ainda esbarrar em comitê de ética, em recusa de participantes e em perda amostral.
+
+Com dados abertos, você pula essa etapa e chega direto à pergunta. Foi assim que montamos o banco de nascimentos de Uberaba: em poucos minutos, sem coletar nada, tínhamos 3.602 registros reais para trabalhar. Isso não substitui a pesquisa de campo, mas é um caminho legítimo e muito usado --- boa parte da produção em epidemiologia é feita com dados secundários.
+
+\begin{quote}
+\textbf{Atenção:} usar dado aberto não dispensa cuidado ético nem citação. O banco tem autoria, tem uma finalidade original e tem limitações. Cite a fonte, leia a documentação e não force o dado a responder uma pergunta que ele não pode responder.
+\end{quote}
+
+\section{Onde encontrar dados abertos}\label{onde-encontrar-dados-abertos}
+
+\subsection{No Brasil}\label{no-brasil}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3929}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3571}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Fonte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+O que tem
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Endereço
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{DATASUS} & Nascimentos, óbitos, internações, notificações de agravos & \url{https://datasus.saude.gov.br/transferencia-de-arquivos} \\
+\textbf{IBGE / SIDRA} & Censo, pesquisas domiciliares, indicadores sociais & \url{https://sidra.ibge.gov.br} \\
+\textbf{Portal Brasileiro de Dados Abertos} & Dados de todos os órgãos do governo federal & \url{https://dados.gov.br} \\
+\textbf{Base dos Dados} & Bases públicas já tratadas e padronizadas & \url{https://basedosdados.org} \\
+\textbf{SciELO Data} & Dados depositados por autores de artigos da SciELO & \url{https://data.scielo.org} \\
+\end{longtable}
+}
+
+O DATASUS merece destaque para quem é da área da saúde, e por isso tem um capítulo só dele logo a seguir.
+
+\subsection{Repositórios internacionais}\label{reposituxf3rios-internacionais}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4194}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2581}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3226}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Repositório
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Perfil
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Endereço
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Zenodo} & Generalista, mantido pelo CERN; dá DOI a qualquer depósito & \url{https://zenodo.org} \\
+\textbf{Figshare} & Generalista, muito usado para material suplementar de artigos & \url{https://figshare.com} \\
+\textbf{OSF} & Projetos inteiros: dados, código, registro e pré-print no mesmo lugar & \url{https://osf.io} \\
+\textbf{Harvard Dataverse} & Grande acervo, forte em ciências sociais & \url{https://dataverse.harvard.edu} \\
+\textbf{PhysioNet} & Sinais fisiológicos e dados clínicos & \url{https://physionet.org} \\
+\textbf{re3data} & Não guarda dados: é um catálogo de repositórios, para você achar o certo & \url{https://www.re3data.org} \\
+\end{longtable}
+}
+
+\section{Onde encontrar artigos abertos}\label{onde-encontrar-artigos-abertos}
+
+A \textbf{SciELO} (\url{https://scielo.org}) reúne a produção científica da América Latina, em acesso aberto e em português. Deve ser sua primeira parada.
+
+O \textbf{DOAJ} (\url{https://doaj.org}), \emph{Directory of Open Access Journals}, cataloga revistas de acesso aberto do mundo todo e serve para checar se uma revista é confiável antes de submeter.
+
+O \textbf{PubMed Central} (\url{https://pmc.ncbi.nlm.nih.gov}) é o acervo aberto da área biomédica.
+
+E o \textbf{Portal de Periódicos da CAPES} (\url{https://www.periodicos.capes.gov.br}) dá acesso, pela sua conta institucional, a revistas que de outra forma seriam pagas. Vale aprender a usar: é um recurso que você tem por ser estudante de universidade pública e que costuma passar despercebido.
+
+\subsection{Pré-prints}\label{pruxe9-prints}
+
+Um \textbf{pré-print} é o artigo publicado pelos autores antes da revisão por pares. Sai rápido, às vezes um ano antes da versão final, mas \textbf{ainda não foi avaliado por outros pesquisadores} --- trate com cautela e diga na sua citação que é um pré-print.
+
+Os principais são o \textbf{SciELO Preprints} (\url{https://preprints.scielo.org}), em português, o \textbf{medRxiv} (\url{https://www.medrxiv.org}) para saúde e o \textbf{PsyArXiv} (\url{https://psyarxiv.com}) para psicologia.
+
+\section{Registro de estudos}\label{registro-de-estudos}
+
+Antes de começar uma pesquisa, é boa prática registrá-la publicamente, dizendo o que você vai medir e como vai analisar. Isso impede uma prática comum e problemática: testar várias hipóteses e depois relatar só a que deu significativa.
+
+No Brasil, o registro de ensaios clínicos é feito no \textbf{ReBEC} (\url{https://ensaiosclinicos.gov.br}). Internacionalmente, no \textbf{ClinicalTrials.gov} (\url{https://clinicaltrials.gov}). Para estudos que não são ensaios clínicos, o \textbf{OSF} permite registrar o plano de análise.
+
+\section{Como tornar a sua pesquisa aberta}\label{como-tornar-a-sua-pesquisa-aberta}
+
+Você também pode contribuir, e isso pesa a favor do seu trabalho.
+
+\textbf{Deposite os seus dados} em um repositório que dê DOI, como o Zenodo ou o OSF, e cite esse DOI no artigo. Se os dados forem sensíveis, deposite ao menos o dicionário de variáveis e o código.
+
+\textbf{Publique o seu código.} O script que gerou os seus resultados é parte do método. Este livro faz isso: os scripts que produziram os bancos usados aqui estão publicados junto com ele.
+
+\textbf{Escolha uma licença.} Sem licença explícita, ninguém sabe o que pode fazer com o seu material. As licenças \textbf{Creative Commons} (\url{https://creativecommons.org/licenses/}) resolvem isso em uma linha.
+
+\textbf{Cite os dados que usar} como você citaria um artigo, com autor, ano, título, repositório e DOI. Dado é produção intelectual, e quem o disponibilizou merece o crédito.
+
+\begin{quote}
+Repare que este livro é, ele mesmo, um exercício de ciência aberta: está em acesso aberto, foi escrito com software livre, o código de todas as análises está à vista em cada capítulo, e os bancos usados estão disponíveis para download.
+\end{quote}
+
+\chapter{Dados do DATASUS}\label{dados-do-datasus}
+
+Este capítulo é dirigido principalmente a quem é da área da \textbf{saúde}, mas vale a leitura para todo mundo: ele mostra como se chega a um banco de dados nacional, real e gratuito, sem coletar nada.
+
+O \textbf{DATASUS} é o departamento de informática do SUS, e ele publica os microdados de vários sistemas de informação em saúde. ``Microdado'' quer dizer que cada linha é \textbf{um caso} --- um nascimento, um óbito, uma internação --- e não um total já resumido. É isso que permite fazer as próprias análises em vez de depender das tabelas que alguém já montou.
+
+\section{Os principais sistemas}\label{os-principais-sistemas}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1296}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2963}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5741}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Sigla
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+O que registra
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Uma pergunta que ele responde
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{SINASC} & Nascidos vivos & O peso ao nascer varia com a escolaridade da mãe? \\
+\textbf{SIM} & Óbitos & Qual a taxa de mortalidade por causa externa entre jovens? \\
+\textbf{SIH} & Internações hospitalares do SUS & Quanto tempo dura, em média, uma internação por AVC? \\
+\textbf{SIA} & Procedimentos ambulatoriais & Quantas consultas especializadas são feitas por região? \\
+\textbf{SINAN} & Doenças de notificação compulsória & Como a dengue se distribui ao longo do ano? \\
+\textbf{CNES} & Estabelecimentos de saúde & Quantos leitos de UTI existem por município? \\
+\end{longtable}
+}
+
+Todos são de acesso público e cobrem o país inteiro, com séries que em alguns casos começam nos anos 1990.
+
+\section{O pacote microdatasus}\label{o-pacote-microdatasus}
+
+Os arquivos do DATASUS vêm em um formato antigo e compactado (\texttt{.dbc}), que não abre direto no R. O pacote \textbf{microdatasus}, criado por pesquisadores brasileiros, resolve isso: ele baixa, descompacta e ainda traduz os códigos numéricos para rótulos legíveis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"microdatasus"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(microdatasus)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+O pacote foi desenvolvido por Raphael Saldanha, Ronaldo Bastos e Christovam Barcellos, e descrito em artigo nos \emph{Cadernos de Saúde Pública} (2019). Se você usá-lo no seu trabalho, \textbf{cite o artigo} --- é assim que quem constrói ferramenta gratuita para a comunidade recebe crédito. A referência está no fim do livro, e o próprio R mostra a forma correta com \texttt{citation("microdatasus")}.
+\end{quote}
+
+O uso tem sempre dois passos. Primeiro \texttt{fetch\_datasus()} baixa os dados brutos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bruto }\OtherTok{\textless{}{-}} \FunctionTok{fetch\_datasus}\NormalTok{(}
+  \AttributeTok{year\_start =} \DecValTok{2022}\NormalTok{,}
+  \AttributeTok{year\_end   =} \DecValTok{2022}\NormalTok{,}
+  \AttributeTok{uf         =} \StringTok{"MG"}\NormalTok{,}
+  \AttributeTok{information\_system =} \StringTok{"SINASC"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Depois, uma função \texttt{process\_*()} correspondente ao sistema traduz os códigos:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rotulado }\OtherTok{\textless{}{-}} \FunctionTok{process\_sinasc}\NormalTok{(bruto)}
+\end{Highlighting}
+\end{Shaded}
+
+Sem esse segundo passo, o sexo do recém-nascido vem como \texttt{1} e \texttt{2}, e o tipo de parto como \texttt{1} e \texttt{2}, em vez de ``Masculino''/``Feminino'' e ``Vaginal''/``Cesáreo''.
+
+\begin{quote}
+Existe uma função \texttt{process\_} para cada sistema: \texttt{process\_sinasc()}, \texttt{process\_sim()}, \texttt{process\_sih()}, \texttt{process\_sia()}, \texttt{process\_cnes()} e uma para cada agravo do SINAN, como \texttt{process\_sinan\_dengue()}.
+\end{quote}
+
+\section{Duas armadilhas que valem ouro}\label{duas-armadilhas-que-valem-ouro}
+
+Estas duas foram descobertas montando o banco de nascimentos que usamos no livro, e nenhuma delas está escrita de forma óbvia na documentação.
+
+\subsection{O código de ``ignorado''}\label{o-cuxf3digo-de-ignorado}
+
+O DATASUS não deixa campos em branco: ele preenche o desconhecido com códigos como \texttt{9999}, \texttt{99} ou \texttt{9}. Se você calcular uma média sem filtrar isso, o resultado sai completamente errado --- imagine um peso ao nascer de 9.999 gramas entrando na conta.
+
+Por isso, antes de qualquer análise, restrinja cada variável a valores plausíveis:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{peso\_g }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(peso\_g }\SpecialCharTok{\%in\%} \DecValTok{250}\SpecialCharTok{:}\DecValTok{7000}\NormalTok{, peso\_g, }\ConstantTok{NA}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Tudo que estiver fora da faixa vira \texttt{NA}, e aí você trata como aprendemos no capítulo de importação, com \texttt{na.rm\ =\ TRUE}.
+
+\subsection{\texorpdfstring{O \texttt{process\_sinasc()} zera o peso}{O process\_sinasc() zera o peso}}\label{o-process_sinasc-zera-o-peso}
+
+Esta é específica e traiçoeira: a função \texttt{process\_sinasc()} devolve a coluna \texttt{PESO} inteiramente vazia. O dado está perfeito no banco \textbf{bruto}, mas se perde no processamento.
+
+A solução é ler o peso do bruto e o resto do rotulado:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{peso\_g }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{PESO)     }\CommentTok{\# do banco bruto}
+\NormalTok{sexo   }\OtherTok{\textless{}{-}}\NormalTok{ rotulado}\SpecialCharTok{$}\NormalTok{SEXO              }\CommentTok{\# do banco rotulado}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+\textbf{A lição vale além deste caso:} depois de qualquer processamento, \textbf{confira se as suas variáveis continuam lá}. Um \texttt{summary()} ou um \texttt{colSums(is.na(seu\_banco))} mostram na hora se alguma coluna virou só \texttt{NA}. Foi assim que este problema apareceu.
+\end{quote}
+
+\section{O banco de nascimentos deste livro}\label{o-banco-de-nascimentos-deste-livro}
+
+O \texttt{nascimentos.csv} que usamos nos exemplos foi montado exatamente desse jeito: 3.602 nascimentos registrados em Uberaba em 2022, filtrados a partir dos 235.063 de Minas Gerais.
+
+O script completo, comentado, está disponível junto com o material do livro, em \texttt{scripts/dados-nascimentos.R}. Ele é curto e você pode adaptá-lo trocando duas linhas:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{UF        }\OtherTok{\textless{}{-}} \StringTok{"MG"}
+\NormalTok{MUNICIPIO }\OtherTok{\textless{}{-}} \StringTok{"Uberaba"}   \CommentTok{\# NULL para manter o estado inteiro}
+\end{Highlighting}
+\end{Shaded}
+
+Trocando para o seu estado e o seu município, você tem em minutos um banco da sua realidade local --- o que costuma render trabalhos muito mais interessantes que analisar dados de outro lugar.
+
+\begin{quote}
+A filtragem por município usa a coluna \texttt{munResNome}, que o \texttt{process\_sinasc()} acrescenta com o nome do município de residência da mãe.
+\end{quote}
+
+\section{Cuidados ao usar dados do DATASUS}\label{cuidados-ao-usar-dados-do-datasus}
+
+\textbf{São dados secundários.} Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.
+
+\textbf{É censo, não amostra.} O SINASC registra todos os nascimentos, não uma amostra deles. Isso é uma vantagem, porque dispensa peso amostral, mas muda a interpretação: se você analisa todos os nascimentos de Uberaba em 2022, não está estimando nada --- está descrevendo a população inteira daquele ano.
+
+\textbf{Há subnotificação e erro de preenchimento.} A qualidade varia entre municípios e ao longo dos anos. Compare os seus totais com os publicados oficialmente antes de confiar neles.
+
+\textbf{Não há identificação nominal}, mas ainda são dados de saúde. Trate com o mesmo cuidado que trataria uma coleta própria, e verifique junto ao seu orientador se o seu projeto precisa passar pelo Comitê de Ética --- o uso de dados públicos anonimizados costuma ser dispensado, mas a decisão não é sua.
+
+\textbf{Cite a fonte.} Uma forma usual é:
+
+\begin{quote}
+BRASIL. Ministério da Saúde. Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. Disponível em: \url{https://datasus.saude.gov.br}. Acesso em: {[}data{]}.
+\end{quote}
+
+\section{Ideias para começar}\label{ideias-para-comeuxe7ar}
+
+Algumas perguntas que o SINASC responde e que dão bons trabalhos:
+
+\begin{itemize}
+\tightlist
+\item
+  O peso ao nascer difere entre partos vaginais e cesáreos, na sua cidade?
+\item
+  A proporção de cesáreas mudou ao longo dos últimos dez anos?
+\item
+  Mães adolescentes fazem menos consultas de pré-natal?
+\item
+  A prematuridade se distribui igualmente entre os níveis de escolaridade materna?
+\end{itemize}
+
+Todas elas podem ser respondidas com os testes que você aprendeu neste livro --- teste t, Wilcoxon, qui-quadrado, correlação e regressão --- sobre um banco que você monta em cinco minutos.
+
 \section*{Livros e textos gerais}\label{livros-e-textos-gerais}
 \addcontentsline{toc}{section}{Livros e textos gerais}
 
@@ -9244,6 +9537,20 @@ Isso significa que, se realmente existir uma associação do tamanho especificad
   \textbf{De Rose Jr., D. (1998).} Lista de sintomas de estresse pré-competitivo infanto-juvenil: elaboração e validação de um instrumento. \emph{Revista Paulista de Educação Física, 12}(2), 126-133.
 \item
   \textbf{Sturges, H. A. (1926).} The choice of a class interval. \emph{Journal of the American Statistical Association, 21}(153), 65-66. \url{https://doi.org/10.1080/01621459.1926.10502161}
+\end{itemize}
+
+\section*{Ciência aberta e dados abertos}\label{ciuxeancia-aberta-e-dados-abertos}
+\addcontentsline{toc}{section}{Ciência aberta e dados abertos}
+
+\begin{itemize}
+\item
+  \textbf{Saldanha, R., Bastos, R., \& Barcellos, C. (2019).} Microdatasus: pacote para download e pré-processamento de microdados do Departamento de Informática do SUS (DATASUS). \emph{Cadernos de Saúde Pública, 35}(9), 1-9. \url{https://doi.org/10.1590/0102-311x00032419}
+\item
+  \textbf{UNESCO (2021).} Recomendação da UNESCO sobre Ciência Aberta. Paris: UNESCO. \url{https://www.unesco.org/en/open-science}
+\item
+  \textbf{Wilkinson, M. D., et al.~(2016).} The FAIR Guiding Principles for scientific data management and stewardship. \emph{Scientific Data, 3}, 160018. \url{https://doi.org/10.1038/sdata.2016.18}
+\item
+  \textbf{BRASIL. Ministério da Saúde.} Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. \url{https://datasus.saude.gov.br}
 \end{itemize}
 
 \section*{Software}\label{software}

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 13 Gráficos | Estatística + R</title>
-  <meta name="description" content="Capítulo 13 Gráficos | Estatística + R" />
+  <title>Capítulo 30 Dados do DATASUS | Estatística + R</title>
+  <meta name="description" content="Capítulo 30 Dados do DATASUS | Estatística + R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 13 Gráficos | Estatística + R" />
+  <meta property="og:title" content="Capítulo 30 Dados do DATASUS | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 13 Gráficos | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 30 Dados do DATASUS | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="instalando-pacotes.html"/>
-<link rel="next" href="pacote-ggplot.html"/>
+<link rel="prev" href="ciência-aberta.html"/>
+<link rel="next" href="referências.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -655,183 +655,136 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gráficos" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">Capítulo 13</span> Gráficos<a href="gráficos.html#gr%C3%A1ficos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kgyknvpj.json"  background="transparent"  speed="2"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
-<p>Nesse link <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> estão algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos o pacote <strong>GGPlot2</strong> <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a>.</p>
-<p>Focaremos nossa atenção em dois gráficos específicos para variáveis quantitativas: <strong>Histograma</strong> e <strong>Boxplot</strong>, e nem faremos nada atrativo, usaremos o pacote básico do R que nos fornece as funções <strong>hist()</strong> e <strong>boxplot()</strong>, pois o nosso objetivo para esse momento é simplesmente estudar a importância desses gráficos.</p>
-<p>O que a gente levaria um tempinho… é simplesmente assim em código R:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="gráficos.html#cb56-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>, <span class="dv">120</span>)</span>
-<span id="cb56-2"><a href="gráficos.html#cb56-2" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="gráficos.html#cb56-3" tabindex="-1"></a><span class="co"># Para fazer o Histograma de Batimentos</span></span>
-<span id="cb56-4"><a href="gráficos.html#cb56-4" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)</span>
-<span id="cb56-5"><a href="gráficos.html#cb56-5" tabindex="-1"></a></span>
-<span id="cb56-6"><a href="gráficos.html#cb56-6" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
-<span id="cb56-7"><a href="gráficos.html#cb56-7" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos)</span></code></pre></div>
-<p>Na área de gráficos (<strong>Plots</strong>), abaixo do ambiente de memória, serão mostrados os gráficos:</p>
-<blockquote>
-<p>Histograma</p>
-</blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>Boxplot</p>
-</blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>Observações</p>
-</blockquote>
-<ul>
-<li><p>Os gráficos mostram a informação batimentos de duas formas diferentes, mas elas estão relacionadas!</p></li>
-<li><p>Observe que eixo horizontal do histograma corresponde ao eixo vertical do boxplot</p></li>
-</ul>
-<div id="histograma" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Histograma<a href="gráficos.html#histograma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O histograma é um gráfico usado para variáveis quantitativas contínuas.</p>
-<p>O histograma pode nos dar uma noção do tipo de <strong>distribuição de probabilidade</strong> que os dados seguem.</p>
-<p>A ideia desse gráfico é agrupar os dados em <strong>classes</strong> (cada barra do histograma é uma classe) e no eixo vertical tem-se a contagem (frequência) de quantos valores foram alocados em cada classe.</p>
-<p>Para fazer a <strong>leitura do histograma</strong>:</p>
-<ul>
-<li><p>Identifique as classes no “eixo x”</p></li>
-<li><p>Identifique quantos elementos tem em cada classe no “eixo y”</p></li>
-</ul>
-<p>Acredito que nesse exemplo, é fácil verificar:</p>
-<ul>
-<li>A segunda classe: 40 - 50 batimentos, que tem 1 elemento (verifique no objeto Batimentos)</li>
-</ul>
-<blockquote>
-<p><strong>Atenção:</strong> por padrão o R fecha as classes à direita, isto é, os intervalos são (30, 40], (40, 50], e assim por diante. Por isso o valor 40 conta na classe <em>30 - 40</em>, e não na classe <em>40 - 50</em>. O único elemento da segunda classe é o 46.</p>
-</blockquote>
-<ul>
-<li><p>A terceira classe: 50 - 60 batimentos, que tem 6 elementos</p></li>
-<li><p>Então, a <strong>amplitude das classes</strong> é igual a 10. Logo, a primeira classe é de 30 - 40.</p></li>
-<li><p>As classes 80 - 90; 90 - 100 e 100 - 110 não tiveram ocorrências!</p></li>
-<li><p>A classe 110-120 possui 1 elemento, que é aquele valor discrepante em relação aos demais valores.</p></li>
-</ul>
-<p>Se não for fácil identificar as classes (eixo x) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="gráficos.html#cb57-1" tabindex="-1"></a><span class="co"># Para obter as &quot;quebras&quot; de cada classe </span></span>
-<span id="cb57-2"><a href="gráficos.html#cb57-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>breaks</span></code></pre></div>
-<p>Se não for fácil identificar as frequências (eixo y) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="gráficos.html#cb58-1" tabindex="-1"></a><span class="co"># Para obter a frequência em cada classe</span></span>
-<span id="cb58-2"><a href="gráficos.html#cb58-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>count</span></code></pre></div>
-<p>De fato, o que estamos lendo por meio do histograma é o que chamamos de <strong>tabela de frequência</strong>:</p>
+<div id="dados-do-datasus" class="section level1 hasAnchor" number="30">
+<h1><span class="header-section-number">Capítulo 30</span> Dados do DATASUS<a href="dados-do-datasus.html#dados-do-datasus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Este capítulo é dirigido principalmente a quem é da área da <strong>saúde</strong>, mas vale a leitura para todo mundo: ele mostra como se chega a um banco de dados nacional, real e gratuito, sem coletar nada.</p>
+<p>O <strong>DATASUS</strong> é o departamento de informática do SUS, e ele publica os microdados de vários sistemas de informação em saúde. “Microdado” quer dizer que cada linha é <strong>um caso</strong> — um nascimento, um óbito, uma internação — e não um total já resumido. É isso que permite fazer as próprias análises em vez de depender das tabelas que alguém já montou.</p>
+<div id="os-principais-sistemas" class="section level2 hasAnchor" number="30.1">
+<h2><span class="header-section-number">30.1</span> Os principais sistemas<a href="dados-do-datasus.html#os-principais-sistemas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
+<colgroup>
+<col width="12%" />
+<col width="29%" />
+<col width="57%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th align="center">Classe</th>
-<th align="center">Frequência</th>
+<th>Sigla</th>
+<th>O que registra</th>
+<th>Uma pergunta que ele responde</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">30 - 40</td>
-<td align="center">3</td>
+<td><strong>SINASC</strong></td>
+<td>Nascidos vivos</td>
+<td>O peso ao nascer varia com a escolaridade da mãe?</td>
 </tr>
 <tr class="even">
-<td align="center">40 - 50</td>
-<td align="center">1</td>
+<td><strong>SIM</strong></td>
+<td>Óbitos</td>
+<td>Qual a taxa de mortalidade por causa externa entre jovens?</td>
 </tr>
 <tr class="odd">
-<td align="center">50 - 60</td>
-<td align="center">6</td>
+<td><strong>SIH</strong></td>
+<td>Internações hospitalares do SUS</td>
+<td>Quanto tempo dura, em média, uma internação por AVC?</td>
 </tr>
 <tr class="even">
-<td align="center">60 - 70</td>
-<td align="center">7</td>
+<td><strong>SIA</strong></td>
+<td>Procedimentos ambulatoriais</td>
+<td>Quantas consultas especializadas são feitas por região?</td>
 </tr>
 <tr class="odd">
-<td align="center">70 - 80</td>
-<td align="center">3</td>
+<td><strong>SINAN</strong></td>
+<td>Doenças de notificação compulsória</td>
+<td>Como a dengue se distribui ao longo do ano?</td>
 </tr>
 <tr class="even">
-<td align="center">80 - 90</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">90 - 100</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">100 - 110</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">110 - 120</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\sum n\)</span></td>
-<td align="center">21</td>
+<td><strong>CNES</strong></td>
+<td>Estabelecimentos de saúde</td>
+<td>Quantos leitos de UTI existem por município?</td>
 </tr>
 </tbody>
 </table>
+<p>Todos são de acesso público e cobrem o país inteiro, com séries que em alguns casos começam nos anos 1990.</p>
+</div>
+<div id="o-pacote-microdatasus" class="section level2 hasAnchor" number="30.2">
+<h2><span class="header-section-number">30.2</span> O pacote microdatasus<a href="dados-do-datasus.html#o-pacote-microdatasus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Os arquivos do DATASUS vêm em um formato antigo e compactado (<code>.dbc</code>), que não abre direto no R. O pacote <strong>microdatasus</strong>, criado por pesquisadores brasileiros, resolve isso: ele baixa, descompacta e ainda traduz os códigos numéricos para rótulos legíveis.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="dados-do-datasus.html#cb320-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;microdatasus&quot;</span>)</span>
+<span id="cb320-2"><a href="dados-do-datasus.html#cb320-2" tabindex="-1"></a><span class="fu">library</span>(microdatasus)</span></code></pre></div>
+<blockquote>
+<p>O pacote foi desenvolvido por Raphael Saldanha, Ronaldo Bastos e Christovam Barcellos, e descrito em artigo nos <em>Cadernos de Saúde Pública</em> (2019). Se você usá-lo no seu trabalho, <strong>cite o artigo</strong> — é assim que quem constrói ferramenta gratuita para a comunidade recebe crédito. A referência está no fim do livro, e o próprio R mostra a forma correta com <code>citation("microdatasus")</code>.</p>
+</blockquote>
+<p>O uso tem sempre dois passos. Primeiro <code>fetch_datasus()</code> baixa os dados brutos:</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="dados-do-datasus.html#cb321-1" tabindex="-1"></a>bruto <span class="ot">&lt;-</span> <span class="fu">fetch_datasus</span>(</span>
+<span id="cb321-2"><a href="dados-do-datasus.html#cb321-2" tabindex="-1"></a>  <span class="at">year_start =</span> <span class="dv">2022</span>,</span>
+<span id="cb321-3"><a href="dados-do-datasus.html#cb321-3" tabindex="-1"></a>  <span class="at">year_end   =</span> <span class="dv">2022</span>,</span>
+<span id="cb321-4"><a href="dados-do-datasus.html#cb321-4" tabindex="-1"></a>  <span class="at">uf         =</span> <span class="st">&quot;MG&quot;</span>,</span>
+<span id="cb321-5"><a href="dados-do-datasus.html#cb321-5" tabindex="-1"></a>  <span class="at">information_system =</span> <span class="st">&quot;SINASC&quot;</span></span>
+<span id="cb321-6"><a href="dados-do-datasus.html#cb321-6" tabindex="-1"></a>)</span></code></pre></div>
+<p>Depois, uma função <code>process_*()</code> correspondente ao sistema traduz os códigos:</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="dados-do-datasus.html#cb322-1" tabindex="-1"></a>rotulado <span class="ot">&lt;-</span> <span class="fu">process_sinasc</span>(bruto)</span></code></pre></div>
+<p>Sem esse segundo passo, o sexo do recém-nascido vem como <code>1</code> e <code>2</code>, e o tipo de parto como <code>1</code> e <code>2</code>, em vez de “Masculino”/“Feminino” e “Vaginal”/“Cesáreo”.</p>
+<blockquote>
+<p>Existe uma função <code>process_</code> para cada sistema: <code>process_sinasc()</code>, <code>process_sim()</code>, <code>process_sih()</code>, <code>process_sia()</code>, <code>process_cnes()</code> e uma para cada agravo do SINAN, como <code>process_sinan_dengue()</code>.</p>
+</blockquote>
+</div>
+<div id="duas-armadilhas-que-valem-ouro" class="section level2 hasAnchor" number="30.3">
+<h2><span class="header-section-number">30.3</span> Duas armadilhas que valem ouro<a href="dados-do-datasus.html#duas-armadilhas-que-valem-ouro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Estas duas foram descobertas montando o banco de nascimentos que usamos no livro, e nenhuma delas está escrita de forma óbvia na documentação.</p>
+<div id="o-código-de-ignorado" class="section level3 hasAnchor" number="30.3.1">
+<h3><span class="header-section-number">30.3.1</span> O código de “ignorado”<a href="dados-do-datasus.html#o-c%C3%B3digo-de-ignorado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O DATASUS não deixa campos em branco: ele preenche o desconhecido com códigos como <code>9999</code>, <code>99</code> ou <code>9</code>. Se você calcular uma média sem filtrar isso, o resultado sai completamente errado — imagine um peso ao nascer de 9.999 gramas entrando na conta.</p>
+<p>Por isso, antes de qualquer análise, restrinja cada variável a valores plausíveis:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="dados-do-datasus.html#cb323-1" tabindex="-1"></a>peso_g <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(peso_g <span class="sc">%in%</span> <span class="dv">250</span><span class="sc">:</span><span class="dv">7000</span>, peso_g, <span class="cn">NA</span>)</span></code></pre></div>
+<p>Tudo que estiver fora da faixa vira <code>NA</code>, e aí você trata como aprendemos no capítulo de importação, com <code>na.rm = TRUE</code>.</p>
+</div>
+<div id="o-process_sinasc-zera-o-peso" class="section level3 hasAnchor" number="30.3.2">
+<h3><span class="header-section-number">30.3.2</span> O <code>process_sinasc()</code> zera o peso<a href="dados-do-datasus.html#o-process_sinasc-zera-o-peso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Esta é específica e traiçoeira: a função <code>process_sinasc()</code> devolve a coluna <code>PESO</code> inteiramente vazia. O dado está perfeito no banco <strong>bruto</strong>, mas se perde no processamento.</p>
+<p>A solução é ler o peso do bruto e o resto do rotulado:</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="dados-do-datasus.html#cb324-1" tabindex="-1"></a>peso_g <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(bruto<span class="sc">$</span>PESO)     <span class="co"># do banco bruto</span></span>
+<span id="cb324-2"><a href="dados-do-datasus.html#cb324-2" tabindex="-1"></a>sexo   <span class="ot">&lt;-</span> rotulado<span class="sc">$</span>SEXO              <span class="co"># do banco rotulado</span></span></code></pre></div>
+<blockquote>
+<p><strong>A lição vale além deste caso:</strong> depois de qualquer processamento, <strong>confira se as suas variáveis continuam lá</strong>. Um <code>summary()</code> ou um <code>colSums(is.na(seu_banco))</code> mostram na hora se alguma coluna virou só <code>NA</code>. Foi assim que este problema apareceu.</p>
+</blockquote>
+</div>
+</div>
+<div id="o-banco-de-nascimentos-deste-livro" class="section level2 hasAnchor" number="30.4">
+<h2><span class="header-section-number">30.4</span> O banco de nascimentos deste livro<a href="dados-do-datasus.html#o-banco-de-nascimentos-deste-livro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>O <code>nascimentos.csv</code> que usamos nos exemplos foi montado exatamente desse jeito: 3.602 nascimentos registrados em Uberaba em 2022, filtrados a partir dos 235.063 de Minas Gerais.</p>
+<p>O script completo, comentado, está disponível junto com o material do livro, em <code>scripts/dados-nascimentos.R</code>. Ele é curto e você pode adaptá-lo trocando duas linhas:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dados-do-datasus.html#cb325-1" tabindex="-1"></a>UF        <span class="ot">&lt;-</span> <span class="st">&quot;MG&quot;</span></span>
+<span id="cb325-2"><a href="dados-do-datasus.html#cb325-2" tabindex="-1"></a>MUNICIPIO <span class="ot">&lt;-</span> <span class="st">&quot;Uberaba&quot;</span>   <span class="co"># NULL para manter o estado inteiro</span></span></code></pre></div>
+<p>Trocando para o seu estado e o seu município, você tem em minutos um banco da sua realidade local — o que costuma render trabalhos muito mais interessantes que analisar dados de outro lugar.</p>
+<blockquote>
+<p>A filtragem por município usa a coluna <code>munResNome</code>, que o <code>process_sinasc()</code> acrescenta com o nome do município de residência da mãe.</p>
+</blockquote>
+</div>
+<div id="cuidados-ao-usar-dados-do-datasus" class="section level2 hasAnchor" number="30.5">
+<h2><span class="header-section-number">30.5</span> Cuidados ao usar dados do DATASUS<a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>São dados secundários.</strong> Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.</p>
+<p><strong>É censo, não amostra.</strong> O SINASC registra todos os nascimentos, não uma amostra deles. Isso é uma vantagem, porque dispensa peso amostral, mas muda a interpretação: se você analisa todos os nascimentos de Uberaba em 2022, não está estimando nada — está descrevendo a população inteira daquele ano.</p>
+<p><strong>Há subnotificação e erro de preenchimento.</strong> A qualidade varia entre municípios e ao longo dos anos. Compare os seus totais com os publicados oficialmente antes de confiar neles.</p>
+<p><strong>Não há identificação nominal</strong>, mas ainda são dados de saúde. Trate com o mesmo cuidado que trataria uma coleta própria, e verifique junto ao seu orientador se o seu projeto precisa passar pelo Comitê de Ética — o uso de dados públicos anonimizados costuma ser dispensado, mas a decisão não é sua.</p>
+<p><strong>Cite a fonte.</strong> Uma forma usual é:</p>
+<blockquote>
+<p>BRASIL. Ministério da Saúde. Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. Disponível em: <a href="https://datasus.saude.gov.br" class="uri">https://datasus.saude.gov.br</a>. Acesso em: [data].</p>
+</blockquote>
+</div>
+<div id="ideias-para-começar" class="section level2 hasAnchor" number="30.6">
+<h2><span class="header-section-number">30.6</span> Ideias para começar<a href="dados-do-datasus.html#ideias-para-come%C3%A7ar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Algumas perguntas que o SINASC responde e que dão bons trabalhos:</p>
 <ul>
-<li><p>Por meio do histograma ou da tabela podemos concluir que a classe modal (moda) é a classe de 60 - 70 batimentos;</p></li>
-<li><p>A frequência foi apresentada em termos absolutos mas pode ser transformada em frequência percentual.</p></li>
-<li><p>Quando estamos aprendendo a fazer um histograma manualmente, primeiro construímos essa tabela de frequência, e para construí-la é necessário calcular o número ótimo de classes, uma das regras mais usadas é a Regra de Sturges (essa é a opção padrão do R).</p></li>
+<li>O peso ao nascer difere entre partos vaginais e cesáreos, na sua cidade?</li>
+<li>A proporção de cesáreas mudou ao longo dos últimos dez anos?</li>
+<li>Mães adolescentes fazem menos consultas de pré-natal?</li>
+<li>A prematuridade se distribui igualmente entre os níveis de escolaridade materna?</li>
 </ul>
-<p>Podemos usar o pacote básico R para melhorar a aparência desse gráfico.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="gráficos.html#cb59-1" tabindex="-1"></a>hisBat <span class="ot">&lt;-</span> <span class="fu">hist</span>(Batimentos,</span>
-<span id="cb59-2"><a href="gráficos.html#cb59-2" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Histograma&quot;</span>,</span>
-<span id="cb59-3"><a href="gráficos.html#cb59-3" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;Batimentos cardíacos&quot;</span>,</span>
-<span id="cb59-4"><a href="gráficos.html#cb59-4" tabindex="-1"></a>               <span class="at">sub =</span> <span class="st">&quot;por classes&quot;</span>,</span>
-<span id="cb59-5"><a href="gráficos.html#cb59-5" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;Frequência absoluta&quot;</span>,</span>
-<span id="cb59-6"><a href="gráficos.html#cb59-6" tabindex="-1"></a>               <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">120</span>),</span>
-<span id="cb59-7"><a href="gráficos.html#cb59-7" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
-<span id="cb59-8"><a href="gráficos.html#cb59-8" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb59-9"><a href="gráficos.html#cb59-9" tabindex="-1"></a><span class="fu">text</span>(hisBat<span class="sc">$</span>mids, hisBat<span class="sc">$</span>counts, <span class="at">labels=</span>hisBat<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>))</span>
-<span id="cb59-10"><a href="gráficos.html#cb59-10" tabindex="-1"></a></span>
-<span id="cb59-11"><a href="gráficos.html#cb59-11" tabindex="-1"></a><span class="co"># adicionar linha para indicar a média</span></span>
-<span id="cb59-12"><a href="gráficos.html#cb59-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(Batimentos),                      </span>
-<span id="cb59-13"><a href="gráficos.html#cb59-13" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb59-14"><a href="gráficos.html#cb59-14" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" /></p>
-</div>
-<div id="boxplot" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Boxplot<a href="gráficos.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Boxplot ou diagrama de caixa, é um gráfico que mostra as medidas: menor valor, primeiro quartil, mediana, terceiro quartil e máximo valor.</p>
-<ul>
-<li>Valores discrepantes (<em>outliers</em>) são detectados pelo boxplot. Veja a figura:</li>
-</ul>
-<center>
-<div class="float">
-<img src="Boxplotexemplo.png" style="width:50.0%" alt="Figura: “Anatomia de um boxplot”" />
-<div class="figcaption"><font size="2">Figura: “Anatomia de um boxplot”</font></div>
-</div>
-</center>
-<p>Essa figura foi retirada do site da Prof. Fernanda <a href="https://fernandafperes.com.br/blog/interpretacao-boxplot/" class="uri">https://fernandafperes.com.br/blog/interpretacao-boxplot/</a> (uma excelente referência para estudar estatística!)</p>
-<blockquote>
-<p>Geralmente eles são representados na vertical, mas também é comum a representação na horizontal.</p>
-</blockquote>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="gráficos.html#cb60-1" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
-<span id="cb60-2"><a href="gráficos.html#cb60-2" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<blockquote>
-<p>É uma forma de comparar dois grupos em relação a uma medida, por exemplo os batimentos cardíacos de um grupo de homens e de mulheres</p>
-</blockquote>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="gráficos.html#cb61-1" tabindex="-1"></a><span class="co"># Geração de amostras simuladas</span></span>
-<span id="cb61-2"><a href="gráficos.html#cb61-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb61-3"><a href="gráficos.html#cb61-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
-<span id="cb61-4"><a href="gráficos.html#cb61-4" tabindex="-1"></a>BatimentosHomens <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="dv">8</span>)</span>
-<span id="cb61-5"><a href="gráficos.html#cb61-5" tabindex="-1"></a><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
-<span id="cb61-6"><a href="gráficos.html#cb61-6" tabindex="-1"></a><span class="fu">boxplot</span>(BatimentosHomens, BatimentosMulheres)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>O boxplot também pode nos informar se uma distribuição de probabilidade é simétrica ou não. Analise os gráficos abaixo, veja a conexão entre histograma e boxplot.</p>
-</blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" /></p>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-25-2.png" alt="" width="672" /></p>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   20.00   20.54   21.40   22.01   22.78   36.42</code></pre>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
-</div>
-<div id="atividade-6" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Atividade 6<a href="gráficos.html#atividade-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Para o banco de dados escolhido na atividade 5, faça gráficos como o histograma e boxplot, além disso, pesquise outras formas de fazer gráficos no R.</strong></p>
+<p>Todas elas podem ser respondidas com os testes que você aprendeu neste livro — teste t, Wilcoxon, qui-quadrado, correlação e regressão — sobre um banco que você monta em cinco minutos.</p>
+
 </div>
 </div>
             </section>
@@ -839,8 +792,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="instalando-pacotes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pacote-ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ciência-aberta.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referências.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,119 @@
+# Dados do DATASUS
+
+Este capítulo é dirigido principalmente a quem é da área da **saúde**, mas vale a leitura para todo mundo: ele mostra como se chega a um banco de dados nacional, real e gratuito, sem coletar nada.
+
+O **DATASUS** é o departamento de informática do SUS, e ele publica os microdados de vários sistemas de informação em saúde. "Microdado" quer dizer que cada linha é **um caso** — um nascimento, um óbito, uma internação — e não um total já resumido. É isso que permite fazer as próprias análises em vez de depender das tabelas que alguém já montou.
+
+## Os principais sistemas
+
+| Sigla | O que registra | Uma pergunta que ele responde |
+|-------|----------------|-------------------------------|
+| **SINASC** | Nascidos vivos | O peso ao nascer varia com a escolaridade da mãe? |
+| **SIM** | Óbitos | Qual a taxa de mortalidade por causa externa entre jovens? |
+| **SIH** | Internações hospitalares do SUS | Quanto tempo dura, em média, uma internação por AVC? |
+| **SIA** | Procedimentos ambulatoriais | Quantas consultas especializadas são feitas por região? |
+| **SINAN** | Doenças de notificação compulsória | Como a dengue se distribui ao longo do ano? |
+| **CNES** | Estabelecimentos de saúde | Quantos leitos de UTI existem por município? |
+
+Todos são de acesso público e cobrem o país inteiro, com séries que em alguns casos começam nos anos 1990.
+
+## O pacote microdatasus
+
+Os arquivos do DATASUS vêm em um formato antigo e compactado (`.dbc`), que não abre direto no R. O pacote **microdatasus**, criado por pesquisadores brasileiros, resolve isso: ele baixa, descompacta e ainda traduz os códigos numéricos para rótulos legíveis.
+
+```r
+install.packages("microdatasus")
+library(microdatasus)
+```
+
+> O pacote foi desenvolvido por Raphael Saldanha, Ronaldo Bastos e Christovam Barcellos, e descrito em artigo nos *Cadernos de Saúde Pública* (2019). Se você usá-lo no seu trabalho, **cite o artigo** — é assim que quem constrói ferramenta gratuita para a comunidade recebe crédito. A referência está no fim do livro, e o próprio R mostra a forma correta com `citation("microdatasus")`.
+
+O uso tem sempre dois passos. Primeiro `fetch_datasus()` baixa os dados brutos:
+
+```r
+bruto <- fetch_datasus(
+  year_start = 2022,
+  year_end   = 2022,
+  uf         = "MG",
+  information_system = "SINASC"
+)
+```
+
+Depois, uma função `process_*()` correspondente ao sistema traduz os códigos:
+
+```r
+rotulado <- process_sinasc(bruto)
+```
+
+Sem esse segundo passo, o sexo do recém-nascido vem como `1` e `2`, e o tipo de parto como `1` e `2`, em vez de "Masculino"/"Feminino" e "Vaginal"/"Cesáreo".
+
+> Existe uma função `process_` para cada sistema: `process_sinasc()`, `process_sim()`, `process_sih()`, `process_sia()`, `process_cnes()` e uma para cada agravo do SINAN, como `process_sinan_dengue()`.
+
+## Duas armadilhas que valem ouro
+
+Estas duas foram descobertas montando o banco de nascimentos que usamos no livro, e nenhuma delas está escrita de forma óbvia na documentação.
+
+### O código de "ignorado"
+
+O DATASUS não deixa campos em branco: ele preenche o desconhecido com códigos como `9999`, `99` ou `9`. Se você calcular uma média sem filtrar isso, o resultado sai completamente errado — imagine um peso ao nascer de 9.999 gramas entrando na conta.
+
+Por isso, antes de qualquer análise, restrinja cada variável a valores plausíveis:
+
+```r
+peso_g <- ifelse(peso_g %in% 250:7000, peso_g, NA)
+```
+
+Tudo que estiver fora da faixa vira `NA`, e aí você trata como aprendemos no capítulo de importação, com `na.rm = TRUE`.
+
+### O `process_sinasc()` zera o peso
+
+Esta é específica e traiçoeira: a função `process_sinasc()` devolve a coluna `PESO` inteiramente vazia. O dado está perfeito no banco **bruto**, mas se perde no processamento.
+
+A solução é ler o peso do bruto e o resto do rotulado:
+
+```r
+peso_g <- as.numeric(bruto$PESO)     # do banco bruto
+sexo   <- rotulado$SEXO              # do banco rotulado
+```
+
+> **A lição vale além deste caso:** depois de qualquer processamento, **confira se as suas variáveis continuam lá**. Um `summary()` ou um `colSums(is.na(seu_banco))` mostram na hora se alguma coluna virou só `NA`. Foi assim que este problema apareceu.
+
+## O banco de nascimentos deste livro
+
+O `nascimentos.csv` que usamos nos exemplos foi montado exatamente desse jeito: 3.602 nascimentos registrados em Uberaba em 2022, filtrados a partir dos 235.063 de Minas Gerais.
+
+O script completo, comentado, está disponível junto com o material do livro, em `scripts/dados-nascimentos.R`. Ele é curto e você pode adaptá-lo trocando duas linhas:
+
+```r
+UF        <- "MG"
+MUNICIPIO <- "Uberaba"   # NULL para manter o estado inteiro
+```
+
+Trocando para o seu estado e o seu município, você tem em minutos um banco da sua realidade local — o que costuma render trabalhos muito mais interessantes que analisar dados de outro lugar.
+
+> A filtragem por município usa a coluna `munResNome`, que o `process_sinasc()` acrescenta com o nome do município de residência da mãe.
+
+## Cuidados ao usar dados do DATASUS
+
+**São dados secundários.** Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.
+
+**É censo, não amostra.** O SINASC registra todos os nascimentos, não uma amostra deles. Isso é uma vantagem, porque dispensa peso amostral, mas muda a interpretação: se você analisa todos os nascimentos de Uberaba em 2022, não está estimando nada — está descrevendo a população inteira daquele ano.
+
+**Há subnotificação e erro de preenchimento.** A qualidade varia entre municípios e ao longo dos anos. Compare os seus totais com os publicados oficialmente antes de confiar neles.
+
+**Não há identificação nominal**, mas ainda são dados de saúde. Trate com o mesmo cuidado que trataria uma coleta própria, e verifique junto ao seu orientador se o seu projeto precisa passar pelo Comitê de Ética — o uso de dados públicos anonimizados costuma ser dispensado, mas a decisão não é sua.
+
+**Cite a fonte.** Uma forma usual é:
+
+> BRASIL. Ministério da Saúde. Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. Disponível em: https://datasus.saude.gov.br. Acesso em: [data].
+
+## Ideias para começar
+
+Algumas perguntas que o SINASC responde e que dão bons trabalhos:
+
++ O peso ao nascer difere entre partos vaginais e cesáreos, na sua cidade?
++ A proporção de cesáreas mudou ao longo dos últimos dez anos?
++ Mães adolescentes fazem menos consultas de pré-natal?
++ A prematuridade se distribui igualmente entre os níveis de escolaridade materna?
+
+Todas elas podem ser respondidas com os testes que você aprendeu neste livro — teste t, Wilcoxon, qui-quadrado, correlação e regressão — sobre um banco que você monta em cinco minutos.

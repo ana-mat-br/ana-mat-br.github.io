@@ -1,0 +1,86 @@
+# Ciência Aberta
+
+Ao longo do livro, todos os bancos que usamos vieram de fontes abertas: o SINASC do DATASUS, o Pokemon e a tabela nutricional do McDonald's, publicados por quem os produziu para que qualquer pessoa pudesse usar. Isso não é coincidência nem conveniência. É um movimento com nome: **ciência aberta**.
+
+E ele tem consequência prática direta para você, que está começando a pesquisar: é ciência aberta que torna possível fazer um bom trabalho sem ter orçamento para coletar dados próprios.
+
+## O que é ciência aberta
+
+A ideia central é simples: o conhecimento produzido com dinheiro público deve estar disponível para qualquer pessoa. Na prática, isso se desdobra em quatro frentes.
+
+**Acesso aberto** é o artigo poder ser lido sem assinatura. Muita revista científica cobra caro pelo acesso, e sem vínculo com uma universidade rica você fica de fora. As revistas de acesso aberto derrubam essa barreira.
+
+**Dados abertos** é o banco de dados por trás do artigo estar disponível. Isso permite que outra pessoa confira os resultados, e permite que alguém faça uma pergunta nova com os mesmos dados — que é exatamente o que fizemos neste livro.
+
+**Código aberto** é o programa usado na análise poder ser inspecionado. O R é software livre: qualquer um pode ler o código de qualquer função, verificar o que ela faz e corrigi-la. Você não precisa acreditar que a `t.test()` está certa; pode conferir.
+
+**Reprodutibilidade** é conseguir refazer a análise e chegar ao mesmo resultado. É por isso que usamos `set.seed()` em toda simulação deste livro: sem a semente, cada execução daria números diferentes, e você não teria como confirmar que o que está impresso aqui é o que o código realmente produz.
+
+## Por que isso importa para o seu trabalho
+
+Coletar dados custa tempo e dinheiro. Um TCC que dependa de coleta própria pode levar um semestre inteiro só na etapa de aplicar questionários, e ainda esbarrar em comitê de ética, em recusa de participantes e em perda amostral.
+
+Com dados abertos, você pula essa etapa e chega direto à pergunta. Foi assim que montamos o banco de nascimentos de Uberaba: em poucos minutos, sem coletar nada, tínhamos 3.602 registros reais para trabalhar. Isso não substitui a pesquisa de campo, mas é um caminho legítimo e muito usado — boa parte da produção em epidemiologia é feita com dados secundários.
+
+> **Atenção:** usar dado aberto não dispensa cuidado ético nem citação. O banco tem autoria, tem uma finalidade original e tem limitações. Cite a fonte, leia a documentação e não force o dado a responder uma pergunta que ele não pode responder.
+
+## Onde encontrar dados abertos
+
+### No Brasil
+
+| Fonte | O que tem | Endereço |
+|-------|-----------|----------|
+| **DATASUS** | Nascimentos, óbitos, internações, notificações de agravos | <https://datasus.saude.gov.br/transferencia-de-arquivos> |
+| **IBGE / SIDRA** | Censo, pesquisas domiciliares, indicadores sociais | <https://sidra.ibge.gov.br> |
+| **Portal Brasileiro de Dados Abertos** | Dados de todos os órgãos do governo federal | <https://dados.gov.br> |
+| **Base dos Dados** | Bases públicas já tratadas e padronizadas | <https://basedosdados.org> |
+| **SciELO Data** | Dados depositados por autores de artigos da SciELO | <https://data.scielo.org> |
+
+O DATASUS merece destaque para quem é da área da saúde, e por isso tem um capítulo só dele logo a seguir.
+
+### Repositórios internacionais
+
+| Repositório | Perfil | Endereço |
+|-------------|--------|----------|
+| **Zenodo** | Generalista, mantido pelo CERN; dá DOI a qualquer depósito | <https://zenodo.org> |
+| **Figshare** | Generalista, muito usado para material suplementar de artigos | <https://figshare.com> |
+| **OSF** | Projetos inteiros: dados, código, registro e pré-print no mesmo lugar | <https://osf.io> |
+| **Harvard Dataverse** | Grande acervo, forte em ciências sociais | <https://dataverse.harvard.edu> |
+| **PhysioNet** | Sinais fisiológicos e dados clínicos | <https://physionet.org> |
+| **re3data** | Não guarda dados: é um catálogo de repositórios, para você achar o certo | <https://www.re3data.org> |
+
+## Onde encontrar artigos abertos
+
+A **SciELO** (<https://scielo.org>) reúne a produção científica da América Latina, em acesso aberto e em português. Deve ser sua primeira parada.
+
+O **DOAJ** (<https://doaj.org>), *Directory of Open Access Journals*, cataloga revistas de acesso aberto do mundo todo e serve para checar se uma revista é confiável antes de submeter.
+
+O **PubMed Central** (<https://pmc.ncbi.nlm.nih.gov>) é o acervo aberto da área biomédica.
+
+E o **Portal de Periódicos da CAPES** (<https://www.periodicos.capes.gov.br>) dá acesso, pela sua conta institucional, a revistas que de outra forma seriam pagas. Vale aprender a usar: é um recurso que você tem por ser estudante de universidade pública e que costuma passar despercebido.
+
+### Pré-prints
+
+Um **pré-print** é o artigo publicado pelos autores antes da revisão por pares. Sai rápido, às vezes um ano antes da versão final, mas **ainda não foi avaliado por outros pesquisadores** — trate com cautela e diga na sua citação que é um pré-print.
+
+Os principais são o **SciELO Preprints** (<https://preprints.scielo.org>), em português, o **medRxiv** (<https://www.medrxiv.org>) para saúde e o **PsyArXiv** (<https://psyarxiv.com>) para psicologia.
+
+## Registro de estudos
+
+Antes de começar uma pesquisa, é boa prática registrá-la publicamente, dizendo o que você vai medir e como vai analisar. Isso impede uma prática comum e problemática: testar várias hipóteses e depois relatar só a que deu significativa.
+
+No Brasil, o registro de ensaios clínicos é feito no **ReBEC** (<https://ensaiosclinicos.gov.br>). Internacionalmente, no **ClinicalTrials.gov** (<https://clinicaltrials.gov>). Para estudos que não são ensaios clínicos, o **OSF** permite registrar o plano de análise.
+
+## Como tornar a sua pesquisa aberta
+
+Você também pode contribuir, e isso pesa a favor do seu trabalho.
+
+**Deposite os seus dados** em um repositório que dê DOI, como o Zenodo ou o OSF, e cite esse DOI no artigo. Se os dados forem sensíveis, deposite ao menos o dicionário de variáveis e o código.
+
+**Publique o seu código.** O script que gerou os seus resultados é parte do método. Este livro faz isso: os scripts que produziram os bancos usados aqui estão publicados junto com ele.
+
+**Escolha uma licença.** Sem licença explícita, ninguém sabe o que pode fazer com o seu material. As licenças **Creative Commons** (<https://creativecommons.org/licenses/>) resolvem isso em uma linha.
+
+**Cite os dados que usar** como você citaria um artigo, com autor, ano, título, repositório e DOI. Dado é produção intelectual, e quem o disponibilizou merece o crédito.
+
+> Repare que este livro é, ele mesmo, um exercício de ciência aberta: está em acesso aberto, foi escrito com software livre, o código de todas as análises está à vista em cada capítulo, e os bancos usados estão disponíveis para download.

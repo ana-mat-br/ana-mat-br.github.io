@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 13 Gráficos | Estatística + R</title>
-  <meta name="description" content="Capítulo 13 Gráficos | Estatística + R" />
+  <title>Capítulo 29 Ciência Aberta | Estatística + R</title>
+  <meta name="description" content="Capítulo 29 Ciência Aberta | Estatística + R" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 13 Gráficos | Estatística + R" />
+  <meta property="og:title" content="Capítulo 29 Ciência Aberta | Estatística + R" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 13 Gráficos | Estatística + R" />
+  <meta name="twitter:title" content="Capítulo 29 Ciência Aberta | Estatística + R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="instalando-pacotes.html"/>
-<link rel="next" href="pacote-ggplot.html"/>
+<link rel="prev" href="associação-entre-variáveis.html"/>
+<link rel="next" href="dados-do-datasus.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -655,183 +655,151 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gráficos" class="section level1 hasAnchor" number="13">
-<h1><span class="header-section-number">Capítulo 13</span> Gráficos<a href="gráficos.html#gr%C3%A1ficos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kgyknvpj.json"  background="transparent"  speed="2"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
-<p>Nesse link <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> estão algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos o pacote <strong>GGPlot2</strong> <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a>.</p>
-<p>Focaremos nossa atenção em dois gráficos específicos para variáveis quantitativas: <strong>Histograma</strong> e <strong>Boxplot</strong>, e nem faremos nada atrativo, usaremos o pacote básico do R que nos fornece as funções <strong>hist()</strong> e <strong>boxplot()</strong>, pois o nosso objetivo para esse momento é simplesmente estudar a importância desses gráficos.</p>
-<p>O que a gente levaria um tempinho… é simplesmente assim em código R:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="gráficos.html#cb56-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>, <span class="dv">120</span>)</span>
-<span id="cb56-2"><a href="gráficos.html#cb56-2" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="gráficos.html#cb56-3" tabindex="-1"></a><span class="co"># Para fazer o Histograma de Batimentos</span></span>
-<span id="cb56-4"><a href="gráficos.html#cb56-4" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)</span>
-<span id="cb56-5"><a href="gráficos.html#cb56-5" tabindex="-1"></a></span>
-<span id="cb56-6"><a href="gráficos.html#cb56-6" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
-<span id="cb56-7"><a href="gráficos.html#cb56-7" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos)</span></code></pre></div>
-<p>Na área de gráficos (<strong>Plots</strong>), abaixo do ambiente de memória, serão mostrados os gráficos:</p>
+<div id="ciência-aberta" class="section level1 hasAnchor" number="29">
+<h1><span class="header-section-number">Capítulo 29</span> Ciência Aberta<a href="ciência-aberta.html#ci%C3%AAncia-aberta" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ao longo do livro, todos os bancos que usamos vieram de fontes abertas: o SINASC do DATASUS, o Pokemon e a tabela nutricional do McDonald’s, publicados por quem os produziu para que qualquer pessoa pudesse usar. Isso não é coincidência nem conveniência. É um movimento com nome: <strong>ciência aberta</strong>.</p>
+<p>E ele tem consequência prática direta para você, que está começando a pesquisar: é ciência aberta que torna possível fazer um bom trabalho sem ter orçamento para coletar dados próprios.</p>
+<div id="o-que-é-ciência-aberta" class="section level2 hasAnchor" number="29.1">
+<h2><span class="header-section-number">29.1</span> O que é ciência aberta<a href="ciência-aberta.html#o-que-%C3%A9-ci%C3%AAncia-aberta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A ideia central é simples: o conhecimento produzido com dinheiro público deve estar disponível para qualquer pessoa. Na prática, isso se desdobra em quatro frentes.</p>
+<p><strong>Acesso aberto</strong> é o artigo poder ser lido sem assinatura. Muita revista científica cobra caro pelo acesso, e sem vínculo com uma universidade rica você fica de fora. As revistas de acesso aberto derrubam essa barreira.</p>
+<p><strong>Dados abertos</strong> é o banco de dados por trás do artigo estar disponível. Isso permite que outra pessoa confira os resultados, e permite que alguém faça uma pergunta nova com os mesmos dados — que é exatamente o que fizemos neste livro.</p>
+<p><strong>Código aberto</strong> é o programa usado na análise poder ser inspecionado. O R é software livre: qualquer um pode ler o código de qualquer função, verificar o que ela faz e corrigi-la. Você não precisa acreditar que a <code>t.test()</code> está certa; pode conferir.</p>
+<p><strong>Reprodutibilidade</strong> é conseguir refazer a análise e chegar ao mesmo resultado. É por isso que usamos <code>set.seed()</code> em toda simulação deste livro: sem a semente, cada execução daria números diferentes, e você não teria como confirmar que o que está impresso aqui é o que o código realmente produz.</p>
+</div>
+<div id="por-que-isso-importa-para-o-seu-trabalho" class="section level2 hasAnchor" number="29.2">
+<h2><span class="header-section-number">29.2</span> Por que isso importa para o seu trabalho<a href="ciência-aberta.html#por-que-isso-importa-para-o-seu-trabalho" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Coletar dados custa tempo e dinheiro. Um TCC que dependa de coleta própria pode levar um semestre inteiro só na etapa de aplicar questionários, e ainda esbarrar em comitê de ética, em recusa de participantes e em perda amostral.</p>
+<p>Com dados abertos, você pula essa etapa e chega direto à pergunta. Foi assim que montamos o banco de nascimentos de Uberaba: em poucos minutos, sem coletar nada, tínhamos 3.602 registros reais para trabalhar. Isso não substitui a pesquisa de campo, mas é um caminho legítimo e muito usado — boa parte da produção em epidemiologia é feita com dados secundários.</p>
 <blockquote>
-<p>Histograma</p>
+<p><strong>Atenção:</strong> usar dado aberto não dispensa cuidado ético nem citação. O banco tem autoria, tem uma finalidade original e tem limitações. Cite a fonte, leia a documentação e não force o dado a responder uma pergunta que ele não pode responder.</p>
 </blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>Boxplot</p>
-</blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>Observações</p>
-</blockquote>
-<ul>
-<li><p>Os gráficos mostram a informação batimentos de duas formas diferentes, mas elas estão relacionadas!</p></li>
-<li><p>Observe que eixo horizontal do histograma corresponde ao eixo vertical do boxplot</p></li>
-</ul>
-<div id="histograma" class="section level2 hasAnchor" number="13.1">
-<h2><span class="header-section-number">13.1</span> Histograma<a href="gráficos.html#histograma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>O histograma é um gráfico usado para variáveis quantitativas contínuas.</p>
-<p>O histograma pode nos dar uma noção do tipo de <strong>distribuição de probabilidade</strong> que os dados seguem.</p>
-<p>A ideia desse gráfico é agrupar os dados em <strong>classes</strong> (cada barra do histograma é uma classe) e no eixo vertical tem-se a contagem (frequência) de quantos valores foram alocados em cada classe.</p>
-<p>Para fazer a <strong>leitura do histograma</strong>:</p>
-<ul>
-<li><p>Identifique as classes no “eixo x”</p></li>
-<li><p>Identifique quantos elementos tem em cada classe no “eixo y”</p></li>
-</ul>
-<p>Acredito que nesse exemplo, é fácil verificar:</p>
-<ul>
-<li>A segunda classe: 40 - 50 batimentos, que tem 1 elemento (verifique no objeto Batimentos)</li>
-</ul>
-<blockquote>
-<p><strong>Atenção:</strong> por padrão o R fecha as classes à direita, isto é, os intervalos são (30, 40], (40, 50], e assim por diante. Por isso o valor 40 conta na classe <em>30 - 40</em>, e não na classe <em>40 - 50</em>. O único elemento da segunda classe é o 46.</p>
-</blockquote>
-<ul>
-<li><p>A terceira classe: 50 - 60 batimentos, que tem 6 elementos</p></li>
-<li><p>Então, a <strong>amplitude das classes</strong> é igual a 10. Logo, a primeira classe é de 30 - 40.</p></li>
-<li><p>As classes 80 - 90; 90 - 100 e 100 - 110 não tiveram ocorrências!</p></li>
-<li><p>A classe 110-120 possui 1 elemento, que é aquele valor discrepante em relação aos demais valores.</p></li>
-</ul>
-<p>Se não for fácil identificar as classes (eixo x) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="gráficos.html#cb57-1" tabindex="-1"></a><span class="co"># Para obter as &quot;quebras&quot; de cada classe </span></span>
-<span id="cb57-2"><a href="gráficos.html#cb57-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>breaks</span></code></pre></div>
-<p>Se não for fácil identificar as frequências (eixo y) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="gráficos.html#cb58-1" tabindex="-1"></a><span class="co"># Para obter a frequência em cada classe</span></span>
-<span id="cb58-2"><a href="gráficos.html#cb58-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>count</span></code></pre></div>
-<p>De fato, o que estamos lendo por meio do histograma é o que chamamos de <strong>tabela de frequência</strong>:</p>
+</div>
+<div id="onde-encontrar-dados-abertos" class="section level2 hasAnchor" number="29.3">
+<h2><span class="header-section-number">29.3</span> Onde encontrar dados abertos<a href="ciência-aberta.html#onde-encontrar-dados-abertos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="no-brasil" class="section level3 hasAnchor" number="29.3.1">
+<h3><span class="header-section-number">29.3.1</span> No Brasil<a href="ciência-aberta.html#no-brasil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
+<colgroup>
+<col width="25%" />
+<col width="39%" />
+<col width="35%" />
+</colgroup>
 <thead>
 <tr class="header">
-<th align="center">Classe</th>
-<th align="center">Frequência</th>
+<th>Fonte</th>
+<th>O que tem</th>
+<th>Endereço</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">30 - 40</td>
-<td align="center">3</td>
+<td><strong>DATASUS</strong></td>
+<td>Nascimentos, óbitos, internações, notificações de agravos</td>
+<td><a href="https://datasus.saude.gov.br/transferencia-de-arquivos" class="uri">https://datasus.saude.gov.br/transferencia-de-arquivos</a></td>
 </tr>
 <tr class="even">
-<td align="center">40 - 50</td>
-<td align="center">1</td>
+<td><strong>IBGE / SIDRA</strong></td>
+<td>Censo, pesquisas domiciliares, indicadores sociais</td>
+<td><a href="https://sidra.ibge.gov.br" class="uri">https://sidra.ibge.gov.br</a></td>
 </tr>
 <tr class="odd">
-<td align="center">50 - 60</td>
-<td align="center">6</td>
+<td><strong>Portal Brasileiro de Dados Abertos</strong></td>
+<td>Dados de todos os órgãos do governo federal</td>
+<td><a href="https://dados.gov.br" class="uri">https://dados.gov.br</a></td>
 </tr>
 <tr class="even">
-<td align="center">60 - 70</td>
-<td align="center">7</td>
+<td><strong>Base dos Dados</strong></td>
+<td>Bases públicas já tratadas e padronizadas</td>
+<td><a href="https://basedosdados.org" class="uri">https://basedosdados.org</a></td>
 </tr>
 <tr class="odd">
-<td align="center">70 - 80</td>
-<td align="center">3</td>
-</tr>
-<tr class="even">
-<td align="center">80 - 90</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">90 - 100</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">100 - 110</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">110 - 120</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td align="center"><span class="math inline">\(\sum n\)</span></td>
-<td align="center">21</td>
+<td><strong>SciELO Data</strong></td>
+<td>Dados depositados por autores de artigos da SciELO</td>
+<td><a href="https://data.scielo.org" class="uri">https://data.scielo.org</a></td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li><p>Por meio do histograma ou da tabela podemos concluir que a classe modal (moda) é a classe de 60 - 70 batimentos;</p></li>
-<li><p>A frequência foi apresentada em termos absolutos mas pode ser transformada em frequência percentual.</p></li>
-<li><p>Quando estamos aprendendo a fazer um histograma manualmente, primeiro construímos essa tabela de frequência, e para construí-la é necessário calcular o número ótimo de classes, uma das regras mais usadas é a Regra de Sturges (essa é a opção padrão do R).</p></li>
-</ul>
-<p>Podemos usar o pacote básico R para melhorar a aparência desse gráfico.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="gráficos.html#cb59-1" tabindex="-1"></a>hisBat <span class="ot">&lt;-</span> <span class="fu">hist</span>(Batimentos,</span>
-<span id="cb59-2"><a href="gráficos.html#cb59-2" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Histograma&quot;</span>,</span>
-<span id="cb59-3"><a href="gráficos.html#cb59-3" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;Batimentos cardíacos&quot;</span>,</span>
-<span id="cb59-4"><a href="gráficos.html#cb59-4" tabindex="-1"></a>               <span class="at">sub =</span> <span class="st">&quot;por classes&quot;</span>,</span>
-<span id="cb59-5"><a href="gráficos.html#cb59-5" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;Frequência absoluta&quot;</span>,</span>
-<span id="cb59-6"><a href="gráficos.html#cb59-6" tabindex="-1"></a>               <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">120</span>),</span>
-<span id="cb59-7"><a href="gráficos.html#cb59-7" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
-<span id="cb59-8"><a href="gráficos.html#cb59-8" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb59-9"><a href="gráficos.html#cb59-9" tabindex="-1"></a><span class="fu">text</span>(hisBat<span class="sc">$</span>mids, hisBat<span class="sc">$</span>counts, <span class="at">labels=</span>hisBat<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>))</span>
-<span id="cb59-10"><a href="gráficos.html#cb59-10" tabindex="-1"></a></span>
-<span id="cb59-11"><a href="gráficos.html#cb59-11" tabindex="-1"></a><span class="co"># adicionar linha para indicar a média</span></span>
-<span id="cb59-12"><a href="gráficos.html#cb59-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(Batimentos),                      </span>
-<span id="cb59-13"><a href="gráficos.html#cb59-13" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb59-14"><a href="gráficos.html#cb59-14" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" /></p>
+<p>O DATASUS merece destaque para quem é da área da saúde, e por isso tem um capítulo só dele logo a seguir.</p>
 </div>
-<div id="boxplot" class="section level2 hasAnchor" number="13.2">
-<h2><span class="header-section-number">13.2</span> Boxplot<a href="gráficos.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Boxplot ou diagrama de caixa, é um gráfico que mostra as medidas: menor valor, primeiro quartil, mediana, terceiro quartil e máximo valor.</p>
-<ul>
-<li>Valores discrepantes (<em>outliers</em>) são detectados pelo boxplot. Veja a figura:</li>
-</ul>
-<center>
-<div class="float">
-<img src="Boxplotexemplo.png" style="width:50.0%" alt="Figura: “Anatomia de um boxplot”" />
-<div class="figcaption"><font size="2">Figura: “Anatomia de um boxplot”</font></div>
+<div id="repositórios-internacionais" class="section level3 hasAnchor" number="29.3.2">
+<h3><span class="header-section-number">29.3.2</span> Repositórios internacionais<a href="ciência-aberta.html#reposit%C3%B3rios-internacionais" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="41%" />
+<col width="25%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Repositório</th>
+<th>Perfil</th>
+<th>Endereço</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Zenodo</strong></td>
+<td>Generalista, mantido pelo CERN; dá DOI a qualquer depósito</td>
+<td><a href="https://zenodo.org" class="uri">https://zenodo.org</a></td>
+</tr>
+<tr class="even">
+<td><strong>Figshare</strong></td>
+<td>Generalista, muito usado para material suplementar de artigos</td>
+<td><a href="https://figshare.com" class="uri">https://figshare.com</a></td>
+</tr>
+<tr class="odd">
+<td><strong>OSF</strong></td>
+<td>Projetos inteiros: dados, código, registro e pré-print no mesmo lugar</td>
+<td><a href="https://osf.io" class="uri">https://osf.io</a></td>
+</tr>
+<tr class="even">
+<td><strong>Harvard Dataverse</strong></td>
+<td>Grande acervo, forte em ciências sociais</td>
+<td><a href="https://dataverse.harvard.edu" class="uri">https://dataverse.harvard.edu</a></td>
+</tr>
+<tr class="odd">
+<td><strong>PhysioNet</strong></td>
+<td>Sinais fisiológicos e dados clínicos</td>
+<td><a href="https://physionet.org" class="uri">https://physionet.org</a></td>
+</tr>
+<tr class="even">
+<td><strong>re3data</strong></td>
+<td>Não guarda dados: é um catálogo de repositórios, para você achar o certo</td>
+<td><a href="https://www.re3data.org" class="uri">https://www.re3data.org</a></td>
+</tr>
+</tbody>
+</table>
 </div>
-</center>
-<p>Essa figura foi retirada do site da Prof. Fernanda <a href="https://fernandafperes.com.br/blog/interpretacao-boxplot/" class="uri">https://fernandafperes.com.br/blog/interpretacao-boxplot/</a> (uma excelente referência para estudar estatística!)</p>
-<blockquote>
-<p>Geralmente eles são representados na vertical, mas também é comum a representação na horizontal.</p>
-</blockquote>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="gráficos.html#cb60-1" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
-<span id="cb60-2"><a href="gráficos.html#cb60-2" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<blockquote>
-<p>É uma forma de comparar dois grupos em relação a uma medida, por exemplo os batimentos cardíacos de um grupo de homens e de mulheres</p>
-</blockquote>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="gráficos.html#cb61-1" tabindex="-1"></a><span class="co"># Geração de amostras simuladas</span></span>
-<span id="cb61-2"><a href="gráficos.html#cb61-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb61-3"><a href="gráficos.html#cb61-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
-<span id="cb61-4"><a href="gráficos.html#cb61-4" tabindex="-1"></a>BatimentosHomens <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="dv">8</span>)</span>
-<span id="cb61-5"><a href="gráficos.html#cb61-5" tabindex="-1"></a><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
-<span id="cb61-6"><a href="gráficos.html#cb61-6" tabindex="-1"></a><span class="fu">boxplot</span>(BatimentosHomens, BatimentosMulheres)</span></code></pre></div>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>O boxplot também pode nos informar se uma distribuição de probabilidade é simétrica ou não. Analise os gráficos abaixo, veja a conexão entre histograma e boxplot.</p>
-</blockquote>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-24-1.png" alt="" width="672" /></p>
-<p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-25-1.png" alt="" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-25-2.png" alt="" width="672" /></p>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   20.00   20.54   21.40   22.01   22.78   36.42</code></pre>
-<center>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_33asonmr.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-</center>
 </div>
-<div id="atividade-6" class="section level2 hasAnchor" number="13.3">
-<h2><span class="header-section-number">13.3</span> Atividade 6<a href="gráficos.html#atividade-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><strong>Para o banco de dados escolhido na atividade 5, faça gráficos como o histograma e boxplot, além disso, pesquise outras formas de fazer gráficos no R.</strong></p>
+<div id="onde-encontrar-artigos-abertos" class="section level2 hasAnchor" number="29.4">
+<h2><span class="header-section-number">29.4</span> Onde encontrar artigos abertos<a href="ciência-aberta.html#onde-encontrar-artigos-abertos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>SciELO</strong> (<a href="https://scielo.org" class="uri">https://scielo.org</a>) reúne a produção científica da América Latina, em acesso aberto e em português. Deve ser sua primeira parada.</p>
+<p>O <strong>DOAJ</strong> (<a href="https://doaj.org" class="uri">https://doaj.org</a>), <em>Directory of Open Access Journals</em>, cataloga revistas de acesso aberto do mundo todo e serve para checar se uma revista é confiável antes de submeter.</p>
+<p>O <strong>PubMed Central</strong> (<a href="https://pmc.ncbi.nlm.nih.gov" class="uri">https://pmc.ncbi.nlm.nih.gov</a>) é o acervo aberto da área biomédica.</p>
+<p>E o <strong>Portal de Periódicos da CAPES</strong> (<a href="https://www.periodicos.capes.gov.br" class="uri">https://www.periodicos.capes.gov.br</a>) dá acesso, pela sua conta institucional, a revistas que de outra forma seriam pagas. Vale aprender a usar: é um recurso que você tem por ser estudante de universidade pública e que costuma passar despercebido.</p>
+<div id="pré-prints" class="section level3 hasAnchor" number="29.4.1">
+<h3><span class="header-section-number">29.4.1</span> Pré-prints<a href="ciência-aberta.html#pr%C3%A9-prints" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Um <strong>pré-print</strong> é o artigo publicado pelos autores antes da revisão por pares. Sai rápido, às vezes um ano antes da versão final, mas <strong>ainda não foi avaliado por outros pesquisadores</strong> — trate com cautela e diga na sua citação que é um pré-print.</p>
+<p>Os principais são o <strong>SciELO Preprints</strong> (<a href="https://preprints.scielo.org" class="uri">https://preprints.scielo.org</a>), em português, o <strong>medRxiv</strong> (<a href="https://www.medrxiv.org" class="uri">https://www.medrxiv.org</a>) para saúde e o <strong>PsyArXiv</strong> (<a href="https://psyarxiv.com" class="uri">https://psyarxiv.com</a>) para psicologia.</p>
+</div>
+</div>
+<div id="registro-de-estudos" class="section level2 hasAnchor" number="29.5">
+<h2><span class="header-section-number">29.5</span> Registro de estudos<a href="ciência-aberta.html#registro-de-estudos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Antes de começar uma pesquisa, é boa prática registrá-la publicamente, dizendo o que você vai medir e como vai analisar. Isso impede uma prática comum e problemática: testar várias hipóteses e depois relatar só a que deu significativa.</p>
+<p>No Brasil, o registro de ensaios clínicos é feito no <strong>ReBEC</strong> (<a href="https://ensaiosclinicos.gov.br" class="uri">https://ensaiosclinicos.gov.br</a>). Internacionalmente, no <strong>ClinicalTrials.gov</strong> (<a href="https://clinicaltrials.gov" class="uri">https://clinicaltrials.gov</a>). Para estudos que não são ensaios clínicos, o <strong>OSF</strong> permite registrar o plano de análise.</p>
+</div>
+<div id="como-tornar-a-sua-pesquisa-aberta" class="section level2 hasAnchor" number="29.6">
+<h2><span class="header-section-number">29.6</span> Como tornar a sua pesquisa aberta<a href="ciência-aberta.html#como-tornar-a-sua-pesquisa-aberta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Você também pode contribuir, e isso pesa a favor do seu trabalho.</p>
+<p><strong>Deposite os seus dados</strong> em um repositório que dê DOI, como o Zenodo ou o OSF, e cite esse DOI no artigo. Se os dados forem sensíveis, deposite ao menos o dicionário de variáveis e o código.</p>
+<p><strong>Publique o seu código.</strong> O script que gerou os seus resultados é parte do método. Este livro faz isso: os scripts que produziram os bancos usados aqui estão publicados junto com ele.</p>
+<p><strong>Escolha uma licença.</strong> Sem licença explícita, ninguém sabe o que pode fazer com o seu material. As licenças <strong>Creative Commons</strong> (<a href="https://creativecommons.org/licenses/" class="uri">https://creativecommons.org/licenses/</a>) resolvem isso em uma linha.</p>
+<p><strong>Cite os dados que usar</strong> como você citaria um artigo, com autor, ano, título, repositório e DOI. Dado é produção intelectual, e quem o disponibilizou merece o crédito.</p>
+<blockquote>
+<p>Repare que este livro é, ele mesmo, um exercício de ciência aberta: está em acesso aberto, foi escrito com software livre, o código de todas as análises está à vista em cada capítulo, e os bancos usados estão disponíveis para download.</p>
+</blockquote>
+
 </div>
 </div>
             </section>
@@ -839,8 +807,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
           </div>
         </div>
       </div>
-<a href="instalando-pacotes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pacote-ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="associação-entre-variáveis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dados-do-datasus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

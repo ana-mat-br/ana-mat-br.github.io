@@ -55,6 +55,16 @@
 
 - **Sturges, H. A. (1926).** The choice of a class interval. *Journal of the American Statistical Association, 21*(153), 65-66. https://doi.org/10.1080/01621459.1926.10502161
 
+## Ciência aberta e dados abertos {-}
+
+- **Saldanha, R., Bastos, R., & Barcellos, C. (2019).** Microdatasus: pacote para download e pré-processamento de microdados do Departamento de Informática do SUS (DATASUS). *Cadernos de Saúde Pública, 35*(9), 1-9. https://doi.org/10.1590/0102-311x00032419
+
+- **UNESCO (2021).** Recomendação da UNESCO sobre Ciência Aberta. Paris: UNESCO. https://www.unesco.org/en/open-science
+
+- **Wilkinson, M. D., et al. (2016).** The FAIR Guiding Principles for scientific data management and stewardship. *Scientific Data, 3*, 160018. https://doi.org/10.1038/sdata.2016.18
+
+- **BRASIL. Ministério da Saúde.** Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. https://datasus.saude.gov.br
+
 ## Software {-}
 
 - **R Core Team (2025).** R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
