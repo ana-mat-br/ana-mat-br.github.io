@@ -17,7 +17,7 @@ Ministrando aulas para os cursos da área de **saúde**, **esporte** e **psicolo
 
 A estatística está em tudo na verdade... e para dizer uma coisa "bem chique":  **a estatística é a base da Inteligência Artificial**. 
 
-Advinha quem está por trás: 
+Adivinha quem está por trás: 
 
 - 🤖 dos famosos algoritmos das redes sociais
 
@@ -508,23 +508,27 @@ Resultados da amostra (364 estudantes):
 
 Generalização para TODA a UFTM (6.900 estudantes):
 
--✅ Média estimada: 6,8
+- ✅ Média estimada: 6,8
 
--📏 Intervalo de confiança (IC95%): 6,46 a 7,14
+- 📏 Intervalo de confiança (IC95%): 6,65 a 6,95
 
--⚠️ Margem de erro: ±5%
+- 📐 Cálculo: 6,8 ± 1,96 × 1,5/√364 = 6,8 ± 0,15
 
--🎯 **Interpretação:** 
-Temos 95% de confiança de que o bem-estar emocional médio de TODOS os estudantes da UFTM está entre 6,46 e 7,14.
+- 🎯 **Interpretação:** 
+Temos 95% de confiança de que o bem-estar emocional médio de TODOS os estudantes da UFTM está entre 6,65 e 6,95.
+
+> ⚠️ **Atenção a uma confusão comum:** a *margem de erro de 5%* usada no cálculo do tamanho da amostra é dada em **pontos percentuais de uma proporção** — ela não é um percentual da média. O intervalo de confiança de uma **média** depende do desvio padrão da amostra, como na conta acima. São duas coisas diferentes.
 
 
 #### 💡 O que é IC95%?
 
-Se você repetisse essa pesquisa **100 vezes** com diferentes amostras aleatórias de 364 estudantes: 
+Se você repetisse essa pesquisa **100 vezes** com diferentes amostras aleatórias de 364 estudantes, e construísse **um intervalo a cada vez**:
 
-- ✅ Em **95 vezes**, a média estaria entre 6,46 e 7,14
+- ✅ Cerca de **95 desses intervalos** conteriam a verdadeira média de todos os estudantes
 
-- ❌ Em **5 vezes**, poderia estar fora desse intervalo (erro amostral)
+- ❌ Cerca de **5 deles** não conteriam (erro amostral)
+
+> 💡 **Repare na direção da afirmação:** o que varia de amostra para amostra é o **intervalo**, não a média populacional. A média de todos os estudantes é um número fixo e desconhecido: ou ela está dentro deste intervalo específico, ou não está. O que temos 95% de confiança é no **procedimento** que gerou o intervalo.
 
 ---
 
@@ -1112,7 +1116,7 @@ Você é pesquisador(a) e quer investigar a **adesão ao uso de equipamentos de 
 
 > **R:** _______ profissionais
 
-**b) Qual a diferença do tamano da amostra considerando população finita e infinita?**  
+**b) Qual a diferença do tamanho da amostra considerando população finita e infinita?**  
 
 > **R: sem considerar população finita (infinita):** _______ profissionais  
 
@@ -1128,7 +1132,7 @@ Você é pesquisador(a) e quer investigar a **adesão ao uso de equipamentos de 
 
 > **R: com erro de 3%:** _______ profissionais
 
-**e) Use o campo "Perda de elementos (%)" e considere 20% de perdas (profissionais de férias, licença, recusa). Quantas amostras você deveria ter?**  
+**e) Volte às configurações originais (95% de confiança, erro 5%, proporção 70%). Agora use o campo "Perda de elementos (%)" e considere 20% de perdas (profissionais de férias, licença, recusa). Quantas amostras você deveria ter?**  
 
 >**R: ajustado para perdas:** _______ profissionais
 
@@ -1161,7 +1165,7 @@ Agora imagine um cenário diferente:
 
 **O que fazer?** Quando não temos estimativa prévia, usamos **50%** (pior cenário, que gera maior amostra).
 
-**Teste:** Volte à calculadora e mude a "Proporção Estimada" para **50%**. Recalcule.
+**Teste:** Volte à calculadora, confira que os parâmetros estão nas configurações originais (95% de confiança, erro 5%, população finita de 450) e mude apenas a "Proporção Estimada" para **50%**. Recalcule.
 
 **Qual o novo tamanho da amostra?** _______ profissionais
 
@@ -1200,11 +1204,11 @@ Agora imagine um cenário diferente:
 
 **e) Ajustado para 20% de perdas:** 
 
-- pop. finita: 312 profissionais (250 ÷ 0,80)
+- pop. finita: 237 profissionais (189 ÷ 0,80 = 236,25, arredondando para cima)
 
 **Desafio Extra (proporção 50%):** 
 
-- pop. finita: 269 profissionais
+- pop. finita: 208 profissionais (contra 189 com proporção de 70%)
 - Mudou porque 50% é o cenário mais conservador (gera maior variabilidade)
 
 🤔 Entendendo a Variabilidade
@@ -1373,8 +1377,10 @@ Use quando sua população tem **subgrupos importantes** que precisam estar repr
 
 ### 📋 Como Fazer - Exemplo Prático UFTM:
 
-**População:** Estudantes da UFTM  
+**População:** Estudantes de graduação da UFTM  
 **Amostra necessária:** 364 estudantes
+
+> 📌 Nos exemplos de amostragem a seguir trabalhamos apenas com a **graduação** (~6.750 alunos). O N de 6.900 usado no cálculo amostral incluía também pós-graduação e cursos técnicos. Como os dois números são próximos, a amostra de 364 continua adequada — mas, na sua pesquisa, defina uma população só e use a mesma em todas as etapas.
 
 **Passo 1 - Definir estratos (por curso):**
 
@@ -1452,18 +1458,20 @@ Dentro de cada curso, fazer sorteio aleatório simples da quantidade calculada.
 **Passo 1 - Calcular o intervalo (k):**
 ```
 k = População / Amostra
-k = 6.750 / 364 = 18,5 ≈ 19
+k = 6.750 / 364 = 18,5  →  arredonde PARA BAIXO:  k = 18
 ```
 
-**Passo 2 - Sortear o primeiro (entre 1 e 19):**
+> ⚠️ **Atenção ao arredondamento:** aqui o k deve ser arredondado **para baixo**. Se usássemos k = 19, percorrendo a lista de 19 em 19 sairiam apenas 6.750 ÷ 19 = 355 pessoas — menos do que os 364 necessários. Com k = 18 saem 375, que cobre a amostra com folga.
+
+**Passo 2 - Sortear o primeiro (entre 1 e 18):**
 ```
 Sorteio: número 7
 ```
 
-**Passo 3 - Selecionar a cada 19:**
+**Passo 3 - Selecionar a cada 18:**
 ```
-Selecionados: 7, 26, 45, 64, 83, 102, 121, 140...
-(sempre somando 19 até completar 364)
+Selecionados: 7, 25, 43, 61, 79, 97, 115, 133...
+(sempre somando 18 até percorrer toda a lista)
 ```
 
 ### 💻 Como Fazer:
@@ -1622,7 +1630,7 @@ Pesquisador → Compartilha link → Quem quiser responde
 ### 📊 Exemplo Visual:
 
 ```
-POPULAÇÃO REAL (29 cursos da UFTM):
+POPULAÇÃO REAL (20 cursos da UFTM):
 🏥💼🎓🔬🏗️📚🎨🧪 (todos os cursos)
 
 FORMULÁRIO compartilhado só no grupo da Medicina:
@@ -1833,7 +1841,7 @@ Tenho lista completa da população?
 
 **Exemplo de redação completa:**
 
-> *"Utilizou-se amostragem estratificada proporcional, com estratos definidos por curso de graduação. A partir do cadastro institucional de 6.750 estudantes da UFTM, distribuídos em 20 cursos, calculou-se amostra de 364 alunos (margem de erro de 5%, nível de confiança de 95%). A distribuição amostral por curso respeitou a proporção de cada curso na população. Dentro de cada estrato, realizou-se sorteio aleatório simples utilizando gerador de números aleatórios (Random.org). Foram convidados 473 estudantes para compensar possíveis perdas estimadas em 25%. A taxa de resposta foi de 79% (n=374), superando o mínimo necessário. A amostra final apresentou distribuição por área (Saúde 38%, Exatas 36%, Humanas 26%) compatível com a população da instituição."*
+> *"Utilizou-se amostragem estratificada proporcional, com estratos definidos por curso de graduação. A partir do cadastro institucional de 6.750 estudantes da UFTM, distribuídos em 20 cursos, calculou-se amostra de 364 alunos (margem de erro de 5%, nível de confiança de 95%). A distribuição amostral por curso respeitou a proporção de cada curso na população. Dentro de cada estrato, realizou-se sorteio aleatório simples utilizando gerador de números aleatórios (Random.org). Foram convidados 486 estudantes para compensar possíveis perdas estimadas em 25% (364 ÷ 0,75). A taxa de resposta foi de 77% (n=374), superando o mínimo necessário. A amostra final apresentou distribuição por área (Saúde 38%, Exatas 36%, Humanas 26%) compatível com a população da instituição."*
 
 ---
 

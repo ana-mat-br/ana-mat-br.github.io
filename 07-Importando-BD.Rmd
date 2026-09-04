@@ -1,13 +1,13 @@
 # Importando banco de dados
 
-Na prática, os dados que vamos analisar estarão armazenado em um **banco de dados**, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
+Na prática, os dados que vamos analisar estarão armazenados em um **banco de dados**, um arquivo de banco de dados pode ser de diferentes tipos, por exemplo:
 
 + Arquivo do tipo Excel (xls ou xlsx)
 
 + Arquivo de texto separado por vírgulas (csv - _comma-separated values_)
 
 
-> Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar analises estatísticas, aqui estão algumas delas:
+> Existem várias fontes de dados abertas, onde podemos baixar um banco de dados para realizar análises estatísticas, aqui estão algumas delas:
 
 + DataSus: <https://datasus.saude.gov.br/transferencia-de-arquivos>
 
@@ -23,7 +23,7 @@ Na prática, os dados que vamos analisar estarão armazenado em um **banco de da
 1. Faça _download_ do banco de dados **mcdonald.csv** 
 (fonte original: https://www.kaggle.com/datasets/mcdonalds/nutrition-facts)
 
-2. Na área de ambinete de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:
+2. Na área de ambiente de memória, localize **Import Dataset**, ao clicar nessa opção você terá o seguinte:
 
 <center>![<font size="2"> Figura: Importando banco de dados</font>](telaImportDataset.png){width=40%}
 </center>
@@ -32,7 +32,7 @@ Na prática, os dados que vamos analisar estarão armazenado em um **banco de da
 
 + **_readr_** é uma pacote do R que faz a leitura de arquivo csv (se o pacote ainda não estiver instalado no seu computador, o R fará a instalação, se você concordar!)
 
-3. Clicando na opção **From Text (readr)**, no botão **browser** indidique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
+3. Clicando na opção **From Text (readr)**, no botão **browser** indique onde (no seu computador) está localizado o arquivo a ser importado. A seguinte tela será apresentada:
 
 <center>![<font size="2"> Figura: Prévia dos dados</font>](telaImportBrowser.png)
 </center>

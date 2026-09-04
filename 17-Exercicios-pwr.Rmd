@@ -93,8 +93,8 @@ pwr.t.test(d = 0.5, power = 0.8, sig.level = 0.05, type = "paired")
 ```
 
 ```{r p-wpcal, message=FALSE,  warning=FALSE}
-# Poder da amostra para Wilcoxon não pareado (aproximação pelo teste t)
-pwr.t.test(n = 26, d = 0.5*0.86, sig.level = 0.05, type = "two.sample")
+# Poder da amostra para Wilcoxon PAREADO (aproximação pelo teste t pareado)
+pwr.t.test(n = 26, d = 0.5*0.86, sig.level = 0.05, type = "paired")
 ```
 
 > **Atenção:** O **d de Cohen** foi criado para testes paramétricos, como o teste t. Para testes não paramétricos (Wilcoxon), utilize medidas específicas, pois a interpretação do d não se aplica ao contexto de ranks.
@@ -182,7 +182,8 @@ wilcox.test(dados_filtrados$Speed ~ dados_filtrados$Color)
 # Tamanho do efeito r de Wilcoxon para Green vs Yellow
 wilcox_effsize(dados_filtrados, Speed ~ Color)
 
-levels(dados_filtrados$Color)
+# Ordem em que os grupos são comparados
+unique(dados_filtrados$Color)
 ```
 
 A tabela apresentada é resultado da função `wilcox_effsize()` do pacote `rstatix` e resume o tamanho do efeito (r de Wilcoxon) para a comparação entre dois grupos ("Green" e "Yellow") em relação à variável "Speed". Veja como interpretar cada coluna:
@@ -201,9 +202,9 @@ A diferença de velocidade entre Pokémons verdes e amarelos é estatisticamente
 
 
 
-> No caso de teste pareado, acrescente o argumento `paired = TRUE`:
+> No caso de teste pareado, os dados precisam estar no **formato longo** (uma linha por observação, com uma coluna de valor e uma coluna indicando o momento), como fazemos no capítulo de comparação entre mais de dois grupos com a função `pivot_longer()`. Aí basta acrescentar o argumento `paired = TRUE`:
 > ```r
-> wilcox_effsize(dados, antes ~ depois, paired = TRUE)
+> wilcox_effsize(dados_long, nota ~ momento, paired = TRUE)
 > ```
 
 ---
@@ -245,7 +246,7 @@ Quando realizamos testes não paramétricos para comparar grupos, como o teste d
 |:---------------------|:----------------|
 | aproximadamente 0,10                | Pequeno         |
 | aproximadamente 0,30                | Moderado        |
-| maior ou igual 0,50                | Grande          |
+| maior ou igual a 0,50                | Grande          |
 
 **Exemplos:**
 
@@ -319,7 +320,7 @@ Quanto mais próximo de zero, menor a diferença. Quanto mais próximo de 1 (ou 
 Não existe uma medida "melhor" de forma absoluta; a escolha depende do contexto do estudo e das características dos dados. Ambas são úteis para interpretar a relevância prática das diferenças identificadas em testes não paramétricos.
 
 
-> **Nota:** Para a comparação entre os grupos *Green* e *Yellow* na variável *Speed*, o tamanho de efeito calculado pelo **r de Wilcoxon** foi **0,206** (efeito pequeno), enquanto o **delta de Cliff** foi **-0,240** (efeito pequeno, IC 95%: -0,414 a -0,050). É esperado que os valores numéricos dessas métricas diferem, pois são baseados em cálculos estatísticos distintos, mas ambos apontam para uma diferença de pequena magnitude entre os grupos.
+> **Nota:** Para a comparação entre os grupos *Green* e *Yellow* na variável *Speed*, o tamanho de efeito calculado pelo **r de Wilcoxon** foi **0,206** (efeito pequeno), enquanto o **delta de Cliff** foi **-0,240** (efeito pequeno, IC 95%: -0,414 a -0,050). É esperado que os valores numéricos dessas métricas difiram, pois são baseados em cálculos estatísticos distintos, mas ambos apontam para uma diferença de pequena magnitude entre os grupos.
 
 No entanto, é importante destacar que, neste caso, o valor negativo do delta de Cliff está condizente com o observado no boxplot: o grupo *Yellow* tende a apresentar valores de *Speed* ligeiramente maiores que o grupo *Green*, o que é evidenciado pela direção negativa do delta. 
 

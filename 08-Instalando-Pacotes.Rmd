@@ -1,10 +1,10 @@
 # Instalando pacotes
 
-Quando instalamos nosso ambiente computacional R e RStudio, instalamos uma versão básica, onde apenas os recursos básicos do R estão diponíveis, o pacote básico (**base**) do R.
+Quando instalamos nosso ambiente computacional R e RStudio, instalamos uma versão básica, onde apenas os recursos básicos do R estão disponíveis, o pacote básico (**base**) do R.
 
 Os pacotes (**packages**) do R são compostos por uma biblioteca (**library**) que é um conjunto de funções. Por exemplo, do pacote **base** usamos as funções min(), max(), mean(), median(), table(), var(), sd(), summary(), etc.
 
-Para ver a lista de funções que compõem a bilbioteca do pacote base, execute o código:
+Para ver a lista de funções que compõem a biblioteca do pacote base, execute o código:
 ```{r}
 library(help = "base")
 ```
@@ -17,7 +17,7 @@ Como nesse momento estamos interessados em otimizar o trabalho para realizar uma
 
 + IMPORTANTE 1: instalamos um pacote apenas uma vez (como um aplicativo no celular... a gente só refaz a instalação se o app _bugar_!)
 
-+ IMPORTANTE 2: todas vez precisamos carregar o pacote com as funções que queremos usar por meio da função **library()**
++ IMPORTANTE 2: toda vez precisamos carregar o pacote com as funções que queremos usar por meio da função **library()**
 
 Veja o código:
 
@@ -39,9 +39,9 @@ tbl_summary(mcdonald)
 
 + Observe no rodapé da tabela a seguinte legenda  **n (%); Median (IQR)**, isso significa que para
 
-    + **variáveis qualitativas:** n é a contagem (frequência absoluta) e entre parenteses (%) é mostrado a porcentagem de cada categoria.
+    + **variáveis qualitativas:** n é a contagem (frequência absoluta) e entre parênteses (%) é mostrado a porcentagem de cada categoria.
   
-    + **variveis quantitativas:** Median é a mediana e entre parenteses (IQR - de InterQuantile Range) estão o primeiro e terceiro quartil respectivamente. 
+    + **variáveis quantitativas:** Median é a mediana e entre parênteses (IQR - de Interquartile Range) estão o primeiro e terceiro quartil respectivamente. 
 
 ## Exemplo 1
 Como mostrar o resultado com a média e desvio padrão?
@@ -77,7 +77,7 @@ Algumas vezes é mais fácil excluir algumas variáveis, por exemplo queremos to
 # vamos usar a função select() do pacote tidyverse e colocar o sinal de menos (-)
 # antes dos nomes das variáveis que queremos excluir
 # IMPORTANTE: Serving Size é um nome de variável com espaço 
-# então devemos referênciá-la entre aspas: `Serving Size`
+# então devemos referenciá-la entre aspas: `Serving Size`
 dadosSelecionados2 <- select (mcdonald, -Item, -`Serving Size`)
 
 # faça uma tabela para o objeto dadosSelecionados2
@@ -86,12 +86,12 @@ tbl_summary(dadosSelecionados2)
 
 
 ## Exemplo 4
-Como selecinar um conjunto de variáveis que estão em sequência, por exemplo, de **Carbohydrates** a **Cholesterol (% Daily Value)**
+Como selecionar um conjunto de variáveis que estão em sequência, por exemplo, de **Carbohydrates** a **Cholesterol (% Daily Value)**
 ```{r eval=FALSE}
 # vamos usar a função select() do pacote tidyverse e colocar o sinal de dois pontos (:)
 # entre a primeira variável e a última da sequência 
 # IMPORTANTE: Cholesterol (% Daily Value) é um nome de variável com espaço 
-# então devemos referênciá-la entre aspas: `Cholesterol (% Daily Value)`
+# então devemos referenciá-la entre aspas: `Cholesterol (% Daily Value)`
 dadosSelecionados3 <- select (mcdonald, Carbohydrates:`Cholesterol (% Daily Value)`)
 
 # faça uma tabela para o objeto dadosSelecionados

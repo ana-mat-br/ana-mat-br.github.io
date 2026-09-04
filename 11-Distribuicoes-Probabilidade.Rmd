@@ -52,7 +52,7 @@ y <- dgeom(x, prob = p)
 
 ggplot(data.frame(x, y), aes(x, y)) +
   geom_bar(stat = "identity", fill = "purple") +
-  labs(title = "Distribuição Geométrica (p = 0.3)", x = "Tentativas até o 1º Sucesso", y = "Probabilidade")
+  labs(title = "Distribuição Geométrica (p = 0.3)", x = "Número de falhas antes do 1º sucesso", y = "Probabilidade")
 ```
 
 ## Distribuições Contínuas
@@ -80,7 +80,7 @@ x <- seq(0, 5, length.out = 100)
 y <- dexp(x, rate = lambda)
 
 ggplot(data.frame(x, y), aes(x, y)) +
-  geom_line(color = "firebrick", size = 1.2) +
+  geom_line(color = "firebrick", linewidth = 1.2) +
   labs(title = "Distribuição Exponencial", x = "Tempo", y = "Densidade")
 ```
 
@@ -93,7 +93,7 @@ x <- seq(0, 1, length.out = 100)
 y <- dunif(x, min = 0, max = 1)
 
 ggplot(data.frame(x, y), aes(x, y)) +
-  geom_line(color = "goldenrod", size = 1.2) +
+  geom_line(color = "goldenrod", linewidth = 1.2) +
   labs(title = "Distribuição Uniforme Contínua (0 a 1)", x = "x", y = "Densidade")
 ```
 
@@ -106,7 +106,7 @@ x <- seq(-4, 4, length.out = 100)
 y <- dt(x, df = 5)
 
 ggplot(data.frame(x, y), aes(x, y)) +
-  geom_line(color = "navy", size = 1.2) +
+  geom_line(color = "navy", linewidth = 1.2) +
   labs(title = "Distribuição t de Student (df = 5)", x = "x", y = "Densidade")
 ```
 
@@ -119,7 +119,7 @@ x <- seq(0, 20, length.out = 100)
 y <- dchisq(x, df = 5)
 
 ggplot(data.frame(x, y), aes(x, y)) +
-  geom_line(color = "tomato", size = 1.2) +
+  geom_line(color = "tomato", linewidth = 1.2) +
   labs(title = "Distribuição Qui-quadrado (df = 5)", x = "x", y = "Densidade")
 ```
 
@@ -132,7 +132,7 @@ x <- seq(0, 5, length.out = 100)
 y <- df(x, df1 = 5, df2 = 10)
 
 ggplot(data.frame(x, y), aes(x, y)) +
-  geom_line(color = "darkviolet", size = 1.2) +
+  geom_line(color = "darkviolet", linewidth = 1.2) +
   labs(title = "Distribuição F de Fisher (df1 = 5, df2 = 10)", x = "x", y = "Densidade")
 ```
 

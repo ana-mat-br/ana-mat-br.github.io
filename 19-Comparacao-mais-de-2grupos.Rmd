@@ -197,7 +197,7 @@ Por isso, para comparação de mais de dois grupos, utiliza-se primeiro um teste
 
 ## ANOVA para Dados Repetidos no R
 
-Vamos analisar o desempenho de 6 alunos em 3 provas diferentes (Prova 1, Prova 2 e Prova 3). Cada aluno fez todas as provas, ou seja, temos medidas repetidas!
+Vamos analisar o desempenho de 20 alunos em 3 provas diferentes (Prova 1, Prova 2 e Prova 3). Cada aluno fez todas as provas, ou seja, temos medidas repetidas!
 
 ### Gerar dados simulados
 
@@ -238,7 +238,7 @@ library(RColorBrewer)
 cores <- colorRampPalette(brewer.pal(9, "Set1"))(20)
 
 ggplot(dados_long, aes(x = prova, y = nota, group = aluno, color = aluno)) +
-  geom_line(alpha = 0.7, size = 1) +
+  geom_line(alpha = 0.7, linewidth = 1) +
   geom_point(size = 2) +
   labs(x = "Avaliações", y = "Pontuação") +
   scale_color_manual(values = cores) +
@@ -287,12 +287,14 @@ modelo_afex
 ```
 
 - **Effect**: O fator analisado (`prova`), ou seja, se as notas variam entre as provas.
-- **df**: Graus de liberdade. Note que aparecem valores decimais (1.91, 36.27) porque foi aplicada a correção de Greenhouse-Geisser (GG), devido à violação da esfericidade.
+- **df**: Graus de liberdade. Note que aparecem valores decimais (1.91, 36.27) porque foi aplicada a correção de Greenhouse-Geisser (GG).
 - **MSE**: Erro quadrático médio.
 - **F**: Estatística F da ANOVA.
 - **ges**: Generalized Eta Squared, uma medida de tamanho de efeito.
 - **p.value**: Valor de p associado ao teste F. Neste caso, p = 0.009 indica que há diferença significativa entre as médias das provas (p < 0.05).
-- **Observação sobre esfericidade:** A linha `Sphericity correction method: GG` informa que o pressuposto de esfericidade foi violado (teste de Mauchly p < 0.05) e, por isso, os graus de liberdade e o valor de p foram corrigidos automaticamente pelo método de Greenhouse-Geisser.
+- **Observação sobre esfericidade:** A linha `Sphericity correction method: GG` informa apenas **qual correção o pacote aplicou**, e não que a esfericidade tenha sido violada. O `aov_ez()` aplica Greenhouse-Geisser **por padrão**, como postura conservadora, independentemente do resultado do teste de Mauchly. Neste exemplo, aliás, o Mauchly **não** indicou violação (p = 0,64) — o que se vê nos graus de liberdade é o fator de correção ε = 0,954 multiplicando os df originais (2 × 0,954 = 1,91 e 38 × 0,954 = 36,27).
+
+> 💡 Para ver o teste de Mauchly e os df sem correção, use `summary(modelo_afex)`.
 
 > A análise de variância (ANOVA) mostrou que o fator "prova" teve um efeito significativo sobre as notas (F(1.91, 36.27) = 5.53, p = 0.009, ges = 0.168), indicando que as médias das notas diferem entre as provas.
 

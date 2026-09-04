@@ -51,6 +51,11 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.12/grViz.js"></script>
 
 
 <style type="text/css">
@@ -401,266 +406,281 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="13.1" data-path="gráficos.html"><a href="gráficos.html#histograma"><i class="fa fa-check"></i><b>13.1</b> Histograma</a></li>
 <li class="chapter" data-level="13.2" data-path="gráficos.html"><a href="gráficos.html#boxplot"><i class="fa fa-check"></i><b>13.2</b> Boxplot</a></li>
 <li class="chapter" data-level="13.3" data-path="gráficos.html"><a href="gráficos.html#atividade-6"><i class="fa fa-check"></i><b>13.3</b> Atividade 6</a></li>
-<li class="chapter" data-level="13.4" data-path="gráficos.html"><a href="gráficos.html#principais-vantagens"><i class="fa fa-check"></i><b>13.4</b> Principais Vantagens</a></li>
-<li class="chapter" data-level="13.5" data-path="gráficos.html"><a href="gráficos.html#exemplos-de-gr%C3%A1ficos-simples-e-bonitos-com-ggplot2"><i class="fa fa-check"></i><b>13.5</b> Exemplos de Gráficos Simples e Bonitos com ggplot2</a>
+</ul></li>
+<li class="chapter" data-level="14" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html"><i class="fa fa-check"></i><b>14</b> Pacote <code>ggplot</code></a>
 <ul>
-<li class="chapter" data-level="13.5.1" data-path="gráficos.html"><a href="gráficos.html#gr%C3%A1fico-de-dispers%C3%A3o-scatterplot"><i class="fa fa-check"></i><b>13.5.1</b> Gráfico de Dispersão (Scatterplot)</a></li>
-<li class="chapter" data-level="13.5.2" data-path="gráficos.html"><a href="gráficos.html#gr%C3%A1fico-de-barras"><i class="fa fa-check"></i><b>13.5.2</b> Gráfico de Barras</a></li>
-<li class="chapter" data-level="13.5.3" data-path="gráficos.html"><a href="gráficos.html#histograma-1"><i class="fa fa-check"></i><b>13.5.3</b> Histograma</a></li>
-<li class="chapter" data-level="13.5.4" data-path="gráficos.html"><a href="gráficos.html#boxplot-1"><i class="fa fa-check"></i><b>13.5.4</b> Boxplot</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="gráficos.html"><a href="gráficos.html#exemplos-de-bancos-de-dados-do-r"><i class="fa fa-check"></i><b>13.6</b> Exemplos de Bancos de Dados do R</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>14</b> Distribuição de Probabilidade</a>
+<li class="chapter" data-level="14.1" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#principais-vantagens"><i class="fa fa-check"></i><b>14.1</b> Principais Vantagens</a></li>
+<li class="chapter" data-level="14.2" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#exemplos-de-gr%C3%A1ficos-simples-e-bonitos-com-ggplot2"><i class="fa fa-check"></i><b>14.2</b> Exemplos de Gráficos Simples e Bonitos com ggplot2</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>14.1</b> Distribuição Normal</a></li>
-<li class="chapter" data-level="14.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gr%C3%A1fico-qq"><i class="fa fa-check"></i><b>14.2</b> Gráfico QQ</a></li>
-<li class="chapter" data-level="14.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>14.3</b> Atividade 7</a></li>
+<li class="chapter" data-level="14.2.1" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#gr%C3%A1fico-de-dispers%C3%A3o-scatterplot"><i class="fa fa-check"></i><b>14.2.1</b> Gráfico de Dispersão (Scatterplot)</a></li>
+<li class="chapter" data-level="14.2.2" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#gr%C3%A1fico-de-barras"><i class="fa fa-check"></i><b>14.2.2</b> Gráfico de Barras</a></li>
+<li class="chapter" data-level="14.2.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#histograma-1"><i class="fa fa-check"></i><b>14.2.3</b> Histograma</a></li>
+<li class="chapter" data-level="14.2.4" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#boxplot-1"><i class="fa fa-check"></i><b>14.2.4</b> Boxplot</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>15</b> Exemplos de distribuições</a>
+<li class="chapter" data-level="14.3" data-path="pacote-ggplot.html"><a href="pacote-ggplot.html#exemplos-de-bancos-de-dados-do-r"><i class="fa fa-check"></i><b>14.3</b> Exemplos de Bancos de Dados do R</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html"><i class="fa fa-check"></i><b>15</b> Distribuição de Probabilidade</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribui%C3%A7%C3%B5es-discretas"><i class="fa fa-check"></i><b>15.1</b> Distribuições Discretas</a>
+<li class="chapter" data-level="15.1" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>15.1</b> Distribuição Normal</a></li>
+<li class="chapter" data-level="15.2" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#gr%C3%A1fico-qq"><i class="fa fa-check"></i><b>15.2</b> Gráfico QQ</a></li>
+<li class="chapter" data-level="15.3" data-path="distribuição-de-probabilidade.html"><a href="distribuição-de-probabilidade.html#atividade-7"><i class="fa fa-check"></i><b>15.3</b> Atividade 7</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html"><i class="fa fa-check"></i><b>16</b> Exemplos de distribuições</a>
 <ul>
-<li class="chapter" data-level="15.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>15.1.1</b> Binomial</a></li>
-<li class="chapter" data-level="15.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>15.1.2</b> Poisson</a></li>
-<li class="chapter" data-level="15.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geom%C3%A9trica"><i class="fa fa-check"></i><b>15.1.3</b> Geométrica</a></li>
-</ul></li>
-<li class="chapter" data-level="15.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribui%C3%A7%C3%B5es-cont%C3%ADnuas"><i class="fa fa-check"></i><b>15.2</b> Distribuições Contínuas</a>
+<li class="chapter" data-level="16.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribui%C3%A7%C3%B5es-discretas"><i class="fa fa-check"></i><b>16.1</b> Distribuições Discretas</a>
 <ul>
-<li class="chapter" data-level="15.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>15.2.1</b> Normal</a></li>
-<li class="chapter" data-level="15.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>15.2.2</b> Exponencial</a></li>
-<li class="chapter" data-level="15.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-cont%C3%ADnua"><i class="fa fa-check"></i><b>15.2.3</b> Uniforme Contínua</a></li>
-<li class="chapter" data-level="15.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>15.2.4</b> t de Student</a></li>
-<li class="chapter" data-level="15.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-%CF%87%C2%B2"><i class="fa fa-check"></i><b>15.2.5</b> Qui-Quadrado (χ²)</a></li>
-<li class="chapter" data-level="15.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>15.2.6</b> F de Fisher</a></li>
+<li class="chapter" data-level="16.1.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#binomial"><i class="fa fa-check"></i><b>16.1.1</b> Binomial</a></li>
+<li class="chapter" data-level="16.1.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#poisson"><i class="fa fa-check"></i><b>16.1.2</b> Poisson</a></li>
+<li class="chapter" data-level="16.1.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#geom%C3%A9trica"><i class="fa fa-check"></i><b>16.1.3</b> Geométrica</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>16</b> Normal ou Não?</a>
+<li class="chapter" data-level="16.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#distribui%C3%A7%C3%B5es-cont%C3%ADnuas"><i class="fa fa-check"></i><b>16.2</b> Distribuições Contínuas</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>16.1</b> Dados que seguem distribuição normal</a></li>
-<li class="chapter" data-level="16.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-d%C3%BAvida"><i class="fa fa-check"></i><b>16.2</b> Dados que geram dúvida</a></li>
-<li class="chapter" data-level="16.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-n%C3%A3o-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>16.3</b> Dados que não seguem distribuição normal</a></li>
-<li class="chapter" data-level="16.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentra%C3%A7%C3%A3o-de-repeti%C3%A7%C3%A3o-de-valor-n%C3%A3o-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>16.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+<li class="chapter" data-level="16.2.1" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#normal"><i class="fa fa-check"></i><b>16.2.1</b> Normal</a></li>
+<li class="chapter" data-level="16.2.2" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#exponencial"><i class="fa fa-check"></i><b>16.2.2</b> Exponencial</a></li>
+<li class="chapter" data-level="16.2.3" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#uniforme-cont%C3%ADnua"><i class="fa fa-check"></i><b>16.2.3</b> Uniforme Contínua</a></li>
+<li class="chapter" data-level="16.2.4" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#t-de-student"><i class="fa fa-check"></i><b>16.2.4</b> t de Student</a></li>
+<li class="chapter" data-level="16.2.5" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#qui-quadrado-%CF%87%C2%B2"><i class="fa fa-check"></i><b>16.2.5</b> Qui-Quadrado (χ²)</a></li>
+<li class="chapter" data-level="16.2.6" data-path="exemplos-de-distribuições.html"><a href="exemplos-de-distribuições.html#f-de-fisher"><i class="fa fa-check"></i><b>16.2.6</b> F de Fisher</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>17</b> Estatística Inferencial</a>
+</ul></li>
+<li class="chapter" data-level="17" data-path="normal-ou-não.html"><a href="normal-ou-não.html"><i class="fa fa-check"></i><b>17</b> Normal ou Não?</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estat%C3%ADstico"><i class="fa fa-check"></i><b>17.1</b> Etapas de um Teste Estatístico</a></li>
-<li class="chapter" data-level="17.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>17.2</b> Erros Tipo I e Tipo II</a></li>
-<li class="chapter" data-level="17.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estat%C3%ADstico"><i class="fa fa-check"></i><b>17.3</b> Poder do Teste Estatístico</a></li>
-<li class="chapter" data-level="17.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decis%C3%B5es-e-poder-do-teste"><i class="fa fa-check"></i><b>17.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
-<li class="chapter" data-level="17.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>17.5</b> Tamanho do Efeito</a>
+<li class="chapter" data-level="17.1" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>17.1</b> Dados que seguem distribuição normal</a></li>
+<li class="chapter" data-level="17.2" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-geram-d%C3%BAvida"><i class="fa fa-check"></i><b>17.2</b> Dados que geram dúvida</a></li>
+<li class="chapter" data-level="17.3" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-que-n%C3%A3o-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>17.3</b> Dados que não seguem distribuição normal</a></li>
+<li class="chapter" data-level="17.4" data-path="normal-ou-não.html"><a href="normal-ou-não.html#dados-com-forte-concentra%C3%A7%C3%A3o-de-repeti%C3%A7%C3%A3o-de-valor-n%C3%A3o-seguem-distribui%C3%A7%C3%A3o-normal"><i class="fa fa-check"></i><b>17.4</b> Dados com forte concentração de repetição de valor (não seguem distribuição normal)</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html"><i class="fa fa-check"></i><b>18</b> Estatística Inferencial</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-%C3%A9-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>17.5.1</b> O que é o Tamanho do Efeito?</a></li>
-<li class="chapter" data-level="17.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>17.5.2</b> Exemplos para Entender Melhor</a></li>
-</ul></li>
-<li class="chapter" data-level="17.6" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#medidas-comuns-de-tamanho-do-efeito"><i class="fa fa-check"></i><b>17.6</b> Medidas Comuns de Tamanho do Efeito</a>
+<li class="chapter" data-level="18.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#etapas-de-um-teste-estat%C3%ADstico"><i class="fa fa-check"></i><b>18.1</b> Etapas de um Teste Estatístico</a></li>
+<li class="chapter" data-level="18.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#erros-tipo-i-e-tipo-ii"><i class="fa fa-check"></i><b>18.2</b> Erros Tipo I e Tipo II</a></li>
+<li class="chapter" data-level="18.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#poder-do-teste-estat%C3%ADstico"><i class="fa fa-check"></i><b>18.3</b> Poder do Teste Estatístico</a></li>
+<li class="chapter" data-level="18.4" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tabela-erros-decis%C3%B5es-e-poder-do-teste"><i class="fa fa-check"></i><b>18.4</b> Tabela: Erros, Decisões e Poder do Teste</a></li>
+<li class="chapter" data-level="18.5" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#tamanho-do-efeito"><i class="fa fa-check"></i><b>18.5</b> Tamanho do Efeito</a>
 <ul>
-<li class="chapter" data-level="17.6.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>17.6.1</b> d de Cohen (teste t)</a></li>
-<li class="chapter" data-level="17.6.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#c-de-cramer-para-tabela-2x2-teste-qui-quadrado"><i class="fa fa-check"></i><b>17.6.2</b> C de Cramer, para tabela 2x2 (teste qui-quadrado)</a></li>
-<li class="chapter" data-level="17.6.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#coeficiente-de-correla%C3%A7%C3%A3o-de-pearson-r"><i class="fa fa-check"></i><b>17.6.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+<li class="chapter" data-level="18.5.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#o-que-%C3%A9-o-tamanho-do-efeito"><i class="fa fa-check"></i><b>18.5.1</b> O que é o Tamanho do Efeito?</a></li>
+<li class="chapter" data-level="18.5.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#exemplos-para-entender-melhor"><i class="fa fa-check"></i><b>18.5.2</b> Exemplos para Entender Melhor</a></li>
 </ul></li>
-<li class="chapter" data-level="17.7" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#por-que-o-tamanho-do-efeito-%C3%A9-importante"><i class="fa fa-check"></i><b>17.7</b> Por que o Tamanho do Efeito é Importante?</a></li>
-<li class="chapter" data-level="17.8" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>17.8</b> Testes</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html"><i class="fa fa-check"></i><b>18</b> Testes de Comparação entre Grupos</a>
+<li class="chapter" data-level="18.6" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#medidas-comuns-de-tamanho-do-efeito"><i class="fa fa-check"></i><b>18.6</b> Medidas Comuns de Tamanho do Efeito</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#compara%C3%A7%C3%B5es-pareadas-dependentes"><i class="fa fa-check"></i><b>18.1</b> Comparações Pareadas (Dependentes)</a></li>
-<li class="chapter" data-level="18.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#compara%C3%A7%C3%B5es-n%C3%A3o-pareadas-independentes"><i class="fa fa-check"></i><b>18.2</b> Comparações Não-Pareadas (Independentes)</a></li>
-<li class="chapter" data-level="18.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#n%C3%BAmero-de-grupos-na-compara%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>18.3</b> Número de Grupos na Comparação</a></li>
-<li class="chapter" data-level="18.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#testes-param%C3%A9tricos-e-n%C3%A3o-param%C3%A9tricos"><i class="fa fa-check"></i><b>18.4</b> Testes Paramétricos e Não Paramétricos</a></li>
-<li class="chapter" data-level="18.5" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-t-pareado"><i class="fa fa-check"></i><b>18.5</b> Teste t pareado</a></li>
-<li class="chapter" data-level="18.6" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#wilcoxon-pareado"><i class="fa fa-check"></i><b>18.6</b> Wilcoxon pareado</a></li>
-<li class="chapter" data-level="18.7" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>18.7</b> Teste t não pareado</a>
+<li class="chapter" data-level="18.6.1" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#d-de-cohen-teste-t"><i class="fa fa-check"></i><b>18.6.1</b> d de Cohen (teste t)</a></li>
+<li class="chapter" data-level="18.6.2" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#v-de-cram%C3%A9r-teste-qui-quadrado"><i class="fa fa-check"></i><b>18.6.2</b> V de Cramér (teste qui-quadrado)</a></li>
+<li class="chapter" data-level="18.6.3" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#coeficiente-de-correla%C3%A7%C3%A3o-de-pearson-r"><i class="fa fa-check"></i><b>18.6.3</b> Coeficiente de Correlação de Pearson (r)</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#por-que-o-tamanho-do-efeito-%C3%A9-importante"><i class="fa fa-check"></i><b>18.7</b> Por que o Tamanho do Efeito é Importante?</a></li>
+<li class="chapter" data-level="18.8" data-path="estatística-inferencial-2.html"><a href="estatística-inferencial-2.html#testes"><i class="fa fa-check"></i><b>18.8</b> Testes</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html"><i class="fa fa-check"></i><b>19</b> Testes de Comparação entre Grupos</a>
 <ul>
-<li class="chapter" data-level="18.7.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-de-vari%C3%A2ncia"><i class="fa fa-check"></i><b>18.7.1</b> Teste de variância</a></li>
+<li class="chapter" data-level="19.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#compara%C3%A7%C3%B5es-pareadas-dependentes"><i class="fa fa-check"></i><b>19.1</b> Comparações Pareadas (Dependentes)</a></li>
+<li class="chapter" data-level="19.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#compara%C3%A7%C3%B5es-n%C3%A3o-pareadas-independentes"><i class="fa fa-check"></i><b>19.2</b> Comparações Não-Pareadas (Independentes)</a></li>
+<li class="chapter" data-level="19.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#n%C3%BAmero-de-grupos-na-compara%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>19.3</b> Número de Grupos na Comparação</a></li>
+<li class="chapter" data-level="19.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#testes-param%C3%A9tricos-e-n%C3%A3o-param%C3%A9tricos"><i class="fa fa-check"></i><b>19.4</b> Testes Paramétricos e Não Paramétricos</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#wilcoxon-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>18.8</b> Wilcoxon não pareado</a></li>
-<li class="chapter" data-level="18.9" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#teste-bilateral-vs.-teste-unilateral"><i class="fa fa-check"></i><b>18.9</b> Teste bilateral vs. teste unilateral</a>
+<li class="chapter" data-level="20" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html"><i class="fa fa-check"></i><b>20</b> Comparação entre dois grupos</a>
 <ul>
-<li class="chapter" data-level="18.9.1" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#o-que-s%C3%A3o"><i class="fa fa-check"></i><b>18.9.1</b> O que são?</a></li>
-<li class="chapter" data-level="18.9.2" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#formula%C3%A7%C3%A3o-das-hip%C3%B3teses"><i class="fa fa-check"></i><b>18.9.2</b> Formulação das hipóteses</a></li>
-<li class="chapter" data-level="18.9.3" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#influ%C3%AAncia-no-c%C3%A1lculo-do-p-valor"><i class="fa fa-check"></i><b>18.9.3</b> Influência no cálculo do p-valor</a></li>
-<li class="chapter" data-level="18.9.4" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#o-que-muda-nas-fun%C3%A7%C3%B5es-t.test-e-wilcox.test"><i class="fa fa-check"></i><b>18.9.4</b> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.10" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exerc%C3%ADcio-1"><i class="fa fa-check"></i><b>18.10</b> Exercício 1</a></li>
-<li class="chapter" data-level="18.11" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exerc%C3%ADcio-2"><i class="fa fa-check"></i><b>18.11</b> Exercício 2</a></li>
-<li class="chapter" data-level="18.12" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exerc%C3%ADcio-3"><i class="fa fa-check"></i><b>18.12</b> Exercício 3</a></li>
-<li class="chapter" data-level="18.13" data-path="testes-de-comparação-entre-grupos.html"><a href="testes-de-comparação-entre-grupos.html#exerc%C3%ADcio-4"><i class="fa fa-check"></i><b>18.13</b> Exercício 4</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html"><i class="fa fa-check"></i><b>19</b> Cálculo amostral no R</a>
+<li class="chapter" data-level="20.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-pareado"><i class="fa fa-check"></i><b>20.1</b> Teste t pareado</a></li>
+<li class="chapter" data-level="20.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-pareado"><i class="fa fa-check"></i><b>20.2</b> Wilcoxon pareado</a></li>
+<li class="chapter" data-level="20.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>20.3</b> Teste t não pareado</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#principais-pacotes-para-c%C3%A1lculo-amostral"><i class="fa fa-check"></i><b>19.1</b> Principais Pacotes para Cálculo Amostral</a></li>
-<li class="chapter" data-level="19.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-c%C3%A1lculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>19.2</b> Exemplo de cálculo amostral para teste t</a></li>
-<li class="chapter" data-level="19.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-%C3%A9-o-d-de-cohen"><i class="fa fa-check"></i><b>19.3</b> O que é o d de Cohen?</a>
+<li class="chapter" data-level="20.3.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-de-vari%C3%A2ncia"><i class="fa fa-check"></i><b>20.3.1</b> Teste de variância</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#wilcoxon-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>20.4</b> Wilcoxon não pareado</a></li>
+<li class="chapter" data-level="20.5" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#teste-bilateral-vs.-teste-unilateral"><i class="fa fa-check"></i><b>20.5</b> Teste bilateral vs. teste unilateral</a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#f%C3%B3rmula-geral-para-dados-n%C3%A3o-pareados-amostras-independentes"><i class="fa fa-check"></i><b>19.3.1</b> Fórmula Geral para Dados Não Pareados (Amostras Independentes)</a></li>
-<li class="chapter" data-level="19.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#f%C3%B3rmula-para-dados-pareados-amostras-dependentes"><i class="fa fa-check"></i><b>19.3.2</b> Fórmula para Dados Pareados (Amostras Dependentes)</a></li>
+<li class="chapter" data-level="20.5.1" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-s%C3%A3o"><i class="fa fa-check"></i><b>20.5.1</b> O que são?</a></li>
+<li class="chapter" data-level="20.5.2" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#formula%C3%A7%C3%A3o-das-hip%C3%B3teses"><i class="fa fa-check"></i><b>20.5.2</b> Formulação das hipóteses</a></li>
+<li class="chapter" data-level="20.5.3" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#influ%C3%AAncia-no-c%C3%A1lculo-do-p-valor"><i class="fa fa-check"></i><b>20.5.3</b> Influência no cálculo do p-valor</a></li>
+<li class="chapter" data-level="20.5.4" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#o-que-muda-nas-fun%C3%A7%C3%B5es-t.test-e-wilcox.test"><i class="fa fa-check"></i><b>20.5.4</b> O que muda nas funções <code>t.test()</code> e <code>wilcox.test()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="19.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-pr%C3%A1ticos"><i class="fa fa-check"></i><b>19.4</b> Exemplos práticos</a>
+<li class="chapter" data-level="20.6" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exerc%C3%ADcio-1"><i class="fa fa-check"></i><b>20.6</b> Exercício 1</a></li>
+<li class="chapter" data-level="20.7" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exerc%C3%ADcio-2"><i class="fa fa-check"></i><b>20.7</b> Exercício 2</a></li>
+<li class="chapter" data-level="20.8" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exerc%C3%ADcio-3"><i class="fa fa-check"></i><b>20.8</b> Exercício 3</a></li>
+<li class="chapter" data-level="20.9" data-path="comparação-entre-dois-grupos.html"><a href="comparação-entre-dois-grupos.html#exerc%C3%ADcio-4"><i class="fa fa-check"></i><b>20.9</b> Exercício 4</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html"><i class="fa fa-check"></i><b>21</b> Cálculo amostral no R</a>
 <ul>
-<li class="chapter" data-level="19.4.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#medicina-compara%C3%A7%C3%A3o-de-dois-tratamentos-para-dor"><i class="fa fa-check"></i><b>19.4.1</b> Medicina: Comparação de dois tratamentos para dor</a></li>
-<li class="chapter" data-level="19.4.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#psicologia-interven%C3%A7%C3%A3o-para-redu%C3%A7%C3%A3o-de-ansiedade"><i class="fa fa-check"></i><b>19.4.2</b> Psicologia: Intervenção para redução de ansiedade</a></li>
-<li class="chapter" data-level="19.4.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#educa%C3%A7%C3%A3o-f%C3%ADsica-efeito-de-um-programa-de-treinamento-na-performance-de-corrida"><i class="fa fa-check"></i><b>19.4.3</b> Educação Física: Efeito de um programa de treinamento na performance de corrida</a></li>
-</ul></li>
-<li class="chapter" data-level="19.5" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-voc%C3%AA-j%C3%A1-tem-o-tamanho-da-amostra"><i class="fa fa-check"></i><b>19.5</b> Como calcular o poder do teste quando você já tem o tamanho da amostra</a>
+<li class="chapter" data-level="21.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#principais-pacotes-para-c%C3%A1lculo-amostral"><i class="fa fa-check"></i><b>21.1</b> Principais Pacotes para Cálculo Amostral</a></li>
+<li class="chapter" data-level="21.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo-de-c%C3%A1lculo-amostral-para-teste-t"><i class="fa fa-check"></i><b>21.2</b> Exemplo de cálculo amostral para teste t</a></li>
+<li class="chapter" data-level="21.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#o-que-%C3%A9-o-d-de-cohen"><i class="fa fa-check"></i><b>21.3</b> O que é o d de Cohen?</a>
 <ul>
-<li class="chapter" data-level="19.5.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo"><i class="fa fa-check"></i><b>19.5.1</b> Exemplo</a></li>
+<li class="chapter" data-level="21.3.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#f%C3%B3rmula-geral-para-dados-n%C3%A3o-pareados-amostras-independentes"><i class="fa fa-check"></i><b>21.3.1</b> Fórmula Geral para Dados Não Pareados (Amostras Independentes)</a></li>
+<li class="chapter" data-level="21.3.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#f%C3%B3rmula-para-dados-pareados-amostras-dependentes"><i class="fa fa-check"></i><b>21.3.2</b> Fórmula para Dados Pareados (Amostras Dependentes)</a></li>
 </ul></li>
-<li class="chapter" data-level="19.6" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#c%C3%A1lculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon"><i class="fa fa-check"></i><b>19.6</b> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon</a>
+<li class="chapter" data-level="21.4" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplos-pr%C3%A1ticos"><i class="fa fa-check"></i><b>21.4</b> Exemplos práticos</a>
 <ul>
-<li class="chapter" data-level="19.6.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-t-pareado-1"><i class="fa fa-check"></i><b>19.6.1</b> Teste t Pareado</a></li>
-<li class="chapter" data-level="19.6.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-n%C3%A3o-pareadas"><i class="fa fa-check"></i><b>19.6.2</b> Teste de Wilcoxon para Amostras Não Pareadas</a></li>
-<li class="chapter" data-level="19.6.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado"><i class="fa fa-check"></i><b>19.6.3</b> Teste de Wilcoxon Pareado</a></li>
+<li class="chapter" data-level="21.4.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#medicina-compara%C3%A7%C3%A3o-de-dois-tratamentos-para-dor"><i class="fa fa-check"></i><b>21.4.1</b> Medicina: Comparação de dois tratamentos para dor</a></li>
+<li class="chapter" data-level="21.4.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#psicologia-interven%C3%A7%C3%A3o-para-redu%C3%A7%C3%A3o-de-ansiedade"><i class="fa fa-check"></i><b>21.4.2</b> Psicologia: Intervenção para redução de ansiedade</a></li>
+<li class="chapter" data-level="21.4.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#educa%C3%A7%C3%A3o-f%C3%ADsica-efeito-de-um-programa-de-treinamento-na-performance-de-corrida"><i class="fa fa-check"></i><b>21.4.3</b> Educação Física: Efeito de um programa de treinamento na performance de corrida</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html"><i class="fa fa-check"></i><b>20</b> Memes de Estatística: p-valor</a>
+<li class="chapter" data-level="21.5" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#como-calcular-o-poder-do-teste-quando-voc%C3%AA-j%C3%A1-tem-o-tamanho-da-amostra"><i class="fa fa-check"></i><b>21.5</b> Como calcular o poder do teste quando você já tem o tamanho da amostra</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#quando-voc%C3%AA-encontra-um-p-valor-baixo-e-sabe-que-deve-rejeitar-h0"><i class="fa fa-check"></i><b>20.1</b> Quando você encontra um p-valor baixo e sabe que deve rejeitar H0</a></li>
-<li class="chapter" data-level="20.2" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#homem-aranha-apontando"><i class="fa fa-check"></i><b>20.2</b> Homem-Aranha apontando</a></li>
-<li class="chapter" data-level="20.3" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#namorado-distra%C3%ADdo"><i class="fa fa-check"></i><b>20.3</b> Namorado distraído</a></li>
-<li class="chapter" data-level="20.4" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#willy-wonka-e-o-p-valor-menor-que-005"><i class="fa fa-check"></i><b>20.4</b> Willy Wonka e o p-valor menor que 0,05</a></li>
-<li class="chapter" data-level="20.5" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#cantada-nerd"><i class="fa fa-check"></i><b>20.5</b> Cantada Nerd</a></li>
-<li class="chapter" data-level="20.6" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#p-valor-n%C3%A3o-%C3%A9-tudo"><i class="fa fa-check"></i><b>20.6</b> P-valor não é tudo</a></li>
-<li class="chapter" data-level="20.7" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#coitado-do-tamanho-do-efeito"><i class="fa fa-check"></i><b>20.7</b> Coitado do tamanho do efeito</a></li>
-<li class="chapter" data-level="20.8" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#senhora-estat%C3%ADstica"><i class="fa fa-check"></i><b>20.8</b> Senhora estatística</a></li>
-<li class="chapter" data-level="20.9" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#pobi-do-gatinho"><i class="fa fa-check"></i><b>20.9</b> Pobi do gatinho</a></li>
+<li class="chapter" data-level="21.5.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#exemplo"><i class="fa fa-check"></i><b>21.5.1</b> Exemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="21" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html"><i class="fa fa-check"></i><b>21</b> Pacotes <code>pwr</code>, <code>rstatix</code> e <code>effsize</code></a>
+<li class="chapter" data-level="21.6" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#c%C3%A1lculo-do-tamanho-da-amostra-para-testes-t-pareado-e-wilcoxon"><i class="fa fa-check"></i><b>21.6</b> Cálculo do Tamanho da Amostra para Testes t Pareado e Wilcoxon</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#c%C3%A1lculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr"><i class="fa fa-check"></i><b>21.1</b> Cálculos de tamanho de amostra, poder e efeito com o pacote <code>pwr</code></a>
+<li class="chapter" data-level="21.6.1" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-t-pareado-1"><i class="fa fa-check"></i><b>21.6.1</b> Teste t Pareado</a></li>
+<li class="chapter" data-level="21.6.2" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-para-amostras-n%C3%A3o-pareadas"><i class="fa fa-check"></i><b>21.6.2</b> Teste de Wilcoxon para Amostras Não Pareadas</a></li>
+<li class="chapter" data-level="21.6.3" data-path="cálculo-amostral-no-r.html"><a href="cálculo-amostral-no-r.html#teste-de-wilcoxon-pareado"><i class="fa fa-check"></i><b>21.6.3</b> Teste de Wilcoxon Pareado</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html"><i class="fa fa-check"></i><b>22</b> Memes de Estatística: p-valor</a>
 <ul>
-<li class="chapter" data-level="21.1.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-1-tamanho-da-amostra-para-teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>21.1.1</b> Exercício 1: Tamanho da amostra para teste t não pareado</a></li>
-<li class="chapter" data-level="21.1.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-2-poder-do-teste-t-n%C3%A3o-pareado-para-n-fixo"><i class="fa fa-check"></i><b>21.1.2</b> Exercício 2: Poder do teste t não pareado para n fixo</a></li>
-<li class="chapter" data-level="21.1.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-3-menor-efeito-detect%C3%A1vel-no-teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>21.1.3</b> Exercício 3: Menor efeito detectável no teste t não pareado</a></li>
-<li class="chapter" data-level="21.1.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-4-repita-para-outros-testes"><i class="fa fa-check"></i><b>21.1.4</b> Exercício 4: Repita para outros testes</a></li>
-<li class="chapter" data-level="21.1.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#argumentos-principais-da-fun%C3%A7%C3%A3o-pwr.t.test"><i class="fa fa-check"></i><b>21.1.5</b> Argumentos principais da função <code>pwr.t.test()</code></a></li>
-<li class="chapter" data-level="21.1.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#grupos-desbalanceados-usando-pwr.t2n.test"><i class="fa fa-check"></i><b>21.1.6</b> Grupos Desbalanceados: usando <code>pwr.t2n.test()</code></a></li>
+<li class="chapter" data-level="22.1" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#quando-voc%C3%AA-encontra-um-p-valor-baixo-e-sabe-que-deve-rejeitar-h0"><i class="fa fa-check"></i><b>22.1</b> Quando você encontra um p-valor baixo e sabe que deve rejeitar H0</a></li>
+<li class="chapter" data-level="22.2" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#homem-aranha-apontando"><i class="fa fa-check"></i><b>22.2</b> Homem-Aranha apontando</a></li>
+<li class="chapter" data-level="22.3" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#namorado-distra%C3%ADdo"><i class="fa fa-check"></i><b>22.3</b> Namorado distraído</a></li>
+<li class="chapter" data-level="22.4" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#willy-wonka-e-o-p-valor-menor-que-005"><i class="fa fa-check"></i><b>22.4</b> Willy Wonka e o p-valor menor que 0,05</a></li>
+<li class="chapter" data-level="22.5" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#cantada-nerd"><i class="fa fa-check"></i><b>22.5</b> Cantada Nerd</a></li>
+<li class="chapter" data-level="22.6" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#p-valor-n%C3%A3o-%C3%A9-tudo"><i class="fa fa-check"></i><b>22.6</b> P-valor não é tudo</a></li>
+<li class="chapter" data-level="22.7" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#coitado-do-tamanho-do-efeito"><i class="fa fa-check"></i><b>22.7</b> Coitado do tamanho do efeito</a></li>
+<li class="chapter" data-level="22.8" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#senhora-estat%C3%ADstica"><i class="fa fa-check"></i><b>22.8</b> Senhora estatística</a></li>
+<li class="chapter" data-level="22.9" data-path="memes-de-estatística-p-valor.html"><a href="memes-de-estatística-p-valor.html#pobre-do-gatinho"><i class="fa fa-check"></i><b>22.9</b> Pobre do gatinho</a></li>
 </ul></li>
-<li class="chapter" data-level="21.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#tamanho-do-efeito-em-testes-de-wilcoxon"><i class="fa fa-check"></i><b>21.2</b> Tamanho do efeito em testes de Wilcoxon</a>
+<li class="chapter" data-level="23" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html"><i class="fa fa-check"></i><b>23</b> Pacotes <code>pwr</code>, <code>rstatix</code> e <code>effsize</code></a>
 <ul>
-<li class="chapter" data-level="21.2.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#por-que-n%C3%A3o-usar-d-de-cohen-no-wilcoxon"><i class="fa fa-check"></i><b>21.2.1</b> Por que NÃO usar d de Cohen no Wilcoxon?</a></li>
-<li class="chapter" data-level="21.2.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#medidas-recomendadas-para-wilcoxon"><i class="fa fa-check"></i><b>21.2.2</b> Medidas recomendadas para Wilcoxon:</a></li>
-<li class="chapter" data-level="21.2.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#compara%C3%A7%C3%A3o-entre-o-r-de-wilcoxon-e-o-delta-de-cliff"><i class="fa fa-check"></i><b>21.2.3</b> Comparação entre o r de Wilcoxon e o Delta de Cliff</a></li>
-<li class="chapter" data-level="21.2.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#r-de-wilcoxon"><i class="fa fa-check"></i><b>21.2.4</b> r de Wilcoxon</a></li>
-<li class="chapter" data-level="21.2.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#delta-de-cliff-delta"><i class="fa fa-check"></i><b>21.2.5</b> Delta de Cliff (<span class="math inline">\(\delta\)</span>)</a></li>
-<li class="chapter" data-level="21.2.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#qual-%C3%A9-melhor-usar"><i class="fa fa-check"></i><b>21.2.6</b> Qual é melhor usar?</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="22" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html"><i class="fa fa-check"></i><b>22</b> Teste de Normalidade</a>
+<li class="chapter" data-level="23.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#c%C3%A1lculos-de-tamanho-de-amostra-poder-e-efeito-com-o-pacote-pwr"><i class="fa fa-check"></i><b>23.1</b> Cálculos de tamanho de amostra, poder e efeito com o pacote <code>pwr</code></a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#hip%C3%B3teses-nos-testes-de-normalidade"><i class="fa fa-check"></i><b>22.1</b> Hipóteses nos Testes de Normalidade</a></li>
-<li class="chapter" data-level="22.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#principais-testes-de-normalidade"><i class="fa fa-check"></i><b>22.2</b> Principais Testes de Normalidade</a>
+<li class="chapter" data-level="23.1.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-1-tamanho-da-amostra-para-teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>23.1.1</b> Exercício 1: Tamanho da amostra para teste t não pareado</a></li>
+<li class="chapter" data-level="23.1.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-2-poder-do-teste-t-n%C3%A3o-pareado-para-n-fixo"><i class="fa fa-check"></i><b>23.1.2</b> Exercício 2: Poder do teste t não pareado para n fixo</a></li>
+<li class="chapter" data-level="23.1.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-3-menor-efeito-detect%C3%A1vel-no-teste-t-n%C3%A3o-pareado"><i class="fa fa-check"></i><b>23.1.3</b> Exercício 3: Menor efeito detectável no teste t não pareado</a></li>
+<li class="chapter" data-level="23.1.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#exerc%C3%ADcio-4-repita-para-outros-testes"><i class="fa fa-check"></i><b>23.1.4</b> Exercício 4: Repita para outros testes</a></li>
+<li class="chapter" data-level="23.1.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#argumentos-principais-da-fun%C3%A7%C3%A3o-pwr.t.test"><i class="fa fa-check"></i><b>23.1.5</b> Argumentos principais da função <code>pwr.t.test()</code></a></li>
+<li class="chapter" data-level="23.1.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#grupos-desbalanceados-usando-pwr.t2n.test"><i class="fa fa-check"></i><b>23.1.6</b> Grupos Desbalanceados: usando <code>pwr.t2n.test()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="23.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#tamanho-do-efeito-em-testes-de-wilcoxon"><i class="fa fa-check"></i><b>23.2</b> Tamanho do efeito em testes de Wilcoxon</a>
 <ul>
-<li class="chapter" data-level="22.2.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#dicas-de-uso"><i class="fa fa-check"></i><b>22.2.1</b> Dicas de Uso</a></li>
-<li class="chapter" data-level="22.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-pr%C3%A1tico-em-r-2"><i class="fa fa-check"></i><b>22.2.2</b> Exemplo Prático em R</a></li>
+<li class="chapter" data-level="23.2.1" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#por-que-n%C3%A3o-usar-d-de-cohen-no-wilcoxon"><i class="fa fa-check"></i><b>23.2.1</b> Por que NÃO usar d de Cohen no Wilcoxon?</a></li>
+<li class="chapter" data-level="23.2.2" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#medidas-recomendadas-para-wilcoxon"><i class="fa fa-check"></i><b>23.2.2</b> Medidas recomendadas para Wilcoxon:</a></li>
+<li class="chapter" data-level="23.2.3" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#compara%C3%A7%C3%A3o-entre-o-r-de-wilcoxon-e-o-delta-de-cliff"><i class="fa fa-check"></i><b>23.2.3</b> Comparação entre o r de Wilcoxon e o Delta de Cliff</a></li>
+<li class="chapter" data-level="23.2.4" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#r-de-wilcoxon"><i class="fa fa-check"></i><b>23.2.4</b> r de Wilcoxon</a></li>
+<li class="chapter" data-level="23.2.5" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#delta-de-cliff-delta"><i class="fa fa-check"></i><b>23.2.5</b> Delta de Cliff (<span class="math inline">\(\delta\)</span>)</a></li>
+<li class="chapter" data-level="23.2.6" data-path="pacotes-pwr-rstatix-e-effsize.html"><a href="pacotes-pwr-rstatix-e-effsize.html#qual-%C3%A9-melhor-usar"><i class="fa fa-check"></i><b>23.2.6</b> Qual é melhor usar?</a></li>
 </ul></li>
-<li class="chapter" data-level="22.3" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#assimetria-e-curtose-o-que-s%C3%A3o-e-por-que-s%C3%A3o-importantes"><i class="fa fa-check"></i><b>22.3</b> Assimetria e Curtose: O que são e por que são importantes?</a>
+</ul></li>
+<li class="chapter" data-level="24" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html"><i class="fa fa-check"></i><b>24</b> Teste de Normalidade</a>
 <ul>
-<li class="chapter" data-level="22.3.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-%C3%A9-assimetria-skewness"><i class="fa fa-check"></i><b>22.3.1</b> O que é Assimetria (Skewness)?</a></li>
-<li class="chapter" data-level="22.3.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-%C3%A9-curtose-kurtosis"><i class="fa fa-check"></i><b>22.3.2</b> O que é Curtose (Kurtosis)?</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="23" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html"><i class="fa fa-check"></i><b>23</b> Comparação de mais de dois grupos</a>
+<li class="chapter" data-level="24.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#hip%C3%B3teses-nos-testes-de-normalidade"><i class="fa fa-check"></i><b>24.1</b> Hipóteses nos Testes de Normalidade</a></li>
+<li class="chapter" data-level="24.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#principais-testes-de-normalidade"><i class="fa fa-check"></i><b>24.2</b> Principais Testes de Normalidade</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hip%C3%B3teses-da-compara%C3%A7%C3%A3o-entre-dois-grupos"><i class="fa fa-check"></i><b>23.1</b> Revisando as hipóteses da comparação entre dois grupos</a></li>
-<li class="chapter" data-level="23.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#hip%C3%B3teses-para-a-compara%C3%A7%C3%A3o-entre-mais-de-dois-grupos"><i class="fa fa-check"></i><b>23.2</b> Hipóteses para a comparação entre mais de dois grupos</a></li>
-<li class="chapter" data-level="23.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-param%C3%A9tricos"><i class="fa fa-check"></i><b>23.3</b> Testes Paramétricos</a>
+<li class="chapter" data-level="24.2.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#dicas-de-uso"><i class="fa fa-check"></i><b>24.2.1</b> Dicas de Uso</a></li>
+<li class="chapter" data-level="24.2.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#exemplo-pr%C3%A1tico-em-r-2"><i class="fa fa-check"></i><b>24.2.2</b> Exemplo Prático em R</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#assimetria-e-curtose-o-que-s%C3%A3o-e-por-que-s%C3%A3o-importantes"><i class="fa fa-check"></i><b>24.3</b> Assimetria e Curtose: O que são e por que são importantes?</a>
 <ul>
-<li class="chapter" data-level="23.3.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pr%C3%A9-requisitos-para-anova-dados-pareados-ou-n%C3%A3o"><i class="fa fa-check"></i><b>23.3.1</b> Pré-requisitos para ANOVA (dados pareados ou não)</a></li>
+<li class="chapter" data-level="24.3.1" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-%C3%A9-assimetria-skewness"><i class="fa fa-check"></i><b>24.3.1</b> O que é Assimetria (Skewness)?</a></li>
+<li class="chapter" data-level="24.3.2" data-path="teste-de-normalidade.html"><a href="teste-de-normalidade.html#o-que-%C3%A9-curtose-kurtosis"><i class="fa fa-check"></i><b>24.3.2</b> O que é Curtose (Kurtosis)?</a></li>
 </ul></li>
-<li class="chapter" data-level="23.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-n%C3%A3o-param%C3%A9tricos"><i class="fa fa-check"></i><b>23.4</b> Testes Não Paramétricos</a></li>
-<li class="chapter" data-level="23.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r"><i class="fa fa-check"></i><b>23.5</b> ANOVA de uma via no R</a>
+</ul></li>
+<li class="chapter" data-level="25" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html"><i class="fa fa-check"></i><b>25</b> Comparação de mais de dois grupos</a>
 <ul>
-<li class="chapter" data-level="23.5.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#simula%C3%A7%C3%A3o-de-dados"><i class="fa fa-check"></i><b>23.5.1</b> Simulação de Dados</a></li>
-<li class="chapter" data-level="23.5.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-dos-dados"><i class="fa fa-check"></i><b>23.5.2</b> Visualização dos Dados</a></li>
-<li class="chapter" data-level="23.5.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#verifica%C3%A7%C3%A3o-dos-pr%C3%A9-requisitos-para-anova"><i class="fa fa-check"></i><b>23.5.3</b> Verificação dos Pré-requisitos para ANOVA</a></li>
-<li class="chapter" data-level="23.5.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via"><i class="fa fa-check"></i><b>23.5.4</b> ANOVA de Uma Via</a></li>
-</ul></li>
-<li class="chapter" data-level="23.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r"><i class="fa fa-check"></i><b>23.6</b> Kruskal-Wallis no R</a>
+<li class="chapter" data-level="25.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#revisando-as-hip%C3%B3teses-da-compara%C3%A7%C3%A3o-entre-dois-grupos"><i class="fa fa-check"></i><b>25.1</b> Revisando as hipóteses da comparação entre dois grupos</a></li>
+<li class="chapter" data-level="25.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#hip%C3%B3teses-para-a-compara%C3%A7%C3%A3o-entre-mais-de-dois-grupos"><i class="fa fa-check"></i><b>25.2</b> Hipóteses para a comparação entre mais de dois grupos</a></li>
+<li class="chapter" data-level="25.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-param%C3%A9tricos"><i class="fa fa-check"></i><b>25.3</b> Testes Paramétricos</a>
 <ul>
-<li class="chapter" data-level="23.6.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis"><i class="fa fa-check"></i><b>23.6.1</b> Teste Post Hoc para Kruskal-Wallis</a></li>
+<li class="chapter" data-level="25.3.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#pr%C3%A9-requisitos-para-anova-dados-pareados-ou-n%C3%A3o"><i class="fa fa-check"></i><b>25.3.1</b> Pré-requisitos para ANOVA (dados pareados ou não)</a></li>
 </ul></li>
-<li class="chapter" data-level="23.7" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#por-que-n%C3%A3o-%C3%A9-indicado-comparar-os-grupos-dois-a-dois-diretamente"><i class="fa fa-check"></i><b>23.7</b> Por que não é indicado comparar os grupos dois a dois diretamente?</a></li>
-<li class="chapter" data-level="23.8" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r"><i class="fa fa-check"></i><b>23.8</b> ANOVA para Dados Repetidos no R</a>
+<li class="chapter" data-level="25.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#testes-n%C3%A3o-param%C3%A9tricos"><i class="fa fa-check"></i><b>25.4</b> Testes Não Paramétricos</a></li>
+<li class="chapter" data-level="25.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via-no-r"><i class="fa fa-check"></i><b>25.5</b> ANOVA de uma via no R</a>
 <ul>
-<li class="chapter" data-level="23.8.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados"><i class="fa fa-check"></i><b>23.8.1</b> Gerar dados simulados</a></li>
-<li class="chapter" data-level="23.8.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo"><i class="fa fa-check"></i><b>23.8.2</b> Converter para formato longo</a></li>
-<li class="chapter" data-level="23.8.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-opcional"><i class="fa fa-check"></i><b>23.8.3</b> Visualização (opcional)</a></li>
-<li class="chapter" data-level="23.8.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferen%C3%A7as-pr%C3%A9-requisito"><i class="fa fa-check"></i><b>23.8.4</b> Teste de normalidade das diferenças (pré-requisito)</a></li>
-<li class="chapter" data-level="23.8.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade"><i class="fa fa-check"></i><b>23.8.5</b> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)</a></li>
-<li class="chapter" data-level="23.8.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-hoc-compara%C3%A7%C3%B5es-m%C3%BAltiplas-entre-as-provas"><i class="fa fa-check"></i><b>23.8.6</b> Pós-hoc: Comparações múltiplas entre as provas</a></li>
+<li class="chapter" data-level="25.5.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#simula%C3%A7%C3%A3o-de-dados"><i class="fa fa-check"></i><b>25.5.1</b> Simulação de Dados</a></li>
+<li class="chapter" data-level="25.5.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-dos-dados"><i class="fa fa-check"></i><b>25.5.2</b> Visualização dos Dados</a></li>
+<li class="chapter" data-level="25.5.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#verifica%C3%A7%C3%A3o-dos-pr%C3%A9-requisitos-para-anova"><i class="fa fa-check"></i><b>25.5.3</b> Verificação dos Pré-requisitos para ANOVA</a></li>
+<li class="chapter" data-level="25.5.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via"><i class="fa fa-check"></i><b>25.5.4</b> ANOVA de Uma Via</a></li>
 </ul></li>
-<li class="chapter" data-level="23.9" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman"><i class="fa fa-check"></i><b>23.9</b> Teste de Friedman</a>
+<li class="chapter" data-level="25.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r"><i class="fa fa-check"></i><b>25.6</b> Kruskal-Wallis no R</a>
 <ul>
-<li class="chapter" data-level="23.9.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-teste-compara%C3%A7%C3%B5es-m%C3%BAltiplas-wilcoxon-pareado"><i class="fa fa-check"></i><b>23.9.1</b> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)</a></li>
+<li class="chapter" data-level="25.6.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis"><i class="fa fa-check"></i><b>25.6.1</b> Teste Post Hoc para Kruskal-Wallis</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html"><i class="fa fa-check"></i><b>24</b> Correlação entre variáveis</a>
+<li class="chapter" data-level="25.7" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#por-que-n%C3%A3o-%C3%A9-indicado-comparar-os-grupos-dois-a-dois-diretamente"><i class="fa fa-check"></i><b>25.7</b> Por que não é indicado comparar os grupos dois a dois diretamente?</a></li>
+<li class="chapter" data-level="25.8" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-para-dados-repetidos-no-r"><i class="fa fa-check"></i><b>25.8</b> ANOVA para Dados Repetidos no R</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#tipos-de-vari%C3%A1veis-1"><i class="fa fa-check"></i><b>24.1</b> Tipos de Variáveis</a></li>
-<li class="chapter" data-level="24.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#diagrama-de-dispers%C3%A3o"><i class="fa fa-check"></i><b>24.2</b> Diagrama de Dispersão</a></li>
-<li class="chapter" data-level="24.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficientes-de-correla%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>24.3</b> Coeficientes de Correlação</a>
+<li class="chapter" data-level="25.8.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados"><i class="fa fa-check"></i><b>25.8.1</b> Gerar dados simulados</a></li>
+<li class="chapter" data-level="25.8.2" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo"><i class="fa fa-check"></i><b>25.8.2</b> Converter para formato longo</a></li>
+<li class="chapter" data-level="25.8.3" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-opcional"><i class="fa fa-check"></i><b>25.8.3</b> Visualização (opcional)</a></li>
+<li class="chapter" data-level="25.8.4" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferen%C3%A7as-pr%C3%A9-requisito"><i class="fa fa-check"></i><b>25.8.4</b> Teste de normalidade das diferenças (pré-requisito)</a></li>
+<li class="chapter" data-level="25.8.5" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade"><i class="fa fa-check"></i><b>25.8.5</b> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)</a></li>
+<li class="chapter" data-level="25.8.6" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-hoc-compara%C3%A7%C3%B5es-m%C3%BAltiplas-entre-as-provas"><i class="fa fa-check"></i><b>25.8.6</b> Pós-hoc: Comparações múltiplas entre as provas</a></li>
+</ul></li>
+<li class="chapter" data-level="25.9" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman"><i class="fa fa-check"></i><b>25.9</b> Teste de Friedman</a>
 <ul>
-<li class="chapter" data-level="24.3.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-pearson"><i class="fa fa-check"></i><b>24.3.1</b> Coeficiente de Correlação de Pearson</a></li>
-<li class="chapter" data-level="24.3.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-spearman"><i class="fa fa-check"></i><b>24.3.2</b> Coeficiente de Correlação de Spearman</a></li>
-<li class="chapter" data-level="24.3.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-kendall"><i class="fa fa-check"></i><b>24.3.3</b> Coeficiente de Correlação de Kendall</a></li>
-<li class="chapter" data-level="24.3.4" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#interpreta%C3%A7%C3%A3o-dos-coeficientes"><i class="fa fa-check"></i><b>24.3.4</b> Interpretação dos Coeficientes</a></li>
-<li class="chapter" data-level="24.3.5" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#exemplo-no-r"><i class="fa fa-check"></i><b>24.3.5</b> Exemplo no R</a></li>
+<li class="chapter" data-level="25.9.1" data-path="comparação-de-mais-de-dois-grupos.html"><a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-teste-compara%C3%A7%C3%B5es-m%C3%BAltiplas-wilcoxon-pareado"><i class="fa fa-check"></i><b>25.9.1</b> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#testes-de-correla%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>24.4</b> Testes de Correlação</a>
+</ul></li>
+<li class="chapter" data-level="26" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html"><i class="fa fa-check"></i><b>26</b> Correlação entre variáveis</a>
 <ul>
-<li class="chapter" data-level="24.4.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#pearson"><i class="fa fa-check"></i><b>24.4.1</b> Pearson</a></li>
-<li class="chapter" data-level="24.4.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#spearman"><i class="fa fa-check"></i><b>24.4.2</b> Spearman</a></li>
-<li class="chapter" data-level="24.4.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#kendall"><i class="fa fa-check"></i><b>24.4.3</b> Kendall</a></li>
-</ul></li>
-<li class="chapter" data-level="24.5" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#tamanho-do-efeito-effect-size"><i class="fa fa-check"></i><b>24.5</b> Tamanho do Efeito (Effect Size)</a></li>
-<li class="chapter" data-level="24.6" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#c%C3%A1lculo-do-tamanho-da-amostra-e-poder-estat%C3%ADstico"><i class="fa fa-check"></i><b>24.6</b> Cálculo do Tamanho da Amostra e Poder Estatístico</a>
+<li class="chapter" data-level="26.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#tipos-de-vari%C3%A1veis-1"><i class="fa fa-check"></i><b>26.1</b> Tipos de Variáveis</a></li>
+<li class="chapter" data-level="26.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#diagrama-de-dispers%C3%A3o"><i class="fa fa-check"></i><b>26.2</b> Diagrama de Dispersão</a></li>
+<li class="chapter" data-level="26.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficientes-de-correla%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>26.3</b> Coeficientes de Correlação</a>
 <ul>
-<li class="chapter" data-level="24.6.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#exemplo-com-pwr"><i class="fa fa-check"></i><b>24.6.1</b> Exemplo com <code>pwr</code></a></li>
-<li class="chapter" data-level="24.6.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#verificar-o-poder-para-uma-amostra-de-tamanho-30"><i class="fa fa-check"></i><b>24.6.2</b> Verificar o poder para uma amostra de tamanho 30:</a></li>
+<li class="chapter" data-level="26.3.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-pearson"><i class="fa fa-check"></i><b>26.3.1</b> Coeficiente de Correlação de Pearson</a></li>
+<li class="chapter" data-level="26.3.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-spearman"><i class="fa fa-check"></i><b>26.3.2</b> Coeficiente de Correlação de Spearman</a></li>
+<li class="chapter" data-level="26.3.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#coeficiente-de-correla%C3%A7%C3%A3o-de-kendall"><i class="fa fa-check"></i><b>26.3.3</b> Coeficiente de Correlação de Kendall</a></li>
+<li class="chapter" data-level="26.3.4" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#interpreta%C3%A7%C3%A3o-dos-coeficientes"><i class="fa fa-check"></i><b>26.3.4</b> Interpretação dos Coeficientes</a></li>
+<li class="chapter" data-level="26.3.5" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#exemplo-no-r"><i class="fa fa-check"></i><b>26.3.5</b> Exemplo no R</a></li>
 </ul></li>
-<li class="chapter" data-level="24.7" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#outros-recursos"><i class="fa fa-check"></i><b>24.7</b> Outros recursos</a>
+<li class="chapter" data-level="26.4" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#testes-de-correla%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>26.4</b> Testes de Correlação</a>
 <ul>
-<li class="chapter" data-level="24.7.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#visualiza%C3%A7%C3%A3o-com-pairs"><i class="fa fa-check"></i><b>24.7.1</b> Visualização com <code>pairs()</code></a></li>
-<li class="chapter" data-level="24.7.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#matriz-de-correla%C3%A7%C3%A3o-com-cor"><i class="fa fa-check"></i><b>24.7.2</b> Matriz de Correlação com <code>cor()</code></a></li>
-<li class="chapter" data-level="24.7.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#matriz-visual-com-ggallyggcorr"><i class="fa fa-check"></i><b>24.7.3</b> Matriz Visual com <code>GGally::ggcorr()</code></a></li>
+<li class="chapter" data-level="26.4.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#pearson"><i class="fa fa-check"></i><b>26.4.1</b> Pearson</a></li>
+<li class="chapter" data-level="26.4.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#spearman"><i class="fa fa-check"></i><b>26.4.2</b> Spearman</a></li>
+<li class="chapter" data-level="26.4.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#kendall"><i class="fa fa-check"></i><b>26.4.3</b> Kendall</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="25" data-path="regressão.html"><a href="regressão.html"><i class="fa fa-check"></i><b>25</b> Regressão</a>
+<li class="chapter" data-level="26.5" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#tamanho-do-efeito-effect-size"><i class="fa fa-check"></i><b>26.5</b> Tamanho do Efeito (Effect Size)</a></li>
+<li class="chapter" data-level="26.6" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#c%C3%A1lculo-do-tamanho-da-amostra-e-poder-estat%C3%ADstico"><i class="fa fa-check"></i><b>26.6</b> Cálculo do Tamanho da Amostra e Poder Estatístico</a>
 <ul>
-<li class="chapter" data-level="25.1" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-simples"><i class="fa fa-check"></i><b>25.1</b> Regressão Linear Simples</a>
+<li class="chapter" data-level="26.6.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#exemplo-com-pwr"><i class="fa fa-check"></i><b>26.6.1</b> Exemplo com <code>pwr</code></a></li>
+<li class="chapter" data-level="26.6.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#verificar-o-poder-para-uma-amostra-de-tamanho-30"><i class="fa fa-check"></i><b>26.6.2</b> Verificar o poder para uma amostra de tamanho 30:</a></li>
+</ul></li>
+<li class="chapter" data-level="26.7" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#outros-recursos"><i class="fa fa-check"></i><b>26.7</b> Outros recursos</a>
 <ul>
-<li class="chapter" data-level="25.1.1" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-simples-no-r"><i class="fa fa-check"></i><b>25.1.1</b> Regressão Linear Simples no R</a></li>
-<li class="chapter" data-level="25.1.2" data-path="regressão.html"><a href="regressão.html#o-que-deve-ser-checado-ao-ajustar-uma-regress%C3%A3o-linear"><i class="fa fa-check"></i><b>25.1.2</b> O que deve ser checado ao ajustar uma regressão linear?</a></li>
+<li class="chapter" data-level="26.7.1" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#visualiza%C3%A7%C3%A3o-com-pairs"><i class="fa fa-check"></i><b>26.7.1</b> Visualização com <code>pairs()</code></a></li>
+<li class="chapter" data-level="26.7.2" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#matriz-de-correla%C3%A7%C3%A3o-com-cor"><i class="fa fa-check"></i><b>26.7.2</b> Matriz de Correlação com <code>cor()</code></a></li>
+<li class="chapter" data-level="26.7.3" data-path="correlação-entre-variáveis.html"><a href="correlação-entre-variáveis.html#matriz-visual-com-ggallyggcorr"><i class="fa fa-check"></i><b>26.7.3</b> Matriz Visual com <code>GGally::ggcorr()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="25.2" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-m%C3%BAltipla"><i class="fa fa-check"></i><b>25.2</b> Regressão Linear Múltipla</a></li>
-<li class="chapter" data-level="25.3" data-path="regressão.html"><a href="regressão.html#no-r-%C3%A9-f%C3%A1cil"><i class="fa fa-check"></i><b>25.3</b> No R é fácil</a></li>
-<li class="chapter" data-level="25.4" data-path="regressão.html"><a href="regressão.html#exerc%C3%ADcio"><i class="fa fa-check"></i><b>25.4</b> Exercício</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html"><i class="fa fa-check"></i><b>26</b> Associação entre variáveis</a>
+<li class="chapter" data-level="27" data-path="regressão.html"><a href="regressão.html"><i class="fa fa-check"></i><b>27</b> Regressão</a>
 <ul>
-<li class="chapter" data-level="26.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tipos-de-vari%C3%A1veis-envolvidas"><i class="fa fa-check"></i><b>26.1</b> Tipos de Variáveis Envolvidas</a></li>
-<li class="chapter" data-level="26.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tabela-de-conting%C3%AAncia"><i class="fa fa-check"></i><b>26.2</b> Tabela de Contingência</a>
+<li class="chapter" data-level="27.1" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-simples"><i class="fa fa-check"></i><b>27.1</b> Regressão Linear Simples</a>
 <ul>
-<li class="chapter" data-level="26.2.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#c%C3%A1lculo-das-frequ%C3%AAncias-esperadas"><i class="fa fa-check"></i><b>26.2.1</b> Cálculo das Frequências Esperadas</a></li>
+<li class="chapter" data-level="27.1.1" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-simples-no-r"><i class="fa fa-check"></i><b>27.1.1</b> Regressão Linear Simples no R</a></li>
+<li class="chapter" data-level="27.1.2" data-path="regressão.html"><a href="regressão.html#o-que-deve-ser-checado-ao-ajustar-uma-regress%C3%A3o-linear"><i class="fa fa-check"></i><b>27.1.2</b> O que deve ser checado ao ajustar uma regressão linear?</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#principais-testes-de-associa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>26.3</b> Principais Testes de Associação</a>
+<li class="chapter" data-level="27.2" data-path="regressão.html"><a href="regressão.html#regress%C3%A3o-linear-m%C3%BAltipla"><i class="fa fa-check"></i><b>27.2</b> Regressão Linear Múltipla</a></li>
+<li class="chapter" data-level="27.3" data-path="regressão.html"><a href="regressão.html#no-r-%C3%A9-f%C3%A1cil"><i class="fa fa-check"></i><b>27.3</b> No R é fácil</a></li>
+<li class="chapter" data-level="27.4" data-path="regressão.html"><a href="regressão.html#exerc%C3%ADcio"><i class="fa fa-check"></i><b>27.4</b> Exercício</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html"><i class="fa fa-check"></i><b>28</b> Associação entre variáveis</a>
 <ul>
-<li class="chapter" data-level="26.3.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#exemplos"><i class="fa fa-check"></i><b>26.3.1</b> Exemplos</a></li>
-<li class="chapter" data-level="26.3.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#teste-qui-quadrado"><i class="fa fa-check"></i><b>26.3.2</b> Teste Qui-Quadrado</a></li>
-<li class="chapter" data-level="26.3.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#teste-exato-de-fisher"><i class="fa fa-check"></i><b>26.3.3</b> Teste Exato de Fisher</a></li>
-<li class="chapter" data-level="26.3.4" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#exemplo-no-r-1"><i class="fa fa-check"></i><b>26.3.4</b> Exemplo no R</a></li>
-<li class="chapter" data-level="26.3.5" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#observa%C3%A7%C3%A3o-sobre-tabelas-de-conting%C3%AAncia-em-artigos-cient%C3%ADficos"><i class="fa fa-check"></i><b>26.3.5</b> Observação sobre tabelas de contingência em artigos científicos</a></li>
-</ul></li>
-<li class="chapter" data-level="26.4" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tamanho-do-efeito-medidas-de-associa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>26.4</b> Tamanho do Efeito: Medidas de Associação</a>
+<li class="chapter" data-level="28.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tipos-de-vari%C3%A1veis-envolvidas"><i class="fa fa-check"></i><b>28.1</b> Tipos de Variáveis Envolvidas</a></li>
+<li class="chapter" data-level="28.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tabela-de-conting%C3%AAncia"><i class="fa fa-check"></i><b>28.2</b> Tabela de Contingência</a>
 <ul>
-<li class="chapter" data-level="26.4.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#v-de-cramer"><i class="fa fa-check"></i><b>26.4.1</b> V de Cramer</a></li>
-<li class="chapter" data-level="26.4.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#phi-de-pearson-phi"><i class="fa fa-check"></i><b>26.4.2</b> Phi de Pearson <span class="math inline">\((\phi)\)</span></a></li>
-<li class="chapter" data-level="26.4.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#odds-ratio-raz%C3%A3o-de-chances"><i class="fa fa-check"></i><b>26.4.3</b> Odds Ratio (Razão de Chances)</a></li>
+<li class="chapter" data-level="28.2.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#c%C3%A1lculo-das-frequ%C3%AAncias-esperadas"><i class="fa fa-check"></i><b>28.2.1</b> Cálculo das Frequências Esperadas</a></li>
 </ul></li>
-<li class="chapter" data-level="26.5" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#c%C3%A1lculo-do-poder-estat%C3%ADstico"><i class="fa fa-check"></i><b>26.5</b> Cálculo do Poder Estatístico</a></li>
+<li class="chapter" data-level="28.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#principais-testes-de-associa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>28.3</b> Principais Testes de Associação</a>
+<ul>
+<li class="chapter" data-level="28.3.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#exemplos"><i class="fa fa-check"></i><b>28.3.1</b> Exemplos</a></li>
+<li class="chapter" data-level="28.3.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#teste-qui-quadrado"><i class="fa fa-check"></i><b>28.3.2</b> Teste Qui-Quadrado</a></li>
+<li class="chapter" data-level="28.3.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#teste-exato-de-fisher"><i class="fa fa-check"></i><b>28.3.3</b> Teste Exato de Fisher</a></li>
+<li class="chapter" data-level="28.3.4" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#exemplo-no-r-1"><i class="fa fa-check"></i><b>28.3.4</b> Exemplo no R</a></li>
+<li class="chapter" data-level="28.3.5" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#observa%C3%A7%C3%A3o-sobre-tabelas-de-conting%C3%AAncia-em-artigos-cient%C3%ADficos"><i class="fa fa-check"></i><b>28.3.5</b> Observação sobre tabelas de contingência em artigos científicos</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="chapter" data-level="28.4" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#tamanho-do-efeito-medidas-de-associa%C3%A7%C3%A3o"><i class="fa fa-check"></i><b>28.4</b> Tamanho do Efeito: Medidas de Associação</a>
+<ul>
+<li class="chapter" data-level="28.4.1" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#v-de-cram%C3%A9r"><i class="fa fa-check"></i><b>28.4.1</b> V de Cramér</a></li>
+<li class="chapter" data-level="28.4.2" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#phi-de-pearson-phi"><i class="fa fa-check"></i><b>28.4.2</b> Phi de Pearson <span class="math inline">\((\phi)\)</span></a></li>
+<li class="chapter" data-level="28.4.3" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#odds-ratio-raz%C3%A3o-de-chances"><i class="fa fa-check"></i><b>28.4.3</b> Odds Ratio (Razão de Chances)</a></li>
+</ul></li>
+<li class="chapter" data-level="28.5" data-path="associação-entre-variáveis.html"><a href="associação-entre-variáveis.html#c%C3%A1lculo-do-poder-estat%C3%ADstico"><i class="fa fa-check"></i><b>28.5</b> Cálculo do Poder Estatístico</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a>
+<ul>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#livros-e-textos-gerais"><i class="fa fa-check"></i>Livros e textos gerais</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#tamanho-do-efeito-1"><i class="fa fa-check"></i>Tamanho do efeito</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#c%C3%A1lculo-amostral-e-poder-em-testes-n%C3%A3o-param%C3%A9tricos"><i class="fa fa-check"></i>Cálculo amostral e poder em testes não paramétricos</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#testes-de-normalidade-assimetria-e-curtose"><i class="fa fa-check"></i>Testes de normalidade, assimetria e curtose</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#compara%C3%A7%C3%A3o-entre-grupos-e-anova"><i class="fa fa-check"></i>Comparação entre grupos e ANOVA</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#gr%C3%A1ficos-e-instrumentos"><i class="fa fa-check"></i>Gráficos e instrumentos</a></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html#software"><i class="fa fa-check"></i>Software</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publicado com bookdown</a></li>
 
@@ -684,7 +704,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="técnicas-de-amostragem" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Capítulo 5</span> Técnicas de Amostragem<a href="técnicas-de-amostragem.html#t%C3%A9cnicas-de-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="por-que-isso-importa" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> 🎯 Por Que Isso Importa?<a href="#por-que-isso-importa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.1</span> 🎯 Por Que Isso Importa?<a href="técnicas-de-amostragem.html#por-que-isso-importa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Em pesquisas, seguimos dois passos fundamentais:</p>
 <pre><code>1️⃣ CALCULAR o tamanho da amostra
     ↓
@@ -700,7 +720,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h2><span class="header-section-number">5.2</span> ⚠️ O Que é Viés de Amostragem?<a href="técnicas-de-amostragem.html#o-que-%C3%A9-vi%C3%A9s-de-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Viés</strong> acontece quando certos grupos têm <strong>mais chance</strong> de ser selecionados do que outros, distorcendo os resultados.</p>
 <div id="exemplo-visual-de-viés" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> 📊 Exemplo Visual de Viés:<a href="#exemplo-visual-de-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.2.1</span> 📊 Exemplo Visual de Viés:<a href="técnicas-de-amostragem.html#exemplo-visual-de-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>POPULAÇÃO REAL (UFTM):
 👨‍🎓👨‍🎓👨‍🎓👩‍🎓👩‍🎓👩‍🎓👩‍🎓👩‍🎓  (60% mulheres, 40% homens)
 
@@ -713,7 +733,7 @@ AMOSTRA COM VIÉS:
 </div>
 </div>
 <div id="tipos-de-amostragem" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> 📚 Tipos de Amostragem<a href="#tipos-de-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.3</span> 📚 Tipos de Amostragem<a href="técnicas-de-amostragem.html#tipos-de-amostragem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="amostragens-probabilísticas-com-sorteio" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Amostragens PROBABILÍSTICAS (Com Sorteio)<a href="técnicas-de-amostragem.html#amostragens-probabil%C3%ADsticas-com-sorteio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Todos têm chance <strong>conhecida e não-zero</strong> de ser selecionados.</p>
@@ -725,12 +745,12 @@ AMOSTRA COM VIÉS:
 </div>
 </div>
 <div id="amostragem-aleatória-simples" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> 🎲 1. Amostragem Aleatória Simples<a href="#amostragem-aleat%C3%B3ria-simples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.4</span> 🎲 1. Amostragem Aleatória Simples<a href="técnicas-de-amostragem.html#amostragem-aleat%C3%B3ria-simples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>Conceito:</strong> Todos têm a <strong>mesma chance</strong> de ser escolhidos (como um sorteio de loteria).</p>
 </blockquote>
 <div id="como-fazer" class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> 📋 Como Fazer:<a href="#como-fazer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.1</span> 📋 Como Fazer:<a href="técnicas-de-amostragem.html#como-fazer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Passo a passo:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Obtenha uma lista completa da população (ex: todos os alunos da UFTM)</p></li>
@@ -740,7 +760,7 @@ AMOSTRA COM VIÉS:
 </ol>
 </div>
 <div id="ferramentas-práticas" class="section level3 hasAnchor" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> 💻 Ferramentas Práticas:<a href="#ferramentas-pr%C3%A1ticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.2</span> 💻 Ferramentas Práticas:<a href="técnicas-de-amostragem.html#ferramentas-pr%C3%A1ticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p><strong>No R:</strong> Pacote base com função <code>sample()</code></p></li>
 <li><p><strong>No Excel:</strong> <code>=ALEATÓRIOENTRE(1;N)</code></p></li>
@@ -749,7 +769,7 @@ AMOSTRA COM VIÉS:
 </ul>
 </div>
 <div id="exemplo-real---uftm" class="section level3 hasAnchor" number="5.4.3">
-<h3><span class="header-section-number">5.4.3</span> 🎯 Exemplo Real - UFTM:<a href="#exemplo-real---uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.3</span> 🎯 Exemplo Real - UFTM:<a href="técnicas-de-amostragem.html#exemplo-real---uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><strong>Pesquisa:</strong> Avaliar saúde mental dos estudantes da UFTM</p>
 </blockquote>
@@ -778,7 +798,7 @@ AMOSTRA COM VIÉS:
 </ul>
 </div>
 <div id="como-evitar-viés" class="section level3 hasAnchor" number="5.4.6">
-<h3><span class="header-section-number">5.4.6</span> 🛡️ Como Evitar Viés:<a href="#como-evitar-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.4.6</span> 🛡️ Como Evitar Viés:<a href="técnicas-de-amostragem.html#como-evitar-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>✅ Garantir que a lista esteja <strong>completa e atualizada</strong></p></li>
 <li><p>✅ Usar <strong>geradores aleatórios confiáveis</strong> (não escolher “de cabeça”)</p></li>
@@ -788,18 +808,21 @@ AMOSTRA COM VIÉS:
 </div>
 </div>
 <div id="amostragem-estratificada" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> 📊 2. Amostragem Estratificada<a href="#amostragem-estratificada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.5</span> 📊 2. Amostragem Estratificada<a href="técnicas-de-amostragem.html#amostragem-estratificada" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>Conceito:</strong> Dividir a população em <strong>grupos homogêneos</strong> (estratos) e sortear dentro de cada grupo proporcionalmente.</p>
 </blockquote>
 <div id="quando-usar" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> 🎯 Quando Usar:<a href="#quando-usar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.5.1</span> 🎯 Quando Usar:<a href="técnicas-de-amostragem.html#quando-usar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use quando sua população tem <strong>subgrupos importantes</strong> que precisam estar representados.</p>
 </div>
 <div id="como-fazer---exemplo-prático-uftm" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> 📋 Como Fazer - Exemplo Prático UFTM:<a href="#como-fazer---exemplo-pr%C3%A1tico-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>População:</strong> Estudantes da UFTM<br />
+<h3><span class="header-section-number">5.5.2</span> 📋 Como Fazer - Exemplo Prático UFTM:<a href="técnicas-de-amostragem.html#como-fazer---exemplo-pr%C3%A1tico-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>População:</strong> Estudantes de graduação da UFTM<br />
 <strong>Amostra necessária:</strong> 364 estudantes</p>
+<blockquote>
+<p>📌 Nos exemplos de amostragem a seguir trabalhamos apenas com a <strong>graduação</strong> (~6.750 alunos). O N de 6.900 usado no cálculo amostral incluía também pós-graduação e cursos técnicos. Como os dois números são próximos, a amostra de 364 continua adequada — mas, na sua pesquisa, defina uma população só e use a mesma em todas as etapas.</p>
+</blockquote>
 <p><strong>Passo 1 - Definir estratos (por curso):</strong></p>
 <p>Considerando os cursos de graduação da UFTM:</p>
 <table>
@@ -962,7 +985,7 @@ AMOSTRA COM VIÉS:
 </ul>
 </div>
 <div id="como-evitar-viés-1" class="section level3 hasAnchor" number="5.5.5">
-<h3><span class="header-section-number">5.5.5</span> 🛡️ Como Evitar Viés:<a href="#como-evitar-vi%C3%A9s-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.5.5</span> 🛡️ Como Evitar Viés:<a href="técnicas-de-amostragem.html#como-evitar-vi%C3%A9s-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>✅ Estratos devem ser <strong>relevantes</strong> para a pesquisa</li>
 <li>✅ Garantir que estratos sejam <strong>mutuamente exclusivos</strong> (aluno em apenas um curso)</li>
@@ -970,7 +993,7 @@ AMOSTRA COM VIÉS:
 </ul>
 </div>
 <div id="outras-formas-de-estratificar-na-uftm" class="section level3 hasAnchor" number="5.5.6">
-<h3><span class="header-section-number">5.5.6</span> 💡 Outras Formas de Estratificar na UFTM:<a href="#outras-formas-de-estratificar-na-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.5.6</span> 💡 Outras Formas de Estratificar na UFTM:<a href="técnicas-de-amostragem.html#outras-formas-de-estratificar-na-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>Por período:</strong> Calouros, intermediários, formandos</li>
 <li><strong>Por campus:</strong> Uberaba, Iturama</li>
@@ -981,26 +1004,29 @@ AMOSTRA COM VIÉS:
 </div>
 </div>
 <div id="amostragem-sistemática" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> 🔢 3. Amostragem Sistemática<a href="#amostragem-sistem%C3%A1tica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.6</span> 🔢 3. Amostragem Sistemática<a href="técnicas-de-amostragem.html#amostragem-sistem%C3%A1tica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>Conceito:</strong> Escolher um ponto de partida aleatório e selecionar a cada <strong>k</strong> elementos.</p>
 </blockquote>
 <div id="como-fazer-1" class="section level3 hasAnchor" number="5.6.1">
-<h3><span class="header-section-number">5.6.1</span> 📋 Como Fazer:<a href="#como-fazer-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.6.1</span> 📋 Como Fazer:<a href="técnicas-de-amostragem.html#como-fazer-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Exemplo - UFTM:</strong></p>
 <p><strong>População:</strong> 6.750 alunos<br />
 <strong>Amostra necessária:</strong> 364 alunos</p>
 <p><strong>Passo 1 - Calcular o intervalo (k):</strong></p>
 <pre><code>k = População / Amostra
-k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
-<p><strong>Passo 2 - Sortear o primeiro (entre 1 e 19):</strong></p>
+k = 6.750 / 364 = 18,5  →  arredonde PARA BAIXO:  k = 18</code></pre>
+<blockquote>
+<p>⚠️ <strong>Atenção ao arredondamento:</strong> aqui o k deve ser arredondado <strong>para baixo</strong>. Se usássemos k = 19, percorrendo a lista de 19 em 19 sairiam apenas 6.750 ÷ 19 = 355 pessoas — menos do que os 364 necessários. Com k = 18 saem 375, que cobre a amostra com folga.</p>
+</blockquote>
+<p><strong>Passo 2 - Sortear o primeiro (entre 1 e 18):</strong></p>
 <pre><code>Sorteio: número 7</code></pre>
-<p><strong>Passo 3 - Selecionar a cada 19:</strong></p>
-<pre><code>Selecionados: 7, 26, 45, 64, 83, 102, 121, 140...
-(sempre somando 19 até completar 364)</code></pre>
+<p><strong>Passo 3 - Selecionar a cada 18:</strong></p>
+<pre><code>Selecionados: 7, 25, 43, 61, 79, 97, 115, 133...
+(sempre somando 18 até percorrer toda a lista)</code></pre>
 </div>
 <div id="como-fazer-2" class="section level3 hasAnchor" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> 💻 Como Fazer:<a href="#como-fazer-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.6.2</span> 💻 Como Fazer:<a href="técnicas-de-amostragem.html#como-fazer-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><strong>No R:</strong> Função <code>seq()</code> para criar sequência</li>
 <li><strong>No Excel:</strong> Fórmula com sequência aritmética</li>
@@ -1008,7 +1034,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="exemplo-prático-1" class="section level3 hasAnchor" number="5.6.3">
-<h3><span class="header-section-number">5.6.3</span> 🎯 Exemplo Prático:<a href="#exemplo-pr%C3%A1tico-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.6.3</span> 🎯 Exemplo Prático:<a href="técnicas-de-amostragem.html#exemplo-pr%C3%A1tico-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><strong>Pesquisa na fila de vacinação:</strong></p>
 </blockquote>
@@ -1035,7 +1061,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="como-evitar-viés-2" class="section level3 hasAnchor" number="5.6.6">
-<h3><span class="header-section-number">5.6.6</span> 🛡️ Como Evitar Viés:<a href="#como-evitar-vi%C3%A9s-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.6.6</span> 🛡️ Como Evitar Viés:<a href="técnicas-de-amostragem.html#como-evitar-vi%C3%A9s-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>✅ Certifique-se que a lista <strong>não tem ordem padrão</strong></li>
 <li>✅ Se houver ordem (ex: por curso), <strong>embaralhe</strong> antes</li>
@@ -1045,12 +1071,12 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </div>
 </div>
 <div id="amostragem-por-conglomerados" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> 🎪 4. Amostragem por Conglomerados<a href="#amostragem-por-conglomerados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.7</span> 🎪 4. Amostragem por Conglomerados<a href="técnicas-de-amostragem.html#amostragem-por-conglomerados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>Conceito:</strong> Dividir a população em <strong>grupos</strong> (conglomerados) e sortear <strong>grupos inteiros</strong>.</p>
 </blockquote>
 <div id="como-fazer---exemplo-uftm" class="section level3 hasAnchor" number="5.7.1">
-<h3><span class="header-section-number">5.7.1</span> 📋 Como Fazer - Exemplo UFTM:<a href="#como-fazer---exemplo-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.7.1</span> 📋 Como Fazer - Exemplo UFTM:<a href="técnicas-de-amostragem.html#como-fazer---exemplo-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Objetivo:</strong> Pesquisar hábitos de estudo</p>
 <p><strong>Opção 1 - Conglomerados = Turmas:</strong></p>
 <ul>
@@ -1072,7 +1098,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="exemplo-prático-nacional" class="section level3 hasAnchor" number="5.7.2">
-<h3><span class="header-section-number">5.7.2</span> 🎯 Exemplo Prático Nacional:<a href="#exemplo-pr%C3%A1tico-nacional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.7.2</span> 🎯 Exemplo Prático Nacional:<a href="técnicas-de-amostragem.html#exemplo-pr%C3%A1tico-nacional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><strong>Pesquisa sobre educação no Brasil:</strong>
 - Impossível listar todos os estudantes</p>
@@ -1102,7 +1128,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="como-evitar-viés-3" class="section level3 hasAnchor" number="5.7.5">
-<h3><span class="header-section-number">5.7.5</span> 🛡️ Como Evitar Viés:<a href="#como-evitar-vi%C3%A9s-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.7.5</span> 🛡️ Como Evitar Viés:<a href="técnicas-de-amostragem.html#como-evitar-vi%C3%A9s-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>✅ Conglomerados devem ser <strong>heterogêneos internamente</strong> (diversos)</li>
 <li>✅ Conglomerados devem ser <strong>semelhantes entre si</strong></li>
@@ -1110,7 +1136,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="diferença-estratificada-vs.-conglomerados" class="section level3 hasAnchor" number="5.7.6">
-<h3><span class="header-section-number">5.7.6</span> 💡 Diferença: Estratificada vs. Conglomerados<a href="#diferen%C3%A7a-estratificada-vs.-conglomerados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.7.6</span> 💡 Diferença: Estratificada vs. Conglomerados<a href="técnicas-de-amostragem.html#diferen%C3%A7a-estratificada-vs.-conglomerados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="23%" />
@@ -1151,12 +1177,12 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </div>
 </div>
 <div id="amostragem-por-conveniência" class="section level2 hasAnchor" number="5.8">
-<h2><span class="header-section-number">5.8</span> 🚀 5. Amostragem por Conveniência<a href="#amostragem-por-conveni%C3%AAncia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.8</span> 🚀 5. Amostragem por Conveniência<a href="técnicas-de-amostragem.html#amostragem-por-conveni%C3%AAncia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <blockquote>
 <p><strong>Conceito:</strong> Selecionar quem está <strong>mais acessível</strong> ao pesquisador.</p>
 </blockquote>
 <div id="características" class="section level3 hasAnchor" number="5.8.1">
-<h3><span class="header-section-number">5.8.1</span> 🎯 Características:<a href="#caracter%C3%ADsticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.8.1</span> 🎯 Características:<a href="técnicas-de-amostragem.html#caracter%C3%ADsticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>❌ <strong>Não probabilística</strong> (não há sorteio)</li>
 <li>⚠️ <strong>Alto risco de viés</strong></li>
@@ -1164,7 +1190,7 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </ul>
 </div>
 <div id="exemplos-comuns" class="section level3 hasAnchor" number="5.8.2">
-<h3><span class="header-section-number">5.8.2</span> 📋 Exemplos Comuns:<a href="#exemplos-comuns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.8.2</span> 📋 Exemplos Comuns:<a href="técnicas-de-amostragem.html#exemplos-comuns" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Google Forms/Formulários Online:</strong></p>
 <pre><code>Pesquisador → Compartilha link → Quem quiser responde</code></pre>
 <p><strong>2. Abordagem em locais específicos:</strong></p>
@@ -1220,8 +1246,8 @@ k = 6.750 / 364 = 18,5 ≈ 19</code></pre>
 </table>
 </div>
 <div id="exemplo-visual" class="section level3 hasAnchor" number="5.8.4">
-<h3><span class="header-section-number">5.8.4</span> 📊 Exemplo Visual:<a href="#exemplo-visual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<pre><code>POPULAÇÃO REAL (29 cursos da UFTM):
+<h3><span class="header-section-number">5.8.4</span> 📊 Exemplo Visual:<a href="técnicas-de-amostragem.html#exemplo-visual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>POPULAÇÃO REAL (20 cursos da UFTM):
 🏥💼🎓🔬🏗️📚🎨🧪 (todos os cursos)
 
 FORMULÁRIO compartilhado só no grupo da Medicina:
@@ -1249,7 +1275,7 @@ FORMULÁRIO compartilhado só no grupo da Medicina:
 </ul>
 </div>
 <div id="como-minimizar-viés" class="section level3 hasAnchor" number="5.8.7">
-<h3><span class="header-section-number">5.8.7</span> 🛡️ Como Minimizar Viés:<a href="#como-minimizar-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.8.7</span> 🛡️ Como Minimizar Viés:<a href="técnicas-de-amostragem.html#como-minimizar-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>✅ <strong>Diversificar canais:</strong></p>
 <pre><code>Não envie só em um grupo!
 ✓ E-mail institucional (todos os cursos)
@@ -1269,7 +1295,7 @@ RELATAR essa diferença!</code></pre>
 <pre><code>Online (conveniência) + Presencial estratificado</code></pre>
 </div>
 <div id="exemplo-de-relato-honesto-no-artigo" class="section level3 hasAnchor" number="5.8.8">
-<h3><span class="header-section-number">5.8.8</span> 💡 Exemplo de Relato Honesto no Artigo:<a href="#exemplo-de-relato-honesto-no-artigo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.8.8</span> 💡 Exemplo de Relato Honesto no Artigo:<a href="técnicas-de-amostragem.html#exemplo-de-relato-honesto-no-artigo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><em>“Utilizou-se amostragem por conveniência através de formulário online (Google Forms), divulgado por e-mail institucional, redes sociais e grupos de WhatsApp. Obtivemos 412 respostas de estudantes da UFTM. Reconhecemos que esta técnica apresenta limitações quanto à representatividade, especialmente viés de auto-seleção e acesso digital. A amostra apresentou maior proporção de estudantes da área da Saúde (65%) comparado à distribuição real dos cursos da UFTM (aproximadamente 40%), o que deve ser considerado na interpretação dos resultados.”</em></p>
 </blockquote>
@@ -1277,10 +1303,10 @@ RELATAR essa diferença!</code></pre>
 </div>
 </div>
 <div id="combinando-técnicas-na-prática" class="section level2 hasAnchor" number="5.9">
-<h2><span class="header-section-number">5.9</span> 🔄 Combinando Técnicas na Prática<a href="#combinando-t%C3%A9cnicas-na-pr%C3%A1tica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.9</span> 🔄 Combinando Técnicas na Prática<a href="técnicas-de-amostragem.html#combinando-t%C3%A9cnicas-na-pr%C3%A1tica" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Na vida real, pesquisadores frequentemente <strong>combinam</strong> técnicas para melhorar a representatividade!</p>
 <div id="exemplos-de-combinações" class="section level3 hasAnchor" number="5.9.1">
-<h3><span class="header-section-number">5.9.1</span> 🎯 Exemplos de Combinações:<a href="#exemplos-de-combina%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.9.1</span> 🎯 Exemplos de Combinações:<a href="técnicas-de-amostragem.html#exemplos-de-combina%C3%A7%C3%B5es" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Exemplo 1: Estratificada + Aleatória Simples</strong></p>
 <pre><code>1️⃣ Dividir alunos por área (Saúde, Exatas, Humanas)
 2️⃣ Dentro de cada área, sortear alunos aleatoriamente</code></pre>
@@ -1293,7 +1319,7 @@ RELATAR essa diferença!</code></pre>
 3️⃣ Fechar coleta quando todas as cotas forem preenchidas</code></pre>
 </div>
 <div id="caso-real---pesquisa-uftm" class="section level3 hasAnchor" number="5.9.2">
-<h3><span class="header-section-number">5.9.2</span> 📊 Caso Real - Pesquisa UFTM:<a href="#caso-real---pesquisa-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.9.2</span> 📊 Caso Real - Pesquisa UFTM:<a href="técnicas-de-amostragem.html#caso-real---pesquisa-uftm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Situação:</strong> Pesquisar bem-estar dos estudantes<br />
 <strong>Recursos:</strong> Limitados<br />
 <strong>Tempo:</strong> 2 meses</p>
@@ -1314,7 +1340,7 @@ ETAPA 3: Monitoramento
 </div>
 </div>
 <div id="tabela-comparativa-resumida" class="section level2 hasAnchor" number="5.10">
-<h2><span class="header-section-number">5.10</span> 📊 Tabela Comparativa Resumida<a href="#tabela-comparativa-resumida" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.10</span> 📊 Tabela Comparativa Resumida<a href="técnicas-de-amostragem.html#tabela-comparativa-resumida" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table style="width:100%;">
 <colgroup>
 <col width="13%" />
@@ -1381,9 +1407,9 @@ ETAPA 3: Monitoramento
 <hr />
 </div>
 <div id="como-escolher-a-técnica-ideal" class="section level2 hasAnchor" number="5.11">
-<h2><span class="header-section-number">5.11</span> 🎯 Como Escolher a Técnica Ideal?<a href="#como-escolher-a-t%C3%A9cnica-ideal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.11</span> 🎯 Como Escolher a Técnica Ideal?<a href="técnicas-de-amostragem.html#como-escolher-a-t%C3%A9cnica-ideal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="fluxograma-de-decisão" class="section level3 hasAnchor" number="5.11.1">
-<h3><span class="header-section-number">5.11.1</span> 🤔 Fluxograma de Decisão:<a href="#fluxograma-de-decis%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.11.1</span> 🤔 Fluxograma de Decisão:<a href="técnicas-de-amostragem.html#fluxograma-de-decis%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>Tenho lista completa da população?
 ├─ SIM → Há subgrupos importantes?
 │         ├─ SIM → ESTRATIFICADA
@@ -1396,7 +1422,7 @@ ETAPA 3: Monitoramento
                    └─ NÃO → Tente obter lista e use ESTRATIFICADA</code></pre>
 </div>
 <div id="checklist-de-decisão" class="section level3 hasAnchor" number="5.11.2">
-<h3><span class="header-section-number">5.11.2</span> 📋 Checklist de Decisão:<a href="#checklist-de-decis%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.11.2</span> 📋 Checklist de Decisão:<a href="técnicas-de-amostragem.html#checklist-de-decis%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul class="task-list">
 <li><label><input type="checkbox" />Defini claramente minha população-alvo</label></li>
 <li><label><input type="checkbox" />Calculei o tamanho da amostra necessária</label></li>
@@ -1411,7 +1437,7 @@ ETAPA 3: Monitoramento
 </div>
 </div>
 <div id="evitando-viés-guia-rápido" class="section level2 hasAnchor" number="5.12">
-<h2><span class="header-section-number">5.12</span> 🛡️ Evitando Viés: Guia Rápido<a href="#evitando-vi%C3%A9s-guia-r%C3%A1pido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.12</span> 🛡️ Evitando Viés: Guia Rápido<a href="técnicas-de-amostragem.html#evitando-vi%C3%A9s-guia-r%C3%A1pido" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="principais-fontes-de-viés" class="section level3 hasAnchor" number="5.12.1">
 <h3><span class="header-section-number">5.12.1</span> ⚠️ Principais Fontes de Viés:<a href="técnicas-de-amostragem.html#principais-fontes-de-vi%C3%A9s" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
@@ -1471,7 +1497,7 @@ ETAPA 3: Monitoramento
 </div>
 </div>
 <div id="dicas-finais" class="section level2 hasAnchor" number="5.13">
-<h2><span class="header-section-number">5.13</span> 💡 Dicas Finais<a href="#dicas-finais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.13</span> 💡 Dicas Finais<a href="técnicas-de-amostragem.html#dicas-finais" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="boas-práticas" class="section level3 hasAnchor" number="5.13.1">
 <h3><span class="header-section-number">5.13.1</span> ✅ Boas Práticas:<a href="técnicas-de-amostragem.html#boas-pr%C3%A1ticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Documente tudo:</strong></p>
@@ -1499,18 +1525,18 @@ ETAPA 3: Monitoramento
 </ul>
 </div>
 <div id="como-relatar-no-artigo" class="section level3 hasAnchor" number="5.13.2">
-<h3><span class="header-section-number">5.13.2</span> 📝 Como Relatar no Artigo:<a href="#como-relatar-no-artigo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.13.2</span> 📝 Como Relatar no Artigo:<a href="técnicas-de-amostragem.html#como-relatar-no-artigo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Exemplo de redação completa:</strong></p>
 <blockquote>
-<p><em>“Utilizou-se amostragem estratificada proporcional, com estratos definidos por curso de graduação. A partir do cadastro institucional de 6.750 estudantes da UFTM, distribuídos em 20 cursos, calculou-se amostra de 364 alunos (margem de erro de 5%, nível de confiança de 95%). A distribuição amostral por curso respeitou a proporção de cada curso na população. Dentro de cada estrato, realizou-se sorteio aleatório simples utilizando gerador de números aleatórios (Random.org). Foram convidados 473 estudantes para compensar possíveis perdas estimadas em 25%. A taxa de resposta foi de 79% (n=374), superando o mínimo necessário. A amostra final apresentou distribuição por área (Saúde 38%, Exatas 36%, Humanas 26%) compatível com a população da instituição.”</em></p>
+<p><em>“Utilizou-se amostragem estratificada proporcional, com estratos definidos por curso de graduação. A partir do cadastro institucional de 6.750 estudantes da UFTM, distribuídos em 20 cursos, calculou-se amostra de 364 alunos (margem de erro de 5%, nível de confiança de 95%). A distribuição amostral por curso respeitou a proporção de cada curso na população. Dentro de cada estrato, realizou-se sorteio aleatório simples utilizando gerador de números aleatórios (Random.org). Foram convidados 486 estudantes para compensar possíveis perdas estimadas em 25% (364 ÷ 0,75). A taxa de resposta foi de 77% (n=374), superando o mínimo necessário. A amostra final apresentou distribuição por área (Saúde 38%, Exatas 36%, Humanas 26%) compatível com a população da instituição.”</em></p>
 </blockquote>
 <hr />
 </div>
 </div>
 <div id="resumo-final" class="section level2 hasAnchor" number="5.14">
-<h2><span class="header-section-number">5.14</span> 📚 Resumo Final<a href="#resumo-final" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">5.14</span> 📚 Resumo Final<a href="técnicas-de-amostragem.html#resumo-final" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="amostragens-probabilísticas" class="section level3 hasAnchor" number="5.14.1">
-<h3><span class="header-section-number">5.14.1</span> 🔵 Amostragens Probabilísticas:<a href="#amostragens-probabil%C3%ADsticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.14.1</span> 🔵 Amostragens Probabilísticas:<a href="técnicas-de-amostragem.html#amostragens-probabil%C3%ADsticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <thead>
 <tr class="header">
@@ -1539,7 +1565,7 @@ ETAPA 3: Monitoramento
 </table>
 </div>
 <div id="amostragem-não-probabilística" class="section level3 hasAnchor" number="5.14.2">
-<h3><span class="header-section-number">5.14.2</span> 🔴 Amostragem Não Probabilística:<a href="#amostragem-n%C3%A3o-probabil%C3%ADstica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.14.2</span> 🔴 Amostragem Não Probabilística:<a href="técnicas-de-amostragem.html#amostragem-n%C3%A3o-probabil%C3%ADstica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <thead>
 <tr class="header">
@@ -1556,7 +1582,7 @@ ETAPA 3: Monitoramento
 </table>
 </div>
 <div id="regra-de-ouro" class="section level3 hasAnchor" number="5.14.3">
-<h3><span class="header-section-number">5.14.3</span> 🎯 Regra de Ouro:<a href="#regra-de-ouro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">5.14.3</span> 🎯 Regra de Ouro:<a href="técnicas-de-amostragem.html#regra-de-ouro" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
 <p><strong>Sempre que possível, use técnicas PROBABILÍSTICAS!</strong><br />
 Elas permitem generalização e são mais aceitas cientificamente.</p>

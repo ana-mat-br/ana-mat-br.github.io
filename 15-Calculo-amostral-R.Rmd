@@ -241,13 +241,13 @@ pwr.t.test(n = 26, d = 0.8, power = NULL, sig.level = 0.05, type = "two.sample")
 
 **Explicação dos parâmetros**
 
-- `n = 20`: tamanho da amostra em cada grupo já definido.
+- `n = 26`: tamanho da amostra em cada grupo já definido.
 - `d = 0.8`: tamanho do efeito (Cohen’s d), aqui considerado grande.
 - `sig.level = 0.05`: nível de significância (chance máxima de um falso positivo).
 - `type = "two.sample"`: teste t para dois grupos independentes.
 - `power = NULL`: ao deixar o parâmetro `power` em NULL, você está dizendo ao R para calcular **qual é o poder do teste** com esses valores.
 
-Nesse caso o poder do teste é de 70%.
+Nesse caso o poder do teste é de aproximadamente **80,7%** (`power = 0.8074866` na saída acima).
 
 **O que acontece nesse cálculo?**
 
@@ -257,6 +257,8 @@ O R resolve a equação para o poder estatístico usando os valores que você fo
 
 - Se o poder calculado for **menor que 0,80** (80%), pode ser interessante aumentar a amostra para garantir maior chance de detectar diferenças reais.
 - Se o poder já for **maior que 0,80**, seu estudo tem boa sensibilidade para o efeito esperado.
+
+Neste exemplo, o poder de 80,7% fica **acima** do mínimo recomendado: com 26 participantes por grupo, o estudo tem boa sensibilidade para detectar um efeito grande (d = 0,8). E isso não é coincidência — foi exatamente o `pwr.t.test()` do exemplo anterior que indicou 26 por grupo como o mínimo necessário para esse efeito com 80% de poder.
 
 **Resumindo**
 

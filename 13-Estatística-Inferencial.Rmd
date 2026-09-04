@@ -13,7 +13,9 @@ Para realizar qualquer **teste estatístico**, seguimos uma sequência básica d
 
 2. **Definimos o nível de significância (α)**, que é a margem de erro aceitável. Esse valor, geralmente 0,05 (ou 5%), já foi considerado no **cálculo do tamanho da amostra**, garantindo que os resultados tenham confiabilidade.
 
-3. **Utilizamos um recurso computacional**, como um software estatístico, para calcular o **valor-p**, que mostra a probabilidade de observarmos os dados coletados caso a hipótese nula seja verdadeira.
+3. **Escolhemos o teste adequado** e **verificamos seus pressupostos** — o tipo das variáveis, se os grupos são pareados ou independentes, quantos grupos existem e se os dados seguem distribuição normal. É essa etapa que decide entre um teste paramétrico e um não paramétrico.
+
+4. **Utilizamos um recurso computacional**, como um software estatístico, para calcular o **valor-p**, que mostra a probabilidade de observarmos os dados coletados **ou dados ainda mais extremos**, caso a hipótese nula seja verdadeira.
 
 5. **Comparamos o valor-p com o nível de significância**. Se o valor-p for menor que α, **rejeitamos a hipótese nula**. Caso contrário, não rejeitamos.
 
@@ -107,15 +109,17 @@ Usado para comparar médias entre dois grupos, mede a diferença em unidades de 
 | ≈ 0.5      | Efeito médio        |
 | ≥ 0.8      | Efeito grande       |
 
-### C de Cramer, para tabela 2x2 (teste qui-quadrado)
+### V de Cramér (teste qui-quadrado)
 
-Mede a associação entre variáveis categóricas (varia de 0 a 1).
+Mede a associação entre variáveis categóricas (varia de 0 a 1). Em tabelas 2x2 o V de Cramér coincide com o coeficiente Phi ($\phi$).
 
-| Valor de C | Interpretação       |
+| Valor de V | Interpretação       |
 |:------------|:---------------------|
-| ≈ 0.1      | Associação fraca    |
-| ≈ 0.3      | Associação moderada |
-| ≥ 0.5      | Associação forte    |
+| ≈ 0,1      | Associação fraca    |
+| ≈ 0,3      | Associação moderada |
+| ≥ 0,5      | Associação forte    |
+
+> Cuidado para não confundir o **V** de Cramér com o **C** (coeficiente de contingência de Pearson), que é outra medida, com outra escala. Veremos o V de Cramér em detalhe no capítulo de associação entre variáveis.
 
 ### Coeficiente de Correlação de Pearson (r)
 

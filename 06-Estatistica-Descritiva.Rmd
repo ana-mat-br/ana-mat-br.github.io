@@ -2,6 +2,8 @@
 
 A estatística descritiva permite **resumir, organizar e interpretar** dados de forma clara e objetiva. Para isso, utilizamos **medidas de tendência central**, **medidas de dispersão** e **medidas relativas de variabilidade**.
 
+> Todos os exemplos de redação ("Como reportar") deste capítulo foram calculados a partir do vetor `Batimentos` da Atividade 4, no final do capítulo. Assim você pode refazer cada conta no R e conferir os valores.
+
 ## Medidas de Tendência Central (ou Posição)
 
 ### Média
@@ -10,7 +12,7 @@ A estatística descritiva permite **resumir, organizar e interpretar** dados de 
 - **Interpretação:** Representa o valor médio ou típico do conjunto de dados.  
 - **Como reportar:**  
 
-> A média dos batimentos cardíacos foi de 58,6 bpm, indicando o valor médio da amostra analisada.
+> A média dos batimentos cardíacos foi de 58,5 bpm, indicando o valor médio da amostra analisada.
 
 ### Mediana
 
@@ -18,7 +20,7 @@ A estatística descritiva permite **resumir, organizar e interpretar** dados de 
 - **Interpretação:** Divide o conjunto de dados ao meio, sendo útil quando há valores extremos (outliers).  
 - **Como reportar:**  
 
-> A mediana dos batimentos foi de 60,0 bpm, indicando que 50% dos indivíduos apresentaram valores abaixo ou iguais a esse valor.
+> A mediana dos batimentos foi de 60,5 bpm, indicando que 50% dos indivíduos apresentaram valores abaixo ou iguais a esse valor.
 
 ### Quartis
 
@@ -26,7 +28,7 @@ A estatística descritiva permite **resumir, organizar e interpretar** dados de 
 - **Interpretação:** Ajudam a entender a distribuição dos dados e identificar a dispersão em torno da mediana.  
 - **Como reportar:**  
 
-> O primeiro e o terceiro quartis foram 54,0 bpm e 64,0 bpm, respectivamente, revelando que 50% dos batimentos ficaram entre esses dois valores.
+> O primeiro e o terceiro quartis foram 54,0 bpm e 64,8 bpm, respectivamente, revelando que 50% dos batimentos ficaram entre esses dois valores.
 
 ### Moda
 
@@ -34,7 +36,9 @@ A estatística descritiva permite **resumir, organizar e interpretar** dados de 
 - **Interpretação:** Indica o valor mais comum, embora possa não existir ou haver mais de uma moda.  
 - **Como reportar:**  
 
-> A moda foi 62 bpm, valor que ocorreu com maior frequência na amostra.
+> A amostra é multimodal: os valores 39, 54, 62 e 75 bpm ocorreram duas vezes cada, e nenhum outro se repetiu.
+
+*Observação:* este é justamente um caso em que a moda ajuda pouco a resumir os dados — situação comum em amostras pequenas de variáveis contínuas.
 
 **Observação importante:**  
 - **Média e desvio padrão** são medidas que devem ser usadas juntas, especialmente para dados simétricos (distribuição simétrica) e sem valores extremos.
@@ -59,7 +63,7 @@ A estatística descritiva permite **resumir, organizar e interpretar** dados de 
 - **Interpretação:** Mede a dispersão, mas sua unidade é o quadrado da unidade original.  
 - **Como reportar:**  
 
-> A variância foi de 98,8 bpm², indicando a variabilidade dos batimentos em relação à média.
+> A variância foi de 120,4 bpm², indicando a variabilidade dos batimentos em relação à média.
 
 **Observação:**  
 A unidade da variância é expressa ao quadrado da unidade original dos dados (por exemplo, bpm² no caso de batimentos por minuto), o que pode dificultar sua interpretação direta.  
@@ -72,8 +76,7 @@ Por isso, costuma-se utilizar o **desvio padrão**, que tem a **mesma unidade do
 - **Interpretação:** Expressa, em média, o quanto os dados se afastam da média.  
 - **Como reportar:**  
 
-**Como reportar:**  
-O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos cardíacos dos indivíduos da amostra variam aproximadamente 9,9 unidades em relação à média.
+> O desvio padrão foi de 11,0 bpm, o que indica que, em média, os batimentos cardíacos dos indivíduos da amostra se afastam cerca de 11,0 bpm da média.
 
 ### Amplitude interquartil (IQR)
 
@@ -81,7 +84,7 @@ O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos card
 - **Interpretação:** Indica a dispersão dos 50% centrais dos dados.  
 - **Como reportar:**  
 
-> A amplitude interquartil foi de 10,0 bpm, mostrando a concentração dos valores médios.
+> A amplitude interquartil foi de 10,8 bpm, mostrando a dispersão dos 50% centrais dos dados.
 
 **Sugestão de vídeo:** Canal Pesquise - [Variabilidade](https://youtu.be/sISPcOIcwXs)
 
@@ -94,7 +97,7 @@ O desvio padrão foi de 9,9 bpm, o que indica que, em média, os batimentos card
 - **Interpretação:** Expressa a variabilidade dos dados em relação à média, permitindo comparar conjuntos com unidades diferentes.  
 - **Como reportar:**  
 
-> O coeficiente de variação foi de 16,9%, indicando que os dados são relativamente homogêneos.
+> O coeficiente de variação foi de 18,8%, indicando que os dados são relativamente homogêneos.
 
 **Observação:**  
 Um CV inferior a 25% geralmente indica homogeneidade; valores muito altos indicam alta variabilidade.
@@ -134,7 +137,7 @@ Com um vetor `x` contendo os dados, utilize:
 | Mediana                    | `median(x)`                 |
 | Primeiro quartil (Q1)      | `quantile(x, 0.25)`         |
 | Terceiro quartil (Q3)      | `quantile(x, 0.75)`         |
-| Moda                       | `sort(table(x))`            |
+| Moda                       | `sort(table(x), decreasing = TRUE)` |
 | Menor valor                | `min(x)`                    |
 | Maior valor                | `max(x)`                    |
 | Resumo geral               | `summary(x)`                |
@@ -143,6 +146,8 @@ Com um vetor `x` contendo os dados, utilize:
 | Desvio padrão              | `sd(x)`                     |
 | Amplitude interquartil     | `IQR(x)`                    |
 | Coeficiente de variação    | `sd(x)/mean(x)*100`         |
+
+*Sobre a moda:* o R não tem uma função pronta para ela. O comando acima devolve a tabela de frequências ordenada da maior para a menor — a moda é o valor (ou os valores) no topo dessa tabela. Lembre-se de que um conjunto pode não ter moda, ou ter mais de uma.
 
 
 > Calcular é importante, mas interpretar corretamente é essencial. Ao elaborar suas interpretações, descreva o que os números revelam sobre o fenômeno analisado.
@@ -169,7 +174,7 @@ Batimentos <- c(62, 55, 56, 46, 75, 67, 62, 75, 60, 54, 69, 63, 39, 57, 40, 39, 
    + Variância:
    + Desvio padrão:
    + Amplitude interquartil:
-   + Coeficiente de varição:
+   + Coeficiente de variação:
    
 + Escreva sobre o conjunto media e desvio padrão: 
 

@@ -7,6 +7,7 @@ documentclass: book
 bibliography: referencias.bib
 biblio-style: apalike
 link-citations: true
+always_allow_html: true
 csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
 language: "pt-BR"
 ---
@@ -36,6 +37,6 @@ Para mais informações sobre minha trajetória acadêmica e profissional, acess
 library(magick)
 img <- image_read_pdf("ficha-284399.pdf", density = 150)
 image_write(img, path = "ficha.svg", format = "svg")
-cat('<center><img src="ficha.svg" width="50%" heigth="10px"/></center>')
+cat('<center><img src="ficha.svg" width="50%"/></center>')
 
 ```

@@ -185,8 +185,8 @@ Observações sobre o intervalo de confiança do teste de Wilcoxon
   Como esse intervalo **não inclui o zero**, temos mais uma indicação de que existe diferença significativa entre os dois momentos.
 
 **(pseudo)median:**  
-  O valor de 5,55 indica a mediana das diferenças observadas nos dados.  
-  É chamado de “pseudo-median” porque, no teste de Wilcoxon, esse valor é uma estimativa robusta do deslocamento central entre os pares.
+  O valor de 5,55 é a estimativa do deslocamento central entre os pares.  
+  Atenção: ele **não** é a mediana das diferenças observadas — esta seria `median(antes - depois)`, que dá 6,12. É chamado de “pseudo-median” porque, no teste de Wilcoxon, é calculado de outra maneira, e é uma estimativa mais robusta do deslocamento central.
  
   O termo “pseudo-median” aparece no teste de Wilcoxon porque, nesse teste, a maneira de calcular a “mediana” é um pouco diferente da mediana comum.
 
@@ -407,8 +407,8 @@ Ou seja:
    a) Separe os dados dos Pokémons de cor verde e de cor amarela.  
    b) Verifique a normalidade dos dados de velocidade de cada grupo (gráfico QQ).  
    c) Escolha o teste mais apropriado:
-      - Se as duas amostras seguirem distibuição Normal → teste de variância → teste t
-      - Se uma das amostras não seguir distibuição Normal → teste de Wilcoxon
+      - Se as duas amostras seguirem distribuição Normal → teste de variância → teste t
+      - Se uma das amostras não seguir distribuição Normal → teste de Wilcoxon
    d) Execute o teste, compare o p-valor com \(\alpha\) e conclua
    
    
@@ -420,7 +420,7 @@ Ou seja:
 
 ## Exercício 2 
 
-Considere a tabela de resultados publicados no artigo [Resposta da Pressão Arterial ao Esforço em Adolescentes: Influência do Sobrepeso e Obesidade](https://www.google.com/search?q=teste+t+medicina+artigo+&sca_esv=e5b91424496cf486&ei=2bREaLDDNsnX5OUPnpW78Ac&ved=0ahUKEwjwk8eEpuCNAxXJK7kGHZ7KDn4Q4dUDCBA&uact=5&oq=teste+t+medicina+artigo+&gs_lp=Egxnd3Mtd2l6LXNlcnAiGHRlc3RlIHQgbWVkaWNpbmEgYXJ0aWdvIDIHECEYoAEYCjIHECEYoAEYCjIFECEYnwVIlhdQrQlY4BVwAngBkAEAmAG6AaABrwmqAQMwLji4AQPIAQD4AQGYAgqgAt8JwgIKEAAYsAMY1gQYR8ICBRAhGKABwgIIEAAYCBgNGB7CAgUQABjvBcICCBAAGIAEGKIEmAMAiAYBkAYIkgcDMi44oAflIrIHAzAuOLgH1gnCBwUwLjcuM8gHHA&sclient=gws-wiz-serp#:~:text=Resposta%20da%20Press%C3%A3o,br%20%E2%80%BA%20abc):
+Considere a tabela de resultados publicados no artigo [Resposta da Pressão Arterial ao Esforço em Adolescentes: Influência do Sobrepeso e Obesidade](https://www.scielo.br/j/abc/a/fZQ7mr4h3B6gyVY4h6PvWyN/?lang=pt):
 
 | Grupo                  | GSO Meninas (n = 24) | GE Meninas (n = 24) | p        |
 |------------------------|:--------------------:|:-------------------:|:--------:|
@@ -528,11 +528,11 @@ Média ± DP (mediana); ᵃ Teste de Wilcoxon não pareado; p < 0,05.
 
 ## Exercício 4
 
-O artigo [Qualidade de vida de estudantes de Psicologia](https://pepsic.bvsalud.org/pdf/psicoinfo/v16n16/v16n16a07.pdf) avaliou a qualidade de vida de acadêmicos de psicologia e correlacionou-a com fatores sociodemográficos. Participaram 310 alunos de psicologia que responderam a um questionário sociodemográfico e ao The Medical Outcomes Study 36-item Short-Form Health Survey (SF-36) para avaliar a qualidade de vida. Veja os resultados do teste t na Tabela 2: 
+O artigo [Qualidade de vida de estudantes de Psicologia](https://pepsic.bvsalud.org/pdf/psicoinfo/v16n16/v16n16a07.pdf) avaliou a qualidade de vida de acadêmicos de psicologia e correlacionou-a com fatores sociodemográficos. Participaram 310 alunos de psicologia que responderam a um questionário sociodemográfico e ao The Medical Outcomes Study 36-item Short-Form Health Survey (SF-36) para avaliar a qualidade de vida. Veja os resultados da comparação entre os gêneros na Tabela 2: 
 
 **Tabela 2: Comparação entre gêneros nas dimensões de qualidade de vida**
 
-| Dimensões             | Variável   | Média   | DP     | t    | p-valor |
+| Dimensões             | Variável   | Média   | DP     | F    | p-valor |
 |-----------------------|:------------:|:---------:|:---------:|:------:|:---------:|
 | Capacidade funcional  | Masculino  | 89,74   | 14,49   | 2,44 | 0,119   |
 |                       | Feminino   | 86,95   | 11,6    |      |         |
@@ -552,3 +552,18 @@ O artigo [Qualidade de vida de estudantes de Psicologia](https://pepsic.bvsalud.
 |                       | Feminino   | 65,7    | 18,80   |      |         |
 
 **Com base na Tabela 2, em qual dimensão da qualidade de vida foi observada diferença estatisticamente significativa entre estudantes do sexo masculino e feminino? O que esse resultado sugere sobre a experiência dos alunos nesses grupos?**
+
+---
+
+> 💡 **Por que a coluna traz F e não t?**
+>
+> Quando comparamos **dois** grupos, a estatística F e a estatística t carregam exatamente a mesma informação, porque $F = t^2$ (com 1 grau de liberdade no numerador). Muitos softwares reportam F mesmo em comparações de duas médias.
+>
+> Se quiser converter, basta tirar a raiz quadrada: para a dimensão *Dor*, $t = \sqrt{4{,}33} = 2{,}08$.
+>
+> Confira você mesmo(a) no R que os dois caminhos dão o mesmo valor-p:
+>
+> ```r
+> pf(4.33, df1 = 1, df2 = 308, lower.tail = FALSE)   # 0,0383
+> 2 * pt(-sqrt(4.33), df = 308)                      # 0,0383
+> ```

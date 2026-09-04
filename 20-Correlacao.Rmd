@@ -94,7 +94,7 @@ O coeficiente de **Kendall** ($\tau$) também se baseia nos postos dos dados, se
 
 ### Interpretação dos Coeficientes
 
-O valor a correlação varia de -1 (correlação negativa perfeita) a +1 (correlação positiva perfeita), sendo 0 a ausência de correlação linear. 
+O valor da correlação varia de -1 (correlação negativa perfeita) a +1 (correlação positiva perfeita), sendo 0 a ausência de correlação linear. 
 
 | Faixa de valores     | Interpretação    |
 |:-------------------------:|:-------------:|

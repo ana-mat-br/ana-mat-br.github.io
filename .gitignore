@@ -1,5 +1,20 @@
 .Rproj.user
 .Rhistory
 .RData
+.Renviron
 _bookdown_files
+# arquivo temporario que o bookdown cria durante o build
+LivroEstatisticaR.Rmd
+LivroEstatisticaR.knit.md
+LivroEstatisticaR.utf8.md
+_book
 rsconnect
+
+# artefatos de build do LaTeX
+*.log
+*.aux
+*.toc
+*.out
+
+# lixo do sistema operacional
+.DS_Store

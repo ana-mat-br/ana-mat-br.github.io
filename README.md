@@ -22,16 +22,47 @@ bookdown::render_book("index.Rmd", "bookdown::gitbook")
 
 ## 🌐 Acesse o site
 
-O conteúdo deste repositório é publicado automaticamente no GitHub Pages. Você pode acessar o site pelo seguinte link:
+O site é publicado pelo GitHub Pages a partir da pasta `docs/` da branch `main`:
 
 🔗 <https://ana-mat-br.github.io>
 
+> ⚠️ **A publicação é manual.** Não há build automático: depois de editar qualquer `.Rmd`, é preciso regerar o livro e commitar a pasta `docs/` **inteira**.
+>
+> ```bash
+> ./_build.sh          # gera HTML, PDF e EPUB dentro de docs/
+> git add docs
+> git commit -m "rebuild do livro"
+> git push
+> ```
+>
+> Commitar apenas as páginas que mudaram desincroniza o site: o sumário lateral é reescrito em **todas** as páginas a cada build, então páginas novas ficam publicadas mas fora da navegação.
+
 ## 🛠️ Estrutura do Projeto
 
--   **HTML/CSS/JavaScript**: Base do site estático\
--   **TeX**: Material acadêmico formatado utilizando LaTeX\
--   **R**: Exemplos de código e análises estatísticas\
--   **Shell/Docker**: Scripts para automação e configuração do ambiente
+-   **`index.Rmd`**: capa, metadados e configuração do livro\
+-   **`01-*.Rmd` … `23-*.Rmd`**: os capítulos, na ordem em que aparecem\
+-   **`_bookdown.yml` / `_output.yml`**: configuração do bookdown e dos formatos de saída\
+-   **`docs/`**: o site gerado — é esta pasta que o GitHub Pages publica\
+-   **`_build.sh`**: script que gera HTML, PDF e EPUB\
+-   **`Pokemon.csv`** e as imagens `tela*.png`: dados e figuras usados nos capítulos
+
+### Pacotes necessários
+
+Para regerar o livro é preciso ter instalados:
+
+``` r
+install.packages(c(
+  "bookdown", "afex", "car", "DescTools", "DiagrammeR", "dplyr",
+  "effsize", "emmeans", "epitools", "GGally", "ggplot2", "gtsummary",
+  "magick", "moments", "nortest", "pdftools", "PMCMRplus", "pwr",
+  "RColorBrewer", "rcompanion", "readr", "rstatix", "samplingbook",
+  "tidyr", "tidyverse"
+))
+```
+
+O `pdftools` é usado pela capa (`index.Rmd`) para converter a ficha catalográfica em SVG.
+
+A geração do PDF exige também uma distribuição LaTeX com `xelatex` (por exemplo, TinyTeX: `tinytex::install_tinytex()`).
 
 ## 🚀 Como Contribuir
 
@@ -52,7 +83,7 @@ Sugestões, correções ou melhorias são sempre bem-vindas! Para contribuir:
 Em caso de dúvidas ou sugestões, você pode entrar em contato pelo e-mail:\
 [**anapaula.fernandes\@uftm.edu.br**](mailto:anapaula.fernandes@uftm.edu.br)
 
-Para mais informações sobre minha trajetória acadêmica, acesse meu [Currículo Lattes](http://lattes.cnpq.br).
+Para mais informações sobre minha trajetória acadêmica, acesse meu [Currículo Lattes](https://lattes.cnpq.br/5582801060910261).
 
 ------------------------------------------------------------------------
 

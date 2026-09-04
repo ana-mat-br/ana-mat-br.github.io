@@ -7,10 +7,56 @@
 
 
 
+## Livros e textos gerais {-}
+
 - **Cohen, J. (1988).** Statistical Power Analysis for the Behavioral Sciences (2nd ed.). Lawrence Erlbaum Associates.
 
 - **Field, A. (2013).** Discovering Statistics Using IBM SPSS Statistics (4th ed.). Sage.
 
-- **Romano, J., Kromrey, J. D., Coraggio, J., & Skowronek, J. (2006).** Appropriate statistics for ordinal level data: Should we really be using t-test and Cohen’s d for evaluating group differences on the NSSE and other surveys? *Annual Meeting of the Florida Association of Institutional Research*, Jacksonville, FL, USA.
+- **Larson, R., & Farber, B. (2013).** Estatística Aplicada (5ª ed.). Pearson. *(fonte do exercício do capítulo de Regressão)*
+
+- **Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023).** R para Ciência de Dados (2ª ed.). https://pt.r4ds.hadley.nz/
+
+## Tamanho do efeito {-}
 
 - **Cliff, N. (1993).** Dominance statistics: Ordinal analyses to answer ordinal questions. *Psychological Bulletin, 114*(3), 494-509. https://doi.org/10.1037/0033-2909.114.3.494
+
+- **Cramér, H. (1946).** Mathematical Methods of Statistics. Princeton University Press.
+
+- **Romano, J., Kromrey, J. D., Coraggio, J., & Skowronek, J. (2006).** Appropriate statistics for ordinal level data: Should we really be using t-test and Cohen’s d for evaluating group differences on the NSSE and other surveys? *Annual Meeting of the Florida Association of Institutional Research*, Jacksonville, FL, USA.
+
+## Cálculo amostral e poder em testes não paramétricos {-}
+
+- **Lehmann, E. L. (2006).** Nonparametrics: Statistical Methods Based on Ranks (Revised ed.). Springer.
+
+- **Noether, G. E. (1987).** Sample size determination for some common nonparametric tests. *Journal of the American Statistical Association, 82*(398), 645-647. https://doi.org/10.1080/01621459.1987.10478478
+
+## Testes de normalidade, assimetria e curtose {-}
+
+- **Anderson, T. W., & Darling, D. A. (1954).** A test of goodness of fit. *Journal of the American Statistical Association, 49*(268), 765-769. https://doi.org/10.1080/01621459.1954.10501232
+
+- **Anscombe, F. J., & Glynn, W. J. (1983).** Distribution of the kurtosis statistic b2 for normal samples. *Biometrika, 70*(1), 227-234. https://doi.org/10.1093/biomet/70.1.227
+
+- **D’Agostino, R. B. (1970).** Transformation to normality of the null distribution of g1. *Biometrika, 57*(3), 679-681. https://doi.org/10.1093/biomet/57.3.679
+
+- **Lilliefors, H. W. (1967).** On the Kolmogorov-Smirnov test for normality with mean and variance unknown. *Journal of the American Statistical Association, 62*(318), 399-402. https://doi.org/10.1080/01621459.1967.10482916
+
+- **Shapiro, S. S., & Wilk, M. B. (1965).** An analysis of variance test for normality (complete samples). *Biometrika, 52*(3-4), 591-611. https://doi.org/10.1093/biomet/52.3-4.591
+
+## Comparação entre grupos e ANOVA {-}
+
+- **Dunn, O. J. (1964).** Multiple comparisons using rank sums. *Technometrics, 6*(3), 241-252. https://doi.org/10.1080/00401706.1964.10490181
+
+- **Greenhouse, S. W., & Geisser, S. (1959).** On methods in the analysis of profile data. *Psychometrika, 24*(2), 95-112. https://doi.org/10.1007/BF02289823
+
+## Gráficos e instrumentos {-}
+
+- **De Rose Jr., D. (1998).** Lista de sintomas de estresse pré-competitivo infanto-juvenil: elaboração e validação de um instrumento. *Revista Paulista de Educação Física, 12*(2), 126-133.
+
+- **Sturges, H. A. (1926).** The choice of a class interval. *Journal of the American Statistical Association, 21*(153), 65-66. https://doi.org/10.1080/01621459.1926.10502161
+
+## Software {-}
+
+- **R Core Team (2025).** R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/
+
+- **Xie, Y. (2016).** bookdown: Authoring Books and Technical Documents with R Markdown. Chapman and Hall/CRC. https://bookdown.org/yihui/bookdown/

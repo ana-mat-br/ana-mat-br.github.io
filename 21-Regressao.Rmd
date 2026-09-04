@@ -63,7 +63,7 @@ x <- c(60,75,62,68,84,97,66,65,86,78,93,75,88)
 y <- c(403,363,381,367,341,317,401,384,342,377,329,377,349)
 ```
 
-Vamos, primeiro, verificar o comportamento das variáveis pelo gráfio de dispersão:
+Vamos, primeiro, verificar o comportamento das variáveis pelo gráfico de dispersão:
 
 ```{r}
 plot(x, y, 
@@ -135,7 +135,7 @@ summary(regressao)
 
 O modelo de regressão linear simples mostra que existe uma **forte relação linear negativa** e estatisticamente significativa entre a frequência cardíaca e o intervalo QT: quanto maior a frequência cardíaca, menor tende a ser o intervalo QT. O modelo explica a maior parte da variação dos dados, sendo útil para previsões e interpretações clínicas dessa relação.
 
-O intervalos de confiança para os coeficientes da reta é dado por: 
+Os intervalos de confiança para os coeficientes da reta são dados por: 
 
 ```{r}
 confint(regressao)
@@ -207,7 +207,15 @@ summary(regressao_multipla)
 
 - **Frequência Cardíaca (x):**  
   O coeficiente é -1,88, ou seja, para cada aumento de 1 bpm, o QT diminui em média 1,88 ms, mantendo a idade constante.  
-  O valor-p (0,0504) é limítrofe, indicando que a influência da frequência cardíaca sobre o QT **ainda é significativa**, mas no limite do nível de significância tradicional (5%).
+  O valor-p (0,0504) fica **acima** de 0,05: pelo critério adotado neste livro, **não** rejeitamos a hipótese nula de que esse coeficiente seja zero. É um resultado limítrofe, que ficou a um fio do nível de significância tradicional — mas "quase significativo" não é significativo (lembre-se dos memes do capítulo sobre o p-valor).
+
+  Repare no contraste com a regressão simples: lá, a mesma variável tinha p < 0,001. O que mudou foi que a idade entrou no modelo trazendo informação **redundante**: nestes dados, idade e frequência cardíaca são fortemente correlacionadas (r = 0,95; p < 0,001). Confira você mesmo(a):
+
+  ```{r colinearidade}
+  cor.test(x, z)
+  ```
+
+  Quando dois preditores carregam praticamente a mesma informação, o modelo não consegue separar o efeito de um do efeito do outro. Isso infla o erro padrão dos coeficientes e derruba a significância de ambos — é o que chamamos de **multicolinearidade**. É um bom lembrete de que acrescentar preditores nem sempre melhora o modelo.
 
 - **Idade (z):**  
   O coeficiente é -0,15, ou seja, para cada aumento de 1 ano de idade, o QT diminui, em média, 0,15 ms, mantendo a frequência cardíaca constante.  
@@ -233,8 +241,9 @@ summary(regressao_multipla)
 
 > Conclusão
 
-- O modelo de **regressão múltipla** mostra que, **mantendo a idade constante**, a frequência cardíaca segue sendo um preditor importante e significativo para o intervalo QT.
-- A idade, por outro lado, **não contribuiu de forma significativa** para explicar o QT nesse exemplo.
+- No modelo de **regressão múltipla**, nenhum dos dois preditores atinge o nível de 5% isoladamente: a frequência cardíaca fica no limite (p = 0,050) e a idade está bem longe dele (p = 0,846).
+- O teste F, porém, mostra que o modelo **como um todo** é altamente significativo (p < 0,001), e o R² praticamente não mudou em relação ao modelo simples (0,8627 contra 0,8622).
+- Juntas, essas três observações apontam para a mesma conclusão: a idade **não acrescentou nada** ao modelo, apenas diluiu o efeito da frequência cardíaca. Neste caso, a regressão simples é a melhor escolha.
 - O ajuste da regressão múltipla no R é simples e a interpretação amplia a compreensão das relações entre várias variáveis e a resposta.  
 - **Importante:** Sempre verifique as suposições do modelo e a significância de cada preditor.
 

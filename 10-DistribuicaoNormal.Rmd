@@ -46,9 +46,9 @@ A distribuição normal é uma das mais conhecidas na estatística. Ela modela f
 Onde:
 
 -   A média está representada por $\mu$
--   O devio padrão está representado por $\sigma$
+-   O desvio padrão está representado por $\sigma$
 
-> **Regra empirica 68% - 95% - 99,7%**
+> **Regra empírica 68% - 95% - 99,7%**
 Se os dados seguem uma distribuição normal, é possível fazer afirmações sobre a concentração dos dados em torno da média, conforme a regra empírica:
 
 - *68%* dos dados estão no intervalo de uma vez o desvio padrão (μ ± 1σ).
@@ -71,13 +71,13 @@ set.seed(1)
 # A função rnorm() gera números randômicos com comportamento de uma distribuição Normal 
 BatimentosMulheres <- rnorm(1000, 70, 3)
 
-# Arrendodamento com nenhuma casa depois da vírugula
+# Arredondamento sem casas depois da vírgula
 BatimentosMulheres <- round(BatimentosMulheres,0)
 
 # histograma
 hist(BatimentosMulheres)
 
-# Classes e frequencias do histograma
+# Classes e frequências do histograma
 hist(BatimentosMulheres)$breaks
 hist(BatimentosMulheres)$count
 
@@ -85,7 +85,7 @@ hist(BatimentosMulheres)$count
 hist(BatimentosMulheres, prob = TRUE)
 lines(density(BatimentosMulheres), col = 4, lwd = 2)
 
-# idicação da média
+# indicação da média
 abline(v = mean(BatimentosMulheres), col = 2, lwd = 3)
 
 # medidas resumo
@@ -99,11 +99,11 @@ sd(BatimentosMulheres)/mean(BatimentosMulheres)*100
 
 > As funções **pnorm()** e **dnorm()** são usadas para calcular a probabilidade de um evento que segue uma distribuição, a qual conhecemos a média e o desvio padrão.
 
-**Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bmp e desvio padrão igual a 3bmp.
+**Exemplo:** Sabendo que os batimentos cardíacos de mulheres de 18 a 65 anos tem média de 70bpm e desvio padrão igual a 3bpm.
 
 Calcule as probabilidades:
 
--   de uma mulher ter batimentos inferior a 70bmp, ou seja, $P(x<70)$:
+-   de uma mulher ter batimentos inferior a 70bpm, ou seja, $P(x<70)$:
 
 ```{r}
 # pnorm(): Calcula a probabilidade acumulada até um valor específico. Ou seja, retorna a probabilidade de que uma variável aleatória, que segue uma distribuição normal, seja menor ou igual a um determinado valor.
@@ -112,50 +112,59 @@ Calcule as probabilidades:
 pnorm(70, 70, 3)
 ```
 
--   de uma mulher ter batimentos superior a 70bmp, ou seja, $P(x>70)$:
+-   de uma mulher ter batimentos superior a 70bpm, ou seja, $P(x>70)$:
 
 ```{r}
 # observação: 1 é o valor da área total
-# a pnorm() fornece a área á esquerda
+# a pnorm() fornece a área à esquerda
 1 - pnorm(70, 70, 3)
 ```
 
--   de uma mulher ter batimentos igual a 70bmp, ou seja, $P(x=70)$:
+-   a **densidade de probabilidade** no ponto 70bpm:
 
 ```{r}
-# dnorm(): Calcula a densidade de probabilidade de um valor específico em uma distribuição normal. Em outras palavras, ela retorna o valor da função densidade de probabilidade no ponto especificado.
+# dnorm(): Calcula a DENSIDADE de probabilidade em um valor específico.
+# Atenção: densidade NÃO é probabilidade!
 dnorm(70, 70, 3)
 ```
 
--   de uma mulher ter batimentos entre 67 e 73bmp $P(67 < x < 73)$:
+> ⚠️ **E qual é a probabilidade de uma mulher ter batimentos exatamente iguais a 70bpm?**
+>
+> Ela é **zero**: $P(X = 70) = 0$.
+>
+> Isso vale para *qualquer* valor isolado de uma variável contínua. A probabilidade é a **área** sob a curva, e a área sobre um único ponto é nula — um ponto não tem largura. O que a `dnorm()` devolve é a **altura** da curva naquele ponto (a densidade), que serve para desenhar o gráfico, mas não pode ser lida como probabilidade.
+>
+> É exatamente por isso que, com variáveis contínuas, sempre perguntamos pela probabilidade em um **intervalo** — como nos próximos exemplos.
+
+-   de uma mulher ter batimentos entre 67 e 73bpm $P(67 < x < 73)$:
 
 ```{r}
 # Observe que estamos testando a regra empírica (68%)
 pnorm(73, 70, 3) - pnorm(67, 70, 3)
 ```
 
--   de uma mulher ter batimentos entre 67 e 73bmp $P(64 < x < 76)$:
+-   de uma mulher ter batimentos entre 64 e 76bpm $P(64 < x < 76)$:
 
 ```{r}
 # Observe que estamos testando a regra empírica (95%)
 pnorm(76, 70, 3) - pnorm(64, 70, 3)
 ```
 
--   de uma mulher ter batimentos entre 61 e 79bmp $P(61 < x < 79)$:
+-   de uma mulher ter batimentos entre 61 e 79bpm $P(61 < x < 79)$:
 
 ```{r}
 # Observe que estamos testando a regra empírica (99,7%)
 pnorm(79, 70, 3) - pnorm(61, 70, 3)
 ```
 
--   de uma mulher ter batimentos maior que 90bmp $P(x > 90)$:
+-   de uma mulher ter batimentos maior que 90bpm $P(x > 90)$:
 
 ```{r}
 # Um evento raro
 1 - pnorm(90, 70, 3)
 ```
 
--   de uma mulher ter batimentos menor que 65bmp $P(x < 65)$:
+-   de uma mulher ter batimentos menor que 65bpm $P(x < 65)$:
 
 ```{r}
 pnorm(65, 70, 3)
@@ -207,7 +216,7 @@ No gráfico QQ, os quantis da amostra são comparados com os quantis da distribu
 Se os pontos se afastam dessa linha reta de forma sistemática, isso indica que os dados não seguem uma distribuição normal. O tipo de desvio pode dar pistas sobre a natureza dessa não-normalidade (por exemplo, se os pontos se curvam para cima ou para baixo, pode indicar assimetria ou caudas pesadas).
 
 
-> Distrbuição normal é usada para dados contínuos!
+> Distribuição normal é usada para dados contínuos!
 
 ```{r}
 # Gráfico QQ

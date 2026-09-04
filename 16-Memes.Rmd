@@ -95,18 +95,18 @@ Este meme é o retrato da triste (e hilária) realidade dos artigos científicos
 
 ## Senhora estatística
 
-![Fonte: https://lovestats.wordpress.com/dman/survey-research-statistics-meme/](p-value7.jpg)
+![Formato "One does not simply", de O Senhor dos Anéis](p-value7.jpg)
 
 **Tradução:**  
 Em cima: "ONE DOES NOT SIMPLY" ("SIMPLESMENTE NÃO SE...")
 Embaixo: "REPORT P-VALUES WITHOUT EFFECT SIZES" ("RELATA P-VALORES SEM TAMANHOS DE EFEITO")
 
 **Interpretação:**  
-Esse meme faz referência ao clássico da cultura pop (Senhor dos Aneis) para lembrar que estatística não é terra sem lei: não basta encontrar um p < 0,05 e sair comemorando. Relatar apenas o valor de p é igual a contar só metade da fofoca: falta o contexto! O tamanho do efeito é quem diz se a diferença é daquelas que mudam a vida ou se é só uma diferença microscópica e irrelevante. Em outras palavras, estatística de verdade combina significado estatístico (p-value) com significado prático (effect size). Não faça estatística “pela metade”!
+Esse meme faz referência ao clássico da cultura pop (O Senhor dos Anéis) para lembrar que estatística não é terra sem lei: não basta encontrar um p < 0,05 e sair comemorando. Relatar apenas o valor de p é igual a contar só metade da fofoca: falta o contexto! O tamanho do efeito é quem diz se a diferença é daquelas que mudam a vida ou se é só uma diferença microscópica e irrelevante. Em outras palavras, estatística de verdade combina significado estatístico (p-value) com significado prático (effect size). Não faça estatística “pela metade”!
 
 ---
 
-## Pobi do gatinho
+## Pobre do gatinho
 
 ![Fonte: https://x.com/Jente_O/status/1698942647493153251](p-value8.jpg)
 

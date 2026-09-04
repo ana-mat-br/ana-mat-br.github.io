@@ -4,14 +4,16 @@ Antes de aplicar muitos testes estatísticos, é importante verificar se os dado
 
 ## Hipóteses nos Testes de Normalidade
 
-Todo teste de normalidade avalia as seguintes hipóteses:
+Os testes de normalidade propriamente ditos avaliam as seguintes hipóteses:
 
 - **Hipótese Nula (H₀):** Os dados seguem uma distribuição normal.
 - **Hipótese Alternativa (H₁):** Os dados **não** seguem uma distribuição normal.
 
+> ⚠️ Existem também testes que examinam apenas **um aspecto** da normalidade, como a assimetria ou a curtose isoladamente. Neles a hipótese nula é outra (por exemplo, "a assimetria é igual a zero"), e um resultado não significativo não garante normalidade. Veremos um caso desses adiante.
+
 - Se o valor de p for menor que 0,05: **Rejeitamos** a hipótese nula.
  
-- Se o valor de p for maior ou igual 0,05: **Não rejeitamos** a hipótese nula. 
+- Se o valor de p for maior ou igual a 0,05: **Não rejeitamos** a hipótese nula. 
 
 ## Principais Testes de Normalidade
 
@@ -24,12 +26,14 @@ Abaixo estão os testes de normalidade mais conhecidos, quando são mais recomen
 | **Lilliefors**    | Versão do K-S ajustado para média e desvio amostrais | `nortest`      |
 | **Anderson-Darling** | Mais sensível nas caudas da distribuição; recomendado para médias e grandes amostras | `nortest`      |
 | **Jarque-Bera**   | Teste baseado em assimetria (skewness) e curtose (kurtosis); comum em econometria | `tseries`      |
-| **D’Agostino-Pearson** | Avalia assimetria e curtose em conjunto; recomendado para médias e grandes amostras | `moments`      |
+| **D’Agostino (assimetria)** | Testa apenas se a assimetria difere de zero — não é um teste de normalidade completo | `moments`      |
+| **Anscombe-Glynn (curtose)** | Testa apenas se a curtose difere da esperada na Normal | `moments`      |
 
 ### Dicas de Uso
 
 - Para **amostras pequenas** (n < 50): prefira o **Shapiro-Wilk** (função `shapiro.test()` do pacote base `stats`).
-- Para **amostras médias a grandes**: considere **Anderson-Darling** (`ad.test()` do pacote `nortest`) ou **D’Agostino-Pearson** (`agostino.test()` do pacote `moments`).
+- Para **amostras médias a grandes**: considere **Anderson-Darling** (`ad.test()` do pacote `nortest`).
+- Para investigar **por que** os dados fogem da normalidade, use `agostino.test()` (assimetria) e `anscombe.test()` (curtose), ambos do pacote `moments`. Atenção: cada um testa um aspecto isolado, não a normalidade como um todo.
 - O **Kolmogorov-Smirnov** (`ks.test()`) é mais geral, mas menos recomendado quando a média e desvio padrão são estimados dos próprios dados.
 - O **Lilliefors** (`lillie.test()` do pacote `nortest`) é uma boa alternativa ao K-S para dados amostrais.
 - Para análises em econometria ou séries temporais, o **Jarque-Bera** (`jarque.bera.test()` do pacote `tseries`) é bastante utilizado.
@@ -60,11 +64,16 @@ ad.test(Pokemon$Speed)
 # Lilliefors
 lillie.test(Pokemon$Speed)
 
-# D'Agostino
+# D'Agostino: testa APENAS a assimetria (H0: assimetria = 0)
 library(moments)
 agostino.test(Pokemon$Speed)
 
+# Anscombe-Glynn: testa APENAS a curtose (H0: curtose = 3)
+anscombe.test(Pokemon$Speed)
+
 ```
+
+> 📌 **Repare na saída dos dois últimos testes:** o R imprime *"D'Agostino skewness test"* e *"Anscombe-Glynn kurtosis test"*. Eles respondem a perguntas específicas — a distribuição é assimétrica? é mais pontuda ou mais achatada que a Normal? — e complementam os testes de normalidade, mas não os substituem.
 
 **Resumo**
 
@@ -72,7 +81,7 @@ agostino.test(Pokemon$Speed)
 - Escolha o teste de acordo com o tamanho da amostra e o objetivo da análise.
 - **Use gráficos (histograma, boxplot e principalmente o QQ) junto com testes estatísticos para uma análise mais completa.**
 
-> **Importante:** Testes de normalidade são sensíveis ao tamanho da amostra. Em amostras muito grandes, pequenas desvios podem resultar em p-valores baixos; em amostras pequenas, a potência dos testes é baixa.
+> **Importante:** Testes de normalidade são sensíveis ao tamanho da amostra. Em amostras muito grandes, pequenos desvios podem resultar em p-valores baixos; em amostras pequenas, a potência dos testes é baixa.
 
 
 ## Assimetria e Curtose: O que são e por que são importantes?

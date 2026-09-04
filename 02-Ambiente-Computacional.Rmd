@@ -22,7 +22,7 @@ Existem diversos softwares dedicados à análise estatística, que vão desde pl
 - [R](https://www.r-project.org)
 - [Python](https://www.python.org/)
 
-Neste curso, utilizaremos a linguagem **R**, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha? Recomendamos a leitura: [Por que usar R?](https://blog.curso-r.com/posts/2021-07-23-por-que-usar-r/)
+Neste curso, utilizaremos a linguagem **R**, desenvolvida especialmente para análise estatística. Quer entender por que essa escolha e ir além do que vemos aqui? Recomendamos: [R para Ciência de Dados](https://pt.r4ds.hadley.nz/) (livro completo e gratuito, em português) e o [material aberto da Curso-R](https://www.curso-r.com/material/).
 
 ## Preparando o Ambiente Computacional
 
