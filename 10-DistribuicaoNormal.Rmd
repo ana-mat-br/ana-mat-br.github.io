@@ -128,7 +128,7 @@ pnorm(70, 70, 3)
 dnorm(70, 70, 3)
 ```
 
-> ⚠️ **E qual é a probabilidade de uma mulher ter batimentos exatamente iguais a 70bpm?**
+> **E qual é a probabilidade de uma mulher ter batimentos exatamente iguais a 70bpm?**
 >
 > Ela é **zero**: $P(X = 70) = 0$.
 >

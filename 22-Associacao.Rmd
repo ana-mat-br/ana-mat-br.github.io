@@ -308,7 +308,7 @@ library(DescTools)
 CramerV(tabela)
 ```
 
-> ⚠️ **Se você tentar refazer a conta na mão, atenção a um detalhe:** o $\chi^2$ que entra na fórmula do V é o valor **sem** a correção de continuidade de Yates. O `chisq.test()` aplica Yates por padrão em tabelas 2x2 e devolveu 0,543 — mas $\sqrt{0{,}543/30} = 0{,}13$, e não 0,20.
+> **Se você tentar refazer a conta na mão, atenção a um detalhe:** o $\chi^2$ que entra na fórmula do V é o valor **sem** a correção de continuidade de Yates. O `chisq.test()` aplica Yates por padrão em tabelas 2x2 e devolveu 0,543 — mas $\sqrt{0{,}543/30} = 0{,}13$, e não 0,20.
 
 Para obter o $\chi^2$ que as funções acima realmente usam, peça a versão sem correção:
 
@@ -393,7 +393,7 @@ A interpretação do OR é a seguinte:
 fisher.test(tabela)$estimate
 ```
 
-> 📌 **Por que 2,22 e não 2,29?** A fórmula $OR = (a \times d)/(b \times c)$ aplicada a esta tabela dá $(8 \times 10)/(7 \times 5) = 2{,}286$. Já a `fisher.test()` devolve um estimador ligeiramente diferente — a estimativa de máxima verossimilhança condicional —, que aqui vale 2,222. Os dois respondem à mesma pergunta e levam à mesma conclusão; a diferença aparece sobretudo em amostras pequenas. Se quiser a razão de produtos cruzados exata, calcule-a diretamente: `(8*10)/(7*5)`.
+> **Por que 2,22 e não 2,29?** A fórmula $OR = (a \times d)/(b \times c)$ aplicada a esta tabela dá $(8 \times 10)/(7 \times 5) = 2{,}286$. Já a `fisher.test()` devolve um estimador ligeiramente diferente — a estimativa de máxima verossimilhança condicional —, que aqui vale 2,222. Os dois respondem à mesma pergunta e levam à mesma conclusão; a diferença aparece sobretudo em amostras pequenas. Se quiser a razão de produtos cruzados exata, calcule-a diretamente: `(8*10)/(7*5)`.
 
 O **odds ratio (OR)** calculado pela `fisher.test()` foi de **2,22**.
 

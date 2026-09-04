@@ -9,7 +9,7 @@ Os testes de normalidade propriamente ditos avaliam as seguintes hipóteses:
 - **Hipótese Nula (H₀):** Os dados seguem uma distribuição normal.
 - **Hipótese Alternativa (H₁):** Os dados **não** seguem uma distribuição normal.
 
-> ⚠️ Existem também testes que examinam apenas **um aspecto** da normalidade, como a assimetria ou a curtose isoladamente. Neles a hipótese nula é outra (por exemplo, "a assimetria é igual a zero"), e um resultado não significativo não garante normalidade. Veremos um caso desses adiante.
+> **Atenção:** existem também testes que examinam apenas um aspecto da normalidade, como a assimetria ou a curtose isoladamente. Neles a hipótese nula é outra (por exemplo, "a assimetria é igual a zero"), e um resultado não significativo não garante normalidade. Veremos um caso desses adiante.
 
 - Se o valor de p for menor que 0,05: **Rejeitamos** a hipótese nula.
  
@@ -73,7 +73,7 @@ anscombe.test(Pokemon$Speed)
 
 ```
 
-> 📌 **Repare na saída dos dois últimos testes:** o R imprime *"D'Agostino skewness test"* e *"Anscombe-Glynn kurtosis test"*. Eles respondem a perguntas específicas — a distribuição é assimétrica? é mais pontuda ou mais achatada que a Normal? — e complementam os testes de normalidade, mas não os substituem.
+> **Repare na saída dos dois últimos testes:** o R imprime *"D'Agostino skewness test"* e *"Anscombe-Glynn kurtosis test"*. Eles respondem a perguntas específicas — a distribuição é assimétrica? é mais pontuda ou mais achatada que a Normal? — e complementam os testes de normalidade, mas não os substituem.
 
 **Resumo**
 

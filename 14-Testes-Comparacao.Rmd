@@ -555,7 +555,7 @@ O artigo [Qualidade de vida de estudantes de Psicologia](https://pepsic.bvsalud.
 
 ---
 
-> 💡 **Por que a coluna traz F e não t?**
+> **Por que a coluna traz F e não t?**
 >
 > Quando comparamos **dois** grupos, a estatística F e a estatística t carregam exatamente a mesma informação, porque $F = t^2$ (com 1 grau de liberdade no numerador). Muitos softwares reportam F mesmo em comparações de duas médias.
 >

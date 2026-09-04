@@ -294,7 +294,7 @@ modelo_afex
 - **p.value**: Valor de p associado ao teste F. Neste caso, p = 0.009 indica que há diferença significativa entre as médias das provas (p < 0.05).
 - **Observação sobre esfericidade:** A linha `Sphericity correction method: GG` informa apenas **qual correção o pacote aplicou**, e não que a esfericidade tenha sido violada. O `aov_ez()` aplica Greenhouse-Geisser **por padrão**, como postura conservadora, independentemente do resultado do teste de Mauchly. Neste exemplo, aliás, o Mauchly **não** indicou violação (p = 0,64) — o que se vê nos graus de liberdade é o fator de correção ε = 0,954 multiplicando os df originais (2 × 0,954 = 1,91 e 38 × 0,954 = 36,27).
 
-> 💡 Para ver o teste de Mauchly e os df sem correção, use `summary(modelo_afex)`.
+> Para ver o teste de Mauchly e os graus de liberdade sem correção, use `summary(modelo_afex)`.
 
 > A análise de variância (ANOVA) mostrou que o fator "prova" teve um efeito significativo sobre as notas (F(1.91, 36.27) = 5.53, p = 0.009, ges = 0.168), indicando que as médias das notas diferem entre as provas.
 

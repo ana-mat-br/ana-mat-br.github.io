@@ -62,7 +62,7 @@ Acredito que nesse exemplo, é fácil verificar:
 
   + A segunda classe: 40 - 50 batimentos, que tem 1 elemento (verifique no objeto Batimentos)
 
-  > ⚠️ **Cuidado ao conferir:** por padrão o R fecha as classes **à direita**, isto é, os intervalos são (30, 40], (40, 50], e assim por diante. Por isso o valor 40 conta na classe *30 - 40*, e não na classe *40 - 50*. O único elemento da segunda classe é o 46.
+  > **Atenção:** por padrão o R fecha as classes à direita, isto é, os intervalos são (30, 40], (40, 50], e assim por diante. Por isso o valor 40 conta na classe *30 - 40*, e não na classe *40 - 50*. O único elemento da segunda classe é o 46.
   
   + A terceira classe: 50 - 60 batimentos, que tem 6 elementos  
   
