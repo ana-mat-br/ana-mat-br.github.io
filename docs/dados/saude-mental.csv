@@ -1,0 +1,321 @@
+id,curso,sexo,idade,horas_sono,pss10,gad7,who5,ansiedade
+P001,Psicologia,Masculino,28,7.6,3,0,75,Baixa
+P002,Psicologia,Feminino,23,5.7,14,5,59,Baixa
+P003,Medicina,Feminino,21,8.3,17,14,44,Alta
+P004,Medicina,Masculino,28,5.8,24,7,25,Baixa
+P005,Psicologia,Feminino,25,4.5,17,10,64,Alta
+P006,Medicina,Masculino,24,5.6,30,8,40,Baixa
+P007,Psicologia,Masculino,26,6.3,30,6,28,Baixa
+P008,Educação Física,Masculino,21,6.6,11,1,58,Baixa
+P009,Medicina,Feminino,23,5.8,26,9,44,Baixa
+P010,Psicologia,Masculino,26,6.3,14,7,51,Baixa
+P011,Medicina,Feminino,18,7.2,28,10,28,Alta
+P012,Psicologia,Masculino,22,7.1,8,3,71,Baixa
+P013,Medicina,Masculino,19,6.9,19,6,39,Baixa
+P014,Educação Física,Masculino,19,NA,14,6,56,Baixa
+P015,Medicina,Feminino,19,7.1,30,6,34,Baixa
+P016,Medicina,Masculino,23,8.6,21,10,49,Alta
+P017,Psicologia,Feminino,22,5.7,27,15,52,Alta
+P018,Medicina,Feminino,18,9.3,12,4,63,Baixa
+P019,Medicina,Feminino,24,7.9,23,6,48,Baixa
+P020,Medicina,Feminino,24,5.2,29,8,34,Baixa
+P021,Medicina,Feminino,24,5.6,29,NA,40,Baixa
+P022,Medicina,Feminino,23,6.4,23,5,50,Baixa
+P023,Medicina,Feminino,26,6.8,28,21,29,Alta
+P024,Medicina,Feminino,20,5.6,28,16,42,Alta
+P025,Psicologia,Masculino,20,6,12,4,69,Baixa
+P026,Medicina,Feminino,25,7.3,18,9,29,Baixa
+P027,Psicologia,Feminino,24,7.2,18,6,26,Baixa
+P028,Medicina,Feminino,26,5.8,22,15,25,Alta
+P029,Medicina,Feminino,22,6.2,30,11,12,Alta
+P030,Psicologia,Feminino,24,5.6,14,2,44,Baixa
+P031,Educação Física,Feminino,26,3.4,14,3,56,Baixa
+P032,Medicina,Masculino,20,6,23,5,30,Baixa
+P033,Psicologia,Feminino,28,NA,18,10,52,Alta
+P034,Medicina,Feminino,19,6.7,26,15,20,Alta
+P035,Psicologia,Masculino,18,5.5,17,3,40,Baixa
+P036,Psicologia,Masculino,22,7.4,22,8,51,Baixa
+P037,Medicina,Masculino,23,5,18,8,38,Baixa
+P038,Psicologia,Feminino,20,8.9,18,9,41,Baixa
+P039,Educação Física,Feminino,18,5.3,20,8,49,Baixa
+P040,Psicologia,Masculino,20,7.4,27,14,26,Alta
+P041,Medicina,Feminino,26,9.3,27,6,45,Baixa
+P042,Educação Física,Feminino,18,5.9,15,3,59,Baixa
+P043,Psicologia,Masculino,18,6.3,23,6,35,Baixa
+P044,Psicologia,Feminino,18,5.9,13,6,55,Baixa
+P045,Medicina,Feminino,26,6.9,33,8,32,Baixa
+P046,Medicina,Feminino,25,7.5,19,9,62,Baixa
+P047,Educação Física,Masculino,19,4.8,11,3,51,Baixa
+P048,Medicina,Masculino,22,5.5,28,6,29,Baixa
+P049,Psicologia,Feminino,24,5,21,NA,39,Baixa
+P050,Medicina,Masculino,24,7.4,17,11,44,Alta
+P051,Educação Física,Masculino,24,7.3,13,10,45,Alta
+P052,Psicologia,Feminino,23,5.9,22,NA,34,Baixa
+P053,Educação Física,Masculino,23,5.5,11,6,46,Baixa
+P054,Educação Física,Feminino,18,4.7,14,9,53,Baixa
+P055,Psicologia,Masculino,29,7.7,14,3,61,Baixa
+P056,Psicologia,Feminino,21,5.8,17,5,50,Baixa
+P057,Psicologia,Masculino,24,7.7,19,6,32,Baixa
+P058,Medicina,Feminino,18,9.4,19,8,50,Baixa
+P059,Educação Física,Feminino,21,8.5,9,7,62,Baixa
+P060,Medicina,Feminino,25,5.7,18,10,46,Alta
+P061,Medicina,Masculino,23,8.3,16,6,44,Baixa
+P062,Educação Física,Masculino,23,5.9,11,3,71,Baixa
+P063,Psicologia,Feminino,18,7.2,9,3,54,Baixa
+P064,Psicologia,Feminino,24,7,24,12,26,Alta
+P065,Medicina,Masculino,20,7.5,20,5,39,Baixa
+P066,Medicina,Masculino,18,6.8,21,12,41,Alta
+P067,Psicologia,Masculino,24,7.2,20,4,44,Baixa
+P068,Psicologia,Feminino,22,7.6,26,6,30,Baixa
+P069,Psicologia,Feminino,19,4,14,4,66,Baixa
+P070,Psicologia,Feminino,23,6.4,29,7,29,Baixa
+P071,Educação Física,Masculino,18,7.3,6,4,65,Baixa
+P072,Medicina,Masculino,29,7.1,23,8,53,Baixa
+P073,Psicologia,Feminino,18,7,20,7,36,Baixa
+P074,Educação Física,Feminino,23,9,10,NA,71,Baixa
+P075,Medicina,Feminino,21,6.6,28,7,36,Baixa
+P076,Psicologia,Masculino,18,NA,11,8,NA,Baixa
+P077,Psicologia,Feminino,23,6.6,18,6,42,Baixa
+P078,Psicologia,Masculino,21,9.9,24,11,53,Alta
+P079,Medicina,Feminino,27,6,24,6,45,Baixa
+P080,Educação Física,Feminino,18,8.2,16,2,55,Baixa
+P081,Medicina,Feminino,27,8.3,11,2,46,Baixa
+P082,Educação Física,Feminino,24,5.8,13,5,58,Baixa
+P083,Educação Física,Masculino,18,8.4,5,3,55,Baixa
+P084,Educação Física,Feminino,21,7.6,2,2,74,Baixa
+P085,Medicina,Feminino,19,8.1,23,9,32,Baixa
+P086,Educação Física,Feminino,18,4.5,10,11,47,Alta
+P087,Psicologia,Feminino,29,5.8,16,NA,NA,Baixa
+P088,Educação Física,Feminino,27,6.3,11,1,60,Baixa
+P089,Medicina,Feminino,22,7,26,5,36,Baixa
+P090,Medicina,Masculino,18,6.7,25,8,47,Baixa
+P091,Educação Física,Masculino,24,6.6,21,5,47,Baixa
+P092,Psicologia,Feminino,19,7.6,15,5,51,Baixa
+P093,Educação Física,Feminino,24,8,13,11,62,Alta
+P094,Medicina,Masculino,25,9,16,4,45,Baixa
+P095,Medicina,Feminino,23,7.6,29,20,15,Alta
+P096,Medicina,Feminino,22,5.3,22,7,41,Baixa
+P097,Educação Física,Feminino,26,5,20,6,47,Baixa
+P098,Medicina,Feminino,26,8.5,19,5,33,Baixa
+P099,Psicologia,Masculino,23,6.3,13,6,51,Baixa
+P100,Medicina,Feminino,22,7.3,17,2,42,Baixa
+P101,Medicina,Feminino,25,7.3,31,9,32,Baixa
+P102,Educação Física,Feminino,23,7.7,15,5,44,Baixa
+P103,Psicologia,Masculino,27,6.3,15,11,52,Alta
+P104,Medicina,Feminino,18,6.4,26,7,44,Baixa
+P105,Medicina,Feminino,22,7.4,24,7,38,Baixa
+P106,Medicina,Feminino,26,5.8,24,10,43,Alta
+P107,Psicologia,Feminino,20,6.5,24,10,26,Alta
+P108,Psicologia,Feminino,18,6,16,6,NA,Baixa
+P109,Medicina,Feminino,24,NA,34,10,28,Alta
+P110,Psicologia,Masculino,20,7,17,3,51,Baixa
+P111,Psicologia,Masculino,20,7.4,21,10,42,Alta
+P112,Educação Física,Feminino,25,6.9,11,1,37,Baixa
+P113,Medicina,Masculino,29,7.2,29,13,20,Alta
+P114,Medicina,Feminino,22,6.7,40,11,38,Alta
+P115,Medicina,Masculino,25,6.6,25,8,41,Baixa
+P116,Medicina,Feminino,18,4.8,26,8,36,Baixa
+P117,Psicologia,Masculino,22,8.4,12,6,69,Baixa
+P118,Medicina,Feminino,18,8.7,15,8,52,Baixa
+P119,Medicina,Masculino,18,7.9,23,13,43,Alta
+P120,Educação Física,Feminino,27,7.6,21,6,53,Baixa
+P121,Psicologia,Feminino,24,NA,23,7,55,Baixa
+P122,Medicina,Feminino,24,6.3,17,9,31,Baixa
+P123,Psicologia,Feminino,20,7.1,14,6,65,Baixa
+P124,Educação Física,Feminino,18,6.1,23,NA,15,Alta
+P125,Psicologia,Feminino,24,7.7,13,5,57,Baixa
+P126,Medicina,Masculino,18,NA,20,4,57,Baixa
+P127,Medicina,Feminino,30,6.8,18,6,38,Baixa
+P128,Psicologia,Feminino,22,6.5,22,11,33,Alta
+P129,Medicina,Feminino,23,7.2,30,11,26,Alta
+P130,Psicologia,Feminino,18,7.7,11,5,58,Baixa
+P131,Medicina,Masculino,24,8.6,9,5,47,Baixa
+P132,Psicologia,Feminino,26,5,25,7,31,Baixa
+P133,Medicina,Feminino,23,6,20,5,52,Baixa
+P134,Medicina,Masculino,22,9,16,8,64,Baixa
+P135,Educação Física,Feminino,27,6.6,26,7,52,Baixa
+P136,Medicina,Feminino,25,8.9,30,10,25,Alta
+P137,Medicina,Masculino,24,5.8,31,7,30,Baixa
+P138,Psicologia,Masculino,26,8.3,14,5,69,Baixa
+P139,Psicologia,Masculino,23,5.7,17,3,64,Baixa
+P140,Medicina,Masculino,33,5.7,26,8,NA,Baixa
+P141,Psicologia,Feminino,23,7.2,24,9,32,Baixa
+P142,Medicina,Masculino,26,6.4,28,11,24,Alta
+P143,Psicologia,Masculino,25,5.4,19,7,53,Baixa
+P144,Psicologia,Feminino,25,5.4,20,16,43,Alta
+P145,Educação Física,Masculino,26,7.2,4,0,76,Baixa
+P146,Medicina,Feminino,23,5.4,29,10,42,Alta
+P147,Medicina,Masculino,18,8.1,10,3,59,Baixa
+P148,Psicologia,Feminino,19,8.5,18,4,33,Baixa
+P149,Psicologia,Feminino,30,5.2,10,3,62,Baixa
+P150,Medicina,Feminino,29,4.5,33,20,23,Alta
+P151,Medicina,Masculino,22,3.9,25,8,28,Baixa
+P152,Medicina,Feminino,18,7.8,24,5,39,Baixa
+P153,Educação Física,Feminino,19,5.4,30,11,31,Alta
+P154,Psicologia,Feminino,18,8.1,18,11,51,Alta
+P155,Educação Física,Masculino,18,6.5,8,4,63,Baixa
+P156,Psicologia,Masculino,25,5.1,16,8,35,Baixa
+P157,Medicina,Masculino,22,5.7,24,7,52,Baixa
+P158,Psicologia,Feminino,27,6.9,23,4,46,Baixa
+P159,Educação Física,Masculino,18,9.4,4,0,67,Baixa
+P160,Medicina,Masculino,18,7.3,24,NA,33,Alta
+P161,Medicina,Feminino,24,4.7,17,4,44,Baixa
+P162,Psicologia,Feminino,26,6.1,30,9,35,Baixa
+P163,Educação Física,Feminino,21,NA,20,7,64,Baixa
+P164,Medicina,Feminino,19,5.4,33,8,NA,Baixa
+P165,Medicina,Masculino,28,7.8,18,6,60,Baixa
+P166,Medicina,Masculino,28,6.2,26,5,41,Baixa
+P167,Medicina,Masculino,26,8.2,27,6,19,Baixa
+P168,Psicologia,Feminino,25,7.1,24,5,42,Baixa
+P169,Psicologia,Feminino,18,6.9,25,4,45,Baixa
+P170,Medicina,Masculino,18,NA,26,7,37,Baixa
+P171,Educação Física,Feminino,29,6.1,20,9,42,Baixa
+P172,Psicologia,Feminino,23,7.2,19,9,36,Baixa
+P173,Psicologia,Feminino,19,11,8,2,NA,Baixa
+P174,Educação Física,Masculino,27,6.3,7,5,56,Baixa
+P175,Medicina,Feminino,20,9.1,10,4,45,Baixa
+P176,Psicologia,Feminino,20,4.7,22,5,44,Baixa
+P177,Educação Física,Masculino,24,7.2,14,6,43,Baixa
+P178,Educação Física,Masculino,18,6.1,20,7,55,Baixa
+P179,Educação Física,Feminino,20,4.8,11,3,68,Baixa
+P180,Psicologia,Masculino,18,6,16,6,39,Baixa
+P181,Medicina,Feminino,26,9.8,11,4,56,Baixa
+P182,Medicina,Masculino,23,6.6,24,5,36,Baixa
+P183,Educação Física,Masculino,21,6.1,7,4,78,Baixa
+P184,Psicologia,Feminino,27,8.2,16,4,45,Baixa
+P185,Medicina,Feminino,22,5.9,27,14,34,Alta
+P186,Medicina,Feminino,21,7.1,20,6,43,Baixa
+P187,Educação Física,Feminino,22,7.2,19,6,34,Baixa
+P188,Medicina,Masculino,20,6.3,24,12,58,Alta
+P189,Medicina,Masculino,22,6.3,25,8,10,Baixa
+P190,Psicologia,Feminino,25,9,21,6,41,Baixa
+P191,Medicina,Feminino,23,6.6,27,10,44,Alta
+P192,Medicina,Feminino,28,9.6,7,4,NA,Baixa
+P193,Medicina,Feminino,20,6.5,29,21,31,Alta
+P194,Educação Física,Feminino,21,6.5,12,2,65,Baixa
+P195,Medicina,Masculino,27,6,29,9,38,Baixa
+P196,Medicina,Feminino,18,3,29,13,26,Alta
+P197,Medicina,Feminino,18,4.3,29,9,27,Baixa
+P198,Psicologia,Masculino,24,6.7,14,3,50,Baixa
+P199,Psicologia,Feminino,21,5.8,19,4,42,Baixa
+P200,Medicina,Feminino,19,8.8,31,10,32,Alta
+P201,Educação Física,Feminino,19,7.2,4,2,79,Baixa
+P202,Psicologia,Masculino,25,6.1,13,6,63,Baixa
+P203,Medicina,Masculino,20,8.1,24,11,40,Alta
+P204,Educação Física,Masculino,22,5.9,5,1,65,Baixa
+P205,Psicologia,Feminino,19,7,22,5,40,Baixa
+P206,Psicologia,Masculino,24,7.6,14,7,51,Baixa
+P207,Medicina,Feminino,20,6.9,22,7,40,Baixa
+P208,Educação Física,Feminino,24,6.5,6,2,58,Baixa
+P209,Educação Física,Feminino,20,6.4,12,2,46,Baixa
+P210,Psicologia,Feminino,28,6.3,23,8,35,Baixa
+P211,Psicologia,Feminino,23,8.7,15,2,55,Baixa
+P212,Medicina,Feminino,18,6.8,35,14,14,Alta
+P213,Medicina,Feminino,27,5.6,30,7,37,Baixa
+P214,Medicina,Feminino,22,6.1,25,9,35,Baixa
+P215,Educação Física,Masculino,23,5.5,14,3,50,Baixa
+P216,Psicologia,Feminino,27,7.4,20,4,45,Baixa
+P217,Medicina,Masculino,23,6.4,35,17,25,Alta
+P218,Medicina,Feminino,31,7.2,26,11,31,Alta
+P219,Medicina,Feminino,20,7.2,30,7,32,Baixa
+P220,Medicina,Feminino,23,3,38,11,9,Alta
+P221,Medicina,Masculino,24,5.7,18,8,52,Baixa
+P222,Psicologia,Masculino,25,9.6,10,4,52,Baixa
+P223,Medicina,Feminino,25,NA,32,11,12,Alta
+P224,Psicologia,Masculino,24,6.6,15,2,46,Baixa
+P225,Medicina,Feminino,18,7.5,29,11,7,Alta
+P226,Educação Física,Feminino,21,7.5,14,7,61,Baixa
+P227,Psicologia,Masculino,22,5.1,30,10,24,Alta
+P228,Medicina,Feminino,20,6.8,35,12,19,Alta
+P229,Medicina,Masculino,23,7.7,21,8,52,Baixa
+P230,Medicina,Feminino,19,7.1,21,12,46,Alta
+P231,Psicologia,Masculino,25,6.5,5,6,55,Baixa
+P232,Medicina,Feminino,23,6.5,25,9,38,Baixa
+P233,Medicina,Masculino,24,5.4,31,16,30,Alta
+P234,Psicologia,Feminino,21,6.4,34,12,18,Alta
+P235,Educação Física,Feminino,20,7.3,13,1,56,Baixa
+P236,Psicologia,Feminino,27,5.9,26,14,7,Alta
+P237,Educação Física,Feminino,19,6.8,10,2,53,Baixa
+P238,Medicina,Masculino,19,7.1,17,9,41,Baixa
+P239,Medicina,Feminino,20,NA,27,7,51,Baixa
+P240,Educação Física,Feminino,28,4.7,24,5,37,Baixa
+P241,Educação Física,Masculino,22,7,11,9,60,Baixa
+P242,Psicologia,Masculino,26,8.1,17,5,50,Baixa
+P243,Educação Física,Masculino,18,7.2,13,20,53,Alta
+P244,Educação Física,Feminino,21,4.4,14,4,50,Baixa
+P245,Psicologia,Feminino,21,6.7,26,6,49,Baixa
+P246,Psicologia,Feminino,24,8.5,9,8,57,Baixa
+P247,Educação Física,Feminino,21,5.5,18,3,NA,Baixa
+P248,Medicina,Feminino,24,7,26,9,31,Baixa
+P249,Medicina,Masculino,22,5.9,11,3,64,Baixa
+P250,Medicina,Feminino,23,NA,19,4,44,Baixa
+P251,Psicologia,Feminino,29,8.3,22,7,38,Baixa
+P252,Medicina,Masculino,20,7.2,13,9,47,Baixa
+P253,Medicina,Feminino,25,7.4,36,8,24,Baixa
+P254,Psicologia,Feminino,26,6.6,26,8,44,Baixa
+P255,Psicologia,Feminino,28,9.6,17,11,66,Alta
+P256,Medicina,Feminino,23,8.1,20,9,35,Baixa
+P257,Psicologia,Masculino,23,5.1,17,4,55,Baixa
+P258,Educação Física,Feminino,23,NA,8,1,70,Baixa
+P259,Educação Física,Feminino,25,6.8,10,7,52,Baixa
+P260,Psicologia,Masculino,24,6.4,17,8,46,Baixa
+P261,Psicologia,Masculino,21,7.1,26,7,28,Baixa
+P262,Psicologia,Masculino,25,6.3,20,NA,43,Baixa
+P263,Educação Física,Feminino,24,6.1,11,7,58,Baixa
+P264,Medicina,Feminino,24,8.1,25,5,28,Baixa
+P265,Psicologia,Masculino,32,8,22,9,28,Baixa
+P266,Medicina,Feminino,23,7.7,25,7,37,Baixa
+P267,Psicologia,Masculino,20,6.8,19,10,50,Alta
+P268,Psicologia,Masculino,23,7.9,15,2,61,Baixa
+P269,Psicologia,Feminino,21,4.8,22,12,41,Alta
+P270,Psicologia,Feminino,19,5,15,16,46,Alta
+P271,Psicologia,Masculino,21,8.3,14,8,61,Baixa
+P272,Psicologia,Feminino,22,6.2,12,1,61,Baixa
+P273,Medicina,Feminino,25,7.2,28,10,47,Alta
+P274,Medicina,Feminino,23,9.2,26,5,47,Baixa
+P275,Psicologia,Feminino,19,6.3,23,9,29,Baixa
+P276,Psicologia,Feminino,21,5.4,28,9,28,Baixa
+P277,Educação Física,Feminino,18,NA,23,6,53,Baixa
+P278,Psicologia,Masculino,21,6.6,24,NA,24,Alta
+P279,Psicologia,Feminino,18,6.6,18,9,NA,Baixa
+P280,Medicina,Masculino,18,8,24,6,25,Baixa
+P281,Psicologia,Feminino,25,6.1,24,14,NA,Alta
+P282,Educação Física,Feminino,21,6.4,13,6,49,Baixa
+P283,Psicologia,Feminino,22,6.6,27,8,35,Baixa
+P284,Psicologia,Masculino,24,7.2,12,9,47,Baixa
+P285,Educação Física,Feminino,20,7.6,9,7,61,Baixa
+P286,Psicologia,Feminino,21,5.9,28,9,34,Baixa
+P287,Medicina,Masculino,20,7.2,27,15,29,Alta
+P288,Medicina,Masculino,21,7.3,27,11,29,Alta
+P289,Educação Física,Feminino,18,6.9,22,5,33,Baixa
+P290,Educação Física,Masculino,25,8.6,10,8,65,Baixa
+P291,Medicina,Feminino,24,4.5,19,7,67,Baixa
+P292,Educação Física,Feminino,19,7.6,8,2,62,Baixa
+P293,Psicologia,Feminino,28,8.4,17,4,56,Baixa
+P294,Educação Física,Masculino,21,5.2,17,5,53,Baixa
+P295,Educação Física,Masculino,21,7,7,6,71,Baixa
+P296,Psicologia,Feminino,18,5.5,23,10,44,Alta
+P297,Psicologia,Masculino,22,6.3,22,5,60,Baixa
+P298,Psicologia,Feminino,19,6.8,16,6,65,Baixa
+P299,Medicina,Masculino,23,6.6,16,7,56,Baixa
+P300,Psicologia,Feminino,23,NA,14,21,42,Alta
+P301,Psicologia,Feminino,25,6.7,17,11,48,Alta
+P302,Psicologia,Feminino,20,5,13,7,46,Baixa
+P303,Psicologia,Feminino,18,5.8,17,6,41,Baixa
+P304,Medicina,Masculino,23,6.4,34,7,17,Baixa
+P305,Educação Física,Masculino,24,6.2,10,3,50,Baixa
+P306,Medicina,Feminino,26,7.6,21,8,44,Baixa
+P307,Psicologia,Masculino,21,5.9,28,7,22,Baixa
+P308,Medicina,Masculino,24,7.5,23,7,42,Baixa
+P309,Psicologia,Feminino,24,6.4,16,4,40,Baixa
+P310,Educação Física,Masculino,20,5.3,6,1,67,Baixa
+P311,Educação Física,Feminino,18,NA,22,11,31,Alta
+P312,Psicologia,Feminino,20,6,27,7,34,Baixa
+P313,Medicina,Feminino,23,6.8,26,NA,29,Baixa
+P314,Educação Física,Masculino,22,8.9,0,0,91,Baixa
+P315,Medicina,Feminino,18,6.7,15,7,68,Baixa
+P316,Educação Física,Masculino,22,6.6,6,2,74,Baixa
+P317,Psicologia,Masculino,18,4.9,17,3,44,Baixa
+P318,Psicologia,Masculino,25,7.1,15,9,51,Baixa
+P319,Psicologia,Masculino,22,6.6,28,16,12,Alta
+P320,Psicologia,Feminino,20,8.7,10,7,NA,Baixa
