@@ -298,6 +298,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-1-1"><i class="fa fa-check"></i><b>11.3</b> Exemplo 1</a></li>
 <li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-2-1"><i class="fa fa-check"></i><b>11.4</b> Exemplo 2</a></li>
 <li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
+<li class="chapter" data-level="11.6" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-4-um-banco-da-sua-%C3%A1rea"><i class="fa fa-check"></i><b>11.6</b> Exemplo 4: um banco da sua área</a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.1</b> Medicina: nascidos vivos em Uberaba</a></li>
+<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.2</b> Psicologia: saúde mental de universitários</a></li>
+<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.3</b> Educação Física: aptidão física e atividade semanal</a></li>
+<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.4</b> E quando aparece NA?</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
 <ul>
@@ -808,28 +815,28 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </tbody>
 </table>
 <p>Essa tabela pode ser repassada diretamente para o R:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="associação-entre-variáveis.html#cb266-1" tabindex="-1"></a><span class="co"># Crie a matriz de dados</span></span>
-<span id="cb266-2"><a href="associação-entre-variáveis.html#cb266-2" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">7</span>,       <span class="co"># observe o uso de matrix() e c()</span></span>
-<span id="cb266-3"><a href="associação-entre-variáveis.html#cb266-3" tabindex="-1"></a>                   <span class="dv">5</span>, <span class="dv">10</span>),     <span class="co"># observe os parênteses  </span></span>
-<span id="cb266-4"><a href="associação-entre-variáveis.html#cb266-4" tabindex="-1"></a>                 <span class="at">nrow =</span> <span class="dv">2</span>,     <span class="co"># numero de linhas </span></span>
-<span id="cb266-5"><a href="associação-entre-variáveis.html#cb266-5" tabindex="-1"></a>                 <span class="at">byrow =</span> <span class="cn">TRUE</span>) <span class="co"># você está informando por linhas (by row)</span></span>
-<span id="cb266-6"><a href="associação-entre-variáveis.html#cb266-6" tabindex="-1"></a>                 </span>
-<span id="cb266-7"><a href="associação-entre-variáveis.html#cb266-7" tabindex="-1"></a><span class="co"># é opcional, mas ficará mais claro que se você nomear </span></span>
-<span id="cb266-8"><a href="associação-entre-variáveis.html#cb266-8" tabindex="-1"></a><span class="co"># as linhas (row) e colunas (col) da sua tabela</span></span>
-<span id="cb266-9"><a href="associação-entre-variáveis.html#cb266-9" tabindex="-1"></a><span class="fu">colnames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Doença: Sim&quot;</span>, <span class="st">&quot;Doença: Não&quot;</span>)</span>
-<span id="cb266-10"><a href="associação-entre-variáveis.html#cb266-10" tabindex="-1"></a><span class="fu">rownames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Masculino&quot;</span>, <span class="st">&quot;Feminino&quot;</span>)</span>
-<span id="cb266-11"><a href="associação-entre-variáveis.html#cb266-11" tabindex="-1"></a></span>
-<span id="cb266-12"><a href="associação-entre-variáveis.html#cb266-12" tabindex="-1"></a><span class="co"># Veja como ficou a tabela</span></span>
-<span id="cb266-13"><a href="associação-entre-variáveis.html#cb266-13" tabindex="-1"></a>tabela</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="associação-entre-variáveis.html#cb284-1" tabindex="-1"></a><span class="co"># Crie a matriz de dados</span></span>
+<span id="cb284-2"><a href="associação-entre-variáveis.html#cb284-2" tabindex="-1"></a>tabela <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">7</span>,       <span class="co"># observe o uso de matrix() e c()</span></span>
+<span id="cb284-3"><a href="associação-entre-variáveis.html#cb284-3" tabindex="-1"></a>                   <span class="dv">5</span>, <span class="dv">10</span>),     <span class="co"># observe os parênteses  </span></span>
+<span id="cb284-4"><a href="associação-entre-variáveis.html#cb284-4" tabindex="-1"></a>                 <span class="at">nrow =</span> <span class="dv">2</span>,     <span class="co"># numero de linhas </span></span>
+<span id="cb284-5"><a href="associação-entre-variáveis.html#cb284-5" tabindex="-1"></a>                 <span class="at">byrow =</span> <span class="cn">TRUE</span>) <span class="co"># você está informando por linhas (by row)</span></span>
+<span id="cb284-6"><a href="associação-entre-variáveis.html#cb284-6" tabindex="-1"></a>                 </span>
+<span id="cb284-7"><a href="associação-entre-variáveis.html#cb284-7" tabindex="-1"></a><span class="co"># é opcional, mas ficará mais claro que se você nomear </span></span>
+<span id="cb284-8"><a href="associação-entre-variáveis.html#cb284-8" tabindex="-1"></a><span class="co"># as linhas (row) e colunas (col) da sua tabela</span></span>
+<span id="cb284-9"><a href="associação-entre-variáveis.html#cb284-9" tabindex="-1"></a><span class="fu">colnames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Doença: Sim&quot;</span>, <span class="st">&quot;Doença: Não&quot;</span>)</span>
+<span id="cb284-10"><a href="associação-entre-variáveis.html#cb284-10" tabindex="-1"></a><span class="fu">rownames</span>(tabela) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Masculino&quot;</span>, <span class="st">&quot;Feminino&quot;</span>)</span>
+<span id="cb284-11"><a href="associação-entre-variáveis.html#cb284-11" tabindex="-1"></a></span>
+<span id="cb284-12"><a href="associação-entre-variáveis.html#cb284-12" tabindex="-1"></a><span class="co"># Veja como ficou a tabela</span></span>
+<span id="cb284-13"><a href="associação-entre-variáveis.html#cb284-13" tabindex="-1"></a>tabela</span></code></pre></div>
 <pre><code>##           Doença: Sim Doença: Não
 ## Masculino           8           7
 ## Feminino            5          10</code></pre>
 <p>Para fazer o teste Qui-quadrado no R usamos <code>chisq.test()</code>:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="associação-entre-variáveis.html#cb268-1" tabindex="-1"></a><span class="co"># Aplicando o teste qui-quadrado</span></span>
-<span id="cb268-2"><a href="associação-entre-variáveis.html#cb268-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabela)</span>
-<span id="cb268-3"><a href="associação-entre-variáveis.html#cb268-3" tabindex="-1"></a></span>
-<span id="cb268-4"><a href="associação-entre-variáveis.html#cb268-4" tabindex="-1"></a><span class="co"># Veja o resultado</span></span>
-<span id="cb268-5"><a href="associação-entre-variáveis.html#cb268-5" tabindex="-1"></a>resultado</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="associação-entre-variáveis.html#cb286-1" tabindex="-1"></a><span class="co"># Aplicando o teste qui-quadrado</span></span>
+<span id="cb286-2"><a href="associação-entre-variáveis.html#cb286-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabela)</span>
+<span id="cb286-3"><a href="associação-entre-variáveis.html#cb286-3" tabindex="-1"></a></span>
+<span id="cb286-4"><a href="associação-entre-variáveis.html#cb286-4" tabindex="-1"></a><span class="co"># Veja o resultado</span></span>
+<span id="cb286-5"><a href="associação-entre-variáveis.html#cb286-5" tabindex="-1"></a>resultado</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -847,19 +854,19 @@ No exemplo, temos 2 linhas e 2 colunas: (2–1) × (2–1) = 1.</li>
 </ul>
 <p>Como o valor de p é 0,4612 (maior do que o nível de significância de 0,05), <strong>não há evidências suficientes para rejeitar a hipótese nula</strong>. Portanto, não foi encontrada associação estatisticamente significativa entre sexo e presença de doença nessa amostra.</p>
 <p>E, caso queira visualizar as tabelas de valores observados e esperados basta fazer o seguinte:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="associação-entre-variáveis.html#cb270-1" tabindex="-1"></a><span class="co"># Exibir os valores observados</span></span>
-<span id="cb270-2"><a href="associação-entre-variáveis.html#cb270-2" tabindex="-1"></a>resultado<span class="sc">$</span>observed</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="associação-entre-variáveis.html#cb288-1" tabindex="-1"></a><span class="co"># Exibir os valores observados</span></span>
+<span id="cb288-2"><a href="associação-entre-variáveis.html#cb288-2" tabindex="-1"></a>resultado<span class="sc">$</span>observed</span></code></pre></div>
 <pre><code>##           Doença: Sim Doença: Não
 ## Masculino           8           7
 ## Feminino            5          10</code></pre>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="associação-entre-variáveis.html#cb272-1" tabindex="-1"></a><span class="co"># Exibir os valores esperados</span></span>
-<span id="cb272-2"><a href="associação-entre-variáveis.html#cb272-2" tabindex="-1"></a>resultado<span class="sc">$</span>expected</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="associação-entre-variáveis.html#cb290-1" tabindex="-1"></a><span class="co"># Exibir os valores esperados</span></span>
+<span id="cb290-2"><a href="associação-entre-variáveis.html#cb290-2" tabindex="-1"></a>resultado<span class="sc">$</span>expected</span></code></pre></div>
 <pre><code>##           Doença: Sim Doença: Não
 ## Masculino         6.5         8.5
 ## Feminino          6.5         8.5</code></pre>
 <blockquote>
 <p><strong>Observação:</strong> Se alguma frequência esperada for menor que 5, o R emitirá um alerta. Nesses casos, considere usar o teste exato de Fisher:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="associação-entre-variáveis.html#cb274-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="associação-entre-variáveis.html#cb292-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)</span></code></pre></div>
 </blockquote>
 <p>Por exemplo, se substituirmos o 7 por 1, teremos</p>
 <pre><code>##           Doença: Sim Doença: Não
@@ -916,19 +923,19 @@ V = \sqrt{\frac{\chi^2}{n(k-1)}}
 <li><p><span class="math inline">\(k\)</span> = menor número entre linhas ou colunas</p></li>
 </ul>
 <p><strong>No R:</strong></p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="associação-entre-variáveis.html#cb279-1" tabindex="-1"></a><span class="fu">library</span>(rcompanion)</span>
-<span id="cb279-2"><a href="associação-entre-variáveis.html#cb279-2" tabindex="-1"></a><span class="fu">cramerV</span>(tabela)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="associação-entre-variáveis.html#cb297-1" tabindex="-1"></a><span class="fu">library</span>(rcompanion)</span>
+<span id="cb297-2"><a href="associação-entre-variáveis.html#cb297-2" tabindex="-1"></a><span class="fu">cramerV</span>(tabela)</span></code></pre></div>
 <pre><code>## Cramer V 
 ##   0.2018</code></pre>
 <p>ou</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="associação-entre-variáveis.html#cb281-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb281-2"><a href="associação-entre-variáveis.html#cb281-2" tabindex="-1"></a><span class="fu">CramerV</span>(tabela)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="associação-entre-variáveis.html#cb299-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb299-2"><a href="associação-entre-variáveis.html#cb299-2" tabindex="-1"></a><span class="fu">CramerV</span>(tabela)</span></code></pre></div>
 <pre><code>## [1] 0.2018018</code></pre>
 <blockquote>
 <p><strong>Se você tentar refazer a conta na mão, atenção a um detalhe:</strong> o <span class="math inline">\(\chi^2\)</span> que entra na fórmula do V é o valor <strong>sem</strong> a correção de continuidade de Yates. O <code>chisq.test()</code> aplica Yates por padrão em tabelas 2x2 e devolveu 0,543 — mas <span class="math inline">\(\sqrt{0{,}543/30} = 0{,}13\)</span>, e não 0,20.</p>
 </blockquote>
 <p>Para obter o <span class="math inline">\(\chi^2\)</span> que as funções acima realmente usam, peça a versão sem correção:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="associação-entre-variáveis.html#cb283-1" tabindex="-1"></a><span class="fu">chisq.test</span>(tabela, <span class="at">correct =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>statistic</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="associação-entre-variáveis.html#cb301-1" tabindex="-1"></a><span class="fu">chisq.test</span>(tabela, <span class="at">correct =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>statistic</span></code></pre></div>
 <pre><code>## X-squared 
 ##  1.221719</code></pre>
 <p>Agora a conta fecha: <span class="math inline">\(\sqrt{1{,}2217/30} = 0{,}2018\)</span>, exatamente o V de Cramér devolvido pelo R.</p>
@@ -944,8 +951,8 @@ V = \sqrt{\frac{\chi^2}{n(k-1)}}
 \phi = \sqrt{\frac{\chi^2}{n}}
 \]</span></p>
 <p><strong>No R:</strong></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="associação-entre-variáveis.html#cb285-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
-<span id="cb285-2"><a href="associação-entre-variáveis.html#cb285-2" tabindex="-1"></a><span class="fu">Phi</span>(tabela)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="associação-entre-variáveis.html#cb303-1" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb303-2"><a href="associação-entre-variáveis.html#cb303-2" tabindex="-1"></a><span class="fu">Phi</span>(tabela)</span></code></pre></div>
 <pre><code>## [1] 0.2018018</code></pre>
 <p>Interpretação dos valores:</p>
 <ul>
@@ -1015,7 +1022,7 @@ O evento é menos provável no <strong>Grupo 1</strong> do que no Grupo 2.<br />
 <strong>Exemplo:</strong> Se o OR for 0,5, o Grupo 1 tem metade da chance do evento comparado ao Grupo 2.</p></li>
 </ul>
 <p><strong>No R:</strong></p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="associação-entre-variáveis.html#cb287-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)<span class="sc">$</span>estimate</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="associação-entre-variáveis.html#cb305-1" tabindex="-1"></a><span class="fu">fisher.test</span>(tabela)<span class="sc">$</span>estimate</span></code></pre></div>
 <pre><code>## odds ratio 
 ##    2.22194</code></pre>
 <blockquote>
@@ -1028,9 +1035,9 @@ O evento é menos provável no <strong>Grupo 1</strong> do que no Grupo 2.<br />
 <li><p>Em outras palavras, a doença é mais provável entre os homens do que entre as mulheres neste conjunto de dados.</p></li>
 </ul>
 <p>Ou usando o pacote <code>epitools</code>:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="associação-entre-variáveis.html#cb289-1" tabindex="-1"></a><span class="co"># install.packages(&quot;epitools&quot;)</span></span>
-<span id="cb289-2"><a href="associação-entre-variáveis.html#cb289-2" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
-<span id="cb289-3"><a href="associação-entre-variáveis.html#cb289-3" tabindex="-1"></a><span class="fu">oddsratio</span>(tabela)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="associação-entre-variáveis.html#cb307-1" tabindex="-1"></a><span class="co"># install.packages(&quot;epitools&quot;)</span></span>
+<span id="cb307-2"><a href="associação-entre-variáveis.html#cb307-2" tabindex="-1"></a><span class="fu">library</span>(epitools)</span>
+<span id="cb307-3"><a href="associação-entre-variáveis.html#cb307-3" tabindex="-1"></a><span class="fu">oddsratio</span>(tabela)</span></code></pre></div>
 <pre><code>## $data
 ##           Doença: Sim Doença: Não Total
 ## Masculino           8           7    15
@@ -1086,8 +1093,8 @@ O evento é menos provável no <strong>Grupo 1</strong> do que no Grupo 2.<br />
 <div id="cálculo-do-poder-estatístico" class="section level2 hasAnchor" number="28.5">
 <h2><span class="header-section-number">28.5</span> Cálculo do Poder Estatístico<a href="associação-entre-variáveis.html#c%C3%A1lculo-do-poder-estat%C3%ADstico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>O poder estatístico pode ser estimado usando o pacote <code>pwr</code>, útil para calcular tamanho de efeito ou tamanho de amostra necessário.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="associação-entre-variáveis.html#cb291-1" tabindex="-1"></a><span class="co"># Exemplo para efeito 0,2, alfa = 0.05 e N = 30 (OBSERVE o N em MAIÚSCULO, tamanho da amostra)</span></span>
-<span id="cb291-2"><a href="associação-entre-variáveis.html#cb291-2" tabindex="-1"></a><span class="fu">pwr.chisq.test</span>(<span class="at">w =</span> <span class="fl">0.2</span>, <span class="at">df =</span> <span class="dv">1</span>, <span class="at">N =</span> <span class="dv">30</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="associação-entre-variáveis.html#cb309-1" tabindex="-1"></a><span class="co"># Exemplo para efeito 0,2, alfa = 0.05 e N = 30 (OBSERVE o N em MAIÚSCULO, tamanho da amostra)</span></span>
+<span id="cb309-2"><a href="associação-entre-variáveis.html#cb309-2" tabindex="-1"></a><span class="fu">pwr.chisq.test</span>(<span class="at">w =</span> <span class="fl">0.2</span>, <span class="at">df =</span> <span class="dv">1</span>, <span class="at">N =</span> <span class="dv">30</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Chi squared power calculation 
 ## 
