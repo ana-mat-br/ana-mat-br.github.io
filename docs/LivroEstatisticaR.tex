@@ -2097,6 +2097,10 @@ Existem várias fontes de dados abertas, onde podemos baixar um banco de dados p
   Kaggle: \url{https://www.kaggle.com/datasets}
 \end{itemize}
 
+\begin{quote}
+Os bancos usados neste livro ficam reunidos em \url{https://ana-mat-br.github.io/dados/}. Cada capítulo apresenta o endereço do arquivo que vai usar, para você baixar ou ler direto pelo R.
+\end{quote}
+
 \section{Antes de tudo: onde o arquivo mora}\label{antes-de-tudo-onde-o-arquivo-mora}
 
 Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Leia com calma.
@@ -2129,7 +2133,7 @@ Esta é a forma mais segura para começar, porque você \textbf{navega até o ar
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Faça o \emph{download} do banco de dados \textbf{mcdonald.csv}
+  Faça o \emph{download} do banco de dados \textbf{mcdonald.csv}, clicando aqui: \url{https://ana-mat-br.github.io/dados/mcdonald.csv}
   (fonte original: \url{https://www.kaggle.com/datasets/mcdonalds/nutrition-facts}). Repare em qual pasta o seu navegador salvou o arquivo --- quase sempre é a \textbf{Downloads}.
 \item
   Na área de ambiente de memória, localize \textbf{Import Dataset}, ao clicar nessa opção você terá o seguinte:
@@ -4575,8 +4579,15 @@ Ou seja:
 \def\labelenumi{\arabic{enumi}.}
 \item
   \textbf{Baixe o banco de dados}\\
-  Use o banco de dados: \href{https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st}{Pokemon.csv}\\
-  Importe o arquivo \textbf{Pokemon.csv} para o RStudio.
+  Use o banco de dados \href{https://ana-mat-br.github.io/dados/Pokemon.csv}{Pokemon.csv}.\\
+  Importe o arquivo para o RStudio pelo botão \textbf{Import Dataset}, ou leia direto pelo endereço:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{Pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/Pokemon.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 \item
   \textbf{Pergunta do exercício}\\
   Teste se existe diferença significativa entre a velocidade (\textbf{speed}) dos Pokémons verdes (\textbf{green}) e amarelos (\textbf{yellow}).
@@ -5986,7 +5997,7 @@ O tamanho do efeito complementa a análise estatística, indicando a magnitude d
 \FunctionTok{library}\NormalTok{(readr)}
 
 \CommentTok{\# Importe o banco de dados Pokemon}
-\NormalTok{Pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"Pokemon.csv"}\NormalTok{)}
+\NormalTok{Pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/Pokemon.csv"}\NormalTok{)}
 
 \CommentTok{\# Subconjunto com Pokémons verdes ou amarelos}
 \NormalTok{dados\_filtrados }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(Pokemon, Color }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Green"}\NormalTok{, }\StringTok{"Yellow"}\NormalTok{))}
@@ -6370,7 +6381,7 @@ Pacote no R
 
 \CommentTok{\# Importe o banco de dados Pokemon}
 \FunctionTok{library}\NormalTok{(readr)}
-\NormalTok{Pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"Pokemon.csv"}\NormalTok{)}
+\NormalTok{Pokemon }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/Pokemon.csv"}\NormalTok{)}
 
 \CommentTok{\# Veja o QQ}
 \FunctionTok{qqnorm}\NormalTok{(Pokemon}\SpecialCharTok{$}\NormalTok{Speed)}

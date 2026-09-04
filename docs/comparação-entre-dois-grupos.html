@@ -939,8 +939,10 @@ Geralmente, o p-valor do teste unilateral é a metade do bilateral, para o mesmo
 <p><strong>Comparação da velocidade dos Pokémons verdes e amarelos</strong></p>
 <ol style="list-style-type: decimal">
 <li><p><strong>Baixe o banco de dados</strong><br />
-Use o banco de dados: <a href="https://drive.google.com/drive/folders/1gyORbBEuKBstfSKULA58TLhawOXaY-st">Pokemon.csv</a><br />
-Importe o arquivo <strong>Pokemon.csv</strong> para o RStudio.</p></li>
+Use o banco de dados <a href="https://ana-mat-br.github.io/dados/Pokemon.csv">Pokemon.csv</a>.<br />
+Importe o arquivo para o RStudio pelo botão <strong>Import Dataset</strong>, ou leia direto pelo endereço:</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="comparação-entre-dois-grupos.html#cb132-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb132-2"><a href="comparação-entre-dois-grupos.html#cb132-2" tabindex="-1"></a>Pokemon <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://ana-mat-br.github.io/dados/Pokemon.csv&quot;</span>)</span></code></pre></div></li>
 <li><p><strong>Pergunta do exercício</strong><br />
 Teste se existe diferença significativa entre a velocidade (<strong>speed</strong>) dos Pokémons verdes (<strong>green</strong>) e amarelos (<strong>yellow</strong>).</p></li>
 <li><p><strong>Formulação das hipóteses de acordo com os testes</strong></p>
@@ -1450,8 +1452,8 @@ O peso é a variável intrínseca à comparação, pois define os grupos.</p>
 <p>Quando comparamos <strong>dois</strong> grupos, a estatística F e a estatística t carregam exatamente a mesma informação, porque <span class="math inline">\(F = t^2\)</span> (com 1 grau de liberdade no numerador). Muitos softwares reportam F mesmo em comparações de duas médias.</p>
 <p>Se quiser converter, basta tirar a raiz quadrada: para a dimensão <em>Dor</em>, <span class="math inline">\(t = \sqrt{4{,}33} = 2{,}08\)</span>.</p>
 <p>Confira você mesmo(a) no R que os dois caminhos dão o mesmo valor-p:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="comparação-entre-dois-grupos.html#cb132-1" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">4.33</span>, <span class="at">df1 =</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">308</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)   <span class="co"># 0,0383</span></span>
-<span id="cb132-2"><a href="comparação-entre-dois-grupos.html#cb132-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="sc">-</span><span class="fu">sqrt</span>(<span class="fl">4.33</span>), <span class="at">df =</span> <span class="dv">308</span>)                      <span class="co"># 0,0383</span></span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="comparação-entre-dois-grupos.html#cb133-1" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">4.33</span>, <span class="at">df1 =</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">308</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)   <span class="co"># 0,0383</span></span>
+<span id="cb133-2"><a href="comparação-entre-dois-grupos.html#cb133-2" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="sc">-</span><span class="fu">sqrt</span>(<span class="fl">4.33</span>), <span class="at">df =</span> <span class="dv">308</span>)                      <span class="co"># 0,0383</span></span></code></pre></div>
 </blockquote>
 
 </div>
