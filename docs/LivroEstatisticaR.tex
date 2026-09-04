@@ -2236,9 +2236,61 @@ Essa forma de obter os resultados não é a melhor forma, vamos \textbf{instalar
 
 \section{Exemplo 4: um banco da sua área}\label{exemplo-4-um-banco-da-sua-uxe1rea}
 
-Os exemplos anteriores usaram o \texttt{mcdonald}, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos --- importar, olhar uma variável, resumir o banco --- em um banco da \textbf{sua} área. Escolha o seu abaixo; os três estão na pasta \texttt{dados/} do material.
+Os exemplos anteriores usaram o \texttt{mcdonald}, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos --- importar, olhar uma variável, resumir o banco --- em um banco da \textbf{sua} área.
 
 Repare que todos eles têm \textbf{dados faltantes}, como qualquer coleta real. Vamos aprender a lidar com isso já aqui.
+
+\subsection{Como obter os bancos}\label{como-obter-os-bancos}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2258}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1935}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5806}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Banco
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Área
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Link para baixar
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{nascimentos.csv} & Medicina & \url{https://ana-mat-br.github.io/dados/nascimentos.csv} \\
+\texttt{saude-mental.csv} & Psicologia & \url{https://ana-mat-br.github.io/dados/saude-mental.csv} \\
+\texttt{aptidao-fisica.csv} & Educação Física & \url{https://ana-mat-br.github.io/dados/aptidao-fisica.csv} \\
+\end{longtable}
+}
+
+Há duas maneiras de usá-los, e vale conhecer as duas.
+
+\textbf{A mais rápida: nem baixe.} O R lê um arquivo direto da internet, bastando dar o endereço no lugar do nome do arquivo. Copie a linha, cole no seu script e execute:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/nascimentos.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Funciona na hora e evita o erro mais comum de quem está começando, que é o R não encontrar o arquivo. A única exigência é estar conectado à internet.
+
+\textbf{A segunda: baixe o arquivo.} Clique no link da tabela acima, salve o arquivo dentro da pasta do seu projeto do RStudio, em uma subpasta chamada \texttt{dados}. Aí o caminho fica curto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"dados/nascimentos.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Esta é a forma que usaremos daqui em diante, porque é a que você vai precisar quando estiver analisando os \textbf{seus} dados, que não estarão em endereço nenhum da internet. Se você preferir, também pode usar o botão \textbf{Import Dataset} que aprendemos no começo do capítulo --- ele faz exatamente a mesma coisa e escreve o código para você.
+
+\begin{quote}
+\textbf{Dica:} se aparecer a mensagem \texttt{does\ not\ exist\ in\ current\ working\ directory}, o R não achou o arquivo. Confira se você está dentro do Projeto certo (canto superior direito do RStudio) e se a pasta \texttt{dados} está no mesmo lugar que o seu arquivo \texttt{.Rproj}.
+\end{quote}
 
 \subsection{Medicina: nascidos vivos em Uberaba}\label{medicina-nascidos-vivos-em-uberaba}
 

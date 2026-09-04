@@ -300,10 +300,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
 <li class="chapter" data-level="11.6" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-4-um-banco-da-sua-%C3%A1rea"><i class="fa fa-check"></i><b>11.6</b> Exemplo 4: um banco da sua área</a>
 <ul>
-<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.1</b> Medicina: nascidos vivos em Uberaba</a></li>
-<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.2</b> Psicologia: saúde mental de universitários</a></li>
-<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.3</b> Educação Física: aptidão física e atividade semanal</a></li>
-<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.4</b> E quando aparece NA?</a></li>
+<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#como-obter-os-bancos"><i class="fa fa-check"></i><b>11.6.1</b> Como obter os bancos</a></li>
+<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.2</b> Medicina: nascidos vivos em Uberaba</a></li>
+<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.3</b> Psicologia: saúde mental de universitários</a></li>
+<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.4</b> Educação Física: aptidão física e atividade semanal</a></li>
+<li class="chapter" data-level="11.6.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.5</b> E quando aparece NA?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
@@ -726,61 +727,106 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </div>
 <div id="exemplo-4-um-banco-da-sua-área" class="section level2 hasAnchor" number="11.6">
 <h2><span class="header-section-number">11.6</span> Exemplo 4: um banco da sua área<a href="importando-banco-de-dados.html#exemplo-4-um-banco-da-sua-%C3%A1rea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Os exemplos anteriores usaram o <code>mcdonald</code>, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos — importar, olhar uma variável, resumir o banco — em um banco da <strong>sua</strong> área. Escolha o seu abaixo; os três estão na pasta <code>dados/</code> do material.</p>
+<p>Os exemplos anteriores usaram o <code>mcdonald</code>, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos — importar, olhar uma variável, resumir o banco — em um banco da <strong>sua</strong> área.</p>
 <p>Repare que todos eles têm <strong>dados faltantes</strong>, como qualquer coleta real. Vamos aprender a lidar com isso já aqui.</p>
-<div id="medicina-nascidos-vivos-em-uberaba" class="section level3 hasAnchor" number="11.6.1">
-<h3><span class="header-section-number">11.6.1</span> Medicina: nascidos vivos em Uberaba<a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>O arquivo <code>nascimentos.csv</code> traz os <strong>3.602 nascimentos registrados em Uberaba em 2022</strong>, extraídos do SINASC, o Sistema de Informações sobre Nascidos Vivos do DATASUS. São dados reais e públicos.</p>
+<div id="como-obter-os-bancos" class="section level3 hasAnchor" number="11.6.1">
+<h3><span class="header-section-number">11.6.1</span> Como obter os bancos<a href="importando-banco-de-dados.html#como-obter-os-bancos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="19%" />
+<col width="58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Banco</th>
+<th>Área</th>
+<th>Link para baixar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>nascimentos.csv</code></td>
+<td>Medicina</td>
+<td><a href="https://ana-mat-br.github.io/dados/nascimentos.csv" class="uri">https://ana-mat-br.github.io/dados/nascimentos.csv</a></td>
+</tr>
+<tr class="even">
+<td><code>saude-mental.csv</code></td>
+<td>Psicologia</td>
+<td><a href="https://ana-mat-br.github.io/dados/saude-mental.csv" class="uri">https://ana-mat-br.github.io/dados/saude-mental.csv</a></td>
+</tr>
+<tr class="odd">
+<td><code>aptidao-fisica.csv</code></td>
+<td>Educação Física</td>
+<td><a href="https://ana-mat-br.github.io/dados/aptidao-fisica.csv" class="uri">https://ana-mat-br.github.io/dados/aptidao-fisica.csv</a></td>
+</tr>
+</tbody>
+</table>
+<p>Há duas maneiras de usá-los, e vale conhecer as duas.</p>
+<p><strong>A mais rápida: nem baixe.</strong> O R lê um arquivo direto da internet, bastando dar o endereço no lugar do nome do arquivo. Copie a linha, cole no seu script e execute:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="importando-banco-de-dados.html#cb24-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb24-2"><a href="importando-banco-de-dados.html#cb24-2" tabindex="-1"></a>nascimentos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/nascimentos.csv&quot;</span>)</span>
-<span id="cb24-3"><a href="importando-banco-de-dados.html#cb24-3" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="importando-banco-de-dados.html#cb24-4" tabindex="-1"></a><span class="co"># quantas linhas e colunas?</span></span>
-<span id="cb24-5"><a href="importando-banco-de-dados.html#cb24-5" tabindex="-1"></a><span class="fu">dim</span>(nascimentos)</span></code></pre></div>
+<span id="cb24-2"><a href="importando-banco-de-dados.html#cb24-2" tabindex="-1"></a>nascimentos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://ana-mat-br.github.io/dados/nascimentos.csv&quot;</span>)</span></code></pre></div>
+<p>Funciona na hora e evita o erro mais comum de quem está começando, que é o R não encontrar o arquivo. A única exigência é estar conectado à internet.</p>
+<p><strong>A segunda: baixe o arquivo.</strong> Clique no link da tabela acima, salve o arquivo dentro da pasta do seu projeto do RStudio, em uma subpasta chamada <code>dados</code>. Aí o caminho fica curto:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="importando-banco-de-dados.html#cb25-1" tabindex="-1"></a>nascimentos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/nascimentos.csv&quot;</span>)</span></code></pre></div>
+<p>Esta é a forma que usaremos daqui em diante, porque é a que você vai precisar quando estiver analisando os <strong>seus</strong> dados, que não estarão em endereço nenhum da internet. Se você preferir, também pode usar o botão <strong>Import Dataset</strong> que aprendemos no começo do capítulo — ele faz exatamente a mesma coisa e escreve o código para você.</p>
+<blockquote>
+<p><strong>Dica:</strong> se aparecer a mensagem <code>does not exist in current working directory</code>, o R não achou o arquivo. Confira se você está dentro do Projeto certo (canto superior direito do RStudio) e se a pasta <code>dados</code> está no mesmo lugar que o seu arquivo <code>.Rproj</code>.</p>
+</blockquote>
+</div>
+<div id="medicina-nascidos-vivos-em-uberaba" class="section level3 hasAnchor" number="11.6.2">
+<h3><span class="header-section-number">11.6.2</span> Medicina: nascidos vivos em Uberaba<a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O arquivo <code>nascimentos.csv</code> traz os <strong>3.602 nascimentos registrados em Uberaba em 2022</strong>, extraídos do SINASC, o Sistema de Informações sobre Nascidos Vivos do DATASUS. São dados reais e públicos.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="importando-banco-de-dados.html#cb26-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb26-2"><a href="importando-banco-de-dados.html#cb26-2" tabindex="-1"></a>nascimentos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/nascimentos.csv&quot;</span>)</span>
+<span id="cb26-3"><a href="importando-banco-de-dados.html#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="importando-banco-de-dados.html#cb26-4" tabindex="-1"></a><span class="co"># quantas linhas e colunas?</span></span>
+<span id="cb26-5"><a href="importando-banco-de-dados.html#cb26-5" tabindex="-1"></a><span class="fu">dim</span>(nascimentos)</span></code></pre></div>
 <pre><code>## [1] 3602   10</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="importando-banco-de-dados.html#cb26-1" tabindex="-1"></a><span class="co"># média do peso ao nascer, em gramas</span></span>
-<span id="cb26-2"><a href="importando-banco-de-dados.html#cb26-2" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>peso_g)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="importando-banco-de-dados.html#cb28-1" tabindex="-1"></a><span class="co"># média do peso ao nascer, em gramas</span></span>
+<span id="cb28-2"><a href="importando-banco-de-dados.html#cb28-2" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>peso_g)</span></code></pre></div>
 <pre><code>## [1] 3095.784</code></pre>
 <p>As variáveis são: <code>peso_g</code> (peso ao nascer em gramas), <code>idade_mae</code>, <code>sem_gestacao</code> (semanas de gestação), <code>consultas_pn</code> (consultas de pré-natal), <code>apgar5</code>, <code>sexo</code>, <code>parto</code> (vaginal ou cesáreo), <code>escol_mae</code> (escolaridade da mãe) e <code>raca_mae</code>.</p>
 </div>
-<div id="psicologia-saúde-mental-de-universitários" class="section level3 hasAnchor" number="11.6.2">
-<h3><span class="header-section-number">11.6.2</span> Psicologia: saúde mental de universitários<a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="psicologia-saúde-mental-de-universitários" class="section level3 hasAnchor" number="11.6.3">
+<h3><span class="header-section-number">11.6.3</span> Psicologia: saúde mental de universitários<a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O arquivo <code>saude-mental.csv</code> traz escores de 320 universitários em três instrumentos que você viu no capítulo de conceitos fundamentais: <strong>PSS-10</strong> (estresse percebido, de 0 a 40), <strong>GAD-7</strong> (ansiedade, de 0 a 21) e <strong>WHO-5</strong> (bem-estar, de 0 a 100).</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="importando-banco-de-dados.html#cb28-1" tabindex="-1"></a>saude <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/saude-mental.csv&quot;</span>)</span>
-<span id="cb28-2"><a href="importando-banco-de-dados.html#cb28-2" tabindex="-1"></a><span class="fu">dim</span>(saude)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="importando-banco-de-dados.html#cb30-1" tabindex="-1"></a>saude <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/saude-mental.csv&quot;</span>)</span>
+<span id="cb30-2"><a href="importando-banco-de-dados.html#cb30-2" tabindex="-1"></a><span class="fu">dim</span>(saude)</span></code></pre></div>
 <pre><code>## [1] 320   9</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="importando-banco-de-dados.html#cb30-1" tabindex="-1"></a><span class="co"># média do escore de estresse percebido</span></span>
-<span id="cb30-2"><a href="importando-banco-de-dados.html#cb30-2" tabindex="-1"></a><span class="fu">mean</span>(saude<span class="sc">$</span>pss10)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="importando-banco-de-dados.html#cb32-1" tabindex="-1"></a><span class="co"># média do escore de estresse percebido</span></span>
+<span id="cb32-2"><a href="importando-banco-de-dados.html#cb32-2" tabindex="-1"></a><span class="fu">mean</span>(saude<span class="sc">$</span>pss10)</span></code></pre></div>
 <pre><code>## [1] 19.59062</code></pre>
 <p>As variáveis são: <code>pss10</code>, <code>gad7</code>, <code>who5</code>, <code>horas_sono</code>, <code>curso</code>, <code>sexo</code>, <code>idade</code> e <code>ansiedade</code> (alta ou baixa, pelo ponto de corte do GAD-7).</p>
 <blockquote>
 <p><strong>Atenção:</strong> este banco é <strong>simulado</strong>. Ele não vem de uma coleta real: foi gerado por computador com médias e desvios plausíveis para universitários brasileiros. O script que o gera está em <code>scripts/gera-bancos-simulados.R</code>. Usamos simulação aqui porque bancos reais com escalas psicométricas raramente são públicos, e porque as grandes pesquisas nacionais que teriam esses dados (como a PNS) exigem técnicas de amostragem complexa que estão além do nosso escopo.</p>
 </blockquote>
 </div>
-<div id="educação-física-aptidão-física-e-atividade-semanal" class="section level3 hasAnchor" number="11.6.3">
-<h3><span class="header-section-number">11.6.3</span> Educação Física: aptidão física e atividade semanal<a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="educação-física-aptidão-física-e-atividade-semanal" class="section level3 hasAnchor" number="11.6.4">
+<h3><span class="header-section-number">11.6.4</span> Educação Física: aptidão física e atividade semanal<a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O arquivo <code>aptidao-fisica.csv</code> traz 280 participantes com minutos semanais de atividade física, IMC, percentual de gordura e VO₂ máximo estimado.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="importando-banco-de-dados.html#cb32-1" tabindex="-1"></a>aptidao <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/aptidao-fisica.csv&quot;</span>)</span>
-<span id="cb32-2"><a href="importando-banco-de-dados.html#cb32-2" tabindex="-1"></a><span class="fu">dim</span>(aptidao)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="importando-banco-de-dados.html#cb34-1" tabindex="-1"></a>aptidao <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;dados/aptidao-fisica.csv&quot;</span>)</span>
+<span id="cb34-2"><a href="importando-banco-de-dados.html#cb34-2" tabindex="-1"></a><span class="fu">dim</span>(aptidao)</span></code></pre></div>
 <pre><code>## [1] 280   9</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="importando-banco-de-dados.html#cb34-1" tabindex="-1"></a><span class="co"># mediana de minutos de atividade física por semana</span></span>
-<span id="cb34-2"><a href="importando-banco-de-dados.html#cb34-2" tabindex="-1"></a><span class="fu">median</span>(aptidao<span class="sc">$</span>min_af_semana)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="importando-banco-de-dados.html#cb36-1" tabindex="-1"></a><span class="co"># mediana de minutos de atividade física por semana</span></span>
+<span id="cb36-2"><a href="importando-banco-de-dados.html#cb36-2" tabindex="-1"></a><span class="fu">median</span>(aptidao<span class="sc">$</span>min_af_semana)</span></code></pre></div>
 <pre><code>## [1] 161</code></pre>
 <p>As variáveis são: <code>min_af_semana</code>, <code>vo2max</code>, <code>imc</code>, <code>perc_gordura</code>, <code>modalidade</code>, <code>sexo</code>, <code>idade</code> e <code>ativo</code> (sim ou não, pelo critério de 150 minutos semanais da OMS).</p>
 <blockquote>
 <p>Assim como o banco de Psicologia, este é <strong>simulado</strong>, e gerado pelo mesmo script.</p>
 </blockquote>
 </div>
-<div id="e-quando-aparece-na" class="section level3 hasAnchor" number="11.6.4">
-<h3><span class="header-section-number">11.6.4</span> E quando aparece NA?<a href="importando-banco-de-dados.html#e-quando-aparece-na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="e-quando-aparece-na" class="section level3 hasAnchor" number="11.6.5">
+<h3><span class="header-section-number">11.6.5</span> E quando aparece NA?<a href="importando-banco-de-dados.html#e-quando-aparece-na" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Experimente calcular a média de uma variável que tenha dados faltantes:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="importando-banco-de-dados.html#cb36-1" tabindex="-1"></a><span class="co"># no banco de nascimentos, 135 registros não têm o número de consultas</span></span>
-<span id="cb36-2"><a href="importando-banco-de-dados.html#cb36-2" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>consultas_pn)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="importando-banco-de-dados.html#cb38-1" tabindex="-1"></a><span class="co"># no banco de nascimentos, 135 registros não têm o número de consultas</span></span>
+<span id="cb38-2"><a href="importando-banco-de-dados.html#cb38-2" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>consultas_pn)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <p>O resultado é <code>NA</code>, e não um número. O R está sendo honesto: ele não sabe quanto vale a média se alguns valores são desconhecidos. Para calcular a média apenas com quem tem informação, use o argumento <code>na.rm = TRUE</code> (de <em>remove NA</em>):</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="importando-banco-de-dados.html#cb38-1" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>consultas_pn, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="importando-banco-de-dados.html#cb40-1" tabindex="-1"></a><span class="fu">mean</span>(nascimentos<span class="sc">$</span>consultas_pn, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 8.024517</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="importando-banco-de-dados.html#cb40-1" tabindex="-1"></a><span class="co"># quantos valores faltam em cada variável?</span></span>
-<span id="cb40-2"><a href="importando-banco-de-dados.html#cb40-2" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(nascimentos))</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="importando-banco-de-dados.html#cb42-1" tabindex="-1"></a><span class="co"># quantos valores faltam em cada variável?</span></span>
+<span id="cb42-2"><a href="importando-banco-de-dados.html#cb42-2" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(nascimentos))</span></code></pre></div>
 <pre><code>##       peso_g    idade_mae sem_gestacao consultas_pn       apgar5         sexo 
 ##            0            0            2          135            2            0 
 ##        parto    escol_mae     raca_mae   baixo_peso 

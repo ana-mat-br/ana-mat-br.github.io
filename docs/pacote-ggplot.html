@@ -300,10 +300,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
 <li class="chapter" data-level="11.6" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-4-um-banco-da-sua-%C3%A1rea"><i class="fa fa-check"></i><b>11.6</b> Exemplo 4: um banco da sua área</a>
 <ul>
-<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.1</b> Medicina: nascidos vivos em Uberaba</a></li>
-<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.2</b> Psicologia: saúde mental de universitários</a></li>
-<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.3</b> Educação Física: aptidão física e atividade semanal</a></li>
-<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.4</b> E quando aparece NA?</a></li>
+<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#como-obter-os-bancos"><i class="fa fa-check"></i><b>11.6.1</b> Como obter os bancos</a></li>
+<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.2</b> Medicina: nascidos vivos em Uberaba</a></li>
+<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.3</b> Psicologia: saúde mental de universitários</a></li>
+<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.4</b> Educação Física: aptidão física e atividade semanal</a></li>
+<li class="chapter" data-level="11.6.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.5</b> E quando aparece NA?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
@@ -628,54 +629,54 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div id="exemplos-de-gráficos-simples-e-bonitos-com-ggplot2" class="section level2 hasAnchor" number="14.2">
 <h2><span class="header-section-number">14.2</span> Exemplos de Gráficos Simples e Bonitos com ggplot2<a href="pacote-ggplot.html#exemplos-de-gr%C3%A1ficos-simples-e-bonitos-com-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Antes de começar, certifique-se de instalar e carregar o pacote:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="pacote-ggplot.html#cb55-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb55-2"><a href="pacote-ggplot.html#cb55-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="pacote-ggplot.html#cb57-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb57-2"><a href="pacote-ggplot.html#cb57-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>Para ilustrar alguns gráficos utilizando o <code>ggplot2</code>, empregaremos o conjunto de dados <em>iris</em>, que já está disponível nativamente no R.</p>
 <p>O <em>iris</em> é um dos bancos de dados mais clássicos e utilizados em estatística e aprendizado de máquina, trazendo informações sobre 150 flores de três espécies diferentes, com quatro variáveis quantitativas (comprimento e largura das sépalas e pétalas). Ele é amplamente utilizado para exemplos de análise exploratória de dados, classificação e visualização de padrões.</p>
 <p>Além do iris, o R oferece outros conjuntos de dados nativos bastante úteis para exercícios e demonstrações em diversas áreas, como <em>mtcars</em> (carros), <em>ToothGrowth</em> (crescimento de dentes em cobaias), <em>sleep</em> (efeito de medicamentos no sono), <em>airquality</em> (qualidade do ar em Nova Iorque) e <em>CO2</em> (absorção de CO2 em plantas).</p>
 <div id="gráfico-de-dispersão-scatterplot" class="section level3 hasAnchor" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> Gráfico de Dispersão (Scatterplot)<a href="pacote-ggplot.html#gr%C3%A1fico-de-dispers%C3%A3o-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="pacote-ggplot.html#cb56-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb56-2"><a href="pacote-ggplot.html#cb56-2" tabindex="-1"></a><span class="co"># Exemplo com o dataset iris</span></span>
-<span id="cb56-3"><a href="pacote-ggplot.html#cb56-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb56-4"><a href="pacote-ggplot.html#cb56-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb56-5"><a href="pacote-ggplot.html#cb56-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb56-6"><a href="pacote-ggplot.html#cb56-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Gráfico de Dispersão: iris&quot;</span>,</span>
-<span id="cb56-7"><a href="pacote-ggplot.html#cb56-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Comprimento da Sépala&quot;</span>,</span>
-<span id="cb56-8"><a href="pacote-ggplot.html#cb56-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Largura da Sépala&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="pacote-ggplot.html#cb58-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb58-2"><a href="pacote-ggplot.html#cb58-2" tabindex="-1"></a><span class="co"># Exemplo com o dataset iris</span></span>
+<span id="cb58-3"><a href="pacote-ggplot.html#cb58-3" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb58-4"><a href="pacote-ggplot.html#cb58-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb58-5"><a href="pacote-ggplot.html#cb58-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb58-6"><a href="pacote-ggplot.html#cb58-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Gráfico de Dispersão: iris&quot;</span>,</span>
+<span id="cb58-7"><a href="pacote-ggplot.html#cb58-7" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Comprimento da Sépala&quot;</span>,</span>
+<span id="cb58-8"><a href="pacote-ggplot.html#cb58-8" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Largura da Sépala&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/ggplotIris-1.png" alt="" width="672" /></p>
 </div>
 <div id="gráfico-de-barras" class="section level3 hasAnchor" number="14.2.2">
 <h3><span class="header-section-number">14.2.2</span> Gráfico de Barras<a href="pacote-ggplot.html#gr%C3%A1fico-de-barras" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="pacote-ggplot.html#cb57-1" tabindex="-1"></a><span class="co"># Contagem das espécies no dataset iris</span></span>
-<span id="cb57-2"><a href="pacote-ggplot.html#cb57-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb57-3"><a href="pacote-ggplot.html#cb57-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb57-4"><a href="pacote-ggplot.html#cb57-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb57-5"><a href="pacote-ggplot.html#cb57-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Gráfico de Barras: Contagem de Espécies&quot;</span>,</span>
-<span id="cb57-6"><a href="pacote-ggplot.html#cb57-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Espécie&quot;</span>,</span>
-<span id="cb57-7"><a href="pacote-ggplot.html#cb57-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Contagem&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="pacote-ggplot.html#cb59-1" tabindex="-1"></a><span class="co"># Contagem das espécies no dataset iris</span></span>
+<span id="cb59-2"><a href="pacote-ggplot.html#cb59-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="pacote-ggplot.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb59-4"><a href="pacote-ggplot.html#cb59-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb59-5"><a href="pacote-ggplot.html#cb59-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Gráfico de Barras: Contagem de Espécies&quot;</span>,</span>
+<span id="cb59-6"><a href="pacote-ggplot.html#cb59-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Espécie&quot;</span>,</span>
+<span id="cb59-7"><a href="pacote-ggplot.html#cb59-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Contagem&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/ggbarIris-1.png" alt="" width="672" /></p>
 </div>
 <div id="histograma-1" class="section level3 hasAnchor" number="14.2.3">
 <h3><span class="header-section-number">14.2.3</span> Histograma<a href="pacote-ggplot.html#histograma-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="pacote-ggplot.html#cb58-1" tabindex="-1"></a><span class="co"># Distribuição do comprimento da sépala</span></span>
-<span id="cb58-2"><a href="pacote-ggplot.html#cb58-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb58-3"><a href="pacote-ggplot.html#cb58-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb58-4"><a href="pacote-ggplot.html#cb58-4" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
-<span id="cb58-5"><a href="pacote-ggplot.html#cb58-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Histograma: Comprimento da Sépala&quot;</span>,</span>
-<span id="cb58-6"><a href="pacote-ggplot.html#cb58-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Comprimento da Sépala&quot;</span>,</span>
-<span id="cb58-7"><a href="pacote-ggplot.html#cb58-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Frequência&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="pacote-ggplot.html#cb60-1" tabindex="-1"></a><span class="co"># Distribuição do comprimento da sépala</span></span>
+<span id="cb60-2"><a href="pacote-ggplot.html#cb60-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb60-3"><a href="pacote-ggplot.html#cb60-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb60-4"><a href="pacote-ggplot.html#cb60-4" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb60-5"><a href="pacote-ggplot.html#cb60-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Histograma: Comprimento da Sépala&quot;</span>,</span>
+<span id="cb60-6"><a href="pacote-ggplot.html#cb60-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Comprimento da Sépala&quot;</span>,</span>
+<span id="cb60-7"><a href="pacote-ggplot.html#cb60-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Frequência&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/gghistIris-1.png" alt="" width="672" /></p>
 </div>
 <div id="boxplot-1" class="section level3 hasAnchor" number="14.2.4">
 <h3><span class="header-section-number">14.2.4</span> Boxplot<a href="pacote-ggplot.html#boxplot-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="pacote-ggplot.html#cb59-1" tabindex="-1"></a><span class="co"># Distribuição do comprimento da pétala por espécie</span></span>
-<span id="cb59-2"><a href="pacote-ggplot.html#cb59-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb59-3"><a href="pacote-ggplot.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb59-4"><a href="pacote-ggplot.html#cb59-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb59-5"><a href="pacote-ggplot.html#cb59-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Boxplot: Comprimento da Pétala por Espécie&quot;</span>,</span>
-<span id="cb59-6"><a href="pacote-ggplot.html#cb59-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Espécie&quot;</span>,</span>
-<span id="cb59-7"><a href="pacote-ggplot.html#cb59-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Comprimento da Pétala&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="pacote-ggplot.html#cb61-1" tabindex="-1"></a><span class="co"># Distribuição do comprimento da pétala por espécie</span></span>
+<span id="cb61-2"><a href="pacote-ggplot.html#cb61-2" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb61-3"><a href="pacote-ggplot.html#cb61-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb61-4"><a href="pacote-ggplot.html#cb61-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb61-5"><a href="pacote-ggplot.html#cb61-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Boxplot: Comprimento da Pétala por Espécie&quot;</span>,</span>
+<span id="cb61-6"><a href="pacote-ggplot.html#cb61-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Espécie&quot;</span>,</span>
+<span id="cb61-7"><a href="pacote-ggplot.html#cb61-7" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Comprimento da Pétala&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/ggboxplotIris-1.png" alt="" width="672" /></p>
 <p>O <code>ggplot2</code> oferece diversas opções de personalização, como cores, temas e anotações, permitindo criar gráficos bonitos e informativos para diferentes finalidades.</p>
 </div>

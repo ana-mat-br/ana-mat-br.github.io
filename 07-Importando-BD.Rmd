@@ -103,9 +103,38 @@ summary(mcdonald)
 
 ## Exemplo 4: um banco da sua área
 
-Os exemplos anteriores usaram o `mcdonald`, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos — importar, olhar uma variável, resumir o banco — em um banco da **sua** área. Escolha o seu abaixo; os três estão na pasta `dados/` do material.
+Os exemplos anteriores usaram o `mcdonald`, que serve bem para aprender o mecanismo da importação. Agora vamos repetir os mesmos três passos — importar, olhar uma variável, resumir o banco — em um banco da **sua** área.
 
 Repare que todos eles têm **dados faltantes**, como qualquer coleta real. Vamos aprender a lidar com isso já aqui.
+
+### Como obter os bancos
+
+| Banco | Área | Link para baixar |
+|-------|------|------------------|
+| `nascimentos.csv` | Medicina | <https://ana-mat-br.github.io/dados/nascimentos.csv> |
+| `saude-mental.csv` | Psicologia | <https://ana-mat-br.github.io/dados/saude-mental.csv> |
+| `aptidao-fisica.csv` | Educação Física | <https://ana-mat-br.github.io/dados/aptidao-fisica.csv> |
+
+Há duas maneiras de usá-los, e vale conhecer as duas.
+
+**A mais rápida: nem baixe.** O R lê um arquivo direto da internet, bastando dar o endereço no lugar do nome do arquivo. Copie a linha, cole no seu script e execute:
+
+```r
+library(readr)
+nascimentos <- read_csv("https://ana-mat-br.github.io/dados/nascimentos.csv")
+```
+
+Funciona na hora e evita o erro mais comum de quem está começando, que é o R não encontrar o arquivo. A única exigência é estar conectado à internet.
+
+**A segunda: baixe o arquivo.** Clique no link da tabela acima, salve o arquivo dentro da pasta do seu projeto do RStudio, em uma subpasta chamada `dados`. Aí o caminho fica curto:
+
+```r
+nascimentos <- read_csv("dados/nascimentos.csv")
+```
+
+Esta é a forma que usaremos daqui em diante, porque é a que você vai precisar quando estiver analisando os **seus** dados, que não estarão em endereço nenhum da internet. Se você preferir, também pode usar o botão **Import Dataset** que aprendemos no começo do capítulo — ele faz exatamente a mesma coisa e escreve o código para você.
+
+> **Dica:** se aparecer a mensagem `does not exist in current working directory`, o R não achou o arquivo. Confira se você está dentro do Projeto certo (canto superior direito do RStudio) e se a pasta `dados` está no mesmo lugar que o seu arquivo `.Rproj`.
 
 ### Medicina: nascidos vivos em Uberaba
 

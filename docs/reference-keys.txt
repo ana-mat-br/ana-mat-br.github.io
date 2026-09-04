@@ -103,6 +103,7 @@ exemplo-1-1
 exemplo-2-1
 exemplo-3-1
 exemplo-4-um-banco-da-sua-área
+como-obter-os-bancos
 medicina-nascidos-vivos-em-uberaba
 psicologia-saúde-mental-de-universitários
 educação-física-aptidão-física-e-atividade-semanal

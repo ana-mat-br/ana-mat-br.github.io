@@ -300,10 +300,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="11.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-3-1"><i class="fa fa-check"></i><b>11.5</b> Exemplo 3</a></li>
 <li class="chapter" data-level="11.6" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#exemplo-4-um-banco-da-sua-%C3%A1rea"><i class="fa fa-check"></i><b>11.6</b> Exemplo 4: um banco da sua área</a>
 <ul>
-<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.1</b> Medicina: nascidos vivos em Uberaba</a></li>
-<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.2</b> Psicologia: saúde mental de universitários</a></li>
-<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.3</b> Educação Física: aptidão física e atividade semanal</a></li>
-<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.4</b> E quando aparece NA?</a></li>
+<li class="chapter" data-level="11.6.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#como-obter-os-bancos"><i class="fa fa-check"></i><b>11.6.1</b> Como obter os bancos</a></li>
+<li class="chapter" data-level="11.6.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#medicina-nascidos-vivos-em-uberaba"><i class="fa fa-check"></i><b>11.6.2</b> Medicina: nascidos vivos em Uberaba</a></li>
+<li class="chapter" data-level="11.6.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#psicologia-sa%C3%BAde-mental-de-universit%C3%A1rios"><i class="fa fa-check"></i><b>11.6.3</b> Psicologia: saúde mental de universitários</a></li>
+<li class="chapter" data-level="11.6.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#educa%C3%A7%C3%A3o-f%C3%ADsica-aptid%C3%A3o-f%C3%ADsica-e-atividade-semanal"><i class="fa fa-check"></i><b>11.6.4</b> Educação Física: aptidão física e atividade semanal</a></li>
+<li class="chapter" data-level="11.6.5" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#e-quando-aparece-na"><i class="fa fa-check"></i><b>11.6.5</b> E quando aparece NA?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="instalando-pacotes.html"><a href="instalando-pacotes.html"><i class="fa fa-check"></i><b>12</b> Instalando pacotes</a>
@@ -713,33 +714,33 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>A seguir, apresentamos um exemplo de ANOVA de uma via e do teste de Kruskal-Wallis, incluindo a verificação dos pré-requisitos.</p>
 <div id="simulação-de-dados" class="section level3 hasAnchor" number="25.5.1">
 <h3><span class="header-section-number">25.5.1</span> Simulação de Dados<a href="comparação-de-mais-de-dois-grupos.html#simula%C3%A7%C3%A3o-de-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="comparação-de-mais-de-dois-grupos.html#cb201-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb201-2"><a href="comparação-de-mais-de-dois-grupos.html#cb201-2" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>))</span>
-<span id="cb201-3"><a href="comparação-de-mais-de-dois-grupos.html#cb201-3" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb201-4"><a href="comparação-de-mais-de-dois-grupos.html#cb201-4" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
-<span id="cb201-5"><a href="comparação-de-mais-de-dois-grupos.html#cb201-5" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
-<span id="cb201-6"><a href="comparação-de-mais-de-dois-grupos.html#cb201-6" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(grupo, valor)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="comparação-de-mais-de-dois-grupos.html#cb203-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb203-2"><a href="comparação-de-mais-de-dois-grupos.html#cb203-2" tabindex="-1"></a>grupo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb203-3"><a href="comparação-de-mais-de-dois-grupos.html#cb203-3" tabindex="-1"></a>valor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb203-4"><a href="comparação-de-mais-de-dois-grupos.html#cb203-4" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">1</span>),</span>
+<span id="cb203-5"><a href="comparação-de-mais-de-dois-grupos.html#cb203-5" tabindex="-1"></a>           <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
+<span id="cb203-6"><a href="comparação-de-mais-de-dois-grupos.html#cb203-6" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(grupo, valor)</span></code></pre></div>
 </div>
 <div id="visualização-dos-dados" class="section level3 hasAnchor" number="25.5.2">
 <h3><span class="header-section-number">25.5.2</span> Visualização dos Dados<a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-dos-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="comparação-de-mais-de-dois-grupos.html#cb202-1" tabindex="-1"></a><span class="fu">boxplot</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados, <span class="at">main =</span> <span class="st">&quot;Boxplot dos Grupos&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Valor&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="comparação-de-mais-de-dois-grupos.html#cb204-1" tabindex="-1"></a><span class="fu">boxplot</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados, <span class="at">main =</span> <span class="st">&quot;Boxplot dos Grupos&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Valor&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/boxplotAnovabp-1.png" alt="" width="672" /></p>
 </div>
 <div id="verificação-dos-pré-requisitos-para-anova" class="section level3 hasAnchor" number="25.5.3">
 <h3><span class="header-section-number">25.5.3</span> Verificação dos Pré-requisitos para ANOVA<a href="comparação-de-mais-de-dois-grupos.html#verifica%C3%A7%C3%A3o-dos-pr%C3%A9-requisitos-para-anova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="normalidade-dos-resíduos" class="section level4 hasAnchor" number="25.5.3.1">
 <h4><span class="header-section-number">25.5.3.1</span> Normalidade dos resíduos<a href="comparação-de-mais-de-dois-grupos.html#normalidade-dos-res%C3%ADduos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="comparação-de-mais-de-dois-grupos.html#cb203-1" tabindex="-1"></a>modelo_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span>
-<span id="cb203-2"><a href="comparação-de-mais-de-dois-grupos.html#cb203-2" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_aov)</span>
-<span id="cb203-3"><a href="comparação-de-mais-de-dois-grupos.html#cb203-3" tabindex="-1"></a></span>
-<span id="cb203-4"><a href="comparação-de-mais-de-dois-grupos.html#cb203-4" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="comparação-de-mais-de-dois-grupos.html#cb205-1" tabindex="-1"></a>modelo_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span>
+<span id="cb205-2"><a href="comparação-de-mais-de-dois-grupos.html#cb205-2" tabindex="-1"></a>residuos <span class="ot">&lt;-</span> <span class="fu">residuals</span>(modelo_aov)</span>
+<span id="cb205-3"><a href="comparação-de-mais-de-dois-grupos.html#cb205-3" tabindex="-1"></a></span>
+<span id="cb205-4"><a href="comparação-de-mais-de-dois-grupos.html#cb205-4" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuos)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  residuos
 ## W = 0.96213, p-value = 0.3507</code></pre>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="comparação-de-mais-de-dois-grupos.html#cb205-1" tabindex="-1"></a><span class="fu">qqnorm</span>(residuos)</span>
-<span id="cb205-2"><a href="comparação-de-mais-de-dois-grupos.html#cb205-2" tabindex="-1"></a><span class="fu">qqline</span>(residuos)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="comparação-de-mais-de-dois-grupos.html#cb207-1" tabindex="-1"></a><span class="fu">qqnorm</span>(residuos)</span>
+<span id="cb207-2"><a href="comparação-de-mais-de-dois-grupos.html#cb207-2" tabindex="-1"></a><span class="fu">qqline</span>(residuos)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/residuosAnovatest-1.png" alt="" width="672" /></p>
 <ul>
 <li><p>A função <code>aov</code> no R é utilizada para realizar <strong>análise de variância (ANOVA)</strong>.</p></li>
@@ -754,9 +755,9 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 </div>
 <div id="homogeneidade-de-variâncias" class="section level4 hasAnchor" number="25.5.3.2">
 <h4><span class="header-section-number">25.5.3.2</span> Homogeneidade de variâncias<a href="comparação-de-mais-de-dois-grupos.html#homogeneidade-de-vari%C3%A2ncias" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="comparação-de-mais-de-dois-grupos.html#cb206-1" tabindex="-1"></a><span class="co"># Instale &#39;car&#39; se necessário: install.packages(&quot;car&quot;)</span></span>
-<span id="cb206-2"><a href="comparação-de-mais-de-dois-grupos.html#cb206-2" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb206-3"><a href="comparação-de-mais-de-dois-grupos.html#cb206-3" tabindex="-1"></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="comparação-de-mais-de-dois-grupos.html#cb208-1" tabindex="-1"></a><span class="co"># Instale &#39;car&#39; se necessário: install.packages(&quot;car&quot;)</span></span>
+<span id="cb208-2"><a href="comparação-de-mais-de-dois-grupos.html#cb208-2" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb208-3"><a href="comparação-de-mais-de-dois-grupos.html#cb208-3" tabindex="-1"></a><span class="fu">leveneTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##       Df F value Pr(&gt;F)
 ## group  2   5e-04 0.9995
@@ -772,7 +773,7 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 </div>
 <div id="anova-de-uma-via" class="section level3 hasAnchor" number="25.5.4">
 <h3><span class="header-section-number">25.5.4</span> ANOVA de Uma Via<a href="comparação-de-mais-de-dois-grupos.html#anova-de-uma-via" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="comparação-de-mais-de-dois-grupos.html#cb208-1" tabindex="-1"></a><span class="fu">summary</span>(modelo_aov)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="comparação-de-mais-de-dois-grupos.html#cb210-1" tabindex="-1"></a><span class="fu">summary</span>(modelo_aov)</span></code></pre></div>
 <pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
 ## grupo        2  12.24   6.122   6.435 0.00518 **
 ## Residuals   27  25.68   0.951                   
@@ -784,7 +785,7 @@ Esta linha extrai os resíduos do modelo ajustado, ou seja, as diferenças entre
 </ul>
 <div id="teste-post-hoc-se-anova-for-significativa" class="section level4 hasAnchor" number="25.5.4.1">
 <h4><span class="header-section-number">25.5.4.1</span> Teste Post Hoc (se ANOVA for significativa)<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-se-anova-for-significativa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="comparação-de-mais-de-dois-grupos.html#cb210-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(modelo_aov)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="comparação-de-mais-de-dois-grupos.html#cb212-1" tabindex="-1"></a><span class="fu">TukeyHSD</span>(modelo_aov)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -817,7 +818,7 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <div id="kruskal-wallis-no-r" class="section level2 hasAnchor" number="25.6">
 <h2><span class="header-section-number">25.6</span> Kruskal-Wallis no R<a href="comparação-de-mais-de-dois-grupos.html#kruskal-wallis-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Se os pré-requisitos da ANOVA não forem atendidos, utilize o Kruskal-Wallis:</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="comparação-de-mais-de-dois-grupos.html#cb212-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="comparação-de-mais-de-dois-grupos.html#cb214-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -829,9 +830,9 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </ul>
 <div id="teste-post-hoc-para-kruskal-wallis" class="section level3 hasAnchor" number="25.6.1">
 <h3><span class="header-section-number">25.6.1</span> Teste Post Hoc para Kruskal-Wallis<a href="comparação-de-mais-de-dois-grupos.html#teste-post-hoc-para-kruskal-wallis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="comparação-de-mais-de-dois-grupos.html#cb214-1" tabindex="-1"></a><span class="co"># Instale PMCMRplus se necessário: install.packages(&quot;PMCMRplus&quot;)</span></span>
-<span id="cb214-2"><a href="comparação-de-mais-de-dois-grupos.html#cb214-2" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span>
-<span id="cb214-3"><a href="comparação-de-mais-de-dois-grupos.html#cb214-3" tabindex="-1"></a><span class="fu">kwAllPairsDunnTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="comparação-de-mais-de-dois-grupos.html#cb216-1" tabindex="-1"></a><span class="co"># Instale PMCMRplus se necessário: install.packages(&quot;PMCMRplus&quot;)</span></span>
+<span id="cb216-2"><a href="comparação-de-mais-de-dois-grupos.html#cb216-2" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span>
+<span id="cb216-3"><a href="comparação-de-mais-de-dois-grupos.html#cb216-3" tabindex="-1"></a><span class="fu">kwAllPairsDunnTest</span>(valor <span class="sc">~</span> grupo, <span class="at">data =</span> dados)</span></code></pre></div>
 <pre><code>##   A     B    
 ## B 0.058 -    
 ## C 0.021 0.611</code></pre>
@@ -858,15 +859,15 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <p>Vamos analisar o desempenho de 20 alunos em 3 provas diferentes (Prova 1, Prova 2 e Prova 3). Cada aluno fez todas as provas, ou seja, temos medidas repetidas!</p>
 <div id="gerar-dados-simulados" class="section level3 hasAnchor" number="25.8.1">
 <h3><span class="header-section-number">25.8.1</span> Gerar dados simulados<a href="comparação-de-mais-de-dois-grupos.html#gerar-dados-simulados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="comparação-de-mais-de-dois-grupos.html#cb216-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb216-2"><a href="comparação-de-mais-de-dois-grupos.html#cb216-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb216-3"><a href="comparação-de-mais-de-dois-grupos.html#cb216-3" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb216-4"><a href="comparação-de-mais-de-dois-grupos.html#cb216-4" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span>n),</span>
-<span id="cb216-5"><a href="comparação-de-mais-de-dois-grupos.html#cb216-5" tabindex="-1"></a>  <span class="at">prova1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
-<span id="cb216-6"><a href="comparação-de-mais-de-dois-grupos.html#cb216-6" tabindex="-1"></a>  <span class="at">prova2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">7.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
-<span id="cb216-7"><a href="comparação-de-mais-de-dois-grupos.html#cb216-7" tabindex="-1"></a>  <span class="at">prova3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
-<span id="cb216-8"><a href="comparação-de-mais-de-dois-grupos.html#cb216-8" tabindex="-1"></a>)</span>
-<span id="cb216-9"><a href="comparação-de-mais-de-dois-grupos.html#cb216-9" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="comparação-de-mais-de-dois-grupos.html#cb218-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb218-2"><a href="comparação-de-mais-de-dois-grupos.html#cb218-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb218-3"><a href="comparação-de-mais-de-dois-grupos.html#cb218-3" tabindex="-1"></a>dados <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb218-4"><a href="comparação-de-mais-de-dois-grupos.html#cb218-4" tabindex="-1"></a>  <span class="at">aluno =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span>n),</span>
+<span id="cb218-5"><a href="comparação-de-mais-de-dois-grupos.html#cb218-5" tabindex="-1"></a>  <span class="at">prova1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
+<span id="cb218-6"><a href="comparação-de-mais-de-dois-grupos.html#cb218-6" tabindex="-1"></a>  <span class="at">prova2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">7.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>),</span>
+<span id="cb218-7"><a href="comparação-de-mais-de-dois-grupos.html#cb218-7" tabindex="-1"></a>  <span class="at">prova3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">8</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="dv">1</span>)</span>
+<span id="cb218-8"><a href="comparação-de-mais-de-dois-grupos.html#cb218-8" tabindex="-1"></a>)</span>
+<span id="cb218-9"><a href="comparação-de-mais-de-dois-grupos.html#cb218-9" tabindex="-1"></a><span class="fu">head</span>(dados)</span></code></pre></div>
 <pre><code>##   aluno prova1 prova2 prova3
 ## 1     1    6.4    6.4    7.3
 ## 2     2    6.8    7.3    7.8
@@ -877,14 +878,14 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </div>
 <div id="converter-para-formato-longo" class="section level3 hasAnchor" number="25.8.2">
 <h3><span class="header-section-number">25.8.2</span> Converter para formato longo<a href="comparação-de-mais-de-dois-grupos.html#converter-para-formato-longo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="comparação-de-mais-de-dois-grupos.html#cb218-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb218-2"><a href="comparação-de-mais-de-dois-grupos.html#cb218-2" tabindex="-1"></a>dados_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
-<span id="cb218-3"><a href="comparação-de-mais-de-dois-grupos.html#cb218-3" tabindex="-1"></a>  dados,</span>
-<span id="cb218-4"><a href="comparação-de-mais-de-dois-grupos.html#cb218-4" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>),</span>
-<span id="cb218-5"><a href="comparação-de-mais-de-dois-grupos.html#cb218-5" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;prova&quot;</span>,</span>
-<span id="cb218-6"><a href="comparação-de-mais-de-dois-grupos.html#cb218-6" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;nota&quot;</span></span>
-<span id="cb218-7"><a href="comparação-de-mais-de-dois-grupos.html#cb218-7" tabindex="-1"></a>)</span>
-<span id="cb218-8"><a href="comparação-de-mais-de-dois-grupos.html#cb218-8" tabindex="-1"></a><span class="fu">head</span>(dados_long)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="comparação-de-mais-de-dois-grupos.html#cb220-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb220-2"><a href="comparação-de-mais-de-dois-grupos.html#cb220-2" tabindex="-1"></a>dados_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb220-3"><a href="comparação-de-mais-de-dois-grupos.html#cb220-3" tabindex="-1"></a>  dados,</span>
+<span id="cb220-4"><a href="comparação-de-mais-de-dois-grupos.html#cb220-4" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>),</span>
+<span id="cb220-5"><a href="comparação-de-mais-de-dois-grupos.html#cb220-5" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">&quot;prova&quot;</span>,</span>
+<span id="cb220-6"><a href="comparação-de-mais-de-dois-grupos.html#cb220-6" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">&quot;nota&quot;</span></span>
+<span id="cb220-7"><a href="comparação-de-mais-de-dois-grupos.html#cb220-7" tabindex="-1"></a>)</span>
+<span id="cb220-8"><a href="comparação-de-mais-de-dois-grupos.html#cb220-8" tabindex="-1"></a><span class="fu">head</span>(dados_long)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   aluno prova   nota
 ##   &lt;fct&gt; &lt;chr&gt;  &lt;dbl&gt;
@@ -900,50 +901,50 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </div>
 <div id="visualização-opcional" class="section level3 hasAnchor" number="25.8.3">
 <h3><span class="header-section-number">25.8.3</span> Visualização (opcional)<a href="comparação-de-mais-de-dois-grupos.html#visualiza%C3%A7%C3%A3o-opcional" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="comparação-de-mais-de-dois-grupos.html#cb220-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb220-2"><a href="comparação-de-mais-de-dois-grupos.html#cb220-2" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb220-3"><a href="comparação-de-mais-de-dois-grupos.html#cb220-3" tabindex="-1"></a></span>
-<span id="cb220-4"><a href="comparação-de-mais-de-dois-grupos.html#cb220-4" tabindex="-1"></a><span class="co"># Use uma paleta de cores apropriada para até 20 alunos</span></span>
-<span id="cb220-5"><a href="comparação-de-mais-de-dois-grupos.html#cb220-5" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))(<span class="dv">20</span>)</span>
-<span id="cb220-6"><a href="comparação-de-mais-de-dois-grupos.html#cb220-6" tabindex="-1"></a></span>
-<span id="cb220-7"><a href="comparação-de-mais-de-dois-grupos.html#cb220-7" tabindex="-1"></a><span class="fu">ggplot</span>(dados_long, <span class="fu">aes</span>(<span class="at">x =</span> prova, <span class="at">y =</span> nota, <span class="at">group =</span> aluno, <span class="at">color =</span> aluno)) <span class="sc">+</span></span>
-<span id="cb220-8"><a href="comparação-de-mais-de-dois-grupos.html#cb220-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb220-9"><a href="comparação-de-mais-de-dois-grupos.html#cb220-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb220-10"><a href="comparação-de-mais-de-dois-grupos.html#cb220-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Avaliações&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Pontuação&quot;</span>) <span class="sc">+</span></span>
-<span id="cb220-11"><a href="comparação-de-mais-de-dois-grupos.html#cb220-11" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cores) <span class="sc">+</span></span>
-<span id="cb220-12"><a href="comparação-de-mais-de-dois-grupos.html#cb220-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Notas dos Alunos nas Três Provas&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Aluno&quot;</span>) <span class="sc">+</span></span>
-<span id="cb220-13"><a href="comparação-de-mais-de-dois-grupos.html#cb220-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb220-14"><a href="comparação-de-mais-de-dois-grupos.html#cb220-14" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="comparação-de-mais-de-dois-grupos.html#cb222-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb222-2"><a href="comparação-de-mais-de-dois-grupos.html#cb222-2" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb222-3"><a href="comparação-de-mais-de-dois-grupos.html#cb222-3" tabindex="-1"></a></span>
+<span id="cb222-4"><a href="comparação-de-mais-de-dois-grupos.html#cb222-4" tabindex="-1"></a><span class="co"># Use uma paleta de cores apropriada para até 20 alunos</span></span>
+<span id="cb222-5"><a href="comparação-de-mais-de-dois-grupos.html#cb222-5" tabindex="-1"></a>cores <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Set1&quot;</span>))(<span class="dv">20</span>)</span>
+<span id="cb222-6"><a href="comparação-de-mais-de-dois-grupos.html#cb222-6" tabindex="-1"></a></span>
+<span id="cb222-7"><a href="comparação-de-mais-de-dois-grupos.html#cb222-7" tabindex="-1"></a><span class="fu">ggplot</span>(dados_long, <span class="fu">aes</span>(<span class="at">x =</span> prova, <span class="at">y =</span> nota, <span class="at">group =</span> aluno, <span class="at">color =</span> aluno)) <span class="sc">+</span></span>
+<span id="cb222-8"><a href="comparação-de-mais-de-dois-grupos.html#cb222-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb222-9"><a href="comparação-de-mais-de-dois-grupos.html#cb222-9" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb222-10"><a href="comparação-de-mais-de-dois-grupos.html#cb222-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Avaliações&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Pontuação&quot;</span>) <span class="sc">+</span></span>
+<span id="cb222-11"><a href="comparação-de-mais-de-dois-grupos.html#cb222-11" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cores) <span class="sc">+</span></span>
+<span id="cb222-12"><a href="comparação-de-mais-de-dois-grupos.html#cb222-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Notas dos Alunos nas Três Provas&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Aluno&quot;</span>) <span class="sc">+</span></span>
+<span id="cb222-13"><a href="comparação-de-mais-de-dois-grupos.html#cb222-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb222-14"><a href="comparação-de-mais-de-dois-grupos.html#cb222-14" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/AnovaRgtest-1.png" alt="" width="672" /></p>
 </div>
 <div id="teste-de-normalidade-das-diferenças-pré-requisito" class="section level3 hasAnchor" number="25.8.4">
 <h3><span class="header-section-number">25.8.4</span> Teste de normalidade das diferenças (pré-requisito)<a href="comparação-de-mais-de-dois-grupos.html#teste-de-normalidade-das-diferen%C3%A7as-pr%C3%A9-requisito" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="comparação-de-mais-de-dois-grupos.html#cb221-1" tabindex="-1"></a>dif12 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova2</span>
-<span id="cb221-2"><a href="comparação-de-mais-de-dois-grupos.html#cb221-2" tabindex="-1"></a>dif13 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
-<span id="cb221-3"><a href="comparação-de-mais-de-dois-grupos.html#cb221-3" tabindex="-1"></a>dif23 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova2 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
-<span id="cb221-4"><a href="comparação-de-mais-de-dois-grupos.html#cb221-4" tabindex="-1"></a></span>
-<span id="cb221-5"><a href="comparação-de-mais-de-dois-grupos.html#cb221-5" tabindex="-1"></a><span class="fu">qqnorm</span>(dif12)</span>
-<span id="cb221-6"><a href="comparação-de-mais-de-dois-grupos.html#cb221-6" tabindex="-1"></a><span class="fu">qqline</span>(dif12)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="comparação-de-mais-de-dois-grupos.html#cb223-1" tabindex="-1"></a>dif12 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova2</span>
+<span id="cb223-2"><a href="comparação-de-mais-de-dois-grupos.html#cb223-2" tabindex="-1"></a>dif13 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova1 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
+<span id="cb223-3"><a href="comparação-de-mais-de-dois-grupos.html#cb223-3" tabindex="-1"></a>dif23 <span class="ot">&lt;-</span> dados<span class="sc">$</span>prova2 <span class="sc">-</span> dados<span class="sc">$</span>prova3</span>
+<span id="cb223-4"><a href="comparação-de-mais-de-dois-grupos.html#cb223-4" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="comparação-de-mais-de-dois-grupos.html#cb223-5" tabindex="-1"></a><span class="fu">qqnorm</span>(dif12)</span>
+<span id="cb223-6"><a href="comparação-de-mais-de-dois-grupos.html#cb223-6" tabindex="-1"></a><span class="fu">qqline</span>(dif12)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/AnovaRnormtest-1.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="comparação-de-mais-de-dois-grupos.html#cb222-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif12)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="comparação-de-mais-de-dois-grupos.html#cb224-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif12)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  dif12
 ## W = 0.94596, p-value = 0.3099</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="comparação-de-mais-de-dois-grupos.html#cb224-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif13)</span>
-<span id="cb224-2"><a href="comparação-de-mais-de-dois-grupos.html#cb224-2" tabindex="-1"></a><span class="fu">qqline</span>(dif13)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="comparação-de-mais-de-dois-grupos.html#cb226-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif13)</span>
+<span id="cb226-2"><a href="comparação-de-mais-de-dois-grupos.html#cb226-2" tabindex="-1"></a><span class="fu">qqline</span>(dif13)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/AnovaRnormtest-2.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="comparação-de-mais-de-dois-grupos.html#cb225-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif13)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="comparação-de-mais-de-dois-grupos.html#cb227-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif13)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  dif13
 ## W = 0.96929, p-value = 0.7398</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="comparação-de-mais-de-dois-grupos.html#cb227-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif23)</span>
-<span id="cb227-2"><a href="comparação-de-mais-de-dois-grupos.html#cb227-2" tabindex="-1"></a><span class="fu">qqline</span>(dif23)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="comparação-de-mais-de-dois-grupos.html#cb229-1" tabindex="-1"></a><span class="fu">qqnorm</span>(dif23)</span>
+<span id="cb229-2"><a href="comparação-de-mais-de-dois-grupos.html#cb229-2" tabindex="-1"></a><span class="fu">qqline</span>(dif23)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/AnovaRnormtest-3.png" alt="" width="672" /></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="comparação-de-mais-de-dois-grupos.html#cb228-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif23)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="comparação-de-mais-de-dois-grupos.html#cb230-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(dif23)</span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -956,15 +957,15 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 <div id="anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="section level3 hasAnchor" number="25.8.5">
 <h3><span class="header-section-number">25.8.5</span> ANOVA de medidas repetidas com afex (testa e corrige esfericidade)<a href="comparação-de-mais-de-dois-grupos.html#anova-de-medidas-repetidas-com-afex-testa-e-corrige-esfericidade" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A função <code>aov_ez()</code>, do pacote <code>afex</code> realiza toda a ANOVA de medidas repetidas de forma prática e automática.</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="comparação-de-mais-de-dois-grupos.html#cb230-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;afex&quot;)</span></span>
-<span id="cb230-2"><a href="comparação-de-mais-de-dois-grupos.html#cb230-2" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
-<span id="cb230-3"><a href="comparação-de-mais-de-dois-grupos.html#cb230-3" tabindex="-1"></a>modelo_afex <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
-<span id="cb230-4"><a href="comparação-de-mais-de-dois-grupos.html#cb230-4" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">&quot;aluno&quot;</span>,</span>
-<span id="cb230-5"><a href="comparação-de-mais-de-dois-grupos.html#cb230-5" tabindex="-1"></a>  <span class="at">dv =</span> <span class="st">&quot;nota&quot;</span>,</span>
-<span id="cb230-6"><a href="comparação-de-mais-de-dois-grupos.html#cb230-6" tabindex="-1"></a>  <span class="at">within =</span> <span class="st">&quot;prova&quot;</span>,</span>
-<span id="cb230-7"><a href="comparação-de-mais-de-dois-grupos.html#cb230-7" tabindex="-1"></a>  <span class="at">data =</span> dados_long</span>
-<span id="cb230-8"><a href="comparação-de-mais-de-dois-grupos.html#cb230-8" tabindex="-1"></a>)</span>
-<span id="cb230-9"><a href="comparação-de-mais-de-dois-grupos.html#cb230-9" tabindex="-1"></a>modelo_afex</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="comparação-de-mais-de-dois-grupos.html#cb232-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;afex&quot;)</span></span>
+<span id="cb232-2"><a href="comparação-de-mais-de-dois-grupos.html#cb232-2" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
+<span id="cb232-3"><a href="comparação-de-mais-de-dois-grupos.html#cb232-3" tabindex="-1"></a>modelo_afex <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(</span>
+<span id="cb232-4"><a href="comparação-de-mais-de-dois-grupos.html#cb232-4" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">&quot;aluno&quot;</span>,</span>
+<span id="cb232-5"><a href="comparação-de-mais-de-dois-grupos.html#cb232-5" tabindex="-1"></a>  <span class="at">dv =</span> <span class="st">&quot;nota&quot;</span>,</span>
+<span id="cb232-6"><a href="comparação-de-mais-de-dois-grupos.html#cb232-6" tabindex="-1"></a>  <span class="at">within =</span> <span class="st">&quot;prova&quot;</span>,</span>
+<span id="cb232-7"><a href="comparação-de-mais-de-dois-grupos.html#cb232-7" tabindex="-1"></a>  <span class="at">data =</span> dados_long</span>
+<span id="cb232-8"><a href="comparação-de-mais-de-dois-grupos.html#cb232-8" tabindex="-1"></a>)</span>
+<span id="cb232-9"><a href="comparação-de-mais-de-dois-grupos.html#cb232-9" tabindex="-1"></a>modelo_afex</span></code></pre></div>
 <pre><code>## Anova Table (Type 3 tests)
 ## 
 ## Response: nota
@@ -992,10 +993,10 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </div>
 <div id="pós-hoc-comparações-múltiplas-entre-as-provas" class="section level3 hasAnchor" number="25.8.6">
 <h3><span class="header-section-number">25.8.6</span> Pós-hoc: Comparações múltiplas entre as provas<a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-hoc-compara%C3%A7%C3%B5es-m%C3%BAltiplas-entre-as-provas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="comparação-de-mais-de-dois-grupos.html#cb232-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;emmeans&quot;)</span></span>
-<span id="cb232-2"><a href="comparação-de-mais-de-dois-grupos.html#cb232-2" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
-<span id="cb232-3"><a href="comparação-de-mais-de-dois-grupos.html#cb232-3" tabindex="-1"></a>emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_afex, <span class="sc">~</span> prova)</span>
-<span id="cb232-4"><a href="comparação-de-mais-de-dois-grupos.html#cb232-4" tabindex="-1"></a><span class="fu">pairs</span>(emm, <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="co"># ou &quot;holm&quot;, &quot;sidak&quot;, etc.</span></span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="comparação-de-mais-de-dois-grupos.html#cb234-1" tabindex="-1"></a><span class="co"># Instale se necessário: install.packages(&quot;emmeans&quot;)</span></span>
+<span id="cb234-2"><a href="comparação-de-mais-de-dois-grupos.html#cb234-2" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb234-3"><a href="comparação-de-mais-de-dois-grupos.html#cb234-3" tabindex="-1"></a>emm <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(modelo_afex, <span class="sc">~</span> prova)</span>
+<span id="cb234-4"><a href="comparação-de-mais-de-dois-grupos.html#cb234-4" tabindex="-1"></a><span class="fu">pairs</span>(emm, <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>) <span class="co"># ou &quot;holm&quot;, &quot;sidak&quot;, etc.</span></span></code></pre></div>
 <pre><code>##  contrast        estimate    SE df t.ratio p.value
 ##  prova1 - prova2   -0.315 0.300 19  -1.050  0.9212
 ##  prova1 - prova3   -0.975 0.326 19  -2.993  0.0225
@@ -1014,8 +1015,8 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 </div>
 <div id="teste-de-friedman" class="section level2 hasAnchor" number="25.9">
 <h2><span class="header-section-number">25.9</span> Teste de Friedman<a href="comparação-de-mais-de-dois-grupos.html#teste-de-friedman" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="comparação-de-mais-de-dois-grupos.html#cb234-1" tabindex="-1"></a><span class="co"># O teste de Friedman compara as três provas considerando a repetição por aluno</span></span>
-<span id="cb234-2"><a href="comparação-de-mais-de-dois-grupos.html#cb234-2" tabindex="-1"></a><span class="fu">friedman.test</span>(<span class="fu">as.matrix</span>(dados[, <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>)]))</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="comparação-de-mais-de-dois-grupos.html#cb236-1" tabindex="-1"></a><span class="co"># O teste de Friedman compara as três provas considerando a repetição por aluno</span></span>
+<span id="cb236-2"><a href="comparação-de-mais-de-dois-grupos.html#cb236-2" tabindex="-1"></a><span class="fu">friedman.test</span>(<span class="fu">as.matrix</span>(dados[, <span class="fu">c</span>(<span class="st">&quot;prova1&quot;</span>, <span class="st">&quot;prova2&quot;</span>, <span class="st">&quot;prova3&quot;</span>)]))</span></code></pre></div>
 <pre><code>## 
 ##  Friedman rank sum test
 ## 
@@ -1023,12 +1024,12 @@ Diferença = 0.37; IC 95% = [-0.71, 1.45]; p = 0.681<br />
 ## Friedman chi-squared = 10.101, df = 2, p-value = 0.006405</code></pre>
 <div id="pós-teste-comparações-múltiplas-wilcoxon-pareado" class="section level3 hasAnchor" number="25.9.1">
 <h3><span class="header-section-number">25.9.1</span> Pós-teste: Comparações Múltiplas (Wilcoxon pareado)<a href="comparação-de-mais-de-dois-grupos.html#p%C3%B3s-teste-compara%C3%A7%C3%B5es-m%C3%BAltiplas-wilcoxon-pareado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="comparação-de-mais-de-dois-grupos.html#cb236-1" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(</span>
-<span id="cb236-2"><a href="comparação-de-mais-de-dois-grupos.html#cb236-2" tabindex="-1"></a>  dados_long<span class="sc">$</span>nota,</span>
-<span id="cb236-3"><a href="comparação-de-mais-de-dois-grupos.html#cb236-3" tabindex="-1"></a>  dados_long<span class="sc">$</span>prova,</span>
-<span id="cb236-4"><a href="comparação-de-mais-de-dois-grupos.html#cb236-4" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb236-5"><a href="comparação-de-mais-de-dois-grupos.html#cb236-5" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span></span>
-<span id="cb236-6"><a href="comparação-de-mais-de-dois-grupos.html#cb236-6" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="comparação-de-mais-de-dois-grupos.html#cb238-1" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(</span>
+<span id="cb238-2"><a href="comparação-de-mais-de-dois-grupos.html#cb238-2" tabindex="-1"></a>  dados_long<span class="sc">$</span>nota,</span>
+<span id="cb238-3"><a href="comparação-de-mais-de-dois-grupos.html#cb238-3" tabindex="-1"></a>  dados_long<span class="sc">$</span>prova,</span>
+<span id="cb238-4"><a href="comparação-de-mais-de-dois-grupos.html#cb238-4" tabindex="-1"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb238-5"><a href="comparação-de-mais-de-dois-grupos.html#cb238-5" tabindex="-1"></a>  <span class="at">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span></span>
+<span id="cb238-6"><a href="comparação-de-mais-de-dois-grupos.html#cb238-6" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using Wilcoxon signed rank test with continuity correction 
 ## 
