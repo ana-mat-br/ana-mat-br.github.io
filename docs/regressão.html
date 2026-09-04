@@ -293,7 +293,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="11" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>11</b> Importando banco de dados</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#antes-de-tudo-onde-o-arquivo-mora"><i class="fa fa-check"></i><b>11.1</b> Antes de tudo: onde o arquivo mora</a></li>
+<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#antes-de-tudo-onde-o-arquivo-mora"><i class="fa fa-check"></i><b>11.1</b> Antes de tudo: onde o arquivo mora</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#como-%C3%A9-um-caminho-por-extenso"><i class="fa fa-check"></i><b>11.1.1</b> Como é um caminho por extenso</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-1-pelo-bot%C3%A3o-import-dataset"><i class="fa fa-check"></i><b>11.2</b> Forma 1: pelo botão Import Dataset</a></li>
 <li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-2-sem-baixar-nada"><i class="fa fa-check"></i><b>11.3</b> Forma 2: sem baixar nada</a></li>
 <li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-3-escolhendo-o-arquivo-na-tela"><i class="fa fa-check"></i><b>11.4</b> Forma 3: escolhendo o arquivo na tela</a></li>
@@ -665,20 +668,20 @@ Y = a + bX
 <h3><span class="header-section-number">27.1.1</span> Regressão Linear Simples no R<a href="regressão.html#regress%C3%A3o-linear-simples-no-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Como exemplo, vamos estudar a relação entre a <strong>frequência cardíaca</strong> (x, em batimentos por minuto - bpm) e o <strong>comprimento do intervalo QT</strong> (y, em milissegundos) de um eletrocardiograma (ECG). O intervalo QT representa o tempo que o coração leva para se despolarizar e repolarizar, sendo um importante marcador clínico.</p>
 <p>Vamos considerar a seguinte amostra:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="regressão.html#cb273-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
-<span id="cb273-2"><a href="regressão.html#cb273-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
-<span id="cb273-3"><a href="regressão.html#cb273-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
-<span id="cb273-4"><a href="regressão.html#cb273-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="regressão.html#cb276-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
+<span id="cb276-2"><a href="regressão.html#cb276-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
+<span id="cb276-3"><a href="regressão.html#cb276-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
+<span id="cb276-4"><a href="regressão.html#cb276-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span></code></pre></div>
 <p>Vamos, primeiro, verificar o comportamento das variáveis pelo gráfico de dispersão:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="regressão.html#cb274-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
-<span id="cb274-2"><a href="regressão.html#cb274-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Frequência Cardíaca (bpm)&quot;</span>, </span>
-<span id="cb274-3"><a href="regressão.html#cb274-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Intervalo QT (ms)&quot;</span>, </span>
-<span id="cb274-4"><a href="regressão.html#cb274-4" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb274-5"><a href="regressão.html#cb274-5" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="regressão.html#cb277-1" tabindex="-1"></a><span class="fu">plot</span>(x, y, </span>
+<span id="cb277-2"><a href="regressão.html#cb277-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Frequência Cardíaca (bpm)&quot;</span>, </span>
+<span id="cb277-3"><a href="regressão.html#cb277-3" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Intervalo QT (ms)&quot;</span>, </span>
+<span id="cb277-4"><a href="regressão.html#cb277-4" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb277-5"><a href="regressão.html#cb277-5" tabindex="-1"></a><span class="fu">grid</span>()</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-39-1.png" alt="" width="672" /></p>
 <p>O teste de correlação nos fornece:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="regressão.html#cb275-1" tabindex="-1"></a><span class="co"># antes, verifique a normalidade das variáveis </span></span>
-<span id="cb275-2"><a href="regressão.html#cb275-2" tabindex="-1"></a><span class="fu">cor.test</span>(x, y) <span class="co"># Teste estatístico da correlação</span></span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="regressão.html#cb278-1" tabindex="-1"></a><span class="co"># antes, verifique a normalidade das variáveis </span></span>
+<span id="cb278-2"><a href="regressão.html#cb278-2" tabindex="-1"></a><span class="fu">cor.test</span>(x, y) <span class="co"># Teste estatístico da correlação</span></span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -706,8 +709,8 @@ Y = a + bX
 </ul>
 <p>Como há uma correlação linear forte e significativa, <strong>faz sentido estudar um modelo de regressão linear</strong> para quantificar e prever a relação entre essas variáveis.</p>
 <p>Para ajustarmos um modelo onde o intervalo QT é explicado pela frequência cardíaca no R, usamos a função <code>lm()</code>, onde lm significa <em>linear model</em>.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="regressão.html#cb277-1" tabindex="-1"></a>regressao <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
-<span id="cb277-2"><a href="regressão.html#cb277-2" tabindex="-1"></a>regressao</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="regressão.html#cb280-1" tabindex="-1"></a>regressao <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb280-2"><a href="regressão.html#cb280-2" tabindex="-1"></a>regressao</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -728,7 +731,7 @@ Esse coeficiente indica que, para cada aumento de 1 batimento por minuto (bpm) n
 Ou seja, existe uma relação negativa: quanto maior a frequência cardíaca, menor tende a ser o intervalo QT.</p></li>
 </ul>
 <p>O resumo da regressão é obtido a partir da função <code>summary()</code></p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="regressão.html#cb279-1" tabindex="-1"></a><span class="fu">summary</span>(regressao)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="regressão.html#cb282-1" tabindex="-1"></a><span class="fu">summary</span>(regressao)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -757,7 +760,7 @@ Ou seja, existe uma relação negativa: quanto maior a frequência cardíaca, me
 </ul>
 <p>O modelo de regressão linear simples mostra que existe uma <strong>forte relação linear negativa</strong> e estatisticamente significativa entre a frequência cardíaca e o intervalo QT: quanto maior a frequência cardíaca, menor tende a ser o intervalo QT. O modelo explica a maior parte da variação dos dados, sendo útil para previsões e interpretações clínicas dessa relação.</p>
 <p>Os intervalos de confiança para os coeficientes da reta são dados por:</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="regressão.html#cb281-1" tabindex="-1"></a><span class="fu">confint</span>(regressao)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="regressão.html#cb284-1" tabindex="-1"></a><span class="fu">confint</span>(regressao)</span></code></pre></div>
 <pre><code>##                  2.5 %     97.5 %
 ## (Intercept) 478.594702 562.741896
 ## x            -2.586164  -1.501475</code></pre>
@@ -798,12 +801,12 @@ Recomenda-se sempre checar essas suposições usando gráficos de resíduos e te
 <h2><span class="header-section-number">27.2</span> Regressão Linear Múltipla<a href="regressão.html#regress%C3%A3o-linear-m%C3%BAltipla" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Depois de entender a regressão linear simples, é fácil expandir para a <strong>regressão linear múltipla</strong>, onde podemos incluir mais de uma variável preditora para explicar a variável resposta. No nosso exemplo, além da <strong>frequência cardíaca (x)</strong>, vamos acrescentar a <strong>idade dos indivíduos (z)</strong>, que também pode influenciar o intervalo QT do eletrocardiograma (y).</p>
 <p>Vamos supor os seguintes valores de idade para os mesmos indivíduos:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="regressão.html#cb283-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
-<span id="cb283-2"><a href="regressão.html#cb283-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
-<span id="cb283-3"><a href="regressão.html#cb283-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
-<span id="cb283-4"><a href="regressão.html#cb283-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span>
-<span id="cb283-5"><a href="regressão.html#cb283-5" tabindex="-1"></a><span class="co"># Idade (anos) - exemplo hipotético</span></span>
-<span id="cb283-6"><a href="regressão.html#cb283-6" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">40</span>,<span class="dv">30</span>,<span class="dv">22</span>,<span class="dv">53</span>,<span class="dv">60</span>,<span class="dv">28</span>,<span class="dv">27</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">59</span>,<span class="dv">41</span>,<span class="dv">55</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="regressão.html#cb286-1" tabindex="-1"></a><span class="co"># Frequência cardíaca (bpm)</span></span>
+<span id="cb286-2"><a href="regressão.html#cb286-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">75</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">84</span>,<span class="dv">97</span>,<span class="dv">66</span>,<span class="dv">65</span>,<span class="dv">86</span>,<span class="dv">78</span>,<span class="dv">93</span>,<span class="dv">75</span>,<span class="dv">88</span>)</span>
+<span id="cb286-3"><a href="regressão.html#cb286-3" tabindex="-1"></a><span class="co"># Intervalo QT (ms)</span></span>
+<span id="cb286-4"><a href="regressão.html#cb286-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">403</span>,<span class="dv">363</span>,<span class="dv">381</span>,<span class="dv">367</span>,<span class="dv">341</span>,<span class="dv">317</span>,<span class="dv">401</span>,<span class="dv">384</span>,<span class="dv">342</span>,<span class="dv">377</span>,<span class="dv">329</span>,<span class="dv">377</span>,<span class="dv">349</span>)</span>
+<span id="cb286-5"><a href="regressão.html#cb286-5" tabindex="-1"></a><span class="co"># Idade (anos) - exemplo hipotético</span></span>
+<span id="cb286-6"><a href="regressão.html#cb286-6" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">40</span>,<span class="dv">30</span>,<span class="dv">22</span>,<span class="dv">53</span>,<span class="dv">60</span>,<span class="dv">28</span>,<span class="dv">27</span>,<span class="dv">50</span>,<span class="dv">35</span>,<span class="dv">59</span>,<span class="dv">41</span>,<span class="dv">55</span>)</span></code></pre></div>
 <p>Vamos ajustar agora um modelo que considera tanto a frequência cardíaca quanto a idade como preditoras do intervalo QT:</p>
 <ul>
 <li>O modelo ajustado tem a forma:
@@ -811,8 +814,8 @@ Recomenda-se sempre checar essas suposições usando gráficos de resíduos e te
 \text{QT} = a + b_1 \times \text{Frequência Cardíaca (x)} + b_2 \times \text{Idade (z)}
 \]</span></li>
 </ul>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="regressão.html#cb284-1" tabindex="-1"></a>regressao_multipla <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z)</span>
-<span id="cb284-2"><a href="regressão.html#cb284-2" tabindex="-1"></a><span class="fu">summary</span>(regressao_multipla)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="regressão.html#cb287-1" tabindex="-1"></a>regressao_multipla <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z)</span>
+<span id="cb287-2"><a href="regressão.html#cb287-2" tabindex="-1"></a><span class="fu">summary</span>(regressao_multipla)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x + z)
@@ -843,7 +846,7 @@ Valor estimado do QT quando frequência cardíaca e idade são zero (valor teór
 O coeficiente é -1,88, ou seja, para cada aumento de 1 bpm, o QT diminui em média 1,88 ms, mantendo a idade constante.<br />
 O valor-p (0,0504) fica <strong>acima</strong> de 0,05: pelo critério adotado neste livro, <strong>não</strong> rejeitamos a hipótese nula de que esse coeficiente seja zero. É um resultado limítrofe, que ficou a um fio do nível de significância tradicional — mas “quase significativo” não é significativo (lembre-se dos memes do capítulo sobre o p-valor).</p>
 <p>Repare no contraste com a regressão simples: lá, a mesma variável tinha p &lt; 0,001. O que mudou foi que a idade entrou no modelo trazendo informação <strong>redundante</strong>: nestes dados, idade e frequência cardíaca são fortemente correlacionadas (r = 0,95; p &lt; 0,001). Confira você mesmo(a):</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="regressão.html#cb286-1" tabindex="-1"></a><span class="fu">cor.test</span>(x, z)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="regressão.html#cb289-1" tabindex="-1"></a><span class="fu">cor.test</span>(x, z)</span></code></pre></div>
 <pre><code>## 
 ##    Pearson&#39;s product-moment correlation
 ## 
@@ -899,13 +902,13 @@ O modelo como um todo é altamente significativo, ou seja, pelo menos uma das va
 <div id="no-r-é-fácil" class="section level2 hasAnchor" number="27.3">
 <h2><span class="header-section-number">27.3</span> No R é fácil<a href="regressão.html#no-r-%C3%A9-f%C3%A1cil" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A sintaxe para ajustar a regressão múltipla é muito parecida com a da simples, basta acrescentar as variáveis ao modelo:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="regressão.html#cb288-1" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z, <span class="at">data =</span> dados)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="regressão.html#cb291-1" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x <span class="sc">+</span> z, <span class="at">data =</span> dados)</span></code></pre></div>
 <p>Se quiser incluir ainda mais variáveis, basta adicioná-las na fórmula, separadas por <code>+</code>.</p>
 <blockquote>
 <p>Visualização dos resíduos</p>
 </blockquote>
 <p>É importante, como sempre, checar os resíduos para garantir que as suposições do modelo continuam válidas:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="regressão.html#cb289-1" tabindex="-1"></a><span class="fu">plot</span>(regressao_multipla)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="regressão.html#cb292-1" tabindex="-1"></a><span class="fu">plot</span>(regressao_multipla)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-46-1.png" alt="" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-46-2.png" alt="" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-46-3.png" alt="" width="672" /><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-46-4.png" alt="" width="672" /></p>
 <blockquote>
 <p>Resíduos vs Valores Ajustados</p>

@@ -293,7 +293,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="11" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html"><i class="fa fa-check"></i><b>11</b> Importando banco de dados</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#antes-de-tudo-onde-o-arquivo-mora"><i class="fa fa-check"></i><b>11.1</b> Antes de tudo: onde o arquivo mora</a></li>
+<li class="chapter" data-level="11.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#antes-de-tudo-onde-o-arquivo-mora"><i class="fa fa-check"></i><b>11.1</b> Antes de tudo: onde o arquivo mora</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#como-%C3%A9-um-caminho-por-extenso"><i class="fa fa-check"></i><b>11.1.1</b> Como é um caminho por extenso</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-1-pelo-bot%C3%A3o-import-dataset"><i class="fa fa-check"></i><b>11.2</b> Forma 1: pelo botão Import Dataset</a></li>
 <li class="chapter" data-level="11.3" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-2-sem-baixar-nada"><i class="fa fa-check"></i><b>11.3</b> Forma 2: sem baixar nada</a></li>
 <li class="chapter" data-level="11.4" data-path="importando-banco-de-dados.html"><a href="importando-banco-de-dados.html#forma-3-escolhendo-o-arquivo-na-tela"><i class="fa fa-check"></i><b>11.4</b> Forma 3: escolhendo o arquivo na tela</a></li>
@@ -631,13 +634,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>Nesse link <a href="https://r-graph-gallery.com/" class="uri">https://r-graph-gallery.com/</a> estão algumas possibilidades de gráficos que podemos fazer usando o R. Para fazer gráficos mais elaborados (aparentemente mais atrativos visualmente) usamos o pacote <strong>GGPlot2</strong> <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a>.</p>
 <p>Focaremos nossa atenção em dois gráficos específicos para variáveis quantitativas: <strong>Histograma</strong> e <strong>Boxplot</strong>, e nem faremos nada atrativo, usaremos o pacote básico do R que nos fornece as funções <strong>hist()</strong> e <strong>boxplot()</strong>, pois o nosso objetivo para esse momento é simplesmente estudar a importância desses gráficos.</p>
 <p>O que a gente levaria um tempinho… é simplesmente assim em código R:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="gráficos.html#cb53-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>, <span class="dv">120</span>)</span>
-<span id="cb53-2"><a href="gráficos.html#cb53-2" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="gráficos.html#cb53-3" tabindex="-1"></a><span class="co"># Para fazer o Histograma de Batimentos</span></span>
-<span id="cb53-4"><a href="gráficos.html#cb53-4" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)</span>
-<span id="cb53-5"><a href="gráficos.html#cb53-5" tabindex="-1"></a></span>
-<span id="cb53-6"><a href="gráficos.html#cb53-6" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
-<span id="cb53-7"><a href="gráficos.html#cb53-7" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="gráficos.html#cb56-1" tabindex="-1"></a>Batimentos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">56</span>, <span class="dv">46</span>, <span class="dv">75</span>, <span class="dv">67</span>, <span class="dv">62</span>, <span class="dv">75</span>, <span class="dv">60</span>, <span class="dv">54</span>, <span class="dv">69</span>, <span class="dv">63</span>, <span class="dv">39</span>, <span class="dv">57</span>, <span class="dv">40</span>, <span class="dv">39</span>, <span class="dv">64</span>, <span class="dv">71</span>, <span class="dv">61</span>, <span class="dv">54</span>, <span class="dv">120</span>)</span>
+<span id="cb56-2"><a href="gráficos.html#cb56-2" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="gráficos.html#cb56-3" tabindex="-1"></a><span class="co"># Para fazer o Histograma de Batimentos</span></span>
+<span id="cb56-4"><a href="gráficos.html#cb56-4" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)</span>
+<span id="cb56-5"><a href="gráficos.html#cb56-5" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="gráficos.html#cb56-6" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos</span></span>
+<span id="cb56-7"><a href="gráficos.html#cb56-7" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos)</span></code></pre></div>
 <p>Na área de gráficos (<strong>Plots</strong>), abaixo do ambiente de memória, serão mostrados os gráficos:</p>
 <blockquote>
 <p>Histograma</p>
@@ -678,11 +681,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><p>A classe 110-120 possui 1 elemento, que é aquele valor discrepante em relação aos demais valores.</p></li>
 </ul>
 <p>Se não for fácil identificar as classes (eixo x) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="gráficos.html#cb54-1" tabindex="-1"></a><span class="co"># Para obter as &quot;quebras&quot; de cada classe </span></span>
-<span id="cb54-2"><a href="gráficos.html#cb54-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>breaks</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="gráficos.html#cb57-1" tabindex="-1"></a><span class="co"># Para obter as &quot;quebras&quot; de cada classe </span></span>
+<span id="cb57-2"><a href="gráficos.html#cb57-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>breaks</span></code></pre></div>
 <p>Se não for fácil identificar as frequências (eixo y) você pode usar o comando abaixo:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="gráficos.html#cb55-1" tabindex="-1"></a><span class="co"># Para obter a frequência em cada classe</span></span>
-<span id="cb55-2"><a href="gráficos.html#cb55-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>count</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="gráficos.html#cb58-1" tabindex="-1"></a><span class="co"># Para obter a frequência em cada classe</span></span>
+<span id="cb58-2"><a href="gráficos.html#cb58-2" tabindex="-1"></a><span class="fu">hist</span>(Batimentos)<span class="sc">$</span>count</span></code></pre></div>
 <p>De fato, o que estamos lendo por meio do histograma é o que chamamos de <strong>tabela de frequência</strong>:</p>
 <table>
 <thead>
@@ -740,20 +743,20 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li><p>Quando estamos aprendendo a fazer um histograma manualmente, primeiro construímos essa tabela de frequência, e para construí-la é necessário calcular o número ótimo de classes, uma das regras mais usadas é a Regra de Sturges (essa é a opção padrão do R).</p></li>
 </ul>
 <p>Podemos usar o pacote básico R para melhorar a aparência desse gráfico.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="gráficos.html#cb56-1" tabindex="-1"></a>hisBat <span class="ot">&lt;-</span> <span class="fu">hist</span>(Batimentos,</span>
-<span id="cb56-2"><a href="gráficos.html#cb56-2" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Histograma&quot;</span>,</span>
-<span id="cb56-3"><a href="gráficos.html#cb56-3" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;Batimentos cardíacos&quot;</span>,</span>
-<span id="cb56-4"><a href="gráficos.html#cb56-4" tabindex="-1"></a>               <span class="at">sub =</span> <span class="st">&quot;por classes&quot;</span>,</span>
-<span id="cb56-5"><a href="gráficos.html#cb56-5" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;Frequência absoluta&quot;</span>,</span>
-<span id="cb56-6"><a href="gráficos.html#cb56-6" tabindex="-1"></a>               <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">120</span>),</span>
-<span id="cb56-7"><a href="gráficos.html#cb56-7" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
-<span id="cb56-8"><a href="gráficos.html#cb56-8" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
-<span id="cb56-9"><a href="gráficos.html#cb56-9" tabindex="-1"></a><span class="fu">text</span>(hisBat<span class="sc">$</span>mids, hisBat<span class="sc">$</span>counts, <span class="at">labels=</span>hisBat<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>))</span>
-<span id="cb56-10"><a href="gráficos.html#cb56-10" tabindex="-1"></a></span>
-<span id="cb56-11"><a href="gráficos.html#cb56-11" tabindex="-1"></a><span class="co"># adicionar linha para indicar a média</span></span>
-<span id="cb56-12"><a href="gráficos.html#cb56-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(Batimentos),                      </span>
-<span id="cb56-13"><a href="gráficos.html#cb56-13" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb56-14"><a href="gráficos.html#cb56-14" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="gráficos.html#cb59-1" tabindex="-1"></a>hisBat <span class="ot">&lt;-</span> <span class="fu">hist</span>(Batimentos,</span>
+<span id="cb59-2"><a href="gráficos.html#cb59-2" tabindex="-1"></a>               <span class="at">main =</span> <span class="st">&quot;Histograma&quot;</span>,</span>
+<span id="cb59-3"><a href="gráficos.html#cb59-3" tabindex="-1"></a>               <span class="at">xlab =</span> <span class="st">&quot;Batimentos cardíacos&quot;</span>,</span>
+<span id="cb59-4"><a href="gráficos.html#cb59-4" tabindex="-1"></a>               <span class="at">sub =</span> <span class="st">&quot;por classes&quot;</span>,</span>
+<span id="cb59-5"><a href="gráficos.html#cb59-5" tabindex="-1"></a>               <span class="at">ylab =</span> <span class="st">&quot;Frequência absoluta&quot;</span>,</span>
+<span id="cb59-6"><a href="gráficos.html#cb59-6" tabindex="-1"></a>               <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">120</span>),</span>
+<span id="cb59-7"><a href="gráficos.html#cb59-7" tabindex="-1"></a>               <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8</span>),</span>
+<span id="cb59-8"><a href="gráficos.html#cb59-8" tabindex="-1"></a>               <span class="at">col =</span> <span class="st">&quot;lightgreen&quot;</span>)</span>
+<span id="cb59-9"><a href="gráficos.html#cb59-9" tabindex="-1"></a><span class="fu">text</span>(hisBat<span class="sc">$</span>mids, hisBat<span class="sc">$</span>counts, <span class="at">labels=</span>hisBat<span class="sc">$</span>counts, <span class="at">adj =</span> <span class="fu">c</span>(<span class="fl">0.5</span>,<span class="sc">-</span><span class="fl">0.5</span>))</span>
+<span id="cb59-10"><a href="gráficos.html#cb59-10" tabindex="-1"></a></span>
+<span id="cb59-11"><a href="gráficos.html#cb59-11" tabindex="-1"></a><span class="co"># adicionar linha para indicar a média</span></span>
+<span id="cb59-12"><a href="gráficos.html#cb59-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(Batimentos),                      </span>
+<span id="cb59-13"><a href="gráficos.html#cb59-13" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb59-14"><a href="gráficos.html#cb59-14" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-21-1.png" alt="" width="672" /></p>
 </div>
 <div id="boxplot" class="section level2 hasAnchor" number="13.2">
@@ -772,17 +775,17 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <blockquote>
 <p>Geralmente eles são representados na vertical, mas também é comum a representação na horizontal.</p>
 </blockquote>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="gráficos.html#cb57-1" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
-<span id="cb57-2"><a href="gráficos.html#cb57-2" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="gráficos.html#cb60-1" tabindex="-1"></a><span class="co"># Para fazer o Boxplot de Batimentos na horizontal</span></span>
+<span id="cb60-2"><a href="gráficos.html#cb60-2" tabindex="-1"></a><span class="fu">boxplot</span>(Batimentos, <span class="at">horizontal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <blockquote>
 <p>É uma forma de comparar dois grupos em relação a uma medida, por exemplo os batimentos cardíacos de um grupo de homens e de mulheres</p>
 </blockquote>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="gráficos.html#cb58-1" tabindex="-1"></a><span class="co"># Geração de amostras simuladas</span></span>
-<span id="cb58-2"><a href="gráficos.html#cb58-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb58-3"><a href="gráficos.html#cb58-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
-<span id="cb58-4"><a href="gráficos.html#cb58-4" tabindex="-1"></a>BatimentosHomens <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="dv">8</span>)</span>
-<span id="cb58-5"><a href="gráficos.html#cb58-5" tabindex="-1"></a><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
-<span id="cb58-6"><a href="gráficos.html#cb58-6" tabindex="-1"></a><span class="fu">boxplot</span>(BatimentosHomens, BatimentosMulheres)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="gráficos.html#cb61-1" tabindex="-1"></a><span class="co"># Geração de amostras simuladas</span></span>
+<span id="cb61-2"><a href="gráficos.html#cb61-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb61-3"><a href="gráficos.html#cb61-3" tabindex="-1"></a>BatimentosMulheres <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">3</span>)</span>
+<span id="cb61-4"><a href="gráficos.html#cb61-4" tabindex="-1"></a>BatimentosHomens <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="dv">8</span>)</span>
+<span id="cb61-5"><a href="gráficos.html#cb61-5" tabindex="-1"></a><span class="co"># Boxplot para os dois grupos Homens e Mulheres </span></span>
+<span id="cb61-6"><a href="gráficos.html#cb61-6" tabindex="-1"></a><span class="fu">boxplot</span>(BatimentosHomens, BatimentosMulheres)</span></code></pre></div>
 <p><img src="LivroEstatisticaR_files/figure-html/unnamed-chunk-23-1.png" alt="" width="672" /></p>
 <blockquote>
 <p>O boxplot também pode nos informar se uma distribuição de probabilidade é simétrica ou não. Analise os gráficos abaixo, veja a conexão entre histograma e boxplot.</p>

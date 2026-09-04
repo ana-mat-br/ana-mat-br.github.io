@@ -98,6 +98,7 @@ funções-no-r
 atividade-4
 importando-banco-de-dados
 antes-de-tudo-onde-o-arquivo-mora
+como-é-um-caminho-por-extenso
 forma-1-pelo-botão-import-dataset
 forma-2-sem-baixar-nada
 forma-3-escolhendo-o-arquivo-na-tela

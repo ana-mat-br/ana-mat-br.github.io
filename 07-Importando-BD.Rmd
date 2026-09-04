@@ -24,7 +24,42 @@ Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Le
 
 Quando você baixa um arquivo da internet, ele **não fica solto no computador**: ele é guardado dentro de uma **pasta**. Na maioria dos computadores, essa pasta se chama **Downloads**, e é para lá que tudo vai por padrão, sem perguntar nada.
 
-O R, por sua vez, não adivinha onde as coisas estão. Se você simplesmente pedir "abra o arquivo dos nascimentos", ele não sabe em qual das centenas de pastas do computador procurar. **Você precisa dizer onde o arquivo está** — e é só isso que aquelas linhas de código com barras e aspas estão fazendo.
+O R, por sua vez, não adivinha onde as coisas estão. Suponha que você baixou o arquivo `mcdonald.csv` e escreveu apenas isto:
+
+```r
+mcdonald <- read_csv("mcdonald.csv")
+```
+
+O R vai procurar esse arquivo em **um único lugar**: a pasta que ele considera a sua, naquele momento. Se o arquivo estiver na Downloads e essa não for a pasta em que o R está, ele não encontra e devolve um erro — mesmo que o arquivo esteja ali, a dois cliques de distância.
+
+**Você precisa dizer onde o arquivo está**, e é só isso que aquelas linhas de código cheias de barras e aspas estão fazendo: soletrando o endereço da pasta para o R.
+
+### Como é um caminho por extenso
+
+Vale ver um de verdade, escrito inteiro. Em um Mac, o `mcdonald.csv` recém-baixado costuma estar aqui:
+
+```
+/Users/anafernandes/Downloads/mcdonald.csv
+```
+
+E no Windows, assim:
+
+```
+C:/Users/anafernandes/Downloads/mcdonald.csv
+```
+
+Leia da esquerda para a direita, e cada barra vira a palavra "dentro de":
+
+| Pedaço | O que é |
+|--------|---------|
+| `/Users` (ou `C:/Users`) | a parte do disco onde ficam as pastas das pessoas |
+| `anafernandes` | a sua pasta pessoal, com o nome do seu usuário |
+| `Downloads` | a pasta para onde o navegador manda tudo |
+| `mcdonald.csv` | finalmente, o arquivo |
+
+Ou seja: *dentro de Users, dentro de anafernandes, dentro de Downloads, o arquivo mcdonald.csv*. É comprido, mas não tem mistério nenhum: é o mesmo caminho que você percorre clicando pasta por pasta, só que escrito em uma linha.
+
+> **No Windows, cuidado com a barra.** O Explorer mostra o caminho com barra invertida (`C:\Users\...`), mas o R não aceita essa barra sozinha. Troque todas por barra normal (`C:/Users/...`), ou duplique-as (`C:\\Users\\...`). É um detalhe bobo que gera muito erro.
 
 A boa notícia é que existem quatro formas de dizer isso ao R, e **três delas não exigem que você entenda de pastas**. Vamos ver as quatro, da mais simples para a mais técnica:
 

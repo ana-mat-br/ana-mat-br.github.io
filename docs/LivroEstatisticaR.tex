@@ -2107,7 +2107,60 @@ Esta seção parece boba, mas é onde quase todo mundo trava na primeira vez. Le
 
 Quando você baixa um arquivo da internet, ele \textbf{não fica solto no computador}: ele é guardado dentro de uma \textbf{pasta}. Na maioria dos computadores, essa pasta se chama \textbf{Downloads}, e é para lá que tudo vai por padrão, sem perguntar nada.
 
-O R, por sua vez, não adivinha onde as coisas estão. Se você simplesmente pedir ``abra o arquivo dos nascimentos'', ele não sabe em qual das centenas de pastas do computador procurar. \textbf{Você precisa dizer onde o arquivo está} --- e é só isso que aquelas linhas de código com barras e aspas estão fazendo.
+O R, por sua vez, não adivinha onde as coisas estão. Suponha que você baixou o arquivo \texttt{mcdonald.csv} e escreveu apenas isto:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mcdonald }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"mcdonald.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+O R vai procurar esse arquivo em \textbf{um único lugar}: a pasta que ele considera a sua, naquele momento. Se o arquivo estiver na Downloads e essa não for a pasta em que o R está, ele não encontra e devolve um erro --- mesmo que o arquivo esteja ali, a dois cliques de distância.
+
+\textbf{Você precisa dizer onde o arquivo está}, e é só isso que aquelas linhas de código cheias de barras e aspas estão fazendo: soletrando o endereço da pasta para o R.
+
+\subsection{Como é um caminho por extenso}\label{como-uxe9-um-caminho-por-extenso}
+
+Vale ver um de verdade, escrito inteiro. Em um Mac, o \texttt{mcdonald.csv} recém-baixado costuma estar aqui:
+
+\begin{verbatim}
+/Users/anafernandes/Downloads/mcdonald.csv
+\end{verbatim}
+
+E no Windows, assim:
+
+\begin{verbatim}
+C:/Users/anafernandes/Downloads/mcdonald.csv
+\end{verbatim}
+
+Leia da esquerda para a direita, e cada barra vira a palavra ``dentro de'':
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4706}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5294}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Pedaço
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+O que é
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{/Users} (ou \texttt{C:/Users}) & a parte do disco onde ficam as pastas das pessoas \\
+\texttt{anafernandes} & a sua pasta pessoal, com o nome do seu usuário \\
+\texttt{Downloads} & a pasta para onde o navegador manda tudo \\
+\texttt{mcdonald.csv} & finalmente, o arquivo \\
+\end{longtable}
+}
+
+Ou seja: \emph{dentro de Users, dentro de anafernandes, dentro de Downloads, o arquivo mcdonald.csv}. É comprido, mas não tem mistério nenhum: é o mesmo caminho que você percorre clicando pasta por pasta, só que escrito em uma linha.
+
+\begin{quote}
+\textbf{No Windows, cuidado com a barra.} O Explorer mostra o caminho com barra invertida (\texttt{C:\textbackslash{}Users\textbackslash{}...}), mas o R não aceita essa barra sozinha. Troque todas por barra normal (\texttt{C:/Users/...}), ou duplique-as (\texttt{C:\textbackslash{}\textbackslash{}Users\textbackslash{}\textbackslash{}...}). É um detalhe bobo que gera muito erro.
+\end{quote}
 
 A boa notícia é que existem quatro formas de dizer isso ao R, e \textbf{três delas não exigem que você entenda de pastas}. Vamos ver as quatro, da mais simples para a mais técnica:
 
