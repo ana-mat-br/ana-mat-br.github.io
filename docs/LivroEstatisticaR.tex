@@ -9208,7 +9208,7 @@ A terceira é a de \textbf{eventos raros}. Se o desfecho que interessa acontece 
 
 E há uma quarta, que costuma passar despercebida: usar dados que já existem \textbf{não expõe novas pessoas} a questionário, entrevista ou procedimento. Reaproveitar um dado bem coletado é, em si, uma escolha eticamente boa.
 
-Não é à toa que boa parte da produção em epidemiologia é feita com dados secundários. É um caminho legítimo, e muitas vezes o único possível para a pergunta que você quer fazer.
+Boa parte da produção em epidemiologia é feita com dados secundários, justamente por essas razões. É um caminho legítimo, e muitas vezes o único possível para a pergunta que você quer fazer.
 
 \begin{quote}
 \textbf{A contrapartida é real:} com dado secundário, você trabalha com as variáveis que alguém já decidiu coletar, para uma finalidade que não era a sua. Se a sua pergunta depende de uma informação que não está lá, nenhuma análise vai resolver --- e aí a coleta própria deixa de ser opção e passa a ser necessidade.
@@ -9393,9 +9393,9 @@ Sem esse segundo passo, o sexo do recém-nascido vem como \texttt{1} e \texttt{2
 Existe uma função \texttt{process\_} para cada sistema: \texttt{process\_sinasc()}, \texttt{process\_sim()}, \texttt{process\_sih()}, \texttt{process\_sia()}, \texttt{process\_cnes()} e uma para cada agravo do SINAN, como \texttt{process\_sinan\_dengue()}.
 \end{quote}
 
-\section{Duas armadilhas que valem ouro}\label{duas-armadilhas-que-valem-ouro}
+\section{Duas armadilhas do SINASC}\label{duas-armadilhas-do-sinasc}
 
-Estas duas foram descobertas montando o banco de nascimentos que usamos no livro, e nenhuma delas está escrita de forma óbvia na documentação.
+As duas apareceram ao montar o banco de nascimentos que usamos no livro, e nenhuma delas está descrita de forma clara na documentação.
 
 \subsection{O código de ``ignorado''}\label{o-cuxf3digo-de-ignorado}
 
@@ -9432,7 +9432,7 @@ A solução é ler o peso do bruto e o resto do rotulado:
 
 O \texttt{nascimentos.csv} que usamos nos exemplos foi montado exatamente desse jeito: 3.602 nascimentos registrados em Uberaba em 2022, filtrados a partir dos 235.063 de Minas Gerais.
 
-O script completo e comentado está aqui: \href{https://ana-mat-br.github.io/scripts/dados-nascimentos.R}{\textbf{dados-nascimentos.R}}. Ele é curto, e você pode adaptá-lo trocando duas linhas:
+Todo esse caminho está reunido em um script pronto: \href{https://ana-mat-br.github.io/scripts/dados-nascimentos.R}{\textbf{dados-nascimentos.R}}. Nós o percorreremos passo a passo na próxima seção. Para usá-lo direto, basta trocar duas linhas:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9445,6 +9445,145 @@ Trocando para o seu estado e o seu município, você tem em minutos um banco da 
 
 \begin{quote}
 A filtragem por município usa a coluna \texttt{munResNome}, que o \texttt{process\_sinasc()} acrescenta com o nome do município de residência da mãe.
+\end{quote}
+
+\section{Do DATASUS até o seu arquivo}\label{do-datasus-atuxe9-o-seu-arquivo}
+
+Até aqui vimos os comandos soltos. Agora vamos juntar tudo: baixar do DATASUS, organizar e \textbf{salvar em um arquivo} que você abre depois, no R ou no Excel, sem precisar baixar de novo.
+
+É este o caminho que produziu o \texttt{nascimentos.csv} usado neste livro. Os blocos abaixo não são executados quando o livro é gerado, para não baixar 235 mil registros a cada vez, mas você pode copiá-los e rodar.
+
+\subsection{Passo 1: baixar}\label{passo-1-baixar}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(microdatasus)}
+
+\NormalTok{bruto }\OtherTok{\textless{}{-}} \FunctionTok{fetch\_datasus}\NormalTok{(}
+  \AttributeTok{year\_start =} \DecValTok{2022}\NormalTok{,}
+  \AttributeTok{year\_end   =} \DecValTok{2022}\NormalTok{,}
+  \AttributeTok{uf         =} \StringTok{"MG"}\NormalTok{,}
+  \AttributeTok{information\_system =} \StringTok{"SINASC"}
+\NormalTok{)}
+
+\FunctionTok{nrow}\NormalTok{(bruto)}
+\CommentTok{\#\textgreater{} [1] 235063}
+\end{Highlighting}
+\end{Shaded}
+
+São todos os nascimentos de Minas Gerais em 2022. O download leva alguns minutos.
+
+\subsection{Passo 2: traduzir os códigos}\label{passo-2-traduzir-os-cuxf3digos}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rotulado }\OtherTok{\textless{}{-}} \FunctionTok{process\_sinasc}\NormalTok{(bruto)}
+
+\CommentTok{\# antes: 1 e 2.  depois: Masculino e Feminino}
+\FunctionTok{table}\NormalTok{(rotulado}\SpecialCharTok{$}\NormalTok{SEXO)}
+\CommentTok{\#\textgreater{} Feminino Masculino}
+\CommentTok{\#\textgreater{}   114237    120826}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Passo 3: ficar só com o seu município}\label{passo-3-ficar-suxf3-com-o-seu-municuxedpio}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# a coluna munResNome vem do process\_sinasc()}
+\NormalTok{sel      }\OtherTok{\textless{}{-}} \FunctionTok{which}\NormalTok{(rotulado}\SpecialCharTok{$}\NormalTok{munResNome }\SpecialCharTok{==} \StringTok{"Uberaba"}\NormalTok{)}
+\NormalTok{bruto    }\OtherTok{\textless{}{-}}\NormalTok{ bruto[sel, ]}
+\NormalTok{rotulado }\OtherTok{\textless{}{-}}\NormalTok{ rotulado[sel, ]}
+
+\FunctionTok{nrow}\NormalTok{(rotulado)}
+\CommentTok{\#\textgreater{} [1] 3602}
+\end{Highlighting}
+\end{Shaded}
+
+Troque \texttt{"Uberaba"} pelo nome do seu município. Se quiser o estado inteiro, é só pular este passo.
+
+\subsection{Passo 4: montar a tabela com as variáveis que interessam}\label{passo-4-montar-a-tabela-com-as-variuxe1veis-que-interessam}
+
+Aqui escolhemos as colunas, damos nomes em português e limpamos os códigos de ``ignorado'' que vimos há pouco. Repare que o \textbf{peso vem do banco bruto}, pelo motivo explicado na seção das armadilhas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{peso\_g       =} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{PESO),        }\CommentTok{\# do bruto: o rotulado zera}
+  \AttributeTok{idade\_mae    =} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{IDADEMAE),}
+  \AttributeTok{sem\_gestacao =} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{SEMAGESTAC),}
+  \AttributeTok{consultas\_pn =} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{CONSPRENAT),}
+  \AttributeTok{apgar5       =} \FunctionTok{as.numeric}\NormalTok{(bruto}\SpecialCharTok{$}\NormalTok{APGAR5),}
+  \AttributeTok{sexo         =}\NormalTok{ rotulado}\SpecialCharTok{$}\NormalTok{SEXO,}
+  \AttributeTok{parto        =}\NormalTok{ rotulado}\SpecialCharTok{$}\NormalTok{PARTO,}
+  \AttributeTok{escol\_mae    =}\NormalTok{ rotulado}\SpecialCharTok{$}\NormalTok{ESCMAE,}
+  \AttributeTok{raca\_mae     =}\NormalTok{ rotulado}\SpecialCharTok{$}\NormalTok{RACACOR}
+\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{mutate}\NormalTok{(   }\CommentTok{\# fora destas faixas é código de ignorado, então vira NA}
+    \AttributeTok{peso\_g       =} \FunctionTok{ifelse}\NormalTok{(peso\_g       }\SpecialCharTok{\%in\%} \DecValTok{250}\SpecialCharTok{:}\DecValTok{7000}\NormalTok{, peso\_g,       }\ConstantTok{NA}\NormalTok{),}
+    \AttributeTok{idade\_mae    =} \FunctionTok{ifelse}\NormalTok{(idade\_mae    }\SpecialCharTok{\%in\%} \DecValTok{10}\SpecialCharTok{:}\DecValTok{60}\NormalTok{,    idade\_mae,    }\ConstantTok{NA}\NormalTok{),}
+    \AttributeTok{sem\_gestacao =} \FunctionTok{ifelse}\NormalTok{(sem\_gestacao }\SpecialCharTok{\%in\%} \DecValTok{20}\SpecialCharTok{:}\DecValTok{45}\NormalTok{,    sem\_gestacao, }\ConstantTok{NA}\NormalTok{),}
+    \AttributeTok{consultas\_pn =} \FunctionTok{ifelse}\NormalTok{(consultas\_pn }\SpecialCharTok{\%in\%} \DecValTok{0}\SpecialCharTok{:}\DecValTok{40}\NormalTok{,     consultas\_pn, }\ConstantTok{NA}\NormalTok{),}
+    \AttributeTok{apgar5       =} \FunctionTok{ifelse}\NormalTok{(apgar5       }\SpecialCharTok{\%in\%} \DecValTok{0}\SpecialCharTok{:}\DecValTok{10}\NormalTok{,     apgar5,       }\ConstantTok{NA}\NormalTok{)}
+\NormalTok{  )}
+
+\FunctionTok{dim}\NormalTok{(nascimentos)}
+\CommentTok{\#\textgreater{} [1] 3602    9}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Passo 5: salvar o arquivo}\label{passo-5-salvar-o-arquivo}
+
+Agora o que interessa: gravar em disco. Há dois formatos úteis, e vale salvar nos dois.
+
+\textbf{Em CSV}, que é o formato universal, lido por qualquer programa:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+
+\FunctionTok{write\_csv}\NormalTok{(nascimentos, }\StringTok{"nascimentos.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Em Excel}, que é o que a maioria das pessoas do seu grupo de pesquisa vai querer abrir:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("writexl")   se ainda não tiver}
+\FunctionTok{library}\NormalTok{(writexl)}
+
+\FunctionTok{write\_xlsx}\NormalTok{(nascimentos, }\StringTok{"nascimentos.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+O \texttt{writexl} é a opção mais simples para gravar Excel: não exige Java nem nenhuma instalação fora do R.
+
+\begin{quote}
+\textbf{Onde os arquivos foram parar?} Na pasta do seu Projeto do RStudio, a mesma de que falamos no capítulo de importação. Eles aparecem na aba \textbf{Files}, no canto inferior direito da tela. Se você não estiver dentro de um Projeto, vão para a pasta de trabalho atual, que você descobre com \texttt{getwd()}.
+\end{quote}
+
+\subsection{Passo 6: ler de volta}\label{passo-6-ler-de-volta}
+
+Feito isso, o download não precisa ser repetido nunca mais. Da próxima vez, comece daqui:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# do CSV}
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"nascimentos.csv"}\NormalTok{)}
+
+\CommentTok{\# ou do Excel}
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"nascimentos.xlsx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Os dois devolvem exatamente a mesma tabela: 3.602 linhas e 9 colunas, com média de peso ao nascer de 3.095,8 g.
+
+\begin{quote}
+\textbf{Por que salvar em vez de baixar toda vez?} Por três motivos. É muito mais rápido. Funciona sem internet. E, principalmente, \textbf{congela os dados}: o DATASUS revisa suas bases periodicamente, então um download feito daqui a seis meses pode não dar exatamente os mesmos números. Guardar o arquivo com o qual você fez as análises é parte da reprodutibilidade da sua pesquisa --- assunto do capítulo anterior.
 \end{quote}
 
 \section{Um exemplo do começo ao fim}\label{um-exemplo-do-comeuxe7o-ao-fim}
@@ -9643,7 +9782,7 @@ Com amostras deste tamanho, o teste t costuma continuar confiável mesmo assim. 
 
 E aqui acontece uma coisa que não estava no roteiro: \textbf{os dois testes discordam}. O teste t dá p = 0,43, e o de Wilcoxon dá p = 0,045.
 
-Isso não é erro de nenhum dos dois. É a coisa mais instrutiva deste capítulo, e vale entender por quê.
+Isso não é erro de nenhum dos dois testes, e entender por que acontece ensina mais do que qualquer um dos dois resultados sozinho.
 
 \subsection{Passo 6: por que eles discordam}\label{passo-6-por-que-eles-discordam}
 

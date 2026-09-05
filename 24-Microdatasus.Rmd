@@ -49,9 +49,9 @@ Sem esse segundo passo, o sexo do recém-nascido vem como `1` e `2`, e o tipo de
 
 > Existe uma função `process_` para cada sistema: `process_sinasc()`, `process_sim()`, `process_sih()`, `process_sia()`, `process_cnes()` e uma para cada agravo do SINAN, como `process_sinan_dengue()`.
 
-## Duas armadilhas que valem ouro
+## Duas armadilhas do SINASC
 
-Estas duas foram descobertas montando o banco de nascimentos que usamos no livro, e nenhuma delas está escrita de forma óbvia na documentação.
+As duas apareceram ao montar o banco de nascimentos que usamos no livro, e nenhuma delas está descrita de forma clara na documentação.
 
 ### O código de "ignorado"
 
@@ -82,7 +82,7 @@ sexo   <- rotulado$SEXO              # do banco rotulado
 
 O `nascimentos.csv` que usamos nos exemplos foi montado exatamente desse jeito: 3.602 nascimentos registrados em Uberaba em 2022, filtrados a partir dos 235.063 de Minas Gerais.
 
-O script completo e comentado está aqui: [**dados-nascimentos.R**](https://ana-mat-br.github.io/scripts/dados-nascimentos.R). Ele é curto, e você pode adaptá-lo trocando duas linhas:
+Todo esse caminho está reunido em um script pronto: [**dados-nascimentos.R**](https://ana-mat-br.github.io/scripts/dados-nascimentos.R). Nós o percorreremos passo a passo na próxima seção. Para usá-lo direto, basta trocar duas linhas:
 
 ```r
 UF        <- "MG"
@@ -92,6 +92,128 @@ MUNICIPIO <- "Uberaba"   # NULL para manter o estado inteiro
 Trocando para o seu estado e o seu município, você tem em minutos um banco da sua realidade local — o que costuma render trabalhos muito mais interessantes que analisar dados de outro lugar.
 
 > A filtragem por município usa a coluna `munResNome`, que o `process_sinasc()` acrescenta com o nome do município de residência da mãe.
+
+## Do DATASUS até o seu arquivo
+
+Até aqui vimos os comandos soltos. Agora vamos juntar tudo: baixar do DATASUS, organizar e **salvar em um arquivo** que você abre depois, no R ou no Excel, sem precisar baixar de novo.
+
+É este o caminho que produziu o `nascimentos.csv` usado neste livro. Os blocos abaixo não são executados quando o livro é gerado, para não baixar 235 mil registros a cada vez, mas você pode copiá-los e rodar.
+
+### Passo 1: baixar
+
+```{r salvar-1, eval=FALSE}
+library(microdatasus)
+
+bruto <- fetch_datasus(
+  year_start = 2022,
+  year_end   = 2022,
+  uf         = "MG",
+  information_system = "SINASC"
+)
+
+nrow(bruto)
+#> [1] 235063
+```
+
+São todos os nascimentos de Minas Gerais em 2022. O download leva alguns minutos.
+
+### Passo 2: traduzir os códigos
+
+```{r salvar-2, eval=FALSE}
+rotulado <- process_sinasc(bruto)
+
+# antes: 1 e 2.  depois: Masculino e Feminino
+table(rotulado$SEXO)
+#> Feminino Masculino
+#>   114237    120826
+```
+
+### Passo 3: ficar só com o seu município
+
+```{r salvar-3, eval=FALSE}
+# a coluna munResNome vem do process_sinasc()
+sel      <- which(rotulado$munResNome == "Uberaba")
+bruto    <- bruto[sel, ]
+rotulado <- rotulado[sel, ]
+
+nrow(rotulado)
+#> [1] 3602
+```
+
+Troque `"Uberaba"` pelo nome do seu município. Se quiser o estado inteiro, é só pular este passo.
+
+### Passo 4: montar a tabela com as variáveis que interessam
+
+Aqui escolhemos as colunas, damos nomes em português e limpamos os códigos de "ignorado" que vimos há pouco. Repare que o **peso vem do banco bruto**, pelo motivo explicado na seção das armadilhas.
+
+```{r salvar-4, eval=FALSE}
+library(dplyr)
+
+nascimentos <- tibble(
+  peso_g       = as.numeric(bruto$PESO),        # do bruto: o rotulado zera
+  idade_mae    = as.numeric(bruto$IDADEMAE),
+  sem_gestacao = as.numeric(bruto$SEMAGESTAC),
+  consultas_pn = as.numeric(bruto$CONSPRENAT),
+  apgar5       = as.numeric(bruto$APGAR5),
+  sexo         = rotulado$SEXO,
+  parto        = rotulado$PARTO,
+  escol_mae    = rotulado$ESCMAE,
+  raca_mae     = rotulado$RACACOR
+) |>
+  mutate(   # fora destas faixas é código de ignorado, então vira NA
+    peso_g       = ifelse(peso_g       %in% 250:7000, peso_g,       NA),
+    idade_mae    = ifelse(idade_mae    %in% 10:60,    idade_mae,    NA),
+    sem_gestacao = ifelse(sem_gestacao %in% 20:45,    sem_gestacao, NA),
+    consultas_pn = ifelse(consultas_pn %in% 0:40,     consultas_pn, NA),
+    apgar5       = ifelse(apgar5       %in% 0:10,     apgar5,       NA)
+  )
+
+dim(nascimentos)
+#> [1] 3602    9
+```
+
+### Passo 5: salvar o arquivo
+
+Agora o que interessa: gravar em disco. Há dois formatos úteis, e vale salvar nos dois.
+
+**Em CSV**, que é o formato universal, lido por qualquer programa:
+
+```{r salvar-5, eval=FALSE}
+library(readr)
+
+write_csv(nascimentos, "nascimentos.csv")
+```
+
+**Em Excel**, que é o que a maioria das pessoas do seu grupo de pesquisa vai querer abrir:
+
+```{r salvar-6, eval=FALSE}
+# install.packages("writexl")   se ainda não tiver
+library(writexl)
+
+write_xlsx(nascimentos, "nascimentos.xlsx")
+```
+
+O `writexl` é a opção mais simples para gravar Excel: não exige Java nem nenhuma instalação fora do R.
+
+> **Onde os arquivos foram parar?** Na pasta do seu Projeto do RStudio, a mesma de que falamos no capítulo de importação. Eles aparecem na aba **Files**, no canto inferior direito da tela. Se você não estiver dentro de um Projeto, vão para a pasta de trabalho atual, que você descobre com `getwd()`.
+
+### Passo 6: ler de volta
+
+Feito isso, o download não precisa ser repetido nunca mais. Da próxima vez, comece daqui:
+
+```{r salvar-7, eval=FALSE}
+# do CSV
+nascimentos <- read_csv("nascimentos.csv")
+
+# ou do Excel
+library(readxl)
+nascimentos <- read_excel("nascimentos.xlsx")
+```
+
+Os dois devolvem exatamente a mesma tabela: 3.602 linhas e 9 colunas, com média de peso ao nascer de 3.095,8 g.
+
+> **Por que salvar em vez de baixar toda vez?** Por três motivos. É muito mais rápido. Funciona sem internet. E, principalmente, **congela os dados**: o DATASUS revisa suas bases periodicamente, então um download feito daqui a seis meses pode não dar exatamente os mesmos números. Guardar o arquivo com o qual você fez as análises é parte da reprodutibilidade da sua pesquisa — assunto do capítulo anterior.
+
 
 ## Um exemplo do começo ao fim
 
@@ -201,7 +323,7 @@ wilcox.test(peso_g ~ grupo, data = nascimentos)
 
 E aqui acontece uma coisa que não estava no roteiro: **os dois testes discordam**. O teste t dá p = 0,43, e o de Wilcoxon dá p = 0,045.
 
-Isso não é erro de nenhum dos dois. É a coisa mais instrutiva deste capítulo, e vale entender por quê.
+Isso não é erro de nenhum dos dois testes, e entender por que acontece ensina mais do que qualquer um dos dois resultados sozinho.
 
 ### Passo 6: por que eles discordam
 

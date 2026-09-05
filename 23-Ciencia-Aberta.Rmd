@@ -30,7 +30,7 @@ A terceira é a de **eventos raros**. Se o desfecho que interessa acontece em um
 
 E há uma quarta, que costuma passar despercebida: usar dados que já existem **não expõe novas pessoas** a questionário, entrevista ou procedimento. Reaproveitar um dado bem coletado é, em si, uma escolha eticamente boa.
 
-Não é à toa que boa parte da produção em epidemiologia é feita com dados secundários. É um caminho legítimo, e muitas vezes o único possível para a pergunta que você quer fazer.
+Boa parte da produção em epidemiologia é feita com dados secundários, justamente por essas razões. É um caminho legítimo, e muitas vezes o único possível para a pergunta que você quer fazer.
 
 > **A contrapartida é real:** com dado secundário, você trabalha com as variáveis que alguém já decidiu coletar, para uma finalidade que não era a sua. Se a sua pergunta depende de uma informação que não está lá, nenhuma análise vai resolver — e aí a coleta própria deixa de ser opção e passa a ser necessidade.
 
