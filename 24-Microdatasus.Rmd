@@ -93,6 +93,137 @@ Trocando para o seu estado e o seu município, você tem em minutos um banco da 
 
 > A filtragem por município usa a coluna `munResNome`, que o `process_sinasc()` acrescenta com o nome do município de residência da mãe.
 
+## Um exemplo do começo ao fim
+
+Vamos percorrer uma análise inteira, do jeito que você faria em um trabalho de verdade. A pergunta é simples e tem importância de saúde pública:
+
+> **Bebês de mães adolescentes nascem com peso menor?**
+
+É uma hipótese que parece óbvia, e é justamente por isso que vale testá-la.
+
+### Passo 1: trazer os dados
+
+```{r ex-datasus-1, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+
+nascimentos <- read_csv("https://ana-mat-br.github.io/dados/nascimentos.csv")
+
+# quantos registros temos?
+nrow(nascimentos)
+```
+
+### Passo 2: criar o grupo que vamos comparar
+
+O banco traz a idade da mãe em anos, mas a nossa pergunta é sobre dois grupos. Precisamos, então, criar uma variável qualitativa a partir de uma quantitativa. A função `ifelse()` faz isso: testa uma condição e devolve um valor se ela for verdadeira e outro se for falsa.
+
+```{r ex-datasus-2, message=FALSE, warning=FALSE}
+nascimentos$grupo <- ifelse(nascimentos$idade_mae < 20,
+                            "Adolescente",
+                            "20 anos ou mais")
+
+table(nascimentos$grupo)
+```
+
+São 362 mães adolescentes e 3.240 com 20 anos ou mais. Repare que os grupos têm tamanhos bem diferentes: isso é comum com dados reais e não impede a comparação.
+
+### Passo 3: olhar antes de testar
+
+Nunca aplique um teste sem antes olhar os dados. Comece pelas medidas resumo, separadas por grupo:
+
+```{r ex-datasus-3, message=FALSE, warning=FALSE}
+aggregate(peso_g ~ grupo, data = nascimentos,
+          FUN = function(x) c(n = length(x),
+                              media = round(mean(x), 1),
+                              dp = round(sd(x), 1),
+                              mediana = median(x)))
+```
+
+E depois pelo boxplot, que mostra a distribuição inteira:
+
+```{r ex-datasus-4, message=FALSE, warning=FALSE}
+boxplot(peso_g ~ grupo, data = nascimentos,
+        xlab = "", ylab = "Peso ao nascer (g)",
+        col = c("lightblue", "lightpink"))
+```
+
+As duas caixas são muito parecidas. A diferença entre as médias é de apenas 24 gramas. Guarde essa impressão: o teste vai confirmá-la.
+
+### Passo 4: escolher o teste
+
+Seguindo o fluxograma do capítulo de comparação entre dois grupos: são **dois grupos**, **não pareados** (cada bebê está em um grupo só) e a variável de resposta é **quantitativa**. Falta decidir entre o teste t e o de Wilcoxon, e para isso verificamos a normalidade.
+
+```{r ex-datasus-5, message=FALSE, warning=FALSE}
+library(nortest)
+ad.test(nascimentos$peso_g)
+```
+
+O valor de p é minúsculo, então rejeitamos a normalidade. Mas atenção a um ponto importante: **com amostras grandes, o teste t continua válido mesmo sem normalidade perfeita**. Isso se deve ao Teorema Central do Limite, que garante que a média amostral se comporta bem quando o n é grande. Como os dois grupos têm muito mais que 30 observações, seguimos com o teste t.
+
+> Esta situação vai aparecer bastante: em bancos grandes, quase nenhuma variável passa no teste de normalidade, como já avisamos no capítulo sobre esses testes. Olhe o histograma e o tamanho da amostra, e não apenas o valor de p.
+
+### Passo 5: fazer o teste
+
+```{r ex-datasus-6, message=FALSE, warning=FALSE}
+t.test(peso_g ~ grupo, data = nascimentos)
+```
+
+O valor de p é **0,43**, bem acima de 0,05. **Não rejeitamos a hipótese nula**: não encontramos diferença no peso ao nascer entre os dois grupos.
+
+Repare também no intervalo de confiança da diferença, que vai de cerca de −35 a 82 gramas. Como ele **inclui o zero**, diz a mesma coisa que o valor de p, só que de outro jeito.
+
+### Passo 6: o passo que quase todo mundo pula
+
+Um resultado não significativo levanta sempre a mesma dúvida: *não existe diferença, ou o estudo era pequeno demais para enxergá-la?* Quem responde isso é o **poder do teste**, que vimos no capítulo do pacote `pwr`.
+
+```{r ex-datasus-7, message=FALSE, warning=FALSE}
+library(pwr)
+
+# qual o menor efeito que este estudo detectaria, com 80% de poder,
+# dados os tamanhos dos dois grupos?
+pwr.t2n.test(n1 = 362, n2 = 3240, sig.level = 0.05, power = 0.80)
+```
+
+O menor tamanho de efeito detectável é **d = 0,155**. Como o desvio padrão do peso é de 573 gramas, isso equivale a uma diferença de cerca de **89 gramas**.
+
+A diferença observada foi de 24 gramas, ou seja, um d de 0,04. Está bem abaixo do que o estudo conseguiria detectar e, mais importante, é **pequena demais para ter significado clínico**. A conclusão, portanto, não é "faltou amostra": é que a diferença, se existe, não tem relevância prática.
+
+**Como reportar:**
+
+> Não houve diferença estatisticamente significativa no peso ao nascer entre filhos de mães adolescentes (n = 362; média 3.074 g; DP 531) e de mães com 20 anos ou mais (n = 3.240; média 3.098 g; DP 578); t = 0,80; p = 0,43; IC95% da diferença: −35 a 82 g. O estudo teria poder de 80% para detectar diferença de 89 g, superior à observada (24 g; d de Cohen = 0,04), o que sugere ausência de efeito clinicamente relevante.
+
+### Passo 7: a pergunta que os dados realmente respondem
+
+O resultado acima é honesto, mas parece decepcionante. Ele não encerra o assunto: ele muda a pergunta.
+
+Se o peso ao nascer não difere, será que a **assistência recebida durante a gravidez** difere? O banco traz o número de consultas de pré-natal, então dá para verificar.
+
+```{r ex-datasus-8, message=FALSE, warning=FALSE}
+aggregate(consultas_pn ~ grupo, data = nascimentos,
+          FUN = function(x) c(n = length(x),
+                              media = round(mean(x), 1),
+                              mediana = median(x)))
+```
+
+Aqui a variável é uma **contagem**, e fortemente assimétrica, então o teste adequado é o de Wilcoxon:
+
+```{r ex-datasus-9, message=FALSE, warning=FALSE}
+wilcox.test(consultas_pn ~ grupo, data = nascimentos)
+```
+
+Agora sim: **p menor que 0,001**. Mães adolescentes fazem menos consultas de pré-natal, com mediana de 7 contra 8.
+
+**Como reportar:**
+
+> Mães adolescentes realizaram menor número de consultas de pré-natal (mediana 7) do que mães com 20 anos ou mais (mediana 8); teste de Wilcoxon, p < 0,001.
+
+### O que este exemplo ensina
+
+Repare no percurso. Partimos de uma hipótese que parecia evidente e os dados disseram **não**. Em vez de forçar o resultado ou de desistir, usamos o poder do teste para mostrar que aquele "não" era confiável. Aí perguntamos outra coisa, e encontramos uma diferença real, em um desfecho que talvez importe mais: o acesso ao cuidado.
+
+Essa é a diferença entre usar a estatística para confirmar o que já se acreditava e usá-la para descobrir alguma coisa. E foi tudo feito com um banco público e gratuito, baixado em minutos, usando os testes que você aprendeu ao longo do livro.
+
+
 ## Cuidados ao usar dados do DATASUS
 
 **São dados secundários.** Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.

@@ -621,8 +621,19 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.3.2" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#o-process_sinasc-zera-o-peso"><i class="fa fa-check"></i><b>30.3.2</b> O <code>process_sinasc()</code> zera o peso</a></li>
 </ul></li>
 <li class="chapter" data-level="30.4" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#o-banco-de-nascimentos-deste-livro"><i class="fa fa-check"></i><b>30.4</b> O banco de nascimentos deste livro</a></li>
-<li class="chapter" data-level="30.5" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus"><i class="fa fa-check"></i><b>30.5</b> Cuidados ao usar dados do DATASUS</a></li>
-<li class="chapter" data-level="30.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#ideias-para-come%C3%A7ar"><i class="fa fa-check"></i><b>30.6</b> Ideias para começar</a></li>
+<li class="chapter" data-level="30.5" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#um-exemplo-do-come%C3%A7o-ao-fim"><i class="fa fa-check"></i><b>30.5</b> Um exemplo do começo ao fim</a>
+<ul>
+<li class="chapter" data-level="30.5.1" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-1-trazer-os-dados"><i class="fa fa-check"></i><b>30.5.1</b> Passo 1: trazer os dados</a></li>
+<li class="chapter" data-level="30.5.2" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-2-criar-o-grupo-que-vamos-comparar"><i class="fa fa-check"></i><b>30.5.2</b> Passo 2: criar o grupo que vamos comparar</a></li>
+<li class="chapter" data-level="30.5.3" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-3-olhar-antes-de-testar"><i class="fa fa-check"></i><b>30.5.3</b> Passo 3: olhar antes de testar</a></li>
+<li class="chapter" data-level="30.5.4" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-4-escolher-o-teste"><i class="fa fa-check"></i><b>30.5.4</b> Passo 4: escolher o teste</a></li>
+<li class="chapter" data-level="30.5.5" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-5-fazer-o-teste"><i class="fa fa-check"></i><b>30.5.5</b> Passo 5: fazer o teste</a></li>
+<li class="chapter" data-level="30.5.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-6-o-passo-que-quase-todo-mundo-pula"><i class="fa fa-check"></i><b>30.5.6</b> Passo 6: o passo que quase todo mundo pula</a></li>
+<li class="chapter" data-level="30.5.7" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-7-a-pergunta-que-os-dados-realmente-respondem"><i class="fa fa-check"></i><b>30.5.7</b> Passo 7: a pergunta que os dados realmente respondem</a></li>
+<li class="chapter" data-level="30.5.8" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#o-que-este-exemplo-ensina"><i class="fa fa-check"></i><b>30.5.8</b> O que este exemplo ensina</a></li>
+</ul></li>
+<li class="chapter" data-level="30.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus"><i class="fa fa-check"></i><b>30.6</b> Cuidados ao usar dados do DATASUS</a></li>
+<li class="chapter" data-level="30.7" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#ideias-para-come%C3%A7ar"><i class="fa fa-check"></i><b>30.7</b> Ideias para começar</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a>
 <ul>
@@ -763,8 +774,144 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>A filtragem por município usa a coluna <code>munResNome</code>, que o <code>process_sinasc()</code> acrescenta com o nome do município de residência da mãe.</p>
 </blockquote>
 </div>
-<div id="cuidados-ao-usar-dados-do-datasus" class="section level2 hasAnchor" number="30.5">
-<h2><span class="header-section-number">30.5</span> Cuidados ao usar dados do DATASUS<a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="um-exemplo-do-começo-ao-fim" class="section level2 hasAnchor" number="30.5">
+<h2><span class="header-section-number">30.5</span> Um exemplo do começo ao fim<a href="dados-do-datasus.html#um-exemplo-do-come%C3%A7o-ao-fim" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vamos percorrer uma análise inteira, do jeito que você faria em um trabalho de verdade. A pergunta é simples e tem importância de saúde pública:</p>
+<blockquote>
+<p><strong>Bebês de mães adolescentes nascem com peso menor?</strong></p>
+</blockquote>
+<p>É uma hipótese que parece óbvia, e é justamente por isso que vale testá-la.</p>
+<div id="passo-1-trazer-os-dados" class="section level3 hasAnchor" number="30.5.1">
+<h3><span class="header-section-number">30.5.1</span> Passo 1: trazer os dados<a href="dados-do-datasus.html#passo-1-trazer-os-dados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="dados-do-datasus.html#cb326-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb326-2"><a href="dados-do-datasus.html#cb326-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb326-3"><a href="dados-do-datasus.html#cb326-3" tabindex="-1"></a></span>
+<span id="cb326-4"><a href="dados-do-datasus.html#cb326-4" tabindex="-1"></a>nascimentos <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://ana-mat-br.github.io/dados/nascimentos.csv&quot;</span>)</span>
+<span id="cb326-5"><a href="dados-do-datasus.html#cb326-5" tabindex="-1"></a></span>
+<span id="cb326-6"><a href="dados-do-datasus.html#cb326-6" tabindex="-1"></a><span class="co"># quantos registros temos?</span></span>
+<span id="cb326-7"><a href="dados-do-datasus.html#cb326-7" tabindex="-1"></a><span class="fu">nrow</span>(nascimentos)</span></code></pre></div>
+<pre><code>## [1] 3602</code></pre>
+</div>
+<div id="passo-2-criar-o-grupo-que-vamos-comparar" class="section level3 hasAnchor" number="30.5.2">
+<h3><span class="header-section-number">30.5.2</span> Passo 2: criar o grupo que vamos comparar<a href="dados-do-datasus.html#passo-2-criar-o-grupo-que-vamos-comparar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O banco traz a idade da mãe em anos, mas a nossa pergunta é sobre dois grupos. Precisamos, então, criar uma variável qualitativa a partir de uma quantitativa. A função <code>ifelse()</code> faz isso: testa uma condição e devolve um valor se ela for verdadeira e outro se for falsa.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="dados-do-datasus.html#cb328-1" tabindex="-1"></a>nascimentos<span class="sc">$</span>grupo <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(nascimentos<span class="sc">$</span>idade_mae <span class="sc">&lt;</span> <span class="dv">20</span>,</span>
+<span id="cb328-2"><a href="dados-do-datasus.html#cb328-2" tabindex="-1"></a>                            <span class="st">&quot;Adolescente&quot;</span>,</span>
+<span id="cb328-3"><a href="dados-do-datasus.html#cb328-3" tabindex="-1"></a>                            <span class="st">&quot;20 anos ou mais&quot;</span>)</span>
+<span id="cb328-4"><a href="dados-do-datasus.html#cb328-4" tabindex="-1"></a></span>
+<span id="cb328-5"><a href="dados-do-datasus.html#cb328-5" tabindex="-1"></a><span class="fu">table</span>(nascimentos<span class="sc">$</span>grupo)</span></code></pre></div>
+<pre><code>## 
+## 20 anos ou mais     Adolescente 
+##            3240             362</code></pre>
+<p>São 362 mães adolescentes e 3.240 com 20 anos ou mais. Repare que os grupos têm tamanhos bem diferentes: isso é comum com dados reais e não impede a comparação.</p>
+</div>
+<div id="passo-3-olhar-antes-de-testar" class="section level3 hasAnchor" number="30.5.3">
+<h3><span class="header-section-number">30.5.3</span> Passo 3: olhar antes de testar<a href="dados-do-datasus.html#passo-3-olhar-antes-de-testar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nunca aplique um teste sem antes olhar os dados. Comece pelas medidas resumo, separadas por grupo:</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="dados-do-datasus.html#cb330-1" tabindex="-1"></a><span class="fu">aggregate</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
+<span id="cb330-2"><a href="dados-do-datasus.html#cb330-2" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb330-3"><a href="dados-do-datasus.html#cb330-3" tabindex="-1"></a>                              <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">1</span>),</span>
+<span id="cb330-4"><a href="dados-do-datasus.html#cb330-4" tabindex="-1"></a>                              <span class="at">dp =</span> <span class="fu">round</span>(<span class="fu">sd</span>(x), <span class="dv">1</span>),</span>
+<span id="cb330-5"><a href="dados-do-datasus.html#cb330-5" tabindex="-1"></a>                              <span class="at">mediana =</span> <span class="fu">median</span>(x)))</span></code></pre></div>
+<pre><code>##             grupo peso_g.n peso_g.media peso_g.dp peso_g.mediana
+## 1 20 anos ou mais   3240.0       3098.2     578.0         3165.0
+## 2     Adolescente    362.0       3074.5     531.2         3080.0</code></pre>
+<p>E depois pelo boxplot, que mostra a distribuição inteira:</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="dados-do-datasus.html#cb332-1" tabindex="-1"></a><span class="fu">boxplot</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
+<span id="cb332-2"><a href="dados-do-datasus.html#cb332-2" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Peso ao nascer (g)&quot;</span>,</span>
+<span id="cb332-3"><a href="dados-do-datasus.html#cb332-3" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightpink&quot;</span>))</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/ex-datasus-4-1.png" alt="" width="672" /></p>
+<p>As duas caixas são muito parecidas. A diferença entre as médias é de apenas 24 gramas. Guarde essa impressão: o teste vai confirmá-la.</p>
+</div>
+<div id="passo-4-escolher-o-teste" class="section level3 hasAnchor" number="30.5.4">
+<h3><span class="header-section-number">30.5.4</span> Passo 4: escolher o teste<a href="dados-do-datasus.html#passo-4-escolher-o-teste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Seguindo o fluxograma do capítulo de comparação entre dois grupos: são <strong>dois grupos</strong>, <strong>não pareados</strong> (cada bebê está em um grupo só) e a variável de resposta é <strong>quantitativa</strong>. Falta decidir entre o teste t e o de Wilcoxon, e para isso verificamos a normalidade.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="dados-do-datasus.html#cb333-1" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
+<span id="cb333-2"><a href="dados-do-datasus.html#cb333-2" tabindex="-1"></a><span class="fu">ad.test</span>(nascimentos<span class="sc">$</span>peso_g)</span></code></pre></div>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  nascimentos$peso_g
+## A = 51.998, p-value &lt; 2.2e-16</code></pre>
+<p>O valor de p é minúsculo, então rejeitamos a normalidade. Mas atenção a um ponto importante: <strong>com amostras grandes, o teste t continua válido mesmo sem normalidade perfeita</strong>. Isso se deve ao Teorema Central do Limite, que garante que a média amostral se comporta bem quando o n é grande. Como os dois grupos têm muito mais que 30 observações, seguimos com o teste t.</p>
+<blockquote>
+<p>Esta situação vai aparecer bastante: em bancos grandes, quase nenhuma variável passa no teste de normalidade, como já avisamos no capítulo sobre esses testes. Olhe o histograma e o tamanho da amostra, e não apenas o valor de p.</p>
+</blockquote>
+</div>
+<div id="passo-5-fazer-o-teste" class="section level3 hasAnchor" number="30.5.5">
+<h3><span class="header-section-number">30.5.5</span> Passo 5: fazer o teste<a href="dados-do-datasus.html#passo-5-fazer-o-teste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="dados-do-datasus.html#cb335-1" tabindex="-1"></a><span class="fu">t.test</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  peso_g by grupo
+## t = 0.7957, df = 461.9, p-value = 0.4266
+## alternative hypothesis: true difference in means between group 20 anos ou mais and group Adolescente is not equal to 0
+## 95 percent confidence interval:
+##  -34.74361  82.02469
+## sample estimates:
+## mean in group 20 anos ou mais     mean in group Adolescente 
+##                      3098.160                      3074.519</code></pre>
+<p>O valor de p é <strong>0,43</strong>, bem acima de 0,05. <strong>Não rejeitamos a hipótese nula</strong>: não encontramos diferença no peso ao nascer entre os dois grupos.</p>
+<p>Repare também no intervalo de confiança da diferença, que vai de cerca de −35 a 82 gramas. Como ele <strong>inclui o zero</strong>, diz a mesma coisa que o valor de p, só que de outro jeito.</p>
+</div>
+<div id="passo-6-o-passo-que-quase-todo-mundo-pula" class="section level3 hasAnchor" number="30.5.6">
+<h3><span class="header-section-number">30.5.6</span> Passo 6: o passo que quase todo mundo pula<a href="dados-do-datasus.html#passo-6-o-passo-que-quase-todo-mundo-pula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Um resultado não significativo levanta sempre a mesma dúvida: <em>não existe diferença, ou o estudo era pequeno demais para enxergá-la?</em> Quem responde isso é o <strong>poder do teste</strong>, que vimos no capítulo do pacote <code>pwr</code>.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="dados-do-datasus.html#cb337-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb337-2"><a href="dados-do-datasus.html#cb337-2" tabindex="-1"></a></span>
+<span id="cb337-3"><a href="dados-do-datasus.html#cb337-3" tabindex="-1"></a><span class="co"># qual o menor efeito que este estudo detectaria, com 80% de poder,</span></span>
+<span id="cb337-4"><a href="dados-do-datasus.html#cb337-4" tabindex="-1"></a><span class="co"># dados os tamanhos dos dois grupos?</span></span>
+<span id="cb337-5"><a href="dados-do-datasus.html#cb337-5" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">362</span>, <span class="at">n2 =</span> <span class="dv">3240</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span></code></pre></div>
+<pre><code>## 
+##      t test power calculation 
+## 
+##              n1 = 362
+##              n2 = 3240
+##               d = 0.1552995
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided</code></pre>
+<p>O menor tamanho de efeito detectável é <strong>d = 0,155</strong>. Como o desvio padrão do peso é de 573 gramas, isso equivale a uma diferença de cerca de <strong>89 gramas</strong>.</p>
+<p>A diferença observada foi de 24 gramas, ou seja, um d de 0,04. Está bem abaixo do que o estudo conseguiria detectar e, mais importante, é <strong>pequena demais para ter significado clínico</strong>. A conclusão, portanto, não é “faltou amostra”: é que a diferença, se existe, não tem relevância prática.</p>
+<p><strong>Como reportar:</strong></p>
+<blockquote>
+<p>Não houve diferença estatisticamente significativa no peso ao nascer entre filhos de mães adolescentes (n = 362; média 3.074 g; DP 531) e de mães com 20 anos ou mais (n = 3.240; média 3.098 g; DP 578); t = 0,80; p = 0,43; IC95% da diferença: −35 a 82 g. O estudo teria poder de 80% para detectar diferença de 89 g, superior à observada (24 g; d de Cohen = 0,04), o que sugere ausência de efeito clinicamente relevante.</p>
+</blockquote>
+</div>
+<div id="passo-7-a-pergunta-que-os-dados-realmente-respondem" class="section level3 hasAnchor" number="30.5.7">
+<h3><span class="header-section-number">30.5.7</span> Passo 7: a pergunta que os dados realmente respondem<a href="dados-do-datasus.html#passo-7-a-pergunta-que-os-dados-realmente-respondem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O resultado acima é honesto, mas parece decepcionante. Ele não encerra o assunto: ele muda a pergunta.</p>
+<p>Se o peso ao nascer não difere, será que a <strong>assistência recebida durante a gravidez</strong> difere? O banco traz o número de consultas de pré-natal, então dá para verificar.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="dados-do-datasus.html#cb339-1" tabindex="-1"></a><span class="fu">aggregate</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
+<span id="cb339-2"><a href="dados-do-datasus.html#cb339-2" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb339-3"><a href="dados-do-datasus.html#cb339-3" tabindex="-1"></a>                              <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">1</span>),</span>
+<span id="cb339-4"><a href="dados-do-datasus.html#cb339-4" tabindex="-1"></a>                              <span class="at">mediana =</span> <span class="fu">median</span>(x)))</span></code></pre></div>
+<pre><code>##             grupo consultas_pn.n consultas_pn.media consultas_pn.mediana
+## 1 20 anos ou mais         3124.0                8.1                  8.0
+## 2     Adolescente          343.0                7.3                  7.0</code></pre>
+<p>Aqui a variável é uma <strong>contagem</strong>, e fortemente assimétrica, então o teste adequado é o de Wilcoxon:</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="dados-do-datasus.html#cb341-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  consultas_pn by grupo
+## W = 630694, p-value = 5.33e-08
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Agora sim: <strong>p menor que 0,001</strong>. Mães adolescentes fazem menos consultas de pré-natal, com mediana de 7 contra 8.</p>
+<p><strong>Como reportar:</strong></p>
+<blockquote>
+<p>Mães adolescentes realizaram menor número de consultas de pré-natal (mediana 7) do que mães com 20 anos ou mais (mediana 8); teste de Wilcoxon, p &lt; 0,001.</p>
+</blockquote>
+</div>
+<div id="o-que-este-exemplo-ensina" class="section level3 hasAnchor" number="30.5.8">
+<h3><span class="header-section-number">30.5.8</span> O que este exemplo ensina<a href="dados-do-datasus.html#o-que-este-exemplo-ensina" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Repare no percurso. Partimos de uma hipótese que parecia evidente e os dados disseram <strong>não</strong>. Em vez de forçar o resultado ou de desistir, usamos o poder do teste para mostrar que aquele “não” era confiável. Aí perguntamos outra coisa, e encontramos uma diferença real, em um desfecho que talvez importe mais: o acesso ao cuidado.</p>
+<p>Essa é a diferença entre usar a estatística para confirmar o que já se acreditava e usá-la para descobrir alguma coisa. E foi tudo feito com um banco público e gratuito, baixado em minutos, usando os testes que você aprendeu ao longo do livro.</p>
+</div>
+</div>
+<div id="cuidados-ao-usar-dados-do-datasus" class="section level2 hasAnchor" number="30.6">
+<h2><span class="header-section-number">30.6</span> Cuidados ao usar dados do DATASUS<a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>São dados secundários.</strong> Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.</p>
 <p><strong>É censo, não amostra.</strong> O SINASC registra todos os nascimentos, não uma amostra deles. Isso é uma vantagem, porque dispensa peso amostral, mas muda a interpretação: se você analisa todos os nascimentos de Uberaba em 2022, não está estimando nada — está descrevendo a população inteira daquele ano.</p>
 <p><strong>Há subnotificação e erro de preenchimento.</strong> A qualidade varia entre municípios e ao longo dos anos. Compare os seus totais com os publicados oficialmente antes de confiar neles.</p>
@@ -774,8 +921,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>BRASIL. Ministério da Saúde. Sistema de Informações sobre Nascidos Vivos (SINASC). Brasília: DATASUS. Disponível em: <a href="https://datasus.saude.gov.br" class="uri">https://datasus.saude.gov.br</a>. Acesso em: [data].</p>
 </blockquote>
 </div>
-<div id="ideias-para-começar" class="section level2 hasAnchor" number="30.6">
-<h2><span class="header-section-number">30.6</span> Ideias para começar<a href="dados-do-datasus.html#ideias-para-come%C3%A7ar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ideias-para-começar" class="section level2 hasAnchor" number="30.7">
+<h2><span class="header-section-number">30.7</span> Ideias para começar<a href="dados-do-datasus.html#ideias-para-come%C3%A7ar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Algumas perguntas que o SINASC responde e que dão bons trabalhos:</p>
 <ul>
 <li>O peso ao nascer difere entre partos vaginais e cesáreos, na sua cidade?</li>

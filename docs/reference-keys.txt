@@ -329,5 +329,14 @@ duas-armadilhas-que-valem-ouro
 o-código-de-ignorado
 o-process_sinasc-zera-o-peso
 o-banco-de-nascimentos-deste-livro
+um-exemplo-do-começo-ao-fim
+passo-1-trazer-os-dados
+passo-2-criar-o-grupo-que-vamos-comparar
+passo-3-olhar-antes-de-testar
+passo-4-escolher-o-teste
+passo-5-fazer-o-teste
+passo-6-o-passo-que-quase-todo-mundo-pula
+passo-7-a-pergunta-que-os-dados-realmente-respondem
+o-que-este-exemplo-ensina
 cuidados-ao-usar-dados-do-datasus
 ideias-para-começar

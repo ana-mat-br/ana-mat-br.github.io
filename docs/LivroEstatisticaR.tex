@@ -9447,6 +9447,229 @@ Trocando para o seu estado e o seu município, você tem em minutos um banco da 
 A filtragem por município usa a coluna \texttt{munResNome}, que o \texttt{process\_sinasc()} acrescenta com o nome do município de residência da mãe.
 \end{quote}
 
+\section{Um exemplo do começo ao fim}\label{um-exemplo-do-comeuxe7o-ao-fim}
+
+Vamos percorrer uma análise inteira, do jeito que você faria em um trabalho de verdade. A pergunta é simples e tem importância de saúde pública:
+
+\begin{quote}
+\textbf{Bebês de mães adolescentes nascem com peso menor?}
+\end{quote}
+
+É uma hipótese que parece óbvia, e é justamente por isso que vale testá-la.
+
+\subsection{Passo 1: trazer os dados}\label{passo-1-trazer-os-dados}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+
+\NormalTok{nascimentos }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://ana{-}mat{-}br.github.io/dados/nascimentos.csv"}\NormalTok{)}
+
+\CommentTok{\# quantos registros temos?}
+\FunctionTok{nrow}\NormalTok{(nascimentos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3602
+\end{verbatim}
+
+\subsection{Passo 2: criar o grupo que vamos comparar}\label{passo-2-criar-o-grupo-que-vamos-comparar}
+
+O banco traz a idade da mãe em anos, mas a nossa pergunta é sobre dois grupos. Precisamos, então, criar uma variável qualitativa a partir de uma quantitativa. A função \texttt{ifelse()} faz isso: testa uma condição e devolve um valor se ela for verdadeira e outro se for falsa.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nascimentos}\SpecialCharTok{$}\NormalTok{grupo }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(nascimentos}\SpecialCharTok{$}\NormalTok{idade\_mae }\SpecialCharTok{\textless{}} \DecValTok{20}\NormalTok{,}
+                            \StringTok{"Adolescente"}\NormalTok{,}
+                            \StringTok{"20 anos ou mais"}\NormalTok{)}
+
+\FunctionTok{table}\NormalTok{(nascimentos}\SpecialCharTok{$}\NormalTok{grupo)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## 20 anos ou mais     Adolescente 
+##            3240             362
+\end{verbatim}
+
+São 362 mães adolescentes e 3.240 com 20 anos ou mais. Repare que os grupos têm tamanhos bem diferentes: isso é comum com dados reais e não impede a comparação.
+
+\subsection{Passo 3: olhar antes de testar}\label{passo-3-olhar-antes-de-testar}
+
+Nunca aplique um teste sem antes olhar os dados. Comece pelas medidas resumo, separadas por grupo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{aggregate}\NormalTok{(peso\_g }\SpecialCharTok{\textasciitilde{}}\NormalTok{ grupo, }\AttributeTok{data =}\NormalTok{ nascimentos,}
+          \AttributeTok{FUN =} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{c}\NormalTok{(}\AttributeTok{n =} \FunctionTok{length}\NormalTok{(x),}
+                              \AttributeTok{media =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(x), }\DecValTok{1}\NormalTok{),}
+                              \AttributeTok{dp =} \FunctionTok{round}\NormalTok{(}\FunctionTok{sd}\NormalTok{(x), }\DecValTok{1}\NormalTok{),}
+                              \AttributeTok{mediana =} \FunctionTok{median}\NormalTok{(x)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             grupo peso_g.n peso_g.media peso_g.dp peso_g.mediana
+## 1 20 anos ou mais   3240.0       3098.2     578.0         3165.0
+## 2     Adolescente    362.0       3074.5     531.2         3080.0
+\end{verbatim}
+
+E depois pelo boxplot, que mostra a distribuição inteira:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(peso\_g }\SpecialCharTok{\textasciitilde{}}\NormalTok{ grupo, }\AttributeTok{data =}\NormalTok{ nascimentos,}
+        \AttributeTok{xlab =} \StringTok{""}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Peso ao nascer (g)"}\NormalTok{,}
+        \AttributeTok{col =} \FunctionTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"lightpink"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{LivroEstatisticaR_files/figure-latex/ex-datasus-4-1.pdf}}
+
+As duas caixas são muito parecidas. A diferença entre as médias é de apenas 24 gramas. Guarde essa impressão: o teste vai confirmá-la.
+
+\subsection{Passo 4: escolher o teste}\label{passo-4-escolher-o-teste}
+
+Seguindo o fluxograma do capítulo de comparação entre dois grupos: são \textbf{dois grupos}, \textbf{não pareados} (cada bebê está em um grupo só) e a variável de resposta é \textbf{quantitativa}. Falta decidir entre o teste t e o de Wilcoxon, e para isso verificamos a normalidade.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(nortest)}
+\FunctionTok{ad.test}\NormalTok{(nascimentos}\SpecialCharTok{$}\NormalTok{peso\_g)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Anderson-Darling normality test
+## 
+## data:  nascimentos$peso_g
+## A = 51.998, p-value < 2.2e-16
+\end{verbatim}
+
+O valor de p é minúsculo, então rejeitamos a normalidade. Mas atenção a um ponto importante: \textbf{com amostras grandes, o teste t continua válido mesmo sem normalidade perfeita}. Isso se deve ao Teorema Central do Limite, que garante que a média amostral se comporta bem quando o n é grande. Como os dois grupos têm muito mais que 30 observações, seguimos com o teste t.
+
+\begin{quote}
+Esta situação vai aparecer bastante: em bancos grandes, quase nenhuma variável passa no teste de normalidade, como já avisamos no capítulo sobre esses testes. Olhe o histograma e o tamanho da amostra, e não apenas o valor de p.
+\end{quote}
+
+\subsection{Passo 5: fazer o teste}\label{passo-5-fazer-o-teste}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{t.test}\NormalTok{(peso\_g }\SpecialCharTok{\textasciitilde{}}\NormalTok{ grupo, }\AttributeTok{data =}\NormalTok{ nascimentos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  peso_g by grupo
+## t = 0.7957, df = 461.9, p-value = 0.4266
+## alternative hypothesis: true difference in means between group 20 anos ou mais and group Adolescente is not equal to 0
+## 95 percent confidence interval:
+##  -34.74361  82.02469
+## sample estimates:
+## mean in group 20 anos ou mais     mean in group Adolescente 
+##                      3098.160                      3074.519
+\end{verbatim}
+
+O valor de p é \textbf{0,43}, bem acima de 0,05. \textbf{Não rejeitamos a hipótese nula}: não encontramos diferença no peso ao nascer entre os dois grupos.
+
+Repare também no intervalo de confiança da diferença, que vai de cerca de −35 a 82 gramas. Como ele \textbf{inclui o zero}, diz a mesma coisa que o valor de p, só que de outro jeito.
+
+\subsection{Passo 6: o passo que quase todo mundo pula}\label{passo-6-o-passo-que-quase-todo-mundo-pula}
+
+Um resultado não significativo levanta sempre a mesma dúvida: \emph{não existe diferença, ou o estudo era pequeno demais para enxergá-la?} Quem responde isso é o \textbf{poder do teste}, que vimos no capítulo do pacote \texttt{pwr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(pwr)}
+
+\CommentTok{\# qual o menor efeito que este estudo detectaria, com 80\% de poder,}
+\CommentTok{\# dados os tamanhos dos dois grupos?}
+\FunctionTok{pwr.t2n.test}\NormalTok{(}\AttributeTok{n1 =} \DecValTok{362}\NormalTok{, }\AttributeTok{n2 =} \DecValTok{3240}\NormalTok{, }\AttributeTok{sig.level =} \FloatTok{0.05}\NormalTok{, }\AttributeTok{power =} \FloatTok{0.80}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##      t test power calculation 
+## 
+##              n1 = 362
+##              n2 = 3240
+##               d = 0.1552995
+##       sig.level = 0.05
+##           power = 0.8
+##     alternative = two.sided
+\end{verbatim}
+
+O menor tamanho de efeito detectável é \textbf{d = 0,155}. Como o desvio padrão do peso é de 573 gramas, isso equivale a uma diferença de cerca de \textbf{89 gramas}.
+
+A diferença observada foi de 24 gramas, ou seja, um d de 0,04. Está bem abaixo do que o estudo conseguiria detectar e, mais importante, é \textbf{pequena demais para ter significado clínico}. A conclusão, portanto, não é ``faltou amostra'': é que a diferença, se existe, não tem relevância prática.
+
+\textbf{Como reportar:}
+
+\begin{quote}
+Não houve diferença estatisticamente significativa no peso ao nascer entre filhos de mães adolescentes (n = 362; média 3.074 g; DP 531) e de mães com 20 anos ou mais (n = 3.240; média 3.098 g; DP 578); t = 0,80; p = 0,43; IC95\% da diferença: −35 a 82 g. O estudo teria poder de 80\% para detectar diferença de 89 g, superior à observada (24 g; d de Cohen = 0,04), o que sugere ausência de efeito clinicamente relevante.
+\end{quote}
+
+\subsection{Passo 7: a pergunta que os dados realmente respondem}\label{passo-7-a-pergunta-que-os-dados-realmente-respondem}
+
+O resultado acima é honesto, mas parece decepcionante. Ele não encerra o assunto: ele muda a pergunta.
+
+Se o peso ao nascer não difere, será que a \textbf{assistência recebida durante a gravidez} difere? O banco traz o número de consultas de pré-natal, então dá para verificar.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{aggregate}\NormalTok{(consultas\_pn }\SpecialCharTok{\textasciitilde{}}\NormalTok{ grupo, }\AttributeTok{data =}\NormalTok{ nascimentos,}
+          \AttributeTok{FUN =} \ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{c}\NormalTok{(}\AttributeTok{n =} \FunctionTok{length}\NormalTok{(x),}
+                              \AttributeTok{media =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(x), }\DecValTok{1}\NormalTok{),}
+                              \AttributeTok{mediana =} \FunctionTok{median}\NormalTok{(x)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             grupo consultas_pn.n consultas_pn.media consultas_pn.mediana
+## 1 20 anos ou mais         3124.0                8.1                  8.0
+## 2     Adolescente          343.0                7.3                  7.0
+\end{verbatim}
+
+Aqui a variável é uma \textbf{contagem}, e fortemente assimétrica, então o teste adequado é o de Wilcoxon:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wilcox.test}\NormalTok{(consultas\_pn }\SpecialCharTok{\textasciitilde{}}\NormalTok{ grupo, }\AttributeTok{data =}\NormalTok{ nascimentos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  consultas_pn by grupo
+## W = 630694, p-value = 5.33e-08
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+Agora sim: \textbf{p menor que 0,001}. Mães adolescentes fazem menos consultas de pré-natal, com mediana de 7 contra 8.
+
+\textbf{Como reportar:}
+
+\begin{quote}
+Mães adolescentes realizaram menor número de consultas de pré-natal (mediana 7) do que mães com 20 anos ou mais (mediana 8); teste de Wilcoxon, p \textless{} 0,001.
+\end{quote}
+
+\subsection{O que este exemplo ensina}\label{o-que-este-exemplo-ensina}
+
+Repare no percurso. Partimos de uma hipótese que parecia evidente e os dados disseram \textbf{não}. Em vez de forçar o resultado ou de desistir, usamos o poder do teste para mostrar que aquele ``não'' era confiável. Aí perguntamos outra coisa, e encontramos uma diferença real, em um desfecho que talvez importe mais: o acesso ao cuidado.
+
+Essa é a diferença entre usar a estatística para confirmar o que já se acreditava e usá-la para descobrir alguma coisa. E foi tudo feito com um banco público e gratuito, baixado em minutos, usando os testes que você aprendeu ao longo do livro.
+
 \section{Cuidados ao usar dados do DATASUS}\label{cuidados-ao-usar-dados-do-datasus}
 
 \textbf{São dados secundários.} Foram coletados para outra finalidade, a de vigilância em saúde, e não para a sua pergunta. Isso limita o que dá para concluir: você trabalha com as variáveis que existem, não com as que gostaria de ter.
