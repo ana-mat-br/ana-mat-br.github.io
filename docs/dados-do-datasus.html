@@ -627,10 +627,11 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <li class="chapter" data-level="30.5.2" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-2-criar-o-grupo-que-vamos-comparar"><i class="fa fa-check"></i><b>30.5.2</b> Passo 2: criar o grupo que vamos comparar</a></li>
 <li class="chapter" data-level="30.5.3" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-3-olhar-antes-de-testar"><i class="fa fa-check"></i><b>30.5.3</b> Passo 3: olhar antes de testar</a></li>
 <li class="chapter" data-level="30.5.4" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-4-escolher-o-teste"><i class="fa fa-check"></i><b>30.5.4</b> Passo 4: escolher o teste</a></li>
-<li class="chapter" data-level="30.5.5" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-5-fazer-o-teste"><i class="fa fa-check"></i><b>30.5.5</b> Passo 5: fazer o teste</a></li>
-<li class="chapter" data-level="30.5.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-6-o-passo-que-quase-todo-mundo-pula"><i class="fa fa-check"></i><b>30.5.6</b> Passo 6: o passo que quase todo mundo pula</a></li>
-<li class="chapter" data-level="30.5.7" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-7-a-pergunta-que-os-dados-realmente-respondem"><i class="fa fa-check"></i><b>30.5.7</b> Passo 7: a pergunta que os dados realmente respondem</a></li>
-<li class="chapter" data-level="30.5.8" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#o-que-este-exemplo-ensina"><i class="fa fa-check"></i><b>30.5.8</b> O que este exemplo ensina</a></li>
+<li class="chapter" data-level="30.5.5" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-5-fazer-os-dois-testes"><i class="fa fa-check"></i><b>30.5.5</b> Passo 5: fazer os dois testes</a></li>
+<li class="chapter" data-level="30.5.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-6-por-que-eles-discordam"><i class="fa fa-check"></i><b>30.5.6</b> Passo 6: por que eles discordam</a></li>
+<li class="chapter" data-level="30.5.7" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-7-ent%C3%A3o-qual-%C3%A9-a-conclus%C3%A3o"><i class="fa fa-check"></i><b>30.5.7</b> Passo 7: então, qual é a conclusão?</a></li>
+<li class="chapter" data-level="30.5.8" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#passo-8-a-pergunta-que-os-dados-respondem-com-clareza"><i class="fa fa-check"></i><b>30.5.8</b> Passo 8: a pergunta que os dados respondem com clareza</a></li>
+<li class="chapter" data-level="30.5.9" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#o-que-este-exemplo-ensina"><i class="fa fa-check"></i><b>30.5.9</b> O que este exemplo ensina</a></li>
 </ul></li>
 <li class="chapter" data-level="30.6" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#cuidados-ao-usar-dados-do-datasus"><i class="fa fa-check"></i><b>30.6</b> Cuidados ao usar dados do DATASUS</a></li>
 <li class="chapter" data-level="30.7" data-path="dados-do-datasus.html"><a href="dados-do-datasus.html#ideias-para-come%C3%A7ar"><i class="fa fa-check"></i><b>30.7</b> Ideias para começar</a></li>
@@ -825,22 +826,47 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </div>
 <div id="passo-4-escolher-o-teste" class="section level3 hasAnchor" number="30.5.4">
 <h3><span class="header-section-number">30.5.4</span> Passo 4: escolher o teste<a href="dados-do-datasus.html#passo-4-escolher-o-teste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Seguindo o fluxograma do capítulo de comparação entre dois grupos: são <strong>dois grupos</strong>, <strong>não pareados</strong> (cada bebê está em um grupo só) e a variável de resposta é <strong>quantitativa</strong>. Falta decidir entre o teste t e o de Wilcoxon, e para isso verificamos a normalidade.</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="dados-do-datasus.html#cb333-1" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
-<span id="cb333-2"><a href="dados-do-datasus.html#cb333-2" tabindex="-1"></a><span class="fu">ad.test</span>(nascimentos<span class="sc">$</span>peso_g)</span></code></pre></div>
+<p>Seguindo o fluxograma do capítulo de comparação entre dois grupos: são <strong>dois grupos</strong>, <strong>não pareados</strong> (cada bebê está em um grupo só) e a variável de resposta é <strong>quantitativa</strong>. Falta decidir entre o teste t e o de Wilcoxon, e para isso verificamos a normalidade <strong>dentro de cada grupo</strong> — é sobre cada grupo, e não sobre a variável inteira, que a suposição se aplica.</p>
+<p>Comece pelo <strong>gráfico QQ</strong>, que é o mais informativo. Vamos fazer um para cada grupo, lado a lado:</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="dados-do-datasus.html#cb333-1" tabindex="-1"></a><span class="co"># separa os dois grupos</span></span>
+<span id="cb333-2"><a href="dados-do-datasus.html#cb333-2" tabindex="-1"></a>adolescente <span class="ot">&lt;-</span> nascimentos<span class="sc">$</span>peso_g[nascimentos<span class="sc">$</span>grupo <span class="sc">==</span> <span class="st">&quot;Adolescente&quot;</span>]</span>
+<span id="cb333-3"><a href="dados-do-datasus.html#cb333-3" tabindex="-1"></a>adultas     <span class="ot">&lt;-</span> nascimentos<span class="sc">$</span>peso_g[nascimentos<span class="sc">$</span>grupo <span class="sc">==</span> <span class="st">&quot;20 anos ou mais&quot;</span>]</span>
+<span id="cb333-4"><a href="dados-do-datasus.html#cb333-4" tabindex="-1"></a></span>
+<span id="cb333-5"><a href="dados-do-datasus.html#cb333-5" tabindex="-1"></a><span class="co"># dois gráficos na mesma linha</span></span>
+<span id="cb333-6"><a href="dados-do-datasus.html#cb333-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb333-7"><a href="dados-do-datasus.html#cb333-7" tabindex="-1"></a></span>
+<span id="cb333-8"><a href="dados-do-datasus.html#cb333-8" tabindex="-1"></a><span class="fu">qqnorm</span>(adolescente, <span class="at">main =</span> <span class="st">&quot;Mães adolescentes&quot;</span>)</span>
+<span id="cb333-9"><a href="dados-do-datasus.html#cb333-9" tabindex="-1"></a><span class="fu">qqline</span>(adolescente, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb333-10"><a href="dados-do-datasus.html#cb333-10" tabindex="-1"></a></span>
+<span id="cb333-11"><a href="dados-do-datasus.html#cb333-11" tabindex="-1"></a><span class="fu">qqnorm</span>(adultas, <span class="at">main =</span> <span class="st">&quot;Mães com 20 anos ou mais&quot;</span>)</span>
+<span id="cb333-12"><a href="dados-do-datasus.html#cb333-12" tabindex="-1"></a><span class="fu">qqline</span>(adultas, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="LivroEstatisticaR_files/figure-html/ex-datasus-5qq-1.png" alt="" width="864" /></p>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="dados-do-datasus.html#cb334-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))   <span class="co"># volta a um gráfico por vez</span></span></code></pre></div>
+<p>Nos dois grupos o padrão se repete: o miolo dos pontos acompanha bem a linha, mas a <strong>ponta de baixo despenca</strong>. Aquela curva para fora, no canto inferior esquerdo, são os bebês prematuros e de muito baixo peso, valores bem mais extremos do que uma distribuição normal produziria. Do lado de cima não há nada equivalente, e é justamente isso que caracteriza uma <strong>assimetria à esquerda</strong>.</p>
+<p>Agora o teste, para cada grupo:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="dados-do-datasus.html#cb335-1" tabindex="-1"></a><span class="fu">library</span>(nortest)</span>
+<span id="cb335-2"><a href="dados-do-datasus.html#cb335-2" tabindex="-1"></a></span>
+<span id="cb335-3"><a href="dados-do-datasus.html#cb335-3" tabindex="-1"></a><span class="fu">ad.test</span>(adolescente)</span></code></pre></div>
 <pre><code>## 
 ##  Anderson-Darling normality test
 ## 
-## data:  nascimentos$peso_g
-## A = 51.998, p-value &lt; 2.2e-16</code></pre>
-<p>O valor de p é minúsculo, então rejeitamos a normalidade. Mas atenção a um ponto importante: <strong>com amostras grandes, o teste t continua válido mesmo sem normalidade perfeita</strong>. Isso se deve ao Teorema Central do Limite, que garante que a média amostral se comporta bem quando o n é grande. Como os dois grupos têm muito mais que 30 observações, seguimos com o teste t.</p>
+## data:  adolescente
+## A = 1.7845, p-value = 0.0001425</code></pre>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="dados-do-datasus.html#cb337-1" tabindex="-1"></a><span class="fu">ad.test</span>(adultas)</span></code></pre></div>
+<pre><code>## 
+##  Anderson-Darling normality test
+## 
+## data:  adultas
+## A = 51.681, p-value &lt; 2.2e-16</code></pre>
+<p>Os dois valores de p são pequenos, confirmando o que o gráfico já mostrava: nenhum dos grupos tem distribuição normal.</p>
 <blockquote>
-<p>Esta situação vai aparecer bastante: em bancos grandes, quase nenhuma variável passa no teste de normalidade, como já avisamos no capítulo sobre esses testes. Olhe o histograma e o tamanho da amostra, e não apenas o valor de p.</p>
+<p><strong>Por que olhar o gráfico se o teste já responde?</strong> Porque o teste diz apenas <em>sim</em> ou <em>não</em>, enquanto o gráfico mostra <strong>onde</strong> e <strong>quanto</strong> a distribuição se afasta da normal. Aqui ele revelou que o desvio está em uma cauda só — e é essa informação que vai explicar, daqui a dois passos, por que os dois testes discordam.</p>
 </blockquote>
+<p>Com amostras deste tamanho, o teste t costuma continuar confiável mesmo assim. Mas em vez de confiar em uma regra de bolso, vamos fazer o que resolve a dúvida de vez: <strong>rodar os dois testes e comparar</strong>.</p>
 </div>
-<div id="passo-5-fazer-o-teste" class="section level3 hasAnchor" number="30.5.5">
-<h3><span class="header-section-number">30.5.5</span> Passo 5: fazer o teste<a href="dados-do-datasus.html#passo-5-fazer-o-teste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="dados-do-datasus.html#cb335-1" tabindex="-1"></a><span class="fu">t.test</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
+<div id="passo-5-fazer-os-dois-testes" class="section level3 hasAnchor" number="30.5.5">
+<h3><span class="header-section-number">30.5.5</span> Passo 5: fazer os dois testes<a href="dados-do-datasus.html#passo-5-fazer-os-dois-testes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="dados-do-datasus.html#cb339-1" tabindex="-1"></a><span class="fu">t.test</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -852,46 +878,75 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 ## sample estimates:
 ## mean in group 20 anos ou mais     mean in group Adolescente 
 ##                      3098.160                      3074.519</code></pre>
-<p>O valor de p é <strong>0,43</strong>, bem acima de 0,05. <strong>Não rejeitamos a hipótese nula</strong>: não encontramos diferença no peso ao nascer entre os dois grupos.</p>
-<p>Repare também no intervalo de confiança da diferença, que vai de cerca de −35 a 82 gramas. Como ele <strong>inclui o zero</strong>, diz a mesma coisa que o valor de p, só que de outro jeito.</p>
-</div>
-<div id="passo-6-o-passo-que-quase-todo-mundo-pula" class="section level3 hasAnchor" number="30.5.6">
-<h3><span class="header-section-number">30.5.6</span> Passo 6: o passo que quase todo mundo pula<a href="dados-do-datasus.html#passo-6-o-passo-que-quase-todo-mundo-pula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Um resultado não significativo levanta sempre a mesma dúvida: <em>não existe diferença, ou o estudo era pequeno demais para enxergá-la?</em> Quem responde isso é o <strong>poder do teste</strong>, que vimos no capítulo do pacote <code>pwr</code>.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="dados-do-datasus.html#cb337-1" tabindex="-1"></a><span class="fu">library</span>(pwr)</span>
-<span id="cb337-2"><a href="dados-do-datasus.html#cb337-2" tabindex="-1"></a></span>
-<span id="cb337-3"><a href="dados-do-datasus.html#cb337-3" tabindex="-1"></a><span class="co"># qual o menor efeito que este estudo detectaria, com 80% de poder,</span></span>
-<span id="cb337-4"><a href="dados-do-datasus.html#cb337-4" tabindex="-1"></a><span class="co"># dados os tamanhos dos dois grupos?</span></span>
-<span id="cb337-5"><a href="dados-do-datasus.html#cb337-5" tabindex="-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">362</span>, <span class="at">n2 =</span> <span class="dv">3240</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.80</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="dados-do-datasus.html#cb341-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
 <pre><code>## 
-##      t test power calculation 
+##  Wilcoxon rank sum test with continuity correction
 ## 
-##              n1 = 362
-##              n2 = 3240
-##               d = 0.1552995
-##       sig.level = 0.05
-##           power = 0.8
-##     alternative = two.sided</code></pre>
-<p>O menor tamanho de efeito detectável é <strong>d = 0,155</strong>. Como o desvio padrão do peso é de 573 gramas, isso equivale a uma diferença de cerca de <strong>89 gramas</strong>.</p>
-<p>A diferença observada foi de 24 gramas, ou seja, um d de 0,04. Está bem abaixo do que o estudo conseguiria detectar e, mais importante, é <strong>pequena demais para ter significado clínico</strong>. A conclusão, portanto, não é “faltou amostra”: é que a diferença, se existe, não tem relevância prática.</p>
-<p><strong>Como reportar:</strong></p>
+## data:  peso_g by grupo
+## W = 624130, p-value = 0.0446
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>E aqui acontece uma coisa que não estava no roteiro: <strong>os dois testes discordam</strong>. O teste t dá p = 0,43, e o de Wilcoxon dá p = 0,045.</p>
+<p>Isso não é erro de nenhum dos dois. É a coisa mais instrutiva deste capítulo, e vale entender por quê.</p>
+</div>
+<div id="passo-6-por-que-eles-discordam" class="section level3 hasAnchor" number="30.5.6">
+<h3><span class="header-section-number">30.5.6</span> Passo 6: por que eles discordam<a href="dados-do-datasus.html#passo-6-por-que-eles-discordam" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Os dois testes respondem a perguntas diferentes. O teste t compara <strong>médias</strong>. O de Wilcoxon compara <strong>postos</strong>, ou seja, é sensível a um deslocamento da distribuição como um todo. Quando os dados são simétricos, os dois dão praticamente o mesmo resultado. Quando são assimétricos, podem divergir — e foi o que ocorreu.</p>
+<p>Olhe as duas medidas de centro lado a lado:</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="dados-do-datasus.html#cb343-1" tabindex="-1"></a><span class="fu">aggregate</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
+<span id="cb343-2"><a href="dados-do-datasus.html#cb343-2" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">1</span>),</span>
+<span id="cb343-3"><a href="dados-do-datasus.html#cb343-3" tabindex="-1"></a>                              <span class="at">mediana =</span> <span class="fu">median</span>(x)))</span></code></pre></div>
+<pre><code>##             grupo peso_g.media peso_g.mediana
+## 1 20 anos ou mais       3098.2         3165.0
+## 2     Adolescente       3074.5         3080.0</code></pre>
+<p>A diferença entre as <strong>médias</strong> é de 24 gramas. A diferença entre as <strong>medianas</strong> é de 85 gramas, quase quatro vezes maior. Como isso é possível?</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="dados-do-datasus.html#cb345-1" tabindex="-1"></a><span class="co"># proporção de bebês com mais de 4 kg em cada grupo</span></span>
+<span id="cb345-2"><a href="dados-do-datasus.html#cb345-2" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(nascimentos<span class="sc">$</span>grupo, nascimentos<span class="sc">$</span>peso_g <span class="sc">&gt;</span> <span class="dv">4000</span>), <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##                  
+##                        FALSE       TRUE
+##   20 anos ou mais 0.97407407 0.02592593
+##   Adolescente     0.95856354 0.04143646</code></pre>
+<p>Está aí a explicação: as mães adolescentes têm <strong>proporcionalmente mais bebês acima de 4 quilos</strong> (4,1% contra 2,6%). Esses poucos bebês muito pesados puxam a <strong>média</strong> do grupo para cima e escondem o fato de que o miolo da distribuição está deslocado para baixo. A mediana não se deixa levar por eles, e por isso enxerga a diferença.</p>
 <blockquote>
-<p>Não houve diferença estatisticamente significativa no peso ao nascer entre filhos de mães adolescentes (n = 362; média 3.074 g; DP 531) e de mães com 20 anos ou mais (n = 3.240; média 3.098 g; DP 578); t = 0,80; p = 0,43; IC95% da diferença: −35 a 82 g. O estudo teria poder de 80% para detectar diferença de 89 g, superior à observada (24 g; d de Cohen = 0,04), o que sugere ausência de efeito clinicamente relevante.</p>
+<p><strong>A lição:</strong> quando a variável é assimétrica, média e mediana contam histórias diferentes, e escolher só uma delas pode mudar a sua conclusão. Rodar os dois testes leva dez segundos e evita esse tipo de armadilha. Se eles concordarem, ótimo. Se discordarem, você acabou de descobrir algo sobre a forma dos seus dados.</p>
 </blockquote>
 </div>
-<div id="passo-7-a-pergunta-que-os-dados-realmente-respondem" class="section level3 hasAnchor" number="30.5.7">
-<h3><span class="header-section-number">30.5.7</span> Passo 7: a pergunta que os dados realmente respondem<a href="dados-do-datasus.html#passo-7-a-pergunta-que-os-dados-realmente-respondem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>O resultado acima é honesto, mas parece decepcionante. Ele não encerra o assunto: ele muda a pergunta.</p>
-<p>Se o peso ao nascer não difere, será que a <strong>assistência recebida durante a gravidez</strong> difere? O banco traz o número de consultas de pré-natal, então dá para verificar.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="dados-do-datasus.html#cb339-1" tabindex="-1"></a><span class="fu">aggregate</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
-<span id="cb339-2"><a href="dados-do-datasus.html#cb339-2" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x),</span>
-<span id="cb339-3"><a href="dados-do-datasus.html#cb339-3" tabindex="-1"></a>                              <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">1</span>),</span>
-<span id="cb339-4"><a href="dados-do-datasus.html#cb339-4" tabindex="-1"></a>                              <span class="at">mediana =</span> <span class="fu">median</span>(x)))</span></code></pre></div>
+<div id="passo-7-então-qual-é-a-conclusão" class="section level3 hasAnchor" number="30.5.7">
+<h3><span class="header-section-number">30.5.7</span> Passo 7: então, qual é a conclusão?<a href="dados-do-datasus.html#passo-7-ent%C3%A3o-qual-%C3%A9-a-conclus%C3%A3o" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nenhuma das duas, sozinha. É preciso olhar o <strong>tamanho</strong> da diferença, e não só o valor de p.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="dados-do-datasus.html#cb347-1" tabindex="-1"></a><span class="co"># o Wilcoxon também estima a diferença, não só o valor de p</span></span>
+<span id="cb347-2"><a href="dados-do-datasus.html#cb347-2" tabindex="-1"></a><span class="fu">wilcox.test</span>(peso_g <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  peso_g by grupo
+## W = 624130, p-value = 0.0446
+## alternative hypothesis: true location shift is not equal to 0
+## 95 percent confidence interval:
+##  7.264444e-05 1.050001e+02
+## sample estimates:
+## difference in location 
+##               54.99998</code></pre>
+<p>O deslocamento estimado é de <strong>55 gramas</strong>, com intervalo de confiança que vai de <strong>0 a 105 gramas</strong>. Repare que o limite inferior encosta no zero: é por isso que o valor de p ficou em 0,045, logo abaixo do corte, e não muito abaixo dele.</p>
+<p>Junte as peças. Há um sinal de que bebês de mães adolescentes são um pouco mais leves, mas ele é <strong>fraco</strong> (p no limite, intervalo encostando no zero) e <strong>pequeno</strong> (55 gramas, quando um recém-nascido pesa em média mais de três quilos). Cinquenta e cinco gramas não mudam a conduta clínica de ninguém.</p>
+<p><strong>Como reportar:</strong></p>
+<blockquote>
+<p>O peso ao nascer de filhos de mães adolescentes (n = 362; mediana 3.080 g) foi comparado ao de filhos de mães com 20 anos ou mais (n = 3.240; mediana 3.165 g). O teste t não indicou diferença entre as médias (3.074 g contra 3.098 g; p = 0,43), enquanto o teste de Wilcoxon indicou diferença limítrofe (p = 0,045), com deslocamento estimado de 55 g (IC95%: 0 a 105 g). A divergência decorre da assimetria da distribuição: o grupo de adolescentes apresentou maior proporção de recém-nascidos acima de 4.000 g (4,1% contra 2,6%), o que eleva sua média. A magnitude estimada não sugere relevância clínica.</p>
+</blockquote>
+<p>Repare no que essa redação faz: ela relata os <strong>dois</strong> testes, explica a divergência em vez de escondê-la e conclui pelo tamanho do efeito. Escolher só o teste que deu significativo e omitir o outro tem nome — é uma forma de <em>p-hacking</em>, e é exatamente o que o registro prévio de estudos, visto no capítulo de ciência aberta, existe para impedir.</p>
+</div>
+<div id="passo-8-a-pergunta-que-os-dados-respondem-com-clareza" class="section level3 hasAnchor" number="30.5.8">
+<h3><span class="header-section-number">30.5.8</span> Passo 8: a pergunta que os dados respondem com clareza<a href="dados-do-datasus.html#passo-8-a-pergunta-que-os-dados-respondem-com-clareza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O resultado acima é honesto, mas é fraco e ambíguo. Ele não encerra o assunto: ele muda a pergunta.</p>
+<p>Se a diferença no peso ao nascer é, na melhor das hipóteses, pequena, será que a <strong>assistência recebida durante a gravidez</strong> difere? O banco traz o número de consultas de pré-natal, então dá para verificar.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="dados-do-datasus.html#cb349-1" tabindex="-1"></a><span class="fu">aggregate</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos,</span>
+<span id="cb349-2"><a href="dados-do-datasus.html#cb349-2" tabindex="-1"></a>          <span class="at">FUN =</span> <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">n =</span> <span class="fu">length</span>(x),</span>
+<span id="cb349-3"><a href="dados-do-datasus.html#cb349-3" tabindex="-1"></a>                              <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(x), <span class="dv">1</span>),</span>
+<span id="cb349-4"><a href="dados-do-datasus.html#cb349-4" tabindex="-1"></a>                              <span class="at">mediana =</span> <span class="fu">median</span>(x)))</span></code></pre></div>
 <pre><code>##             grupo consultas_pn.n consultas_pn.media consultas_pn.mediana
 ## 1 20 anos ou mais         3124.0                8.1                  8.0
 ## 2     Adolescente          343.0                7.3                  7.0</code></pre>
 <p>Aqui a variável é uma <strong>contagem</strong>, e fortemente assimétrica, então o teste adequado é o de Wilcoxon:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="dados-do-datasus.html#cb341-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="dados-do-datasus.html#cb351-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(consultas_pn <span class="sc">~</span> grupo, <span class="at">data =</span> nascimentos)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -904,10 +959,17 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <p>Mães adolescentes realizaram menor número de consultas de pré-natal (mediana 7) do que mães com 20 anos ou mais (mediana 8); teste de Wilcoxon, p &lt; 0,001.</p>
 </blockquote>
 </div>
-<div id="o-que-este-exemplo-ensina" class="section level3 hasAnchor" number="30.5.8">
-<h3><span class="header-section-number">30.5.8</span> O que este exemplo ensina<a href="dados-do-datasus.html#o-que-este-exemplo-ensina" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Repare no percurso. Partimos de uma hipótese que parecia evidente e os dados disseram <strong>não</strong>. Em vez de forçar o resultado ou de desistir, usamos o poder do teste para mostrar que aquele “não” era confiável. Aí perguntamos outra coisa, e encontramos uma diferença real, em um desfecho que talvez importe mais: o acesso ao cuidado.</p>
-<p>Essa é a diferença entre usar a estatística para confirmar o que já se acreditava e usá-la para descobrir alguma coisa. E foi tudo feito com um banco público e gratuito, baixado em minutos, usando os testes que você aprendeu ao longo do livro.</p>
+<div id="o-que-este-exemplo-ensina" class="section level3 hasAnchor" number="30.5.9">
+<h3><span class="header-section-number">30.5.9</span> O que este exemplo ensina<a href="dados-do-datasus.html#o-que-este-exemplo-ensina" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Repare no percurso. Partimos de uma hipótese que parecia evidente e os dados não deram uma resposta limpa: um teste disse que não havia diferença, o outro disse que havia, e no limite. Em vez de escolher o resultado mais conveniente, fomos entender <strong>por que</strong> discordavam — e a explicação (a assimetria da distribuição, com mais bebês acima de 4 kg entre as adolescentes) ensinou mais sobre os dados do que qualquer um dos dois valores de p sozinho.</p>
+<p>Aí olhamos o tamanho da diferença, concluímos que 55 gramas não têm relevância clínica, e mudamos a pergunta. E na pergunta seguinte, sobre o acesso ao pré-natal, o dado respondeu com clareza.</p>
+<p>São três hábitos que valem para qualquer análise:</p>
+<ul>
+<li><strong>olhe antes de testar</strong>, porque o boxplot já sugeria que as distribuições eram parecidas;</li>
+<li><strong>rode os dois testes quando a variável for assimétrica</strong>, porque média e mediana podem discordar;</li>
+<li><strong>conclua pelo tamanho do efeito</strong>, e não pelo valor de p, porque foi o tamanho que resolveu o impasse.</li>
+</ul>
+<p>E tudo isso foi feito com um banco público e gratuito, baixado em minutos, usando só os testes que você aprendeu ao longo do livro.</p>
 </div>
 </div>
 <div id="cuidados-ao-usar-dados-do-datasus" class="section level2 hasAnchor" number="30.6">

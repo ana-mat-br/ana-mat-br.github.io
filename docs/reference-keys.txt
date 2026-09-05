@@ -334,9 +334,10 @@ passo-1-trazer-os-dados
 passo-2-criar-o-grupo-que-vamos-comparar
 passo-3-olhar-antes-de-testar
 passo-4-escolher-o-teste
-passo-5-fazer-o-teste
-passo-6-o-passo-que-quase-todo-mundo-pula
-passo-7-a-pergunta-que-os-dados-realmente-respondem
+passo-5-fazer-os-dois-testes
+passo-6-por-que-eles-discordam
+passo-7-então-qual-é-a-conclusão
+passo-8-a-pergunta-que-os-dados-respondem-com-clareza
 o-que-este-exemplo-ensina
 cuidados-ao-usar-dados-do-datasus
 ideias-para-começar
