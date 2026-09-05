@@ -911,7 +911,50 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <pre><code>## 
 ## 20 anos ou mais     Adolescente 
 ##            3240             362</code></pre>
-<p>São 362 mães adolescentes e 3.240 com 20 anos ou mais. Repare que os grupos têm tamanhos bem diferentes: isso é comum com dados reais e não impede a comparação.</p>
+<p>São 362 mães adolescentes e 3.240 com 20 anos ou mais. Os grupos ficaram bem desiguais, e vale entender o que isso significa antes de seguir.</p>
+<p><strong>O grupo pequeno é quem manda.</strong> Quando os grupos têm tamanhos diferentes, a capacidade de detectar diferenças fica limitada pelo menor deles. Não adianta ter 3.240 pessoas de um lado se do outro há 362: a comparação só enxerga o que 362 permitem enxergar.</p>
+<p>Dá para medir isso. Comparando o menor efeito que cada arranjo detectaria, com 80% de poder:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Arranjo dos grupos</th>
+<th align="right">Total</th>
+<th align="right">Menor diferença detectável</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>362 e 3.240 (o nosso)</td>
+<td align="right">3.602</td>
+<td align="right">89 g</td>
+</tr>
+<tr class="even">
+<td>1.801 e 1.801 (balanceado, mesmo total)</td>
+<td align="right">3.602</td>
+<td align="right"><strong>54 g</strong></td>
+</tr>
+<tr class="odd">
+<td>362 e 362 (balanceado pelo menor)</td>
+<td align="right">724</td>
+<td align="right">120 g</td>
+</tr>
+<tr class="even">
+<td>362 e 1.000.000</td>
+<td align="right">1.000.362</td>
+<td align="right">87 g</td>
+</tr>
+</tbody>
+</table>
+<p>Três leituras saem daí.</p>
+<p>A primeira: <strong>um estudo balanceado seria melhor</strong>. Com as mesmas 3.602 pessoas, mas divididas ao meio, detectaríamos 54 gramas em vez de 89. É por isso que, quando você <em>planeja</em> uma coleta e pode escolher quantas pessoas põe em cada grupo, grupos iguais rendem mais.</p>
+<p>A segunda: <strong>mesmo assim, não jogue dados fora para equilibrar</strong>. Sortear 362 mães do grupo grande, só para ficar simétrico, pioraria tudo — passaríamos a detectar apenas 120 gramas. As 3.240 ajudam, só não ajudam tanto quanto ajudariam se estivessem distribuídas de outro jeito.</p>
+<p>A terceira: <strong>crescer só o grupo grande resolve pouco</strong>. Repare na última linha: mesmo com um milhão de mães no segundo grupo, a diferença detectável cai de 89 para 87 gramas. Com o grupo pequeno preso em 362, não há tamanho do outro lado que salve.</p>
+<blockquote>
+<p><strong>E podíamos ter equilibrado?</strong> Não. Este é um estudo <strong>observacional</strong>: nós não decidimos quantas mães adolescentes tiveram filhos em Uberaba em 2022, apenas registramos o que aconteceu. O desbalanceamento aqui é uma característica da população, não um defeito do estudo. Equilibrar grupos é uma decisão de <strong>planejamento</strong>, e só existe quando você monta os grupos, como em um experimento.</p>
+</blockquote>
+<blockquote>
+<p><strong>Um detalhe técnico útil:</strong> grupos desiguais combinados com variâncias diferentes são a situação em que o teste t mais precisa da correção de Welch, aquela do argumento <code>var.equal</code> que vimos no capítulo de comparação entre dois grupos. Aqui as variâncias de fato diferem um pouco (teste F, p = 0,04), e por sorte o R já faz a coisa certa: o <code>t.test()</code> usa Welch por padrão. É por isso que a saída dirá <strong>Welch Two Sample t-test</strong>.</p>
+</blockquote>
 </div>
 <div id="passo-3-olhar-antes-de-testar" class="section level3 hasAnchor" number="30.6.3">
 <h3><span class="header-section-number">30.6.3</span> Passo 3: olhar antes de testar<a href="dados-do-datasus.html#passo-3-olhar-antes-de-testar" class="anchor-section" aria-label="Anchor link to header"></a></h3>
